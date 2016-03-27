@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {StatusTracker} from 'e2e4';
 @Component({
     template: `
     <div class="sample-header">
@@ -8,4 +9,7 @@ import {Component} from 'angular2/core';
 })
 export class BaseListSample {
     message: string = 'Hello';
+    constructor() {
+        StatusTracker.trackStatus('abcde');
+    }
 }

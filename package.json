@@ -25,19 +25,31 @@
   "homepage": "https://github.com/fshchudlo/e2e4-ng2-demo#readme",
   "dependencies": {
     "angular2": "2.0.0-beta.12",
-    "systemjs": "0.19.24",
+    "bootstrap": "3.3.5",
+    "e2e4": "0.0.8",
     "es6-shim": "^0.35.0",
+    "express": "^4.13.4",
+    "lodash": "^4.6.1",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
-    "zone.js": "0.6.6",
-    "bootstrap": "3.3.5",
-	"express": "^4.13.4",
-    "lodash": "^4.6.1"
+    "systemjs": "0.19.24",
+    "zone.js": "0.6.6"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
     "tslint": "^3.6.0",
     "typescript": "^1.8.9",
     "typings": "^0.7.9"
+  },
+  "jspm": {
+    "dependencies": {
+      "angular2": "npm:angular2@^2.0.0-beta.12",
+      "e2e4": "npm:e2e4@^0.0.8"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
   }
 }
