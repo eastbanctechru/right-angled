@@ -4,7 +4,10 @@
   "description": "Sample of e2e4 libraries usage",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "start": "concurrent \"npm run tsc:w\" \"http-server -o -p 3333\" "
   },
   "repository": {
     "type": "git",
