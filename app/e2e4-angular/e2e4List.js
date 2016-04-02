@@ -25,9 +25,14 @@ System.register(['angular2/core', './ngListService'], function(exports_1, contex
                 function E2E4List(ngListService) {
                     this.injectedListService = ngListService;
                 }
-                E2E4List.prototype.ngOnInit = function () {
-                    this.injectedListService.normalizedService = this.inputListService || this.injectedListService;
-                    this.injectedListService.normalizedService.dataReadDelegate = this.dataReadDelegate;
+                E2E4List.prototype.ngOnChanges = function (changes) {
+                    this.injectedListService.normalizedService = changes.inputListService ? changes.inputListService.currentValue : this.injectedListService;
+                    if (changes.dataReadDelegate) {
+                        this.injectedListService.normalizedService.dataReadDelegate = changes.dataReadDelegate.currentValue;
+                    }
+                    if (changes.items) {
+                        this.injectedListService.normalizedService.items = changes.items.currentValue;
+                    }
                 };
                 __decorate([
                     core_1.Input(), 
@@ -39,7 +44,7 @@ System.register(['angular2/core', './ngListService'], function(exports_1, contex
                 ], E2E4List.prototype, "inputListService", void 0);
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', Function)
+                    __metadata('design:type', Array)
                 ], E2E4List.prototype, "items", void 0);
                 E2E4List = __decorate([
                     core_1.Component({

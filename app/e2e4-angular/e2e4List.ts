@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from 'angular2/core';
+import {Component, Input, OnChanges} from 'angular2/core';
 import {NgListService} from './ngListService';
 
 @Component({
@@ -6,16 +6,21 @@ import {NgListService} from './ngListService';
     selector: 'e2e4-list',
     template: `<ng-content></ng-content>`
 })
-export class E2E4List implements OnInit {
+export class E2E4List implements OnChanges {
     @Input() dataReadDelegate: () => Promise<any>;
     @Input('listService') inputListService: NgListService;
-    @Input() items: () => Array<any>;
+    @Input() items: Array<any>;
     injectedListService: NgListService;
     constructor(ngListService: NgListService) {
         this.injectedListService = ngListService;
     }
-    ngOnInit(): void {
-        this.injectedListService.normalizedService = this.inputListService || this.injectedListService;
-        this.injectedListService.normalizedService.dataReadDelegate = this.dataReadDelegate;
+    ngOnChanges(changes: any): void {
+        this.injectedListService.normalizedService = changes.inputListService ? changes.inputListService.currentValue : this.injectedListService;
+        if (changes.dataReadDelegate) {
+            this.injectedListService.normalizedService.dataReadDelegate = changes.dataReadDelegate.currentValue;
+        }
+        if (changes.items) {
+            this.injectedListService.normalizedService.items = changes.items.currentValue;
+        }
     }
 }
