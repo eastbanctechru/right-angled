@@ -8,14 +8,14 @@ import {NgListService} from './ngListService';
 })
 export class E2E4List implements OnInit {
     @Input() dataReadDelegate: () => Promise<any>;
+    @Input('listService') inputListService: NgListService;
     @Input() items: () => Array<any>;
-    ngListService: NgListService;
+    injectedListService: NgListService;
     constructor(ngListService: NgListService) {
-        debugger;
-        this.ngListService = ngListService;
+        this.injectedListService = ngListService;
     }
     ngOnInit(): void {
-        debugger;
-        this.ngListService.dataReadDelegate = this.dataReadDelegate;
+        this.injectedListService.normalizedService = this.inputListService || this.injectedListService;
+        this.injectedListService.normalizedService.dataReadDelegate = this.dataReadDelegate;
     }
 }

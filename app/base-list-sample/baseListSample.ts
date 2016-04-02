@@ -18,5 +18,9 @@ export class BaseListSample implements OnInit {
     ngOnInit(): void {
         this.listComponentService.getData({ sort: [] }).then(result => { this.items = result.items; });
     }
-    loadData = (): Promise<any> => { return this.listComponentService.getData({ sort: [] }).then(result => { this.items = result.items; return result; }); };
+    loadData = (): Promise<any> => {
+        return this.listComponentService.getData({ sort: [] }).then(result => {
+            this.items = result.items;
+            return result;
+        }); };
 }

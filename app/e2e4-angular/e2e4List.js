@@ -23,17 +23,20 @@ System.register(['angular2/core', './ngListService'], function(exports_1, contex
         execute: function() {
             E2E4List = (function () {
                 function E2E4List(ngListService) {
-                    debugger;
-                    this.ngListService = ngListService;
+                    this.injectedListService = ngListService;
                 }
                 E2E4List.prototype.ngOnInit = function () {
-                    debugger;
-                    this.ngListService.dataReadDelegate = this.dataReadDelegate;
+                    this.injectedListService.normalizedService = this.inputListService || this.injectedListService;
+                    this.injectedListService.normalizedService.dataReadDelegate = this.dataReadDelegate;
                 };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Function)
                 ], E2E4List.prototype, "dataReadDelegate", void 0);
+                __decorate([
+                    core_1.Input('listService'), 
+                    __metadata('design:type', ngListService_1.NgListService)
+                ], E2E4List.prototype, "inputListService", void 0);
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Function)

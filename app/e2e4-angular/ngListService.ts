@@ -3,6 +3,7 @@ import {ListComponent} from 'e2e4/src/listComponent';
 import {NullObjectStateManager} from '../e2e4-angular/NullObjectStateManager';
 
 export class NgListService extends ListComponent {
+    normalizedService: NgListService;
     dataReadDelegate: () => Promise<any>;
     constructor() {
         super(new NullObjectStateManager());

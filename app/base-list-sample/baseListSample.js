@@ -32,7 +32,12 @@ System.register(['angular2/core', './baseListService', '../e2e4-angular/e2e4List
                     var _this = this;
                     this.message = 'Hello';
                     this.items = new Array();
-                    this.loadData = function () { return _this.listComponentService.getData({ sort: [] }).then(function (result) { _this.items = result.items; return result; }); };
+                    this.loadData = function () {
+                        return _this.listComponentService.getData({ sort: [] }).then(function (result) {
+                            _this.items = result.items;
+                            return result;
+                        });
+                    };
                     this.listComponentService = listComponentService;
                 }
                 BaseListSample.prototype.ngOnInit = function () {
