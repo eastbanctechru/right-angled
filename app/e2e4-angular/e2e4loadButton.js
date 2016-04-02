@@ -26,7 +26,6 @@ System.register(['angular2/core', './ngListService'], function(exports_1, contex
                     this.ngListService = ngListService;
                 }
                 E2E4LoadButton.prototype.loadData = function () {
-                    debugger;
                     this.ngListService.normalizedService.reloadData();
                 };
                 E2E4LoadButton = __decorate([

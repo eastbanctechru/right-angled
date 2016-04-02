@@ -9,9 +9,6 @@ export class NgBufferedListService extends BufferedListComponent {
         (<NullObjectStateManager>this.stateManager).target = this;
         super.init({});
     }
-    deactivate(): void {
-        super.dispose();
-    }
     getDataReadPromise(): Promise<Object> {
         if (!this.inited) {
             throw new Error(`Activation lifecycle hook must be called for listComponent before usage of AureliaListComponent. 

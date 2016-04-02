@@ -24,9 +24,6 @@ System.register(['e2e4/src/listComponent', '../e2e4-angular/NullObjectStateManag
                     this.stateManager.target = this;
                     _super.prototype.init.call(this, {});
                 }
-                NgListService.prototype.deactivate = function () {
-                    _super.prototype.dispose.call(this);
-                };
                 NgListService.prototype.getDataReadPromise = function () {
                     if (!this.inited) {
                         throw new Error("Activation lifecycle hook must be called for listComponent before usage of AureliaListComponent. \n            And don't forget to call dispose method on deactivation lifecycle!");

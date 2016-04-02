@@ -11,7 +11,6 @@ export class E2E4LoadButton {
         this.ngListService = ngListService;
     }
     loadData(): void {
-        debugger;
         this.ngListService.normalizedService.reloadData();
     }
 }

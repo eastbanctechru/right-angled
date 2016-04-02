@@ -24,9 +24,6 @@ System.register(['e2e4/src/pagedListComponent', '../e2e4-angular/NullObjectState
                     this.stateManager.target = this;
                     _super.prototype.init.call(this, {});
                 }
-                NgPagedListService.prototype.deactivate = function () {
-                    _super.prototype.dispose.call(this);
-                };
                 NgPagedListService.prototype.getDataReadPromise = function () {
                     if (!this.inited) {
                         throw new Error("Activation lifecycle hook must be called for listComponent before usage of AureliaListComponent. \n            And don't forget to call dispose method on deactivation lifecycle!");
