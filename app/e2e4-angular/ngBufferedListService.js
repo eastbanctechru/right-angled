@@ -1,4 +1,4 @@
-System.register(['e2e4/src/bufferedListComponent', '../e2e4-angular/NullObjectStateManager'], function(exports_1, context_1) {
+System.register(['e2e4/src/bufferedList', '../e2e4-angular/NullObjectStateManager'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -6,12 +6,12 @@ System.register(['e2e4/src/bufferedListComponent', '../e2e4-angular/NullObjectSt
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var bufferedListComponent_1, NullObjectStateManager_1;
+    var bufferedList_1, NullObjectStateManager_1;
     var NgBufferedListService;
     return {
         setters:[
-            function (bufferedListComponent_1_1) {
-                bufferedListComponent_1 = bufferedListComponent_1_1;
+            function (bufferedList_1_1) {
+                bufferedList_1 = bufferedList_1_1;
             },
             function (NullObjectStateManager_1_1) {
                 NullObjectStateManager_1 = NullObjectStateManager_1_1;
@@ -25,13 +25,10 @@ System.register(['e2e4/src/bufferedListComponent', '../e2e4-angular/NullObjectSt
                     _super.prototype.init.call(this, {});
                 }
                 NgBufferedListService.prototype.getDataReadPromise = function () {
-                    if (!this.inited) {
-                        throw new Error("Activation lifecycle hook must be called for listComponent before usage of AureliaListComponent. \n            And don't forget to call dispose method on deactivation lifecycle!");
-                    }
                     return this.dataReadDelegate();
                 };
                 return NgBufferedListService;
-            }(bufferedListComponent_1.BufferedListComponent));
+            }(bufferedList_1.BufferedList));
             exports_1("NgBufferedListService", NgBufferedListService);
         }
     }

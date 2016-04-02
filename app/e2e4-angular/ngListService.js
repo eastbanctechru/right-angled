@@ -1,4 +1,4 @@
-System.register(['e2e4/src/listComponent', '../e2e4-angular/NullObjectStateManager'], function(exports_1, context_1) {
+System.register(['e2e4/src/list', '../e2e4-angular/NullObjectStateManager'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -6,12 +6,12 @@ System.register(['e2e4/src/listComponent', '../e2e4-angular/NullObjectStateManag
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var listComponent_1, NullObjectStateManager_1;
+    var list_1, NullObjectStateManager_1;
     var NgListService;
     return {
         setters:[
-            function (listComponent_1_1) {
-                listComponent_1 = listComponent_1_1;
+            function (list_1_1) {
+                list_1 = list_1_1;
             },
             function (NullObjectStateManager_1_1) {
                 NullObjectStateManager_1 = NullObjectStateManager_1_1;
@@ -25,13 +25,10 @@ System.register(['e2e4/src/listComponent', '../e2e4-angular/NullObjectStateManag
                     _super.prototype.init.call(this, {});
                 }
                 NgListService.prototype.getDataReadPromise = function () {
-                    if (!this.inited) {
-                        throw new Error("Activation lifecycle hook must be called for listComponent before usage of AureliaListComponent. \n            And don't forget to call dispose method on deactivation lifecycle!");
-                    }
                     return this.dataReadDelegate();
                 };
                 return NgListService;
-            }(listComponent_1.ListComponent));
+            }(list_1.List));
             exports_1("NgListService", NgListService);
         }
     }
