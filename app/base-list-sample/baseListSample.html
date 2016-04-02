@@ -1,0 +1,9 @@
+<div class="sample-header">
+    <h1>{{message}}</h1>
+    <e2e4-list [dataReadDelegate]="loadData" [items]="items">
+        <e2e4-load-button></e2e4-load-button>
+        <div *ngFor="#item of items, #index=index">
+            <span>{{item.title}}</span>
+        </div>
+    </e2e4-list>
+</div>

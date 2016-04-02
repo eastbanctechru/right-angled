@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {BaseListSample} from './base-list-sample/base-list-sample';
+import {BaseListSample} from './base-list-sample/baseListSample';
 
 @Component({
     directives: [ROUTER_DIRECTIVES], selector: 'angular-app', templateUrl: 'app/app.html'

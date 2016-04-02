@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'e2e4/src/statusTracker'], function(exports_1, context_1) {
+System.register(['angular2/core', './ngListService'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,33 +10,36 @@ System.register(['angular2/core', 'e2e4/src/statusTracker'], function(exports_1,
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, statusTracker_1;
-    var BaseListSample;
+    var core_1, ngListService_1;
+    var E2E4LoadButton;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (statusTracker_1_1) {
-                statusTracker_1 = statusTracker_1_1;
+            function (ngListService_1_1) {
+                ngListService_1 = ngListService_1_1;
             }],
         execute: function() {
-            BaseListSample = (function () {
-                function BaseListSample() {
-                    this.message = 'Hello';
-                    console.log('Hello');
-                    statusTracker_1.StatusTracker.trackStatus('Hello');
+            E2E4LoadButton = (function () {
+                function E2E4LoadButton(ngListService) {
+                    this.ngListService = ngListService;
                 }
-                BaseListSample = __decorate([
+                E2E4LoadButton.prototype.loadData = function () {
+                    debugger;
+                    this.ngListService.reloadData();
+                };
+                E2E4LoadButton = __decorate([
                     core_1.Component({
-                        template: "\n    <div class=\"sample-header\">\n        <h1>{{message}}</h1>\n    </div>\n    "
+                        selector: 'e2e4-load-button',
+                        template: "<input type=\"button\" class=\"btn btn-success\" value=\"Load data\" (click)=\"loadData()\" />"
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], BaseListSample);
-                return BaseListSample;
+                    __metadata('design:paramtypes', [ngListService_1.NgListService])
+                ], E2E4LoadButton);
+                return E2E4LoadButton;
             }());
-            exports_1("BaseListSample", BaseListSample);
+            exports_1("E2E4LoadButton", E2E4LoadButton);
         }
     }
 });
-//# sourceMappingURL=base-list-sample.js.map
+//# sourceMappingURL=e2e4LoadButton.js.map

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './base-list-sample/base-list-sample'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './base-list-sample/baseListSample'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './base-list-sample/base-li
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, base_list_sample_1;
+    var core_1, router_1, baseListSample_1;
     var App;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['angular2/core', 'angular2/router', './base-list-sample/base-li
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (base_list_sample_1_1) {
-                base_list_sample_1 = base_list_sample_1_1;
+            function (baseListSample_1_1) {
+                baseListSample_1 = baseListSample_1_1;
             }],
         execute: function() {
             App = (function () {
@@ -33,7 +33,7 @@ System.register(['angular2/core', 'angular2/router', './base-list-sample/base-li
                         directives: [router_1.ROUTER_DIRECTIVES], selector: 'angular-app', templateUrl: 'app/app.html'
                     }),
                     router_1.RouteConfig([
-                        { component: base_list_sample_1.BaseListSample, name: 'BaseListSample', path: '/base-list-sample', useAsDefault: true }
+                        { component: baseListSample_1.BaseListSample, name: 'BaseListSample', path: '/base-list-sample', useAsDefault: true }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], App);
