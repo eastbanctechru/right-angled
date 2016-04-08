@@ -1,17 +1,259 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">{{message}}</a>
+<div>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-lg-10 col-lg-offset-1">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a [routerLink]="['BaseListSample']">Base List sample</a>
-                </li>
-            </ul>
+    </nav>
+    <div class="layout">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="navbarMinLeft" class="visible-lg-block">
+                    <span class="roll-up"></span>
+                    <div class="nav-wrapper">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#" class="active"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <span class="roll-down"></span>
+                </div>
+                <div class="col-md-12 col-lg-10 col-lg-offset-1">
+                    <h1 class="page-title">Page title</h1>
+                    <form class="filters">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Label</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Label</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="custom-row">
+                                                <div class="custom-col">
+                                                    <label class="radio-inline control-label">
+                                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked hidden />
+                                                        <span>Label</span>
+                                                    </label>
+                                                </div>
+                                                <div class="custom-col">
+                                                    <label class="radio-inline control-label">
+                                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" hidden />
+                                                        <span>Label</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="has-feedback">
+                                                <input type="text" class="form-control" />
+                                                <span class="icon-date form-control-feedback" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="has-feedback">
+                                                <input type="text" class="form-control" />
+                                                <span class="icon-date form-control-feedback" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Label</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Label</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Label</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Label</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-img btn-refresh"></button>
+                                    <input type="button" class="btn btn-img btn-load" />
+                                    <button type="submit" class="btn btn-img btn-xlsx"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span>&#8470;</span>
+                                </th>
+                                <th>
+                                    <span class="sortable sort-desc">Title</span>
+                                </th>
+                                <th>
+                                    <span>Title</span>
+                                </th>
+                                <th>
+                                    <span>Title</span>
+                                </th>
+                                <th>
+                                    <span>Title</span>
+                                </th>
+                                <th>
+                                    <span>Title</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                                <td>Content</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" class="list-pager text-right">
+                                    <ul class="pagination">
+                                        <li class="disabled">
+                                            <a href="#" aria-label="Previous" class="prev"></a>
+                                        </li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><span>...</span></li>
+                                        <li><a href="#">5</a></li>
+                                        <li>
+                                            <a href="#" aria-label="Next" class="next"></a>
+                                        </li>
+                                    </ul>
+                                    <span class="text">Display records</span>
+                                    <input type="text" class="form-control" maxlength="3" />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
-<div class="container">
-    <router-outlet></router-outlet>
+    <nav class="navbar navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-lg-5 col-lg-offset-1">
+                    &copy; 2016 All right reserved
+                </div>
+                <div class="col-md-6 col-lg-5 text-right">
+                    &copy; Created by <a href="http://eastbanctech.ru/">EastBanc Technologies</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </div>
