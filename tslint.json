@@ -9,7 +9,7 @@
     "interface-name": true,
     "label-position": true,
     "label-undefined": true,
-    "max-line-length": [ true, 160 ],
+    "max-line-length": [ true, 360 ],
     "jsdoc-format": true,
     "member-access": false,
     "member-ordering": [ true, "static-before-instance" ],

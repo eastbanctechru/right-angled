@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'e2e4/src/common/defaults', './ngListService', './ngPagedListService', './ngBufferedListService', 'e2e4/src/common/SortDirection'], function(exports_1, context_1) {
+System.register(['angular2/core', './defaults', './ngListService', './ngPagedListService', './ngBufferedListService', 'e2e4/src/common/SortDirection'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -37,50 +37,53 @@ System.register(['angular2/core', 'e2e4/src/common/defaults', './ngListService',
             }],
         execute: function() {
             E2E4Sort = (function () {
-                function E2E4Sort(el, ngListService, ngPagedListService, ngBufferedListService) {
+                function E2E4Sort(el, differs, ngListService, ngPagedListService, ngBufferedListService) {
+                    this.differ = differs.find([]).create(null);
                     this.listService = ngListService || ngPagedListService || ngBufferedListService;
-                    this.clickHandlerBinded = this.clickHandler.bind(this);
-                    this.checkElementClassesBinded = this.checkElementClasses.bind(this);
                     this.nativeElement = el.nativeElement;
                     this.nativeElement.classList.add(defaults_1.Defaults.sortAttribute.sortableClassName);
                 }
                 E2E4Sort.prototype.clickHandler = function (evt) {
                     if (this.listService.ready) {
-                        this.listService.sortManager.setSort(this.columnName, evt.ctrlKey);
+                        this.listService.sortManager.setSort(this.fieldName, evt.ctrlKey);
                         this.listService.onSortChangesCompleted();
                     }
                 };
-                E2E4Sort.prototype.ngOnChanges = function () {
-                    this.checkElementClassesBinded();
-                };
-                E2E4Sort.prototype.checkElementClasses = function () {
+                E2E4Sort.prototype.ngDoCheck = function () {
                     var _this = this;
-                    var existedSortIndex = this.listService.sortManager.sortings ?
-                        this.listService.sortManager.sortings.findIndex(function (sp) { return sp.fieldName === _this.columnName; }) : -1;
-                    if (existedSortIndex !== -1) {
-                        var direction = this.listService.sortManager.sortings[existedSortIndex].direction;
-                        this.nativeElement.classList.remove(direction === SortDirection_1.SortDirection.Asc ? defaults_1.Defaults.sortAttribute.descClassName : defaults_1.Defaults.sortAttribute.ascClassName);
-                        this.nativeElement.classList.add(direction === SortDirection_1.SortDirection.Asc ? defaults_1.Defaults.sortAttribute.ascClassName : defaults_1.Defaults.sortAttribute.descClassName);
-                    }
-                    else {
-                        this.nativeElement.classList.remove(defaults_1.Defaults.sortAttribute.ascClassName, defaults_1.Defaults.sortAttribute.descClassName);
+                    var changes = this.differ.diff(this.listService.sortManager.sortings);
+                    if (changes) {
+                        changes.forEachRemovedItem((function (removedItem) {
+                            if (removedItem.item && removedItem.item.fieldName === _this.fieldName) {
+                                _this.nativeElement.classList.remove(defaults_1.Defaults.sortAttribute.ascClassName, defaults_1.Defaults.sortAttribute.descClassName);
+                                console.log('removed');
+                            }
+                        }).bind(this));
+                        changes.forEachAddedItem((function (addedItem) {
+                            if (addedItem.item && addedItem.item.fieldName === _this.fieldName) {
+                                var direction = addedItem.item.direction;
+                                _this.nativeElement.classList.remove(direction === SortDirection_1.SortDirection.Asc ? defaults_1.Defaults.sortAttribute.descClassName : defaults_1.Defaults.sortAttribute.ascClassName);
+                                _this.nativeElement.classList.add(direction === SortDirection_1.SortDirection.Asc ? defaults_1.Defaults.sortAttribute.ascClassName : defaults_1.Defaults.sortAttribute.descClassName);
+                                console.log('added');
+                            }
+                        }).bind(this));
                     }
                 };
                 __decorate([
                     core_1.Input('e2e4-sort'), 
                     __metadata('design:type', String)
-                ], E2E4Sort.prototype, "columnName", void 0);
+                ], E2E4Sort.prototype, "fieldName", void 0);
                 E2E4Sort = __decorate([
                     core_1.Directive({
                         host: {
-                            '(click)': 'clickHandlerBinded($event)'
+                            '(click)': 'clickHandler($event)'
                         },
                         selector: '[e2e4-sort]'
                     }),
-                    __param(1, core_1.Optional()),
                     __param(2, core_1.Optional()),
-                    __param(3, core_1.Optional()), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, ngListService_1.NgListService, ngPagedListService_1.NgPagedListService, ngBufferedListService_1.NgBufferedListService])
+                    __param(3, core_1.Optional()),
+                    __param(4, core_1.Optional()), 
+                    __metadata('design:paramtypes', [core_1.ElementRef, core_1.IterableDiffers, ngListService_1.NgListService, ngPagedListService_1.NgPagedListService, ngBufferedListService_1.NgBufferedListService])
                 ], E2E4Sort);
                 return E2E4Sort;
             }());
