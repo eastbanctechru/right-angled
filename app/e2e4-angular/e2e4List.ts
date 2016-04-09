@@ -7,7 +7,7 @@ import {NgListService} from './ngListService';
     template: `<ng-content></ng-content>`
 })
 export class E2E4List implements OnChanges {
-    @Input() dataReadDelegate: () => Promise<any>;
+    @Input() dataReadDelegate: (requestParameters: any) => Promise<any>;
     @Input('listService') inputListService: NgListService;
     @Input() items: Array<any>;
     injectedListService: NgListService;

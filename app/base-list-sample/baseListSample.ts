@@ -19,8 +19,8 @@ export class BaseListSample implements OnInit {
     ngOnInit(): void {
         this.airportsService.getAirports({ sort: [] }).then(result => { this.items = result.items; });
     }
-    loadData = (): Promise<any> => {
-        return this.airportsService.getAirports({ sort: [] }).then(result => {
+    loadData = (requestParams: any): Promise<any> => {
+        return this.airportsService.getAirports(requestParams).then(result => {
             this.items = result.items;
             return result;
         }); };

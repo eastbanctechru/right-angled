@@ -24,14 +24,14 @@
   },
   "homepage": "https://github.com/fshchudlo/e2e4-ng2-demo#readme",
   "dependencies": {
-    "angular2": "^2.0.0-beta.13",
+    "angular2": "2.0.0-beta.14",
     "bootstrap": "^3.3.6",
-    "e2e4": "0.0.15",
+    "e2e4": "0.0.16",
     "es6-shim": "^0.35.0",
     "express": "^4.13.4",
     "lodash": "^4.7.0",
     "reflect-metadata": "0.1.2",
-    "rxjs": "^5.0.0-beta.2",
+    "rxjs": "5.0.0-beta.2",
     "systemjs": "0.19.25",
     "zone.js": "0.6.6"
   },

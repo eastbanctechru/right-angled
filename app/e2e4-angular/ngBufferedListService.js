@@ -24,8 +24,8 @@ System.register(['e2e4/src/bufferedList', '../e2e4-angular/NullObjectStateManage
                     this.stateManager.target = this;
                     _super.prototype.init.call(this, {});
                 }
-                NgBufferedListService.prototype.getDataReadPromise = function () {
-                    return this.dataReadDelegate();
+                NgBufferedListService.prototype.getDataReadPromise = function (requestParams) {
+                    return this.dataReadDelegate(requestParams);
                 };
                 return NgBufferedListService;
             }(bufferedList_1.BufferedList));

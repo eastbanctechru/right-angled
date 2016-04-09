@@ -24,8 +24,8 @@ System.register(['e2e4/src/pagedList', '../e2e4-angular/NullObjectStateManager']
                     this.stateManager.target = this;
                     _super.prototype.init.call(this, {});
                 }
-                NgPagedListService.prototype.getDataReadPromise = function () {
-                    return this.dataReadDelegate();
+                NgPagedListService.prototype.getDataReadPromise = function (requestParams) {
+                    return this.dataReadDelegate(requestParams);
                 };
                 return NgPagedListService;
             }(pagedList_1.PagedList));

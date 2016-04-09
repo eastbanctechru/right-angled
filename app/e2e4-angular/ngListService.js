@@ -24,8 +24,8 @@ System.register(['e2e4/src/list', '../e2e4-angular/NullObjectStateManager'], fun
                     this.stateManager.target = this;
                     _super.prototype.init.call(this, {});
                 }
-                NgListService.prototype.getDataReadPromise = function () {
-                    return this.dataReadDelegate();
+                NgListService.prototype.getDataReadPromise = function (requestParams) {
+                    return this.dataReadDelegate(requestParams);
                 };
                 return NgListService;
             }(list_1.List));

@@ -35,8 +35,8 @@ System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List
                     var _this = this;
                     this.message = 'Hello';
                     this.items = new Array();
-                    this.loadData = function () {
-                        return _this.airportsService.getAirports({ sort: [] }).then(function (result) {
+                    this.loadData = function (requestParams) {
+                        return _this.airportsService.getAirports(requestParams).then(function (result) {
                             _this.items = result.items;
                             return result;
                         });
