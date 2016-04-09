@@ -36,7 +36,6 @@ export class AirportsService {
         return response;
     }
     getAirportsPaged(request: any): Promise<any> {
-        debugger;
         let result = this.applyPagedRequest(request, airports);
         return Promise.resolve(result);
     }

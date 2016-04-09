@@ -60,7 +60,6 @@ System.register(['angular2/core', '../airports', 'lodash', 'e2e4/src/common/sort
                     return response;
                 };
                 AirportsService.prototype.getAirportsPaged = function (request) {
-                    debugger;
                     var result = this.applyPagedRequest(request, airports_1.airports);
                     return Promise.resolve(result);
                 };
