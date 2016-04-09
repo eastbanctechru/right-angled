@@ -1,5 +1,175 @@
-<div class="sample-header">
-    <h1>{{message}}</h1>
+<div>
+    <h1 class="page-title">Page title</h1>
+    <form class="filters">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Label</label>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Label</label>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="custom-row">
+                                <div class="custom-col">
+                                    <label class="radio-inline control-label">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked hidden />
+                                        <span>Label</span>
+                                    </label>
+                                </div>
+                                <div class="custom-col">
+                                    <label class="radio-inline control-label">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" hidden />
+                                        <span>Label</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="has-feedback">
+                                <input type="text" class="form-control" />
+                                <span class="icon-date form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="has-feedback">
+                                <input type="text" class="form-control" />
+                                <span class="icon-date form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Label</label>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Label</label>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Label</label>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Label</label>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-img btn-refresh"></button>
+                    <input type="button" class="btn btn-img btn-load" />
+                    <button type="submit" class="btn btn-img btn-xlsx"></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <span>&#8470;</span>
+                </th>
+                <th>
+                    <span class="sortable sort-desc">Title</span>
+                </th>
+                <th>
+                    <span>Title</span>
+                </th>
+                <th>
+                    <span>Title</span>
+                </th>
+                <th>
+                    <span>Title</span>
+                </th>
+                <th>
+                    <span>Title</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+                <td>Content</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" class="list-pager text-right">
+                    <ul class="pagination">
+                        <li class="disabled">
+                            <a href="#" aria-label="Previous" class="prev"></a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next" class="next"></a>
+                        </li>
+                    </ul>
+                    <span class="text">Display records</span>
+                    <input type="text" class="form-control" maxlength="3" />
+                </td>
+            </tr>
+        </tfoot>
+    </table>
     <e2e4-list [dataReadDelegate]="loadData" [items]="items">
         <e2e4-load-button></e2e4-load-button>
         <div *ngFor="#item of items, #index=index">
