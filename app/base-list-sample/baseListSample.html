@@ -83,101 +83,64 @@
             </div>
         </div>
     </form>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>
-                    <span>&#8470;</span>
-                </th>
-                <th>
-                    <span class="sortable sort-desc">Title</span>
-                </th>
-                <th>
-                    <span>Title</span>
-                </th>
-                <th>
-                    <span>Title</span>
-                </th>
-                <th>
-                    <span>Title</span>
-                </th>
-                <th>
-                    <span>Title</span>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="6" class="list-pager text-right">
-                    <ul class="pagination">
-                        <li class="disabled">
-                            <a href="#" aria-label="Previous" class="prev"></a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><span>...</span></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next" class="next"></a>
-                        </li>
-                    </ul>
-                    <span class="text">Display records</span>
-                    <input type="text" class="form-control" maxlength="3" />
-                </td>
-            </tr>
-        </tfoot>
-    </table>
     <e2e4-paged-list [dataReadDelegate]="loadData" [items]="items">
-        <e2e4-load-button></e2e4-load-button>
-        <div *ngFor="#item of items, #index=index">
-            <span>
-                <row-number [index]="index">
-                </row-number>
-                </span>
-            <span>{{item.name}}</span>
-        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <span>&#8470;</span>
+                    </th>
+                    <th>
+                        <span class="sortable sort-desc">IATA Code</span>
+                    </th>
+                    <th>
+                        <span>Name</span>
+                    </th>
+                    <th>
+                        <span>Continent</span>
+                    </th>
+                    <th>
+                        <span>Type</span>
+                    </th>
+                    <th>
+                        <span>Location</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="#item of items, #index=index">
+                    <td>
+                        <row-number [index]="index">
+                        </row-number>
+                    </td>
+                    <td>{{item.iata}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.continent}}</td>
+                    <td>{{item.type}}</td>
+                    <td>Lat - {{item.lat || 'unknown'}} Lon - {{item.lon || 'unknown'}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="list-pager text-right">
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <a href="#" aria-label="Previous" class="prev"></a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><span>...</span></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next" class="next"></a>
+                            </li>
+                        </ul>
+                        <span class="text">Display records</span>
+                        <input type="text" class="form-control" maxlength="3" />
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
     </e2e4-paged-list>
 </div>
