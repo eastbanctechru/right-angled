@@ -170,14 +170,14 @@
             </tr>
         </tfoot>
     </table>
-    <e2e4-list [dataReadDelegate]="loadData" [items]="items">
+    <e2e4-paged-list [dataReadDelegate]="loadData" [items]="items">
         <e2e4-load-button></e2e4-load-button>
         <div *ngFor="#item of items, #index=index">
             <span>
                 <row-number [index]="index">
                 </row-number>
                 </span>
-            <span>{{item.title}}</span>
+            <span>{{item.name}}</span>
         </div>
-    </e2e4-list>
+    </e2e4-paged-list>
 </div>

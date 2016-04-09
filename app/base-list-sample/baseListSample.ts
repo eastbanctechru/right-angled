@@ -1,11 +1,12 @@
 import {Component, OnInit} from 'angular2/core';
 import {AirportsService} from './airportsService';
 import {E2E4List} from '../e2e4-angular/e2e4List';
+import {E2E4PagedList} from '../e2e4-angular/e2e4PagedList';
 import {E2E4LoadButton} from '../e2e4-angular/e2e4LoadButton';
 import {E2E4RowNumber} from '../e2e4-angular/e2e4RowNumber';
 
 @Component({
-    directives: [E2E4List, E2E4LoadButton, E2E4RowNumber],
+    directives: [E2E4List, E2E4PagedList, E2E4LoadButton, E2E4RowNumber],
     providers: [AirportsService],
     templateUrl: 'app/base-list-sample/baseListSample.html'
 })

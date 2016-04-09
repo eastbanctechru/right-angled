@@ -10,24 +10,23 @@ import {NgPagedListService} from './ngPagedListService';
 export class E2E4RowNumber implements OnChanges {
     @Input() index: number;
     rowNumber: number;
-    ngListService: NgListService;
-    ngBufferedListService: NgBufferedListService;
-    ngPagedListService: NgPagedListService;
-    constructor( @Optional() ngListService: NgListService,
-        @Optional() ngBufferedListService: NgBufferedListService,
-        @Optional() ngPagedListService: NgPagedListService) {
-        this.ngListService = ngListService;
-        this.ngBufferedListService = ngBufferedListService;
-        this.ngPagedListService = ngPagedListService;
+    listService: NgListService | NgPagedListService | NgBufferedListService;
+    constructor(
+        @Optional() ngListService: NgListService,
+        @Optional() ngPagedListService: NgPagedListService,
+        @Optional() ngBufferedListService: NgBufferedListService) {
+        this.listService = ngListService || ngPagedListService || ngBufferedListService;
     }
     ngOnChanges(): void {
-        if (!this.ngListService && !this.ngBufferedListService && !this.ngPagedListService) {
-            throw new Error('Context for row-number element must be instance of ListComponent or inherit from ListComponent.');
+        if (!(this.listService instanceof NgListService
+            || this.listService instanceof NgPagedListService
+            || this.listService instanceof NgBufferedListService)) {
+            throw new Error('Context for row-number element must be instance of NgListService, NgPagedListService or NgBufferedListService.');
         }
-        if (this.ngListService || this.ngBufferedListService) {
+        if (this.listService instanceof NgListService || this.listService instanceof NgBufferedListService) {
             this.rowNumber = this.index + 1;
-        } else if (this.ngPagedListService) {
-            this.rowNumber = this.index + (this.ngPagedListService).displayFrom;
+        } else if (this.listService instanceof NgPagedListService) {
+            this.rowNumber = this.index + (<NgPagedListService>this.listService).displayFrom;
         }
     }
 }

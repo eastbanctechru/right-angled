@@ -31,20 +31,20 @@ System.register(['angular2/core', './ngListService', './ngBufferedListService', 
             }],
         execute: function() {
             E2E4RowNumber = (function () {
-                function E2E4RowNumber(ngListService, ngBufferedListService, ngPagedListService) {
-                    this.ngListService = ngListService;
-                    this.ngBufferedListService = ngBufferedListService;
-                    this.ngPagedListService = ngPagedListService;
+                function E2E4RowNumber(ngListService, ngPagedListService, ngBufferedListService) {
+                    this.listService = ngListService || ngPagedListService || ngBufferedListService;
                 }
                 E2E4RowNumber.prototype.ngOnChanges = function () {
-                    if (!this.ngListService && !this.ngBufferedListService && !this.ngPagedListService) {
-                        throw new Error('Context for row-number element must be instance of ListComponent or inherit from ListComponent.');
+                    if (!(this.listService instanceof ngListService_1.NgListService
+                        || this.listService instanceof ngPagedListService_1.NgPagedListService
+                        || this.listService instanceof ngBufferedListService_1.NgBufferedListService)) {
+                        throw new Error('Context for row-number element must be instance of NgListService, NgPagedListService or NgBufferedListService.');
                     }
-                    if (this.ngListService || this.ngBufferedListService) {
+                    if (this.listService instanceof ngListService_1.NgListService || this.listService instanceof ngBufferedListService_1.NgBufferedListService) {
                         this.rowNumber = this.index + 1;
                     }
-                    else if (this.ngPagedListService) {
-                        this.rowNumber = this.index + (this.ngPagedListService).displayFrom;
+                    else if (this.listService instanceof ngPagedListService_1.NgPagedListService) {
+                        this.rowNumber = this.index + this.listService.displayFrom;
                     }
                 };
                 __decorate([
@@ -59,7 +59,7 @@ System.register(['angular2/core', './ngListService', './ngBufferedListService', 
                     __param(0, core_1.Optional()),
                     __param(1, core_1.Optional()),
                     __param(2, core_1.Optional()), 
-                    __metadata('design:paramtypes', [ngListService_1.NgListService, ngBufferedListService_1.NgBufferedListService, ngPagedListService_1.NgPagedListService])
+                    __metadata('design:paramtypes', [ngListService_1.NgListService, ngPagedListService_1.NgPagedListService, ngBufferedListService_1.NgBufferedListService])
                 ], E2E4RowNumber);
                 return E2E4RowNumber;
             }());
