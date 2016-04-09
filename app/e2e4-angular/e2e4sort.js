@@ -43,31 +43,43 @@ System.register(['angular2/core', './defaults', './ngListService', './ngPagedLis
                     this.nativeElement = el.nativeElement;
                     this.nativeElement.classList.add(defaults_1.Defaults.sortAttribute.sortableClassName);
                 }
+                E2E4Sort.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this.listService.normalizedService.sortManager.sortings.forEach(function (sortParameter) {
+                        if (sortParameter.fieldName === _this.fieldName) {
+                            _this.sortAdded(sortParameter);
+                        }
+                    });
+                };
                 E2E4Sort.prototype.clickHandler = function (evt) {
-                    if (this.listService.ready) {
-                        this.listService.sortManager.setSort(this.fieldName, evt.ctrlKey);
-                        this.listService.onSortChangesCompleted();
+                    if (this.listService.normalizedService.ready) {
+                        this.listService.normalizedService.sortManager.setSort(this.fieldName, evt.ctrlKey);
+                        this.listService.normalizedService.onSortChangesCompleted();
                     }
                 };
                 E2E4Sort.prototype.ngDoCheck = function () {
                     var _this = this;
-                    var changes = this.differ.diff(this.listService.sortManager.sortings);
+                    var changes = this.differ.diff(this.listService.normalizedService.sortManager.sortings);
                     if (changes) {
                         changes.forEachRemovedItem((function (removedItem) {
                             if (removedItem.item && removedItem.item.fieldName === _this.fieldName) {
-                                _this.nativeElement.classList.remove(defaults_1.Defaults.sortAttribute.ascClassName, defaults_1.Defaults.sortAttribute.descClassName);
-                                console.log('removed');
+                                _this.sortRemoved(removedItem.item);
                             }
                         }).bind(this));
                         changes.forEachAddedItem((function (addedItem) {
                             if (addedItem.item && addedItem.item.fieldName === _this.fieldName) {
-                                var direction = addedItem.item.direction;
-                                _this.nativeElement.classList.remove(direction === SortDirection_1.SortDirection.Asc ? defaults_1.Defaults.sortAttribute.descClassName : defaults_1.Defaults.sortAttribute.ascClassName);
-                                _this.nativeElement.classList.add(direction === SortDirection_1.SortDirection.Asc ? defaults_1.Defaults.sortAttribute.ascClassName : defaults_1.Defaults.sortAttribute.descClassName);
-                                console.log('added');
+                                _this.sortAdded(addedItem.item);
                             }
                         }).bind(this));
                     }
+                };
+                E2E4Sort.prototype.sortRemoved = function (sortParameter) {
+                    this.nativeElement.classList.remove(defaults_1.Defaults.sortAttribute.ascClassName, defaults_1.Defaults.sortAttribute.descClassName);
+                };
+                E2E4Sort.prototype.sortAdded = function (sortParameter) {
+                    var direction = sortParameter.direction;
+                    this.nativeElement.classList.remove(direction === SortDirection_1.SortDirection.Asc ? defaults_1.Defaults.sortAttribute.descClassName : defaults_1.Defaults.sortAttribute.ascClassName);
+                    this.nativeElement.classList.add(direction === SortDirection_1.SortDirection.Asc ? defaults_1.Defaults.sortAttribute.ascClassName : defaults_1.Defaults.sortAttribute.descClassName);
                 };
                 __decorate([
                     core_1.Input('e2e4-sort'), 
