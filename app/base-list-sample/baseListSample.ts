@@ -18,10 +18,10 @@ export class BaseListSample implements OnInit {
         this.airportsService = listComponentService;
     }
     ngOnInit(): void {
-        this.airportsService.getAirports({ sort: [] }).then(result => { this.items = result.items; });
+        //this.airportsService.getAirportsPaged({ sort: [] }).then(result => { this.items = result.items; });
     }
     loadData = (requestParams: any): Promise<any> => {
-        return this.airportsService.getAirports(requestParams).then(result => {
+        return this.airportsService.getAirportsPaged(requestParams).then(result => {
             this.items = result.items;
             return result;
         }); };

@@ -40,7 +40,7 @@ System.register(['angular2/core', './ngListService', './ngPagedListService', './
                 E2E4LoadButton = __decorate([
                     core_1.Component({
                         selector: 'e2e4-load-button',
-                        template: "<input type=\"button\" class=\"btn btn-success\" value=\"Load data\" (click)=\"loadData()\" />"
+                        template: "<div class=\"e2e4-button-host\" (click)=\"loadData()\"><ng-content></ng-content></div>"
                     }),
                     __param(0, core_1.Optional()),
                     __param(1, core_1.Optional()),

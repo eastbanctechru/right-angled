@@ -5,7 +5,7 @@ import {NgBufferedListService} from './ngBufferedListService';
 
 @Component({
     selector: 'e2e4-load-button',
-    template: `<input type="button" class="btn btn-success" value="Load data" (click)="loadData()" />`
+    template: `<div class="e2e4-button-host" (click)="loadData()"><ng-content></ng-content></div>`
 })
 export class E2E4LoadButton {
     listService: NgListService | NgPagedListService | NgBufferedListService;

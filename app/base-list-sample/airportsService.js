@@ -30,17 +30,41 @@ System.register(['angular2/core', '../airports', 'lodash', 'e2e4/src/common/sort
             AirportsService = (function () {
                 function AirportsService() {
                 }
-                AirportsService.prototype.getAirports = function (request) {
+                AirportsService.prototype.applyBufferedRequest = function (request, data) {
+                    var response = this.applyRequest(request, data);
+                    var take = request.take > AirportsService.maxPageSize ? AirportsService.maxPageSize : request.take;
+                    response.items = _.slice(response.items, request.skip, request.skip + take);
+                    response.loadedCount = response.items.length;
+                    return response;
+                };
+                AirportsService.prototype.applyPagedRequest = function (request, data) {
+                    var response = this.applyRequest(request, data);
+                    var pageSize = request.pageSize > AirportsService.maxPageSize ? AirportsService.maxPageSize : request.pageSize;
+                    var skip = (request.pageNumber - 1) * pageSize;
+                    response.displayFrom = skip + 1;
+                    response.displayTo = (response.displayFrom + pageSize > response.totalCount) ? response.totalCount : response.displayFrom + pageSize - 1;
+                    response.items = _.slice(response.items, skip, skip + pageSize);
+                    response.loadedCount = response.items.length;
+                    return response;
+                };
+                AirportsService.prototype.applyRequest = function (request, data) {
+                    var response = {
+                        totalCount: data.length
+                    };
+                    return this.applySortings(request, response, data);
+                };
+                AirportsService.prototype.applySortings = function (request, response, data) {
                     var fieldNames = request.sort.map(function (sort) { return sort.fieldName; });
                     var directions = request.sort.map(function (sort) { return sort.direction === sortDirection_1.SortDirection.Asc ? 'asc' : 'desc'; });
-                    var data = _.orderBy(airports_1.airports, fieldNames, directions);
-                    var result = {
-                        items: data,
-                        loadedCount: data.length,
-                        totalCount: airports_1.airports.length
-                    };
+                    response.items = _.orderBy(data, fieldNames, directions);
+                    return response;
+                };
+                AirportsService.prototype.getAirportsPaged = function (request) {
+                    debugger;
+                    var result = this.applyPagedRequest(request, airports_1.airports);
                     return Promise.resolve(result);
                 };
+                AirportsService.maxPageSize = 200;
                 AirportsService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])

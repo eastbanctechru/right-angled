@@ -39,7 +39,7 @@ System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List
                     this.message = 'Hello';
                     this.items = new Array();
                     this.loadData = function (requestParams) {
-                        return _this.airportsService.getAirports(requestParams).then(function (result) {
+                        return _this.airportsService.getAirportsPaged(requestParams).then(function (result) {
                             _this.items = result.items;
                             return result;
                         });
@@ -47,8 +47,7 @@ System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List
                     this.airportsService = listComponentService;
                 }
                 BaseListSample.prototype.ngOnInit = function () {
-                    var _this = this;
-                    this.airportsService.getAirports({ sort: [] }).then(function (result) { _this.items = result.items; });
+                    //this.airportsService.getAirportsPaged({ sort: [] }).then(result => { this.items = result.items; });
                 };
                 BaseListSample = __decorate([
                     core_1.Component({

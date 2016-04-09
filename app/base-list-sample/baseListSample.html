@@ -1,89 +1,92 @@
 <div>
     <h1 class="page-title">Page title</h1>
-    <form class="filters">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label class="control-label">Label</label>
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label class="control-label">Label</label>
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="custom-row">
-                                <div class="custom-col">
-                                    <label class="radio-inline control-label">
-                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked hidden />
-                                        <span>Label</span>
-                                    </label>
-                                </div>
-                                <div class="custom-col">
-                                    <label class="radio-inline control-label">
-                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" hidden />
-                                        <span>Label</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control" />
-                                <span class="icon-date form-control-feedback" aria-hidden="true"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control" />
-                                <span class="icon-date form-control-feedback" aria-hidden="true"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label class="control-label">Label</label>
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label class="control-label">Label</label>
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label class="control-label">Label</label>
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label class="control-label">Label</label>
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <button type="submit" class="btn btn-img btn-refresh"></button>
-                    <input type="button" class="btn btn-img btn-load" />
-                    <button type="submit" class="btn btn-img btn-xlsx"></button>
-                </div>
-            </div>
-        </div>
-    </form>
     <e2e4-paged-list [dataReadDelegate]="loadData" [items]="items">
+        <form class="filters">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="custom-row">
+                                    <div class="custom-col">
+                                        <label class="radio-inline control-label">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked hidden />
+                                            <span>Label</span>
+                                        </label>
+                                    </div>
+                                    <div class="custom-col">
+                                        <label class="radio-inline control-label">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" hidden />
+                                            <span>Label</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="has-feedback">
+                                    <input type="text" class="form-control" />
+                                    <span class="icon-date form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="has-feedback">
+                                    <input type="text" class="form-control" />
+                                    <span class="icon-date form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <e2e4-load-button>
+                            <input type="submit" class="btn btn-img btn-load" />
+                        </e2e4-load-button>
+                        <button type="button" class="btn btn-img btn-refresh"></button>
+                        <button type="button" class="btn btn-img btn-xlsx"></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
         <table class="table table-striped">
             <thead>
                 <tr>
