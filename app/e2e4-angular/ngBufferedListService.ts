@@ -2,7 +2,6 @@ import {BufferedList} from 'e2e4/src/bufferedList';
 import {NullObjectStateManager} from '../e2e4-angular/NullObjectStateManager';
 
 export class NgBufferedListService extends BufferedList {
-    normalizedService: NgBufferedListService;
     dataReadDelegate: (requestParams: any) => Promise<any>;
     constructor() {
         super(new NullObjectStateManager());

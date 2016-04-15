@@ -1,4 +1,4 @@
-System.register(['angular2/core', './ngListService'], function(exports_1, context_1) {
+System.register(['angular2/core', './ngListServiceMediator'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,28 +10,27 @@ System.register(['angular2/core', './ngListService'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, ngListService_1;
+    var core_1, ngListServiceMediator_1;
     var E2E4List;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (ngListService_1_1) {
-                ngListService_1 = ngListService_1_1;
+            function (ngListServiceMediator_1_1) {
+                ngListServiceMediator_1 = ngListServiceMediator_1_1;
             }],
         execute: function() {
             E2E4List = (function () {
-                function E2E4List(ngListService) {
-                    this.injectedListService = ngListService;
+                function E2E4List(ngListServiceMediator) {
+                    this.ngListServiceMediator = ngListServiceMediator;
                 }
                 E2E4List.prototype.ngOnChanges = function (changes) {
-                    this.injectedListService.normalizedService = changes.inputListService ? changes.inputListService.currentValue : this.injectedListService;
                     if (changes.dataReadDelegate) {
-                        this.injectedListService.normalizedService.dataReadDelegate = changes.dataReadDelegate.currentValue;
+                        this.ngListServiceMediator.instance.dataReadDelegate = changes.dataReadDelegate.currentValue;
                     }
                     if (changes.items) {
-                        this.injectedListService.normalizedService.items = changes.items.currentValue;
+                        this.ngListServiceMediator.instance.items = changes.items.currentValue;
                     }
                 };
                 __decorate([
@@ -39,20 +38,16 @@ System.register(['angular2/core', './ngListService'], function(exports_1, contex
                     __metadata('design:type', Function)
                 ], E2E4List.prototype, "dataReadDelegate", void 0);
                 __decorate([
-                    core_1.Input('listService'), 
-                    __metadata('design:type', ngListService_1.NgListService)
-                ], E2E4List.prototype, "inputListService", void 0);
-                __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Array)
                 ], E2E4List.prototype, "items", void 0);
                 E2E4List = __decorate([
                     core_1.Component({
-                        providers: [ngListService_1.NgListService],
+                        providers: [ngListServiceMediator_1.NgListServiceMediator],
                         selector: 'e2e4-list',
                         template: "<ng-content></ng-content>"
                     }), 
-                    __metadata('design:paramtypes', [ngListService_1.NgListService])
+                    __metadata('design:paramtypes', [ngListServiceMediator_1.NgListServiceMediator])
                 ], E2E4List);
                 return E2E4List;
             }());

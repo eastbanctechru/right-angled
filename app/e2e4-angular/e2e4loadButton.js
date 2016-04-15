@@ -1,4 +1,4 @@
-System.register(['angular2/core', './ngListService', './ngPagedListService', './ngBufferedListService'], function(exports_1, context_1) {
+System.register(['angular2/core', './ngListServiceMediator'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,44 +10,32 @@ System.register(['angular2/core', './ngListService', './ngPagedListService', './
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __param = (this && this.__param) || function (paramIndex, decorator) {
-        return function (target, key) { decorator(target, key, paramIndex); }
-    };
-    var core_1, ngListService_1, ngPagedListService_1, ngBufferedListService_1;
+    var core_1, ngListServiceMediator_1;
     var E2E4LoadButton;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (ngListService_1_1) {
-                ngListService_1 = ngListService_1_1;
-            },
-            function (ngPagedListService_1_1) {
-                ngPagedListService_1 = ngPagedListService_1_1;
-            },
-            function (ngBufferedListService_1_1) {
-                ngBufferedListService_1 = ngBufferedListService_1_1;
+            function (ngListServiceMediator_1_1) {
+                ngListServiceMediator_1 = ngListServiceMediator_1_1;
             }],
         execute: function() {
             E2E4LoadButton = (function () {
-                function E2E4LoadButton(ngListService, ngPagedListService, ngBufferedListService) {
-                    this.listService = ngListService || ngPagedListService || ngBufferedListService;
+                function E2E4LoadButton(ngListServiceMediator) {
+                    this.ngListServiceMediator = ngListServiceMediator;
                 }
                 E2E4LoadButton.prototype.loadData = function () {
-                    this.listService.normalizedService.reloadData();
+                    this.ngListServiceMediator.instance.reloadData();
                 };
                 E2E4LoadButton = __decorate([
                     core_1.Directive({
                         host: {
-                            '(click)': 'loadData($event)'
+                            '(click)': 'loadData()'
                         },
                         selector: '[e2e4-load-button]'
-                    }),
-                    __param(0, core_1.Optional()),
-                    __param(1, core_1.Optional()),
-                    __param(2, core_1.Optional()), 
-                    __metadata('design:paramtypes', [ngListService_1.NgListService, ngPagedListService_1.NgPagedListService, ngBufferedListService_1.NgBufferedListService])
+                    }), 
+                    __metadata('design:paramtypes', [ngListServiceMediator_1.NgListServiceMediator])
                 ], E2E4LoadButton);
                 return E2E4LoadButton;
             }());

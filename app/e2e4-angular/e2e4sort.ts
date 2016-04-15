@@ -1,8 +1,6 @@
-import {Directive, ElementRef, Input, Optional, DoCheck, IterableDiffers, OnInit} from 'angular2/core';
+import {Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from 'angular2/core';
 import {Defaults} from './defaults';
-import {NgListService} from './ngListService';
-import {NgPagedListService} from './ngPagedListService';
-import {NgBufferedListService} from './ngBufferedListService';
+import {NgListServiceMediator} from './ngListServiceMediator';
 import {SortDirection} from 'e2e4/src/common/SortDirection';
 
 
@@ -14,34 +12,32 @@ import {SortDirection} from 'e2e4/src/common/SortDirection';
 })
 export class E2E4Sort implements DoCheck, OnInit {
     private nativeElement: HTMLElement;
-    listService: NgListService | NgPagedListService | NgBufferedListService;
+    ngListServiceMediator: NgListServiceMediator;
     private differ: any;
     @Input('e2e4-sort') fieldName: string;
     constructor(el: ElementRef,
         differs: IterableDiffers,
-        @Optional() ngListService: NgListService,
-        @Optional() ngPagedListService: NgPagedListService,
-        @Optional() ngBufferedListService: NgBufferedListService) {
+        ngListServiceMediator: NgListServiceMediator) {
         this.differ = differs.find([]).create(null);
-        this.listService = ngListService || ngPagedListService || ngBufferedListService;
+        this.ngListServiceMediator = ngListServiceMediator;
         this.nativeElement = el.nativeElement;
         this.nativeElement.classList.add(Defaults.sortAttribute.sortableClassName);
     }
     ngOnInit(): void {
-        this.listService.normalizedService.sortManager.sortings.forEach(sortParameter => {
+        this.ngListServiceMediator.instance.sortManager.sortings.forEach(sortParameter => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.sortAdded(sortParameter);
             }
         });
     }
     clickHandler(evt: MouseEvent): void {
-        if (this.listService.normalizedService.ready) {
-            this.listService.normalizedService.sortManager.setSort(this.fieldName, evt.ctrlKey);
-            this.listService.normalizedService.onSortChangesCompleted();
+        if (this.ngListServiceMediator.instance.ready) {
+            this.ngListServiceMediator.instance.sortManager.setSort(this.fieldName, evt.ctrlKey);
+            this.ngListServiceMediator.instance.onSortChangesCompleted();
         }
     }
     ngDoCheck(): void {
-        let changes = this.differ.diff(this.listService.normalizedService.sortManager.sortings);
+        let changes = this.differ.diff(this.ngListServiceMediator.instance.sortManager.sortings);
         if (changes) {
             changes.forEachRemovedItem((removedItem => {
                 if (removedItem.item && removedItem.item.fieldName === this.fieldName) {

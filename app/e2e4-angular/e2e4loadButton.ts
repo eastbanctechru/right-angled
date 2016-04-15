@@ -1,23 +1,19 @@
-import {Directive, Input, Optional} from 'angular2/core';
-import {NgListService} from './ngListService';
-import {NgPagedListService} from './ngPagedListService';
-import {NgBufferedListService} from './ngBufferedListService';
+import {Directive} from 'angular2/core';
+import {NgListServiceMediator} from './ngListServiceMediator';
 
 @Directive({
     host: {
-        '(click)': 'loadData($event)'
+        '(click)': 'loadData()'
     },
     selector: '[e2e4-load-button]'
 })
 export class E2E4LoadButton {
-    listService: NgListService | NgPagedListService | NgBufferedListService;
+    ngListServiceMediator: NgListServiceMediator;
     constructor(
-        @Optional() ngListService: NgListService,
-        @Optional() ngPagedListService: NgPagedListService,
-        @Optional() ngBufferedListService: NgBufferedListService) {
-        this.listService = ngListService || ngPagedListService || ngBufferedListService;
+        ngListServiceMediator: NgListServiceMediator) {
+        this.ngListServiceMediator = ngListServiceMediator;
     }
     loadData(): void {
-        this.listService.normalizedService.reloadData();
+        this.ngListServiceMediator.instance.reloadData();
     }
 }

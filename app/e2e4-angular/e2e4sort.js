@@ -1,4 +1,4 @@
-System.register(['angular2/core', './defaults', './ngListService', './ngPagedListService', './ngBufferedListService', 'e2e4/src/common/SortDirection'], function(exports_1, context_1) {
+System.register(['angular2/core', './defaults', './ngListServiceMediator', 'e2e4/src/common/SortDirection'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,10 +10,7 @@ System.register(['angular2/core', './defaults', './ngListService', './ngPagedLis
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __param = (this && this.__param) || function (paramIndex, decorator) {
-        return function (target, key) { decorator(target, key, paramIndex); }
-    };
-    var core_1, defaults_1, ngListService_1, ngPagedListService_1, ngBufferedListService_1, SortDirection_1;
+    var core_1, defaults_1, ngListServiceMediator_1, SortDirection_1;
     var E2E4Sort;
     return {
         setters:[
@@ -23,43 +20,37 @@ System.register(['angular2/core', './defaults', './ngListService', './ngPagedLis
             function (defaults_1_1) {
                 defaults_1 = defaults_1_1;
             },
-            function (ngListService_1_1) {
-                ngListService_1 = ngListService_1_1;
-            },
-            function (ngPagedListService_1_1) {
-                ngPagedListService_1 = ngPagedListService_1_1;
-            },
-            function (ngBufferedListService_1_1) {
-                ngBufferedListService_1 = ngBufferedListService_1_1;
+            function (ngListServiceMediator_1_1) {
+                ngListServiceMediator_1 = ngListServiceMediator_1_1;
             },
             function (SortDirection_1_1) {
                 SortDirection_1 = SortDirection_1_1;
             }],
         execute: function() {
             E2E4Sort = (function () {
-                function E2E4Sort(el, differs, ngListService, ngPagedListService, ngBufferedListService) {
+                function E2E4Sort(el, differs, ngListServiceMediator) {
                     this.differ = differs.find([]).create(null);
-                    this.listService = ngListService || ngPagedListService || ngBufferedListService;
+                    this.ngListServiceMediator = ngListServiceMediator;
                     this.nativeElement = el.nativeElement;
                     this.nativeElement.classList.add(defaults_1.Defaults.sortAttribute.sortableClassName);
                 }
                 E2E4Sort.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.listService.normalizedService.sortManager.sortings.forEach(function (sortParameter) {
+                    this.ngListServiceMediator.instance.sortManager.sortings.forEach(function (sortParameter) {
                         if (sortParameter.fieldName === _this.fieldName) {
                             _this.sortAdded(sortParameter);
                         }
                     });
                 };
                 E2E4Sort.prototype.clickHandler = function (evt) {
-                    if (this.listService.normalizedService.ready) {
-                        this.listService.normalizedService.sortManager.setSort(this.fieldName, evt.ctrlKey);
-                        this.listService.normalizedService.onSortChangesCompleted();
+                    if (this.ngListServiceMediator.instance.ready) {
+                        this.ngListServiceMediator.instance.sortManager.setSort(this.fieldName, evt.ctrlKey);
+                        this.ngListServiceMediator.instance.onSortChangesCompleted();
                     }
                 };
                 E2E4Sort.prototype.ngDoCheck = function () {
                     var _this = this;
-                    var changes = this.differ.diff(this.listService.normalizedService.sortManager.sortings);
+                    var changes = this.differ.diff(this.ngListServiceMediator.instance.sortManager.sortings);
                     if (changes) {
                         changes.forEachRemovedItem((function (removedItem) {
                             if (removedItem.item && removedItem.item.fieldName === _this.fieldName) {
@@ -91,11 +82,8 @@ System.register(['angular2/core', './defaults', './ngListService', './ngPagedLis
                             '(click)': 'clickHandler($event)'
                         },
                         selector: '[e2e4-sort]'
-                    }),
-                    __param(2, core_1.Optional()),
-                    __param(3, core_1.Optional()),
-                    __param(4, core_1.Optional()), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, core_1.IterableDiffers, ngListService_1.NgListService, ngPagedListService_1.NgPagedListService, ngBufferedListService_1.NgBufferedListService])
+                    }), 
+                    __metadata('design:paramtypes', [core_1.ElementRef, core_1.IterableDiffers, ngListServiceMediator_1.NgListServiceMediator])
                 ], E2E4Sort);
                 return E2E4Sort;
             }());

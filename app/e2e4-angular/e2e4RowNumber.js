@@ -1,4 +1,4 @@
-System.register(['angular2/core', './ngListService', './ngBufferedListService', './ngPagedListService'], function(exports_1, context_1) {
+System.register(['angular2/core', './ngListServiceMediator', './ngListService', './ngBufferedListService', './ngPagedListService'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['angular2/core', './ngListService', './ngBufferedListService', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __param = (this && this.__param) || function (paramIndex, decorator) {
-        return function (target, key) { decorator(target, key, paramIndex); }
-    };
-    var core_1, ngListService_1, ngBufferedListService_1, ngPagedListService_1;
+    var core_1, ngListServiceMediator_1, ngListService_1, ngBufferedListService_1, ngPagedListService_1;
     var E2E4RowNumber;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (ngListServiceMediator_1_1) {
+                ngListServiceMediator_1 = ngListServiceMediator_1_1;
             },
             function (ngListService_1_1) {
                 ngListService_1 = ngListService_1_1;
@@ -31,20 +31,15 @@ System.register(['angular2/core', './ngListService', './ngBufferedListService', 
             }],
         execute: function() {
             E2E4RowNumber = (function () {
-                function E2E4RowNumber(ngListService, ngPagedListService, ngBufferedListService) {
-                    this.listService = ngListService || ngPagedListService || ngBufferedListService;
+                function E2E4RowNumber(ngListServiceMediator) {
+                    this.ngListServiceMediator = ngListServiceMediator;
                 }
                 E2E4RowNumber.prototype.ngOnChanges = function () {
-                    if (!(this.listService instanceof ngListService_1.NgListService
-                        || this.listService instanceof ngPagedListService_1.NgPagedListService
-                        || this.listService instanceof ngBufferedListService_1.NgBufferedListService)) {
-                        throw new Error('Context for row-number element must be instance of NgListService, NgPagedListService or NgBufferedListService.');
-                    }
-                    if (this.listService instanceof ngListService_1.NgListService || this.listService instanceof ngBufferedListService_1.NgBufferedListService) {
+                    if (this.ngListServiceMediator.instance instanceof ngListService_1.NgListService || this.ngListServiceMediator.instance instanceof ngBufferedListService_1.NgBufferedListService) {
                         this.rowNumber = this.index + 1;
                     }
-                    else if (this.listService instanceof ngPagedListService_1.NgPagedListService) {
-                        this.rowNumber = this.index + this.listService.displayFrom;
+                    else if (this.ngListServiceMediator.instance instanceof ngPagedListService_1.NgPagedListService) {
+                        this.rowNumber = this.index + this.ngListServiceMediator.instance.displayFrom;
                     }
                 };
                 __decorate([
@@ -55,11 +50,8 @@ System.register(['angular2/core', './ngListService', './ngBufferedListService', 
                     core_1.Component({
                         selector: 'row-number',
                         template: "{{rowNumber}}<ng-content></ng-content>"
-                    }),
-                    __param(0, core_1.Optional()),
-                    __param(1, core_1.Optional()),
-                    __param(2, core_1.Optional()), 
-                    __metadata('design:paramtypes', [ngListService_1.NgListService, ngPagedListService_1.NgPagedListService, ngBufferedListService_1.NgBufferedListService])
+                    }), 
+                    __metadata('design:paramtypes', [ngListServiceMediator_1.NgListServiceMediator])
                 ], E2E4RowNumber);
                 return E2E4RowNumber;
             }());

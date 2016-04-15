@@ -2,7 +2,6 @@ import {PagedList} from 'e2e4/src/pagedList';
 import {NullObjectStateManager} from '../e2e4-angular/NullObjectStateManager';
 
 export class NgPagedListService extends PagedList {
-    normalizedService: NgPagedListService;
     dataReadDelegate: (requestParams: any) => Promise<any>;
     constructor() {
         super(new NullObjectStateManager());
