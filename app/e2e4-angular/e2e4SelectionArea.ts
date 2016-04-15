@@ -1,7 +1,8 @@
 import {Directive, OnInit, ElementRef, Input, OnChanges} from 'angular2/core';
 import {SelectionManager} from 'e2e4/src/selectionManager';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
-import {KeyboardSelectionEventsHelper} from 'e2e4/src/keyboardSelectionEventsHelper';
+import {ISelectionConfig} from 'e2e4/src/contracts/ISelectionConfig';
+import {SelectionEventsHelper} from 'e2e4/src/selectionEventsHelper';
 @Directive({
     host: {
         '(keydown)': 'keyDownHandler($event)'
@@ -9,11 +10,11 @@ import {KeyboardSelectionEventsHelper} from 'e2e4/src/keyboardSelectionEventsHel
     providers: [SelectionManager],
     selector: '[e2e4-selection-area]'
 })
-export class E2E4SelectionArea implements OnInit, OnChanges {
-    private selectionManager: SelectionManager;
+export class E2E4SelectionArea implements OnInit, OnChanges, ISelectionConfig {
     private nativeElement: HTMLElement;
-    keyboardSelectionEventsHelper: KeyboardSelectionEventsHelper;
-    @Input() multiple: boolean = true;
+    selectionEventsHelper: SelectionEventsHelper;
+    selectionManager: SelectionManager;
+    @Input('multiple') allowMultipleSelection: boolean = true;
     @Input() autoSelectFirst: boolean = false;
     @Input() toggleOnly: boolean = false;
     @Input() items: Array<ISelectable>;
@@ -22,7 +23,7 @@ export class E2E4SelectionArea implements OnInit, OnChanges {
         this.selectionManager = selectionManager;
 
         this.nativeElement = el.nativeElement;
-        this.keyboardSelectionEventsHelper = new KeyboardSelectionEventsHelper(this.selectionManager);
+        this.selectionEventsHelper = new SelectionEventsHelper(this);
     }
     ngOnChanges(changes: any): void {
         if (changes.items) {
@@ -41,6 +42,6 @@ export class E2E4SelectionArea implements OnInit, OnChanges {
         }
     }
     keyDownHandler(event: KeyboardEvent): void {
-        this.keyboardSelectionEventsHelper.keyDownHandler(event, this.multiple);
+        this.selectionEventsHelper.keyboardHandler(event, this.allowMultipleSelection);
     }
 }
