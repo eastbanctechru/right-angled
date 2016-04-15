@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'e2e4/src/selectionManager'], function(exports_1, context_1) {
+System.register(['angular2/core', 'e2e4/src/selectionManager', 'e2e4/src/keyboardSelectionEventsHelper'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'e2e4/src/selectionManager'], function(exports
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, selectionManager_1;
+    var core_1, selectionManager_1, keyboardSelectionEventsHelper_1;
     var E2E4SelectionArea;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', 'e2e4/src/selectionManager'], function(exports
             },
             function (selectionManager_1_1) {
                 selectionManager_1 = selectionManager_1_1;
+            },
+            function (keyboardSelectionEventsHelper_1_1) {
+                keyboardSelectionEventsHelper_1 = keyboardSelectionEventsHelper_1_1;
             }],
         execute: function() {
             E2E4SelectionArea = (function () {
@@ -28,8 +31,26 @@ System.register(['angular2/core', 'e2e4/src/selectionManager'], function(exports
                     this.toggleOnly = false;
                     this.selectionManager = selectionManager;
                     this.nativeElement = el.nativeElement;
+                    this.keyboardSelectionEventsHelper = new keyboardSelectionEventsHelper_1.KeyboardSelectionEventsHelper(this.selectionManager);
                 }
+                E2E4SelectionArea.prototype.ngOnChanges = function (changes) {
+                    if (changes.items) {
+                        this.selectionManager.itemsSource = changes.items.currentValue;
+                    }
+                    if (false === this.selectionManager.hasSelections() && this.autoSelectFirst === true) {
+                        this.selectionManager.selectIndex(0, false);
+                    }
+                };
                 E2E4SelectionArea.prototype.ngOnInit = function () {
+                    if (this.items === undefined) {
+                        throw new Error('e2e4-selection-area  requires "items" attribute to be specified.');
+                    }
+                    if (this.nativeElement.tabIndex === -1) {
+                        this.nativeElement.tabIndex = 0;
+                    }
+                };
+                E2E4SelectionArea.prototype.keyDownHandler = function (event) {
+                    this.keyboardSelectionEventsHelper.keyDownHandler(event, this.multiple);
                 };
                 __decorate([
                     core_1.Input(), 
@@ -43,8 +64,15 @@ System.register(['angular2/core', 'e2e4/src/selectionManager'], function(exports
                     core_1.Input(), 
                     __metadata('design:type', Boolean)
                 ], E2E4SelectionArea.prototype, "toggleOnly", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Array)
+                ], E2E4SelectionArea.prototype, "items", void 0);
                 E2E4SelectionArea = __decorate([
                     core_1.Directive({
+                        host: {
+                            '(keydown)': 'keyDownHandler($event)'
+                        },
                         providers: [selectionManager_1.SelectionManager],
                         selector: '[e2e4-selection-area]'
                     }), 

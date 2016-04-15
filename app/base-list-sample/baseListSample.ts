@@ -26,5 +26,6 @@ export class BaseListSample implements OnInit {
         return this.airportsService.getAirportsPaged(requestParams).then(result => {
             this.items = result.items;
             return result;
-        }); };
+        });
+    };
 }
