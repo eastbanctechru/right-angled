@@ -11,7 +11,7 @@ System.register(['angular2/core', './e2e4SelectionArea'], function(exports_1, co
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, e2e4SelectionArea_1;
-    var E2E4SelectableItemAttribute;
+    var E2E4SelectableItem;
     return {
         setters:[
             function (core_1_1) {
@@ -21,22 +21,19 @@ System.register(['angular2/core', './e2e4SelectionArea'], function(exports_1, co
                 e2e4SelectionArea_1 = e2e4SelectionArea_1_1;
             }],
         execute: function() {
-            E2E4SelectableItemAttribute = (function () {
-                function E2E4SelectableItemAttribute(selectionArea) {
+            E2E4SelectableItem = (function () {
+                function E2E4SelectableItem(selectionArea) {
                     this.selectionArea = selectionArea;
                 }
-                E2E4SelectableItemAttribute.prototype.mouseUpHandler = function (event) {
-                    this.selectionArea.selectionEventsHelper.mouseHandler(event, this.index, this.item);
+                E2E4SelectableItem.prototype.mouseUpHandler = function (event) {
+                    var isItemProvided = isNaN(this.itemOrIndex) && typeof this.itemOrIndex === 'object';
+                    this.selectionArea.selectionEventsHelper.mouseHandler(event, isItemProvided ? null : this.itemOrIndex, isItemProvided ? this.itemOrIndex : null);
                 };
                 __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Number)
-                ], E2E4SelectableItemAttribute.prototype, "index", void 0);
-                __decorate([
-                    core_1.Input(), 
+                    core_1.Input('e2e4-selectable-item'), 
                     __metadata('design:type', Object)
-                ], E2E4SelectableItemAttribute.prototype, "item", void 0);
-                E2E4SelectableItemAttribute = __decorate([
+                ], E2E4SelectableItem.prototype, "itemOrIndex", void 0);
+                E2E4SelectableItem = __decorate([
                     core_1.Directive({
                         host: {
                             '(mouseup)': 'mouseUpHandler($event)'
@@ -44,11 +41,11 @@ System.register(['angular2/core', './e2e4SelectionArea'], function(exports_1, co
                         selector: '[e2e4-selectable-item]'
                     }), 
                     __metadata('design:paramtypes', [e2e4SelectionArea_1.E2E4SelectionArea])
-                ], E2E4SelectableItemAttribute);
-                return E2E4SelectableItemAttribute;
+                ], E2E4SelectableItem);
+                return E2E4SelectableItem;
             }());
-            exports_1("E2E4SelectableItemAttribute", E2E4SelectableItemAttribute);
+            exports_1("E2E4SelectableItem", E2E4SelectableItem);
         }
     }
 });
-//# sourceMappingURL=e2e4SelectableItemAttribute.js.map
+//# sourceMappingURL=e2e4SelectableItem.js.map
