@@ -1,4 +1,4 @@
-System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List', '../e2e4-angular/e2e4LoadButton', '../e2e4-angular/e2e4RowNumber', '../e2e4-angular/e2e4Sort', '../e2e4-angular/ngPagedListService'], function(exports_1, context_1) {
+System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List', '../e2e4-angular/e2e4LoadButton', '../e2e4-angular/e2e4RowNumber', '../e2e4-angular/e2e4Sort', '../e2e4-angular/ngPagedListService', '../e2e4-angular/e2e4SelectionArea'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, airportsService_1, e2e4List_1, e2e4LoadButton_1, e2e4RowNumber_1, e2e4Sort_1, ngPagedListService_1;
+    var core_1, airportsService_1, e2e4List_1, e2e4LoadButton_1, e2e4RowNumber_1, e2e4Sort_1, ngPagedListService_1, e2e4SelectionArea_1;
     var BaseListSample;
     return {
         setters:[
@@ -34,6 +34,9 @@ System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List
             },
             function (ngPagedListService_1_1) {
                 ngPagedListService_1 = ngPagedListService_1_1;
+            },
+            function (e2e4SelectionArea_1_1) {
+                e2e4SelectionArea_1 = e2e4SelectionArea_1_1;
             }],
         execute: function() {
             BaseListSample = (function () {
@@ -54,7 +57,7 @@ System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List
                 };
                 BaseListSample = __decorate([
                     core_1.Component({
-                        directives: [e2e4List_1.E2E4List, e2e4LoadButton_1.E2E4LoadButton, e2e4RowNumber_1.E2E4RowNumber, e2e4Sort_1.E2E4Sort],
+                        directives: [e2e4List_1.E2E4List, e2e4LoadButton_1.E2E4LoadButton, e2e4RowNumber_1.E2E4RowNumber, e2e4Sort_1.E2E4Sort, e2e4SelectionArea_1.E2E4SelectionArea],
                         providers: [airportsService_1.AirportsService, ngPagedListService_1.NgPagedListService],
                         templateUrl: 'app/base-list-sample/baseListSample.html'
                     }), 

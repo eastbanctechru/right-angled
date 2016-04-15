@@ -32,10 +32,10 @@ System.register(['angular2/core', './defaults', './ngListServiceMediator', 'e2e4
                     this.differ = differs.find([]).create(null);
                     this.ngListServiceMediator = ngListServiceMediator;
                     this.nativeElement = el.nativeElement;
-                    this.nativeElement.classList.add(defaults_1.Defaults.sortAttribute.sortableClassName);
                 }
                 E2E4Sort.prototype.ngOnInit = function () {
                     var _this = this;
+                    this.nativeElement.classList.add(defaults_1.Defaults.sortAttribute.sortableClassName);
                     this.ngListServiceMediator.instance.sortManager.sortings.forEach(function (sortParameter) {
                         if (sortParameter.fieldName === _this.fieldName) {
                             _this.sortAdded(sortParameter);

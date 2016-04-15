@@ -5,9 +5,10 @@ import {E2E4LoadButton} from '../e2e4-angular/e2e4LoadButton';
 import {E2E4RowNumber} from '../e2e4-angular/e2e4RowNumber';
 import {E2E4Sort} from '../e2e4-angular/e2e4Sort';
 import {NgPagedListService} from '../e2e4-angular/ngPagedListService';
+import {E2E4SelectionArea} from '../e2e4-angular/e2e4SelectionArea';
 
 @Component({
-    directives: [E2E4List, E2E4LoadButton, E2E4RowNumber, E2E4Sort],
+    directives: [E2E4List, E2E4LoadButton, E2E4RowNumber, E2E4Sort, E2E4SelectionArea],
     providers: [AirportsService, NgPagedListService],
     templateUrl: 'app/base-list-sample/baseListSample.html'
 })

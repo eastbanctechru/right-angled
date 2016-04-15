@@ -21,9 +21,9 @@ export class E2E4Sort implements DoCheck, OnInit {
         this.differ = differs.find([]).create(null);
         this.ngListServiceMediator = ngListServiceMediator;
         this.nativeElement = el.nativeElement;
-        this.nativeElement.classList.add(Defaults.sortAttribute.sortableClassName);
     }
     ngOnInit(): void {
+        this.nativeElement.classList.add(Defaults.sortAttribute.sortableClassName);
         this.ngListServiceMediator.instance.sortManager.sortings.forEach(sortParameter => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.sortAdded(sortParameter);
