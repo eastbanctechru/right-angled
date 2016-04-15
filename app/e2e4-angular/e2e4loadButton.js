@@ -38,9 +38,11 @@ System.register(['angular2/core', './ngListService', './ngPagedListService', './
                     this.listService.normalizedService.reloadData();
                 };
                 E2E4LoadButton = __decorate([
-                    core_1.Component({
-                        selector: 'e2e4-load-button',
-                        template: "<div class=\"e2e4-button-host\" (click)=\"loadData()\"><ng-content></ng-content></div>"
+                    core_1.Directive({
+                        host: {
+                            '(click)': 'loadData($event)'
+                        },
+                        selector: '[e2e4-load-button]'
                     }),
                     __param(0, core_1.Optional()),
                     __param(1, core_1.Optional()),

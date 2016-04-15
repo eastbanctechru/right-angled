@@ -1,11 +1,13 @@
-import {Component, Input, Optional} from 'angular2/core';
+import {Directive, Input, Optional} from 'angular2/core';
 import {NgListService} from './ngListService';
 import {NgPagedListService} from './ngPagedListService';
 import {NgBufferedListService} from './ngBufferedListService';
 
-@Component({
-    selector: 'e2e4-load-button',
-    template: `<div class="e2e4-button-host" (click)="loadData()"><ng-content></ng-content></div>`
+@Directive({
+    host: {
+        '(click)': 'loadData($event)'
+    },
+    selector: '[e2e4-load-button]'
 })
 export class E2E4LoadButton {
     listService: NgListService | NgPagedListService | NgBufferedListService;
