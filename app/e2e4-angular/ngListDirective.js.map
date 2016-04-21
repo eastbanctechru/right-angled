@@ -1,1 +1,0 @@
-{"version":3,"file":"ngListDirective.js","sourceRoot":"","sources":["ngListDirective.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;YAOA;gBAAA;gBAGA,CAAC;gBARD;oBAAC,gBAAS,CAAC;wBACP,MAAM,EAAE,CAAC,kBAAkB,EAAE,OAAO,CAAC;wBACrC,QAAQ,EAAE,WAAW;wBACrB,QAAQ,EAAE,yBAAyB;qBACtC,CAAC;;qCAAA;gBAIF,wBAAC;YAAD,CAAC,AAHD,IAGC;YAHD,iDAGC,CAAA"}
