@@ -10,6 +10,7 @@ export class NgPagedListService extends PagedList {
     }
     wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgPagedListService {
         this.dataReadDelegate = dataReadDelegate;
+        this.filterManager.registerFilterTarget(target);
         return this;
     }
     getDataReadPromise(requestParams: any): Promise<Object> {

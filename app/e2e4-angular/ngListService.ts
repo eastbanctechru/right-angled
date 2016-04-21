@@ -11,6 +11,7 @@ export class NgListService extends List {
     }
     wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgListService {
         this.dataReadDelegate = dataReadDelegate;
+        this.filterManager.registerFilterTarget(target);
         return this;
     }
     getDataReadPromise(requestParams: any): Promise<Object> {

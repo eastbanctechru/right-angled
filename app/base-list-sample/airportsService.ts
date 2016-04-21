@@ -36,7 +36,9 @@ export class AirportsService {
         return response;
     }
     getAirportsPaged(request: any): Promise<any> {
-        let result = this.applyPagedRequest(request, airports);
+        let data = _.filter(airports, item => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
+
+        let result = this.applyPagedRequest(request, data);
         result.items.forEach(item => item.selected = false);
         return Promise.resolve(result);
     }

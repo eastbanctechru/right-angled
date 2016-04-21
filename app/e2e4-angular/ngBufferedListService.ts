@@ -10,6 +10,7 @@ export class NgBufferedListService extends BufferedList {
     }
     wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgBufferedListService {
         this.dataReadDelegate = dataReadDelegate;
+        this.filterManager.registerFilterTarget(target);
         return this;
     }
     getDataReadPromise(requestParams: any): Promise<Object> {

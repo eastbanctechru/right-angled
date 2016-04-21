@@ -6,7 +6,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="control-label">Label</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" [(ngModel)]="airportName"/>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -78,7 +78,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <input e2e4-load-button type="submit" class="btn btn-img btn-load" />
-                        <button type="button" class="btn btn-img btn-refresh"></button>
+                        <button e2e4-reset-button type="button" class="btn btn-img btn-refresh"></button>
                         <button type="button" class="btn btn-img btn-xlsx"></button>
                     </div>
                 </div>
