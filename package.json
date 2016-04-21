@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "start": "concurrent \"npm run tsc:w\" \"http-server -o -p 3333\" "
+    "start": "concurrent \"npm run tsc:w\" \"./node_modules/.bin/http-server -o -p 3333\" "
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
+    "http-server": "^0.9.0",
     "tslint": "^3.7.0",
     "typescript": "^1.8.9",
     "typings": "^0.7.11"
