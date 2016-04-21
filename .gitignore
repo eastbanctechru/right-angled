@@ -1,3 +1,5 @@
 node_modules
 jspm_packages
 /dist
+app/**/*.js
+app/**/*.js.map
