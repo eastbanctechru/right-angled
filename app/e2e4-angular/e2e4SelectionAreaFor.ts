@@ -30,7 +30,6 @@ export class E2E4SelectionAreaFor implements OnInit, OnChanges, OnDestroy, ISele
     }
     ngOnChanges(changes: any): void {
         if (changes.items) {
-            this.selectionManager.deselectAll();
             this.selectionManager.itemsSource = changes.items.currentValue;
         }
         if (false === this.selectionManager.hasSelections() && this.autoSelectFirst === true) {
