@@ -8,16 +8,16 @@ import {SelectionEventsHelper} from 'e2e4/src/selectionEventsHelper';
         '(keydown)': 'keyDownHandler($event)'
     },
     providers: [SelectionManager],
-    selector: '[e2e4-selection-area]'
+    selector: '[e2e4-selection-area-for]'
 })
-export class E2E4SelectionArea implements OnInit, OnChanges, ISelectionConfig {
+export class E2E4SelectionAreaFor implements OnInit, OnChanges, ISelectionConfig {
     private nativeElement: HTMLElement;
     selectionEventsHelper: SelectionEventsHelper;
     selectionManager: SelectionManager;
     @Input('multiple') allowMultipleSelection: boolean = true;
+    @Input('e2e4-selection-area-for') items: Array<ISelectable>;
     @Input() autoSelectFirst: boolean = false;
     @Input() toggleOnly: boolean = false;
-    @Input() items: Array<ISelectable>;
 
     constructor(el: ElementRef, selectionManager: SelectionManager) {
         this.selectionManager = selectionManager;

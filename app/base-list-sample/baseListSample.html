@@ -108,7 +108,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody e2e4-selection-area [items]="items">
+            <tbody [e2e4-selection-area-for]="items">
                 <tr *ngFor="#item of items, #index=index" [class.success]="item.selected" [e2e4-selectable-item]="item">
                     <td>
                         <row-number [index]="index">

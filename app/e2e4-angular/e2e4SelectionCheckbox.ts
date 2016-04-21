@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from 'angular2/core';
-import {E2E4SelectionArea} from './e2e4SelectionArea';
+import {E2E4SelectionAreaFor} from './e2e4SelectionAreaFor';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
 
 @Component({
@@ -7,10 +7,10 @@ import {ISelectable} from 'e2e4/src/contracts/ISelectable';
     template: '<input type="checkbox" (change)="changeHandler($event)" [checked]="item.selected"/>'
 })
 export class E2E4SelectionCheckbox implements OnInit {
-    private selectionArea: E2E4SelectionArea;
+    private selectionArea: E2E4SelectionAreaFor;
     @Input('for') item: ISelectable;
     private index: number = null;
-    constructor(selectionArea: E2E4SelectionArea) {
+    constructor(selectionArea: E2E4SelectionAreaFor) {
         this.selectionArea = selectionArea;
     }
     ngOnInit(): void {
