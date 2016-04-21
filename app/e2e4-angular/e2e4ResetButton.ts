@@ -14,7 +14,6 @@ export class E2E4ResetButton {
         this.ngListServiceMediator = ngListServiceMediator;
     }
     reset(): void {
-        debugger;
         this.ngListServiceMediator.instance.filterManager.resetFilters();
     }
 }

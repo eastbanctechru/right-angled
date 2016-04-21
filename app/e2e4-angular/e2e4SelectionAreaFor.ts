@@ -1,4 +1,4 @@
-import {Directive, OnInit, ElementRef, Input, OnChanges} from 'angular2/core';
+import {Directive, OnInit, ElementRef, Input, OnChanges, OnDestroy} from 'angular2/core';
 import {SelectionManager} from 'e2e4/src/selectionManager';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
 import {ISelectionConfig} from 'e2e4/src/contracts/ISelectionConfig';
@@ -10,7 +10,7 @@ import {SelectionEventsHelper} from 'e2e4/src/selectionEventsHelper';
     providers: [SelectionManager],
     selector: '[e2e4-selection-area-for]'
 })
-export class E2E4SelectionAreaFor implements OnInit, OnChanges, ISelectionConfig {
+export class E2E4SelectionAreaFor implements OnInit, OnChanges, OnDestroy, ISelectionConfig {
     private nativeElement: HTMLElement;
     selectionEventsHelper: SelectionEventsHelper;
     selectionManager: SelectionManager;
@@ -25,8 +25,12 @@ export class E2E4SelectionAreaFor implements OnInit, OnChanges, ISelectionConfig
         this.nativeElement = el.nativeElement;
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }
+    ngOnDestroy(): void {
+        this.selectionManager.dispose();
+    }
     ngOnChanges(changes: any): void {
         if (changes.items) {
+            this.selectionManager.deselectAll();
             this.selectionManager.itemsSource = changes.items.currentValue;
         }
         if (false === this.selectionManager.hasSelections() && this.autoSelectFirst === true) {
