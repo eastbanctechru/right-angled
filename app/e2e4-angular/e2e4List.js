@@ -26,17 +26,10 @@ System.register(['angular2/core', './ngListServiceMediator'], function(exports_1
                     this.ngListServiceMediator = ngListServiceMediator;
                 }
                 E2E4List.prototype.ngOnChanges = function (changes) {
-                    if (changes.dataReadDelegate) {
-                        this.ngListServiceMediator.instance.dataReadDelegate = changes.dataReadDelegate.currentValue;
-                    }
                     if (changes.items) {
                         this.ngListServiceMediator.instance.items = changes.items.currentValue;
                     }
                 };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Function)
-                ], E2E4List.prototype, "dataReadDelegate", void 0);
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Array)

@@ -24,6 +24,10 @@ System.register(['e2e4/src/pagedList', '../e2e4-angular/NullObjectStateManager']
                     this.stateManager.target = this;
                     _super.prototype.init.call(this, {});
                 }
+                NgPagedListService.prototype.wrap = function (target, dataReadDelegate) {
+                    this.dataReadDelegate = dataReadDelegate;
+                    return this;
+                };
                 NgPagedListService.prototype.getDataReadPromise = function (requestParams) {
                     return this.dataReadDelegate(requestParams);
                 };

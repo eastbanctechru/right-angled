@@ -17,12 +17,14 @@ import {E2E4SelectionCheckbox} from '../e2e4-angular/e2e4SelectionCheckbox';
 export class BaseListSample implements OnInit {
     message: string = 'Hello';
     airportsService: AirportsService;
+    ngPagedListService: NgPagedListService;
     items: Array<any> = new Array<any>();
-    constructor(listComponentService: AirportsService, ngPagedListService: NgPagedListService) {
-        this.airportsService = listComponentService;
+    constructor(airportsService: AirportsService, ngPagedListService: NgPagedListService) {
+        this.airportsService = airportsService;
+        this.ngPagedListService = ngPagedListService.wrap(this, this.loadData);
     }
     ngOnInit(): void {
-        // this.airportsService.getAirportsPaged({ sort: [] }).then(result => { this.items = result.items; });
+        this.ngPagedListService.loadData();
     }
     loadData = (requestParams: any): Promise<any> => {
         return this.airportsService.getAirportsPaged(requestParams).then(result => {

@@ -9,6 +9,10 @@ export class NgListService extends List {
         (<NullObjectStateManager>this.stateManager).target = this;
         super.init({});
     }
+    wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgListService {
+        this.dataReadDelegate = dataReadDelegate;
+        return this;
+    }
     getDataReadPromise(requestParams: any): Promise<Object> {
         return this.dataReadDelegate(requestParams);
     }

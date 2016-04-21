@@ -46,7 +46,7 @@ System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List
             }],
         execute: function() {
             BaseListSample = (function () {
-                function BaseListSample(listComponentService, ngPagedListService) {
+                function BaseListSample(airportsService, ngPagedListService) {
                     var _this = this;
                     this.message = 'Hello';
                     this.items = new Array();
@@ -56,10 +56,11 @@ System.register(['angular2/core', './airportsService', '../e2e4-angular/e2e4List
                             return result;
                         });
                     };
-                    this.airportsService = listComponentService;
+                    this.airportsService = airportsService;
+                    this.ngPagedListService = ngPagedListService.wrap(this, this.loadData);
                 }
                 BaseListSample.prototype.ngOnInit = function () {
-                    // this.airportsService.getAirportsPaged({ sort: [] }).then(result => { this.items = result.items; });
+                    this.ngPagedListService.loadData();
                 };
                 BaseListSample = __decorate([
                     core_1.Component({
