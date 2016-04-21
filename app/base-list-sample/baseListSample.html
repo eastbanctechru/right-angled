@@ -109,10 +109,11 @@
                 </tr>
             </thead>
             <tbody e2e4-selection-area [items]="items">
-                <tr *ngFor="#item of items, #index=index" [class.success]="item.selected" [e2e4-selectable-item]="index">
+                <tr *ngFor="#item of items, #index=index" [class.success]="item.selected" [e2e4-selectable-item]="item">
                     <td>
                         <row-number [index]="index">
                         </row-number>
+                        <e2e4-selection-checkbox [for]="item"></e2e4-selection-checkbox>
                     </td>
                     <td>{{item.iata}}</td>
                     <td>{{item.name}}</td>

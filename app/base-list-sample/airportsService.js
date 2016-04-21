@@ -61,6 +61,7 @@ System.register(['angular2/core', '../airports', 'lodash', 'e2e4/src/common/sort
                 };
                 AirportsService.prototype.getAirportsPaged = function (request) {
                     var result = this.applyPagedRequest(request, airports_1.airports);
+                    result.items.forEach(function (item) { return item.selected = false; });
                     return Promise.resolve(result);
                 };
                 AirportsService.maxPageSize = 200;

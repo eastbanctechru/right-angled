@@ -9,12 +9,15 @@ import {E2E4SelectionArea} from './e2e4SelectionArea';
 })
 export class E2E4SelectableItem {
     private selectionArea: E2E4SelectionArea;
-    @Input('e2e4-selectable-item') itemOrIndex: ISelectable | number;
+    @Input('e2e4-selectable-item') item: ISelectable;
+    private index: number = null;
     constructor(selectionArea: E2E4SelectionArea) {
         this.selectionArea = selectionArea;
     }
     mouseUpHandler(event: MouseEvent): void {
-        const isItemProvided = isNaN(<any>this.itemOrIndex) && typeof this.itemOrIndex === 'object';
-        this.selectionArea.selectionEventsHelper.mouseHandler(event, isItemProvided ? null : <number>this.itemOrIndex, isItemProvided ? <ISelectable>this.itemOrIndex : null);
+        if (this.index === null) {
+            this.index = this.selectionArea.selectionManager.getItemIndex(this.item);
+        }
+        this.selectionArea.selectionEventsHelper.mouseHandler(event, this.index);
     }
 }

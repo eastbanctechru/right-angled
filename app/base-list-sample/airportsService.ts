@@ -37,6 +37,7 @@ export class AirportsService {
     }
     getAirportsPaged(request: any): Promise<any> {
         let result = this.applyPagedRequest(request, airports);
+        result.items.forEach(item => item.selected = false);
         return Promise.resolve(result);
     }
 }
