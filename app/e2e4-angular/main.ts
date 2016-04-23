@@ -1,6 +1,7 @@
 export {NgPagedListService} from './bootstrap/ngPagedListService';
 export {NgBufferedListService} from './bootstrap/ngBufferedListService';
 export {NgListService} from './bootstrap/ngListService';
+export {Defaults} from './defaults';
 
 import {E2E4List} from './lists/e2e4List';
 import {E2E4LoadButton} from './lists/e2e4LoadButton';

@@ -1,5 +1,5 @@
 import {Directive} from 'angular2/core';
-import {NgListServiceMediator} from '../bootstrap/ngListServiceMediator';
+import {E2E4List} from './e2e4List';
 
 @Directive({
     host: {
@@ -8,12 +8,11 @@ import {NgListServiceMediator} from '../bootstrap/ngListServiceMediator';
     selector: '[e2e4-load-button]'
 })
 export class E2E4LoadButton {
-    ngListServiceMediator: NgListServiceMediator;
-    constructor(
-        ngListServiceMediator: NgListServiceMediator) {
-        this.ngListServiceMediator = ngListServiceMediator;
+    hostList: E2E4List;
+    constructor(hostList: E2E4List) {
+        this.hostList = hostList;
     }
     loadData(): void {
-        this.ngListServiceMediator.instance.reloadData();
+        this.hostList.ngListServiceMediator.instance.reloadData();
     }
 }

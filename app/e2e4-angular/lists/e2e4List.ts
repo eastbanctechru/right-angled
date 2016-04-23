@@ -1,5 +1,4 @@
 import {Component, Input, OnChanges, OnDestroy} from 'angular2/core';
-import {NgListService} from '../bootstrap/ngListService';
 import {NgListServiceMediator} from '../bootstrap/ngListServiceMediator';
 
 @Component({

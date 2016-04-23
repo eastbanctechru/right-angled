@@ -1,7 +1,5 @@
 import {Component, Input, OnChanges, Optional} from 'angular2/core';
-import {NgListServiceMediator} from '../bootstrap/ngListServiceMediator';
-import {NgListService} from '../bootstrap/ngListService';
-import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
+import {E2E4List} from './e2e4List';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 
 @Component({
@@ -11,16 +9,15 @@ import {NgPagedListService} from '../bootstrap/ngPagedListService';
 export class E2E4RowNumber implements OnChanges {
     @Input() index: number;
     rowNumber: number;
-    ngListServiceMediator: NgListServiceMediator;
-    constructor(
-        ngListServiceMediator: NgListServiceMediator) {
-        this.ngListServiceMediator = ngListServiceMediator;
+    listHost: E2E4List;
+    constructor(listHost: E2E4List) {
+        this.listHost = listHost;
     }
     ngOnChanges(): void {
-        if (this.ngListServiceMediator.instance instanceof NgListService || this.ngListServiceMediator.instance instanceof NgBufferedListService) {
+        if (this.listHost.ngListServiceMediator.isSimpleList || this.listHost.ngListServiceMediator.isBufferedList) {
             this.rowNumber = this.index + 1;
-        } else if (this.ngListServiceMediator.instance instanceof NgPagedListService) {
-            this.rowNumber = this.index + (<NgPagedListService>this.ngListServiceMediator.instance).displayFrom;
+        } else if (this.listHost.ngListServiceMediator.isPagedList) {
+            this.rowNumber = this.index + (<NgPagedListService>this.listHost.ngListServiceMediator.instance).displayFrom;
         }
     }
 }
