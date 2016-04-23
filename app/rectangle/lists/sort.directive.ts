@@ -8,13 +8,13 @@ import {SortDirection} from 'e2e4/src/common/SortDirection';
     host: {
         '(click)': 'clickHandler($event)'
     },
-    selector: '[e2e4-sort]'
+    selector: '[rt-sort]'
 })
-export class E2E4Sort implements DoCheck, OnInit {
+export class SortDirective implements DoCheck, OnInit {
     private nativeElement: HTMLElement;
     hostList: ListComponent;
     private differ: any;
-    @Input('e2e4-sort') fieldName: string;
+    @Input('rt-sort') fieldName: string;
     constructor(el: ElementRef, differs: IterableDiffers, hostList: ListComponent) {
         this.differ = differs.find([]).create(null);
         this.hostList = hostList;
