@@ -5,9 +5,9 @@ import {ListComponent} from './list.component';
     host: {
         '(click)': 'reset()'
     },
-    selector: '[e2e4-reset-button]'
+    selector: '[rt-reset-button]'
 })
-export class E2E4ResetButton {
+export class ResetButtonDirective {
     hostList: ListComponent;
     constructor(hostList: ListComponent) {
         this.hostList = hostList;

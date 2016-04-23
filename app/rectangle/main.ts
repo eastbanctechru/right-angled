@@ -5,7 +5,7 @@ export {Defaults} from './defaults';
 
 import {ListComponent} from './lists/list.component';
 import {E2E4LoadButton} from './lists/e2e4LoadButton';
-import {E2E4ResetButton} from './lists/e2e4ResetButton';
+import {ResetButtonDirective} from './lists/reset-button.directive';
 import {RowNumberComponent} from './lists/row-number.component';
 import {SortDirective} from './lists/sort.directive';
 import {E2E4SelectionAreaFor} from './selections/e2e4SelectionAreaFor';
@@ -21,7 +21,7 @@ import {E2E4PagedPager} from './pagers/e2e4PagedPager';
 export var E2E4_DIRECTIVES: any[] = [
     ListComponent,
     E2E4LoadButton,
-    E2E4ResetButton,
+    ResetButtonDirective,
     RowNumberComponent,
     SortDirective,
     E2E4SelectionAreaFor,
