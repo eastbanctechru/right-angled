@@ -2,10 +2,10 @@ import {Component} from 'angular2/core';
 import {ListComponent} from '../rectangle/lists/list.component';
 
 @Component({
-    selector: 'paged-pager',
-    template: '<div>Paged Pager</div>'
+    selector: 'paged-footer',
+    template: '<div>Paged footer</div>'
 })
-export class PagedPagerComponent {
+export class PagedFooterComponent {
     hostList: ListComponent;
     constructor(hostList: ListComponent) {
         this.hostList = hostList;
