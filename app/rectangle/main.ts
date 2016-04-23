@@ -12,12 +12,6 @@ import {SelectionAreaForDirective} from './selections/selection-area-for.directi
 import {SelectableItemDirective} from './selections/selectable-item.directive';
 import {SelectionCheckboxComponent} from './selections/selection-checkbox.component';
 
-import {E2E4Pager} from './pagers/e2e4Pager';
-import {E2E4BufferedPager} from './pagers/e2e4BufferedPager';
-import {E2E4SimplePager} from './pagers/e2e4SimplePager';
-import {E2E4PagedPager} from './pagers/e2e4PagedPager';
-
-
 export var E2E4_DIRECTIVES: any[] = [
     ListComponent,
     LoadButtonDirective,
@@ -26,9 +20,5 @@ export var E2E4_DIRECTIVES: any[] = [
     SortDirective,
     SelectionAreaForDirective,
     SelectableItemDirective,
-    SelectionCheckboxComponent,
-    E2E4Pager,
-    E2E4BufferedPager,
-    E2E4SimplePager,
-    E2E4PagedPager
+    SelectionCheckboxComponent
 ];

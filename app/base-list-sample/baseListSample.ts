@@ -2,9 +2,10 @@ import {Component, OnInit} from 'angular2/core';
 import {AirportsService} from './airportsService';
 import {filter} from 'e2e4/src/filterAnnotation';
 import {E2E4_DIRECTIVES, NgPagedListService} from '../rectangle/main';
+import {PagerComponent} from '../pagers/pager.component';
 
 @Component({
-    directives: [E2E4_DIRECTIVES],
+    directives: [E2E4_DIRECTIVES, PagerComponent],
     providers: [AirportsService, NgPagedListService],
     templateUrl: 'app/base-list-sample/baseListSample.html'
 })

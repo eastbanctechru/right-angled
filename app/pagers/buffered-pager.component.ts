@@ -1,11 +1,11 @@
 import {Component} from 'angular2/core';
-import {ListComponent} from '../lists/list.component';
+import {ListComponent} from '../rectangle/lists/list.component';
 
 @Component({
-    selector: 'e2e4-buffered-pager',
+    selector: 'buffered-pager',
     template: '<div>Buffered Pager</div>'
 })
-export class E2E4BufferedPager {
+export class BufferedPagerComponent {
     hostList: ListComponent;
     constructor(hostList: ListComponent) {
         this.hostList = hostList;

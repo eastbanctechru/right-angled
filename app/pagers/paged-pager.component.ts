@@ -1,11 +1,11 @@
 import {Component} from 'angular2/core';
-import {ListComponent} from '../lists/list.component';
+import {ListComponent} from '../rectangle/lists/list.component';
 
 @Component({
-    selector: 'e2e4-paged-pager',
+    selector: 'paged-pager',
     template: '<div>Paged Pager</div>'
 })
-export class E2E4PagedPager {
+export class PagedPagerComponent {
     hostList: ListComponent;
     constructor(hostList: ListComponent) {
         this.hostList = hostList;
