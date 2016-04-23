@@ -1,19 +1,19 @@
 import {Directive} from 'angular2/core';
-import {NgListServiceMediator} from './ngListServiceMediator';
+import {NgListServiceMediator} from '../bootstrap/ngListServiceMediator';
 
 @Directive({
     host: {
-        '(click)': 'reset()'
+        '(click)': 'loadData()'
     },
-    selector: '[e2e4-reset-button]'
+    selector: '[e2e4-load-button]'
 })
-export class E2E4ResetButton {
+export class E2E4LoadButton {
     ngListServiceMediator: NgListServiceMediator;
     constructor(
         ngListServiceMediator: NgListServiceMediator) {
         this.ngListServiceMediator = ngListServiceMediator;
     }
-    reset(): void {
-        this.ngListServiceMediator.instance.filterManager.resetFilters();
+    loadData(): void {
+        this.ngListServiceMediator.instance.reloadData();
     }
 }

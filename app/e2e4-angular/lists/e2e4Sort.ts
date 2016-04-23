@@ -1,6 +1,6 @@
 import {Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from 'angular2/core';
-import {Defaults} from './defaults';
-import {NgListServiceMediator} from './ngListServiceMediator';
+import {Defaults} from '../defaults';
+import {NgListServiceMediator} from '../bootstrap/ngListServiceMediator';
 import {SortDirection} from 'e2e4/src/common/SortDirection';
 
 

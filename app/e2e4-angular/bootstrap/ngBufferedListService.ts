@@ -1,10 +1,9 @@
-import {ProgressState} from 'e2e4/src/common/progressState';
-import {SortManager} from 'e2e4/src/SortManager';
 import {ISortManager} from 'e2e4/src/contracts/ISortManager';
-import {List} from 'e2e4/src/list';
-import {NullObjectStateManager} from '../e2e4-angular/NullObjectStateManager';
+import {SortManager} from 'e2e4/src/sortManager';
+import {BufferedList} from 'e2e4/src/bufferedList';
+import {NullObjectStateManager} from './nullObjectStateManager';
 
-export class NgListService extends List {
+export class NgBufferedListService extends BufferedList {
     dataReadDelegate: (requestParams: any) => Promise<any>;
     sortManager: ISortManager;
     constructor() {
@@ -19,7 +18,7 @@ export class NgListService extends List {
         this.sortManager.dispose();
         super.dispose();
     }
-    wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgListService {
+    wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgBufferedListService {
         this.dataReadDelegate = dataReadDelegate;
         this.filterManager.registerFilterTarget(target);
         return this;

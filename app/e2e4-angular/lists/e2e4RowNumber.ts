@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, Optional} from 'angular2/core';
-import {NgListServiceMediator} from './ngListServiceMediator';
-import {NgListService} from './ngListService';
-import {NgBufferedListService} from './ngBufferedListService';
-import {NgPagedListService} from './ngPagedListService';
+import {NgListServiceMediator} from '../bootstrap/ngListServiceMediator';
+import {NgListService} from '../bootstrap/ngListService';
+import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
+import {NgPagedListService} from '../bootstrap/ngPagedListService';
 
 @Component({
     selector: 'row-number',
