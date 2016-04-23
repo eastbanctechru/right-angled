@@ -4,7 +4,7 @@ export {NgSimpleListService} from './bootstrap/ngSimpleListService';
 export {Defaults} from './defaults';
 
 import {ListComponent} from './lists/list.component';
-import {E2E4LoadButton} from './lists/e2e4LoadButton';
+import {LoadButtonDirective} from './lists/load-button.directive';
 import {ResetButtonDirective} from './lists/reset-button.directive';
 import {RowNumberComponent} from './lists/row-number.component';
 import {SortDirective} from './lists/sort.directive';
@@ -20,7 +20,7 @@ import {E2E4PagedPager} from './pagers/e2e4PagedPager';
 
 export var E2E4_DIRECTIVES: any[] = [
     ListComponent,
-    E2E4LoadButton,
+    LoadButtonDirective,
     ResetButtonDirective,
     RowNumberComponent,
     SortDirective,

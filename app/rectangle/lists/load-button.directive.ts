@@ -5,9 +5,9 @@ import {ListComponent} from './list.component';
     host: {
         '(click)': 'loadData()'
     },
-    selector: '[e2e4-load-button]'
+    selector: '[rt-load-button]'
 })
-export class E2E4LoadButton {
+export class LoadButtonDirective {
     hostList: ListComponent;
     constructor(hostList: ListComponent) {
         this.hostList = hostList;
