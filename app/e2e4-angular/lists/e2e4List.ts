@@ -2,7 +2,7 @@ import {Component, Input, OnChanges, OnDestroy} from 'angular2/core';
 import {Optional} from 'angular2/core';
 import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
-import {NgListService} from '../bootstrap/ngListService';
+import {NgSimpleListService} from '../bootstrap/ngSimpleListService';
 
 
 @Component({
@@ -13,13 +13,13 @@ export class E2E4List implements OnChanges, OnDestroy {
     @Input() items: Array<any>;
     private bufferedListService: NgBufferedListService;
     private pagedListService: NgPagedListService;
-    private simpleListService: NgListService;
-    constructor( @Optional() bufferedList: NgBufferedListService, @Optional() pagedList: NgPagedListService, @Optional() simpleList: NgListService) {
+    private simpleListService: NgSimpleListService;
+    constructor( @Optional() bufferedList: NgBufferedListService, @Optional() pagedList: NgPagedListService, @Optional() simpleList: NgSimpleListService) {
         this.bufferedListService = bufferedList;
         this.pagedListService = pagedList;
         this.simpleListService = simpleList;
     }
-    get serviceInstance(): NgListService | NgBufferedListService | NgPagedListService {
+    get serviceInstance(): NgSimpleListService | NgBufferedListService | NgPagedListService {
         return this.simpleListService || this.bufferedListService || this.pagedListService;
     }
     get isBufferedList(): boolean {
