@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {E2E4List} from '../lists/e2e4List';
+import {ListComponent} from '../lists/list.component';
 
 import {E2E4BufferedPager} from './e2e4BufferedPager';
 import {E2E4SimplePager} from './e2e4SimplePager';
@@ -13,8 +13,8 @@ import {E2E4PagedPager} from './e2e4PagedPager';
                 <e2e4-simple-pager *ngIf="hostList.isSimpleList"></e2e4-simple-pager>`
 })
 export class E2E4Pager {
-    hostList: E2E4List;
-    constructor(hostList: E2E4List) {
+    hostList: ListComponent;
+    constructor(hostList: ListComponent) {
         this.hostList = hostList;
     }
 }

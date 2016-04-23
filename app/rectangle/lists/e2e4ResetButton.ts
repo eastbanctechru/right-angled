@@ -1,5 +1,5 @@
 import {Directive} from 'angular2/core';
-import {E2E4List} from './e2e4List';
+import {ListComponent} from './list.component';
 
 @Directive({
     host: {
@@ -8,8 +8,8 @@ import {E2E4List} from './e2e4List';
     selector: '[e2e4-reset-button]'
 })
 export class E2E4ResetButton {
-    hostList: E2E4List;
-    constructor(hostList: E2E4List) {
+    hostList: ListComponent;
+    constructor(hostList: ListComponent) {
         this.hostList = hostList;
     }
     reset(): void {

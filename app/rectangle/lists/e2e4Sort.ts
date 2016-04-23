@@ -1,6 +1,6 @@
 import {Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from 'angular2/core';
 import {Defaults} from '../defaults';
-import {E2E4List} from './e2e4List';
+import {ListComponent} from './list.component';
 import {SortDirection} from 'e2e4/src/common/SortDirection';
 
 
@@ -12,10 +12,10 @@ import {SortDirection} from 'e2e4/src/common/SortDirection';
 })
 export class E2E4Sort implements DoCheck, OnInit {
     private nativeElement: HTMLElement;
-    hostList: E2E4List;
+    hostList: ListComponent;
     private differ: any;
     @Input('e2e4-sort') fieldName: string;
-    constructor(el: ElementRef, differs: IterableDiffers, hostList: E2E4List) {
+    constructor(el: ElementRef, differs: IterableDiffers, hostList: ListComponent) {
         this.differ = differs.find([]).create(null);
         this.hostList = hostList;
         this.nativeElement = el.nativeElement;

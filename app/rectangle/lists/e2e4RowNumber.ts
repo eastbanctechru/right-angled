@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, Optional} from 'angular2/core';
-import {E2E4List} from './e2e4List';
+import {ListComponent} from './list.component';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 
 @Component({
@@ -9,8 +9,8 @@ import {NgPagedListService} from '../bootstrap/ngPagedListService';
 export class E2E4RowNumber implements OnChanges {
     @Input() index: number;
     rowNumber: number;
-    listHost: E2E4List;
-    constructor(listHost: E2E4List) {
+    listHost: ListComponent;
+    constructor(listHost: ListComponent) {
         this.listHost = listHost;
     }
     ngOnChanges(): void {

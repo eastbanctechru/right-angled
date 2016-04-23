@@ -6,10 +6,10 @@ import {NgSimpleListService} from '../bootstrap/ngSimpleListService';
 
 
 @Component({
-    selector: 'e2e4-list',
+    selector: 'rt-list',
     template: `<ng-content></ng-content>`
 })
-export class E2E4List implements OnChanges, OnDestroy {
+export class ListComponent implements OnChanges, OnDestroy {
     @Input() items: Array<any>;
     private bufferedListService: NgBufferedListService;
     private pagedListService: NgPagedListService;

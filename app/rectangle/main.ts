@@ -3,7 +3,7 @@ export {NgBufferedListService} from './bootstrap/ngBufferedListService';
 export {NgSimpleListService} from './bootstrap/ngSimpleListService';
 export {Defaults} from './defaults';
 
-import {E2E4List} from './lists/e2e4List';
+import {ListComponent} from './lists/list.component';
 import {E2E4LoadButton} from './lists/e2e4LoadButton';
 import {E2E4ResetButton} from './lists/e2e4ResetButton';
 import {E2E4RowNumber} from './lists/e2e4RowNumber';
@@ -19,7 +19,7 @@ import {E2E4PagedPager} from './pagers/e2e4PagedPager';
 
 
 export var E2E4_DIRECTIVES: any[] = [
-    E2E4List,
+    ListComponent,
     E2E4LoadButton,
     E2E4ResetButton,
     E2E4RowNumber,
