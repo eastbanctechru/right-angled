@@ -1,23 +1,42 @@
 import {Component, Input, OnChanges, OnDestroy} from 'angular2/core';
-import {NgListServiceMediator} from '../bootstrap/ngListServiceMediator';
+import {Optional} from 'angular2/core';
+import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
+import {NgPagedListService} from '../bootstrap/ngPagedListService';
+import {NgListService} from '../bootstrap/ngListService';
+
 
 @Component({
-    providers: [NgListServiceMediator],
     selector: 'e2e4-list',
     template: `<ng-content></ng-content>`
 })
 export class E2E4List implements OnChanges, OnDestroy {
     @Input() items: Array<any>;
-    ngListServiceMediator: NgListServiceMediator;
-    constructor(ngListServiceMediator: NgListServiceMediator) {
-        this.ngListServiceMediator = ngListServiceMediator;
+    private bufferedListService: NgBufferedListService;
+    private pagedListService: NgPagedListService;
+    private simpleListService: NgListService;
+    constructor( @Optional() bufferedList: NgBufferedListService, @Optional() pagedList: NgPagedListService, @Optional() simpleList: NgListService) {
+        this.bufferedListService = bufferedList;
+        this.pagedListService = pagedList;
+        this.simpleListService = simpleList;
+    }
+    get serviceInstance(): NgListService | NgBufferedListService | NgPagedListService {
+        return this.simpleListService || this.bufferedListService || this.pagedListService;
+    }
+    get isBufferedList(): boolean {
+        return !!this.bufferedListService;
+    }
+    get isPagedList(): boolean {
+        return !!this.pagedListService;
+    }
+    get isSimpleList(): boolean {
+        return !!this.simpleListService;
     }
     ngOnDestroy(): void {
-        this.ngListServiceMediator.instance.dispose();
+        this.serviceInstance.dispose();
     }
     ngOnChanges(changes: any): void {
         if (changes.items) {
-            this.ngListServiceMediator.instance.items = changes.items.currentValue;
+            this.serviceInstance.items = changes.items.currentValue;
         }
     }
 }

@@ -13,6 +13,6 @@ export class E2E4ResetButton {
         this.hostList = hostList;
     }
     reset(): void {
-        this.hostList.ngListServiceMediator.instance.filterManager.resetFilters();
+        this.hostList.serviceInstance.filterManager.resetFilters();
     }
 }

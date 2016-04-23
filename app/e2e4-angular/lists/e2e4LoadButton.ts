@@ -13,6 +13,6 @@ export class E2E4LoadButton {
         this.hostList = hostList;
     }
     loadData(): void {
-        this.hostList.ngListServiceMediator.instance.reloadData();
+        this.hostList.serviceInstance.reloadData();
     }
 }

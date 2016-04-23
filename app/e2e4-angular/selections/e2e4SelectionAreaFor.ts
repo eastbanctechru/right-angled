@@ -3,6 +3,7 @@ import {SelectionManager} from 'e2e4/src/selectionManager';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
 import {ISelectionConfig} from 'e2e4/src/contracts/ISelectionConfig';
 import {SelectionEventsHelper} from 'e2e4/src/selectionEventsHelper';
+
 @Directive({
     host: {
         '(keydown)': 'keyDownHandler($event)'

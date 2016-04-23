@@ -14,10 +14,10 @@ export class E2E4RowNumber implements OnChanges {
         this.listHost = listHost;
     }
     ngOnChanges(): void {
-        if (this.listHost.ngListServiceMediator.isSimpleList || this.listHost.ngListServiceMediator.isBufferedList) {
+        if (this.listHost.isSimpleList || this.listHost.isBufferedList) {
             this.rowNumber = this.index + 1;
-        } else if (this.listHost.ngListServiceMediator.isPagedList) {
-            this.rowNumber = this.index + (<NgPagedListService>this.listHost.ngListServiceMediator.instance).displayFrom;
+        } else if (this.listHost.isPagedList) {
+            this.rowNumber = this.index + (<NgPagedListService>this.listHost.serviceInstance).displayFrom;
         }
     }
 }
