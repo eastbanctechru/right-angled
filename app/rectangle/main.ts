@@ -6,7 +6,7 @@ export {Defaults} from './defaults';
 import {ListComponent} from './lists/list.component';
 import {E2E4LoadButton} from './lists/e2e4LoadButton';
 import {E2E4ResetButton} from './lists/e2e4ResetButton';
-import {E2E4RowNumber} from './lists/e2e4RowNumber';
+import {RowNumberComponent} from './lists/row-number.component';
 import {SortDirective} from './lists/sort.directive';
 import {E2E4SelectionAreaFor} from './selections/e2e4SelectionAreaFor';
 import {E2E4SelectableItem} from './selections/e2e4SelectableItem';
@@ -22,7 +22,7 @@ export var E2E4_DIRECTIVES: any[] = [
     ListComponent,
     E2E4LoadButton,
     E2E4ResetButton,
-    E2E4RowNumber,
+    RowNumberComponent,
     SortDirective,
     E2E4SelectionAreaFor,
     E2E4SelectableItem,

@@ -3,10 +3,10 @@ import {ListComponent} from './list.component';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 
 @Component({
-    selector: 'row-number',
+    selector: 'rt-row-number',
     template: `{{rowNumber}}<ng-content></ng-content>`
 })
-export class E2E4RowNumber implements OnChanges {
+export class RowNumberComponent implements OnChanges {
     @Input() index: number;
     rowNumber: number;
     listHost: ListComponent;
