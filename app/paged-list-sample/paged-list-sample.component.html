@@ -6,7 +6,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="control-label">Label</label>
-                        <input type="text" class="form-control" [(ngModel)]="airportName"/>
+                        <input type="text" class="form-control" [(ngModel)]="airportName" />
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -125,6 +125,21 @@
             <tfoot>
                 <tr>
                     <td colspan="6" class="list-pager text-right">
+                        <rt-status-no-data>
+                            There are no data found
+                        </rt-status-no-data>
+                        <rt-status-request-canceled>
+                            Data loading was cancelled
+                        </rt-status-request-canceled>
+                        <rt-status-failed>
+                            An error has occured since the last data loading
+                        </rt-status-failed>
+                        <rt-status-initial>
+                            Enter search options and press "Show" button
+                        </rt-status-initial>
+                        <rt-status-progress>
+                            Loading....
+                        </rt-status-progress>
                         <ul class="pagination">
                             <li class="disabled">
                                 <a href="#" aria-label="Previous" class="prev"></a>

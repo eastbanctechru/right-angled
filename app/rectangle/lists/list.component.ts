@@ -4,7 +4,6 @@ import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 import {NgSimpleListService} from '../bootstrap/ngSimpleListService';
 
-
 @Component({
     selector: 'rt-list',
     template: `<ng-content></ng-content>`

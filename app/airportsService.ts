@@ -40,20 +40,25 @@ export class AirportsService {
 
         let result = this.applyPagedRequest(request, data);
         result.items.forEach(item => item.selected = false);
-        return Promise.resolve(result);
+        return new Promise(resolve => {
+            setTimeout(() => { resolve(result); }, 1200);
+        });
     }
     getAirportsBuffered(request: any): Promise<any> {
         let data = _.filter(airports, item => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
-
         let result = this.applyBufferedRequest(request, data);
         result.items.forEach(item => item.selected = false);
-        return Promise.resolve(result);
+        return new Promise(resolve => {
+            setTimeout(() => { resolve(result); }, 1200);
+        });
     }
     getAirportsSimple(request: any): Promise<any> {
         let data = _.filter(airports, item => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
 
         let result = this.applyRequest(request, data);
         result.items.forEach(item => item.selected = false);
-        return Promise.resolve(result);
+        return new Promise(resolve => {
+            setTimeout(() => { resolve(result); }, 1200);
+        });
     }
 }

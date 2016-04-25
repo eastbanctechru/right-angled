@@ -11,6 +11,11 @@ import {SortDirective} from './lists/sort.directive';
 import {SelectionAreaForDirective} from './selections/selection-area-for.directive';
 import {SelectableItemDirective} from './selections/selectable-item.directive';
 import {SelectionCheckboxComponent} from './selections/selection-checkbox.component';
+import {StatusNoDataComponent} from './footer/status-no-data.component';
+import {StatusRequestCanceledComponent} from './footer/status-request-canceled.component';
+import {StatusFailedComponent} from './footer/status-failed.component';
+import {StatusInitialComponent} from './footer/status-initial.component';
+import {StatusProgressComponent} from './footer/status-progress.component';
 
 export var E2E4_DIRECTIVES: any[] = [
     ListComponent,
@@ -20,5 +25,10 @@ export var E2E4_DIRECTIVES: any[] = [
     SortDirective,
     SelectionAreaForDirective,
     SelectableItemDirective,
-    SelectionCheckboxComponent
+    SelectionCheckboxComponent,
+    StatusNoDataComponent,
+    StatusRequestCanceledComponent,
+    StatusFailedComponent,
+    StatusInitialComponent,
+    StatusProgressComponent
 ];
