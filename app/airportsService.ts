@@ -1,5 +1,5 @@
 import {Injectable} from 'angular2/core';
-import {airports}     from '../airports';
+import {airports}     from './airports';
 import * as _ from 'lodash';
 import {SortDirection} from 'e2e4/src/common/sortDirection';
 
@@ -39,6 +39,20 @@ export class AirportsService {
         let data = _.filter(airports, item => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
 
         let result = this.applyPagedRequest(request, data);
+        result.items.forEach(item => item.selected = false);
+        return Promise.resolve(result);
+    }
+    getAirportsBuffered(request: any): Promise<any> {
+        let data = _.filter(airports, item => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
+
+        let result = this.applyBufferedRequest(request, data);
+        result.items.forEach(item => item.selected = false);
+        return Promise.resolve(result);
+    }
+    getAirportsSimple(request: any): Promise<any> {
+        let data = _.filter(airports, item => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
+
+        let result = this.applyRequest(request, data);
         result.items.forEach(item => item.selected = false);
         return Promise.resolve(result);
     }
