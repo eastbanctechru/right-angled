@@ -16,6 +16,7 @@ import {StatusRequestCanceledComponent} from './footer/status-request-canceled.c
 import {StatusFailedComponent} from './footer/status-failed.component';
 import {StatusInitialComponent} from './footer/status-initial.component';
 import {StatusProgressComponent} from './footer/status-progress.component';
+import {TotalRecordsTextComponent} from './footer/total-records-text.component';
 
 export var E2E4_DIRECTIVES: any[] = [
     ListComponent,
@@ -30,5 +31,6 @@ export var E2E4_DIRECTIVES: any[] = [
     StatusRequestCanceledComponent,
     StatusFailedComponent,
     StatusInitialComponent,
-    StatusProgressComponent
+    StatusProgressComponent,
+    TotalRecordsTextComponent
 ];

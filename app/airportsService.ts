@@ -41,7 +41,7 @@ export class AirportsService {
         let result = this.applyPagedRequest(request, data);
         result.items.forEach(item => item.selected = false);
         return new Promise(resolve => {
-            setTimeout(() => { resolve(result); }, 1200);
+            setTimeout(() => { resolve(result); }, 500);
         });
     }
     getAirportsBuffered(request: any): Promise<any> {
@@ -49,7 +49,7 @@ export class AirportsService {
         let result = this.applyBufferedRequest(request, data);
         result.items.forEach(item => item.selected = false);
         return new Promise(resolve => {
-            setTimeout(() => { resolve(result); }, 1200);
+            setTimeout(() => { resolve(result); }, 500);
         });
     }
     getAirportsSimple(request: any): Promise<any> {
@@ -58,7 +58,7 @@ export class AirportsService {
         let result = this.applyRequest(request, data);
         result.items.forEach(item => item.selected = false);
         return new Promise(resolve => {
-            setTimeout(() => { resolve(result); }, 1200);
+            setTimeout(() => { resolve(result); }, 500);
         });
     }
 }

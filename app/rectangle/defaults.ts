@@ -8,4 +8,7 @@ export class Defaults {
     static eventNames = {
         selectableItemClicked: 'selectable-item-clicked'
     };
+    static footerMessages = {
+        listTotalRecordsText: '{0} records displayed'
+    };
 }
