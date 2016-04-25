@@ -40,8 +40,10 @@ export class AirportsService {
 
         let result = this.applyPagedRequest(request, data);
         result.items.forEach(item => item.selected = false);
-        return new Promise(resolve => {
-            setTimeout(() => { resolve(result); }, 500);
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(result);
+            }, 500);
         });
     }
     getAirportsBuffered(request: any): Promise<any> {

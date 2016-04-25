@@ -23,6 +23,8 @@ export class TotalRecordsTextComponent implements DoCheck, OnDestroy {
         this.listHost = listHost;
         this.checkListChangesBinded = this.checkListChanges.bind(this);
         this.checkSelfChangesBinded = this.checkSelfChanges.bind(this);
+        this.setVisibility();
+        this.setDisplayText();
     }
     ngOnDestroy(): void {
         delete this.checkListChangesBinded;
@@ -40,15 +42,21 @@ export class TotalRecordsTextComponent implements DoCheck, OnDestroy {
     }
     checkListChanges(item: any): void {
         if (item.key === 'state' || item.key === 'totalCount') {
-            this.isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.totalCount !== 0;
+            this.setVisibility();
         }
         if (item.key === 'loadedCount') {
-            this.displayText = Utility.formatString(this.text || Defaults.footerMessages.listTotalRecordsText, this.listHost.serviceInstance.loadedCount);
+            this.setDisplayText();
         }
     }
     checkSelfChanges(item: any): void {
         if (item.key === 'text') {
-            this.displayText = Utility.formatString(this.text || Defaults.footerMessages.listTotalRecordsText, this.listHost.serviceInstance.loadedCount);
+            this.setDisplayText();
         }
+    }
+    setDisplayText(): void {
+        this.displayText = Utility.formatString(this.text || Defaults.footerMessages.listTotalRecordsText, this.listHost.serviceInstance.loadedCount);
+    }
+    setVisibility(): void {
+        this.isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.totalCount !== 0;
     }
 }
