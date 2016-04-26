@@ -11,6 +11,7 @@ System.config({
     },
     map:{
         'e2e4': 'node_modules/e2e4',
+		'moment': 'node_modules/moment/moment.js',
         'lodash': 'node_modules/lodash/lodash.js'
     }
 });
