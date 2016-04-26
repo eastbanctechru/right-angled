@@ -1,4 +1,4 @@
-import {Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy} from 'angular2/core';
+import {Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from 'angular2/core';
 import {ListComponent} from '../lists/list.component';
 import {ProgressState} from 'e2e4/src/common/progressState';
 import {Utility} from 'e2e4/src/common/utility';
@@ -8,7 +8,7 @@ import {Defaults} from '../defaults';
     selector: 'rt-total-records-text',
     template: `<span *ngIf="isVisible">{{displayText}}</span>`
 })
-export class TotalRecordsTextComponent implements DoCheck, OnDestroy {
+export class TotalRecordsTextComponent implements DoCheck, OnDestroy, OnInit {
     checkListChangesBinded: (item: any) => void;
     checkSelfChangesBinded: (item: any) => void;
     listDiffers: KeyValueDiffer;
@@ -23,6 +23,8 @@ export class TotalRecordsTextComponent implements DoCheck, OnDestroy {
         this.listHost = listHost;
         this.checkListChangesBinded = this.checkListChanges.bind(this);
         this.checkSelfChangesBinded = this.checkSelfChanges.bind(this);
+    }
+    ngOnInit(): void {
         this.setVisibility();
         this.setDisplayText();
     }

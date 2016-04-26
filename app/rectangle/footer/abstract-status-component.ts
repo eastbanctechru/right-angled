@@ -1,8 +1,8 @@
-import {KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy} from 'angular2/core';
+import {KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from 'angular2/core';
 import {ListComponent} from '../lists/list.component';
 import {ProgressState} from 'e2e4/src/common/progressState';
 
-export abstract class AbstractStatusComponent implements DoCheck, OnDestroy {
+export abstract class AbstractStatusComponent implements DoCheck, OnDestroy, OnInit {
     checkStatusChangesBinded: (item: any) => void;
     listDiffers: KeyValueDiffer;
     isVisible: boolean;
@@ -13,6 +13,8 @@ export abstract class AbstractStatusComponent implements DoCheck, OnDestroy {
         this.listHost = listHost;
         this.listDiffers = differs.find([]).create(null);
         this.checkStatusChangesBinded = this.checkStatusChanges.bind(this);
+    }
+    ngOnInit(): void {
         this.setVisibility();
     }
     ngOnDestroy(): void {
