@@ -6,16 +6,16 @@ import {Defaults} from '../defaults';
 
 @Component({
     selector: 'rt-total-records-text',
-    template: `<span *ngIf="isVisible">{{displayText}}</span>`
+    template: `<span *ngIf="isVisible">{{text}}</span>`
 })
 export class TotalRecordsTextComponent implements DoCheck, OnDestroy, OnInit {
     checkListChangesBinded: (item: any) => void;
     checkSelfChangesBinded: (item: any) => void;
     listDiffers: KeyValueDiffer;
     selfDiffers: KeyValueDiffer;
-    @Input() text;
+    @Input('text') textInput;
     isVisible: boolean;
-    displayText: string;
+    text: string;
     listHost: ListComponent;
     constructor(listHost: ListComponent, differs: KeyValueDiffers) {
         this.listDiffers = differs.find([]).create(null);
@@ -56,7 +56,7 @@ export class TotalRecordsTextComponent implements DoCheck, OnDestroy, OnInit {
         }
     }
     setDisplayText(): void {
-        this.displayText = Utility.formatString(this.text || Defaults.footerMessages.listTotalRecordsText, this.listHost.serviceInstance.loadedCount);
+        this.text = Utility.formatString(this.textInput || Defaults.messages.listTotalRecordsText, this.listHost.serviceInstance.loadedCount);
     }
     setVisibility(): void {
         this.isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.totalCount !== 0;

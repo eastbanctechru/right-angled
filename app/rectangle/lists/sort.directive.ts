@@ -15,13 +15,17 @@ export class SortDirective implements DoCheck, OnInit {
     hostList: ListComponent;
     private differ: any;
     @Input('rt-sort') fieldName: string;
+    @Input('asc-class-name') ascCls: string = Defaults.classNames.loadButtonLoad;
+    @Input('desc-class-name') descCls: string = Defaults.classNames.loadButtonLoad;
+    @Input('sortable-class-name') sortableCls: string = Defaults.classNames.loadButtonLoad;
+    
     constructor(el: ElementRef, differs: IterableDiffers, hostList: ListComponent) {
         this.differ = differs.find([]).create(null);
         this.hostList = hostList;
         this.nativeElement = el.nativeElement;
     }
     ngOnInit(): void {
-        this.nativeElement.classList.add(Defaults.sortAttribute.sortableClassName);
+        this.nativeElement.classList.add(Defaults.classNames.sortable);
         this.hostList.serviceInstance.sortManager.sortings.some(sortParameter => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.sortAdded(sortParameter);
@@ -51,11 +55,11 @@ export class SortDirective implements DoCheck, OnInit {
         }
     }
     sortRemoved(sortParameter: any): void {
-        this.nativeElement.classList.remove(Defaults.sortAttribute.ascClassName, Defaults.sortAttribute.descClassName);
+        this.nativeElement.classList.remove(Defaults.classNames.sortAsc, Defaults.classNames.sortDesc);
     }
     sortAdded(sortParameter: any): void {
         const direction = sortParameter.direction;
-        this.nativeElement.classList.remove(direction === SortDirection.Asc ? Defaults.sortAttribute.descClassName : Defaults.sortAttribute.ascClassName);
-        this.nativeElement.classList.add(direction === SortDirection.Asc ? Defaults.sortAttribute.ascClassName : Defaults.sortAttribute.descClassName);
+        this.nativeElement.classList.remove(direction === SortDirection.Asc ? Defaults.classNames.sortDesc : Defaults.classNames.sortAsc);
+        this.nativeElement.classList.add(direction === SortDirection.Asc ? Defaults.classNames.sortAsc : Defaults.classNames.sortDesc);
     }
 }

@@ -1,14 +1,15 @@
 export class Defaults {
-    static sortAttribute =
+    static classNames =
     {
-        ascClassName: 'sort-asc',
-        descClassName: 'sort-desc',
-        sortableClassName: 'sortable'
+        loadButtonCancel: 'rt-btn-cancel',
+        loadButtonLoad: 'rt-btn-load',
+        sortAsc: 'rt-sort-asc',
+        sortDesc: 'rt-sort-desc',
+        sortable: 'rt-sortable'
     };
-    static eventNames = {
-        selectableItemClicked: 'selectable-item-clicked'
-    };
-    static footerMessages = {
-        listTotalRecordsText: '{0} records displayed'
+    static messages = {
+        listTotalRecordsText: '{0} records displayed',
+        loadButtonCancelRequest: 'Press to stop data loading',
+        loadButtonLoad: 'Load'
     };
 }
