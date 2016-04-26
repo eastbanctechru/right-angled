@@ -113,7 +113,6 @@
                     <td>
                         <rt-row-number [index]="index">
                         </rt-row-number>
-                        <rt-selection-checkbox [for]="item"></rt-selection-checkbox>
                     </td>
                     <td>{{item.iata}}</td>
                     <td>{{item.name}}</td>
@@ -125,21 +124,23 @@
             <tfoot>
                 <tr>
                     <td colspan="6" class="list-pager text-right">
-                        <ul class="pagination">
-                            <li class="disabled">
-                                <a href="#" aria-label="Previous" class="prev"></a>
-                            </li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><span>...</span></li>
-                            <li><a href="#">5</a></li>
-                            <li>
-                                <a href="#" aria-label="Next" class="next"></a>
-                            </li>
-                        </ul>
-                        <span class="text">Display records</span>
-                        <input type="text" class="form-control" maxlength="3" />
+                        <rt-status-no-data>
+                            There are no data found
+                        </rt-status-no-data>
+                        <rt-status-request-canceled>
+                            Data loading was cancelled
+                        </rt-status-request-canceled>
+                        <rt-status-failed>
+                            An error has occured since the last data loading
+                        </rt-status-failed>
+                        <rt-status-initial>
+                            Enter search options and press "Show" button
+                        </rt-status-initial>
+                        <rt-status-progress>
+                            Loading....
+                        </rt-status-progress>
+                        <rt-total-records-text>
+                        </rt-total-records-text>
                     </td>
                 </tr>
             </tfoot>

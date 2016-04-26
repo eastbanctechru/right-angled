@@ -25,6 +25,7 @@ export class AirportsService {
     }
     private applyRequest(request: any, data: any[]): any {
         let response = {
+            loadedCount: data.length,
             totalCount: data.length
         };
         return this.applySortings(request, response, data);
