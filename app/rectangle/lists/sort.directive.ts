@@ -22,9 +22,10 @@ export class SortDirective implements DoCheck, OnInit {
     }
     ngOnInit(): void {
         this.nativeElement.classList.add(Defaults.sortAttribute.sortableClassName);
-        this.hostList.serviceInstance.sortManager.sortings.forEach(sortParameter => {
+        this.hostList.serviceInstance.sortManager.sortings.some(sortParameter => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.sortAdded(sortParameter);
+                return true;
             }
         });
     }
