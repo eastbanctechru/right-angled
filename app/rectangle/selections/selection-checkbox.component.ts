@@ -18,7 +18,6 @@ export class SelectionCheckboxComponent implements OnInit {
             throw new Error('Binded item hasn\'t \'selected\' property and can\'t be used to match ISelectable interface');
         }
     }
-
     changeHandler(evt: Event): void {
         if (this.index === null) {
             this.index = this.selectionArea.selectionManager.getItemIndex(this.item);

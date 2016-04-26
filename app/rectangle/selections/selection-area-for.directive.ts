@@ -22,7 +22,6 @@ export class SelectionAreaForDirective implements OnInit, OnChanges, OnDestroy, 
 
     constructor(el: ElementRef, selectionManager: SelectionManager) {
         this.selectionManager = selectionManager;
-
         this.nativeElement = el.nativeElement;
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }
