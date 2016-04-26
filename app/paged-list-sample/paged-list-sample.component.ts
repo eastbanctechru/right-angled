@@ -9,7 +9,7 @@ import {FooterComponent} from '../footers/footer.component';
     providers: [AirportsService, NgPagedListService],
     templateUrl: 'app/paged-list-sample/paged-list-sample.component.html'
 })
-export class PagedListSampleComponent implements OnInit {
+export class PagedListSampleComponent {
     @filter()
     airportName: string;
     airportsService: AirportsService;
@@ -18,9 +18,6 @@ export class PagedListSampleComponent implements OnInit {
     constructor(airportsService: AirportsService, ngPagedListService: NgPagedListService) {
         this.airportsService = airportsService;
         this.ngPagedListService = ngPagedListService.wrap(this, this.loadData);
-    }
-    ngOnInit(): void {
-        this.ngPagedListService.loadData();
     }
     loadData = (requestParams: any): Promise<any> => {
         return this.airportsService.getAirportsPaged(requestParams).then(result => {

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnDestroy} from 'angular2/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit} from 'angular2/core';
 import {Optional} from 'angular2/core';
 import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
@@ -8,27 +8,23 @@ import {NgSimpleListService} from '../bootstrap/ngSimpleListService';
     selector: 'rt-list',
     template: `<ng-content></ng-content>`
 })
-export class ListComponent implements OnChanges, OnDestroy {
+export class ListComponent implements OnChanges, OnDestroy, OnInit {
     @Input() items: Array<any>;
-    private bufferedListService: NgBufferedListService;
-    private pagedListService: NgPagedListService;
-    private simpleListService: NgSimpleListService;
-    constructor( @Optional() bufferedList: NgBufferedListService, @Optional() pagedList: NgPagedListService, @Optional() simpleList: NgSimpleListService) {
-        this.bufferedListService = bufferedList;
-        this.pagedListService = pagedList;
-        this.simpleListService = simpleList;
+    @Input('load-on-init') loadOnInit: boolean = true;
+    constructor( @Optional() bufferedListService: NgBufferedListService, @Optional() pagedListService: NgPagedListService, @Optional() simpleListService: NgSimpleListService) {
+        this.serviceInstance = simpleListService || bufferedListService || pagedListService;
+        this.isBufferedList = !!bufferedListService;
+        this.isPagedList = !!pagedListService;
+        this.isSimpleList = !!simpleListService;
     }
-    get serviceInstance(): NgSimpleListService | NgBufferedListService | NgPagedListService {
-        return this.simpleListService || this.bufferedListService || this.pagedListService;
-    }
-    get isBufferedList(): boolean {
-        return !!this.bufferedListService;
-    }
-    get isPagedList(): boolean {
-        return !!this.pagedListService;
-    }
-    get isSimpleList(): boolean {
-        return !!this.simpleListService;
+    serviceInstance: NgSimpleListService | NgBufferedListService | NgPagedListService;
+    isBufferedList: boolean;
+    isPagedList: boolean;
+    isSimpleList: boolean;
+    ngOnInit(): void {
+        if (this.loadOnInit && this.serviceInstance.inited) {
+            this.serviceInstance.loadData();
+        }
     }
     ngOnDestroy(): void {
         this.serviceInstance.dispose();
