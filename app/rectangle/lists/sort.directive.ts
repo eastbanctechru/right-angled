@@ -15,10 +15,6 @@ export class SortDirective implements DoCheck, OnInit {
     hostList: ListComponent;
     private differ: any;
     @Input('rt-sort') fieldName: string;
-    @Input('asc-class-name') ascCls: string = Defaults.classNames.loadButtonLoad;
-    @Input('desc-class-name') descCls: string = Defaults.classNames.loadButtonLoad;
-    @Input('sortable-class-name') sortableCls: string = Defaults.classNames.loadButtonLoad;
-    
     constructor(el: ElementRef, differs: IterableDiffers, hostList: ListComponent) {
         this.differ = differs.find([]).create(null);
         this.hostList = hostList;
