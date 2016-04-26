@@ -11,10 +11,7 @@ import { DROPDOWN_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
         DROPDOWN_DIRECTIVES
     ],
     selector: 'angular-app',
-    templateUrl: 'app/app.html',
-    providers: [
-        ROUTER_PROVIDERS
-    ]
+    templateUrl: 'app/app.html'
 })
 @RouteConfig([
     { component: PagedListSampleComponent, name: 'PagedListSample', path: '/paged-list-sample', useAsDefault: true },
