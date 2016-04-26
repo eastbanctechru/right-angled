@@ -172,6 +172,15 @@ body {
         display: inline-block;
         width: 50px;
         vertical-align: middle; }
+      .table tfoot tr td.list-pager .link {
+        color: #4fc3f7;
+        margin: 0 3px;
+        -ms-opacity: 0.85;
+        opacity: 0.85; }
+        .table tfoot tr td.list-pager .link:hover, .table tfoot tr td.list-pager .link:focus {
+          -ms-opacity: 1;
+          opacity: 1;
+          text-decoration: none; }
 
 /*table*/
 /*sortable*/
