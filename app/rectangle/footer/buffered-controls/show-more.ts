@@ -1,5 +1,5 @@
 import {Directive, KeyValueDiffers} from 'angular2/core';
-import {ListComponent} from '../../lists/list.component';
+import {RtList} from '../../lists/list';
 import {ProgressState} from 'e2e4/src/common/progressState';
 
 @Directive({
@@ -8,9 +8,9 @@ import {ProgressState} from 'e2e4/src/common/progressState';
     },
     selector: '[rt-show-more]'
 })
-export class ShowMoreDirective {
-    listHost: ListComponent;
-    constructor(listHost: ListComponent) {
+export class RtShowMore {
+    listHost: RtList;
+    constructor(listHost: RtList) {
         this.listHost = listHost;
     }
     loadMore(): void {

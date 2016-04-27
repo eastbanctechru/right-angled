@@ -1,5 +1,5 @@
 import {Directive, HostBinding} from 'angular2/core';
-import {ListComponent} from './list.component';
+import {RtList} from './list';
 
 @Directive({
     host: {
@@ -7,9 +7,9 @@ import {ListComponent} from './list.component';
     },
     selector: '[rt-reset-button]'
 })
-export class ResetButtonDirective {
-    hostList: ListComponent;
-    constructor(hostList: ListComponent) {
+export class RtResetButton {
+    hostList: RtList;
+    constructor(hostList: RtList) {
         this.hostList = hostList;
     }
     resetFilters(): void {

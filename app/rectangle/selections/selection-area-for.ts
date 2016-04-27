@@ -11,7 +11,7 @@ import {SelectionEventsHelper} from 'e2e4/src/selectionEventsHelper';
     providers: [SelectionManager],
     selector: '[rt-selection-area-for]'
 })
-export class SelectionAreaForDirective implements OnInit, OnChanges, OnDestroy, ISelectionConfig {
+export class RtSelectionAreaFor implements OnInit, OnChanges, OnDestroy, ISelectionConfig {
     private nativeElement: HTMLElement;
     selectionEventsHelper: SelectionEventsHelper;
     selectionManager: SelectionManager;

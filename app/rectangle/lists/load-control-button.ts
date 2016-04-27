@@ -1,7 +1,7 @@
 import {Directive, Input, HostBinding, KeyValueDiffers} from 'angular2/core';
-import {ListComponent} from './list.component';
+import {RtList} from './list';
 import {Defaults} from '../defaults';
-import {LoadControlBaseDirective} from './load-control-base.directive';
+import {RtLoadControlBase} from './load-control-base';
 
 @Directive({
     host: {
@@ -9,8 +9,8 @@ import {LoadControlBaseDirective} from './load-control-base.directive';
     },
     selector: 'input[rt-load-button], button[rt-load-button]'
 })
-export class LoadControlButtonDirective extends LoadControlBaseDirective {
-    constructor(hostList: ListComponent, differs: KeyValueDiffers) {
+export class RtLoadControlButton extends RtLoadControlBase {
+    constructor(hostList: RtList, differs: KeyValueDiffers) {
         super(hostList, differs);
     }
     @HostBinding('title')

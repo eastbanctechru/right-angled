@@ -1,14 +1,14 @@
 import {KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from 'angular2/core';
-import {ListComponent} from '../lists/list.component';
+import {RtList} from '../lists/list';
 import {ProgressState} from 'e2e4/src/common/progressState';
 
-export abstract class AbstractStatusComponent implements DoCheck, OnDestroy, OnInit {
+export abstract class RtStatusControlBase implements DoCheck, OnDestroy, OnInit {
     checkStatusChangesBinded: (item: any) => void;
     listDiffers: KeyValueDiffer;
     isVisible: boolean;
     statusForCheck: ProgressState;
-    listHost: ListComponent;
-    constructor(listHost: ListComponent, differs: KeyValueDiffers, statusForCheck: ProgressState) {
+    listHost: RtList;
+    constructor(listHost: RtList, differs: KeyValueDiffers, statusForCheck: ProgressState) {
         this.statusForCheck = statusForCheck;
         this.listHost = listHost;
         this.listDiffers = differs.find([]).create(null);

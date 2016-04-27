@@ -3,51 +3,51 @@ export {NgBufferedListService} from './bootstrap/ngBufferedListService';
 export {NgSimpleListService} from './bootstrap/ngSimpleListService';
 export {Defaults} from './defaults';
 
-import {ListComponent} from './lists/list.component';
-import {LoadControlButtonDirective} from './lists/load-control-button.directive';
-import {LoadControlBaseDirective} from './lists/load-control-base.directive';
-import {ResetButtonDirective} from './lists/reset-button.directive';
-import {RowNumberComponent} from './lists/row-number.component';
-import {SortDirective} from './lists/sort.directive';
-import {SelectionAreaForDirective} from './selections/selection-area-for.directive';
-import {SelectableItemDirective} from './selections/selectable-item.directive';
-import {SelectionCheckboxComponent} from './selections/selection-checkbox.component';
-import {StatusNoDataComponent} from './footer/status-no-data.component';
-import {StatusRequestCanceledComponent} from './footer/status-request-canceled.component';
-import {StatusFailedComponent} from './footer/status-failed.component';
-import {StatusInitialComponent} from './footer/status-initial.component';
-import {StatusProgressComponent} from './footer/status-progress.component';
-import {TotalRecordsTextComponent} from './footer/total-records-text.component';
-import {ShowMoreDirective} from './footer/buffered-controls/show-more.directive';
+import {RtList} from './lists/list';
+import {RtLoadControlButton} from './lists/load-control-button';
+import {RtLoadControlBase} from './lists/load-control-base';
+import {RtResetButton} from './lists/reset-button';
+import {RtRowNumber} from './lists/row-number';
+import {RtSort} from './lists/sort';
+import {RtSelectionAreaFor} from './selections/selection-area-for';
+import {RtSelectableItem} from './selections/selectable-item';
+import {RtSelectionCheckbox} from './selections/selection-checkbox';
+import {RtStatusNoData} from './footer/status-no-data';
+import {RtStatusRequestCanceled} from './footer/status-request-canceled';
+import {RtStatusFailed} from './footer/status-failed';
+import {RtStatusInitial} from './footer/status-initial';
+import {RtStatusProgress} from './footer/status-progress';
+import {RtTotalRecordsText} from './footer/total-records-text';
+import {RtShowMore} from './footer/buffered-controls/show-more';
 
 export var FOOTER_DIRECTIVES: any[] = [
-    StatusNoDataComponent,
-    StatusRequestCanceledComponent,
-    StatusFailedComponent,
-    StatusInitialComponent,
-    StatusProgressComponent,
-    TotalRecordsTextComponent,
-    ShowMoreDirective];
+    RtStatusNoData,
+    RtStatusRequestCanceled,
+    RtStatusFailed,
+    RtStatusInitial,
+    RtStatusProgress,
+    RtTotalRecordsText,
+    RtShowMore];
 
 export var SELECTION_DIRECTIVES: any[] = [
-    SelectionAreaForDirective,
-    SelectableItemDirective,
-    SelectionCheckboxComponent];
+    RtSelectionAreaFor,
+    RtSelectableItem,
+    RtSelectionCheckbox];
 
 export var RECTANGLE_DIRECTIVES: any[] = [
-    ListComponent,
-    LoadControlButtonDirective,
-    ResetButtonDirective,
-    RowNumberComponent,
-    SortDirective,
-    SelectionAreaForDirective,
-    SelectableItemDirective,
-    SelectionCheckboxComponent,
-    StatusNoDataComponent,
-    StatusRequestCanceledComponent,
-    StatusFailedComponent,
-    StatusInitialComponent,
-    StatusProgressComponent,
-    TotalRecordsTextComponent,
-    ShowMoreDirective
+    RtList,
+    RtLoadControlButton,
+    RtResetButton,
+    RtRowNumber,
+    RtSort,
+    RtSelectionAreaFor,
+    RtSelectableItem,
+    RtSelectionCheckbox,
+    RtStatusNoData,
+    RtStatusRequestCanceled,
+    RtStatusFailed,
+    RtStatusInitial,
+    RtStatusProgress,
+    RtTotalRecordsText,
+    RtShowMore
 ];

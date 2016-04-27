@@ -1,5 +1,5 @@
 import {Directive, Input, HostBinding, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from 'angular2/core';
-import {ListComponent} from './list.component';
+import {RtList} from './list';
 import {Defaults} from '../defaults';
 
 @Directive({
@@ -8,10 +8,10 @@ import {Defaults} from '../defaults';
     },
     selector: '[rt-load-button]:not(input), [rt-load-button]:not(button)'
 })
-export class LoadControlBaseDirective implements DoCheck, OnDestroy, OnInit {
+export class RtLoadControlBase implements DoCheck, OnDestroy, OnInit {
     checkBusyFlagChangedBinded: (item: any) => void;
     listDiffers: KeyValueDiffer;
-    listHost: ListComponent;
+    listHost: RtList;
     @HostBinding('title')
     title: string;
     @HostBinding('class.' + Defaults.classNames.loadButtonLoad)
@@ -19,7 +19,7 @@ export class LoadControlBaseDirective implements DoCheck, OnDestroy, OnInit {
     @HostBinding('class.' + Defaults.classNames.loadButtonCancel)
     displayCancelCls: boolean;
 
-    constructor(hostList: ListComponent, differs: KeyValueDiffers) {
+    constructor(hostList: RtList, differs: KeyValueDiffers) {
         this.listHost = hostList;
         this.listDiffers = differs.find([]).create(null);
         this.checkBusyFlagChangedBinded = this.checkStatusChanges.bind(this);

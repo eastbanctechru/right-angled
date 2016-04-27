@@ -1,8 +1,8 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
-import {PagedListSampleComponent} from './paged-list-sample/paged-list-sample.component';
-import {BufferedListSampleComponent} from './buffered-list-sample/buffered-list-sample.component';
-import {SimpleListSampleComponent} from './simple-list-sample/simple-list-sample.component';
+import {PagedListSample} from './paged-list-sample/paged-list-sample';
+import {BufferedListSample} from './buffered-list-sample/buffered-list-sample';
+import {SimpleListSample} from './simple-list-sample/simple-list-sample';
 import { DROPDOWN_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 
 
@@ -12,9 +12,9 @@ import { DROPDOWN_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
     templateUrl: 'app/app.html'
 })
 @RouteConfig([
-    { component: PagedListSampleComponent, name: 'PagedListSample', path: '/paged-list-sample', useAsDefault: true },
-    { component: BufferedListSampleComponent, name: 'BufferedListSample', path: '/buffered-list-sample' },
-    { component: SimpleListSampleComponent, name: 'SimpleListSample', path: '/simple-list-sample' }
+    { component: PagedListSample, name: 'PagedListSample', path: '/paged-list-sample', useAsDefault: true },
+    { component: BufferedListSample, name: 'BufferedListSample', path: '/buffered-list-sample' },
+    { component: SimpleListSample, name: 'SimpleListSample', path: '/simple-list-sample' }
 ])
 export class App {
 

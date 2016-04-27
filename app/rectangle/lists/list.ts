@@ -8,7 +8,7 @@ import {NgSimpleListService} from '../bootstrap/ngSimpleListService';
     selector: 'rt-list',
     template: `<ng-content></ng-content>`
 })
-export class ListComponent implements OnChanges, OnDestroy, OnInit {
+export class RtList implements OnChanges, OnDestroy, OnInit {
     @Input() items: Array<any>;
     @Input('load-on-init') loadOnInit: boolean = true;
     constructor( @Optional() bufferedListService: NgBufferedListService, @Optional() pagedListService: NgPagedListService, @Optional() simpleListService: NgSimpleListService) {

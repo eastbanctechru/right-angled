@@ -1,6 +1,6 @@
 import {Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from 'angular2/core';
 import {NgPagedListService} from '../bootstrap/NgPagedListService';
-import {ListComponent} from '../lists/list.component';
+import {RtList} from '../lists/list';
 import {ProgressState} from 'e2e4/src/common/progressState';
 import {Utility} from 'e2e4/src/common/utility';
 import {Defaults} from '../defaults';
@@ -9,7 +9,7 @@ import {Defaults} from '../defaults';
     selector: 'rt-total-records-text',
     template: `<span *ngIf="isVisible">{{text}}</span>`
 })
-export class TotalRecordsTextComponent implements DoCheck, OnDestroy, OnInit {
+export class RtTotalRecordsText implements DoCheck, OnDestroy, OnInit {
     checkListChangesBinded: (item: any) => void;
     checkSelfChangesBinded: (item: any) => void;
     listDiffers: KeyValueDiffer;
@@ -17,8 +17,8 @@ export class TotalRecordsTextComponent implements DoCheck, OnDestroy, OnInit {
     @Input('text') textInput;
     isVisible: boolean;
     text: string;
-    listHost: ListComponent;
-    constructor(listHost: ListComponent, differs: KeyValueDiffers) {
+    listHost: RtList;
+    constructor(listHost: RtList, differs: KeyValueDiffers) {
         this.listDiffers = differs.find([]).create(null);
         this.selfDiffers = differs.find([]).create(null);
         this.listHost = listHost;

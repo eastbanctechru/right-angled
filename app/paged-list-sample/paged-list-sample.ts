@@ -2,14 +2,14 @@ import {Component, OnInit} from 'angular2/core';
 import {AirportsService} from '../airportsService';
 import {filter} from 'e2e4/src/filterAnnotation';
 import {RECTANGLE_DIRECTIVES, NgPagedListService} from '../rectangle/main';
-import {FooterComponent} from '../footers/footer.component';
+import {Footer} from '../footers/footer';
 
 @Component({
-    directives: [RECTANGLE_DIRECTIVES, FooterComponent],
+    directives: [RECTANGLE_DIRECTIVES, Footer],
     providers: [AirportsService, NgPagedListService],
-    templateUrl: 'app/paged-list-sample/paged-list-sample.component.html'
+    templateUrl: 'app/paged-list-sample/paged-list-sample.html'
 })
-export class PagedListSampleComponent {
+export class PagedListSample {
     @filter()
     airportName: string;
     airportsService: AirportsService;

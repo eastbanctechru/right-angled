@@ -1,6 +1,6 @@
 import {Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from 'angular2/core';
 import {Defaults} from '../defaults';
-import {ListComponent} from './list.component';
+import {RtList} from './list';
 import {SortDirection} from 'e2e4/src/common/SortDirection';
 
 
@@ -10,12 +10,12 @@ import {SortDirection} from 'e2e4/src/common/SortDirection';
     },
     selector: '[rt-sort]'
 })
-export class SortDirective implements DoCheck, OnInit {
+export class RtSort implements DoCheck, OnInit {
     private nativeElement: HTMLElement;
-    hostList: ListComponent;
+    hostList: RtList;
     private differ: any;
     @Input('rt-sort') fieldName: string;
-    constructor(el: ElementRef, differs: IterableDiffers, hostList: ListComponent) {
+    constructor(el: ElementRef, differs: IterableDiffers, hostList: RtList) {
         this.differ = differs.find([]).create(null);
         this.hostList = hostList;
         this.nativeElement = el.nativeElement;

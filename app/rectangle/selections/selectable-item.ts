@@ -1,17 +1,17 @@
 import {Directive, Input} from 'angular2/core';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
-import {SelectionAreaForDirective} from './selection-area-for.directive';
+import {RtSelectionAreaFor} from './selection-area-for';
 @Directive({
     host: {
         '(mouseup)': 'mouseUpHandler($event)'
     },
     selector: '[rt-selectable-item]'
 })
-export class SelectableItemDirective {
-    private selectionArea: SelectionAreaForDirective;
+export class RtSelectableItem {
+    private selectionArea: RtSelectionAreaFor;
     @Input('rt-selectable-item') item: ISelectable;
     private index: number = null;
-    constructor(selectionArea: SelectionAreaForDirective) {
+    constructor(selectionArea: RtSelectionAreaFor) {
         this.selectionArea = selectionArea;
     }
     mouseUpHandler(event: MouseEvent): void {

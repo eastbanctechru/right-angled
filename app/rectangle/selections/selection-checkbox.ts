@@ -1,16 +1,16 @@
 import { Component, Input, OnInit } from 'angular2/core';
-import {SelectionAreaForDirective} from './selection-area-for.directive';
+import {RtSelectionAreaFor} from './selection-area-for';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
 
 @Component({
     selector: 'rt-selection-checkbox',
     template: '<input type="checkbox" (change)="changeHandler($event)" [checked]="item.selected"/>'
 })
-export class SelectionCheckboxComponent implements OnInit {
-    private selectionArea: SelectionAreaForDirective;
+export class RtSelectionCheckbox implements OnInit {
+    private selectionArea: RtSelectionAreaFor;
     @Input('for') item: ISelectable;
     private index: number = null;
-    constructor(selectionArea: SelectionAreaForDirective) {
+    constructor(selectionArea: RtSelectionAreaFor) {
         this.selectionArea = selectionArea;
     }
     ngOnInit(): void {

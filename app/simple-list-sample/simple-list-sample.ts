@@ -1,13 +1,14 @@
 import {Component} from 'angular2/core';
 import {AirportsService} from '../airportsService';
 import {filter} from 'e2e4/src/filterAnnotation';
-import {NgSimpleListService} from '../rectangle/main';
-
+import {RECTANGLE_DIRECTIVES, NgSimpleListService} from '../rectangle/main';
+import {Footer} from '../footers/footer';
 @Component({
+    directives: [RECTANGLE_DIRECTIVES, Footer],
     providers: [AirportsService, NgSimpleListService],
-    templateUrl: 'app/simple-list-sample/simple-list-sample.component.html'
+    templateUrl: 'app/simple-list-sample/simple-list-sample.html'
 })
-export class SimpleListSampleComponent {
+export class SimpleListSample {
     @filter()
     airportName: string;
     airportsService: AirportsService;
