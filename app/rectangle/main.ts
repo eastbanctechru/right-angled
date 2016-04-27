@@ -18,6 +18,7 @@ import {StatusFailedComponent} from './footer/status-failed.component';
 import {StatusInitialComponent} from './footer/status-initial.component';
 import {StatusProgressComponent} from './footer/status-progress.component';
 import {TotalRecordsTextComponent} from './footer/total-records-text.component';
+import {ShowMoreDirective} from './footer/buffered-controls/show-more.directive';
 
 export var FOOTER_DIRECTIVES: any[] = [
     StatusNoDataComponent,
@@ -25,7 +26,8 @@ export var FOOTER_DIRECTIVES: any[] = [
     StatusFailedComponent,
     StatusInitialComponent,
     StatusProgressComponent,
-    TotalRecordsTextComponent];
+    TotalRecordsTextComponent,
+    ShowMoreDirective];
 
 export var SELECTION_DIRECTIVES: any[] = [
     SelectionAreaForDirective,
@@ -46,5 +48,6 @@ export var RECTANGLE_DIRECTIVES: any[] = [
     StatusFailedComponent,
     StatusInitialComponent,
     StatusProgressComponent,
-    TotalRecordsTextComponent
+    TotalRecordsTextComponent,
+    ShowMoreDirective
 ];

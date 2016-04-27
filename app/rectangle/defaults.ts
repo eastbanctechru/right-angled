@@ -8,8 +8,10 @@ export class Defaults {
         sortable: 'rt-sortable'
     };
     static messages = {
-        listTotalRecordsText: '{0} records displayed',
+        bufferedListTotalRecordsText: 'Loaded records {0} of {1} ',
         loadButtonCancelRequest: 'Press to stop data loading',
-        loadButtonLoad: 'Load'
+        loadButtonLoad: 'Load data',
+        pagedListTotalRecordsText: 'Displaying records {0} - {1} of {2}.',
+        simpleListTotalRecordsText: '{0} records displayed'
     };
 }

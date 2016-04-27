@@ -1,4 +1,5 @@
 import {Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from 'angular2/core';
+import {NgPagedListService} from '../bootstrap/NgPagedListService';
 import {ListComponent} from '../lists/list.component';
 import {ProgressState} from 'e2e4/src/common/progressState';
 import {Utility} from 'e2e4/src/common/utility';
@@ -56,7 +57,13 @@ export class TotalRecordsTextComponent implements DoCheck, OnDestroy, OnInit {
         }
     }
     setDisplayText(): void {
-        this.text = Utility.formatString(this.textInput || Defaults.messages.listTotalRecordsText, this.listHost.serviceInstance.loadedCount);
+        if (this.listHost.isSimpleList) {
+            this.text = Utility.formatString(this.textInput || Defaults.messages.simpleListTotalRecordsText, this.listHost.serviceInstance.loadedCount);
+        } else if (this.listHost.isBufferedList) {
+            this.text = Utility.formatString(this.textInput || Defaults.messages.bufferedListTotalRecordsText, this.listHost.serviceInstance.loadedCount, this.listHost.serviceInstance.totalCount);
+        } else if (this.listHost.isPagedList) {
+            this.text = Utility.formatString(this.textInput || Defaults.messages.pagedListTotalRecordsText, (<NgPagedListService>this.listHost.serviceInstance).displayFrom, (<NgPagedListService>this.listHost.serviceInstance).displayTo, this.listHost.serviceInstance.totalCount);
+        }
     }
     setVisibility(): void {
         this.isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.totalCount !== 0;

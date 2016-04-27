@@ -2,9 +2,10 @@ import {Component, OnInit} from 'angular2/core';
 import {AirportsService} from '../airportsService';
 import {filter} from 'e2e4/src/filterAnnotation';
 import {RECTANGLE_DIRECTIVES, NgPagedListService} from '../rectangle/main';
+import {FooterComponent} from '../footers/footer.component';
 
 @Component({
-    directives: [RECTANGLE_DIRECTIVES],
+    directives: [RECTANGLE_DIRECTIVES, FooterComponent],
     providers: [AirportsService, NgPagedListService],
     templateUrl: 'app/paged-list-sample/paged-list-sample.component.html'
 })
