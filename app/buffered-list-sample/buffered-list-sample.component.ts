@@ -1,11 +1,11 @@
 import {Component} from 'angular2/core';
 import {AirportsService} from '../airportsService';
 import {filter} from 'e2e4/src/filterAnnotation';
-import {E2E4_DIRECTIVES, NgBufferedListService} from '../rectangle/main';
+import {RECTANGLE_DIRECTIVES, NgBufferedListService} from '../rectangle/main';
 import {FooterComponent} from '../footers/footer.component';
 
 @Component({
-    directives: [E2E4_DIRECTIVES, FooterComponent],
+    directives: [RECTANGLE_DIRECTIVES, FooterComponent],
     providers: [AirportsService, NgBufferedListService],
     templateUrl: 'app/buffered-list-sample/buffered-list-sample.component.html'
 })

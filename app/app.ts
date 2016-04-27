@@ -5,11 +5,9 @@ import {BufferedListSampleComponent} from './buffered-list-sample/buffered-list-
 import {SimpleListSampleComponent} from './simple-list-sample/simple-list-sample.component';
 import { DROPDOWN_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 
+
 @Component({
-    directives: [
-        ROUTER_DIRECTIVES,
-        DROPDOWN_DIRECTIVES
-    ],
+    directives: [ROUTER_DIRECTIVES, DROPDOWN_DIRECTIVES],
     selector: 'angular-app',
     templateUrl: 'app/app.html'
 })

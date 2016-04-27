@@ -19,7 +19,20 @@ import {StatusInitialComponent} from './footer/status-initial.component';
 import {StatusProgressComponent} from './footer/status-progress.component';
 import {TotalRecordsTextComponent} from './footer/total-records-text.component';
 
-export var E2E4_DIRECTIVES: any[] = [
+export var FOOTER_DIRECTIVES: any[] = [
+    StatusNoDataComponent,
+    StatusRequestCanceledComponent,
+    StatusFailedComponent,
+    StatusInitialComponent,
+    StatusProgressComponent,
+    TotalRecordsTextComponent];
+
+export var SELECTION_DIRECTIVES: any[] = [
+    SelectionAreaForDirective,
+    SelectableItemDirective,
+    SelectionCheckboxComponent];
+
+export var RECTANGLE_DIRECTIVES: any[] = [
     ListComponent,
     LoadControlButtonDirective,
     ResetButtonDirective,

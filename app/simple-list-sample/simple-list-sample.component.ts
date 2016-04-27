@@ -1,11 +1,9 @@
 import {Component} from 'angular2/core';
 import {AirportsService} from '../airportsService';
 import {filter} from 'e2e4/src/filterAnnotation';
-import {E2E4_DIRECTIVES, NgSimpleListService} from '../rectangle/main';
-import {FooterComponent} from '../footers/footer.component';
+import {NgSimpleListService} from '../rectangle/main';
 
 @Component({
-    directives: [E2E4_DIRECTIVES, FooterComponent],
     providers: [AirportsService, NgSimpleListService],
     templateUrl: 'app/simple-list-sample/simple-list-sample.component.html'
 })
