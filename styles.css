@@ -29,7 +29,7 @@ body {
   .form-control:hover, .form-control:focus {
     -webkit-box-shadow: 0 0 3px 0 #eeeeee;
     box-shadow: 0 0 3px 0 #eeeeee;
-    border-color: #eeeeee; }
+    border-color: #4fc3f7; }
 
 .has-feedback .form-control {
   padding-right: 34px; }

@@ -67,7 +67,7 @@ body {
     &:hover,
     &:focus {
         @include box-shadow(0 0 3px 0 $color-gray);
-        border-color: $color-gray;
+        border-color: $color-light-blue;
     }
 }
 
