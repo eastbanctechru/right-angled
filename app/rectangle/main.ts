@@ -18,7 +18,7 @@ import {RtStatusFailed} from './footer/status-failed';
 import {RtStatusInitial} from './footer/status-initial';
 import {RtStatusProgress} from './footer/status-progress';
 import {RtTotalRecordsText} from './footer/total-records-text';
-import {RtShowMore} from './footer/buffered-controls/show-more';
+import {RtLoadMore} from './footer/buffered-controls/load-more';
 
 export var FOOTER_DIRECTIVES: any[] = [
     RtStatusNoData,
@@ -27,7 +27,7 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtStatusInitial,
     RtStatusProgress,
     RtTotalRecordsText,
-    RtShowMore];
+    RtLoadMore];
 
 export var SELECTION_DIRECTIVES: any[] = [
     RtSelectionAreaFor,
@@ -49,5 +49,5 @@ export var RECTANGLE_DIRECTIVES: any[] = [
     RtStatusInitial,
     RtStatusProgress,
     RtTotalRecordsText,
-    RtShowMore
+    RtLoadMore
 ];

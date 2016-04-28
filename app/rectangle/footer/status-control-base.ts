@@ -6,10 +6,10 @@ export abstract class RtStatusControlBase implements DoCheck, OnDestroy, OnInit 
     checkStatusChangesBinded: (item: any) => void;
     listDiffers: KeyValueDiffer;
     isVisible: boolean;
-    statusForCheck: ProgressState;
+    visibleState: ProgressState;
     listHost: RtList;
-    constructor(listHost: RtList, differs: KeyValueDiffers, statusForCheck: ProgressState) {
-        this.statusForCheck = statusForCheck;
+    constructor(listHost: RtList, differs: KeyValueDiffers, visibleState: ProgressState) {
+        this.visibleState = visibleState;
         this.listHost = listHost;
         this.listDiffers = differs.find([]).create(null);
         this.checkStatusChangesBinded = this.checkStatusChanges.bind(this);
@@ -32,6 +32,6 @@ export abstract class RtStatusControlBase implements DoCheck, OnDestroy, OnInit 
         }
     }
     setVisibility(): void {
-        this.isVisible = this.listHost.serviceInstance.state === this.statusForCheck;
+        this.isVisible = this.listHost.serviceInstance.state === this.visibleState;
     }
 }
