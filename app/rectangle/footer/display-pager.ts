@@ -13,8 +13,7 @@ export class RtDisplayPager extends RtStatusControlBase {
         super(listHost, differs, ProgressState.Done);
     }
     checkStateChanges(item: any): void {
-        super.checkStateChanges(item);
-        if (item.key === 'state' || item.key === 'totalCount') {
+        if (item.key === 'state' || item.key === 'totalCount' || (this.listHost.isBufferedList && item.key === 'skip')) {
             this.setVisibility();
         }
     }

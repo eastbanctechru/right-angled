@@ -20,6 +20,7 @@ import {RtStatusProgress} from './footer/status-progress';
 import {RtTotalRecordsText} from './footer/total-records-text';
 import {RtDisplayPager} from './footer/display-pager';
 import {RtLoadMore} from './footer/buffered-controls/load-more';
+import {RtTakeRowCount} from './footer/buffered-controls/take-row-count';
 
 export var FOOTER_DIRECTIVES: any[] = [
     RtStatusNoData,
@@ -29,7 +30,8 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtStatusProgress,
     RtTotalRecordsText,
     RtDisplayPager,
-    RtLoadMore];
+    RtLoadMore,
+    RtTakeRowCount];
 
 export var SELECTION_DIRECTIVES: any[] = [
     RtSelectionAreaFor,
@@ -52,5 +54,6 @@ export var RECTANGLE_DIRECTIVES: any[] = [
     RtStatusProgress,
     RtTotalRecordsText,
     RtDisplayPager,
-    RtLoadMore
+    RtLoadMore,
+    RtTakeRowCount
 ];

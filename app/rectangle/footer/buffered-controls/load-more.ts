@@ -1,5 +1,6 @@
 import {Directive} from 'angular2/core';
 import {RtList} from '../../lists/list';
+import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 
 @Directive({
     host: {
@@ -8,15 +9,15 @@ import {RtList} from '../../lists/list';
     selector: '[rt-load-more]'
 })
 export class RtLoadMore {
-    listHost: RtList;
+    bufferedListService: NgBufferedListService;
     constructor(listHost: RtList) {
-        this.listHost = listHost;
-        if (!this.listHost.isBufferedList) {
+        if (!listHost.isBufferedList) {
             throw new Error('[rt-load-more] directive can be used only with buffered list services.');
         }
+        this.bufferedListService = <NgBufferedListService>listHost.serviceInstance;
     }
     loadMore(evt: MouseEvent): void {
-        this.listHost.serviceInstance.loadData();
+        this.bufferedListService.loadData();
         evt.preventDefault();
     }
 }
