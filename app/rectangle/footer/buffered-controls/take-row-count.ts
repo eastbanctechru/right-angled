@@ -1,4 +1,4 @@
-import {Component, ChangeDetectorRef} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {RtList} from '../../lists/list';
 import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 import {KeyCodes} from 'e2e4/src/common/keyCodes';
@@ -9,9 +9,7 @@ import {KeyCodes} from 'e2e4/src/common/keyCodes';
 })
 export class RtTakeRowCount {
     bufferedListService: NgBufferedListService;
-    changeDetectorRef: ChangeDetectorRef;
-    constructor(listHost: RtList, changeDetectorRef: ChangeDetectorRef) {
-        this.changeDetectorRef = changeDetectorRef;
+    constructor(listHost: RtList) {
         if (!listHost.isBufferedList) {
             throw new Error('[rt-load-more] directive can be used only with buffered list services.');
         }
@@ -19,9 +17,7 @@ export class RtTakeRowCount {
     }
     onKeyUp(evt: KeyboardEvent): void {
         if (evt.keyCode === KeyCodes.Enter) {
-            this.changeDetectorRef.detach();
             this.bufferedListService.loadData();
-            setTimeout(() => this.changeDetectorRef.reattach());
         }
     }
 }
