@@ -11,6 +11,11 @@ body {
   body * {
     outline: none !important; }
 
+/*rectangle*/
+rt-display-pager > div {
+  display: inline; }
+
+/*rectangle*/
 /*forms*/
 .control-label {
   color: #727272;

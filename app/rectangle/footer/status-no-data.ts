@@ -11,8 +11,8 @@ export class RtStatusNoData extends RtStatusControlBase {
     constructor(listHost: RtList, differs: KeyValueDiffers) {
         super(listHost, differs, ProgressState.Done);
     }
-    checkStatusChanges(item: any): void {
-        super.checkStatusChanges(item);
+    checkStateChanges(item: any): void {
+        super.checkStateChanges(item);
         if (item.key === 'loadedCount') {
             this.setVisibility();
         }

@@ -51,6 +51,13 @@ body {
     }
 }
 
+/*rectangle*/
+rt-display-pager>div
+{
+    display: inline;
+}
+/*rectangle*/
+
 /*forms*/
 .control-label {
     color: $color-muted;

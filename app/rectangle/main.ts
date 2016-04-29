@@ -18,6 +18,7 @@ import {RtStatusFailed} from './footer/status-failed';
 import {RtStatusInitial} from './footer/status-initial';
 import {RtStatusProgress} from './footer/status-progress';
 import {RtTotalRecordsText} from './footer/total-records-text';
+import {RtDisplayPager} from './footer/display-pager';
 import {RtLoadMore} from './footer/buffered-controls/load-more';
 
 export var FOOTER_DIRECTIVES: any[] = [
@@ -27,6 +28,7 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtStatusInitial,
     RtStatusProgress,
     RtTotalRecordsText,
+    RtDisplayPager,
     RtLoadMore];
 
 export var SELECTION_DIRECTIVES: any[] = [
@@ -49,5 +51,6 @@ export var RECTANGLE_DIRECTIVES: any[] = [
     RtStatusInitial,
     RtStatusProgress,
     RtTotalRecordsText,
+    RtDisplayPager,
     RtLoadMore
 ];
