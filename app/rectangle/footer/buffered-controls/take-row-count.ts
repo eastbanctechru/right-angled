@@ -11,11 +11,14 @@ import {MISC_DIRECTIVES} from '../../misc-directives';
 export class RtTakeRowCount {
     bufferedListService: NgBufferedListService;
     private innerRowCount: number;
-    get rowCount(): number {
+    get rowCount(): any {
         return this.innerRowCount;
     }
-    set rowCount(value: number) {
+    set rowCount(value: any) {
         this.innerRowCount = value;
+        if (value === null || value === undefined || value === '') {
+            return;
+        }
         this.bufferedListService.takeRowCount = value;
         setTimeout(() => this.innerRowCount = this.bufferedListService.takeRowCount);
     }
@@ -27,6 +30,7 @@ export class RtTakeRowCount {
         this.innerRowCount = this.bufferedListService.takeRowCount;
     }
     onEnter(evt: KeyboardEvent): void {
+        this.innerRowCount = this.bufferedListService.takeRowCount;
         this.bufferedListService.loadData();
     }
 }
