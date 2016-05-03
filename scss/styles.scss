@@ -65,7 +65,7 @@ rt-display-pager>div
     line-height: 1.5;
 }
 
-.form-control {
+rt-take-row-count>input, .form-control {
     color: $color-black;
     @include border-radius(0);
     @include box-shadow(0 0 3px 0 $color-gray);
@@ -307,7 +307,7 @@ rt-display-pager>div
                         color: $color-muted;
                     }
 
-                    .form-control {
+                    rt-take-row-count>input, .form-control {
                         display: inline-block;
                         width: 50px;
                         text-align: center;

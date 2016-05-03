@@ -22,7 +22,7 @@ rt-display-pager > div {
   font-weight: normal;
   line-height: 1.5; }
 
-.form-control {
+rt-take-row-count>input, .form-control {
   color: #212121;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -31,7 +31,7 @@ rt-display-pager > div {
   -webkit-box-shadow: 0 0 3px 0 #eeeeee;
   box-shadow: 0 0 3px 0 #eeeeee;
   border-color: #eeeeee; }
-  .form-control:hover, .form-control:focus {
+  rt-take-row-count>input:hover, .form-control:hover, rt-take-row-count>input:focus, .form-control:focus {
     -webkit-box-shadow: 0 0 3px 0 #eeeeee;
     box-shadow: 0 0 3px 0 #eeeeee;
     border-color: #4fc3f7; }
@@ -205,6 +205,7 @@ rt-display-pager > div {
         margin-left: 13px;
         vertical-align: middle;
         color: #727272; }
+      .table tfoot tr td.list-pager rt-take-row-count>input, 
       .table tfoot tr td.list-pager .form-control {
         display: inline-block;
         width: 50px;

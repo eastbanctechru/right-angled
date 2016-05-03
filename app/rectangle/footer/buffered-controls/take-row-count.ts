@@ -6,7 +6,7 @@ import {MISC_DIRECTIVES} from '../../misc-directives';
 @Component({
     directives: [MISC_DIRECTIVES],
     selector: 'rt-take-row-count',
-    template: '<input rt-select-on-focus type="text" class="form-control" maxlength="3" (keyup.enter)="onEnter($event)" [(ngModel)]="rowCount"/>'
+    template: '<input rt-select-on-focus type="text" maxlength="3" (keyup.enter)="onEnter($event)" [(ngModel)]="rowCount"/>'
 })
 export class RtTakeRowCount {
     bufferedListService: NgBufferedListService;
