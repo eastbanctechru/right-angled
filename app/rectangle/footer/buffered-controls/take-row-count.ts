@@ -35,7 +35,7 @@ export class RtTakeRowCount implements DoCheck, OnDestroy {
         setTimeout(() => this.innerRowCount = this.bufferedListService.takeRowCount);
     }
     checkRowCountChange(item: any): void {
-        if (item.key === 'takeRowCountInternal' && item.currentValue!==this.innerRowCount) {
+        if (item.key === 'takeRowCountInternal' && item.currentValue !== this.innerRowCount) {
             this.innerRowCount = item.currentValue;
         }
     }
