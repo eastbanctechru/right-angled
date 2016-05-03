@@ -17,7 +17,7 @@ export class RtRowNumber implements OnChanges {
         if (this.listHost.isSimpleList || this.listHost.isBufferedList) {
             this.rowNumber = this.index + 1;
         } else if (this.listHost.isPagedList) {
-            this.rowNumber = this.index + (<NgPagedListService>this.listHost.serviceInstance).displayFrom;
+            this.rowNumber = this.index + (<NgPagedListService>this.listHost.serviceInstance).pager.displayFrom;
         }
     }
 }

@@ -1,14 +1,16 @@
 import {ProgressState} from 'e2e4/src/common/progressState';
 import {SortManager} from 'e2e4/src/SortManager';
 import {ISortManager} from 'e2e4/src/contracts/ISortManager';
-import {SimpleList} from 'e2e4/src/simpleList';
+import {List} from 'e2e4/src/list';
+import {SimplePager} from 'e2e4/src/simplePager';
 import {NullObjectStateManager} from './NullObjectStateManager';
 
-export class NgSimpleListService extends SimpleList {
+export class NgSimpleListService extends List {
     dataReadDelegate: (requestParams: any) => Promise<any>;
     sortManager: ISortManager;
+    pager: SimplePager;
     constructor() {
-        super(new NullObjectStateManager());
+        super(new NullObjectStateManager(), new SimplePager());
         (<NullObjectStateManager>this.stateManager).target = this;
 
         this.sortManager = new SortManager();

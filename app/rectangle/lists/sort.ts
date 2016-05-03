@@ -32,7 +32,7 @@ export class RtSort implements DoCheck, OnInit {
     clickHandler(evt: MouseEvent): void {
         if (this.hostList.serviceInstance.ready) {
             this.hostList.serviceInstance.sortManager.setSort(this.fieldName, evt.ctrlKey);
-            this.hostList.serviceInstance.onSortChangesCompleted();
+            this.hostList.serviceInstance.reloadData();
         }
     }
     ngDoCheck(): void {

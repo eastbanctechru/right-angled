@@ -1,13 +1,15 @@
 import {ISortManager} from 'e2e4/src/contracts/ISortManager';
 import {SortManager} from 'e2e4/src/sortManager';
-import {BufferedList} from 'e2e4/src/bufferedList';
+import {List} from 'e2e4/src/list';
+import {BufferedPager} from 'e2e4/src/bufferedPager';
 import {NullObjectStateManager} from './nullObjectStateManager';
 
-export class NgBufferedListService extends BufferedList {
+export class NgBufferedListService extends List {
     dataReadDelegate: (requestParams: any) => Promise<any>;
     sortManager: ISortManager;
+    pager: BufferedPager;
     constructor() {
-        super(new NullObjectStateManager());
+        super(new NullObjectStateManager(), new BufferedPager());
         (<NullObjectStateManager>this.stateManager).target = this;
 
         this.sortManager = new SortManager();
