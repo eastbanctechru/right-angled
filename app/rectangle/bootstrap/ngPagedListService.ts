@@ -9,6 +9,7 @@ export class NgPagedListService extends List {
     dataReadDelegate: (requestParams: any) => Promise<any>;
     sortManager: ISortManager;
     pager: PagedPager;
+    items: Object[];
     constructor() {
         super(new NullObjectStateManager(), new PagedPager());
         (<NullObjectStateManager>this.stateManager).target = this;
@@ -21,6 +22,11 @@ export class NgPagedListService extends List {
         Utility.disposeAll(this.items);
         return promise;
     }
+    clearData(): void {
+        super.clearData();
+        Utility.disposeAll(this.items);
+    }
+
     dispose(): void {
         this.sortManager.dispose();
         super.dispose();

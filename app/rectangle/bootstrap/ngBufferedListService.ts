@@ -3,11 +3,13 @@ import {SortManager} from 'e2e4/src/sortManager';
 import {List} from 'e2e4/src/list';
 import {BufferedPager} from 'e2e4/src/bufferedPager';
 import {NullObjectStateManager} from './nullObjectStateManager';
+import {Utility} from 'e2e4/src/common/utility';
 
 export class NgBufferedListService extends List {
     dataReadDelegate: (requestParams: any) => Promise<any>;
     sortManager: ISortManager;
     pager: BufferedPager;
+    items: Object[];
     constructor() {
         super(new NullObjectStateManager(), new BufferedPager());
         (<NullObjectStateManager>this.stateManager).target = this;
@@ -15,6 +17,10 @@ export class NgBufferedListService extends List {
         this.sortManager = new SortManager();
         this.filterManager.registerFilterTarget(this.sortManager);
         super.init({});
+    }
+    clearData(): void {
+        super.clearData();
+        Utility.disposeAll(this.items);
     }
     dispose(): void {
         this.sortManager.dispose();
