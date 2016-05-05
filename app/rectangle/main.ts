@@ -24,13 +24,13 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtTakeRowCount];
 
 import {RtSelectionAreaFor} from './selections/selection-area-for';
-import {RtSelectableItem} from './selections/selectable-item';
+import {RtSelectByIndex} from './selections/select-by-index';
 import {RtSelectionCheckbox} from './selections/selection-checkbox';
 
 
 export var SELECTION_DIRECTIVES: any[] = [
     RtSelectionAreaFor,
-    RtSelectableItem,
+    RtSelectByIndex,
     RtSelectionCheckbox];
 
 
@@ -49,7 +49,7 @@ export var RECTANGLE_DIRECTIVES: any[] = [
     RtRowNumber,
     RtSort,
     RtSelectionAreaFor,
-    RtSelectableItem,
+    RtSelectByIndex,
     RtSelectionCheckbox,
     RtStatusNoData,
     RtStatusRequestCanceled,

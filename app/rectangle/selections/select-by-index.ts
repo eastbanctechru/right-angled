@@ -5,19 +5,15 @@ import {RtSelectionAreaFor} from './selection-area-for';
     host: {
         '(mouseup)': 'mouseUpHandler($event)'
     },
-    selector: '[rt-selectable-item]'
+    selector: '[rt-select-by-index]'
 })
-export class RtSelectableItem {
+export class RtSelectByIndex {
     private selectionArea: RtSelectionAreaFor;
-    @Input('rt-selectable-item') item: ISelectable;
-    private index: number = null;
+    @Input('rt-select-by-index') index: number = null;
     constructor(selectionArea: RtSelectionAreaFor) {
         this.selectionArea = selectionArea;
     }
     mouseUpHandler(event: MouseEvent): void {
-        if (this.index === null) {
-            this.index = this.selectionArea.selectionManager.getItemIndex(this.item);
-        }
         this.selectionArea.selectionEventsHelper.mouseHandler(event, this.index);
     }
 }

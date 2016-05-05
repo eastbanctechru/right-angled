@@ -109,7 +109,7 @@
                 </tr>
             </thead>
             <tbody [rt-selection-area-for]="items">
-                <tr *ngFor="#item of items, #index=index" [class.success]="item.selected" [rt-selectable-item]="item">
+                <tr *ngFor="#item of items, #index=index" [class.success]="item.selected" [rt-select-by-index]="index">
                     <td>
                         <rt-row-number [index]="index">
                         </rt-row-number>
