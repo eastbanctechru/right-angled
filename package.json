@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "start": "concurrent \"npm run tsc:w\" \"./node_modules/.bin/http-server -o -p 3333\" "
+    "start": "concurrent \"npm run tsc:w\" \"./node_modules/.bin/http-server -o -p 3333\" ",
+    "typings": "typings",
+    "postinstall": "typings install"
   },
   "repository": {
     "type": "git",
