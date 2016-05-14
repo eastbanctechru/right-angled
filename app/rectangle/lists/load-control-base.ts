@@ -1,11 +1,8 @@
-import {Directive, Input, HostBinding, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from '@angular/core';
+import {Directive, Input, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from '@angular/core';
 import {RtList} from './list';
 import {Defaults} from '../defaults';
 
 @Directive({
-    host: {
-        '(click)': 'loadData()'
-    },
     selector: '[rt-load-button]:not(input), [rt-load-button]:not(button)'
 })
 export class RtLoadControlBase implements DoCheck, OnDestroy, OnInit {
@@ -46,6 +43,7 @@ export class RtLoadControlBase implements DoCheck, OnDestroy, OnInit {
         this.displyLoadCls = !this.listHost.serviceInstance.busy;
         this.displayCancelCls = this.listHost.serviceInstance.busy;
     }
+    @HostListener('click')
     loadData(): void {
         this.listHost.serviceInstance.reloadData();
     }

@@ -1,10 +1,7 @@
-import {Directive, HostBinding} from '@angular/core';
+import {Directive, HostListener} from '@angular/core';
 import {RtList} from './list';
 
 @Directive({
-    host: {
-        '(click)': 'resetFilters()'
-    },
     selector: '[rt-reset-button]'
 })
 export class RtResetButton {
@@ -12,6 +9,7 @@ export class RtResetButton {
     constructor(hostList: RtList) {
         this.hostList = hostList;
     }
+    @HostListener('click')
     resetFilters(): void {
         this.hostList.serviceInstance.filterManager.resetFilters();
     }

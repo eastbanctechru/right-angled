@@ -1,8 +1,5 @@
-import {Directive, ElementRef} from '@angular/core';
+import {Directive, ElementRef, HostListener} from '@angular/core';
 @Directive({
-    host: {
-        '(focus)': 'onFocus($event)'
-    },
     selector: 'input[rt-select-on-focus]'
 })
 export class RtSelectOnFocus {
@@ -10,7 +7,8 @@ export class RtSelectOnFocus {
     constructor(elementRef: ElementRef) {
         this.nativeElement = elementRef.nativeElement;
     }
-    onFocus(evt: MouseEvent): void {
+    @HostListener('focus')
+    onFocus(): void {
         this.nativeElement.select();
     }
 }
