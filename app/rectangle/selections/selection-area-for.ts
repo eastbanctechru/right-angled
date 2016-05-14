@@ -1,4 +1,4 @@
-import {Directive, OnInit, ElementRef, Input, OnChanges, OnDestroy} from 'angular2/core';
+import {Directive, OnInit, ElementRef, Input, OnChanges, OnDestroy} from '@angular/core';
 import {SelectionManager} from 'e2e4/src/selectionManager';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
 import {ISelectionConfig} from 'e2e4/src/contracts/ISelectionConfig';

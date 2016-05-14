@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, Optional} from 'angular2/core';
+import {Component, Input, OnChanges, Optional} from '@angular/core';
 import {RtList} from './list';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 

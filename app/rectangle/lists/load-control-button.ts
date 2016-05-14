@@ -1,4 +1,4 @@
-import {Directive, Input, HostBinding, KeyValueDiffers} from 'angular2/core';
+import {Directive, Input, HostBinding, KeyValueDiffers} from '@angular/core';
 import {RtList} from './list';
 import {Defaults} from '../defaults';
 import {RtLoadControlBase} from './load-control-base';

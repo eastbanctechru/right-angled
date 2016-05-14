@@ -1,4 +1,4 @@
-import {Directive, Input, HostBinding, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from 'angular2/core';
+import {Directive, Input, HostBinding, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from '@angular/core';
 import {RtList} from './list';
 import {Defaults} from '../defaults';
 

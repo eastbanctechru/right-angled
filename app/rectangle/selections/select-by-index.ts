@@ -1,4 +1,4 @@
-import {Directive, Input} from 'angular2/core';
+import {Directive, Input} from '@angular/core';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
 import {RtSelectionAreaFor} from './selection-area-for';
 @Directive({

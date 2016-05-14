@@ -1,4 +1,4 @@
-import {Component, KeyValueDiffers, KeyValueDiffer, ChangeDetectorRef} from 'angular2/core';
+import {Component, KeyValueDiffers, KeyValueDiffer, ChangeDetectorRef} from '@angular/core';
 import {RtList} from '../lists/list';
 import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
 import {ProgressState} from 'e2e4/src/common/progressState';

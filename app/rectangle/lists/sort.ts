@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from 'angular2/core';
+import {Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from '@angular/core';
 import {Defaults} from '../defaults';
 import {RtList} from './list';
 import {SortDirection} from 'e2e4/src/common/sortDirection';

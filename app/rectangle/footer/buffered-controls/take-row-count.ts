@@ -1,4 +1,4 @@
-import {Component, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy} from 'angular2/core';
+import {Component, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy} from '@angular/core';
 import {RtList} from '../../lists/list';
 import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 import {MISC_DIRECTIVES} from '../../misc-directives';

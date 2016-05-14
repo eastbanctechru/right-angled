@@ -1,6 +1,5 @@
 {
     "version": "0.1.0",
-    "command": "node-sass",
-    "isShellCommand": true,
-    "args": ["scss/styles.scss", "styles.css"]
+    "command": "tsc",
+    "isShellCommand": true
 }

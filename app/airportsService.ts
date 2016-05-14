@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {airports}     from './airports';
 import * as _ from 'lodash';
 import {SortDirection} from 'e2e4/src/common/sortDirection';

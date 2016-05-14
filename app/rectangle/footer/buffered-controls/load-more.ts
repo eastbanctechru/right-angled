@@ -1,4 +1,4 @@
-import {Directive} from 'angular2/core';
+import {Directive} from '@angular/core';
 import {RtList} from '../../lists/list';
 import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 

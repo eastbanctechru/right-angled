@@ -1,4 +1,4 @@
-import { Component, Input } from 'angular2/core';
+import { Component, Input } from '@angular/core';
 import {RtSelectionAreaFor} from './selection-area-for';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
 
