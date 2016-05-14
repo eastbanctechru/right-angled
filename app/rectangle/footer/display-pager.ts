@@ -1,4 +1,4 @@
-import {Component, KeyValueDiffers, KeyValueDiffer, ChangeDetectorRef} from '@angular/core';
+import {Component, KeyValueDiffers, KeyValueDiffer} from '@angular/core';
 import {RtList} from '../lists/list';
 import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
 import {ProgressState} from 'e2e4/src/common/progressState';
@@ -9,12 +9,10 @@ import {RtStatusControlBase} from './status-control-base';
     template: `<div *ngIf="isVisible"><ng-content></ng-content></div>`
 })
 export class RtDisplayPager extends RtStatusControlBase {
-    changeDetectorRef: ChangeDetectorRef;
     checkPagerChangesBinded: () => void;
     pagerDiffer: KeyValueDiffer;
-    constructor(listHost: RtList, differs: KeyValueDiffers, changeDetectorRef: ChangeDetectorRef) {
+    constructor(listHost: RtList, differs: KeyValueDiffers) {
         super(listHost, differs, ProgressState.Done);
-        this.changeDetectorRef = changeDetectorRef;
         this.checkPagerChangesBinded = this.checkPagerChanges.bind(this);
         this.pagerDiffer = differs.find([]).create(null);
     }
@@ -40,7 +38,6 @@ export class RtDisplayPager extends RtStatusControlBase {
         }
     }
     setVisibility(): void {
-        this.changeDetectorRef.detectChanges();
         let isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.pager.totalCount !== 0;
         if (this.listHost.isBufferedList) {
             isVisible = isVisible && (<NgBufferedListService>this.listHost.serviceInstance).pager.skip < this.listHost.serviceInstance.pager.totalCount;
