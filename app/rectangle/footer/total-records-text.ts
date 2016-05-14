@@ -1,5 +1,5 @@
 import {Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from 'angular2/core';
-import {NgPagedListService} from '../bootstrap/NgPagedListService';
+import {NgPagedListService} from '../bootstrap/ngPagedListService';
 import {RtList} from '../lists/list';
 import {ProgressState} from 'e2e4/src/common/progressState';
 import {Utility} from 'e2e4/src/common/utility';
