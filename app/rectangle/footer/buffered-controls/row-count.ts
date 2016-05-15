@@ -3,7 +3,7 @@ import {RtList} from '../../lists/list';
 import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 
 @Directive({
-    selector: 'input[rt-take-row-count]'
+    selector: 'input[rt-row-count]'
 })
 export class RtTakeRowCount implements DoCheck, OnDestroy {
     bufferedListService: NgBufferedListService;
@@ -11,7 +11,7 @@ export class RtTakeRowCount implements DoCheck, OnDestroy {
     private checkRowCountChangedBinded: (item: any) => void;
     constructor(listHost: RtList, differs: KeyValueDiffers) {
         if (!listHost.isBufferedList) {
-            throw new Error('[rt-take-row-count] directive can be used only with buffered list services.');
+            throw new Error('[rt-row-count] directive can be used only with buffered list services.');
         }
         this.bufferedListService = <NgBufferedListService>listHost.serviceInstance;
         this.innerRowCount = this.bufferedListService.pager.takeRowCount;

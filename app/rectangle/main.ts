@@ -11,7 +11,7 @@ import {RtStatusProgress} from './footer/status-progress';
 import {RtTotalRecordsText} from './footer/total-records-text';
 import {RtDisplayPager} from './footer/display-pager';
 import {RtLoadMore} from './footer/buffered-controls/load-more';
-import {RtTakeRowCount} from './footer/buffered-controls/take-row-count';
+import {RtTakeRowCount} from './footer/buffered-controls/row-count';
 
 
 import {RtToFirstPage} from './footer/paged-controls/to-first-page';
