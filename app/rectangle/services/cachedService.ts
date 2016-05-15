@@ -6,10 +6,10 @@ export abstract class CachedService extends DataService {
     cache: { [key: string]: any } = {};
 
     wrapWithCache<T extends Function>(fn: T, key: string, expirationPolicy: () => Date | string, withArgs?: boolean): T {
-        return <T>_.wrap(fn, function (initialFn, ...args: any[]) {
-            var cacheKey = !!withArgs ? key + '__' + JSON.stringify(args) : key;
+        return <T>_.wrap(fn, (initialFn: Function, ...args: any[]): Promise<any> => {
+            let cacheKey = !!withArgs ? key + '__' + JSON.stringify(args) : key;
 
-            var promise = this.getCacheValue(cacheKey);
+            let promise = this.getCacheValue(cacheKey);
             if (promise === null) {
                 promise = initialFn.apply(this, args);
                 this.setCacheValue(cacheKey, promise, expirationPolicy());
@@ -21,7 +21,7 @@ export abstract class CachedService extends DataService {
     setCacheValue(key: string, value: any, expiresAt: Date | string): void {
         let cleanDate = typeof expiresAt === 'string' ? new Date(expiresAt) : expiresAt;
 
-        this.cache[key] = { value: value, expiresAt: expiresAt };
+        this.cache[key] = { expiresAt: expiresAt, value: value };
     }
 
     getCacheValue(key: string): any {
@@ -30,7 +30,7 @@ export abstract class CachedService extends DataService {
             return null;
         }
 
-        var now = new Date();
+        let now = new Date();
         if ((val.expiresAt.valueOf() - now.valueOf()) < 0) {
             delete this.cache[key];
             return null;

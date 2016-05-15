@@ -8,12 +8,15 @@ function cancelOn<T>(event: Observable<any>): Observable<T> {
     return this.lift(new CancelOnOperator(event));
 }
 
-interface CancelOnSignature {
+interface ICancelOnSignature {
     <T>(event: Observable<any>): Observable<T>;
 }
 
 class CancelOnOperator<T, R> implements Operator<T, R> {
-    constructor(private event: Observable<any>) {
+    private event: Observable<any>;
+
+    constructor(event: Observable<any>) {
+        this.event = event;
     }
 
     // TODO krozhkov: contract changed in latest version of RxJs.
@@ -33,7 +36,9 @@ class CancelOnSubscriber<T, R> extends Subscriber<T> {
 }
 
 declare module 'rxjs/Observable' {
+    /* tslint:disable:interface-name */
     interface Observable<T> {
-        cancelOn: CancelOnSignature;
+        cancelOn: ICancelOnSignature;
     }
+    /* tslint:enable */
 }

@@ -4,7 +4,7 @@ import {PagedListSample} from './paged-list-sample/paged-list-sample';
 import {BufferedListSample} from './buffered-list-sample/buffered-list-sample';
 import {SimpleListSample} from './simple-list-sample/simple-list-sample';
 import { DROPDOWN_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
-
+import 'rxjs/Rx';
 
 @Component({
     directives: [ROUTER_DIRECTIVES, DROPDOWN_DIRECTIVES],
