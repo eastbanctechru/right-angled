@@ -12,6 +12,14 @@ import {RtTotalRecordsText} from './footer/total-records-text';
 import {RtDisplayPager} from './footer/display-pager';
 import {RtLoadMore} from './footer/buffered-controls/load-more';
 import {RtTakeRowCount} from './footer/buffered-controls/take-row-count';
+
+
+import {RtToFirstPage} from './footer/paged-controls/to-first-page';
+import {RtToLastPage} from './footer/paged-controls/to-last-page';
+import {RtToNextPage} from './footer/paged-controls/to-next-page';
+import {RtToPrevPage} from './footer/paged-controls/to-prev-page';
+
+
 export var FOOTER_DIRECTIVES: any[] = [
     RtStatusNoData,
     RtStatusRequestCanceled,
@@ -21,7 +29,12 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtTotalRecordsText,
     RtDisplayPager,
     RtLoadMore,
-    RtTakeRowCount];
+    RtTakeRowCount,
+    RtToFirstPage,
+    RtToLastPage,
+    RtToNextPage,
+    RtToPrevPage
+];
 
 import {RtSelectionAreaFor} from './selections/selection-area-for';
 import {RtSelectByIndex} from './selections/select-by-index';
@@ -59,5 +72,9 @@ export var RECTANGLE_DIRECTIVES: any[] = [
     RtTotalRecordsText,
     RtDisplayPager,
     RtLoadMore,
-    RtTakeRowCount
+    RtTakeRowCount,
+    RtToFirstPage,
+    RtToLastPage,
+    RtToNextPage,
+    RtToPrevPage
 ];
