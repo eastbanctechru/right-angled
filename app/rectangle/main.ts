@@ -18,6 +18,8 @@ import {RtToFirstPage} from './footer/paged-controls/to-first-page';
 import {RtToLastPage} from './footer/paged-controls/to-last-page';
 import {RtToNextPage} from './footer/paged-controls/to-next-page';
 import {RtToPrevPage} from './footer/paged-controls/to-prev-page';
+import {RtPageSize} from './footer/paged-controls/page-size';
+import {RtPageNumber} from './footer/paged-controls/page-number';
 
 
 export var FOOTER_DIRECTIVES: any[] = [
@@ -33,7 +35,9 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtToFirstPage,
     RtToLastPage,
     RtToNextPage,
-    RtToPrevPage
+    RtToPrevPage,
+    RtPageSize,
+    RtPageNumber
 ];
 
 import {RtSelectionAreaFor} from './selections/selection-area-for';
@@ -76,5 +80,7 @@ export var RECTANGLE_DIRECTIVES: any[] = [
     RtToFirstPage,
     RtToLastPage,
     RtToNextPage,
-    RtToPrevPage
+    RtToPrevPage,
+    RtPageSize,
+    RtPageNumber
 ];

@@ -16,7 +16,7 @@
 <rt-display-pager>
     <span rt-to-first-page class="step-backward disabled" title="go to first page"></span>
     <span rt-to-prev-page class="chevron-left disabled" title="go to previous page"></span>
-    <input type="text" class="form-control" maxlength="4" />
+    <input rt-select-on-focus rt-page-number type="text" class="form-control" maxlength="4" />
     <span rt-to-next-page class="chevron-right" title="go to next page"></span>
     <span rt-to-last-page class="step-forward" title="go to last page"></span>
 
@@ -24,5 +24,5 @@
     </rt-total-records-text>
 
     <span>Page size</span>
-    <input type="text" class="form-control" maxlength="3" />
+    <input rt-select-on-focus rt-page-size type="text" class="form-control" maxlength="3" />
 </rt-display-pager>
