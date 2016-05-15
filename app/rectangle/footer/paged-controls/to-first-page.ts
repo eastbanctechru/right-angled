@@ -1,4 +1,4 @@
-import {Directive, HostListener, HostBinding, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit} from '@angular/core';
+import {Directive, HostListener, HostBinding, KeyValueDiffers, KeyValueDiffer, Input, ElementRef, DoCheck, OnInit} from '@angular/core';
 import {RtList} from '../../lists/list';
 import {NgPagedListService} from '../../bootstrap/ngPagedListService';
 @Directive({
@@ -8,19 +8,23 @@ export class RtToFirstPage implements DoCheck, OnInit {
     pagerDiffer: KeyValueDiffer;
     pagedListService: NgPagedListService;
     innerDisabled: boolean = false;
+    elementRef: ElementRef;
     private checkPageNumberChangedBinded: (item: any) => void;
-    constructor(listHost: RtList, differs: KeyValueDiffers) {
+    constructor(listHost: RtList, differs: KeyValueDiffers, elementRef: ElementRef) {
         if (!listHost.isPagedList) {
             throw new Error('[rt-to-first-page] directive can be used only with paged list services.');
         }
         this.pagedListService = <NgPagedListService>listHost.serviceInstance;
         this.pagerDiffer = differs.find([]).create(null);
         this.checkPageNumberChangedBinded = this.checkPageNumberChanged.bind(this);
+        this.elementRef = elementRef;
     }
     @HostListener('click')
     goToFirstPage(): void {
         this.pagedListService.goToFirstPage();
     }
+    @Input('rt-disabled-cls')
+    disabledCls: string;
 
     @HostBinding('attr.disabled')
     get disabled(): boolean {
@@ -28,7 +32,7 @@ export class RtToFirstPage implements DoCheck, OnInit {
     }
     checkPageNumberChanged(item: any): void {
         if (item.key === 'pageNumberInternal') {
-            this.innerDisabled = this.pagedListService.pager.pageNumber === 1;
+            this.setDisabledState();
         }
     }
     ngOnDestroy(): void {
@@ -41,6 +45,14 @@ export class RtToFirstPage implements DoCheck, OnInit {
         }
     }
     ngOnInit(): void {
+        this.setDisabledState();
+    }
+    setDisabledState(): void {
         this.innerDisabled = this.pagedListService.pager.pageNumber === 1;
+        if (this.innerDisabled) {
+            this.elementRef.nativeElement.classList.add(this.disabledCls);
+        } else {
+            this.elementRef.nativeElement.classList.remove(this.disabledCls);
+        }
     }
 }
