@@ -1,24 +1,15 @@
-import {Directive, HostListener, HostBinding, KeyValueDiffers, KeyValueDiffer, Input, ElementRef, DoCheck, OnInit} from '@angular/core';
+import {Directive, HostListener, HostBinding, KeyValueDiffers, Input, ElementRef} from '@angular/core';
 import {RtList} from '../../lists/list';
-import {NgPagedListService} from '../../bootstrap/ngPagedListService';
+import {GoToControlBase} from './go-to-control-base';
+
 @Directive({
     selector: '[rt-to-last-page]'
 })
-export class RtToLastPage implements DoCheck, OnInit {
-    pagerDiffer: KeyValueDiffer;
-    pagedListService: NgPagedListService;
-    innerDisabled: boolean = false;
-    private checkPagerChangedBinded: (item: any) => void;
-    elementRef: ElementRef;
+export class RtToLastPage extends GoToControlBase {
     constructor(listHost: RtList, differs: KeyValueDiffers, elementRef: ElementRef) {
-        if (!listHost.isPagedList) {
-            throw new Error('[rt-to-last-page] directive can be used only with paged list services.');
-        }
-        this.pagedListService = <NgPagedListService>listHost.serviceInstance;
-        this.pagerDiffer = differs.find([]).create(null);
-        this.checkPagerChangedBinded = this.checkPagerChanged.bind(this);
-        this.elementRef = elementRef;
+        super(listHost, differs, elementRef);
     }
+
     @HostListener('click')
     goToLastPage(): void {
         this.pagedListService.goToLastPage();
@@ -32,29 +23,12 @@ export class RtToLastPage implements DoCheck, OnInit {
         return this.innerDisabled;
     }
     checkPagerChanged(item: any): void {
-        if (item.key === 'pageNumberInternal' || item.key === 'pageSizeInternal' || item.key === 'totalCount') {
+        super.checkPagerChanged(item);
+        if (item.key === 'pageSizeInternal' || item.key === 'totalCount') {
             this.setDisabledState();
         }
     }
-    ngOnDestroy(): void {
-        delete this.checkPagerChangedBinded;
+    isDisabled(): boolean {
+        return this.pagedListService.pager.pageNumber === this.pagedListService.pager.pageCount;
     }
-    ngDoCheck(): void {
-        let pagerDiff = this.pagerDiffer.diff(this.pagedListService.pager);
-        if (pagerDiff) {
-            pagerDiff.forEachChangedItem(this.checkPagerChangedBinded);
-        }
-    }
-    ngOnInit(): void {
-        this.setDisabledState();
-    }
-    setDisabledState(): void {
-        this.innerDisabled = this.pagedListService.pager.pageNumber === this.pagedListService.pager.pageCount;
-        if (this.innerDisabled) {
-            this.elementRef.nativeElement.classList.add(this.disabledCls);
-        } else {
-            this.elementRef.nativeElement.classList.remove(this.disabledCls);
-        }
-    }
-
 }
