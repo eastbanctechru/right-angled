@@ -1,19 +1,46 @@
-import {Directive, HostListener} from '@angular/core';
+import {Directive, HostListener, HostBinding, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit} from '@angular/core';
 import {RtList} from '../../lists/list';
 import {NgPagedListService} from '../../bootstrap/ngPagedListService';
 @Directive({
     selector: '[rt-to-prev-page]'
 })
-export class RtToPrevPage {
+export class RtToPrevPage implements DoCheck, OnInit {
+    pagerDiffer: KeyValueDiffer;
     pagedListService: NgPagedListService;
-    constructor(listHost: RtList) {
+    innerDisabled: boolean = false;
+    private checkPageNumberChangedBinded: (item: any) => void;
+
+    constructor(listHost: RtList, differs: KeyValueDiffers) {
         if (!listHost.isPagedList) {
             throw new Error('[rt-to-prev-page] directive can be used only with paged list services.');
         }
         this.pagedListService = <NgPagedListService>listHost.serviceInstance;
+        this.pagerDiffer = differs.find([]).create(null);
+        this.checkPageNumberChangedBinded = this.checkPageNumberChanged.bind(this);
     }
     @HostListener('click')
     goToPrevPage(): void {
         this.pagedListService.goToPreviousPage();
+    }
+    @HostBinding('attr.disabled')
+    get disabled(): boolean {
+        return this.innerDisabled;
+    }
+    checkPageNumberChanged(item: any): void {
+        if (item.key === 'pageNumberInternal') {
+            this.innerDisabled = this.pagedListService.pager.pageNumber === 1;
+        }
+    }
+    ngOnDestroy(): void {
+        delete this.checkPageNumberChangedBinded;
+    }
+    ngDoCheck(): void {
+        let pagerDiff = this.pagerDiffer.diff(this.pagedListService.pager);
+        if (pagerDiff) {
+            pagerDiff.forEachChangedItem(this.checkPageNumberChangedBinded);
+        }
+    }
+    ngOnInit(): void {
+        this.innerDisabled = this.pagedListService.pager.pageNumber === 1;
     }
 }

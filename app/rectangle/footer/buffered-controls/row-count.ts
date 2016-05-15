@@ -16,7 +16,7 @@ export class RtTakeRowCount implements DoCheck, OnDestroy {
         this.bufferedListService = <NgBufferedListService>listHost.serviceInstance;
         this.innerRowCount = this.bufferedListService.pager.takeRowCount;
         this.pagerDiffer = differs.find([]).create(null);
-        this.checkRowCountChangedBinded = this.checkRowCountChange.bind(this);
+        this.checkRowCountChangedBinded = this.checkRowCountChanged.bind(this);
     }
     @HostBinding('value')
     innerRowCount: number;
@@ -41,7 +41,7 @@ export class RtTakeRowCount implements DoCheck, OnDestroy {
         this.innerRowCount = this.bufferedListService.pager.takeRowCount;
     }
 
-    checkRowCountChange(item: any): void {
+    checkRowCountChanged(item: any): void {
         if (item.key === 'takeRowCountInternal' && item.currentValue !== this.innerRowCount) {
             this.innerRowCount = item.currentValue;
         }
