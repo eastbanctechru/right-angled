@@ -1,5 +1,4 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit} from 'angular2/core';
-import {Optional} from 'angular2/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit, Optional} from '@angular/core';
 import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 import {NgSimpleListService} from '../bootstrap/ngSimpleListService';

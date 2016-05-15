@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {AirportsService} from '../airportsService';
 import {filter} from 'e2e4/src/filterAnnotation';
 import {RECTANGLE_DIRECTIVES, NgSimpleListService} from '../rectangle/main';

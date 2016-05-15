@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {RtList} from '../rectangle/lists/list';
 
 import {BufferedFooter} from './buffered-footer';

@@ -1,9 +1,10 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {RtList} from '../rectangle/lists/list';
 import {FOOTER_DIRECTIVES} from '../rectangle/main';
+import {MISC_DIRECTIVES} from '../rectangle/misc-directives';
 
 @Component({
-    directives: [FOOTER_DIRECTIVES],
+    directives: [FOOTER_DIRECTIVES, MISC_DIRECTIVES],
     selector: 'buffered-footer',
     templateUrl: 'app/footers/buffered-footer.html'
 })

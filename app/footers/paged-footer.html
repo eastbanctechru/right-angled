@@ -13,5 +13,14 @@
 <rt-status-progress>
     Loading....
 </rt-status-progress>
-<rt-total-records-text>
-</rt-total-records-text>
+<rt-display-pager>
+    <span rt-to-first-page rt-disabled-cls="disabled" class="step-backward" title="go to first page"></span>
+    <span rt-to-prev-page rt-disabled-cls="disabled" class="chevron-left" title="go to previous page"></span>
+    <input rt-select-on-focus rt-page-number type="text" class="form-control" maxlength="4" />
+    <span rt-to-next-page rt-disabled-cls="disabled" class="chevron-right" title="go to next page"></span>
+    <span rt-to-last-page rt-disabled-cls="disabled" class="step-forward" title="go to last page"></span>
+    <rt-total-records-text>
+    </rt-total-records-text>
+    <span>Page size</span>
+    <input rt-select-on-focus rt-page-size type="text" class="form-control" maxlength="3" />
+</rt-display-pager>

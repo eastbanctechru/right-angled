@@ -1,13 +1,20 @@
 {
-"compilerOptions": {
+  "compilerOptions": {
     "target": "es5",
     "module": "system",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": false,
     "moduleResolution": "node",
-    "sourceMap": true
+    "sourceMap": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "pretty": true,
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": [
     "node_modules",

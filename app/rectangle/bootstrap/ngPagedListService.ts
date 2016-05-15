@@ -1,9 +1,9 @@
 import {Utility} from 'e2e4/src/common/utility';
 import {ISortManager} from 'e2e4/src/contracts/ISortManager';
-import {SortManager} from 'e2e4/src/SortManager';
+import {SortManager} from 'e2e4/src/sortManager';
 import {List} from 'e2e4/src/list';
 import {PagedPager} from 'e2e4/src/pagedPager';
-import {NullObjectStateManager} from './NullObjectStateManager';
+import {NullObjectStateManager} from './nullObjectStateManager';
 
 export class NgPagedListService extends List {
     dataReadDelegate: (requestParams: any) => Promise<any>;

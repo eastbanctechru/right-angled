@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 import {AirportsService} from '../airportsService';
 import {filter} from 'e2e4/src/filterAnnotation';
 import {RECTANGLE_DIRECTIVES, NgPagedListService} from '../rectangle/main';

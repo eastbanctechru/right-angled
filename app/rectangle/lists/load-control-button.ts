@@ -1,12 +1,9 @@
-import {Directive, Input, HostBinding, KeyValueDiffers} from 'angular2/core';
+import {Directive, HostListener, Input, HostBinding, KeyValueDiffers} from '@angular/core';
 import {RtList} from './list';
 import {Defaults} from '../defaults';
 import {RtLoadControlBase} from './load-control-base';
 
 @Directive({
-    host: {
-        '(click)': 'loadData()'
-    },
     selector: 'input[rt-load-button], button[rt-load-button]'
 })
 export class RtLoadControlButton extends RtLoadControlBase {
@@ -21,6 +18,10 @@ export class RtLoadControlButton extends RtLoadControlBase {
     displayCancelCls: boolean;
     @HostBinding('value')
     value: string;
+    @HostListener('click')
+    loadData(): void {
+        super.loadData();
+    }
     setAttributes(): void {
         super.setAttributes();
         this.value = this.listHost.serviceInstance.busy ? Defaults.messages.loadButtonCancelRequest : Defaults.messages.loadButtonLoad;

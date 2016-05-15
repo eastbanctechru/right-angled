@@ -1,4 +1,4 @@
-import {KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from 'angular2/core';
+import {KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from '@angular/core';
 import {RtList} from '../lists/list';
 import {ProgressState} from 'e2e4/src/common/progressState';
 
