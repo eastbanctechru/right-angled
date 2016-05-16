@@ -3,13 +3,7 @@ import { EventEmitter } from '@angular/core';
 import { Http, RequestOptionsArgs, RequestMethod, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import './cancelOn';
-
-export interface IRequestSettings {
-    url: string;
-    method?: string | RequestMethod;
-    headers?: Headers | { [key: string]: any };
-    data?: any;
-}
+import { IRequestSettings } from './iRequestSettings';
 
 export abstract class DataService {
 
