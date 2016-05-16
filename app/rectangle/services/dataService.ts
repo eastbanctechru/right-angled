@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import { EventEmitter } from '@angular/core';
 import { Http, RequestOptionsArgs, RequestMethod, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import './cancelOn';
+import './operators/cancelon.augmentation';
 import { IRequestSettings } from './iRequestSettings';
 
 export abstract class DataService {
