@@ -2,7 +2,7 @@ import {Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, O
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 import {RtList} from '../lists/list';
 import {ProgressState} from 'e2e4/src/common/progressState';
-import {Utility} from 'e2e4/src/common/utility';
+import {Utility} from '../utility';
 import {Defaults} from '../defaults';
 
 @Component({
