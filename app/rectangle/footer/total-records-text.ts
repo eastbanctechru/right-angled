@@ -2,7 +2,6 @@ import {Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, O
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 import {RtList} from '../lists/list';
 import {ProgressState} from 'e2e4/src/common/progressState';
-import {Utility} from 'e2e4/src/common/utility';
 import {Defaults} from '../defaults';
 
 @Component({
@@ -10,6 +9,14 @@ import {Defaults} from '../defaults';
     template: `<span *ngIf="isVisible">{{text}}</span>`
 })
 export class RtTotalRecordsText implements DoCheck, OnDestroy, OnInit {
+    static formatString(format: string, ...args: any[]): string {
+        let s = arguments[0];
+        for (let i = 0; i < arguments.length - 1; i++) {
+            let reg = new RegExp('\\{' + i + '\\}', 'gm');
+            s = s.replace(reg, arguments[i + 1]);
+        }
+        return s;
+    }
     checkListChangesBinded: (item: any) => void;
     checkSelfChangesBinded: (item: any) => void;
     checkPagerChangesBinded: (item: any) => void;
@@ -72,11 +79,11 @@ export class RtTotalRecordsText implements DoCheck, OnDestroy, OnInit {
     }
     setDisplayText(): void {
         if (this.listHost.isSimpleList) {
-            this.text = Utility.formatString(this.textInput || Defaults.messages.simpleListTotalRecordsText, this.listHost.serviceInstance.pager.loadedCount);
+            this.text = RtTotalRecordsText.formatString(this.textInput || Defaults.messages.simpleListTotalRecordsText, this.listHost.serviceInstance.pager.loadedCount);
         } else if (this.listHost.isBufferedList) {
-            this.text = Utility.formatString(this.textInput || Defaults.messages.bufferedListTotalRecordsText, this.listHost.serviceInstance.pager.loadedCount, this.listHost.serviceInstance.pager.totalCount);
+            this.text = RtTotalRecordsText.formatString(this.textInput || Defaults.messages.bufferedListTotalRecordsText, this.listHost.serviceInstance.pager.loadedCount, this.listHost.serviceInstance.pager.totalCount);
         } else if (this.listHost.isPagedList) {
-            this.text = Utility.formatString(this.textInput || Defaults.messages.pagedListTotalRecordsText, (<NgPagedListService>this.listHost.serviceInstance).pager.displayFrom, (<NgPagedListService>this.listHost.serviceInstance).pager.displayTo, this.listHost.serviceInstance.pager.totalCount);
+            this.text = RtTotalRecordsText.formatString(this.textInput || Defaults.messages.pagedListTotalRecordsText, (<NgPagedListService>this.listHost.serviceInstance).pager.displayFrom, (<NgPagedListService>this.listHost.serviceInstance).pager.displayTo, this.listHost.serviceInstance.pager.totalCount);
         }
     }
     setVisibility(): void {
