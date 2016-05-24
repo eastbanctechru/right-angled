@@ -64,23 +64,5 @@ export var RECTANGLE_DIRECTIVES: any[] = [
     RtLoadControlButton,
     RtResetButton,
     RtRowNumber,
-    RtSort,
-    RtSelectionAreaFor,
-    RtSelectByIndex,
-    RtSelectionCheckbox,
-    RtStatusNoData,
-    RtStatusRequestCanceled,
-    RtStatusFailed,
-    RtStatusInitial,
-    RtStatusProgress,
-    RtTotalRecordsText,
-    RtDisplayPager,
-    RtLoadMore,
-    RtTakeRowCount,
-    RtToFirstPage,
-    RtToLastPage,
-    RtToNextPage,
-    RtToPrevPage,
-    RtPageSize,
-    RtPageNumber
-];
+    RtSort
+].concat(SELECTION_DIRECTIVES, FOOTER_DIRECTIVES);
