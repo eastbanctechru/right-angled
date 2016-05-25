@@ -10,8 +10,7 @@ export class CancelOnOperator<T, R> implements Operator<T, R> {
         this.event = event;
     }
 
-    // TODO krozhkov: contract changed in latest version of RxJs.
-    call(subscriber: Subscriber<R>): Subscriber<T> {
-        return new CancelOnSubscriber(subscriber, this.event);
+    call(subscriber: Subscriber<R>, source: any): any {
+        return source._subscribe(new CancelOnSubscriber(subscriber, this.event));
     }
 }

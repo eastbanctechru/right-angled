@@ -6,7 +6,7 @@ export abstract class CachedService extends DataService {
     cache: { [key: string]: any } = {};
 
     wrapWithCache<T extends Function>(fn: T, key: string, expirationPolicy: () => Date | string, withArgs?: boolean): T {
-        return <T>_.wrap(fn, (initialFn: Function, ...args: any[]): Promise<any> => {
+        return <T>_.wrap(fn, function(initialFn: Function, ...args: any[]): Promise<any> {
             let cacheKey = !!withArgs ? key + '__' + JSON.stringify(args) : key;
 
             let promise = this.getCacheValue(cacheKey);
