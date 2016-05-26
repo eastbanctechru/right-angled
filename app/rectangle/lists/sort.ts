@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from '@angular/core';
+import {Renderer, Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from '@angular/core';
 import {Defaults} from '../defaults';
 import {RtList} from './list';
 import {SortDirection} from 'e2e4/src/common/sortDirection';
@@ -11,17 +11,19 @@ import {SortDirection} from 'e2e4/src/common/sortDirection';
     selector: '[rt-sort]'
 })
 export class RtSort implements DoCheck, OnInit {
-    private nativeElement: HTMLElement;
+    private nativeEl: HTMLElement;
     hostList: RtList;
     private differ: any;
+    private renderer: Renderer;
     @Input('rt-sort') fieldName: string;
-    constructor(el: ElementRef, differs: IterableDiffers, hostList: RtList) {
+    constructor(el: ElementRef, renderer: Renderer, differs: IterableDiffers, hostList: RtList) {
         this.differ = differs.find([]).create(null);
         this.hostList = hostList;
-        this.nativeElement = el.nativeElement;
+        this.nativeEl = el.nativeElement;
+        this.renderer = renderer;
     }
     ngOnInit(): void {
-        this.nativeElement.classList.add(Defaults.classNames.sortable);
+        this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortable, true);
         this.hostList.serviceInstance.sortManager.sortings.some(sortParameter => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.sortAdded(sortParameter);
@@ -52,11 +54,12 @@ export class RtSort implements DoCheck, OnInit {
         }
     }
     sortRemoved(sortParameter: any): void {
-        this.nativeElement.classList.remove(Defaults.classNames.sortAsc, Defaults.classNames.sortDesc);
+        this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortAsc, false);
+        this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortDesc, false);
     }
     sortAdded(sortParameter: any): void {
         const direction = sortParameter.direction;
-        this.nativeElement.classList.remove(direction === SortDirection.Asc ? Defaults.classNames.sortDesc : Defaults.classNames.sortAsc);
-        this.nativeElement.classList.add(direction === SortDirection.Asc ? Defaults.classNames.sortAsc : Defaults.classNames.sortDesc);
+        this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? Defaults.classNames.sortDesc : Defaults.classNames.sortAsc, false);
+        this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? Defaults.classNames.sortAsc : Defaults.classNames.sortDesc, true);
     }
 }

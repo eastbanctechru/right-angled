@@ -1,4 +1,4 @@
-import {Directive, OnInit, ElementRef, Input, OnChanges, OnDestroy} from '@angular/core';
+import {Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
 import {SelectionManager} from 'e2e4/src/selectionManager';
 import {ISelectable} from 'e2e4/src/contracts/ISelectable';
 import {ISelectionConfig} from 'e2e4/src/contracts/ISelectionConfig';
@@ -12,7 +12,6 @@ import {SelectionEventsHelper} from 'e2e4/src/selectionEventsHelper';
     selector: '[rt-selection-area-for]'
 })
 export class RtSelectionAreaFor implements OnInit, OnChanges, OnDestroy, ISelectionConfig {
-    private nativeElement: HTMLElement;
     selectionEventsHelper: SelectionEventsHelper;
     selectionManager: SelectionManager;
     @Input('multiple') allowMultipleSelection: boolean = true;
@@ -20,9 +19,8 @@ export class RtSelectionAreaFor implements OnInit, OnChanges, OnDestroy, ISelect
     @Input() autoSelectFirst: boolean = false;
     @Input() toggleOnly: boolean = false;
 
-    constructor(el: ElementRef, selectionManager: SelectionManager) {
+    constructor(selectionManager: SelectionManager) {
         this.selectionManager = selectionManager;
-        this.nativeElement = el.nativeElement;
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }
     ngOnDestroy(): void {
@@ -36,12 +34,17 @@ export class RtSelectionAreaFor implements OnInit, OnChanges, OnDestroy, ISelect
             this.selectionManager.selectIndex(0, false);
         }
     }
+    _tabIndex: number;
+    @HostBinding('tabIndex')
+    get tabIndex(): number {
+        return this._tabIndex === -1 ? 0 : this._tabIndex;
+    }
+    set tabIndex(value: number) {
+        this._tabIndex = value;
+    }
     ngOnInit(): void {
         if (this.items === undefined) {
-            throw new Error('e2e4-selection-area  requires "items" attribute to be specified.');
-        }
-        if (this.nativeElement.tabIndex === -1) {
-            this.nativeElement.tabIndex = 0;
+            throw new Error('rt-selection-area-for requires "items" attribute to be specified.');
         }
     }
     keyDownHandler(event: KeyboardEvent): void {
