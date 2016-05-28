@@ -48,6 +48,9 @@ export class RtSelectionAreaFor implements OnInit, OnChanges, OnDestroy, ISelect
         }
     }
     keyDownHandler(event: KeyboardEvent): void {
-        this.selectionEventsHelper.keyboardHandler(event);
+        if (this.selectionEventsHelper.keyboardHandler(event.ctrlKey, event.shiftKey, event.keyCode)) {
+            event.stopPropagation();
+            event.preventDefault();
+        }
     }
 }

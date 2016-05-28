@@ -14,6 +14,22 @@ export class RtSelectByIndex {
         this.selectionArea = selectionArea;
     }
     mouseUpHandler(event: MouseEvent): void {
-        this.selectionArea.selectionEventsHelper.mouseHandler(event, this.index);
+        if (this.selectionArea.selectionEventsHelper.mouseHandler(event.ctrlKey, event.shiftKey, event.which, this.index)) {
+            setTimeout(this.clearWindowSelection, 0);
+        }
+    }
+
+    clearWindowSelection(): void {
+        try {
+            if (window && window.getSelection) {
+                window.getSelection().removeAllRanges();
+            } else if (document && document.hasOwnProperty('selection')) {
+                /* tslint:disable:no-string-literal */
+                document['selection'].empty();
+                /* tslint:enable:no-string-literal */
+            }
+        } catch (e) {
+
+        }
     }
 }
