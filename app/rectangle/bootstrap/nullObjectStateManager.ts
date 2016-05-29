@@ -1,4 +1,4 @@
-import {IStateManager} from 'e2e4/src/contracts/IStateManager';
+import {IStateManager} from './IStateManager';
 export class NullObjectStateManager implements IStateManager {
     target: any;
     flushRequestState(state: Object): void {
