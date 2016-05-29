@@ -2,14 +2,18 @@ import {Utility} from 'e2e4/src/common/utility';
 import {ISortManager} from 'e2e4/src/contracts/ISortManager';
 import {IStateManager} from './IStateManager';
 import {SortManager} from 'e2e4/src/sortManager';
-import {List} from 'e2e4/src/list';
+import {NgListServiceBase} from './ngListServiceBase';
 import {PagedPager} from 'e2e4/src/pagedPager';
+import {FilterManager} from 'e2e4/src/filterManager';
+import {IFilterManager} from 'e2e4/src/contracts/IFilterManager';
+
 import {NullObjectStateManager} from './nullObjectStateManager';
 
-export class NgPagedListService extends List {
+export class NgPagedListService extends NgListServiceBase {
     dataReadDelegate: (requestParams: any) => Promise<any>;
     sortManager: ISortManager;
     stateManager: IStateManager;
+    filterManager: IFilterManager;
     pager: PagedPager;
     items: Object[];
     constructor() {
@@ -17,12 +21,24 @@ export class NgPagedListService extends List {
         this.stateManager = new NullObjectStateManager()
         this.stateManager.target = this;
 
+        this.filterManager = new FilterManager(this);
+        this.filterManager.registerFilterTarget(this.pager);
+
+
         this.sortManager = new SortManager();
         this.filterManager.registerFilterTarget(this.sortManager);
         const restoredState = this.stateManager.mergeStates({});
-        super.init(restoredState);
+        this.filterManager.applyParams(restoredState);
+        super.init();
 
     }
+    toRequest(): any {
+        return this.filterManager.getRequestState(null);
+    }
+    getLocalState(): Object {
+        return this.filterManager.getPersistedState(null);
+    }
+
     loadData(): Promise<Object> {
         const promise = super.loadData.call(this, ...Array.prototype.slice.call(arguments));
         this.stateManager.flushRequestState(this.toRequest());
@@ -36,6 +52,7 @@ export class NgPagedListService extends List {
     }
 
     dispose(): void {
+        this.filterManager.dispose();
         this.sortManager.dispose();
         super.dispose();
     }
@@ -45,8 +62,8 @@ export class NgPagedListService extends List {
         this.filterManager.registerFilterTarget(target);
         return this;
     }
-    getDataReadPromise(requestParams: any): Promise<Object> {
-        return this.dataReadDelegate(requestParams);
+    getDataReadPromise(): Promise<Object> {
+        return this.dataReadDelegate(this.toRequest());
     }
     goToFirstPage(): void {
         if ((<PagedPager>this.pager).pageNumber > 1) {
