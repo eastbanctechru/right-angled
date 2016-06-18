@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-  - '4.2'
+  - '6'
 addons:
 apt:
   sources:
@@ -20,7 +20,6 @@ before_script:
 - npm install -g angular-cli
 - npm install -g karma
 - npm install
-- ng build
 
 script: 
 - ng build
