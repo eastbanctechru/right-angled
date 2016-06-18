@@ -1,5 +1,9 @@
 # right-angled
 
+[![Build Status](https://travis-ci.org/fshchudlo/right-angled.svg?branch=master)](https://travis-ci.org/fshchudlo/right-angled)
+[![Dependency Status](https://david-dm.org/fshchudlo/right-angled.svg)](https://david-dm.org/fshchudlo/right-angled)
+[![devDependency Status](https://david-dm.org/fshchudlo/right-angled/dev-status.svg)](https://david-dm.org/fshchudlo/right-angled#info=devDependencies)
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.6.
 
 ## Development server
