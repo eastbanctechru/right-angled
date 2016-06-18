@@ -9,6 +9,7 @@
 /bower_components
 
 # IDEs and editors
+/.vscode
 /.idea
 .project
 .classpath
