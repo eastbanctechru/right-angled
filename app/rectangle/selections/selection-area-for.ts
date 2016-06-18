@@ -1,17 +1,11 @@
-import {Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
-import {SelectionManager} from 'e2e4/src/selectionManager';
-import {ISelectable} from 'e2e4/src/contracts/ISelectable';
-import {ISelectionConfig} from 'e2e4/src/contracts/ISelectionConfig';
-import {SelectionEventsHelper} from 'e2e4/src/selectionEventsHelper';
+import {HostListener, Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
+import {ISelectable, ISelectionConfig, SelectionManager, SelectionEventsHelper} from 'e2e4';
 
 @Directive({
-    host: {
-        '(keydown)': 'keyDownHandler($event)'
-    },
     providers: [SelectionManager],
     selector: '[rt-selection-area-for]'
 })
-export class RtSelectionAreaFor implements OnInit, OnChanges, OnDestroy, ISelectionConfig {
+export class RtSelectionAreaForDirective implements OnInit, OnChanges, OnDestroy, ISelectionConfig {
     selectionEventsHelper: SelectionEventsHelper;
     selectionManager: SelectionManager;
     @Input('multiple') allowMultipleSelection: boolean = true;
@@ -34,19 +28,20 @@ export class RtSelectionAreaFor implements OnInit, OnChanges, OnDestroy, ISelect
             this.selectionManager.selectIndex(0, false);
         }
     }
-    _tabIndex: number;
+    private tabIndexInternal: number;
     @HostBinding('tabIndex')
     get tabIndex(): number {
-        return this._tabIndex === -1 ? 0 : this._tabIndex;
+        return this.tabIndexInternal === -1 ? 0 : this.tabIndexInternal;
     }
     set tabIndex(value: number) {
-        this._tabIndex = value;
+        this.tabIndexInternal = value;
     }
     ngOnInit(): void {
         if (this.items === undefined) {
             throw new Error('rt-selection-area-for requires "items" attribute to be specified.');
         }
     }
+    @HostListener('keydown', ['$event'])
     keyDownHandler(event: KeyboardEvent): void {
         if (this.selectionEventsHelper.keyboardHandler(event.ctrlKey, event.shiftKey, event.keyCode)) {
             event.stopPropagation();

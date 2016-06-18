@@ -1,22 +1,19 @@
-import {Renderer, Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from '@angular/core';
+import {Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from '@angular/core';
 import {Defaults} from '../defaults';
-import {RtList} from './list';
-import {SortDirection} from 'e2e4/src/common/sortDirection';
+import {RtListComponent} from './list';
+import {SortDirection} from 'e2e4';
 
 
 @Directive({
-    host: {
-        '(click)': 'clickHandler($event)'
-    },
     selector: '[rt-sort]'
 })
-export class RtSort implements DoCheck, OnInit {
+export class RtSortDirective implements DoCheck, OnInit {
     private nativeEl: HTMLElement;
-    hostList: RtList;
+    hostList: RtListComponent;
     private differ: any;
     private renderer: Renderer;
     @Input('rt-sort') fieldName: string;
-    constructor(el: ElementRef, renderer: Renderer, differs: IterableDiffers, hostList: RtList) {
+    constructor(el: ElementRef, renderer: Renderer, differs: IterableDiffers, hostList: RtListComponent) {
         this.differ = differs.find([]).create(null);
         this.hostList = hostList;
         this.nativeEl = el.nativeElement;
@@ -26,12 +23,13 @@ export class RtSort implements DoCheck, OnInit {
         this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortable, true);
         this.hostList.serviceInstance.sortManager.sortings.some(sortParameter => {
             if (sortParameter.fieldName === this.fieldName) {
-                this.sortAdded(sortParameter);
+                this.setSortClasses(sortParameter);
                 return true;
             }
             return false;
         });
     }
+    @HostListener('click', ['$event'])
     clickHandler(evt: MouseEvent): void {
         if (this.hostList.serviceInstance.ready) {
             this.hostList.serviceInstance.sortManager.setSort(this.fieldName, evt.ctrlKey);
@@ -41,23 +39,25 @@ export class RtSort implements DoCheck, OnInit {
     ngDoCheck(): void {
         let changes = this.differ.diff(this.hostList.serviceInstance.sortManager.sortings);
         if (changes) {
-            changes.forEachRemovedItem((removedItem => {
-                if (removedItem.item && removedItem.item.fieldName === this.fieldName) {
-                    this.sortRemoved(removedItem.item);
-                }
-            }).bind(this));
-            changes.forEachAddedItem((addedItem => {
-                if (addedItem.item && addedItem.item.fieldName === this.fieldName) {
-                    this.sortAdded(addedItem.item);
-                }
-            }).bind(this));
+            changes.forEachRemovedItem(this.sortItemRemovedCallback);
+            changes.forEachAddedItem(this.sortItemAddedCallback);
         }
     }
-    sortRemoved(sortParameter: any): void {
+    sortItemRemovedCallback = (removedItem: any): void => {
+        if (removedItem.item && removedItem.item.fieldName === this.fieldName) {
+            this.removeSortClasses(removedItem.item);
+        }
+    }
+    sortItemAddedCallback = (addedItem: any): void => {
+        if (addedItem.item && addedItem.item.fieldName === this.fieldName) {
+            this.setSortClasses(addedItem.item);
+        }
+    }
+    removeSortClasses(sortParameter: any): void {
         this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortAsc, false);
         this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortDesc, false);
     }
-    sortAdded(sortParameter: any): void {
+    setSortClasses(sortParameter: any): void {
         const direction = sortParameter.direction;
         this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? Defaults.classNames.sortDesc : Defaults.classNames.sortAsc, false);
         this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? Defaults.classNames.sortAsc : Defaults.classNames.sortDesc, true);

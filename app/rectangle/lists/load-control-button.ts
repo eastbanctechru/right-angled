@@ -1,13 +1,19 @@
-import {Directive, HostListener, Input, HostBinding, KeyValueDiffers} from '@angular/core';
-import {RtList} from './list';
+import {Directive, HostListener, HostBinding, KeyValueDiffers} from '@angular/core';
+import {RtListComponent} from './list';
 import {Defaults} from '../defaults';
-import {RtLoadControlBase} from './load-control-base';
+import {RtLoadControlBaseDirective} from './load-control-base';
 
 @Directive({
+    /* tslint:disable:directive-selector-prefix */
+    /* tslint:disable:directive-selector-type */
+    /* tslint:disable:directive-selector-name */
     selector: 'input[rt-load-button], button[rt-load-button]'
+    /* tslint:ensable:directive-selector-prefix */
+    /* tslint:ensable:directive-selector-type */
+    /* tslint:ensable:directive-selector-name */
 })
-export class RtLoadControlButton extends RtLoadControlBase {
-    constructor(hostList: RtList, differs: KeyValueDiffers) {
+export class RtLoadControlButtonDirective extends RtLoadControlBaseDirective {
+    constructor(hostList: RtListComponent, differs: KeyValueDiffers) {
         super(hostList, differs);
     }
     @HostBinding('title')

@@ -1,14 +1,15 @@
-import {Directive, Input, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy, OnInit} from '@angular/core';
-import {RtList} from './list';
+import {Directive, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit} from '@angular/core';
+import {RtListComponent} from './list';
 import {Defaults} from '../defaults';
 
 @Directive({
+    /* tslint:disable:directive-selector-name */
     selector: '[rt-load-button]:not(input), [rt-load-button]:not(button)'
+    /* tslint:enable:directive-selector-name */
 })
-export class RtLoadControlBase implements DoCheck, OnDestroy, OnInit {
-    checkBusyFlagChangedBinded: (item: any) => void;
+export class RtLoadControlBaseDirective implements DoCheck, OnInit {
     listDiffers: KeyValueDiffer;
-    listHost: RtList;
+    listHost: RtListComponent;
     @HostBinding('title')
     title: string;
     @HostBinding('class.' + Defaults.classNames.loadButtonLoad)
@@ -16,24 +17,20 @@ export class RtLoadControlBase implements DoCheck, OnDestroy, OnInit {
     @HostBinding('class.' + Defaults.classNames.loadButtonCancel)
     displayCancelCls: boolean;
 
-    constructor(hostList: RtList, differs: KeyValueDiffers) {
+    constructor(hostList: RtListComponent, differs: KeyValueDiffers) {
         this.listHost = hostList;
         this.listDiffers = differs.find([]).create(null);
-        this.checkBusyFlagChangedBinded = this.checkStatusChanges.bind(this);
     }
     ngOnInit(): void {
         this.setAttributes();
     }
-    ngOnDestroy(): void {
-        delete this.checkBusyFlagChangedBinded;
-    }
     ngDoCheck(): void {
         let listDiff = this.listDiffers.diff(this.listHost.serviceInstance);
         if (listDiff) {
-            listDiff.forEachChangedItem(this.checkBusyFlagChangedBinded);
+            listDiff.forEachChangedItem(this.checkStatusChanges);
         }
     }
-    checkStatusChanges(item: any): void {
+    checkStatusChanges = (item: any): void => {
         if (item.key === 'state') {
             this.setAttributes();
         }

@@ -1,38 +1,27 @@
-import {Component, KeyValueDiffers, KeyValueDiffer} from '@angular/core';
-import {RtList} from '../lists/list';
+import {Component, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
+import {RtListComponent} from '../lists/list';
 import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
-import {ProgressState} from 'e2e4/src/common/progressState';
+import {ProgressState} from 'e2e4';
 import {RtStatusControlBase} from './status-control-base';
 
 @Component({
     selector: 'rt-display-pager',
     template: `<div *ngIf="isVisible"><ng-content></ng-content></div>`
 })
-export class RtDisplayPager extends RtStatusControlBase {
-    checkPagerChangesBinded: () => void;
+export class RtDisplayPagerComponent extends RtStatusControlBase implements DoCheck {
     pagerDiffer: KeyValueDiffer;
-    constructor(listHost: RtList, differs: KeyValueDiffers) {
+    constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
         super(listHost, differs, ProgressState.Done);
-        this.checkPagerChangesBinded = this.checkPagerChanges.bind(this);
         this.pagerDiffer = differs.find([]).create(null);
-    }
-    ngOnDestroy(): void {
-        super.ngOnDestroy();
-        delete this.checkPagerChangesBinded;
     }
     ngDoCheck(): void {
         super.ngDoCheck();
         let pagerDiff = this.pagerDiffer.diff(this.listHost.serviceInstance.pager);
         if (pagerDiff) {
-            pagerDiff.forEachChangedItem(this.checkPagerChangesBinded);
+            pagerDiff.forEachChangedItem(this.checkPagerChanges);
         }
     }
-    checkStateChanges(item: any): void {
-        if (item.key === 'state') {
-            this.setVisibility();
-        }
-    }
-    checkPagerChanges(item: any): void {
+    checkPagerChanges = (item: any): void => {
         if (item.key === 'totalCount' || (this.listHost.isBufferedList && item.key === 'skip')) {
             this.setVisibility();
         }

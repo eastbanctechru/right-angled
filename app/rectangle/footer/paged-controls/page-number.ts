@@ -1,22 +1,22 @@
-import {HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy} from '@angular/core';
-import {RtList} from '../../lists/list';
+import {HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
+import {RtListComponent} from '../../lists/list';
 import {NgPagedListService} from '../../bootstrap/ngPagedListService';
 
 @Directive({
+    /* tslint:disable:directive-selector-prefix */
     selector: 'input[rt-page-number]'
+    /* tslint:ensable:directive-selector-prefix */
 })
-export class RtPageNumber implements DoCheck, OnDestroy {
+export class RtPageNumberDirective implements DoCheck {
     pagedListService: NgPagedListService;
     private pagerDiffer: KeyValueDiffer;
-    private checkPageNumberChangedBinded: (item: any) => void;
-    constructor(listHost: RtList, differs: KeyValueDiffers) {
+    constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
         if (!listHost.isPagedList) {
             throw new Error('[rt-page-number] directive can be used only with paged list services.');
         }
         this.pagedListService = <NgPagedListService>listHost.serviceInstance;
         this.innerPageNumber = this.pagedListService.pager.pageNumber;
         this.pagerDiffer = differs.find([]).create(null);
-        this.checkPageNumberChangedBinded = this.checkPageNumberChanged.bind(this);
     }
     @HostBinding('value')
     innerPageNumber: number;
@@ -42,18 +42,15 @@ export class RtPageNumber implements DoCheck, OnDestroy {
         this.innerPageNumber = this.pagedListService.pager.pageNumber;
     }
 
-    checkPageNumberChanged(item: any): void {
+    checkPageNumberChanged = (item: any): void => {
         if (item.key === 'pageNumberInternal' && item.currentValue !== this.innerPageNumber) {
             this.innerPageNumber = item.currentValue;
         }
     }
-    ngOnDestroy(): void {
-        delete this.checkPageNumberChangedBinded;
-    }
     ngDoCheck(): void {
         let pagerDiff = this.pagerDiffer.diff(this.pagedListService.pager);
         if (pagerDiff) {
-            pagerDiff.forEachChangedItem(this.checkPageNumberChangedBinded);
+            pagerDiff.forEachChangedItem(this.checkPageNumberChanged);
         }
     }
 }

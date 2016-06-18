@@ -1,32 +1,26 @@
-import {Component, KeyValueDiffers, KeyValueDiffer} from '@angular/core';
-import {RtList} from '../lists/list';
-import {ProgressState} from 'e2e4/src/common/progressState';
+import {Component, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
+import {RtListComponent} from '../lists/list';
+import {ProgressState} from 'e2e4';
 import {RtStatusControlBase} from './status-control-base';
 
 @Component({
     selector: 'rt-status-no-data',
     template: `<span *ngIf="isVisible"><ng-content></ng-content></span>`
 })
-export class RtStatusNoData extends RtStatusControlBase {
-    checkLoadedCountChangesBinded: () => void;
+export class RtStatusNoDataComponent extends RtStatusControlBase implements DoCheck {
     pagerDiffer: KeyValueDiffer;
-    constructor(listHost: RtList, differs: KeyValueDiffers) {
+    constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
         super(listHost, differs, ProgressState.Done);
         this.pagerDiffer = differs.find([]).create(null);
-        this.checkLoadedCountChangesBinded = this.checkLoadedCountChanges.bind(this);
-    }
-    ngOnDestroy(): void {
-        super.ngOnDestroy();
-        delete this.checkLoadedCountChangesBinded;
     }
     ngDoCheck(): void {
         super.ngDoCheck();
         let pagerDiff = this.pagerDiffer.diff(this.listHost.serviceInstance.pager);
         if (pagerDiff) {
-            pagerDiff.forEachChangedItem(this.checkLoadedCountChangesBinded);
+            pagerDiff.forEachChangedItem(this.checkLoadedCountChanges);
         }
     }
-    checkLoadedCountChanges(item: any): void {
+    checkLoadedCountChanges = (item: any): void => {
         if (item.key === 'loadedCount') {
             this.setVisibility();
         }

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RtList} from '../rectangle/lists/list';
+import {RtListComponent} from '../rectangle/lists/list';
 import {FOOTER_DIRECTIVES} from '../rectangle/main';
 
 @Component({
@@ -8,8 +8,8 @@ import {FOOTER_DIRECTIVES} from '../rectangle/main';
     templateUrl: 'app/footers/simple-footer.html'
 })
 export class SimpleFooter {
-    hostList: RtList;
-    constructor(hostList: RtList) {
+    hostList: RtListComponent;
+    constructor(hostList: RtListComponent) {
         this.hostList = hostList;
     }
 }

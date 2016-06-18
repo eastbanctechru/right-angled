@@ -1,6 +1,5 @@
-import {Utility} from 'e2e4/src/common/utility';
+import {PagedPager, Utility} from 'e2e4';
 import {NgListServiceBase} from './ngListServiceBase';
-import {PagedPager} from 'e2e4/src/pagedPager';
 
 export class NgPagedListService extends NgListServiceBase {
     pager: PagedPager;

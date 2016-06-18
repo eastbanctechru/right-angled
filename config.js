@@ -18,7 +18,7 @@
             defaultExtension: 'js'
         },
         'e2e4': {
-            format: 'register',
+            main: 'index.js',
             defaultExtension: 'js'
         },
         'rxjs': { defaultExtension: 'js' },

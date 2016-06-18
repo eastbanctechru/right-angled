@@ -1,16 +1,9 @@
-import {AbstractLifetime} from 'e2e4/src/abstractLifetime';
-import {ProgressState} from 'e2e4/src/common/progressState';
-import {IPager} from 'e2e4/src/contracts/IPager';
-import {ISortManager} from 'e2e4/src/contracts/ISortManager';
-import {IStateManager} from './IStateManager';
-import {IFilterManager} from 'e2e4/src/contracts/IFilterManager';
-import {Utility} from 'e2e4/src/common/utility';
-import {SortManager} from 'e2e4/src/sortManager';
+import {IPager, ISortManager, IFilterManager, Utility, AbstractLifetime, ProgressState, SortManager, FilterManager} from 'e2e4';
 import {NullObjectStateManager} from './nullObjectStateManager';
-import {FilterManager} from 'e2e4/src/filterManager';
+import {IStateManager} from './IStateManager';
 
 export abstract class NgListServiceBase extends AbstractLifetime {
-    private listLoadDataSuccessCallback(result: Object): Object {
+    private listLoadDataSuccessCallback = (result: Object): Object => {
         this.pager.processResponse(result);
         this.state = ProgressState.Done;
         // In case when filter changed from last request and theres no data now
@@ -19,11 +12,9 @@ export abstract class NgListServiceBase extends AbstractLifetime {
         }
         return result;
     }
-    private listLoadDataFailCallback(): void {
+    private listLoadDataFailCallback = (): void => {
         this.state = ProgressState.Fail;
     }
-    private listLoadDataSuccessBinded: (result: Object) => Object;
-    private listLoadDataFailBinded: (error: Object) => void;
     dataReadDelegate: (requestParams: any) => Promise<any>;
     sortManager: ISortManager;
     stateManager: IStateManager;
@@ -34,8 +25,6 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     constructor(pager: IPager) {
         super();
         this.pager = pager;
-        this.listLoadDataSuccessBinded = this.listLoadDataSuccessCallback.bind(this);
-        this.listLoadDataFailBinded = this.listLoadDataFailCallback.bind(this);
         this.stateManager = new NullObjectStateManager();
         this.stateManager.target = this;
         this.filterManager = new FilterManager(this);
@@ -66,8 +55,6 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     }
     dispose(): void {
         super.dispose();
-        delete this.listLoadDataSuccessBinded;
-        delete this.listLoadDataFailBinded;
         this.filterManager.dispose();
         this.sortManager.dispose();
         this.clearData();
@@ -81,7 +68,7 @@ export abstract class NgListServiceBase extends AbstractLifetime {
         this.state = ProgressState.Progress;
         const promise = this.getDataReadPromise();
         this.addToCancellationSequence(promise);
-        promise.then(this.listLoadDataSuccessBinded, this.listLoadDataFailBinded);
+        promise.then(this.listLoadDataSuccessCallback, this.listLoadDataFailCallback);
         this.stateManager.flushRequestState(this.toRequest());
         this.stateManager.persistLocalState(this.getLocalState());
         return promise;

@@ -1,5 +1,5 @@
 import {NgListServiceBase} from './ngListServiceBase';
-import {BufferedPager} from 'e2e4/src/bufferedPager';
+import {BufferedPager} from 'e2e4';
 
 
 export class NgBufferedListService extends NgListServiceBase {

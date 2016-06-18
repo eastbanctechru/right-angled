@@ -1,16 +1,16 @@
-import {Component, Input, OnChanges, Optional} from '@angular/core';
-import {RtList} from './list';
+import {Component, Input, OnChanges} from '@angular/core';
+import {RtListComponent} from './list';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 
 @Component({
     selector: 'rt-row-number',
     template: `{{rowNumber}}<ng-content></ng-content>`
 })
-export class RtRowNumber implements OnChanges {
+export class RtRowNumberComponent implements OnChanges {
     @Input() index: number;
     rowNumber: number;
-    listHost: RtList;
-    constructor(listHost: RtList) {
+    listHost: RtListComponent;
+    constructor(listHost: RtListComponent) {
         this.listHost = listHost;
     }
     ngOnChanges(): void {

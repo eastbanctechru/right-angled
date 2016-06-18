@@ -1,22 +1,22 @@
-import {HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck, OnDestroy} from '@angular/core';
-import {RtList} from '../../lists/list';
+import {HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
+import {RtListComponent} from '../../lists/list';
 import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 
 @Directive({
+    /* tslint:disable:directive-selector-prefix */
     selector: 'input[rt-row-count]'
+    /* tslint:ensable:directive-selector-prefix */
 })
-export class RtTakeRowCount implements DoCheck, OnDestroy {
+export class RtTakeRowCountDirective implements DoCheck {
     bufferedListService: NgBufferedListService;
     private pagerDiffer: KeyValueDiffer;
-    private checkRowCountChangedBinded: (item: any) => void;
-    constructor(listHost: RtList, differs: KeyValueDiffers) {
+    constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
         if (!listHost.isBufferedList) {
             throw new Error('[rt-row-count] directive can be used only with buffered list services.');
         }
         this.bufferedListService = <NgBufferedListService>listHost.serviceInstance;
         this.innerRowCount = this.bufferedListService.pager.takeRowCount;
         this.pagerDiffer = differs.find([]).create(null);
-        this.checkRowCountChangedBinded = this.checkRowCountChanged.bind(this);
     }
     @HostBinding('value')
     innerRowCount: number;
@@ -41,18 +41,15 @@ export class RtTakeRowCount implements DoCheck, OnDestroy {
         this.innerRowCount = this.bufferedListService.pager.takeRowCount;
     }
 
-    checkRowCountChanged(item: any): void {
+    checkRowCountChanged = (item: any): void => {
         if (item.key === 'takeRowCountInternal' && item.currentValue !== this.innerRowCount) {
             this.innerRowCount = item.currentValue;
         }
     }
-    ngOnDestroy(): void {
-        delete this.checkRowCountChangedBinded;
-    }
     ngDoCheck(): void {
         let pagerDiff = this.pagerDiffer.diff(this.bufferedListService.pager);
         if (pagerDiff) {
-            pagerDiff.forEachChangedItem(this.checkRowCountChangedBinded);
+            pagerDiff.forEachChangedItem(this.checkRowCountChanged);
         }
     }
 }

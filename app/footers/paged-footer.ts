@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RtList} from '../rectangle/lists/list';
+import {RtListComponent} from '../rectangle/lists/list';
 import {FOOTER_DIRECTIVES} from '../rectangle/main';
 import {MISC_DIRECTIVES} from '../rectangle/misc-directives';
 
@@ -10,8 +10,8 @@ import {MISC_DIRECTIVES} from '../rectangle/misc-directives';
     templateUrl: 'app/footers/paged-footer.html'
 })
 export class PagedFooter {
-    hostList: RtList;
-    constructor(hostList: RtList) {
+    hostList: RtListComponent;
+    constructor(hostList: RtListComponent) {
         this.hostList = hostList;
     }
 }

@@ -1,21 +1,19 @@
-import {Directive} from '@angular/core';
-import {RtList} from '../../lists/list';
+import {HostListener, Directive} from '@angular/core';
+import {RtListComponent} from '../../lists/list';
 import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 
 @Directive({
-    host: {
-        '(click)': 'loadMore($event)'
-    },
     selector: '[rt-load-more]'
 })
-export class RtLoadMore {
+export class RtLoadMoreDirective {
     bufferedListService: NgBufferedListService;
-    constructor(listHost: RtList) {
+    constructor(listHost: RtListComponent) {
         if (!listHost.isBufferedList) {
             throw new Error('[rt-load-more] directive can be used only with buffered list services.');
         }
         this.bufferedListService = <NgBufferedListService>listHost.serviceInstance;
     }
+    @HostListener('click', ['$event'])
     loadMore(evt: MouseEvent): void {
         this.bufferedListService.loadData();
         evt.preventDefault();

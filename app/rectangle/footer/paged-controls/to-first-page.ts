@@ -1,12 +1,12 @@
 import {Renderer, Directive, HostListener, HostBinding, KeyValueDiffers, Input, ElementRef} from '@angular/core';
-import {RtList} from '../../lists/list';
+import {RtListComponent} from '../../lists/list';
 import {GoToControlBase} from './go-to-control-base';
 
 @Directive({
     selector: '[rt-to-first-page]'
 })
-export class RtToFirstPage extends GoToControlBase {
-    constructor(listHost: RtList, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
+export class RtToFirstPageDirective extends GoToControlBase {
+    constructor(listHost: RtListComponent, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
         super(listHost, differs, elementRef, renderer);
     }
     @HostListener('click')

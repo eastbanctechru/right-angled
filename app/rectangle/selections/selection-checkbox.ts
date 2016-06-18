@@ -1,15 +1,14 @@
 import { Component, Input } from '@angular/core';
-import {RtSelectionAreaFor} from './selection-area-for';
-import {ISelectable} from 'e2e4/src/contracts/ISelectable';
+import {RtSelectionAreaForDirective} from './selection-area-for';
 
 @Component({
     selector: 'rt-selection-checkbox',
     template: '<input type="checkbox" (change)="changeHandler($event)" [checked]="item.selected"/>'
 })
-export class RtSelectionCheckbox {
-    private selectionArea: RtSelectionAreaFor;
+export class RtSelectionCheckboxComponent {
+    private selectionArea: RtSelectionAreaForDirective;
     @Input('index') index: number = null;
-    constructor(selectionArea: RtSelectionAreaFor) {
+    constructor(selectionArea: RtSelectionAreaForDirective) {
         this.selectionArea = selectionArea;
     }
     changeHandler(evt: Event): void {

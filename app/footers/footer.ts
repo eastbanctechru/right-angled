@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RtList} from '../rectangle/lists/list';
+import {RtListComponent} from '../rectangle/lists/list';
 
 import {BufferedFooter} from './buffered-footer';
 import {SimpleFooter} from './simple-footer';
@@ -13,8 +13,8 @@ import {PagedFooter} from './paged-footer';
                 <simple-footer *ngIf="hostList.isSimpleList"></simple-footer>`
 })
 export class Footer {
-    hostList: RtList;
-    constructor(hostList: RtList) {
+    hostList: RtListComponent;
+    constructor(hostList: RtListComponent) {
         this.hostList = hostList;
     }
 }
