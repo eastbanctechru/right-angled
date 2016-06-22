@@ -7,7 +7,7 @@ import {FooterComponent} from '../shared/footers/footer';
 @Component({
     directives: [RECTANGLE_DIRECTIVES, FooterComponent],
     providers: [AirportsService, NgPagedListService],
-    templateUrl: 'app/paged-list-sample/paged-list-sample.html'
+    templateUrl: 'app/paged-list-sample/paged-list-sample.component.html'
 })
 export class PagedListSampleComponent {
     @filter()

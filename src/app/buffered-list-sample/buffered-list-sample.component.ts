@@ -7,7 +7,7 @@ import {FooterComponent} from '../shared/footers/footer';
 @Component({
     directives: [RECTANGLE_DIRECTIVES, FooterComponent],
     providers: [AirportsService, NgBufferedListService],
-    templateUrl: 'app/buffered-list-sample/buffered-list-sample.html'
+    templateUrl: 'app/buffered-list-sample/buffered-list-sample.component.html'
 })
 export class BufferedListSampleComponent {
     @filter()

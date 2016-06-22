@@ -6,7 +6,7 @@ import {FooterComponent} from '../shared/footers/footer';
 @Component({
     directives: [RECTANGLE_DIRECTIVES, FooterComponent],
     providers: [AirportsService, NgSimpleListService],
-    templateUrl: 'app/simple-list-sample/simple-list-sample.html'
+    templateUrl: 'app/simple-list-sample/simple-list-sample.component.html'
 })
 export class SimpleListSampleComponent {
     @filter()
