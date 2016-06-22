@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {AirportsService} from '../airportsService';
 import {filter} from 'e2e4';
-import {RECTANGLE_DIRECTIVES, NgSimpleListService} from '../../right-angled/main';
+import {RECTANGLE_DIRECTIVES, NgSimpleListService} from '../../right-angled/index';
 import {FooterComponent} from '../shared/footers/footer';
 @Component({
     directives: [RECTANGLE_DIRECTIVES, FooterComponent],
