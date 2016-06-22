@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
 import {AirportsService} from '../airportsService';
-import {filter} from 'e2e4';
-import {RECTANGLE_DIRECTIVES, NgBufferedListService} from '../../right-angled/index';
+import {filter, RECTANGLE_DIRECTIVES, NgBufferedListService} from '../../right-angled/index';
 import {FooterComponent} from '../shared/footers/footer';
 
 @Component({
+    moduleId: module.id,
     directives: [RECTANGLE_DIRECTIVES, FooterComponent],
     providers: [AirportsService, NgBufferedListService],
-    templateUrl: 'app/buffered-list-sample/buffered-list-sample.component.html'
+    templateUrl: 'buffered-list-sample.component.html'
 })
 export class BufferedListSampleComponent {
     @filter()

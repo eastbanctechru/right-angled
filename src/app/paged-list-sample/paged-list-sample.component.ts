@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
 import {AirportsService} from '../airportsService';
-import {filter} from 'e2e4';
-import {RECTANGLE_DIRECTIVES, NgPagedListService} from '../../right-angled/index';
+import {filter, RECTANGLE_DIRECTIVES, NgPagedListService} from '../../right-angled/index';
 import {FooterComponent} from '../shared/footers/footer';
 
 @Component({
+    moduleId: module.id,
     directives: [RECTANGLE_DIRECTIVES, FooterComponent],
     providers: [AirportsService, NgPagedListService],
-    templateUrl: 'app/paged-list-sample/paged-list-sample.component.html'
+    templateUrl: 'paged-list-sample.component.html'
 })
 export class PagedListSampleComponent {
     @filter()

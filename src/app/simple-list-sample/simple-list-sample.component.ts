@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import {AirportsService} from '../airportsService';
-import {filter} from 'e2e4';
-import {RECTANGLE_DIRECTIVES, NgSimpleListService} from '../../right-angled/index';
+import {filter, RECTANGLE_DIRECTIVES, NgSimpleListService} from '../../right-angled/index';
 import {FooterComponent} from '../shared/footers/footer';
 @Component({
+    moduleId: module.id,
     directives: [RECTANGLE_DIRECTIVES, FooterComponent],
     providers: [AirportsService, NgSimpleListService],
-    templateUrl: 'app/simple-list-sample/simple-list-sample.component.html'
+    templateUrl: 'simple-list-sample.component.html'
 })
 export class SimpleListSampleComponent {
     @filter()

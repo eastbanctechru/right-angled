@@ -2,6 +2,7 @@ export {NgPagedListService} from './bootstrap/ngPagedListService';
 export {NgBufferedListService} from './bootstrap/ngBufferedListService';
 export {NgSimpleListService} from './bootstrap/ngSimpleListService';
 export {Defaults} from './defaults';
+export * from 'e2e4';
 
 import {RtStatusNoDataComponent} from './footer/status-no-data';
 import {RtStatusRequestCanceledComponent} from './footer/status-request-canceled';
