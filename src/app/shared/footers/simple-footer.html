@@ -13,8 +13,6 @@
 <rt-status-progress>
     Loading....
 </rt-status-progress>
-<rt-total-records-text [templateLink]="totalRecordsTemplate">
-    <template #totalRecordsTemplate let-pager="pager">
-        {{pager.loadedCount}} records displayed
-    </template>
+<rt-total-records-text #rtref>
+    {{rtref.pager.loadedCount}} records displayed
 </rt-total-records-text>

@@ -1,26 +1,24 @@
 import {Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit} from '@angular/core';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 import {RtListComponent} from '../lists/list';
-import {ProgressState} from 'e2e4';
+import {IPager, ProgressState} from 'e2e4';
 import {Defaults} from '../defaults';
 
 @Component({
     selector: 'rt-total-records-text',
-    template: `<template *ngIf="isVisible"
-            [ngTemplateOutlet]="templateLink"
-            [ngOutletContext]="{pager: listHost.serviceInstance.pager}">
-        </template>`
+    template: `<ng-content *ngIf="isVisible"></ng-content>`
 })
 export class RtTotalRecordsTextComponent implements DoCheck, OnInit {
     listDiffer: KeyValueDiffer;
     pagerDiffer: KeyValueDiffer;
-    @Input('templateLink') templateLink;
     isVisible: boolean;
     listHost: RtListComponent;
+    pager: IPager;
     constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
         this.listDiffer = differs.find([]).create(null);
         this.pagerDiffer = differs.find([]).create(null);
         this.listHost = listHost;
+        this.pager = this.listHost.serviceInstance.pager;
     }
     ngOnInit(): void {
         this.setVisibility();
