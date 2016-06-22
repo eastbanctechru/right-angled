@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit, Optional} from '@angular/core';
 import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
-import {NgSimpleListService} from '../bootstrap/ngSimpleListService';
+import {NgListService} from '../bootstrap/ngListService';
 
 @Component({
     selector: 'rt-list',
@@ -10,16 +10,16 @@ import {NgSimpleListService} from '../bootstrap/ngSimpleListService';
 export class RtListComponent implements OnChanges, OnDestroy, OnInit {
     @Input() items: Array<any>;
     @Input('load-on-init') loadOnInit: boolean = true;
-    constructor( @Optional() bufferedListService: NgBufferedListService, @Optional() pagedListService: NgPagedListService, @Optional() simpleListService: NgSimpleListService) {
-        this.serviceInstance = simpleListService || bufferedListService || pagedListService;
+    constructor( @Optional() bufferedListService: NgBufferedListService, @Optional() pagedListService: NgPagedListService, @Optional() listService: NgListService) {
+        this.serviceInstance = listService || bufferedListService || pagedListService;
         this.isBufferedList = !!bufferedListService;
         this.isPagedList = !!pagedListService;
-        this.isSimpleList = !!simpleListService;
+        this.isRegularList = !!listService;
     }
-    serviceInstance: NgSimpleListService | NgBufferedListService | NgPagedListService;
+    serviceInstance: NgListService | NgBufferedListService | NgPagedListService;
     isBufferedList: boolean;
     isPagedList: boolean;
-    isSimpleList: boolean;
+    isRegularList: boolean;
     ngOnInit(): void {
         if (this.loadOnInit && this.serviceInstance.inited) {
             this.serviceInstance.loadData();

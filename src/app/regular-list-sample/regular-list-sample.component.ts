@@ -1,26 +1,26 @@
 import {Component} from '@angular/core';
 import {AirportsService} from '../airportsService';
-import {filter, RECTANGLE_DIRECTIVES, NgPagedListService} from '../../right-angled/index';
+import {filter, RECTANGLE_DIRECTIVES, NgListService} from '../../right-angled/index';
 import {SHARED_DIRECTIVES} from '../shared/index';
 
 @Component({
     moduleId: module.id,
     directives: [RECTANGLE_DIRECTIVES, SHARED_DIRECTIVES],
-    providers: [AirportsService, NgPagedListService],
-    templateUrl: 'paged-list-sample.component.html'
+    providers: [AirportsService, NgListService],
+    templateUrl: 'regular-list-sample.component.html'
 })
-export class PagedListSampleComponent {
+export class RegularListSampleComponent {
     @filter()
     airportName: string;
     airportsService: AirportsService;
-    ngPagedListService: NgPagedListService;
+    ngListService: NgListService;
     items: Array<any> = new Array<any>();
-    constructor(airportsService: AirportsService, ngPagedListService: NgPagedListService) {
+    constructor(airportsService: AirportsService, ngListService: NgListService) {
         this.airportsService = airportsService;
-        this.ngPagedListService = ngPagedListService.wrap(this, this.loadData);
+        this.ngListService = ngListService.wrap(this, this.loadData);
     }
     loadData = (requestParams: any): Promise<any> => {
-        return this.airportsService.getAirportsPaged(requestParams).then(result => {
+        return this.airportsService.getAirportsRegular(requestParams).then(result => {
             this.items = result.items;
             return result;
         });

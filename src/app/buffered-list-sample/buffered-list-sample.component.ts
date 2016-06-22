@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {AirportsService} from '../airportsService';
 import {filter, RECTANGLE_DIRECTIVES, NgBufferedListService} from '../../right-angled/index';
-import {FooterComponent} from '../shared/footers/footer';
+import {SHARED_DIRECTIVES} from '../shared/index';
 
 @Component({
     moduleId: module.id,
-    directives: [RECTANGLE_DIRECTIVES, FooterComponent],
+    directives: [RECTANGLE_DIRECTIVES, SHARED_DIRECTIVES],
     providers: [AirportsService, NgBufferedListService],
     templateUrl: 'buffered-list-sample.component.html'
 })

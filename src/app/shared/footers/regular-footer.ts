@@ -4,10 +4,10 @@ import {FOOTER_DIRECTIVES} from '../../../right-angled/index';
 
 @Component({
     directives: [FOOTER_DIRECTIVES],
-    selector: 'rt-simple-footer',
-    templateUrl: 'app/shared/footers/simple-footer.html'
+    selector: 'rt-regular-footer',
+    templateUrl: 'app/shared/footers/regular-footer.html'
 })
-export class SimpleFooterComponent {
+export class RegularFooterComponent {
     hostList: RtListComponent;
     constructor(hostList: RtListComponent) {
         this.hostList = hostList;

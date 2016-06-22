@@ -47,7 +47,8 @@ const barrels: string[] = [
   'app/master-detail-sample',
   'app/paged-list-sample',
   'app/buffered-list-sample',
-  'app/simple-list-sample',
+  'app/regular-list-sample',
+  'app/sortable-header',
   /** @cli-barrel */
 ];
 

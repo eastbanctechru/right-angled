@@ -1,12 +1,12 @@
 <div>
-    <h1 class="page-title">Simple List Sample</h1>
+    <h1 class="page-title">Regular List Sample</h1>
     <rt-list [items]="items">
         <form class="filters">
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="control-label">Label</label>
-                        <input type="text" class="form-control" [(ngModel)]="airportName"/>
+                        <input type="text" class="form-control" [(ngModel)]="airportName" />
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -86,27 +86,7 @@
         </form>
 
         <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        <span>&#8470;</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'iata'">IATA Code</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'name'">Name</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'continent'">Continent</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'type'">Type</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'lat'">Location</span>
-                    </th>
-                </tr>
+            <thead sortable-header>
             </thead>
             <tbody [rt-selection-area-for]="items">
                 <tr *ngFor="let item of items, let index=index" [class.success]="item.selected" [rt-select-by-index]="index">

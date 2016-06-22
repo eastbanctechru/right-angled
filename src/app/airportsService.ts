@@ -55,7 +55,7 @@ export class AirportsService {
             setTimeout(() => { resolve(result); }, 500);
         });
     }
-    getAirportsSimple(request: any): Promise<any> {
+    getAirportsRegular(request: any): Promise<any> {
         let data = _.filter(airports, item => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
 
         let result = this.applyRequest(request, data);

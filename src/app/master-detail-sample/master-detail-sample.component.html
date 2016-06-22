@@ -2,27 +2,7 @@
     <h1 class="page-title">Master-detail Sample</h1>
     <rt-list [items]="items">
         <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        <span>&#8470;</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'iata'">IATA Code</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'name'">Name</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'continent'">Continent</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'type'">Type</span>
-                    </th>
-                    <th>
-                        <span [rt-sort]="'lat'">Location</span>
-                    </th>
-                </tr>
+            <thead sortable-header>
             </thead>
             <tbody [rt-selection-area-for]="items">
                 <template ngFor let-item [ngForOf]="items" let-index="index">
