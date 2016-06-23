@@ -5,7 +5,7 @@ import {ISelectable} from 'e2e4';
 @Directive({
     selector: 'input[rt-selection-checkbox-for]'
 })
-export class RtSelectionCheckboxForComponent {
+export class RtSelectionCheckboxForDirective {
     private selectionArea: RtSelectionAreaForDirective;
     @Input('rt-selection-checkbox-for') index: number = null;
     constructor( @SkipSelf() selectionArea: RtSelectionAreaForDirective) {
