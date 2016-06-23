@@ -6,7 +6,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="control-label">Label</label>
-                        <input type="text" class="form-control" [(ngModel)]="airportName"/>
+                        <input type="text" class="form-control" [(ngModel)]="airportName" />
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -85,10 +85,13 @@
             </div>
         </form>
 
-        <table class="table table-striped">
+        <table class="table table-striped" [rt-selection-area-for]="items">
             <thead sortable-header>
             </thead>
-            <tbody [rt-selection-area-for]="items">
+            <caption toolbar>
+            </caption>
+
+            <tbody >
                 <tr *ngFor="let item of items, let index=index" [class.success]="item.selected" [rt-select-by-index]="index">
                     <td>
                         <rt-row-number [index]="index">

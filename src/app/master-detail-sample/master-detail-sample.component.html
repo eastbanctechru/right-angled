@@ -1,10 +1,13 @@
 <div>
     <h1 class="page-title">Master-detail Sample</h1>
     <rt-list [items]="items">
-        <table class="table table-striped">
+        <table class="table table-striped" [rt-selection-area-for]="items">
             <thead sortable-header>
             </thead>
-            <tbody [rt-selection-area-for]="items">
+            <caption toolbar>
+            </caption>
+
+            <tbody>
                 <template ngFor let-item [ngForOf]="items" let-index="index">
                     <tr [class.success]="item.selected" [rt-select-by-index]="index">
                         <td>

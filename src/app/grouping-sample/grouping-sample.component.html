@@ -85,10 +85,13 @@
             </div>
         </form>
 
-        <table class="table table-striped">
+        <table class="table table-striped" [rt-selection-area-for]="continents" [toggleOnly]="true">
             <thead sortable-header>
             </thead>
-            <tbody [rt-selection-area-for]="continents" [toggleOnly]="true">
+            <caption toolbar>
+            </caption>
+
+            <tbody>
                 <template ngFor let-continent [ngForOf]="continents" let-index="index">
                     <tr [class.success]="continent.selected" [rt-select-by-index]="index">
                         <td colspan="6" class="text-center">{{continent.name}} ({{continent.items.length}} items)</td>

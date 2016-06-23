@@ -1,4 +1,4 @@
-import {Host, HostListener, Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
+import {ViewChildren, QueryList, Host, HostListener, Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
 import {ISelectable, ISelectionConfig, SelectionManager, SelectionEventsHelper} from 'e2e4';
 
 @Directive({
@@ -6,14 +6,16 @@ import {ISelectable, ISelectionConfig, SelectionManager, SelectionEventsHelper} 
     selector: '[rt-selection-area-for]'
 })
 export class RtSelectionAreaForDirective implements OnInit, OnChanges, OnDestroy, ISelectionConfig {
+    @ViewChildren(RtSelectionAreaForDirective) childSelectionAreas: QueryList<RtSelectionAreaForDirective>;
     selectionEventsHelper: SelectionEventsHelper;
     selectionManager: SelectionManager;
+
     @Input('multiple') allowMultipleSelection: boolean = true;
     @Input('rt-selection-area-for') items: Array<ISelectable>;
     @Input() autoSelectFirst: boolean = false;
     @Input() toggleOnly: boolean = false;
 
-    constructor(@Host()selectionManager: SelectionManager) {
+    constructor( @Host() selectionManager: SelectionManager) {
         this.selectionManager = selectionManager;
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }

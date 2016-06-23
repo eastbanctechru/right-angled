@@ -85,10 +85,12 @@
             </div>
         </form>
 
-        <table class="table table-striped">
+        <table class="table table-striped" [rt-selection-area-for]="items">
             <thead sortable-header>
             </thead>
-            <tbody [rt-selection-area-for]="items">
+            <caption toolbar>
+            </caption>
+            <tbody>
                 <tr *ngFor="let item of items, let index=index" [class.success]="item.selected" [rt-select-by-index]="index">
                     <td>
                         <rt-row-number [index]="index">

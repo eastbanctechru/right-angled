@@ -44,12 +44,14 @@ export var FOOTER_DIRECTIVES: any[] = [
 import {RtSelectionAreaForDirective} from './selections/selection-area-for';
 import {RtSelectByIndexDirective} from './selections/select-by-index';
 import {RtSelectionCheckboxComponent} from './selections/selection-checkbox';
+import {RtSelectAllDirective} from './selections/select-all';
 
 
 export var SELECTION_DIRECTIVES: any[] = [
     RtSelectionAreaForDirective,
     RtSelectByIndexDirective,
-    RtSelectionCheckboxComponent];
+    RtSelectionCheckboxComponent,
+    RtSelectAllDirective];
 
 
 
