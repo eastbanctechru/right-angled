@@ -43,7 +43,7 @@ export var FOOTER_DIRECTIVES: any[] = [
 
 import {RtSelectionAreaForDirective} from './selections/selection-area-for';
 import {RtSelectByIndexDirective} from './selections/select-by-index';
-import {RtSelectionCheckboxComponent} from './selections/selection-checkbox';
+import {RtSelectionCheckboxForComponent} from './selections/selection-checkbox-for';
 import {RtSelectAllDirective} from './selections/select-all';
 import {RtDeselectAllDirective} from './selections/deselect-all';
 
@@ -51,7 +51,7 @@ import {RtDeselectAllDirective} from './selections/deselect-all';
 export var SELECTION_DIRECTIVES: any[] = [
     RtSelectionAreaForDirective,
     RtSelectByIndexDirective,
-    RtSelectionCheckboxComponent,
+    RtSelectionCheckboxForComponent,
     RtSelectAllDirective,
     RtDeselectAllDirective];
 
