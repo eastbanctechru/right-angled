@@ -1,4 +1,4 @@
-import {Directive, HostListener, HostBinding, KeyValueDiffers} from '@angular/core';
+import {SkipSelf, Directive, HostListener, HostBinding, KeyValueDiffers} from '@angular/core';
 import {RtListComponent} from './list';
 import {Defaults} from '../defaults';
 import {RtLoadControlBaseDirective} from './load-control-base';
@@ -13,7 +13,7 @@ import {RtLoadControlBaseDirective} from './load-control-base';
     /* tslint:ensable:directive-selector-name */
 })
 export class RtLoadControlButtonDirective extends RtLoadControlBaseDirective {
-    constructor(hostList: RtListComponent, differs: KeyValueDiffers) {
+    constructor(@SkipSelf()hostList: RtListComponent, differs: KeyValueDiffers) {
         super(hostList, differs);
     }
     @HostBinding('title')

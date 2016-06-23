@@ -1,4 +1,4 @@
-import {HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
+import {SkipSelf, HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
 import {RtListComponent} from '../../lists/list';
 import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 
@@ -10,7 +10,7 @@ import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 export class RtTakeRowCountDirective implements DoCheck {
     bufferedListService: NgBufferedListService;
     private pagerDiffer: KeyValueDiffer;
-    constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
+    constructor(@SkipSelf() listHost: RtListComponent, differs: KeyValueDiffers) {
         if (!listHost.isBufferedList) {
             throw new Error('[rt-row-count] directive can be used only with buffered list services.');
         }

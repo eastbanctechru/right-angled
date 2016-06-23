@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import {SkipSelf, Component, Input, OnChanges} from '@angular/core';
 import {RtListComponent} from './list';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 
@@ -10,7 +10,7 @@ export class RtRowNumberComponent implements OnChanges {
     @Input() index: number;
     rowNumber: number;
     listHost: RtListComponent;
-    constructor(listHost: RtListComponent) {
+    constructor(@SkipSelf()listHost: RtListComponent) {
         this.listHost = listHost;
     }
     ngOnChanges(): void {

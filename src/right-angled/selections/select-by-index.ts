@@ -1,4 +1,4 @@
-import {HostListener, Directive, Input} from '@angular/core';
+import {SkipSelf, HostListener, Directive, Input, Host} from '@angular/core';
 import {RtSelectionAreaForDirective} from './selection-area-for';
 @Directive({
     selector: '[rt-select-by-index]'
@@ -6,7 +6,7 @@ import {RtSelectionAreaForDirective} from './selection-area-for';
 export class RtSelectByIndexDirective {
     private selectionArea: RtSelectionAreaForDirective;
     @Input('rt-select-by-index') index: number = null;
-    constructor(selectionArea: RtSelectionAreaForDirective) {
+    constructor(@SkipSelf()selectionArea: RtSelectionAreaForDirective) {
         this.selectionArea = selectionArea;
     }
     @HostListener('mouseup', ['$event'])

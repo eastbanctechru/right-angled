@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { SkipSelf, Component, Input } from '@angular/core';
 import {RtSelectionAreaForDirective} from './selection-area-for';
 
 @Component({
@@ -8,7 +8,7 @@ import {RtSelectionAreaForDirective} from './selection-area-for';
 export class RtSelectionCheckboxComponent {
     private selectionArea: RtSelectionAreaForDirective;
     @Input('index') index: number = null;
-    constructor(selectionArea: RtSelectionAreaForDirective) {
+    constructor(@SkipSelf()selectionArea: RtSelectionAreaForDirective) {
         this.selectionArea = selectionArea;
     }
     changeHandler(evt: Event): void {

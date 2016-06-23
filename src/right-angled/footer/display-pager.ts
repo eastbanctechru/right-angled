@@ -1,4 +1,4 @@
-import {Component, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
+import {SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
 import {RtListComponent} from '../lists/list';
 import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
 import {ProgressState} from 'e2e4';
@@ -10,7 +10,7 @@ import {RtStatusControlBase} from './status-control-base';
 })
 export class RtDisplayPagerComponent extends RtStatusControlBase implements DoCheck {
     pagerDiffer: KeyValueDiffer;
-    constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
+    constructor(@SkipSelf()listHost: RtListComponent, differs: KeyValueDiffers) {
         super(listHost, differs, ProgressState.Done);
         this.pagerDiffer = differs.find([]).create(null);
     }

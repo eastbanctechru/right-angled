@@ -1,4 +1,4 @@
-import {Directive, HostListener} from '@angular/core';
+import {SkipSelf, Directive, HostListener} from '@angular/core';
 import {RtListComponent} from './list';
 
 @Directive({
@@ -6,7 +6,7 @@ import {RtListComponent} from './list';
 })
 export class RtResetButtonDirective {
     hostList: RtListComponent;
-    constructor(hostList: RtListComponent) {
+    constructor(@SkipSelf()hostList: RtListComponent) {
         this.hostList = hostList;
     }
     @HostListener('click')

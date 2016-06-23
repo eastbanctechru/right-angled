@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit, Optional} from '@angular/core';
+import {SkipSelf, Component, Input, OnChanges, OnDestroy, OnInit, Optional} from '@angular/core';
 import {NgBufferedListService} from '../bootstrap/ngBufferedListService';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 import {NgListService} from '../bootstrap/ngListService';
@@ -10,7 +10,7 @@ import {NgListService} from '../bootstrap/ngListService';
 export class RtListComponent implements OnChanges, OnDestroy, OnInit {
     @Input() items: Array<any>;
     @Input('load-on-init') loadOnInit: boolean = true;
-    constructor( @Optional() bufferedListService: NgBufferedListService, @Optional() pagedListService: NgPagedListService, @Optional() listService: NgListService) {
+    constructor( @SkipSelf()@Optional() bufferedListService: NgBufferedListService, @SkipSelf()@Optional() pagedListService: NgPagedListService, @SkipSelf()@Optional() listService: NgListService) {
         this.serviceInstance = listService || bufferedListService || pagedListService;
         this.isBufferedList = !!bufferedListService;
         this.isPagedList = !!pagedListService;

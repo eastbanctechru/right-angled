@@ -1,4 +1,4 @@
-import {Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit} from '@angular/core';
+import {SkipSelf, Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit} from '@angular/core';
 import {NgPagedListService} from '../bootstrap/ngPagedListService';
 import {RtListComponent} from '../lists/list';
 import {IPager, ProgressState} from 'e2e4';
@@ -14,7 +14,7 @@ export class RtTotalRecordsTextComponent implements DoCheck, OnInit {
     isVisible: boolean;
     listHost: RtListComponent;
     pager: IPager;
-    constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
+    constructor(@SkipSelf()listHost: RtListComponent, differs: KeyValueDiffers) {
         this.listDiffer = differs.find([]).create(null);
         this.pagerDiffer = differs.find([]).create(null);
         this.listHost = listHost;

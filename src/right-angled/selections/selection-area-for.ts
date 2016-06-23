@@ -1,4 +1,4 @@
-import {HostListener, Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
+import {Host, HostListener, Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
 import {ISelectable, ISelectionConfig, SelectionManager, SelectionEventsHelper} from 'e2e4';
 
 @Directive({
@@ -13,7 +13,7 @@ export class RtSelectionAreaForDirective implements OnInit, OnChanges, OnDestroy
     @Input() autoSelectFirst: boolean = false;
     @Input() toggleOnly: boolean = false;
 
-    constructor(selectionManager: SelectionManager) {
+    constructor(@Host()selectionManager: SelectionManager) {
         this.selectionManager = selectionManager;
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }

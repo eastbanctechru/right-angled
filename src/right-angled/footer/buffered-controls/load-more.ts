@@ -1,4 +1,4 @@
-import {HostListener, Directive} from '@angular/core';
+import {SkipSelf, HostListener, Directive} from '@angular/core';
 import {RtListComponent} from '../../lists/list';
 import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 
@@ -7,7 +7,7 @@ import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
 })
 export class RtLoadMoreDirective {
     bufferedListService: NgBufferedListService;
-    constructor(listHost: RtListComponent) {
+    constructor(@SkipSelf() listHost: RtListComponent) {
         if (!listHost.isBufferedList) {
             throw new Error('[rt-load-more] directive can be used only with buffered list services.');
         }

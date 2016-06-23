@@ -1,4 +1,4 @@
-import {Directive, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit} from '@angular/core';
+import {SkipSelf, Directive, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit} from '@angular/core';
 import {RtListComponent} from './list';
 import {Defaults} from '../defaults';
 
@@ -17,7 +17,7 @@ export class RtLoadControlBaseDirective implements DoCheck, OnInit {
     @HostBinding('class.' + Defaults.classNames.loadButtonCancel)
     displayCancelCls: boolean;
 
-    constructor(hostList: RtListComponent, differs: KeyValueDiffers) {
+    constructor(@SkipSelf()hostList: RtListComponent, differs: KeyValueDiffers) {
         this.listHost = hostList;
         this.listDiffers = differs.find([]).create(null);
     }

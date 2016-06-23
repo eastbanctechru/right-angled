@@ -1,4 +1,4 @@
-import {Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from '@angular/core';
+import {SkipSelf, Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit} from '@angular/core';
 import {Defaults} from '../defaults';
 import {RtListComponent} from './list';
 import {SortDirection} from 'e2e4';
@@ -13,7 +13,7 @@ export class RtSortDirective implements DoCheck, OnInit {
     private differ: any;
     private renderer: Renderer;
     @Input('rt-sort') fieldName: string;
-    constructor(el: ElementRef, renderer: Renderer, differs: IterableDiffers, hostList: RtListComponent) {
+    constructor(@SkipSelf()hostList: RtListComponent, el: ElementRef, renderer: Renderer, differs: IterableDiffers) {
         this.differ = differs.find([]).create(null);
         this.hostList = hostList;
         this.nativeEl = el.nativeElement;
