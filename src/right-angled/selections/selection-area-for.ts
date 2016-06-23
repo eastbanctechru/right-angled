@@ -1,4 +1,4 @@
-import {ViewChildren, QueryList, Host, HostListener, Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
+import {ContentChildren, ViewChildren, QueryList, Host, HostListener, Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
 import {ISelectable, ISelectionConfig, SelectionManager, SelectionEventsHelper} from 'e2e4';
 
 @Directive({
@@ -6,7 +6,7 @@ import {ISelectable, ISelectionConfig, SelectionManager, SelectionEventsHelper} 
     selector: '[rt-selection-area-for]'
 })
 export class RtSelectionAreaForDirective implements OnInit, OnChanges, OnDestroy, ISelectionConfig {
-    @ViewChildren(RtSelectionAreaForDirective) childSelectionAreas: QueryList<RtSelectionAreaForDirective>;
+    @ContentChildren(RtSelectionAreaForDirective) childSelectionAreas: QueryList<RtSelectionAreaForDirective>;
     selectionEventsHelper: SelectionEventsHelper;
     selectionManager: SelectionManager;
 

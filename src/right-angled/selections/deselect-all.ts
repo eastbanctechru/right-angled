@@ -1,9 +1,9 @@
 import {SkipSelf, HostListener, Directive, Input, Host} from '@angular/core';
 import {RtSelectionAreaForDirective} from './selection-area-for';
 @Directive({
-    selector: '[rt-select-all]'
+    selector: '[rt-deselect-all]'
 })
-export class RtSelectAllDirective {
+export class RtDeselectAllDirective {
     private selectionArea: RtSelectionAreaForDirective;
     @Input() recursive: boolean = true;
     constructor( @SkipSelf() selectionArea: RtSelectionAreaForDirective) {
@@ -11,10 +11,10 @@ export class RtSelectAllDirective {
     }
     @HostListener('click')
     mouseUpHandler(event: MouseEvent): void {
-        this.selectionArea.selectionManager.selectAll();
+        this.selectionArea.selectionManager.deselectAll();
         setTimeout(() => {
             if (this.recursive && this.selectionArea.childSelectionAreas) {
-                this.selectionArea.childSelectionAreas.toArray().forEach(area => area.selectionManager.selectAll());
+                this.selectionArea.childSelectionAreas.toArray().forEach(area => area.selectionManager.deselectAll());
             }
         }, 0);
     }

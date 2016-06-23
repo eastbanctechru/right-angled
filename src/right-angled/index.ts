@@ -45,13 +45,15 @@ import {RtSelectionAreaForDirective} from './selections/selection-area-for';
 import {RtSelectByIndexDirective} from './selections/select-by-index';
 import {RtSelectionCheckboxComponent} from './selections/selection-checkbox';
 import {RtSelectAllDirective} from './selections/select-all';
+import {RtDeselectAllDirective} from './selections/deselect-all';
 
 
 export var SELECTION_DIRECTIVES: any[] = [
     RtSelectionAreaForDirective,
     RtSelectByIndexDirective,
     RtSelectionCheckboxComponent,
-    RtSelectAllDirective];
+    RtSelectAllDirective,
+    RtDeselectAllDirective];
 
 
 
