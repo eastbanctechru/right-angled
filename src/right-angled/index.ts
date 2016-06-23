@@ -46,6 +46,7 @@ import {RtSelectByIndexDirective} from './selections/select-by-index';
 import {RtSelectionCheckboxForDirective} from './selections/selection-checkbox-for';
 import {RtSelectAllDirective} from './selections/select-all';
 import {RtDeselectAllDirective} from './selections/deselect-all';
+import {RtCheckAllDirective} from './selections/check-all';
 
 
 export var SELECTION_DIRECTIVES: any[] = [
@@ -53,7 +54,8 @@ export var SELECTION_DIRECTIVES: any[] = [
     RtSelectByIndexDirective,
     RtSelectionCheckboxForDirective,
     RtSelectAllDirective,
-    RtDeselectAllDirective];
+    RtDeselectAllDirective,
+    RtCheckAllDirective];
 
 
 

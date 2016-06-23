@@ -10,7 +10,7 @@ export class RtSelectAllDirective {
         this.selectionArea = selectionArea;
     }
     @HostListener('click')
-    mouseUpHandler(event: MouseEvent): void {
+    clickHandler(event: MouseEvent): void {
         this.selectionArea.selectionManager.selectAll();
         setTimeout(() => {
             if (this.recursive && this.selectionArea.childSelectionAreas) {
