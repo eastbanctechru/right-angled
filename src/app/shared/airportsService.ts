@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {airports}     from './airports';
+import {IAirportInfo, airports}     from './airports';
 import * as _ from 'lodash';
 import {SortDirection} from 'e2e4';
 
@@ -60,6 +60,16 @@ export class AirportsService {
 
         let result = this.applyRequest(request, data);
         result.items.forEach(item => item.selected = false);
+        return new Promise(resolve => {
+            setTimeout(() => { resolve(result); }, 500);
+        });
+    }
+    getAirportsGroupedByContinent(request: any): Promise<any> {
+        let data = _.filter(airports, item => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
+
+        let result = this.applyRequest(request, data);
+        result.items.forEach(item => item.selected = false);
+        result.items = _.chain(result.items).groupBy((item: IAirportInfo) => item.continent).map((item, index) => { return { name: index, selected: false, items: item }; }).value();
         return new Promise(resolve => {
             setTimeout(() => { resolve(result); }, 500);
         });

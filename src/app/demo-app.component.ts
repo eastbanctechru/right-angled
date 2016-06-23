@@ -4,6 +4,7 @@ import {PagedListSampleComponent} from './paged-list-sample/paged-list-sample.co
 import {BufferedListSampleComponent} from './buffered-list-sample/buffered-list-sample.component';
 import {RegularListSampleComponent} from './regular-list-sample/regular-list-sample.component';
 import {MasterDetailSampleComponent} from './master-detail-sample/master-detail-sample.component';
+import {GroupingSampleComponent} from './grouping-sample/grouping-sample.component';
 import { DROPDOWN_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 import 'rxjs/Rx';
 
@@ -17,7 +18,8 @@ import 'rxjs/Rx';
   { component: PagedListSampleComponent, name: 'PagedListSample', path: '/paged-list-sample', useAsDefault: true },
   { component: BufferedListSampleComponent, name: 'BufferedListSample', path: '/buffered-list-sample' },
   { component: RegularListSampleComponent, name: 'RegularListSample', path: '/regular-list-sample' },
-  { component: MasterDetailSampleComponent, name: 'MasterDetailListSample', path: '/master-detail-sample' }
+  { component: MasterDetailSampleComponent, name: 'MasterDetailListSample', path: '/master-detail-sample' },
+  { component: GroupingSampleComponent, name: 'GroupingSample', path: '/grouping-sample' }
 ])
 export class DemoAppComponent {
 

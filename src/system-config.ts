@@ -49,6 +49,7 @@ const barrels: string[] = [
   'app/buffered-list-sample',
   'app/regular-list-sample',
   'app/sortable-header',
+  'app/grouping-sample',
   /** @cli-barrel */
 ];
 

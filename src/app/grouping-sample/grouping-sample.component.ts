@@ -7,21 +7,21 @@ import {SHARED_DIRECTIVES} from '../shared/index';
     moduleId: module.id,
     directives: [RECTANGLE_DIRECTIVES, SHARED_DIRECTIVES],
     providers: [AirportsService, NgListService],
-    templateUrl: 'regular-list-sample.component.html'
+    templateUrl: 'grouping-sample.component.html'
 })
-export class RegularListSampleComponent {
+export class GroupingSampleComponent {
     @filter()
     airportName: string;
     airportsService: AirportsService;
     ngListService: NgListService;
-    items: Array<any> = new Array<any>();
+    continents: Array<any> = new Array<any>();
     constructor(airportsService: AirportsService, ngListService: NgListService) {
         this.airportsService = airportsService;
         this.ngListService = ngListService.wrap(this, this.loadData);
     }
     loadData = (requestParams: any): Promise<any> => {
-        return this.airportsService.getAirportsRegular(requestParams).then(result => {
-            this.items = result.items;
+        return this.airportsService.getAirportsGroupedByContinent(requestParams).then(result => {
+            this.continents = result.items;
             return result;
         });
     };
