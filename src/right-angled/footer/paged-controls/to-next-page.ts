@@ -15,7 +15,7 @@ export class RtToNextPageDirective extends GoToControlBase {
         this.pagedListService.goToNextPage();
     }
 
-    @Input('rt-disabled-cls')
+    @Input('disabled-cls')
     disabledCls: string;
 
     @HostBinding('attr.disabled')

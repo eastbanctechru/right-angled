@@ -15,7 +15,7 @@ export class RtToLastPageDirective extends GoToControlBase {
         this.pagedListService.goToLastPage();
     }
 
-    @Input('rt-disabled-cls')
+    @Input('disabled-cls')
     disabledCls: string;
 
     @HostBinding('attr.disabled')

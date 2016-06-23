@@ -14,7 +14,7 @@ export class RtToFirstPageDirective extends GoToControlBase {
         this.pagedListService.goToFirstPage();
     }
 
-    @Input('rt-disabled-cls')
+    @Input('disabled-cls')
     disabledCls: string;
 
     @HostBinding('attr.disabled')

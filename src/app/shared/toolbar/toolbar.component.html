@@ -1,8 +1,14 @@
 <ul>
   <li class="pointer">
-    <button class="btn btn-success" title="Select all items" rt-select-all>Select all</button>
+    <button class="btn btn-success" title="Select all items" rt-select-all [recursive]="false">Select all</button>
   </li>
   <li class="pointer">
-    <button class="btn btn-success" title="Deselect all items" rt-deselect-all>Deselect all</button>
+    <button class="btn btn-success" title="Deselect all items" rt-deselect-all [recursive]="false">Deselect all</button>
+  </li>
+  <li class="pointer">
+    <button class="btn btn-success" title="Select all items" rt-select-all>Select all recursivelly</button>
+  </li>
+  <li class="pointer">
+    <button class="btn btn-success" title="Deselect all items" rt-deselect-all>Deselect all recursivelly</button>
   </li>
 </ul>

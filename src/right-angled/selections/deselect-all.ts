@@ -11,11 +11,9 @@ export class RtDeselectAllDirective {
     }
     @HostListener('click')
     mouseUpHandler(event: MouseEvent): void {
+        if (this.recursive && this.selectionArea.childSelectionAreas) {
+            this.selectionArea.childSelectionAreas.toArray().forEach(area => area.selectionManager.deselectAll());
+        }
         this.selectionArea.selectionManager.deselectAll();
-        setTimeout(() => {
-            if (this.recursive && this.selectionArea.childSelectionAreas) {
-                this.selectionArea.childSelectionAreas.toArray().forEach(area => area.selectionManager.deselectAll());
-            }
-        }, 0);
     }
 }

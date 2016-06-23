@@ -14,11 +14,11 @@
     Loading....
 </rt-status-progress>
 <rt-display-pager>
-    <span rt-to-first-page rt-disabled-cls="disabled" class="step-backward" title="go to first page"></span>
-    <span rt-to-prev-page rt-disabled-cls="disabled" class="chevron-left" title="go to previous page"></span>
+    <span rt-to-first-page disabled-cls="disabled" class="step-backward" title="go to first page"></span>
+    <span rt-to-prev-page disabled-cls="disabled" class="chevron-left" title="go to previous page"></span>
     <input rt-select-on-focus rt-page-number type="text" class="form-control" maxlength="4" />
-    <span rt-to-next-page rt-disabled-cls="disabled" class="chevron-right" title="go to next page"></span>
-    <span rt-to-last-page rt-disabled-cls="disabled" class="step-forward" title="go to last page"></span>
+    <span rt-to-next-page disabled-cls="disabled" class="chevron-right" title="go to next page"></span>
+    <span rt-to-last-page disabled-cls="disabled" class="step-forward" title="go to last page"></span>
     <rt-total-records-text #rtref>
         Displaying records {{rtref.pager.displayFrom}} - {{rtref.pager.displayTo}} of {{rtref.pager.totalCount}}.
     </rt-total-records-text>

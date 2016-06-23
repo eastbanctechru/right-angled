@@ -14,7 +14,7 @@ export class RtToPrevPageDirective extends GoToControlBase {
         this.pagedListService.goToPreviousPage();
     }
 
-    @Input('rt-disabled-cls')
+    @Input('disabled-cls')
     disabledCls: string;
 
     @HostBinding('attr.disabled')
