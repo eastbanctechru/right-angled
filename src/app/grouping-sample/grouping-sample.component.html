@@ -88,7 +88,7 @@
         <table class="table table-striped">
             <thead sortable-header>
             </thead>
-            <tbody [rt-selection-area-for]="continents">
+            <tbody [rt-selection-area-for]="continents" [toggleOnly]="true">
                 <template ngFor let-continent [ngForOf]="continents" let-index="index">
                     <tr [class.success]="continent.selected" [rt-select-by-index]="index">
                         <td colspan="6" class="text-center">{{continent.name}} ({{continent.items.length}} items)</td>

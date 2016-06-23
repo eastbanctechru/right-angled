@@ -69,7 +69,11 @@ export class AirportsService {
 
         let result = this.applyRequest(request, data);
         result.items.forEach(item => item.selected = false);
-        result.items = _.chain(result.items).groupBy((item: IAirportInfo) => item.continent).map((item, index) => { return { name: index, selected: false, items: item }; }).value();
+        result.items = _.chain(result.items)
+            .groupBy((item: IAirportInfo) => item.continent)
+            .map((item, index) => { return { name: index, selected: false, items: item }; })
+            .orderBy(continent => continent.name)
+            .value();
         return new Promise(resolve => {
             setTimeout(() => { resolve(result); }, 500);
         });
