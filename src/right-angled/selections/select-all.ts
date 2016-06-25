@@ -14,7 +14,11 @@ export class RtSelectAllDirective {
         this.selectionArea.selectionManager.selectAll();
         setTimeout(() => {
             if (this.recursive && this.selectionArea.childSelectionAreas) {
-                this.selectionArea.childSelectionAreas.toArray().forEach(area => area.selectionManager.selectAll());
+                this.selectionArea.childSelectionAreas.toArray().forEach(area => {
+                    if (area !== this.selectionArea) {
+                        area.selectionManager.selectAll();
+                    }
+                });
             }
         }, 0);
     }

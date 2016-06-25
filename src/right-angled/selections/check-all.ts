@@ -18,13 +18,21 @@ export class RtCheckAllDirective {
             this.selectionArea.selectionManager.selectAll();
             setTimeout(() => {
                 if (this.recursive && this.selectionArea.childSelectionAreas) {
-                    this.selectionArea.childSelectionAreas.toArray().forEach(area => area.selectionManager.selectAll());
+                    this.selectionArea.childSelectionAreas.toArray().forEach(area => {
+                        if (this.selectionArea !== area) {
+                            area.selectionManager.selectAll();
+                        }
+                    });
                 }
             }, 0);
 
         } else {
             if (this.recursive && this.selectionArea.childSelectionAreas) {
-                this.selectionArea.childSelectionAreas.toArray().forEach(area => area.selectionManager.deselectAll());
+                this.selectionArea.childSelectionAreas.toArray().forEach(area => {
+                    if (this.selectionArea !== area) {
+                        area.selectionManager.deselectAll();
+                    }
+                });
             }
             this.selectionArea.selectionManager.deselectAll();
         }

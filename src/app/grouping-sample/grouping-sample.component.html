@@ -85,7 +85,7 @@
             </div>
         </form>
 
-        <table class="table table-striped" [rt-selection-area-for]="continents" [toggleOnly]="true">
+        <table class="table table-striped" [rt-selection-area-for]="continents" [toggleOnly]="true"">
             <thead sortable-header>
             </thead>
             <caption toolbar>
@@ -100,7 +100,7 @@
                         <td colspan=6>
                             <table class="table table-striped">
                                 <tbody [rt-selection-area-for]="continent.items">
-                                    <tr *ngFor="let item of continent.items, let index=index" [class.success]="item.selected" [rt-select-by-index]="index">
+                                    <tr *ngFor="let item of continent.items, let index=index" [class.success]="item.selected" [rt-select-by-index]="index" >
                                         <td>
                                             <rt-row-number [index]="index">
                                             </rt-row-number>

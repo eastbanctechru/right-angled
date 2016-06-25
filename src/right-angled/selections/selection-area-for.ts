@@ -1,22 +1,31 @@
-import {ContentChildren, ViewChildren, QueryList, Host, HostListener, Directive, OnInit, Input, OnChanges, OnDestroy, HostBinding} from '@angular/core';
-import {ISelectable, ISelectionConfig, SelectionManager, SelectionEventsHelper} from 'e2e4';
+import {ContentChildren, ViewChildren, QueryList, Host, HostListener, Directive, OnInit, Input, Output, OnChanges, OnDestroy, HostBinding} from '@angular/core';
+import {ISelectable, ISelectionConfig, SelectionEventsHelper} from 'e2e4';
+import {NgSelectionManager} from '../bootstrap/ngSelectionManager';
+import {OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent, ISelectionEventsEmitter} from '../bootstrap/ISelectionEventsEmitter';
+import { EventEmitter } from "@angular/core";
+
 
 @Directive({
-    providers: [SelectionManager],
+    providers: [NgSelectionManager],
     selector: '[rt-selection-area-for]'
 })
-export class RtSelectionAreaForDirective implements OnInit, OnChanges, OnDestroy, ISelectionConfig {
+export class RtSelectionAreaForDirective implements ISelectionEventsEmitter, OnInit, OnChanges, OnDestroy, ISelectionConfig {
     @ContentChildren(RtSelectionAreaForDirective) childSelectionAreas: QueryList<RtSelectionAreaForDirective>;
     selectionEventsHelper: SelectionEventsHelper;
-    selectionManager: SelectionManager;
+    selectionManager: NgSelectionManager;
 
     @Input('multiple') allowMultipleSelection: boolean = true;
     @Input('rt-selection-area-for') items: Array<ISelectable>;
     @Input() autoSelectFirst: boolean = false;
     @Input() toggleOnly: boolean = false;
 
-    constructor( @Host() selectionManager: SelectionManager) {
+    @Output('onItemSelected') onSelected: EventEmitter<OnSelectedEvent> = new EventEmitter<OnSelectedEvent>();
+    @Output('onItemDeselected') onDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
+    @Output() onSelectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
+
+    constructor( @Host() selectionManager: NgSelectionManager) {
         this.selectionManager = selectionManager;
+        this.selectionManager.globalEmitter = this;
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }
     ngOnDestroy(): void {

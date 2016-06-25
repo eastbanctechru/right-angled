@@ -1,13 +1,24 @@
-import {SkipSelf, HostListener, Directive, Input, Host} from '@angular/core';
+import {SkipSelf, HostListener, Directive, Input, Output, Host, OnInit} from '@angular/core';
 import {RtSelectionAreaForDirective} from './selection-area-for';
+import {OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent, ISelectionEventsEmitter} from '../bootstrap/ISelectionEventsEmitter';
+import { EventEmitter } from "@angular/core";
+
 @Directive({
     selector: '[rt-select-by-index]'
 })
-export class RtSelectByIndexDirective {
+export class RtSelectByIndexDirective implements ISelectionEventsEmitter, OnInit {
     private selectionArea: RtSelectionAreaForDirective;
     @Input('rt-select-by-index') index: number = null;
-    constructor(@SkipSelf()selectionArea: RtSelectionAreaForDirective) {
+    @Output() onSelected: EventEmitter<OnSelectedEvent> = new EventEmitter<OnSelectedEvent>();
+    @Output() onDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
+    @Output() onSelectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
+
+
+    constructor( @SkipSelf() selectionArea: RtSelectionAreaForDirective) {
         this.selectionArea = selectionArea;
+    }
+    ngOnInit(): void {
+        this.selectionArea.selectionManager.registerEventEmitter(this, this.index);
     }
     @HostListener('mouseup', ['$event'])
     mouseUpHandler(event: MouseEvent): void {
