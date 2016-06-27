@@ -21,7 +21,13 @@ export abstract class DataService {
         let callSettings = this.toRequestOptionsArgs(settings);
 
         let obs = this.http.request(settings.url, callSettings)
-            .map<T>(response => response.json())
+            .map<T>(response => {
+                try {
+                    return response.json();
+                } catch (e) {
+                    return response.text();
+                }
+            })
             .catch(this.faultHandler)
             .cancelOn(this.disposeEvent);
 
@@ -52,12 +58,6 @@ export abstract class DataService {
     }
 
     private toRequestOptionsArgs(settings: IRequestSettings): RequestOptionsArgs {
-        // Create headers object
-        let headers = new Headers(settings.headers);
-        if (!headers.has('Content-Type')) {
-            headers.append('Content-Type', 'application/json; charset=utf-8');
-        }
-
         // Set body and search values
         let body: string = null;
         let search: string = null;
@@ -71,11 +71,15 @@ export abstract class DataService {
 
         let callSettings: RequestOptionsArgs = {
             body: body,
-            headers: headers,
             method: settings.method || RequestMethod.Post,
             search: search,
             url: settings.url
         };
+
+        // Note: angular2 не мержит дефолтные заголовки и кастомные. он просто заменяет дефолтные
+        if (!!settings.headers) {
+            callSettings.headers = new Headers(settings.headers);
+        }
 
         return callSettings;
     }
