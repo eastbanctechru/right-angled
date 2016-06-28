@@ -1,17 +1,15 @@
-
-import * as _ from 'lodash';
-import { DataService } from './dataService';
+import {DataService} from './dataService';
 
 export abstract class CachedService extends DataService {
     cache: { [key: string]: any } = {};
 
     wrapWithCache<T extends Function>(fn: T, key: string, expirationPolicy: () => Date | string, withArgs?: boolean): T {
-        return <T>_.wrap(fn, function(initialFn: Function, ...args: any[]): Promise<any> {
+        return <any>(function(...args: any[]): Promise<any> {
             let cacheKey = !!withArgs ? key + '__' + JSON.stringify(args) : key;
 
             let promise = this.getCacheValue(cacheKey);
             if (promise === null) {
-                promise = initialFn.apply(this, args);
+                promise = fn.apply(this, args);
                 this.setCacheValue(cacheKey, promise, expirationPolicy());
             }
             return promise;
@@ -38,12 +36,11 @@ export abstract class CachedService extends DataService {
     }
 
     removeCacheEntry(key: string): void {
-        _.chain(this.cache)
-            .keys()
+        Object.keys(this.cache)
             .filter((prop) => {
                 return prop === key || prop.indexOf(key + '__') === 0;
             })
-            .each((prop) => {
+            .forEach((prop) => {
                 delete this.cache[prop];
             });
     }

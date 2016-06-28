@@ -1,9 +1,8 @@
-import * as _ from 'lodash';
-import { EventEmitter } from '@angular/core';
-import { Http, RequestOptionsArgs, RequestMethod, Headers, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import {EventEmitter} from '@angular/core';
+import {Http, RequestOptionsArgs, RequestMethod, Headers, Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 import './operators/cancelon.augmentation';
-import { IRequestSettings } from './iRequestSettings';
+import {IRequestSettings} from './iRequestSettings';
 
 export abstract class DataService {
 
@@ -12,7 +11,7 @@ export abstract class DataService {
     protected http: Http;
 
     constructor(http: Http) {
-        _.bindAll(this, 'faultHandler');
+        this.faultHandler = this.faultHandler.bind(this);
         this.http = http;
         this.faultHandlers.push(this.notFoundHandler);
     }
@@ -89,16 +88,16 @@ export abstract class DataService {
         for (let prop in obj) {
             if (obj.hasOwnProperty(prop)) {
                 let value: any = obj[prop];
-                if (!_.isUndefined(value) && !_.isNull(value)) {
-                    if (!_.isObject(value)) {
+                if (!!value) {
+                    if (typeof value !== 'object') {
                         let key = encodeURIComponent(!prefix ? prop : `${prefix}[${prop}]`);
                         let val = encodeURIComponent(value);
                         result.push(`${key}=${val}`);
                     } else {
                         if (value instanceof Array) {
-                            let array: string[] = _.map(value, (e, idx) => this.objectToQuerySearch(e, !prefix ? `${prop}[${idx}]` : `${prefix}[${prop}][${idx}]`));
-                            result = _.union(result, array);
-                        } else if (_.isPlainObject(value)) {
+                            let array: string[] = value.map((e, idx) => this.objectToQuerySearch(e, !prefix ? `${prop}[${idx}]` : `${prefix}[${prop}][${idx}]`));
+                            result = result.concat(array);
+                        } else {
                             result.push(this.objectToQuerySearch(value));
                         }
                     }
