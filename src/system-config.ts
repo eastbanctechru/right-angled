@@ -8,8 +8,7 @@ const map: any = {
   'right-angled': 'right-angled',
   'moment': 'vendor/moment/moment.js',
   'lodash': 'vendor/lodash/lodash.js',
-  'ng2-bootstrap': 'vendor/ng2-bootstrap',
-  '@angular/router-deprecated': 'vendor/@angular/router-deprecated'
+  'ng2-bootstrap': 'vendor/ng2-bootstrap'
 };
 
 /** User packages configuration. */

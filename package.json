@@ -20,7 +20,6 @@
     "@angular/platform-browser": "2.0.0-rc.3",
     "@angular/platform-browser-dynamic": "2.0.0-rc.3",
     "@angular/router": "3.0.0-alpha.8",
-    "@angular/router-deprecated": "^2.0.0-rc.2",
     "bootstrap": "^3.3.6",
     "e2e4": "^1.0.0-beta.5",
     "es6-shim": "0.35.1",
