@@ -1,5 +1,6 @@
+/* tslint:disable:jsdoc-format */
 /***********************************************************************************************
- * User Configuration.
+ * User Configuration
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
@@ -23,7 +24,6 @@ const packages: any = {
   'ng2-bootstrap': { defaultExtension: 'js' },
   '@angular/router-deprecated': { defaultExtension: 'js', main: 'index.js' }
 };
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
  * Everything underneath this line is managed by the CLI.

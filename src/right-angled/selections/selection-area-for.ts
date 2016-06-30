@@ -4,7 +4,6 @@ import { NgSelectionManager } from '../bootstrap/ngSelectionManager';
 import { OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent, ISelectionEventsEmitter } from '../bootstrap/ISelectionEventsEmitter';
 import { EventEmitter } from '@angular/core';
 
-
 @Directive({
     providers: [NgSelectionManager],
     selector: '[rt-selection-area-for]'

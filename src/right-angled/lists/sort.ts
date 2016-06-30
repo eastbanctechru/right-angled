@@ -1,8 +1,7 @@
 import { SkipSelf, Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit } from '@angular/core';
 import { Defaults } from '../defaults';
 import { RtListComponent } from './list';
-import { SortDirection } from 'e2e4';
-
+import { SortDirection, SortParameter } from 'e2e4';
 
 @Directive({
     selector: '[rt-sort]'
@@ -21,7 +20,7 @@ export class RtSortDirective implements DoCheck, OnInit {
     }
     public ngOnInit(): void {
         this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortable, true);
-        this.hostList.serviceInstance.sortManager.sortings.some(sortParameter => {
+        this.hostList.serviceInstance.sortManager.sortings.some((sortParameter: SortParameter) => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.setSortClasses(sortParameter);
                 return true;

@@ -1,4 +1,4 @@
-import { SkipSelf, HostListener, Directive, Input, Host } from '@angular/core';
+import { SkipSelf, HostListener, Directive, Input } from '@angular/core';
 import { RtSelectionAreaForDirective } from './selection-area-for';
 @Directive({
     selector: '[rt-deselect-all]'
@@ -12,7 +12,7 @@ export class RtDeselectAllDirective {
     @HostListener('click')
     public clickHandler(event: MouseEvent): void {
         if (this.recursive && this.selectionArea.childSelectionAreas) {
-            this.selectionArea.childSelectionAreas.toArray().forEach(area => {
+            this.selectionArea.childSelectionAreas.toArray().forEach((area: RtSelectionAreaForDirective) => {
                 if (area !== this.selectionArea) {
                     area.selectionManager.deselectAll();
                 }

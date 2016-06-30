@@ -9,4 +9,3 @@ if (environment.production) {
   enableProdMode();
 }
 bootstrap(DemoAppComponent, [ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy })]);
-

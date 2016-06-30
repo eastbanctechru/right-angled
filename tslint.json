@@ -70,35 +70,35 @@
     ],
     // Codelyzer rules
     "directive-selector-name": [
-      true,
-      "camelCase"
+      false,
+      "kebab-case"
     ],
     "component-selector-name": [
-      true,
+      false,
       "kebab-case"
     ],
     "directive-selector-type": [
-      true,
+      false,
       "attribute"
     ],
     "component-selector-type": [
-      true,
+      false,
       "element"
     ],
     "directive-selector-prefix": [
-      true,
+      false,
       "rt"
     ],
     "component-selector-prefix": [
-      true,
+      false,
       "rt"
     ],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
     "no-attribute-parameter-decorator": true,
-    "no-input-rename": true,
-    "no-output-rename": true,
+    "no-input-rename": false,
+    "no-output-rename": false,
     "no-forward-ref": true,
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,

@@ -14,7 +14,6 @@ export class RtSelectByIndexDirective implements ISelectionEventsEmitter, OnInit
     @Output() public onDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
     @Output() public onSelectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
 
-
     constructor( @SkipSelf() selectionArea: RtSelectionAreaForDirective) {
         this.selectionArea = selectionArea;
     }

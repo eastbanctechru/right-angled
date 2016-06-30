@@ -6,7 +6,7 @@ import { IRequestSettings } from './iRequestSettings';
 
 export abstract class DataService {
 
-    protected disposeEvent = new EventEmitter<any>();
+    protected disposeEvent: EventEmitter<any> = new EventEmitter<any>();
     public faultHandlers: Array<(response: Response) => boolean> = [];
     protected http: Http;
 
@@ -20,7 +20,7 @@ export abstract class DataService {
         let callSettings = this.toRequestOptionsArgs(settings);
 
         let obs = this.http.request(settings.url, callSettings)
-            .map<T>(response => {
+            .map<T>((response: any) => {
                 try {
                     return response.json();
                 } catch (e) {
@@ -95,7 +95,7 @@ export abstract class DataService {
                         result.push(`${key}=${val}`);
                     } else {
                         if (value instanceof Array) {
-                            let array: string[] = value.map((e, idx) => this.objectToQuerySearch(e, !prefix ? `${prop}[${idx}]` : `${prefix}[${prop}][${idx}]`));
+                            let array: string[] = value.map((e: string, idx: number) => this.objectToQuerySearch(e, !prefix ? `${prop}[${idx}]` : `${prefix}[${prop}][${idx}]`));
                             result = result.concat(array);
                         } else {
                             result.push(this.objectToQuerySearch(value));

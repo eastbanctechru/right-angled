@@ -1,4 +1,4 @@
-import { SkipSelf, Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
+import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 import { RtListComponent } from '../lists/list';
 import { IPager, ProgressState } from 'e2e4';
 

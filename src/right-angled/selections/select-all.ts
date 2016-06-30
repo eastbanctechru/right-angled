@@ -1,4 +1,4 @@
-import { SkipSelf, HostListener, Directive, Input, Host } from '@angular/core';
+import { SkipSelf, HostListener, Directive, Input } from '@angular/core';
 import { RtSelectionAreaForDirective } from './selection-area-for';
 @Directive({
     selector: '[rt-select-all]'
@@ -14,7 +14,7 @@ export class RtSelectAllDirective {
         this.selectionArea.selectionManager.selectAll();
         setTimeout(() => {
             if (this.recursive && this.selectionArea.childSelectionAreas) {
-                this.selectionArea.childSelectionAreas.toArray().forEach(area => {
+                this.selectionArea.childSelectionAreas.toArray().forEach((area: RtSelectionAreaForDirective) => {
                     if (area !== this.selectionArea) {
                         area.selectionManager.selectAll();
                     }

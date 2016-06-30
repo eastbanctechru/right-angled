@@ -4,7 +4,7 @@ export abstract class CachedService extends DataService {
     private cache: { [key: string]: any } = {};
 
     public wrapWithCache<T extends Function>(fn: T, key: string, expirationPolicy: () => Date | string, withArgs?: boolean): T {
-        return <any>(function(...args: any[]): Promise<any> {
+        return <any>(function (...args: any[]): Promise<any> {
             let cacheKey = !!withArgs ? key + '__' + JSON.stringify(args) : key;
 
             let promise = this.getCacheValue(cacheKey);
@@ -37,10 +37,10 @@ export abstract class CachedService extends DataService {
 
     public removeCacheEntry(key: string): void {
         Object.keys(this.cache)
-            .filter((prop) => {
+            .filter((prop: string) => {
                 return prop === key || prop.indexOf(key + '__') === 0;
             })
-            .forEach((prop) => {
+            .forEach((prop: string) => {
                 delete this.cache[prop];
             });
     }
