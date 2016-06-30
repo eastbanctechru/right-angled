@@ -1,6 +1,6 @@
-import {IPager, ISortManager, IFilterManager, Utility, AbstractLifetime, ProgressState, SortManager, FilterManager} from 'e2e4';
-import {NullObjectStateManager} from './nullObjectStateManager';
-import {IStateManager} from './IStateManager';
+import { IPager, ISortManager, IFilterManager, Utility, AbstractLifetime, ProgressState, SortManager, FilterManager } from 'e2e4';
+import { NullObjectStateManager } from './nullObjectStateManager';
+import { IStateManager } from './IStateManager';
 
 export abstract class NgListServiceBase extends AbstractLifetime {
     private listLoadDataSuccessCallback = (result: Object): Object => {
@@ -15,12 +15,12 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     private listLoadDataFailCallback = (): void => {
         this.state = ProgressState.Fail;
     }
-    dataReadDelegate: (requestParams: any) => Promise<any>;
-    sortManager: ISortManager;
-    stateManager: IStateManager;
-    filterManager: IFilterManager;
-    pager: IPager;
-    items: Object[];
+    public dataReadDelegate: (requestParams: any) => Promise<any>;
+    public sortManager: ISortManager;
+    public stateManager: IStateManager;
+    public filterManager: IFilterManager;
+    public pager: IPager;
+    public items: Object[];
 
     constructor(pager: IPager) {
         super();
@@ -35,32 +35,32 @@ export abstract class NgListServiceBase extends AbstractLifetime {
         this.filterManager.applyParams(restoredState);
         this.init();
     }
-    toRequest(): any {
+    public toRequest(): any {
         return this.filterManager.getRequestState(null);
     }
-    getLocalState(): Object {
+    public getLocalState(): Object {
         return this.filterManager.getPersistedState(null);
     }
-    clearData(): void {
+    public clearData(): void {
         this.pager.reset();
         Utility.disposeAll(this.items);
     }
-    getDataReadPromise(): Promise<Object> {
+    public getDataReadPromise(): Promise<Object> {
         return this.dataReadDelegate(this.toRequest());
     }
-    wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgListServiceBase {
+    public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgListServiceBase {
         this.dataReadDelegate = dataReadDelegate;
         this.filterManager.registerFilterTarget(target);
         return this;
     }
-    dispose(): void {
+    public dispose(): void {
         super.dispose();
         this.filterManager.dispose();
         this.sortManager.dispose();
         this.clearData();
     }
 
-    loadData(): Promise<Object> {
+    public loadData(): Promise<Object> {
         if (!this.inited) {
             throw new Error('loadData can be called only after activation.');
         }
@@ -73,12 +73,12 @@ export abstract class NgListServiceBase extends AbstractLifetime {
         this.stateManager.persistLocalState(this.getLocalState());
         return promise;
     }
-    reloadData(): void {
+    public reloadData(): void {
         if (this.ready) {
             this.clearData();
             this.loadData();
         }
     }
-    addToCancellationSequence(promise: Promise<Object>): void { };
-    cancelRequests(): void { };
+    private addToCancellationSequence(promise: Promise<Object>): void { };
+    public cancelRequests(): void { };
 }

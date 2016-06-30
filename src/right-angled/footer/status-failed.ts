@@ -1,7 +1,7 @@
-import {SkipSelf, Component, KeyValueDiffers} from '@angular/core';
-import {RtListComponent} from '../lists/list';
-import {ProgressState} from 'e2e4';
-import {RtStatusControlBase} from './status-control-base';
+import { SkipSelf, Component, KeyValueDiffers } from '@angular/core';
+import { RtListComponent } from '../lists/list';
+import { ProgressState } from 'e2e4';
+import { RtStatusControlBase } from './status-control-base';
 
 @Component({
     selector: 'rt-status-failed',

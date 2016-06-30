@@ -1,29 +1,27 @@
-import {SkipSelf, Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit} from '@angular/core';
-import {NgPagedListService} from '../bootstrap/ngPagedListService';
-import {RtListComponent} from '../lists/list';
-import {IPager, ProgressState} from 'e2e4';
-import {Defaults} from '../defaults';
+import { SkipSelf, Component, Input, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
+import { RtListComponent } from '../lists/list';
+import { IPager, ProgressState } from 'e2e4';
 
 @Component({
     selector: 'rt-total-records-text',
     template: `<ng-content *ngIf="isVisible"></ng-content>`
 })
 export class RtTotalRecordsTextComponent implements DoCheck, OnInit {
-    listDiffer: KeyValueDiffer;
-    pagerDiffer: KeyValueDiffer;
-    isVisible: boolean;
-    listHost: RtListComponent;
-    pager: IPager;
+    private listDiffer: KeyValueDiffer;
+    private pagerDiffer: KeyValueDiffer;
+    private isVisible: boolean;
+    private listHost: RtListComponent;
+    private pager: IPager;
     constructor(@SkipSelf()listHost: RtListComponent, differs: KeyValueDiffers) {
         this.listDiffer = differs.find([]).create(null);
         this.pagerDiffer = differs.find([]).create(null);
         this.listHost = listHost;
         this.pager = this.listHost.serviceInstance.pager;
     }
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.setVisibility();
     }
-    ngDoCheck(): void {
+    public ngDoCheck(): void {
         let listDiff = this.listDiffer.diff(this.listHost.serviceInstance);
         if (listDiff) {
             listDiff.forEachChangedItem(this.checkListChanges);
@@ -33,17 +31,17 @@ export class RtTotalRecordsTextComponent implements DoCheck, OnInit {
             pagerDiff.forEachChangedItem(this.checkPagerChanges);
         }
     }
-    checkListChanges = (item: any): void => {
+    private checkListChanges = (item: any): void => {
         if (item.key === 'state') {
             this.setVisibility();
         }
     }
-    checkPagerChanges = (item: any): void => {
+    private checkPagerChanges = (item: any): void => {
         if (item.key === 'totalCount') {
             this.setVisibility();
         }
     }
-    setVisibility(): void {
+    private setVisibility(): void {
         this.isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.pager.totalCount !== 0;
     }
 }

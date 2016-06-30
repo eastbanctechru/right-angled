@@ -1,40 +1,40 @@
-import {PagedPager, Utility} from 'e2e4';
-import {NgListServiceBase} from './ngListServiceBase';
+import { PagedPager, Utility } from 'e2e4';
+import { NgListServiceBase } from './ngListServiceBase';
 
 export class NgPagedListService extends NgListServiceBase {
-    pager: PagedPager;
+    public pager: PagedPager;
     constructor() {
         super(new PagedPager());
     }
-    loadData(): Promise<Object> {
+    public loadData(): Promise<Object> {
         const promise = super.loadData();
         Utility.disposeAll(this.items);
         return promise;
     }
-    wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgPagedListService {
+    public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgPagedListService {
         super.wrap(target, dataReadDelegate);
         return this;
     }
 
-    goToFirstPage(): void {
+    public goToFirstPage(): void {
         if ((<PagedPager>this.pager).pageNumber > 1) {
             (<PagedPager>this.pager).pageNumber = 1;
             this.loadData();
         }
     }
-    goToPreviousPage(): void {
+    public goToPreviousPage(): void {
         if ((<PagedPager>this.pager).pageNumber > 1) {
             (<PagedPager>this.pager).pageNumber -= 1;
             this.loadData();
         }
     }
-    goToNextPage(): void {
+    public goToNextPage(): void {
         if ((<PagedPager>this.pager).pageNumber < (<PagedPager>this.pager).pageCount) {
             (<PagedPager>this.pager).pageNumber += 1;
             this.loadData();
         }
     }
-    goToLastPage(): void {
+    public goToLastPage(): void {
         if ((<PagedPager>this.pager).pageNumber < (<PagedPager>this.pager).pageCount) {
             (<PagedPager>this.pager).pageNumber = (<PagedPager>this.pager).pageCount;
             this.loadData();

@@ -1,13 +1,14 @@
-import {Renderer, KeyValueDiffers, KeyValueDiffer, ElementRef, DoCheck, OnInit} from '@angular/core';
-import {RtListComponent} from '../../lists/list';
-import {NgPagedListService} from '../../bootstrap/ngPagedListService';
+import { Renderer, KeyValueDiffers, KeyValueDiffer, ElementRef, DoCheck, OnInit } from '@angular/core';
+import { RtListComponent } from '../../lists/list';
+import { NgPagedListService } from '../../bootstrap/ngPagedListService';
 
 export abstract class GoToControlBase implements DoCheck, OnInit {
-    pagerDiffer: KeyValueDiffer;
-    pagedListService: NgPagedListService;
+    private pagerDiffer: KeyValueDiffer;
+    protected pagedListService: NgPagedListService;
     protected innerDisabled: boolean = false;
     private nativeEl: any;
     private renderer: Renderer;
+    public disabledCls: string;
     constructor(listHost: RtListComponent, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
         if (!listHost.isPagedList) {
             throw new Error('[rt-to-first-page] directive can be used only with paged list services.');
@@ -18,26 +19,24 @@ export abstract class GoToControlBase implements DoCheck, OnInit {
         this.renderer = renderer;
     }
 
-    disabledCls: string;
-
-    get disabled(): boolean {
+    public get disabled(): boolean {
         return this.innerDisabled;
     }
-    checkPagerChanged = (item: any): void => {
+    protected checkPagerChanged = (item: any): void => {
         if (item.key === 'pageNumberInternal') {
             this.setDisabledState();
         }
     }
-    ngDoCheck(): void {
+    public ngDoCheck(): void {
         let pagerDiff = this.pagerDiffer.diff(this.pagedListService.pager);
         if (pagerDiff) {
             pagerDiff.forEachChangedItem(this.checkPagerChanged);
         }
     }
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.setDisabledState();
     }
-    setDisabledState(): void {
+    protected setDisabledState(): void {
         this.innerDisabled = this.isDisabled();
         if (this.innerDisabled) {
             this.renderer.setElementClass(this.nativeEl, this.disabledCls, true);
@@ -45,5 +44,5 @@ export abstract class GoToControlBase implements DoCheck, OnInit {
             this.renderer.setElementClass(this.nativeEl, this.disabledCls, false);
         }
     }
-    abstract isDisabled(): boolean;
+    public abstract isDisabled(): boolean;
 }

@@ -10,7 +10,7 @@ export class CancelOnOperator<T, R> implements Operator<T, R> {
         this.event = event;
     }
 
-    call(subscriber: Subscriber<R>, source: any): any {
+    public call(subscriber: Subscriber<R>, source: any): any {
         return source._subscribe(new CancelOnSubscriber(subscriber, this.event));
     }
 }

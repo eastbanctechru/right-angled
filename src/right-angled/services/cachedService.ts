@@ -1,9 +1,9 @@
-import {DataService} from './dataService';
+import { DataService } from './dataService';
 
 export abstract class CachedService extends DataService {
-    cache: { [key: string]: any } = {};
+    private cache: { [key: string]: any } = {};
 
-    wrapWithCache<T extends Function>(fn: T, key: string, expirationPolicy: () => Date | string, withArgs?: boolean): T {
+    public wrapWithCache<T extends Function>(fn: T, key: string, expirationPolicy: () => Date | string, withArgs?: boolean): T {
         return <any>(function(...args: any[]): Promise<any> {
             let cacheKey = !!withArgs ? key + '__' + JSON.stringify(args) : key;
 
@@ -16,11 +16,11 @@ export abstract class CachedService extends DataService {
         });
     }
 
-    setCacheValue(key: string, value: any, expiresAt: Date | string): void {
+    public setCacheValue(key: string, value: any, expiresAt: Date | string): void {
         this.cache[key] = { expiresAt: expiresAt, value: value };
     }
 
-    getCacheValue(key: string): any {
+    public getCacheValue(key: string): any {
         let val = this.cache[key];
         if (typeof val === 'undefined' || val === null) {
             return null;
@@ -35,7 +35,7 @@ export abstract class CachedService extends DataService {
         return val.value;
     }
 
-    removeCacheEntry(key: string): void {
+    public removeCacheEntry(key: string): void {
         Object.keys(this.cache)
             .filter((prop) => {
                 return prop === key || prop.indexOf(key + '__') === 0;
@@ -45,7 +45,7 @@ export abstract class CachedService extends DataService {
             });
     }
 
-    dispose(): void {
+    public dispose(): void {
         super.dispose();
         this.cache = null;
     }

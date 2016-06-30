@@ -1,15 +1,17 @@
-import {HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
-import {RtListComponent} from '../../lists/list';
-import {NgPagedListService} from '../../bootstrap/ngPagedListService';
+import { HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
+import { RtListComponent } from '../../lists/list';
+import { NgPagedListService } from '../../bootstrap/ngPagedListService';
 
 @Directive({
-    /* tslint:disable:directive-selector-prefix */
     selector: 'input[rt-page-number]'
-    /* tslint:ensable:directive-selector-prefix */
 })
 export class RtPageNumberDirective implements DoCheck {
-    pagedListService: NgPagedListService;
+    private pagedListService: NgPagedListService;
     private pagerDiffer: KeyValueDiffer;
+
+    @HostBinding('value')
+    public innerPageNumber: number;
+
     constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
         if (!listHost.isPagedList) {
             throw new Error('[rt-page-number] directive can be used only with paged list services.');
@@ -18,17 +20,15 @@ export class RtPageNumberDirective implements DoCheck {
         this.innerPageNumber = this.pagedListService.pager.pageNumber;
         this.pagerDiffer = differs.find([]).create(null);
     }
-    @HostBinding('value')
-    innerPageNumber: number;
 
     @HostListener('keyup.enter')
-    onEnter(): void {
+    public onEnter(): void {
         this.innerPageNumber = this.pagedListService.pager.pageNumber;
         this.pagedListService.loadData();
     }
 
     @HostListener('input', ['$event.target.value'])
-    setPageSize(value: any): void {
+    public setPageSize(value: any): void {
         this.innerPageNumber = value;
         if (value === null || value === undefined || value === '') {
             return;
@@ -38,16 +38,16 @@ export class RtPageNumberDirective implements DoCheck {
     }
 
     @HostListener('blur')
-    restoreInputValue(value: any): void {
+    public restoreInputValue(value: any): void {
         this.innerPageNumber = this.pagedListService.pager.pageNumber;
     }
 
-    checkPageNumberChanged = (item: any): void => {
+    private checkPageNumberChanged = (item: any): void => {
         if (item.key === 'pageNumberInternal' && item.currentValue !== this.innerPageNumber) {
             this.innerPageNumber = item.currentValue;
         }
     }
-    ngDoCheck(): void {
+    public ngDoCheck(): void {
         let pagerDiff = this.pagerDiffer.diff(this.pagedListService.pager);
         if (pagerDiff) {
             pagerDiff.forEachChangedItem(this.checkPageNumberChanged);

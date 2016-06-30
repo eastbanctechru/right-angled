@@ -1,6 +1,5 @@
-import {ISelectionTuple, SelectionManager} from 'e2e4';
-import {OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent, ISelectionEventsEmitter} from './ISelectionEventsEmitter';
-import { EventEmitter } from "@angular/core";
+import { ISelectionTuple, SelectionManager } from 'e2e4';
+import { OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent, ISelectionEventsEmitter } from './ISelectionEventsEmitter';
 
 export class NgSelectionManager extends SelectionManager {
     private eventEmitters: Array<ISelectionEventsEmitter> = new Array<ISelectionEventsEmitter>();
@@ -20,8 +19,7 @@ export class NgSelectionManager extends SelectionManager {
     private emitEvents(emitter: ISelectionEventsEmitter, selected: boolean, tuple: ISelectionTuple): void {
         if (selected) {
             emitter.onSelected.emit(new OnSelectedEvent(tuple.item, tuple.index));
-        }
-        else {
+        } else {
             emitter.onDeselected.emit(new OnDeselectedEvent(tuple.item, tuple.index));
         }
         emitter.onSelectionChanged.emit(new OnSelectionChangedEvent(tuple.item, tuple.index));
@@ -39,4 +37,4 @@ export class NgSelectionManager extends SelectionManager {
             this.eventEmitters[index] = null;
         }
     }
-} 
+}

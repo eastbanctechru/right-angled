@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {RtListComponent} from '../../../right-angled/lists/list';
-import {FOOTER_DIRECTIVES} from '../../../right-angled/index';
-import {MISC_DIRECTIVES} from '../../../right-angled/misc-directives';
+import { Component } from '@angular/core';
+import { RtListComponent } from '../../../right-angled/lists/list';
+import { FOOTER_DIRECTIVES } from '../../../right-angled/index';
+import { MISC_DIRECTIVES } from '../../../right-angled/misc-directives';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {MISC_DIRECTIVES} from '../../../right-angled/misc-directives';
     templateUrl: 'app/shared/footers/paged-footer.html'
 })
 export class PagedFooterComponent {
-    hostList: RtListComponent;
+    public hostList: RtListComponent;
     constructor(hostList: RtListComponent) {
         this.hostList = hostList;
     }

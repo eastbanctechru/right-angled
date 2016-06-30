@@ -1,8 +1,8 @@
-import {EventEmitter} from '@angular/core';
-import {Http, RequestOptionsArgs, RequestMethod, Headers, Response} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { EventEmitter } from '@angular/core';
+import { Http, RequestOptionsArgs, RequestMethod, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import './operators/cancelon.augmentation';
-import {IRequestSettings} from './iRequestSettings';
+import { IRequestSettings } from './iRequestSettings';
 
 export abstract class DataService {
 
@@ -33,7 +33,7 @@ export abstract class DataService {
         return obs.toPromise();
     }
 
-    dispose(): void {
+    public dispose(): void {
         this.disposeEvent.emit(null);
     }
 
@@ -75,7 +75,7 @@ export abstract class DataService {
             url: settings.url
         };
 
-        // Note: angular2 не мержит дефолтные заголовки и кастомные. он просто заменяет дефолтные
+        // Note: angular2 пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (!!settings.headers) {
             callSettings.headers = new Headers(settings.headers);
         }

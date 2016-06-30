@@ -1,19 +1,18 @@
-import { HostListener, HostBinding, SkipSelf, Directive, Input } from '@angular/core';
-import {RtSelectionAreaForDirective} from './selection-area-for';
-import {ISelectable} from 'e2e4';
+import { HostListener, SkipSelf, Directive, Input } from '@angular/core';
+import { RtSelectionAreaForDirective } from './selection-area-for';
 
 @Directive({
     selector: 'input[rt-check-all]'
 })
 export class RtCheckAllDirective {
     private selectionArea: RtSelectionAreaForDirective;
-    @Input() recursive: boolean = true;
+    @Input() public recursive: boolean = true;
     constructor( @SkipSelf() selectionArea: RtSelectionAreaForDirective) {
         this.selectionArea = selectionArea;
     }
 
     @HostListener('change', ['$event'])
-    changeHandler(evt: MouseEvent): void {
+    public changeHandler(evt: MouseEvent): void {
         if ((evt.target as HTMLInputElement).checked) {
             this.selectionArea.selectionManager.selectAll();
             setTimeout(() => {

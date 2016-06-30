@@ -1,6 +1,6 @@
-import {SkipSelf, HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck} from '@angular/core';
-import {RtListComponent} from '../../lists/list';
-import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
+import { SkipSelf, HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
+import { RtListComponent } from '../../lists/list';
+import { NgBufferedListService } from '../../bootstrap/ngBufferedListService';
 
 @Directive({
     /* tslint:disable:directive-selector-prefix */
@@ -8,9 +8,16 @@ import {NgBufferedListService} from '../../bootstrap/ngBufferedListService';
     /* tslint:ensable:directive-selector-prefix */
 })
 export class RtTakeRowCountDirective implements DoCheck {
-    bufferedListService: NgBufferedListService;
+    public bufferedListService: NgBufferedListService;
     private pagerDiffer: KeyValueDiffer;
-    constructor(@SkipSelf() listHost: RtListComponent, differs: KeyValueDiffers) {
+    @HostBinding('value')
+    private innerRowCount: number;
+    private checkRowCountChanged = (item: any): void => {
+        if (item.key === 'takeRowCountInternal' && item.currentValue !== this.innerRowCount) {
+            this.innerRowCount = item.currentValue;
+        }
+    }
+    constructor( @SkipSelf() listHost: RtListComponent, differs: KeyValueDiffers) {
         if (!listHost.isBufferedList) {
             throw new Error('[rt-row-count] directive can be used only with buffered list services.');
         }
@@ -18,16 +25,14 @@ export class RtTakeRowCountDirective implements DoCheck {
         this.innerRowCount = this.bufferedListService.pager.takeRowCount;
         this.pagerDiffer = differs.find([]).create(null);
     }
-    @HostBinding('value')
-    innerRowCount: number;
     @HostListener('keyup.enter')
-    onEnter(): void {
+    public onEnter(): void {
         this.innerRowCount = this.bufferedListService.pager.takeRowCount;
         this.bufferedListService.loadData();
     }
 
     @HostListener('input', ['$event.target.value'])
-    setRowCount(value: any): void {
+    public setRowCount(value: any): void {
         this.innerRowCount = value;
         if (value === null || value === undefined || value === '') {
             return;
@@ -37,16 +42,10 @@ export class RtTakeRowCountDirective implements DoCheck {
     }
 
     @HostListener('blur')
-    restoreInputValue(value: any): void {
+    public restoreInputValue(value: any): void {
         this.innerRowCount = this.bufferedListService.pager.takeRowCount;
     }
-
-    checkRowCountChanged = (item: any): void => {
-        if (item.key === 'takeRowCountInternal' && item.currentValue !== this.innerRowCount) {
-            this.innerRowCount = item.currentValue;
-        }
-    }
-    ngDoCheck(): void {
+    public ngDoCheck(): void {
         let pagerDiff = this.pagerDiffer.diff(this.bufferedListService.pager);
         if (pagerDiff) {
             pagerDiff.forEachChangedItem(this.checkRowCountChanged);

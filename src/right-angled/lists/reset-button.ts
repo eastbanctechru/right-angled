@@ -1,16 +1,16 @@
-import {SkipSelf, Directive, HostListener} from '@angular/core';
-import {RtListComponent} from './list';
+import { SkipSelf, Directive, HostListener } from '@angular/core';
+import { RtListComponent } from './list';
 
 @Directive({
     selector: '[rt-reset-button]'
 })
 export class RtResetButtonDirective {
-    hostList: RtListComponent;
+    private hostList: RtListComponent;
     constructor(@SkipSelf()hostList: RtListComponent) {
         this.hostList = hostList;
     }
     @HostListener('click')
-    resetFilters(): void {
+    public resetFilters(): void {
         this.hostList.serviceInstance.filterManager.resetValues();
     }
 }
