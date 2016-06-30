@@ -3,7 +3,6 @@ import { RtListComponent } from '../../lists/list';
 import { NgBufferedListService } from '../../bootstrap/ngBufferedListService';
 
 @Directive({
-    /* tslint:disable-next-line:directive-selector-prefix directive-selector-name directive-selector-type */
     selector: 'input[rt-row-count]'
 })
 export class RtRowCountDirective implements DoCheck {

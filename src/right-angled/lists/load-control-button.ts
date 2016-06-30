@@ -4,7 +4,6 @@ import { Defaults } from '../defaults';
 import { RtLoadControlBaseDirective } from './load-control-base';
 
 @Directive({
-    /* tslint:disable-next-line:directive-selector-prefix directive-selector-name directive-selector-type */
     selector: 'input[rt-load-button], button[rt-load-button]'
 })
 export class RtLoadControlButtonDirective extends RtLoadControlBaseDirective {

@@ -3,7 +3,6 @@ import { RtListComponent } from './list';
 import { Defaults } from '../defaults';
 
 @Directive({
-    /* tslint:disable-next-line:directive-selector-prefix directive-selector-name directive-selector-type */
     selector: '[rt-load-button]:not(input), [rt-load-button]:not(button)'
 })
 export class RtLoadControlBaseDirective implements DoCheck, OnInit {

@@ -4,7 +4,6 @@ import { OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent, ISelection
 import { EventEmitter } from '@angular/core';
 
 @Directive({
-    /* tslint:disable-next-line:directive-selector-prefix directive-selector-name directive-selector-type */
     selector: '[rt-select-by-index]'
 })
 export class RtSelectByIndexDirective implements ISelectionEventsEmitter, OnInit {
