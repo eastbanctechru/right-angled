@@ -11,9 +11,9 @@ import { EventEmitter } from '@angular/core';
 })
 export class RtSelectionAreaForDirective implements ISelectionEventsEmitter, OnInit, OnChanges, OnDestroy, ISelectionConfig {
     @ContentChildren(RtSelectionAreaForDirective) public childSelectionAreas: QueryList<RtSelectionAreaForDirective>;
-    private selectionEventsHelper: SelectionEventsHelper;
     private tabIndexInternal: number;
     public selectionManager: NgSelectionManager;
+    public selectionEventsHelper: SelectionEventsHelper;
 
     @Input('multiple') public allowMultipleSelection: boolean = true;
     @Input('rt-selection-area-for') public items: Array<ISelectable>;
