@@ -60,10 +60,15 @@ import { RtResetButtonDirective } from './lists/reset-button';
 import { RtRowNumberComponent } from './lists/row-number';
 import { RtSortDirective } from './lists/sort';
 
-export var RECTANGLE_DIRECTIVES: any[] = [
+export var RIGHTANGLED_DIRECTIVES: any[] = [
     RtListComponent,
     RtLoadControlButtonDirective,
     RtResetButtonDirective,
     RtRowNumberComponent,
     RtSortDirective
 ].concat(SELECTION_DIRECTIVES, FOOTER_DIRECTIVES);
+
+import { NullObjectStateManager } from './bootstrap/nullObjectStateManager';
+export var RIGHTANGLED_PROVIDERS: any[] = [
+    NullObjectStateManager
+];

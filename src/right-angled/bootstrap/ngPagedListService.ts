@@ -1,10 +1,13 @@
+import { Injectable } from '@angular/core';
 import { PagedPager, Utility } from 'e2e4';
 import { NgListServiceBase } from './ngListServiceBase';
+import { NullObjectStateManager } from './nullObjectStateManager';
 
+@Injectable()
 export class NgPagedListService extends NgListServiceBase {
     public pager: PagedPager;
-    constructor() {
-        super(new PagedPager());
+    constructor(stateManager: NullObjectStateManager) {
+        super(new PagedPager(), stateManager);
     }
     public loadData(): Promise<Object> {
         const promise = super.loadData();

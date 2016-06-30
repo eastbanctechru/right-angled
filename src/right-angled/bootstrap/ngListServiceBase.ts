@@ -1,5 +1,4 @@
 import { IPager, ISortManager, IFilterManager, Utility, AbstractLifetime, ProgressState, SortManager, FilterManager } from 'e2e4';
-import { NullObjectStateManager } from './nullObjectStateManager';
 import { IStateManager } from './IStateManager';
 
 export abstract class NgListServiceBase extends AbstractLifetime {
@@ -22,10 +21,10 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     private listLoadDataFailCallback = (): void => {
         this.state = ProgressState.Fail;
     }
-    constructor(pager: IPager) {
+    constructor(pager: IPager, stateManager: IStateManager) {
         super();
         this.pager = pager;
-        this.stateManager = new NullObjectStateManager();
+        this.stateManager = stateManager;
         this.stateManager.target = this;
         this.filterManager = new FilterManager(this);
         this.filterManager.registerFilterTarget(this.pager);
