@@ -43,7 +43,7 @@ export class RtPageNumberDirective implements DoCheck {
     }
 
     private checkPageNumberChanged = (item: any): void => {
-        if (item.key === 'pageNumberInternal' && item.currentValue !== this.innerPageNumber) {
+        if (item.key === '_pageNumber' && item.currentValue !== this.innerPageNumber) {
             this.innerPageNumber = item.currentValue;
         }
     }

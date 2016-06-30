@@ -11,7 +11,7 @@ export class RtRowCountDirective implements DoCheck {
     @HostBinding('value')
     private innerRowCount: number;
     private checkRowCountChanged = (item: any): void => {
-        if (item.key === 'takeRowCountInternal' && item.currentValue !== this.innerRowCount) {
+        if (item.key === '_takeRowCount' && item.currentValue !== this.innerRowCount) {
             this.innerRowCount = item.currentValue;
         }
     }

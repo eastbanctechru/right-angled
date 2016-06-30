@@ -42,7 +42,7 @@ export class RtPageSizeDirective implements DoCheck {
     }
 
     private checkPageSizeChanged = (item: any): void => {
-        if (item.key === 'pageSizeInternal' && item.currentValue !== this.innerPageSize) {
+        if (item.key === '_pageSize' && item.currentValue !== this.innerPageSize) {
             this.innerPageSize = item.currentValue;
         }
     }

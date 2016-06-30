@@ -23,7 +23,7 @@ export class RtToNextPageDirective extends GoToControlBase {
         return this.innerDisabled;
     }
     protected checkPagerChanged = (item: any): void => {
-        if (item.key === 'pageNumberInternal' || item.key === 'pageSizeInternal' || item.key === 'totalCount') {
+        if (item.key === '_pageNumber' || item.key === '_pageSize' || item.key === 'totalCount') {
             this.setDisabledState();
         }
     }

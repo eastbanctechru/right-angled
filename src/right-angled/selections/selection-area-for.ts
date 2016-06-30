@@ -10,7 +10,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class RtSelectionAreaForDirective implements ISelectionEventsEmitter, OnInit, OnChanges, OnDestroy, ISelectionConfig {
     @ContentChildren(RtSelectionAreaForDirective) public childSelectionAreas: QueryList<RtSelectionAreaForDirective>;
-    private tabIndexInternal: number;
+    private _tabIndex: number;
     public selectionManager: NgSelectionManager;
     public selectionEventsHelper: SelectionEventsHelper;
 
@@ -42,10 +42,10 @@ export class RtSelectionAreaForDirective implements ISelectionEventsEmitter, OnI
 
     @HostBinding('tabIndex')
     public get tabIndex(): number {
-        return this.tabIndexInternal === -1 ? 0 : this.tabIndexInternal;
+        return this._tabIndex === -1 ? 0 : this._tabIndex;
     }
     public set tabIndex(value: number) {
-        this.tabIndexInternal = value;
+        this._tabIndex = value;
     }
     public ngOnInit(): void {
         if (this.items === undefined) {

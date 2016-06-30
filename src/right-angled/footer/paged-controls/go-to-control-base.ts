@@ -23,7 +23,7 @@ export abstract class GoToControlBase implements DoCheck, OnInit {
         return this.innerDisabled;
     }
     protected checkPagerChanged = (item: any): void => {
-        if (item.key === 'pageNumberInternal') {
+        if (item.key === '_pageNumber') {
             this.setDisabledState();
         }
     }
