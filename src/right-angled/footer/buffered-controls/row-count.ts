@@ -3,11 +3,10 @@ import { RtListComponent } from '../../lists/list';
 import { NgBufferedListService } from '../../bootstrap/ngBufferedListService';
 
 @Directive({
-    /* tslint:disable:directive-selector-prefix */
+    /* tslint:disable-next-line:directive-selector-prefix directive-selector-name directive-selector-type */
     selector: 'input[rt-row-count]'
-    /* tslint:ensable:directive-selector-prefix */
 })
-export class RtTakeRowCountDirective implements DoCheck {
+export class RtRowCountDirective implements DoCheck {
     public bufferedListService: NgBufferedListService;
     private pagerDiffer: KeyValueDiffer;
     @HostBinding('value')

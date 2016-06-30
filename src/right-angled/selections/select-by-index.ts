@@ -4,6 +4,7 @@ import { OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent, ISelection
 import { EventEmitter } from '@angular/core';
 
 @Directive({
+    /* tslint:disable-next-line:directive-selector-prefix directive-selector-name directive-selector-type */
     selector: '[rt-select-by-index]'
 })
 export class RtSelectByIndexDirective implements ISelectionEventsEmitter, OnInit {
@@ -32,9 +33,8 @@ export class RtSelectByIndexDirective implements ISelectionEventsEmitter, OnInit
             if (window && window.getSelection) {
                 window.getSelection().removeAllRanges();
             } else if (document && document.hasOwnProperty('selection')) {
-                /* tslint:disable:no-string-literal */
+                /* tslint:disable-next-line:no-string-literal */
                 document['selection'].empty();
-                /* tslint:enable:no-string-literal */
             }
         } catch (e) {// do nothing 
         }

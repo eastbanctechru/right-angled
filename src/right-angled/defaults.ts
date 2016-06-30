@@ -1,5 +1,5 @@
 export class Defaults {
-    static classNames =
+    public static classNames: any =
     {
         loadButtonCancel: 'rt-btn-cancel',
         loadButtonLoad: 'rt-btn-load',
@@ -7,7 +7,7 @@ export class Defaults {
         sortDesc: 'rt-sort-desc',
         sortable: 'rt-sortable'
     };
-    static messages = {
+    public static messages: any = {
         loadButtonCancelRequest: 'Press to stop data loading',
         loadButtonLoad: 'Load data'
     };

@@ -3,9 +3,8 @@ import { RtListComponent } from './list';
 import { Defaults } from '../defaults';
 
 @Directive({
-    /* tslint:disable:directive-selector-name */
+    /* tslint:disable-next-line:directive-selector-prefix directive-selector-name directive-selector-type */
     selector: '[rt-load-button]:not(input), [rt-load-button]:not(button)'
-    /* tslint:enable:directive-selector-name */
 })
 export class RtLoadControlBaseDirective implements DoCheck, OnInit {
     private listDiffers: KeyValueDiffer;

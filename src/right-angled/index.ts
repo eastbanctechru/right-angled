@@ -12,7 +12,7 @@ import { RtStatusProgressComponent } from './footer/status-progress';
 import { RtTotalRecordsTextComponent } from './footer/total-records-text';
 import { RtDisplayPagerComponent } from './footer/display-pager';
 import { RtLoadMoreDirective } from './footer/buffered-controls/load-more';
-import { RtTakeRowCountDirective } from './footer/buffered-controls/row-count';
+import { RtRowCountDirective } from './footer/buffered-controls/row-count';
 
 import { RtToFirstPageDirective } from './footer/paged-controls/to-first-page';
 import { RtToLastPageDirective } from './footer/paged-controls/to-last-page';
@@ -30,7 +30,7 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtTotalRecordsTextComponent,
     RtDisplayPagerComponent,
     RtLoadMoreDirective,
-    RtTakeRowCountDirective,
+    RtRowCountDirective,
     RtToFirstPageDirective,
     RtToLastPageDirective,
     RtToNextPageDirective,

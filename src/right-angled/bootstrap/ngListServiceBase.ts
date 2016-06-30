@@ -3,6 +3,13 @@ import { NullObjectStateManager } from './nullObjectStateManager';
 import { IStateManager } from './IStateManager';
 
 export abstract class NgListServiceBase extends AbstractLifetime {
+    public dataReadDelegate: (requestParams: any) => Promise<any>;
+    public sortManager: ISortManager;
+    public stateManager: IStateManager;
+    public filterManager: IFilterManager;
+    public pager: IPager;
+    public items: Object[];
+
     private listLoadDataSuccessCallback = (result: Object): Object => {
         this.pager.processResponse(result);
         this.state = ProgressState.Done;
@@ -15,13 +22,6 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     private listLoadDataFailCallback = (): void => {
         this.state = ProgressState.Fail;
     }
-    public dataReadDelegate: (requestParams: any) => Promise<any>;
-    public sortManager: ISortManager;
-    public stateManager: IStateManager;
-    public filterManager: IFilterManager;
-    public pager: IPager;
-    public items: Object[];
-
     constructor(pager: IPager) {
         super();
         this.pager = pager;
@@ -79,6 +79,8 @@ export abstract class NgListServiceBase extends AbstractLifetime {
             this.loadData();
         }
     }
-    private addToCancellationSequence(promise: Promise<Object>): void { };
-    public cancelRequests(): void { };
+    private addToCancellationSequence(promise: Promise<Object>): void { // do nothing for now
+    };
+    public cancelRequests(): void { // do nothing for now
+    };
 }

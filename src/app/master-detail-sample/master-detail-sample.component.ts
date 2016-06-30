@@ -3,7 +3,6 @@ import { AirportsService } from '../shared/airportsService';
 import { filter, RECTANGLE_DIRECTIVES, NgPagedListService } from '../../right-angled/index';
 import { SHARED_DIRECTIVES } from '../shared/index';
 
-
 @Component({
   directives: [RECTANGLE_DIRECTIVES, SHARED_DIRECTIVES],
   moduleId: module.id,
