@@ -5,7 +5,7 @@ import { RtStatusControlBase } from './status-control-base';
 
 @Component({
     selector: 'rt-status-no-data',
-    template: `<span *ngIf="isVisible"><ng-content></ng-content></span>`
+    template: `<ng-content *ngIf="isVisible"></ng-content>`
 })
 export class RtStatusNoDataComponent extends RtStatusControlBase implements DoCheck {
     private pagerDiffer: KeyValueDiffer;

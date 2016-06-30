@@ -5,7 +5,7 @@ import { RtStatusControlBase } from './status-control-base';
 
 @Component({
     selector: 'rt-status-request-canceled',
-    template: `<span *ngIf="isVisible"><ng-content></ng-content></span>`
+    template: `<ng-content *ngIf="isVisible"></ng-content>`
 })
 export class RtStatusRequestCanceledComponent extends RtStatusControlBase {
     constructor( @SkipSelf() listHost: RtListComponent, differs: KeyValueDiffers) {
