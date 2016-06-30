@@ -21,7 +21,7 @@ export class MasterDetailSampleComponent {
     this.ngPagedListService = ngPagedListService.wrap(this, this.loadData);
   }
   public loadData = (requestParams: any): Promise<any> => {
-    return this.airportsService.getAirportsPaged(requestParams).then(result => {
+    return this.airportsService.getAirportsPaged(requestParams).then((result: any) => {
       this.items = result.items;
       return result;
     });

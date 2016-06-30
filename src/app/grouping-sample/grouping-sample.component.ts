@@ -20,7 +20,7 @@ export class GroupingSampleComponent {
         this.ngListService = ngListService.wrap(this, this.loadData);
     }
     public loadData = (requestParams: any): Promise<any> => {
-        return this.airportsService.getAirportsGroupedByContinent(requestParams).then(result => {
+        return this.airportsService.getAirportsGroupedByContinent(requestParams).then((result: any) => {
             this.continents = result.items;
             return result;
         });

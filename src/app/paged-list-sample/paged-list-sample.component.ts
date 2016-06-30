@@ -4,8 +4,8 @@ import { filter, RECTANGLE_DIRECTIVES, NgPagedListService } from '../../right-an
 import { SHARED_DIRECTIVES } from '../shared/index';
 
 @Component({
-    moduleId: module.id,
     directives: [RECTANGLE_DIRECTIVES, SHARED_DIRECTIVES],
+    moduleId: module.id,
     providers: [AirportsService, NgPagedListService],
     templateUrl: 'paged-list-sample.component.html'
 })

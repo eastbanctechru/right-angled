@@ -20,7 +20,7 @@ export class RegularListSampleComponent {
         this.ngListService = ngListService.wrap(this, this.loadData);
     }
     public loadData = (requestParams: any): Promise<any> => {
-        return this.airportsService.getAirportsRegular(requestParams).then(result => {
+        return this.airportsService.getAirportsRegular(requestParams).then((result: any) => {
             this.items = result.items;
             return result;
         });

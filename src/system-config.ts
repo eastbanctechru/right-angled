@@ -8,20 +8,20 @@ const map: any = {
   'moment': 'vendor/moment/moment.js',
   'lodash': 'vendor/lodash/lodash.js',
   'ng2-bootstrap': 'vendor/ng2-bootstrap',
-  '@angular/router-deprecated': 'vendor/@angular/router-deprecated',
+  '@angular/router-deprecated': 'vendor/@angular/router-deprecated'
 };
 
 /** User packages configuration. */
 const packages: any = {
   'e2e4': {
-    main: 'index.js',
-    defaultExtension: 'js'
+    defaultExtension: 'js',
+    main: 'index.js'
   },
   'right-angled': {
     defaultExtension: 'js'
   },
   'ng2-bootstrap': { defaultExtension: 'js' },
-  '@angular/router-deprecated': { main: 'index.js', defaultExtension: 'js' }
+  '@angular/router-deprecated': { defaultExtension: 'js', main: 'index.js' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ const barrels: string[] = [
   'app/buffered-list-sample',
   'app/regular-list-sample',
   'app/sortable-header',
-  'app/grouping-sample',
+  'app/grouping-sample'
   /** @cli-barrel */
 ];
 
