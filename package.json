@@ -45,6 +45,6 @@
     "ts-node": "0.9.3",
     "tslint": "3.12.1",
     "typescript": "1.8.10",
-    "typings": "^1.3.0"
+    "typings": "^1.3.1"
   }
 }
