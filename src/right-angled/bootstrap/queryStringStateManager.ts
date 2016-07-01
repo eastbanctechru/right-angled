@@ -1,4 +1,4 @@
-import { StateManager } from './StateManager';
+import { StateManager } from './stateManager';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable, SkipSelf, Optional } from '@angular/core';
 
