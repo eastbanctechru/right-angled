@@ -30,9 +30,11 @@ export abstract class NgListServiceBase extends AbstractLifetime {
         this.filterManager.registerFilterTarget(this.pager);
         this.sortManager = new SortManager();
         this.filterManager.registerFilterTarget(this.sortManager);
-        const restoredState = this.stateManager.mergeStates({});
+    }
+    public init(): void {
+        const restoredState = this.stateManager.mergeStates();
         this.filterManager.applyParams(restoredState);
-        this.init();
+        super.init();
     }
     public toRequest(): any {
         return this.filterManager.getRequestState(null);

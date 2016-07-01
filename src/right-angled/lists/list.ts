@@ -21,6 +21,7 @@ export class RtListComponent implements OnChanges, OnDestroy, OnInit {
         this.isRegularList = !!listService;
     }
     public ngOnInit(): void {
+        this.serviceInstance.init();
         if (this.loadOnInit && this.serviceInstance.inited) {
             this.serviceInstance.loadData();
         }

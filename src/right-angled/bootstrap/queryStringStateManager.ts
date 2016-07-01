@@ -28,11 +28,12 @@ export class QueryStringStateManager implements StateManager {
         }, 0);
     }
     public persistLocalState(state: Object): void { return void (0); }
-    public mergeStates(params: Object): Object {
+    public mergeStates(): Object {
+        debugger;
         const restoredState = {};
         const requestState = this.getRequestState();
         const persistedState = this.getPersistedState();
-        Object.assign(restoredState, persistedState || {}, requestState ? (requestState.lastRequestState || {}) : {}, params || {});
+        Object.assign(restoredState, persistedState || {}, requestState ? (requestState.lastRequestState || {}) : {}, this.router.routerState.snapshot.queryParams || {});
         return restoredState;
     }
     private getRequestState(): any {
