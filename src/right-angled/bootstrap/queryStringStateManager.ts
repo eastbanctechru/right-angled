@@ -29,7 +29,6 @@ export class QueryStringStateManager implements StateManager {
     }
     public persistLocalState(state: Object): void { return void (0); }
     public mergeStates(): Object {
-        debugger;
         const restoredState = {};
         const requestState = this.getRequestState();
         const persistedState = this.getPersistedState();
