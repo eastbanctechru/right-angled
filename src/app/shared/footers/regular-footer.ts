@@ -4,8 +4,9 @@ import { FOOTER_DIRECTIVES } from '../../../right-angled/index';
 
 @Component({
     directives: [FOOTER_DIRECTIVES],
+    moduleId: module.id,
     selector: 'rt-regular-footer',
-    templateUrl: 'app/shared/footers/regular-footer.html'
+    templateUrl: 'regular-footer.html'
 })
 export class RegularFooterComponent {
     public hostList: RtListComponent;

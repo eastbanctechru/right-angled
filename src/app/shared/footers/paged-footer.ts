@@ -5,8 +5,9 @@ import { MISC_DIRECTIVES } from '../../../right-angled/misc-directives';
 
 @Component({
     directives: [FOOTER_DIRECTIVES, MISC_DIRECTIVES],
+    moduleId: module.id,
     selector: 'rt-paged-footer',
-    templateUrl: 'app/shared/footers/paged-footer.html'
+    templateUrl: 'paged-footer.html'
 })
 export class PagedFooterComponent {
     public hostList: RtListComponent;

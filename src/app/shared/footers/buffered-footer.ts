@@ -5,8 +5,9 @@ import { MISC_DIRECTIVES } from '../../../right-angled/misc-directives';
 
 @Component({
     directives: [FOOTER_DIRECTIVES, MISC_DIRECTIVES],
+    moduleId: module.id,
     selector: 'rt-buffered-footer',
-    templateUrl: 'app/shared/footers/buffered-footer.html'
+    templateUrl: 'buffered-footer.html'
 })
 export class BufferedFooterComponent {
     public hostList: RtListComponent;
