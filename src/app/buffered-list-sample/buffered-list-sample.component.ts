@@ -11,7 +11,7 @@ import { SHARED_DIRECTIVES } from '../shared/index';
 })
 export class BufferedListSampleComponent {
     @filter()
-    public airportName: string;
+    public airportName: string = null;
     public airportsService: AirportsService;
     public ngBufferedListService: NgBufferedListService;
     public items: Array<any> = new Array<any>();

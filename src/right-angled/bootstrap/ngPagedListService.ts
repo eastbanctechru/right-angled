@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { PagedPager, Utility } from 'e2e4';
 import { NgListServiceBase } from './ngListServiceBase';
-import { NullObjectStateManager } from './nullObjectStateManager';
+import { QueryStringStateManager } from './queryStringStateManager';
 
 @Injectable()
 export class NgPagedListService extends NgListServiceBase {
     public pager: PagedPager;
-    constructor(stateManager: NullObjectStateManager) {
+    constructor(stateManager: QueryStringStateManager) {
         super(new PagedPager(), stateManager);
     }
     public loadData(): Promise<Object> {
@@ -18,7 +18,6 @@ export class NgPagedListService extends NgListServiceBase {
         super.wrap(target, dataReadDelegate);
         return this;
     }
-
     public goToFirstPage(): void {
         if ((<PagedPager>this.pager).pageNumber > 1) {
             (<PagedPager>this.pager).pageNumber = 1;

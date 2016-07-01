@@ -68,7 +68,7 @@ export var RIGHTANGLED_DIRECTIVES: any[] = [
     RtSortDirective
 ].concat(SELECTION_DIRECTIVES, FOOTER_DIRECTIVES);
 
-import { NullObjectStateManager } from './bootstrap/nullObjectStateManager';
+import { QueryStringStateManager } from './bootstrap/queryStringStateManager';
 export var RIGHTANGLED_PROVIDERS: any[] = [
-    NullObjectStateManager
+    QueryStringStateManager
 ];
