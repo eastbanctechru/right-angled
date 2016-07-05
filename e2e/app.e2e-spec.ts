@@ -1,10 +1,10 @@
-import { E2e4Ng2DemoPage } from './app.po';
+import { RightAngledPage } from './app.po';
 
 describe('right-angled App', function() {
-  let page: E2e4Ng2DemoPage;
+  let page: RightAngledPage;
 
   beforeEach(() => {
-    page = new E2e4Ng2DemoPage();
+    page = new RightAngledPage();
   });
 
   it('should display message saying app works', () => {

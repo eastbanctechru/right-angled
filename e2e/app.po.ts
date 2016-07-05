@@ -1,4 +1,4 @@
-export class E2e4Ng2DemoPage {
+export class RightAngledPage {
   navigateTo() {
     return browser.get('/');
   }

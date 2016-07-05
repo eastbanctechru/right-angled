@@ -1,6 +1,10 @@
 /* tslint:disable:jsdoc-format */
+// SystemJS configuration file, see links for more information
+// https://github.com/systemjs/systemjs
+// https://github.com/systemjs/systemjs/blob/master/docs/config-api.md
+
 /***********************************************************************************************
- * User Configuration
+ * User Configuration.
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
@@ -20,8 +24,7 @@ const packages: any = {
   'right-angled': {
     defaultExtension: 'js'
   },
-  'ng2-bootstrap': { defaultExtension: 'js' },
-  '@angular/router-deprecated': { defaultExtension: 'js', main: 'index.js' }
+  'ng2-bootstrap': { defaultExtension: 'js' }
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
@@ -32,6 +35,7 @@ const barrels: string[] = [
   '@angular/core',
   '@angular/common',
   '@angular/compiler',
+  '@angular/forms',
   '@angular/http',
   '@angular/router',
   '@angular/platform-browser',
