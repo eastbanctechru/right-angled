@@ -14,10 +14,10 @@ export class RtDeselectAllDirective {
         if (this.recursive && this.selectionArea.childSelectionAreas) {
             this.selectionArea.childSelectionAreas.toArray().forEach((area: RtSelectionAreaForDirective) => {
                 if (area !== this.selectionArea) {
-                    area.selectionManager.deselectAll();
+                    area.selectionService.deselectAll();
                 }
             });
         }
-        this.selectionArea.selectionManager.deselectAll();
+        this.selectionArea.selectionService.deselectAll();
     }
 }

@@ -13,14 +13,14 @@ export class RtSelectionCheckboxForDirective {
 
     @HostBinding('checked')
     public get isChecked(): boolean {
-        return this.index !== null && this.selectionArea.selectionManager.itemsSource[this.index] && this.selectionArea.selectionManager.itemsSource[this.index].selected;
+        return this.index !== null && this.selectionArea.selectionService.itemsSource[this.index] && this.selectionArea.selectionService.itemsSource[this.index].selected;
     }
     @HostListener('change', ['$event'])
     public changeHandler(evt: MouseEvent): void {
         if ((evt.target as HTMLInputElement).checked) {
-            this.selectionArea.selectionManager.selectIndex(this.index, true);
+            this.selectionArea.selectionService.selectIndex(this.index, true);
         } else {
-            this.selectionArea.selectionManager.deselectIndex(this.index);
+            this.selectionArea.selectionService.deselectIndex(this.index);
         }
     }
 }

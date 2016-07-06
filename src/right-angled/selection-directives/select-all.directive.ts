@@ -11,12 +11,12 @@ export class RtSelectAllDirective {
     }
     @HostListener('click')
     public clickHandler(event: MouseEvent): void {
-        this.selectionArea.selectionManager.selectAll();
+        this.selectionArea.selectionService.selectAll();
         setTimeout(() => {
             if (this.recursive && this.selectionArea.childSelectionAreas) {
                 this.selectionArea.childSelectionAreas.toArray().forEach((area: RtSelectionAreaForDirective) => {
                     if (area !== this.selectionArea) {
-                        area.selectionManager.selectAll();
+                        area.selectionService.selectAll();
                     }
                 });
             }

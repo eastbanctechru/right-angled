@@ -1,6 +1,6 @@
 import { ContentChildren, QueryList, Host, HostListener, Directive, OnInit, Input, Output, OnChanges, OnDestroy, HostBinding } from '@angular/core';
-import { ISelectable, ISelectionConfig, SelectionEventsHelper } from 'e2e4';
-import { NgSelectionManager } from '../bootstrap/ng-selection-manager';
+import { SelectableItem, SelectionAreaConfig, SelectionEventsHelper } from 'e2e4';
+import { NgSelectionService } from '../bootstrap/ng-selection-manager';
 import { ISelectionEventsEmitter } from '../bootstrap/ISelectionEventsEmitter';
 import { OnSelectedEvent } from '../bootstrap/on-selected-event';
 import { OnDeselectedEvent } from '../bootstrap/on-deselected-event';
@@ -8,18 +8,18 @@ import { OnSelectionChangedEvent } from '../bootstrap/on-selection-changed-event
 import { EventEmitter } from '@angular/core';
 
 @Directive({
-    providers: [NgSelectionManager],
+    providers: [NgSelectionService],
     selector: '[rt-selection-area-for]'
 })
-export class RtSelectionAreaForDirective implements ISelectionEventsEmitter, OnInit, OnChanges, OnDestroy, ISelectionConfig {
+export class RtSelectionAreaForDirective implements ISelectionEventsEmitter, OnInit, OnChanges, OnDestroy, SelectionAreaConfig {
     @ContentChildren(RtSelectionAreaForDirective) public childSelectionAreas: QueryList<RtSelectionAreaForDirective>;
     private _tabIndex: number;
-    public selectionManager: NgSelectionManager;
+    public selectionService: NgSelectionService;
     public selectionEventsHelper: SelectionEventsHelper;
 
     @Input('horizontal') public horizontal: boolean = false;
     @Input('multiple') public allowMultipleSelection: boolean = true;
-    @Input('rt-selection-area-for') public items: Array<ISelectable>;
+    @Input('rt-selection-area-for') public items: Array<SelectableItem>;
     @Input() public autoSelectFirst: boolean = false;
     @Input() public toggleOnly: boolean = false;
 
@@ -27,20 +27,20 @@ export class RtSelectionAreaForDirective implements ISelectionEventsEmitter, OnI
     @Output('onItemDeselected') public onDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
     @Output() public onSelectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
 
-    constructor( @Host() selectionManager: NgSelectionManager) {
-        this.selectionManager = selectionManager;
-        this.selectionManager.globalEmitter = this;
+    constructor( @Host() selectionManager: NgSelectionService) {
+        this.selectionService = selectionManager;
+        this.selectionService.globalEmitter = this;
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }
     public ngOnDestroy(): void {
-        this.selectionManager.dispose();
+        this.selectionService.dispose();
     }
     public ngOnChanges(changes: any): void {
         if (changes.items) {
-            this.selectionManager.itemsSource = changes.items.currentValue;
+            this.selectionService.itemsSource = changes.items.currentValue;
         }
-        if (false === this.selectionManager.hasSelections() && this.autoSelectFirst === true) {
-            this.selectionManager.selectIndex(0, false);
+        if (false === this.selectionService.hasSelections() && this.autoSelectFirst === true) {
+            this.selectionService.selectIndex(0, false);
         }
     }
 

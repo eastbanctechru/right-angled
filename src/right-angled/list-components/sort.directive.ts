@@ -20,7 +20,7 @@ export class RtSortDirective implements DoCheck, OnInit {
     }
     public ngOnInit(): void {
         this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortable, true);
-        this.hostList.serviceInstance.sortManager.sortings.some((sortParameter: SortParameter) => {
+        this.hostList.serviceInstance.sortingsService.sortings.some((sortParameter: SortParameter) => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.setSortClasses(sortParameter);
                 return true;
@@ -31,12 +31,12 @@ export class RtSortDirective implements DoCheck, OnInit {
     @HostListener('click', ['$event'])
     public clickHandler(evt: MouseEvent): void {
         if (this.hostList.serviceInstance.ready) {
-            this.hostList.serviceInstance.sortManager.setSort(this.fieldName, evt.ctrlKey);
+            this.hostList.serviceInstance.sortingsService.setSort(this.fieldName, evt.ctrlKey);
             this.hostList.serviceInstance.reloadData();
         }
     }
     public ngDoCheck(): void {
-        let changes = this.differ.diff(this.hostList.serviceInstance.sortManager.sortings);
+        let changes = this.differ.diff(this.hostList.serviceInstance.sortingsService.sortings);
         if (changes) {
             changes.forEachRemovedItem(this.sortItemRemovedCallback);
             changes.forEachAddedItem(this.sortItemAddedCallback);

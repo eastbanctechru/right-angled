@@ -14,12 +14,12 @@ export class RtCheckAllDirective {
     @HostListener('change', ['$event'])
     public changeHandler(evt: MouseEvent): void {
         if ((evt.target as HTMLInputElement).checked) {
-            this.selectionArea.selectionManager.selectAll();
+            this.selectionArea.selectionService.selectAll();
             setTimeout(() => {
                 if (this.recursive && this.selectionArea.childSelectionAreas) {
                     this.selectionArea.childSelectionAreas.toArray().forEach((area: RtSelectionAreaForDirective) => {
                         if (this.selectionArea !== area) {
-                            area.selectionManager.selectAll();
+                            area.selectionService.selectAll();
                         }
                     });
                 }
@@ -29,11 +29,11 @@ export class RtCheckAllDirective {
             if (this.recursive && this.selectionArea.childSelectionAreas) {
                 this.selectionArea.childSelectionAreas.toArray().forEach((area: RtSelectionAreaForDirective) => {
                     if (this.selectionArea !== area) {
-                        area.selectionManager.deselectAll();
+                        area.selectionService.deselectAll();
                     }
                 });
             }
-            this.selectionArea.selectionManager.deselectAll();
+            this.selectionArea.selectionService.deselectAll();
         }
     }
 }

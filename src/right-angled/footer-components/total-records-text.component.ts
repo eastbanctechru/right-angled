@@ -1,6 +1,6 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 import { RtListComponent } from '../list-components/list.component';
-import { IPager, ProgressState } from 'e2e4';
+import { Pager, ProgressState } from 'e2e4';
 
 @Component({
     selector: 'rt-total-records-text',
@@ -11,7 +11,7 @@ export class RtTotalRecordsTextComponent implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
     private isVisible: boolean;
     private listHost: RtListComponent;
-    private pager: IPager;
+    private pager: Pager;
     constructor(@SkipSelf()listHost: RtListComponent, differs: KeyValueDiffers) {
         this.listDiffer = differs.find([]).create(null);
         this.pagerDiffer = differs.find([]).create(null);

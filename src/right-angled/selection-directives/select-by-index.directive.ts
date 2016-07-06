@@ -20,7 +20,7 @@ export class RtSelectByIndexDirective implements ISelectionEventsEmitter, OnInit
         this.selectionArea = selectionArea;
     }
     public ngOnInit(): void {
-        this.selectionArea.selectionManager.registerEventEmitter(this, this.index);
+        this.selectionArea.selectionService.registerEventEmitter(this, this.index);
     }
     @HostListener('mouseup', ['$event'])
     public mouseUpHandler(event: MouseEvent): void {

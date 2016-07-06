@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ISelectable, SortParameter } from 'e2e4';
+import { SelectableItem, SortParameter } from 'e2e4';
 import { IAirportInfo, airports }     from './airports';
 import * as _ from 'lodash';
 import { SortDirection } from 'e2e4';
@@ -41,7 +41,7 @@ export class AirportsService {
         let data = _.filter(airports, (item: IAirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
 
         let result = this.applyPagedRequest(request, data);
-        result.items.forEach((item: ISelectable) => item.selected = false);
+        result.items.forEach((item: SelectableItem) => item.selected = false);
         return new Promise((resolve: Function, reject: Function): void => {
             setTimeout(() => {
                 resolve(result);
@@ -51,7 +51,7 @@ export class AirportsService {
     public getAirportsBuffered(request: any): Promise<any> {
         let data = _.filter(airports, (item: IAirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
         let result = this.applyBufferedRequest(request, data);
-        result.items.forEach((item: ISelectable) => item.selected = false);
+        result.items.forEach((item: SelectableItem) => item.selected = false);
         return new Promise((resolve: Function): void => {
             setTimeout(() => { resolve(result); }, 500);
         });
@@ -60,7 +60,7 @@ export class AirportsService {
         let data = _.filter(airports, (item: IAirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
 
         let result = this.applyRequest(request, data);
-        result.items.forEach((item: ISelectable) => item.selected = false);
+        result.items.forEach((item: SelectableItem) => item.selected = false);
         return new Promise((resolve: Function): void => {
             setTimeout(() => { resolve(result); }, 500);
         });
@@ -69,7 +69,7 @@ export class AirportsService {
         let data = _.filter(airports, (item: IAirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
 
         let result = this.applyRequest(request, data);
-        result.items.forEach((item: ISelectable) => item.selected = false);
+        result.items.forEach((item: SelectableItem) => item.selected = false);
         result.items = _.chain(result.items)
             .groupBy((item: IAirportInfo) => item.continent)
             .map((item: IAirportInfo, index: number) => { return { items: item, name: index, selected: false }; })

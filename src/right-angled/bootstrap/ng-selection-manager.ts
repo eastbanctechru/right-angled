@@ -1,13 +1,13 @@
-import { ISelectionTuple, SelectionManager } from 'e2e4';
+import { SelectionTuple, DefaultSelectionService } from 'e2e4';
 import { ISelectionEventsEmitter } from './ISelectionEventsEmitter';
 import { OnSelectedEvent } from './on-selected-event';
 import { OnDeselectedEvent } from './on-deselected-event';
 import { OnSelectionChangedEvent } from './on-selection-changed-event';
 
-export class NgSelectionManager extends SelectionManager {
+export class NgSelectionService extends DefaultSelectionService {
     private eventEmitters: Array<ISelectionEventsEmitter> = new Array<ISelectionEventsEmitter>();
     public globalEmitter: ISelectionEventsEmitter;
-    protected processSelection(tuple: ISelectionTuple, selected: boolean): void {
+    protected processSelection(tuple: SelectionTuple, selected: boolean): void {
         const initialSelectState = tuple.item.selected;
         super.processSelection(tuple, selected);
         if (initialSelectState !== selected) {
@@ -19,7 +19,7 @@ export class NgSelectionManager extends SelectionManager {
             }
         }
     }
-    private emitEvents(emitter: ISelectionEventsEmitter, selected: boolean, tuple: ISelectionTuple): void {
+    private emitEvents(emitter: ISelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
         if (selected) {
             emitter.onSelected.emit(new OnSelectedEvent(tuple.item, tuple.index));
         } else {

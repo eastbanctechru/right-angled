@@ -11,6 +11,6 @@ export class RtResetButtonDirective {
     }
     @HostListener('click')
     public resetFilters(): void {
-        this.hostList.serviceInstance.filterManager.resetValues();
+        this.hostList.serviceInstance.filtersService.resetValues();
     }
 }

@@ -1,12 +1,12 @@
-import { IPager, ISortManager, IFilterManager, Utility, AbstractLifetime, ProgressState, SortManager, FilterManager } from 'e2e4';
+import { Pager, Utility, AbstractLifetime, ProgressState, SortingsService, FiltersService } from 'e2e4';
 import { StateManager } from './state-manager';
 
 export abstract class NgListServiceBase extends AbstractLifetime {
     public dataReadDelegate: (requestParams: any) => Promise<any>;
-    public sortManager: ISortManager;
+    public sortingsService: SortingsService;
     public stateManager: StateManager;
-    public filterManager: IFilterManager;
-    public pager: IPager;
+    public filtersService: FiltersService;
+    public pager: Pager;
     public items: Object[];
 
     private listLoadDataSuccessCallback = (result: Object): Object => {
@@ -21,26 +21,26 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     private listLoadDataFailCallback = (): void => {
         this.state = ProgressState.Fail;
     }
-    constructor(pager: IPager, stateManager: StateManager) {
+    constructor(pager: Pager, stateManager: StateManager) {
         super();
         this.pager = pager;
         this.stateManager = stateManager;
         this.stateManager.target = this;
-        this.filterManager = new FilterManager(this);
-        this.filterManager.registerFilterTarget(this.pager);
-        this.sortManager = new SortManager();
-        this.filterManager.registerFilterTarget(this.sortManager);
+        this.filtersService = new FiltersService(this);
+        this.filtersService.registerFilterTarget(this.pager);
+        this.sortingsService = new SortingsService();
+        this.filtersService.registerFilterTarget(this.sortingsService);
     }
     public init(): void {
         const restoredState = this.stateManager.mergeStates();
-        this.filterManager.applyParams(restoredState);
+        this.filtersService.applyParams(restoredState);
         super.init();
     }
     public toRequest(): any {
-        return this.filterManager.getRequestState(null);
+        return this.filtersService.getRequestState(null);
     }
     public getLocalState(): Object {
-        return this.filterManager.getPersistedState(null);
+        return this.filtersService.getPersistedState(null);
     }
     public clearData(): void {
         this.pager.reset();
@@ -51,13 +51,13 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     }
     public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgListServiceBase {
         this.dataReadDelegate = dataReadDelegate;
-        this.filterManager.registerFilterTarget(target);
+        this.filtersService.registerFilterTarget(target);
         return this;
     }
     public dispose(): void {
         super.dispose();
-        this.filterManager.dispose();
-        this.sortManager.dispose();
+        this.filtersService.dispose();
+        this.sortingsService.dispose();
         this.clearData();
     }
 
