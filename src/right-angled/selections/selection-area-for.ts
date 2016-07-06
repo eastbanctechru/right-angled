@@ -14,6 +14,7 @@ export class RtSelectionAreaForDirective implements ISelectionEventsEmitter, OnI
     public selectionManager: NgSelectionManager;
     public selectionEventsHelper: SelectionEventsHelper;
 
+    @Input('horizontal') public horizontal: boolean = false;
     @Input('multiple') public allowMultipleSelection: boolean = true;
     @Input('rt-selection-area-for') public items: Array<ISelectable>;
     @Input() public autoSelectFirst: boolean = false;
