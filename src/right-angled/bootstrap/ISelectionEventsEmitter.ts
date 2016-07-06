@@ -1,31 +1,7 @@
 import { EventEmitter } from '@angular/core';
-
-export class OnSelectedEvent {
-    public index: number;
-    public item: any;
-    constructor(item: any, index: number) {
-        this.item = item;
-        this.index = index;
-    }
-}
-export class OnDeselectedEvent {
-    public index: number;
-    public item: any;
-    constructor(item: any, index: number) {
-        this.item = item;
-        this.index = index;
-    }
-
-}
-export class OnSelectionChangedEvent {
-    public index: number;
-    public item: any;
-    constructor(item: any, index: number) {
-        this.item = item;
-        this.index = index;
-    }
-
-}
+import { OnDeselectedEvent } from './onDeselectedEvent';
+import { OnSelectedEvent } from './onSelectedEvent';
+import { OnSelectionChangedEvent } from './onSelectionChangedEvent';
 
 export interface ISelectionEventsEmitter {
     onSelected: EventEmitter<OnSelectedEvent>;

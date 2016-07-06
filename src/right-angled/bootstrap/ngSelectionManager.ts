@@ -1,5 +1,8 @@
 import { ISelectionTuple, SelectionManager } from 'e2e4';
-import { OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent, ISelectionEventsEmitter } from './ISelectionEventsEmitter';
+import { ISelectionEventsEmitter } from './ISelectionEventsEmitter';
+import { OnSelectedEvent } from './onSelectedEvent';
+import { OnDeselectedEvent } from './onDeselectedEvent';
+import { OnSelectionChangedEvent } from './onSelectionChangedEvent';
 
 export class NgSelectionManager extends SelectionManager {
     private eventEmitters: Array<ISelectionEventsEmitter> = new Array<ISelectionEventsEmitter>();
