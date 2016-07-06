@@ -1,0 +1,27 @@
+<rt-list-state-no-data>
+    There are no data found
+</rt-list-state-no-data>
+<rt-list-state-request-canceled>
+    Data loading was cancelled
+</rt-list-state-request-canceled>
+<rt-list-state-failed>
+    An error has occured since the last data loading
+</rt-list-state-failed>
+<rt-list-state-initial>
+    Enter search options and press "Show" button
+</rt-list-state-initial>
+<rt-list-state-progress>
+    Loading....
+</rt-list-state-progress>
+<rt-display-pager>
+    <span rtGoToFirstPage disabledCls="disabled" class="step-backward" title="go to first page"></span>
+    <span rtGoToPrevPage disabledCls="disabled" class="chevron-left" title="go to previous page"></span>
+    <input rtSelectOnFocus rtPageNumber type="text" class="form-control" maxlength="4" />
+    <span rtGoToNextPage disabledCls="disabled" class="chevron-right" title="go to next page"></span>
+    <span rtGoToLastPage disabledCls="disabled" class="step-forward" title="go to last page"></span>
+    <rt-total-records-text #rtref>
+        Displaying records {{rtref.pager.displayFrom}} - {{rtref.pager.displayTo}} of {{rtref.pager.totalCount}}.
+    </rt-total-records-text>
+    <span>Page size</span>
+    <input rtSelectOnFocus rtPageSize type="text" class="form-control" maxlength="3" />
+</rt-display-pager>

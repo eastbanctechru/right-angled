@@ -1,0 +1,129 @@
+<div>
+    <h1 class="page-title">Grouping and recursive selection sample</h1>
+    <rt-list [items]="items">
+        <form class="filters">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" [(ngModel)]="airportName" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="custom-row">
+                                    <div class="custom-col">
+                                        <label class="radio-inline control-label">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked hidden />
+                                            <span>Label</span>
+                                        </label>
+                                    </div>
+                                    <div class="custom-col">
+                                        <label class="radio-inline control-label">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" hidden />
+                                            <span>Label</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="has-feedback">
+                                    <input type="text" class="form-control" />
+                                    <span class="icon-date form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="has-feedback">
+                                    <input type="text" class="form-control" />
+                                    <span class="icon-date form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <input rtLoadData type="submit" class="btn btn-img" />
+                        <button rtResetSettings type="button" class="btn btn-img btn-refresh"></button>
+                        <button type="button" class="btn btn-img btn-xlsx"></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-striped" [rtSelectionAreaFor]="continents" [toggleOnly]="true">
+            <thead rt-demo-sortable-header>
+            </thead>
+            <caption rt-demo-toolbar>
+            </caption>
+
+            <tbody>
+                <template ngFor let-continent [ngForOf]="continents" let-index="index">
+                    <tr [class.success]="continent.selected" [rtSelectByIndex]="index">
+                        <td colspan="6" class="text-center">{{continent.name}} ({{continent.items.length}} items)</td>
+                    </tr>
+                    <tr *ngIf="continent.selected">
+                        <td colspan=6>
+                            <table class="table table-striped">
+                                <tbody [rtSelectionAreaFor]="continent.items">
+                                    <tr *ngFor="let item of continent.items, let index=index" [class.success]="item.selected" [rtSelectByIndex]="index" >
+                                        <td>
+                                            <rt-row-number [index]="index">
+                                            </rt-row-number>
+                                        </td>
+                                        <td>{{item.iata}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.continent}}</td>
+                                        <td>{{item.type}}</td>
+                                        <td>Lat - {{item.lat || 'unknown'}} Lon - {{item.lon || 'unknown'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="list-pager text-right">
+                        <rt-demo-footer></rt-demo-footer>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </rt-list>
+</div>

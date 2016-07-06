@@ -47,12 +47,10 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
-  'app/master-detail-sample',
-  'app/paged-list-sample',
-  'app/buffered-list-sample',
-  'app/regular-list-sample',
-  'app/sortable-header',
-  'app/grouping-sample'
+  'right-angled',
+  'right-angled/misc-directives',
+  'right-angled/list-directives',
+  'right-angled/selection-directives'
   /** @cli-barrel */
 ];
 

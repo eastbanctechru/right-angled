@@ -1,37 +1,19 @@
 import { RouterConfig, provideRouter } from '@angular/router';
-import { PagedListSampleComponent } from './paged-list-sample/paged-list-sample.component';
-import { BufferedListSampleComponent } from './buffered-list-sample/buffered-list-sample.component';
-import { RegularListSampleComponent } from './regular-list-sample/regular-list-sample.component';
-import { MasterDetailSampleComponent } from './master-detail-sample/master-detail-sample.component';
-import { GroupingSampleComponent } from './grouping-sample/grouping-sample.component';
 
-const routes: RouterConfig = [
-    {
-        path: '',
-        redirectTo: '/paged-list',
-        terminal: true
-    },
-    {
-        component: PagedListSampleComponent,
-        path: 'paged-list'
-    },
-    {
-        component: BufferedListSampleComponent,
-        path: 'buffered-list'
-    },
-    {
-        component: RegularListSampleComponent,
-        path: 'regular-list'
-    },
-    {
-        component: MasterDetailSampleComponent,
-        path: 'master-detail'
-    },
-    {
-        component: GroupingSampleComponent,
-        path: 'grouping'
-    }
+import { BufferedListSampleRoutes } from './+buffered-list-sample/buffered-list-sample.routes';
+import { GroupingSampleRoutes } from './+grouping-sample/grouping-sample.routes';
+import { MasterDetailSampleRoutes } from './+master-detail-sample/master-detail-sample.routes';
+import { PagedListSampleRoutes } from './+paged-list-sample/paged-list-sample.routes';
+import { RegularListSampleRoutes } from './+regular-list-sample/regular-list-sample.routes';
+
+const appRoutes: RouterConfig = [
+    ...BufferedListSampleRoutes,
+    ...GroupingSampleRoutes,
+    ...MasterDetailSampleRoutes,
+    ...PagedListSampleRoutes,
+    ...RegularListSampleRoutes
 ];
+
 export const APP_ROUTER_PROVIDERS = [
-    provideRouter(routes)
+    provideRouter(appRoutes)
 ];

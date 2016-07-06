@@ -1,0 +1,22 @@
+<rt-list-state-no-data>
+    There are no data found
+</rt-list-state-no-data>
+<rt-list-state-request-canceled>
+    Data loading was cancelled
+</rt-list-state-request-canceled>
+<rt-list-state-failed>
+    An error has occured since the last data loading
+</rt-list-state-failed>
+<rt-list-state-initial>
+    Enter search options and press "Show" button
+</rt-list-state-initial>
+<rt-list-state-progress>
+    Loading....
+</rt-list-state-progress>
+<rt-total-records-text #rtref>
+    Loaded records {{rtref.pager.loadedCount}} of {{rtref.pager.totalCount}}
+</rt-total-records-text>
+<rt-display-pager>
+    <a tabindex="0" rtLoadMore class="link" href="#">Show more</a>
+    <input class="form-control" rtSelectOnFocus rtRowCount type="text" maxlength="3" title="count of rows to load" />
+</rt-display-pager>

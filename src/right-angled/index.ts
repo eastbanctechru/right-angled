@@ -1,74 +1,33 @@
-export { NgPagedListService } from './bootstrap/ngPagedListService';
-export { NgBufferedListService } from './bootstrap/ngBufferedListService';
-export { NgListService } from './bootstrap/ngListService';
-export { Defaults } from './defaults';
 export * from 'e2e4';
 
-import { RtStatusNoDataComponent } from './footer/status-no-data';
-import { RtStatusRequestCanceledComponent } from './footer/status-request-canceled';
-import { RtStatusFailedComponent } from './footer/status-failed';
-import { RtStatusInitialComponent } from './footer/status-initial';
-import { RtStatusProgressComponent } from './footer/status-progress';
-import { RtTotalRecordsTextComponent } from './footer/total-records-text';
-import { RtDisplayPagerComponent } from './footer/display-pager';
-import { RtLoadMoreDirective } from './footer/buffered-controls/load-more';
-import { RtRowCountDirective } from './footer/buffered-controls/row-count';
+export { NgPagedListService } from './services/ng-paged-list-service.service';
+export { NgBufferedListService } from './services/ng-buffered-list-service.service';
+export { NgListService } from './services/ng-list-service.service';
 
-import { RtToFirstPageDirective } from './footer/paged-controls/to-first-page';
-import { RtToLastPageDirective } from './footer/paged-controls/to-last-page';
-import { RtToNextPageDirective } from './footer/paged-controls/to-next-page';
-import { RtToPrevPageDirective } from './footer/paged-controls/to-prev-page';
-import { RtPageSizeDirective } from './footer/paged-controls/page-size';
-import { RtPageNumberDirective } from './footer/paged-controls/page-number';
+import { SELECTION_DIRECTIVES } from './selection-directives/index';
+import { LIST_DIRECTIVES } from './list-directives/index';
+import { BUFFERED_FOOTER_DIRECTIVES, PAGED_FOOTER_DIRECTIVES, REGULAR_FOOTER_DIRECTIVES } from './list-directives/index';
 
-export var FOOTER_DIRECTIVES: any[] = [
-    RtStatusNoDataComponent,
-    RtStatusRequestCanceledComponent,
-    RtStatusFailedComponent,
-    RtStatusInitialComponent,
-    RtStatusProgressComponent,
-    RtTotalRecordsTextComponent,
-    RtDisplayPagerComponent,
-    RtLoadMoreDirective,
-    RtRowCountDirective,
-    RtToFirstPageDirective,
-    RtToLastPageDirective,
-    RtToNextPageDirective,
-    RtToPrevPageDirective,
-    RtPageSizeDirective,
-    RtPageNumberDirective
+export var PAGED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(PAGED_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
+export var BUFFERED_LIST_DIRECTIVES: any[] = BUFFERED_FOOTER_DIRECTIVES.concat(PAGED_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
+export var REGULAR_LIST_DIRECTIVES: any[] = REGULAR_FOOTER_DIRECTIVES.concat(PAGED_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
+
+import { NgQueryStringStateService } from './services/ng-query-string-state-service';
+import { NgPagedListService } from './services/ng-paged-list-service.service';
+import { NgBufferedListService } from './services/ng-buffered-list-service.service';
+import { NgListService } from './services/ng-list-service.service';
+
+export var PAGED_LIST_PROVIDERS: any[] = [
+    NgPagedListService,
+    NgQueryStringStateService
 ];
 
-import { RtSelectionAreaForDirective } from './selections/selection-area-for';
-import { RtSelectByIndexDirective } from './selections/select-by-index';
-import { RtSelectionCheckboxForDirective } from './selections/selection-checkbox-for';
-import { RtSelectAllDirective } from './selections/select-all';
-import { RtDeselectAllDirective } from './selections/deselect-all';
-import { RtCheckAllDirective } from './selections/check-all';
+export var BUFFERED_LIST_PROVIDERS: any[] = [
+    NgBufferedListService,
+    NgQueryStringStateService
+];
 
-export var SELECTION_DIRECTIVES: any[] = [
-    RtSelectionAreaForDirective,
-    RtSelectByIndexDirective,
-    RtSelectionCheckboxForDirective,
-    RtSelectAllDirective,
-    RtDeselectAllDirective,
-    RtCheckAllDirective];
-
-import { RtListComponent } from './lists/list';
-import { RtLoadControlButtonDirective } from './lists/load-control-button';
-import { RtResetButtonDirective } from './lists/reset-button';
-import { RtRowNumberComponent } from './lists/row-number';
-import { RtSortDirective } from './lists/sort';
-
-export var RIGHTANGLED_DIRECTIVES: any[] = [
-    RtListComponent,
-    RtLoadControlButtonDirective,
-    RtResetButtonDirective,
-    RtRowNumberComponent,
-    RtSortDirective
-].concat(SELECTION_DIRECTIVES, FOOTER_DIRECTIVES);
-
-import { QueryStringStateManager } from './bootstrap/queryStringStateManager';
-export var RIGHTANGLED_PROVIDERS: any[] = [
-    QueryStringStateManager
+export var REGULAR_LIST_PROVIDERS: any[] = [
+    NgListService,
+    NgQueryStringStateService
 ];

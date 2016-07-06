@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { RIGHTANGLED_DIRECTIVES } from '../../../right-angled/index';
+import { LIST_DIRECTIVES } from '../../../right-angled/list-directives';
 @Component({
-  directives: [RIGHTANGLED_DIRECTIVES],
+  directives: [LIST_DIRECTIVES],
   moduleId: module.id,
-  selector: 'thead[sortable-header]',
+  // tslint:disable-next-line: component-selector-name component-selector-type component-selector-prefix
+  selector: 'thead[rt-demo-sortable-header]',
   templateUrl: 'sortable-header.component.html'
 })
 export class SortableHeaderComponent {

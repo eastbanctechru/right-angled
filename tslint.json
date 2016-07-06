@@ -4,11 +4,14 @@
     "./node_modules/codelyzer"
   ],
   "rules": {
+    "interface-name": [
+      true, "never-prefix"
+    ],
+    "linebreak-style": "CRLF",
     "max-line-length": [
       true,
       240
     ],
-    "linebreak-style": "CRLF",
     "member-access": [
       true,
       "check-accessor"
@@ -62,8 +65,7 @@
     "variable-name": [true,
         "ban-keywords",
         "check-format",
-        "allow-pascal-case",
-        "allow-leading-underscore"
+        "allow-pascal-case"
     ],
     "whitespace": [
       true,
@@ -76,11 +78,11 @@
     ],
     // Codelyzer rules
     "directive-selector-name": [
-      false,
-      "kebab-case"
+      true,
+      "camelCase"
     ],
     "component-selector-name": [
-      false,
+      true,
       "kebab-case"
     ],
     "directive-selector-type": [
@@ -88,7 +90,7 @@
       "attribute"
     ],
     "component-selector-type": [
-      false,
+      true,
       "element"
     ],
     "directive-selector-prefix": [
@@ -96,7 +98,7 @@
       "rt"
     ],
     "component-selector-prefix": [
-      false,
+      true,
       "rt"
     ],
     "use-input-property-decorator": true,
