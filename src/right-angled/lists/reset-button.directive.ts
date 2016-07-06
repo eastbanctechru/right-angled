@@ -1,5 +1,5 @@
 import { SkipSelf, Directive, HostListener } from '@angular/core';
-import { RtListComponent } from './list';
+import { RtListComponent } from './list.component';
 
 @Directive({
     selector: '[rt-reset-button]'

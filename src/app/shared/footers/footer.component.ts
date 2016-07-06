@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RtListComponent } from '../../../right-angled/lists/list';
+import { RtListComponent } from '../../../right-angled/lists/list.component';
 import { BufferedFooterComponent } from './buffered-footer.component';
 import { RegularFooterComponent } from './regular-footer.component';
 import { PagedFooterComponent } from './paged-footer.component';

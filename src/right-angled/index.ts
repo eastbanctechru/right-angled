@@ -39,12 +39,12 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtPageNumberDirective
 ];
 
-import { RtSelectionAreaForDirective } from './selections/selection-area-for';
-import { RtSelectByIndexDirective } from './selections/select-by-index';
-import { RtSelectionCheckboxForDirective } from './selections/selection-checkbox-for';
-import { RtSelectAllDirective } from './selections/select-all';
-import { RtDeselectAllDirective } from './selections/deselect-all';
-import { RtCheckAllDirective } from './selections/check-all';
+import { RtSelectionAreaForDirective } from './selections/selection-area-for.directive';
+import { RtSelectByIndexDirective } from './selections/select-by-index.directive';
+import { RtSelectionCheckboxForDirective } from './selections/selection-checkbox-for.directive';
+import { RtSelectAllDirective } from './selections/select-all.directive';
+import { RtDeselectAllDirective } from './selections/deselect-all.directive';
+import { RtCheckAllDirective } from './selections/check-all.directive';
 
 export var SELECTION_DIRECTIVES: any[] = [
     RtSelectionAreaForDirective,
@@ -54,11 +54,11 @@ export var SELECTION_DIRECTIVES: any[] = [
     RtDeselectAllDirective,
     RtCheckAllDirective];
 
-import { RtListComponent } from './lists/list';
-import { RtLoadControlButtonDirective } from './lists/load-control-button';
-import { RtResetButtonDirective } from './lists/reset-button';
-import { RtRowNumberComponent } from './lists/row-number';
-import { RtSortDirective } from './lists/sort';
+import { RtListComponent } from './lists/list.component';
+import { RtLoadControlButtonDirective } from './lists/load-control-button.directive';
+import { RtResetButtonDirective } from './lists/reset-button.directive';
+import { RtRowNumberComponent } from './lists/row-number.component';
+import { RtSortDirective } from './lists/sort.directive';
 
 export var RIGHTANGLED_DIRECTIVES: any[] = [
     RtListComponent,

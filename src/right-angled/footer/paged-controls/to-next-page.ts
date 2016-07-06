@@ -1,5 +1,5 @@
 import { Renderer, Directive, HostListener, HostBinding, KeyValueDiffers, Input, ElementRef } from '@angular/core';
-import { RtListComponent } from '../../lists/list';
+import { RtListComponent } from '../../lists/list.component';
 import { GoToControlBase } from './go-to-control-base';
 
 @Directive({

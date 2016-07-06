@@ -1,5 +1,5 @@
 import { HostListener, SkipSelf, Directive, Input } from '@angular/core';
-import { RtSelectionAreaForDirective } from './selection-area-for';
+import { RtSelectionAreaForDirective } from './selection-area-for.directive';
 
 @Directive({
     selector: 'input[rt-check-all]'

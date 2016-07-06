@@ -1,5 +1,5 @@
 import { SkipSelf, HostListener, Directive, Input, Output, OnInit } from '@angular/core';
-import { RtSelectionAreaForDirective } from './selection-area-for';
+import { RtSelectionAreaForDirective } from './selection-area-for.directive';
 import { ISelectionEventsEmitter } from '../bootstrap/ISelectionEventsEmitter';
 import { OnSelectedEvent } from '../bootstrap/onSelectedEvent';
 import { OnDeselectedEvent } from '../bootstrap/onDeselectedEvent';

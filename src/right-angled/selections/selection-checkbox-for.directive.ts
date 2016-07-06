@@ -1,5 +1,5 @@
 import { HostListener, HostBinding, SkipSelf, Directive, Input } from '@angular/core';
-import { RtSelectionAreaForDirective } from './selection-area-for';
+import { RtSelectionAreaForDirective } from './selection-area-for.directive';
 
 @Directive({
     selector: 'input[rt-selection-checkbox-for]'

@@ -1,6 +1,6 @@
 import { SkipSelf, Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit } from '@angular/core';
 import { Defaults } from '../defaults';
-import { RtListComponent } from './list';
+import { RtListComponent } from './list.component';
 import { SortDirection, SortParameter } from 'e2e4';
 
 @Directive({

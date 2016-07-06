@@ -1,5 +1,5 @@
 import { KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
-import { RtListComponent } from '../lists/list';
+import { RtListComponent } from '../lists/list.component';
 import { ProgressState } from 'e2e4';
 
 export abstract class RtStatusControlBase implements DoCheck, OnInit {

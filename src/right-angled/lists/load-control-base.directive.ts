@@ -1,5 +1,5 @@
 import { SkipSelf, Directive, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
-import { RtListComponent } from './list';
+import { RtListComponent } from './list.component';
 import { Defaults } from '../defaults';
 
 @Directive({

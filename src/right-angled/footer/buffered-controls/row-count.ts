@@ -1,5 +1,5 @@
 import { SkipSelf, HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
-import { RtListComponent } from '../../lists/list';
+import { RtListComponent } from '../../lists/list.component';
 import { NgBufferedListService } from '../../bootstrap/ngBufferedListService';
 
 @Directive({

@@ -1,5 +1,5 @@
 import { SkipSelf, Component, Input, OnChanges } from '@angular/core';
-import { RtListComponent } from './list';
+import { RtListComponent } from './list.component';
 import { NgPagedListService } from '../bootstrap/ngPagedListService';
 
 @Component({

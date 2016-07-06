@@ -1,7 +1,7 @@
 import { SkipSelf, Directive, HostListener, HostBinding, KeyValueDiffers } from '@angular/core';
-import { RtListComponent } from './list';
+import { RtListComponent } from './list.component';
 import { Defaults } from '../defaults';
-import { RtLoadControlBaseDirective } from './load-control-base';
+import { RtLoadControlBaseDirective } from './load-control-base.directive';
 
 @Directive({
     selector: 'input[rt-load-button], button[rt-load-button]'
