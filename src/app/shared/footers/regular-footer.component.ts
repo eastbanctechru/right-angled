@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RtListComponent } from '../../../right-angled/lists/list.component';
+import { RtListComponent } from '../../../right-angled/list-components/list.component';
 import { FOOTER_DIRECTIVES } from '../../../right-angled/index';
 
 @Component({

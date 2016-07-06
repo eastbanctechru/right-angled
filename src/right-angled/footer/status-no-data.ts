@@ -1,5 +1,5 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
-import { RtListComponent } from '../lists/list.component';
+import { RtListComponent } from '../list-components/list.component';
 import { ProgressState } from 'e2e4';
 import { RtStatusControlBase } from './status-control-base';
 

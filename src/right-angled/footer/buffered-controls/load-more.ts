@@ -1,5 +1,5 @@
 import { SkipSelf, HostListener, Directive } from '@angular/core';
-import { RtListComponent } from '../../lists/list.component';
+import { RtListComponent } from '../../list-components/list.component';
 import { NgBufferedListService } from '../../bootstrap/ngBufferedListService';
 
 @Directive({

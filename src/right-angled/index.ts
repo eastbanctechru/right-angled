@@ -39,12 +39,12 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtPageNumberDirective
 ];
 
-import { RtSelectionAreaForDirective } from './selections/selection-area-for.directive';
-import { RtSelectByIndexDirective } from './selections/select-by-index.directive';
-import { RtSelectionCheckboxForDirective } from './selections/selection-checkbox-for.directive';
-import { RtSelectAllDirective } from './selections/select-all.directive';
-import { RtDeselectAllDirective } from './selections/deselect-all.directive';
-import { RtCheckAllDirective } from './selections/check-all.directive';
+import { RtSelectionAreaForDirective } from './selection-components/selection-area-for.directive';
+import { RtSelectByIndexDirective } from './selection-components/select-by-index.directive';
+import { RtSelectionCheckboxForDirective } from './selection-components/selection-checkbox-for.directive';
+import { RtSelectAllDirective } from './selection-components/select-all.directive';
+import { RtDeselectAllDirective } from './selection-components/deselect-all.directive';
+import { RtCheckAllDirective } from './selection-components/check-all.directive';
 
 export var SELECTION_DIRECTIVES: any[] = [
     RtSelectionAreaForDirective,
@@ -54,11 +54,11 @@ export var SELECTION_DIRECTIVES: any[] = [
     RtDeselectAllDirective,
     RtCheckAllDirective];
 
-import { RtListComponent } from './lists/list.component';
-import { RtLoadControlButtonDirective } from './lists/load-control-button.directive';
-import { RtResetButtonDirective } from './lists/reset-button.directive';
-import { RtRowNumberComponent } from './lists/row-number.component';
-import { RtSortDirective } from './lists/sort.directive';
+import { RtListComponent } from './list-components/list.component';
+import { RtLoadControlButtonDirective } from './list-components/load-control-button.directive';
+import { RtResetButtonDirective } from './list-components/reset-button.directive';
+import { RtRowNumberComponent } from './list-components/row-number.component';
+import { RtSortDirective } from './list-components/sort.directive';
 
 export var RIGHTANGLED_DIRECTIVES: any[] = [
     RtListComponent,
