@@ -2,7 +2,7 @@ import { EventEmitter } from '@angular/core';
 import { Http, RequestOptionsArgs, RequestMethod, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import './operators/cancelon.augmentation';
-import { IRequestSettings } from './iRequestSettings';
+import { IRequestSettings } from './IRequestSettings';
 
 export abstract class DataService {
 

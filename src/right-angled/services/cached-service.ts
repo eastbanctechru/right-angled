@@ -1,4 +1,4 @@
-import { DataService } from './dataService';
+import { DataService } from './data-service';
 
 export abstract class CachedService extends DataService {
     private cache: { [key: string]: any } = {};

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AirportsService } from '../shared/airportsService';
+import { AirportsService } from '../shared/airports.service';
 import { filter, RIGHTANGLED_DIRECTIVES, RIGHTANGLED_PROVIDERS, NgPagedListService } from '../../right-angled/index';
 import { SHARED_DIRECTIVES } from '../shared/index';
 

@@ -1,5 +1,5 @@
 
-import { CachedService } from './cachedService';
+import { CachedService } from './cached-service';
 
 // TODO krozhkov: declare interface for return value?
 export function WithCache(minutes: number): (target: CachedService, propertyName: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => Promise<any>>) => void {
