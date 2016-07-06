@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { NgListServiceBase } from './ngListServiceBase';
+import { NgListServiceBase } from './ng-list-service-base';
 import { BufferedPager } from 'e2e4';
-import { QueryStringStateManager } from './queryStringStateManager';
+import { NgQueryStringStateManager } from './ng-query-string-state-manager';
 @Injectable()
 export class NgBufferedListService extends NgListServiceBase {
     public pager: BufferedPager;
-    constructor(stateManager: QueryStringStateManager) {
+    constructor(stateManager: NgQueryStringStateManager) {
         super(new BufferedPager(), stateManager);
     }
     public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgBufferedListService {

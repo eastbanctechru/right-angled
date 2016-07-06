@@ -1,25 +1,25 @@
-export { NgPagedListService } from './bootstrap/ngPagedListService';
-export { NgBufferedListService } from './bootstrap/ngBufferedListService';
-export { NgListService } from './bootstrap/ngListService';
+export { NgPagedListService } from './bootstrap/ng-paged-list-service.service';
+export { NgBufferedListService } from './bootstrap/ng-buffered-list-service.service';
+export { NgListService } from './bootstrap/ng-list-service.service';
 export { Defaults } from './defaults';
 export * from 'e2e4';
 
-import { RtStatusNoDataComponent } from './footer/status-no-data';
-import { RtStatusRequestCanceledComponent } from './footer/status-request-canceled';
-import { RtStatusFailedComponent } from './footer/status-failed';
-import { RtStatusInitialComponent } from './footer/status-initial';
-import { RtStatusProgressComponent } from './footer/status-progress';
-import { RtTotalRecordsTextComponent } from './footer/total-records-text';
-import { RtDisplayPagerComponent } from './footer/display-pager';
-import { RtLoadMoreDirective } from './footer/buffered-controls/load-more';
-import { RtRowCountDirective } from './footer/buffered-controls/row-count';
+import { RtStatusNoDataComponent } from './footer-components/status-no-data.component';
+import { RtStatusRequestCanceledComponent } from './footer-components/status-request-canceled.component';
+import { RtStatusFailedComponent } from './footer-components/status-failed.component';
+import { RtStatusInitialComponent } from './footer-components/status-initial.component';
+import { RtStatusProgressComponent } from './footer-components/status-progress.component';
+import { RtTotalRecordsTextComponent } from './footer-components/total-records-text.component';
+import { RtDisplayPagerComponent } from './footer-components/display-pager.component';
+import { RtLoadMoreDirective } from './buffered-directives/load-more.directive';
+import { RtRowCountDirective } from './buffered-directives/row-count.directive';
 
-import { RtToFirstPageDirective } from './footer/paged-controls/to-first-page';
-import { RtToLastPageDirective } from './footer/paged-controls/to-last-page';
-import { RtToNextPageDirective } from './footer/paged-controls/to-next-page';
-import { RtToPrevPageDirective } from './footer/paged-controls/to-prev-page';
-import { RtPageSizeDirective } from './footer/paged-controls/page-size';
-import { RtPageNumberDirective } from './footer/paged-controls/page-number';
+import { RtToFirstPageDirective } from './paged-directives/to-first-page.directive';
+import { RtToLastPageDirective } from './paged-directives/to-last-page.directive';
+import { RtToNextPageDirective } from './paged-directives/to-next-page.directive';
+import { RtToPrevPageDirective } from './paged-directives/to-prev-page.directive';
+import { RtPageSizeDirective } from './paged-directives/page-size.directive';
+import { RtPageNumberDirective } from './paged-directives/page-number.directive';
 
 export var FOOTER_DIRECTIVES: any[] = [
     RtStatusNoDataComponent,
@@ -39,12 +39,12 @@ export var FOOTER_DIRECTIVES: any[] = [
     RtPageNumberDirective
 ];
 
-import { RtSelectionAreaForDirective } from './selection-components/selection-area-for.directive';
-import { RtSelectByIndexDirective } from './selection-components/select-by-index.directive';
-import { RtSelectionCheckboxForDirective } from './selection-components/selection-checkbox-for.directive';
-import { RtSelectAllDirective } from './selection-components/select-all.directive';
-import { RtDeselectAllDirective } from './selection-components/deselect-all.directive';
-import { RtCheckAllDirective } from './selection-components/check-all.directive';
+import { RtSelectionAreaForDirective } from './selection-directives/selection-area-for.directive';
+import { RtSelectByIndexDirective } from './selection-directives/select-by-index.directive';
+import { RtSelectionCheckboxForDirective } from './selection-directives/selection-checkbox-for.directive';
+import { RtSelectAllDirective } from './selection-directives/select-all.directive';
+import { RtDeselectAllDirective } from './selection-directives/deselect-all.directive';
+import { RtCheckAllDirective } from './selection-directives/check-all.directive';
 
 export var SELECTION_DIRECTIVES: any[] = [
     RtSelectionAreaForDirective,
@@ -68,7 +68,7 @@ export var RIGHTANGLED_DIRECTIVES: any[] = [
     RtSortDirective
 ].concat(SELECTION_DIRECTIVES, FOOTER_DIRECTIVES);
 
-import { QueryStringStateManager } from './bootstrap/queryStringStateManager';
+import { NgQueryStringStateManager } from './bootstrap/ng-query-string-state-manager';
 export var RIGHTANGLED_PROVIDERS: any[] = [
-    QueryStringStateManager
+    NgQueryStringStateManager
 ];

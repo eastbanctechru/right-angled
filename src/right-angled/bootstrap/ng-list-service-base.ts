@@ -1,5 +1,5 @@
 import { IPager, ISortManager, IFilterManager, Utility, AbstractLifetime, ProgressState, SortManager, FilterManager } from 'e2e4';
-import { StateManager } from './stateManager';
+import { StateManager } from './state-manager';
 
 export abstract class NgListServiceBase extends AbstractLifetime {
     public dataReadDelegate: (requestParams: any) => Promise<any>;

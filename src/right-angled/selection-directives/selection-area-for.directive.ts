@@ -1,10 +1,10 @@
 import { ContentChildren, QueryList, Host, HostListener, Directive, OnInit, Input, Output, OnChanges, OnDestroy, HostBinding } from '@angular/core';
 import { ISelectable, ISelectionConfig, SelectionEventsHelper } from 'e2e4';
-import { NgSelectionManager } from '../bootstrap/ngSelectionManager';
+import { NgSelectionManager } from '../bootstrap/ng-selection-manager';
 import { ISelectionEventsEmitter } from '../bootstrap/ISelectionEventsEmitter';
-import { OnSelectedEvent } from '../bootstrap/onSelectedEvent';
-import { OnDeselectedEvent } from '../bootstrap/onDeselectedEvent';
-import { OnSelectionChangedEvent } from '../bootstrap/onSelectionChangedEvent';
+import { OnSelectedEvent } from '../bootstrap/on-selected-event';
+import { OnDeselectedEvent } from '../bootstrap/on-deselected-event';
+import { OnSelectionChangedEvent } from '../bootstrap/on-selection-changed-event';
 import { EventEmitter } from '@angular/core';
 
 @Directive({

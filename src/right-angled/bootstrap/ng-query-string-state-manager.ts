@@ -1,9 +1,9 @@
-import { StateManager } from './stateManager';
+import { StateManager } from './state-manager';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable, SkipSelf, Optional } from '@angular/core';
 
 @Injectable()
-export class QueryStringStateManager implements StateManager {
+export class NgQueryStringStateManager implements StateManager {
     private static stateObject: Map<any, any> = new Map<any, any>();
     private activatedRoute: ActivatedRoute;
     private router: Router;
@@ -15,8 +15,8 @@ export class QueryStringStateManager implements StateManager {
 
     }
     public flushRequestState(state: Object): void {
-        QueryStringStateManager.stateObject.set(this.target, QueryStringStateManager.stateObject.get(this.target) || {});
-        let vmState = QueryStringStateManager.stateObject.get(this.target);
+        NgQueryStringStateManager.stateObject.set(this.target, NgQueryStringStateManager.stateObject.get(this.target) || {});
+        let vmState = NgQueryStringStateManager.stateObject.get(this.target);
         setTimeout(() => {
             let newState = {};
             Object.assign(newState, state);
@@ -36,7 +36,7 @@ export class QueryStringStateManager implements StateManager {
         return restoredState;
     }
     private getRequestState(): any {
-        return QueryStringStateManager.stateObject.get(this.target);
+        return NgQueryStringStateManager.stateObject.get(this.target);
     }
     private getPersistedState(): any {
         return {};

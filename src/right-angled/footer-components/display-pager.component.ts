@@ -1,6 +1,6 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 import { RtListComponent } from '../list-components/list.component';
-import { NgBufferedListService } from '../bootstrap/ngBufferedListService';
+import { NgBufferedListService } from '../bootstrap/ng-buffered-list-service.service';
 import { ProgressState } from 'e2e4';
 import { RtStatusControlBase } from './status-control-base';
 

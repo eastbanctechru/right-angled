@@ -1,30 +1,26 @@
 import { Renderer, Directive, HostListener, HostBinding, KeyValueDiffers, Input, ElementRef } from '@angular/core';
-import { RtListComponent } from '../../list-components/list.component';
+import { RtListComponent } from '../list-components/list.component';
 import { GoToControlBase } from './go-to-control-base';
 
 @Directive({
-    selector: '[rt-to-last-page]'
+    selector: '[rt-to-first-page]'
 })
-export class RtToLastPageDirective extends GoToControlBase {
+export class RtToFirstPageDirective extends GoToControlBase {
     @Input('disabled-cls')
     public disabledCls: string;
+
     constructor(listHost: RtListComponent, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
         super(listHost, differs, elementRef, renderer);
     }
     @HostListener('click')
-    public goToLastPage(): void {
-        this.pagedListService.goToLastPage();
+    public goToFirstPage(): void {
+        this.pagedListService.goToFirstPage();
     }
     @HostBinding('attr.disabled')
     public get disabled(): boolean {
         return this.innerDisabled;
     }
-    protected checkPagerChanged = (item: any): void => {
-        if (item.key === '_pageNumber' || item.key === '_pageSize' || item.key === 'totalCount') {
-            this.setDisabledState();
-        }
-    }
     public isDisabled(): boolean {
-        return this.pagedListService.pager.pageNumber === this.pagedListService.pager.pageCount;
+        return this.pagedListService.pager.pageNumber === 1;
     }
 }

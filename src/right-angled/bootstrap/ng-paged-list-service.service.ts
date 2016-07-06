@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { PagedPager, Utility } from 'e2e4';
-import { NgListServiceBase } from './ngListServiceBase';
-import { QueryStringStateManager } from './queryStringStateManager';
+import { NgListServiceBase } from './ng-list-service-base';
+import { NgQueryStringStateManager } from './ng-query-string-state-manager';
 
 @Injectable()
 export class NgPagedListService extends NgListServiceBase {
     public pager: PagedPager;
-    constructor(stateManager: QueryStringStateManager) {
+    constructor(stateManager: NgQueryStringStateManager) {
         super(new PagedPager(), stateManager);
     }
     public loadData(): Promise<Object> {

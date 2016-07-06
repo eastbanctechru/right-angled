@@ -1,6 +1,6 @@
 import { Renderer, KeyValueDiffers, KeyValueDiffer, ElementRef, DoCheck, OnInit } from '@angular/core';
-import { RtListComponent } from '../../list-components/list.component';
-import { NgPagedListService } from '../../bootstrap/ngPagedListService';
+import { RtListComponent } from '../list-components/list.component';
+import { NgPagedListService } from '../bootstrap/ng-paged-list-service.service';
 
 export abstract class GoToControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;

@@ -1,23 +1,20 @@
 import { Renderer, Directive, HostListener, HostBinding, KeyValueDiffers, Input, ElementRef } from '@angular/core';
-import { RtListComponent } from '../../list-components/list.component';
+import { RtListComponent } from '../list-components/list.component';
 import { GoToControlBase } from './go-to-control-base';
 
 @Directive({
-    selector: '[rt-to-next-page]'
+    selector: '[rt-to-last-page]'
 })
-export class RtToNextPageDirective extends GoToControlBase {
+export class RtToLastPageDirective extends GoToControlBase {
     @Input('disabled-cls')
     public disabledCls: string;
-
     constructor(listHost: RtListComponent, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
         super(listHost, differs, elementRef, renderer);
     }
-
     @HostListener('click')
-    public goToNextPage(): void {
-        this.pagedListService.goToNextPage();
+    public goToLastPage(): void {
+        this.pagedListService.goToLastPage();
     }
-
     @HostBinding('attr.disabled')
     public get disabled(): boolean {
         return this.innerDisabled;

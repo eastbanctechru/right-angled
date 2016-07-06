@@ -1,6 +1,6 @@
 import { SkipSelf, Component, Input, OnChanges } from '@angular/core';
 import { RtListComponent } from './list.component';
-import { NgPagedListService } from '../bootstrap/ngPagedListService';
+import { NgPagedListService } from '../bootstrap/ng-paged-list-service.service';
 
 @Component({
     selector: 'rt-row-number',

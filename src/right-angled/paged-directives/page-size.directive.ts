@@ -1,56 +1,55 @@
 import { HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
-import { RtListComponent } from '../../list-components/list.component';
-import { NgPagedListService } from '../../bootstrap/ngPagedListService';
+import { RtListComponent } from '../list-components/list.component';
+import { NgPagedListService } from '../bootstrap/ng-paged-list-service.service';
 
 @Directive({
-    selector: 'input[rt-page-number]'
+    selector: 'input[rt-page-size]'
 })
-export class RtPageNumberDirective implements DoCheck {
+export class RtPageSizeDirective implements DoCheck {
     private pagedListService: NgPagedListService;
     private pagerDiffer: KeyValueDiffer;
-
     @HostBinding('value')
-    public innerPageNumber: number;
+    public innerPageSize: number;
 
     constructor(listHost: RtListComponent, differs: KeyValueDiffers) {
         if (!listHost.isPagedList) {
-            throw new Error('[rt-page-number] directive can be used only with paged list services.');
+            throw new Error('[rt-page-size] directive can be used only with paged list services.');
         }
         this.pagedListService = <NgPagedListService>listHost.serviceInstance;
-        this.innerPageNumber = this.pagedListService.pager.pageNumber;
+        this.innerPageSize = this.pagedListService.pager.pageSize;
         this.pagerDiffer = differs.find([]).create(null);
     }
 
     @HostListener('keyup.enter')
     public onEnter(): void {
-        this.innerPageNumber = this.pagedListService.pager.pageNumber;
+        this.innerPageSize = this.pagedListService.pager.pageSize;
         this.pagedListService.loadData();
     }
 
     @HostListener('input', ['$event.target.value'])
     public setPageSize(value: any): void {
-        this.innerPageNumber = value;
+        this.innerPageSize = value;
         if (value === null || value === undefined || value === '') {
             return;
         }
-        this.pagedListService.pager.pageNumber = value;
-        setTimeout(() => this.innerPageNumber = this.pagedListService.pager.pageNumber);
+        this.pagedListService.pager.pageSize = value;
+        setTimeout(() => this.innerPageSize = this.pagedListService.pager.pageSize);
     }
 
     @HostListener('blur')
     public restoreInputValue(value: any): void {
-        this.innerPageNumber = this.pagedListService.pager.pageNumber;
+        this.innerPageSize = this.pagedListService.pager.pageSize;
     }
 
-    private checkPageNumberChanged = (item: any): void => {
-        if (item.key === '_pageNumber' && item.currentValue !== this.innerPageNumber) {
-            this.innerPageNumber = item.currentValue;
+    private checkPageSizeChanged = (item: any): void => {
+        if (item.key === '_pageSize' && item.currentValue !== this.innerPageSize) {
+            this.innerPageSize = item.currentValue;
         }
     }
     public ngDoCheck(): void {
         let pagerDiff = this.pagerDiffer.diff(this.pagedListService.pager);
         if (pagerDiff) {
-            pagerDiff.forEachChangedItem(this.checkPageNumberChanged);
+            pagerDiff.forEachChangedItem(this.checkPageSizeChanged);
         }
     }
 }

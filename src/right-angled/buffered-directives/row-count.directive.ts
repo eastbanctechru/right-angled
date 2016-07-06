@@ -1,6 +1,6 @@
 import { SkipSelf, HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
-import { RtListComponent } from '../../list-components/list.component';
-import { NgBufferedListService } from '../../bootstrap/ngBufferedListService';
+import { RtListComponent } from '../list-components/list.component';
+import { NgBufferedListService } from '../bootstrap/ng-buffered-list-service.service';
 
 @Directive({
     selector: 'input[rt-row-count]'
