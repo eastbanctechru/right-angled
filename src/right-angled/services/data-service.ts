@@ -2,7 +2,7 @@ import { EventEmitter } from '@angular/core';
 import { Http, RequestOptionsArgs, RequestMethod, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import './operators/cancelon.augmentation';
-import { IRequestSettings } from './IRequestSettings';
+import { RequestSettings } from './request-settings';
 
 export abstract class DataService {
 
@@ -16,7 +16,7 @@ export abstract class DataService {
         this.faultHandlers.push(this.notFoundHandler);
     }
 
-    protected callService<T>(settings: IRequestSettings): Promise<T> {
+    protected callService<T>(settings: RequestSettings): Promise<T> {
         let callSettings = this.toRequestOptionsArgs(settings);
 
         let obs = this.http.request(settings.url, callSettings)
@@ -56,7 +56,7 @@ export abstract class DataService {
         return true;
     }
 
-    private toRequestOptionsArgs(settings: IRequestSettings): RequestOptionsArgs {
+    private toRequestOptionsArgs(settings: RequestSettings): RequestOptionsArgs {
         // Set body and search values
         let body: string = null;
         let search: string = null;

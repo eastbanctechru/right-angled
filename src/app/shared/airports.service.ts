@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SelectableItem, SortParameter } from 'e2e4';
-import { IAirportInfo, airports }     from './airports';
+import { AirportInfo, airports }     from './airports';
 import * as _ from 'lodash';
 import { SortDirection } from 'e2e4';
 
@@ -38,7 +38,7 @@ export class AirportsService {
         return response;
     }
     public getAirportsPaged(request: any): Promise<any> {
-        let data = _.filter(airports, (item: IAirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
+        let data = _.filter(airports, (item: AirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
 
         let result = this.applyPagedRequest(request, data);
         result.items.forEach((item: SelectableItem) => item.selected = false);
@@ -49,7 +49,7 @@ export class AirportsService {
         });
     }
     public getAirportsBuffered(request: any): Promise<any> {
-        let data = _.filter(airports, (item: IAirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
+        let data = _.filter(airports, (item: AirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
         let result = this.applyBufferedRequest(request, data);
         result.items.forEach((item: SelectableItem) => item.selected = false);
         return new Promise((resolve: Function): void => {
@@ -57,7 +57,7 @@ export class AirportsService {
         });
     }
     public getAirportsRegular(request: any): Promise<any> {
-        let data = _.filter(airports, (item: IAirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
+        let data = _.filter(airports, (item: AirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
 
         let result = this.applyRequest(request, data);
         result.items.forEach((item: SelectableItem) => item.selected = false);
@@ -66,13 +66,13 @@ export class AirportsService {
         });
     }
     public getAirportsGroupedByContinent(request: any): Promise<any> {
-        let data = _.filter(airports, (item: IAirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
+        let data = _.filter(airports, (item: AirportInfo) => !request.airportName || (item.name && item.name.indexOf(request.airportName) !== -1));
 
         let result = this.applyRequest(request, data);
         result.items.forEach((item: SelectableItem) => item.selected = false);
         result.items = _.chain(result.items)
-            .groupBy((item: IAirportInfo) => item.continent)
-            .map((item: IAirportInfo, index: number) => { return { items: item, name: index, selected: false }; })
+            .groupBy((item: AirportInfo) => item.continent)
+            .map((item: AirportInfo, index: number) => { return { items: item, name: index, selected: false }; })
             .orderBy((continent: any) => continent.name)
             .value();
         return new Promise((resolve: Function): void => {

@@ -1,6 +1,6 @@
 import { RequestMethod, Headers } from '@angular/http';
 
-export interface IRequestSettings {
+export interface RequestSettings {
     url: string;
     method?: string | RequestMethod;
     headers?: Headers | { [key: string]: any };

@@ -1,12 +1,12 @@
 import { SelectionTuple, DefaultSelectionService } from 'e2e4';
-import { ISelectionEventsEmitter } from './ISelectionEventsEmitter';
-import { OnSelectedEvent } from './on-selected-event';
+import { SelectionEventsEmitter } from './selection-events-emitter';
 import { OnDeselectedEvent } from './on-deselected-event';
+import { OnSelectedEvent } from './on-selected-event';
 import { OnSelectionChangedEvent } from './on-selection-changed-event';
 
 export class NgSelectionService extends DefaultSelectionService {
-    private eventEmitters: Array<ISelectionEventsEmitter> = new Array<ISelectionEventsEmitter>();
-    public globalEmitter: ISelectionEventsEmitter;
+    private eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();
+    public globalEmitter: SelectionEventsEmitter;
     protected processSelection(tuple: SelectionTuple, selected: boolean): void {
         const initialSelectState = tuple.item.selected;
         super.processSelection(tuple, selected);
@@ -19,7 +19,7 @@ export class NgSelectionService extends DefaultSelectionService {
             }
         }
     }
-    private emitEvents(emitter: ISelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
+    private emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
         if (selected) {
             emitter.onSelected.emit(new OnSelectedEvent(tuple.item, tuple.index));
         } else {
@@ -32,10 +32,10 @@ export class NgSelectionService extends DefaultSelectionService {
         this.eventEmitters.length = 0;
         super.dispose();
     }
-    public registerEventEmitter(emitter: ISelectionEventsEmitter, index: number): void {
+    public registerEventEmitter(emitter: SelectionEventsEmitter, index: number): void {
         this.eventEmitters[index] = emitter;
     }
-    public unregisterEventEmitter(emitter: ISelectionEventsEmitter, index: number): void {
+    public unregisterEventEmitter(emitter: SelectionEventsEmitter, index: number): void {
         if (this.eventEmitters[index] === emitter) {
             this.eventEmitters[index] = null;
         }

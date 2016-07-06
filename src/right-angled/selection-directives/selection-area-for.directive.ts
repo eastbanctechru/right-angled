@@ -1,7 +1,7 @@
 import { ContentChildren, QueryList, Host, HostListener, Directive, OnInit, Input, Output, OnChanges, OnDestroy, HostBinding } from '@angular/core';
 import { SelectableItem, SelectionAreaConfig, SelectionEventsHelper } from 'e2e4';
 import { NgSelectionService } from '../bootstrap/ng-selection-manager';
-import { ISelectionEventsEmitter } from '../bootstrap/ISelectionEventsEmitter';
+import { SelectionEventsEmitter } from '../bootstrap/selection-events-emitter';
 import { OnSelectedEvent } from '../bootstrap/on-selected-event';
 import { OnDeselectedEvent } from '../bootstrap/on-deselected-event';
 import { OnSelectionChangedEvent } from '../bootstrap/on-selection-changed-event';
@@ -11,7 +11,7 @@ import { EventEmitter } from '@angular/core';
     providers: [NgSelectionService],
     selector: '[rt-selection-area-for]'
 })
-export class RtSelectionAreaForDirective implements ISelectionEventsEmitter, OnInit, OnChanges, OnDestroy, SelectionAreaConfig {
+export class RtSelectionAreaForDirective implements SelectionEventsEmitter, OnInit, OnChanges, OnDestroy, SelectionAreaConfig {
     @ContentChildren(RtSelectionAreaForDirective) public childSelectionAreas: QueryList<RtSelectionAreaForDirective>;
     private _tabIndex: number;
     public selectionService: NgSelectionService;

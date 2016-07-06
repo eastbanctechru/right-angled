@@ -3,7 +3,7 @@ import { OnDeselectedEvent } from './on-deselected-event';
 import { OnSelectedEvent } from './on-selected-event';
 import { OnSelectionChangedEvent } from './on-selection-changed-event';
 
-export interface ISelectionEventsEmitter {
+export interface SelectionEventsEmitter {
     onSelected: EventEmitter<OnSelectedEvent>;
     onDeselected: EventEmitter<OnDeselectedEvent>;
     onSelectionChanged: EventEmitter<OnSelectionChangedEvent>;

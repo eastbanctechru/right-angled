@@ -1,6 +1,6 @@
 import { SkipSelf, HostListener, Directive, Input, Output, OnInit } from '@angular/core';
 import { RtSelectionAreaForDirective } from './selection-area-for.directive';
-import { ISelectionEventsEmitter } from '../bootstrap/ISelectionEventsEmitter';
+import { SelectionEventsEmitter } from '../bootstrap/selection-events-emitter';
 import { OnSelectedEvent } from '../bootstrap/on-selected-event';
 import { OnDeselectedEvent } from '../bootstrap/on-deselected-event';
 import { OnSelectionChangedEvent } from '../bootstrap/on-selection-changed-event';
@@ -9,7 +9,7 @@ import { EventEmitter } from '@angular/core';
 @Directive({
     selector: '[rt-select-by-index]'
 })
-export class RtSelectByIndexDirective implements ISelectionEventsEmitter, OnInit {
+export class RtSelectByIndexDirective implements SelectionEventsEmitter, OnInit {
     private selectionArea: RtSelectionAreaForDirective;
     @Input('rt-select-by-index') public index: number = null;
     @Output() public onSelected: EventEmitter<OnSelectedEvent> = new EventEmitter<OnSelectedEvent>();
