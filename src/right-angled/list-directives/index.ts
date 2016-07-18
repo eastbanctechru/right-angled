@@ -54,14 +54,14 @@ export var PAGED_FOOTER_DIRECTIVES: any[] = [
 ];
 
 import { ListComponent } from './list.component';
-import { LoadDataButtonDirective } from './list-controls/load-data-button.directive';
+import { LoadDataDirective } from './list-controls/load-data.directive';
 import { ResetSettingsDirective } from './list-controls/reset-settings.directive';
 import { RowNumberComponent } from './list-controls/row-number.component';
 import { SortDirective } from './list-controls/sort.directive';
 
 export var LIST_DIRECTIVES: any[] = [
     ListComponent,
-    LoadDataButtonDirective,
+    LoadDataDirective,
     ResetSettingsDirective,
     RowNumberComponent,
     SortDirective
