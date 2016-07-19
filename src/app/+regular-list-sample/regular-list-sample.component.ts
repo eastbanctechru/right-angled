@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { filter, REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS, NgListService } from '../../right-angled';
+import { disposeOnReload, filter, REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS, NgListService } from '../../right-angled';
 
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 
@@ -14,7 +14,7 @@ export class RegularListSampleComponent {
     public airportName: string;
     public airportsService: AirportsService;
     public ngListService: NgListService;
-    public items: Array<any> = new Array<any>();
+    @disposeOnReload() public items: Array<any> = new Array<any>();
     constructor(airportsService: AirportsService, ngListService: NgListService) {
         this.airportsService = airportsService;
         this.ngListService = ngListService.wrap(this, this.loadData);

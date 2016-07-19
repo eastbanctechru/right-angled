@@ -1,6 +1,6 @@
 import { Pager, Utility, AbstractLifetime, ProgressState, SortingsService, FiltersService } from 'e2e4';
-
 import { NgStateManagementService } from './ng-state-management-service';
+import { DISPOSE_ON_RELOAD_METADATA_KEY } from '../dispose-on-reload.annotation';
 
 export abstract class NgListServiceBase extends AbstractLifetime {
     public dataReadDelegate: (requestParams: any) => Promise<any>;
@@ -8,7 +8,7 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     public stateService: NgStateManagementService;
     public filtersService: FiltersService;
     public pager: Pager;
-    public items: Object[];
+    public target: any;
 
     private listLoadDataSuccessCallback = (result: Object): Object => {
         this.pager.processResponse(result);
@@ -43,14 +43,29 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     public getLocalState(): Object {
         return this.filtersService.getPersistedState(null);
     }
-    public clearData(): void {
+    private clearData(): void {
         this.pager.reset();
-        Utility.disposeAll(this.items);
+        this.disposeReloadDisposals();
+    }
+    protected disposeReloadDisposals(): void {
+        let disposeKeys: Array<string> = Reflect.getMetadata(DISPOSE_ON_RELOAD_METADATA_KEY, this.target);
+        if (disposeKeys !== undefined && disposeKeys.length) {
+            disposeKeys.forEach((key: string) => {
+                if (Array.isArray(this.target[key])) {
+                    Utility.disposeAll(this.target[key]);
+                    return;
+                }
+                if (this.target[key].hasOwnProperty('dispose')) {
+                    this.target[key].dispose();
+                }
+            });
+        }
     }
     public getDataReadPromise(): Promise<Object> {
         return this.dataReadDelegate(this.toRequest());
     }
     public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgListServiceBase {
+        this.target = target;
         this.dataReadDelegate = dataReadDelegate;
         this.filtersService.registerFilterTarget(target);
         return this;

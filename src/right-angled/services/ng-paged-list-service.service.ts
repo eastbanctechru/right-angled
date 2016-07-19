@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PagedPager, Utility } from 'e2e4';
+import { PagedPager } from 'e2e4';
 
 import { NgListServiceBase } from './ng-list-service-base';
 import { NgQueryStringStateService } from './ng-query-string-state-service';
@@ -12,7 +12,7 @@ export class NgPagedListService extends NgListServiceBase {
     }
     public loadData(): Promise<Object> {
         const promise = super.loadData();
-        Utility.disposeAll(this.items);
+        this.disposeReloadDisposals();
         return promise;
     }
     public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgPagedListService {

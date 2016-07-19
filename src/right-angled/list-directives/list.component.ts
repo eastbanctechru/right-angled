@@ -1,4 +1,4 @@
-import { SkipSelf, Component, Input, OnChanges, OnDestroy, OnInit, Optional } from '@angular/core';
+import { SkipSelf, Component, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 
 import { NgBufferedListService } from '../services/ng-buffered-list-service.service';
 import { NgPagedListService } from '../services/ng-paged-list-service.service';
@@ -8,8 +8,7 @@ import { NgListService } from '../services/ng-list-service.service';
     selector: 'rt-list',
     template: `<ng-content></ng-content>`
 })
-export class ListComponent implements OnChanges, OnDestroy, OnInit {
-    @Input() public items: Array<any>;
+export class ListComponent implements OnDestroy, OnInit {
     @Input() public loadOnInit: boolean = true;
     public serviceInstance: NgListService | NgBufferedListService | NgPagedListService;
     public isBufferedList: boolean;
@@ -29,10 +28,5 @@ export class ListComponent implements OnChanges, OnDestroy, OnInit {
     }
     public ngOnDestroy(): void {
         this.serviceInstance.dispose();
-    }
-    public ngOnChanges(changes: any): void {
-        if (changes.items) {
-            this.serviceInstance.items = changes.items.currentValue;
-        }
     }
 }
