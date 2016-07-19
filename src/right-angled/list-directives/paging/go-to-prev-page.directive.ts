@@ -4,7 +4,7 @@ import { ListComponent } from '../list.component';
 import { GoToControlBase } from './go-to-control-base';
 
 @Directive({
-    selector: '[rtToPrevPage]'
+    selector: '[rtGoToPrevPage]'
 })
 export class GoToPrevPageDirective extends GoToControlBase {
     @Input() public disabledCls: string;

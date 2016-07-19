@@ -4,7 +4,7 @@ import { ListComponent } from '../list.component';
 import { GoToControlBase } from './go-to-control-base';
 
 @Directive({
-    selector: '[rtToLastPage]'
+    selector: '[rtGoToLastPage]'
 })
 export class GoToLastPageDirective extends GoToControlBase {
     @Input() public disabledCls: string;

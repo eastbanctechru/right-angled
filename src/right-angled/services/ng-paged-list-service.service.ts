@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { PagedPager } from 'e2e4';
+import { NgPagedPager } from './injectables';
+
 
 import { NgListServiceBase } from './ng-list-service-base';
 import { NgQueryStringStateService } from './ng-query-string-state-service';
 
 @Injectable()
 export class NgPagedListService extends NgListServiceBase {
-    public pager: PagedPager;
-    constructor(stateManager: NgQueryStringStateService) {
-        super(new PagedPager(), stateManager);
+    constructor(public pager: NgPagedPager, stateManager: NgQueryStringStateService) {
+        super(pager, stateManager);
     }
     public loadData(): Promise<Object> {
         const promise = super.loadData();
@@ -20,26 +20,26 @@ export class NgPagedListService extends NgListServiceBase {
         return this;
     }
     public goToFirstPage(): void {
-        if ((<PagedPager>this.pager).pageNumber > 1) {
-            (<PagedPager>this.pager).pageNumber = 1;
+        if (this.pager.pageNumber > 1) {
+            (this.pager).pageNumber = 1;
             this.loadData();
         }
     }
     public goToPreviousPage(): void {
-        if ((<PagedPager>this.pager).pageNumber > 1) {
-            (<PagedPager>this.pager).pageNumber -= 1;
+        if (this.pager.pageNumber > 1) {
+            this.pager.pageNumber -= 1;
             this.loadData();
         }
     }
     public goToNextPage(): void {
-        if ((<PagedPager>this.pager).pageNumber < (<PagedPager>this.pager).pageCount) {
-            (<PagedPager>this.pager).pageNumber += 1;
+        if (this.pager.pageNumber < this.pager.pageCount) {
+            this.pager.pageNumber += 1;
             this.loadData();
         }
     }
     public goToLastPage(): void {
-        if ((<PagedPager>this.pager).pageNumber < (<PagedPager>this.pager).pageCount) {
-            (<PagedPager>this.pager).pageNumber = (<PagedPager>this.pager).pageCount;
+        if (this.pager.pageNumber < this.pager.pageCount) {
+            this.pager.pageNumber = this.pager.pageCount;
             this.loadData();
         }
     }

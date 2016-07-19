@@ -19,17 +19,21 @@ import { NgPagedListService } from './services/ng-paged-list-service.service';
 import { NgBufferedListService } from './services/ng-buffered-list-service.service';
 import { NgListService } from './services/ng-list-service.service';
 
+import { NgBufferedPager, NgPagedPager, NgSimplePager } from './services/injectables';
 export var PAGED_LIST_PROVIDERS: any[] = [
+    NgPagedPager,
     NgPagedListService,
     NgQueryStringStateService
 ];
 
 export var BUFFERED_LIST_PROVIDERS: any[] = [
+    NgBufferedPager,
     NgBufferedListService,
     NgQueryStringStateService
 ];
 
 export var REGULAR_LIST_PROVIDERS: any[] = [
+    NgSimplePager,
     NgListService,
     NgQueryStringStateService
 ];
