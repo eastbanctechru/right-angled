@@ -1,5 +1,5 @@
 import { Pager, Utility, AbstractLifetime, ProgressState } from 'e2e4';
-import { RtStateManagementService } from './ng-state-management-service';
+import { RtStateManagementService } from './rt-state-management-service';
 import { RtSortingsService, RtFiltersService } from './injectables';
 
 export abstract class RtListServiceBase extends AbstractLifetime {

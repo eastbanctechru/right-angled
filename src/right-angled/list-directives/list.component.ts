@@ -1,8 +1,8 @@
 import { SkipSelf, Component, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 
-import { RtBufferedListService } from '../services/ng-buffered-list-service.service';
-import { RtPagedListService } from '../services/ng-paged-list-service.service';
-import { RtListService } from '../services/ng-list-service.service';
+import { RtBufferedListService } from '../services/rt-buffered-list-service.service';
+import { RtPagedListService } from '../services/rt-paged-list-service.service';
+import { RtListService } from '../services/rt-list-service.service';
 
 @Component({
     selector: 'rt-list',

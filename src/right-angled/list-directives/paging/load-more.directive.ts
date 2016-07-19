@@ -1,7 +1,7 @@
 import { SkipSelf, HostListener, Directive } from '@angular/core';
 
 import { ListComponent } from '../list.component';
-import { RtBufferedListService } from '../../services/ng-buffered-list-service.service';
+import { RtBufferedListService } from '../../services/rt-buffered-list-service.service';
 
 @Directive({
     selector: '[rtLoadMore]'

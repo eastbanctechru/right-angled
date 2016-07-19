@@ -1,7 +1,7 @@
 import { HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 
 import { ListComponent } from '../list.component';
-import { RtPagedListService } from '../../services/ng-paged-list-service.service';
+import { RtPagedListService } from '../../services/rt-paged-list-service.service';
 
 @Directive({
     selector: 'input[rtPageNumber]'

@@ -2,7 +2,7 @@ import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@
 import { ProgressState } from 'e2e4';
 
 import { ListComponent } from '../list.component';
-import { RtBufferedListService } from '../../services/ng-buffered-list-service.service';
+import { RtBufferedListService } from '../../services/rt-buffered-list-service.service';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
