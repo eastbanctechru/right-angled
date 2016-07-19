@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { NgSimplePager } from './injectables';
 
+import { NgSimplePager } from './injectables';
 import { NgListServiceBase } from './ng-list-service-base';
 import { NgQueryStringStateService } from './ng-query-string-state-service';
 
