@@ -62,9 +62,6 @@ export abstract class NgListServiceBase extends AbstractLifetime {
             });
         }
     }
-    public getDataReadPromise(): Promise<Object> {
-        return this.dataReadDelegate(this.toRequest());
-    }
     public wrap(target: any): NgListServiceBase {
         this.target = target;
         this.dataReadDelegate = target[Reflect.getMetadata(FETCH_METHOD_METADATA_KEY, target)];
@@ -84,7 +81,7 @@ export abstract class NgListServiceBase extends AbstractLifetime {
         }
         this.pager.totalCount = 0;
         this.state = ProgressState.Progress;
-        const promise = this.getDataReadPromise();
+        const promise = this.dataReadDelegate(this.toRequest());
         this.addToCancellationSequence(promise);
         promise.then(this.listLoadDataSuccessCallback, this.listLoadDataFailCallback);
         this.stateService.flushRequestState(this.toRequest());
