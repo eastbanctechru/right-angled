@@ -7,6 +7,7 @@ import { NgStateManagementService } from './ng-state-management-service';
 export class NgQueryStringStateService implements NgStateManagementService {
     private static stateObject: Map<any, any> = new Map<any, any>();
     public target: any;
+    public serializationKey: string;
 
     constructor( @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
     }
@@ -18,8 +19,7 @@ export class NgQueryStringStateService implements NgStateManagementService {
             Object.assign(newState, state);
             vmState.lastRequestState = newState;
             let params = this.router.routerState.snapshot.queryParams || {};
-
-            Object.assign(params, vmState.lastRequestState);
+            params[this.serializationKey] = JSON.stringify(vmState.lastRequestState);
             this.router.navigate(['/' + this.activatedRoute.snapshot.url[0].path], { queryParams: params });
         }, 0);
     }
@@ -28,7 +28,9 @@ export class NgQueryStringStateService implements NgStateManagementService {
         const restoredState = {};
         const requestState = this.getRequestState();
         const persistedState = this.getPersistedState();
-        Object.assign(restoredState, persistedState || {}, requestState ? (requestState.lastRequestState || {}) : {}, this.router.routerState.snapshot.queryParams || {});
+        let routerState = this.router.routerState.snapshot.queryParams[this.serializationKey] ? JSON.parse(decodeURIComponent(this.router.routerState.snapshot.queryParams[this.serializationKey])) : {};
+
+        Object.assign(restoredState, persistedState || {}, requestState ? (requestState.lastRequestState || {}) : {}, routerState);
         return restoredState;
     }
     private getRequestState(): any {

@@ -23,8 +23,8 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     constructor(public pager: Pager, public stateService: NgStateManagementService, public sortingsService: NgSortingsService, public filtersService: NgFiltersService) {
         super();
         this.pager = pager;
-        this.stateService = stateService;
         this.stateService.target = this;
+        this.stateService.serializationKey = 'ls';
         this.filtersService.registerFilterTarget(this, this.pager, this.sortingsService);
     }
     public init(): void {
