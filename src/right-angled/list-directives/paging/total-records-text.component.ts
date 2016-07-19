@@ -11,12 +11,10 @@ export class TotalRecordsTextComponent implements DoCheck, OnInit {
     private listDiffer: KeyValueDiffer;
     private pagerDiffer: KeyValueDiffer;
     private isVisible: boolean;
-    private listHost: ListComponent;
     private pager: Pager;
-    constructor(@SkipSelf()listHost: ListComponent, differs: KeyValueDiffers) {
+    constructor(@SkipSelf()private listHost: ListComponent, differs: KeyValueDiffers) {
         this.listDiffer = differs.find([]).create(null);
         this.pagerDiffer = differs.find([]).create(null);
-        this.listHost = listHost;
         this.pager = this.listHost.serviceInstance.pager;
     }
     public ngOnInit(): void {

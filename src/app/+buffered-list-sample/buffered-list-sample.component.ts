@@ -10,12 +10,9 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 })
 export class BufferedListSampleComponent {
     @filter() public airportName: string = null;
-    public airportsService: AirportsService;
-    public ngBufferedListService: NgBufferedListService;
     @disposeOnReload() public items: Array<any> = new Array<any>();
-    constructor(airportsService: AirportsService, ngBufferedListService: NgBufferedListService) {
-        this.airportsService = airportsService;
-        this.ngBufferedListService = ngBufferedListService.wrap(this);
+    constructor(public airportsService: AirportsService, public ngBufferedListService: NgBufferedListService) {
+        this.ngBufferedListService.wrap(this);
     }
 
     @fetchMethod()

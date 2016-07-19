@@ -8,16 +8,14 @@ export abstract class GoToControlBase implements DoCheck, OnInit {
     protected pagedListService: NgPagedListService;
     protected innerDisabled: boolean = false;
     private nativeEl: any;
-    private renderer: Renderer;
     public disabledCls: string;
-    constructor(listHost: ListComponent, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
+    constructor(private renderer: Renderer, listHost: ListComponent, differs: KeyValueDiffers, elementRef: ElementRef) {
         if (!listHost.isPagedList) {
             throw new Error('[rtGoToFirstPage] directive can be used only with paged list services.');
         }
         this.pagedListService = <NgPagedListService>listHost.serviceInstance;
         this.pagerDiffer = differs.find([]).create(null);
         this.nativeEl = elementRef.nativeElement;
-        this.renderer = renderer;
     }
 
     public get disabled(): boolean {

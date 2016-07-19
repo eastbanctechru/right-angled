@@ -6,20 +6,19 @@ import { ListComponent } from '../list.component';
     selector: '[rtLoadData]'
 })
 export class LoadDataDirective implements DoCheck, OnInit {
-    private listDiffers: KeyValueDiffer;
-    public listHost: ListComponent;
+    private listDiffer: KeyValueDiffer;
     @HostBinding('disabled')
     public disabled: boolean;
 
-    constructor( @SkipSelf() hostList: ListComponent, differs: KeyValueDiffers) {
-        this.listHost = hostList;
-        this.listDiffers = differs.find([]).create(null);
+    constructor( @SkipSelf() public listHost: ListComponent, listDiffers: KeyValueDiffers) {
+        this.listHost = listHost;
+        this.listDiffer = listDiffers.find([]).create(null);
     }
     public ngOnInit(): void {
         this.setAttributes();
     }
     public ngDoCheck(): void {
-        let listDiff = this.listDiffers.diff(this.listHost.serviceInstance);
+        let listDiff = this.listDiffer.diff(this.listHost.serviceInstance);
         if (listDiff) {
             listDiff.forEachChangedItem(this.checkStatusChanges);
         }

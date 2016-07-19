@@ -6,10 +6,8 @@ import { SelectionAreaForDirective } from './selection-area-for.directive';
     selector: 'input[rtCheckAll]'
 })
 export class CheckAllDirective {
-    private selectionArea: SelectionAreaForDirective;
     @Input() public recursive: boolean = true;
-    constructor( @SkipSelf() selectionArea: SelectionAreaForDirective) {
-        this.selectionArea = selectionArea;
+    constructor( @SkipSelf() private selectionArea: SelectionAreaForDirective) {
     }
 
     @HostListener('change', ['$event'])

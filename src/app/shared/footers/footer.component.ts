@@ -13,8 +13,6 @@ import { PagedFooterComponent } from './paged-footer.component';
                 <rt-demo-regular-footer *ngIf="hostList.isRegularList"></rt-demo-regular-footer>`
 })
 export class FooterComponent {
-    public hostList: ListComponent;
-    constructor(hostList: ListComponent) {
-        this.hostList = hostList;
+    constructor(public hostList: ListComponent) {
     }
 }

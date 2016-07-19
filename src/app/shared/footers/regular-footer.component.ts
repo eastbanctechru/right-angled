@@ -9,8 +9,6 @@ import { REGULAR_FOOTER_DIRECTIVES } from '../../../right-angled/list-directives
     templateUrl: 'regular-footer.component.html'
 })
 export class RegularFooterComponent {
-    public hostList: ListComponent;
-    constructor(hostList: ListComponent) {
-        this.hostList = hostList;
+    constructor(public hostList: ListComponent) {
     }
 }

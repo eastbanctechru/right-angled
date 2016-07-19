@@ -5,10 +5,7 @@ import { Subscriber } from 'rxjs/Subscriber';
 import { CancelOnSubscriber } from './cancelon.subscriber';
 
 export class CancelOnOperator<T, R> implements Operator<T, R> {
-    private event: Observable<any>;
-
-    constructor(event: Observable<any>) {
-        this.event = event;
+    constructor(private event: Observable<any>) {
     }
 
     public call(subscriber: Subscriber<R>, source: any): any {

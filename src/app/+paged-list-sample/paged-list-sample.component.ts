@@ -12,13 +12,10 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 export class PagedListSampleComponent {
     @filter()
     public airportName: string;
-    public airportsService: AirportsService;
-    public ngPagedListService: NgPagedListService;
-
     @disposeOnReload()
     public items: Array<any> = new Array<any>();
 
-    constructor(airportsService: AirportsService, ngPagedListService: NgPagedListService) {
+    constructor(public airportsService: AirportsService, public ngPagedListService: NgPagedListService) {
         this.airportsService = airportsService;
         this.ngPagedListService = ngPagedListService.wrap(this);
     }

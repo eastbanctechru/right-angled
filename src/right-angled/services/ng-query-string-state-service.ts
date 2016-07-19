@@ -6,14 +6,9 @@ import { NgStateManagementService } from './ng-state-management-service';
 @Injectable()
 export class NgQueryStringStateService implements NgStateManagementService {
     private static stateObject: Map<any, any> = new Map<any, any>();
-    private activatedRoute: ActivatedRoute;
-    private router: Router;
     public target: any;
 
-    constructor( @Optional() @SkipSelf() activatedRoute: ActivatedRoute, @Optional() @SkipSelf() router: Router) {
-        this.activatedRoute = activatedRoute;
-        this.router = router;
-
+    constructor( @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
     }
     public flushRequestState(state: Object): void {
         NgQueryStringStateService.stateObject.set(this.target, NgQueryStringStateService.stateObject.get(this.target) || {});

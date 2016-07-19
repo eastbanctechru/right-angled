@@ -6,8 +6,8 @@ import { NgQueryStringStateService } from './ng-query-string-state-service';
 
 @Injectable()
 export class NgListService extends NgListServiceBase {
-    constructor(public pager: NgSimplePager, stateManager: NgQueryStringStateService) {
-        super(pager, stateManager);
+    constructor(public pager: NgSimplePager, stateManagementService: NgQueryStringStateService) {
+        super(pager, stateManagementService);
     }
     public wrap(target: any): NgListService {
         super.wrap(target);

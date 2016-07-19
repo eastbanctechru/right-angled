@@ -9,19 +9,15 @@ import { ListComponent } from '../list.component';
 })
 export class SortDirective implements DoCheck, OnInit {
     private nativeEl: HTMLElement;
-    private hostList: ListComponent;
     private differ: any;
-    private renderer: Renderer;
     @Input('rtSort') public fieldName: string;
-    constructor( @SkipSelf() hostList: ListComponent, el: ElementRef, renderer: Renderer, differs: IterableDiffers) {
+    constructor( @SkipSelf() private listHost: ListComponent, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
         this.differ = differs.find([]).create(null);
-        this.hostList = hostList;
         this.nativeEl = el.nativeElement;
-        this.renderer = renderer;
     }
     public ngOnInit(): void {
         this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortable, true);
-        this.hostList.serviceInstance.sortingsService.sortings.some((sortParameter: SortParameter) => {
+        this.listHost.serviceInstance.sortingsService.sortings.some((sortParameter: SortParameter) => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.setSortClasses(sortParameter);
                 return true;
@@ -31,13 +27,13 @@ export class SortDirective implements DoCheck, OnInit {
     }
     @HostListener('click', ['$event'])
     public clickHandler(evt: MouseEvent): void {
-        if (this.hostList.serviceInstance.ready) {
-            this.hostList.serviceInstance.sortingsService.setSort(this.fieldName, evt.ctrlKey);
-            this.hostList.serviceInstance.reloadData();
+        if (this.listHost.serviceInstance.ready) {
+            this.listHost.serviceInstance.sortingsService.setSort(this.fieldName, evt.ctrlKey);
+            this.listHost.serviceInstance.reloadData();
         }
     }
     public ngDoCheck(): void {
-        let changes = this.differ.diff(this.hostList.serviceInstance.sortingsService.sortings);
+        let changes = this.differ.diff(this.listHost.serviceInstance.sortingsService.sortings);
         if (changes) {
             changes.forEachRemovedItem(this.sortItemRemovedCallback);
             changes.forEachAddedItem(this.sortItemAddedCallback);

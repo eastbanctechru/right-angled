@@ -11,12 +11,9 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 })
 export class GroupingSampleComponent {
     @filter() public airportName: string;
-    public airportsService: AirportsService;
-    public ngListService: NgListService;
     @disposeOnReload() public continents: Array<any> = new Array<any>();
-    constructor(airportsService: AirportsService, ngListService: NgListService) {
-        this.airportsService = airportsService;
-        this.ngListService = ngListService.wrap(this);
+    constructor(public airportsService: AirportsService, public ngListService: NgListService) {
+        this.ngListService.wrap(this);
     }
     @fetchMethod()
     public loadData = (requestParams: any): Promise<any> => {

@@ -10,7 +10,7 @@ export class GoToNextPageDirective extends GoToControlBase {
     @Input() public disabledCls: string;
 
     constructor(listHost: ListComponent, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
-        super(listHost, differs, elementRef, renderer);
+        super(renderer, listHost, differs, elementRef);
     }
 
     @HostListener('click')

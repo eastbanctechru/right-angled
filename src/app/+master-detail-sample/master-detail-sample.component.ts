@@ -12,12 +12,9 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 export class MasterDetailSampleComponent {
   @filter()
   public airportName: string;
-  public airportsService: AirportsService;
-  public ngPagedListService: NgPagedListService;
   @disposeOnReload() public items: Array<any> = new Array<any>();
-  constructor(airportsService: AirportsService, ngPagedListService: NgPagedListService) {
-    this.airportsService = airportsService;
-    this.ngPagedListService = ngPagedListService.wrap(this);
+  constructor(public airportsService: AirportsService, public ngPagedListService: NgPagedListService) {
+    this.ngPagedListService.wrap(this);
   }
   @fetchMethod()
   public loadData = (requestParams: any): Promise<any> => {

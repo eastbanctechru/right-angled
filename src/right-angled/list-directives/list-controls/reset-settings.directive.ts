@@ -6,12 +6,10 @@ import { ListComponent } from '../list.component';
     selector: '[rtResetSettings]'
 })
 export class ResetSettingsDirective {
-    private hostList: ListComponent;
-    constructor(@SkipSelf()hostList: ListComponent) {
-        this.hostList = hostList;
+    constructor(@SkipSelf()private listHost: ListComponent) {
     }
     @HostListener('click')
     public resetFilters(): void {
-        this.hostList.serviceInstance.filtersService.resetValues();
+        this.listHost.serviceInstance.filtersService.resetValues();
     }
 }

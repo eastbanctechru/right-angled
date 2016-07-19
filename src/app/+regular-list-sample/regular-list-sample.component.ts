@@ -12,12 +12,9 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 export class RegularListSampleComponent {
     @filter()
     public airportName: string;
-    public airportsService: AirportsService;
-    public ngListService: NgListService;
     @disposeOnReload() public items: Array<any> = new Array<any>();
-    constructor(airportsService: AirportsService, ngListService: NgListService) {
-        this.airportsService = airportsService;
-        this.ngListService = ngListService.wrap(this);
+    constructor(public airportsService: AirportsService, public ngListService: NgListService) {
+        this.ngListService.wrap(this);
     }
     @fetchMethod()
     public loadData = (requestParams: any): Promise<any> => {

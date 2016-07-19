@@ -8,10 +8,9 @@ import { NgPagedListService } from '../../services/ng-paged-list-service.service
     template: `{{rowNumber}}<ng-content></ng-content>`
 })
 export class RowNumberComponent implements OnChanges {
-    private listHost: ListComponent;
     @Input() public index: number;
     private rowNumber: number;
-    constructor( @SkipSelf() listHost: ListComponent) {
+    constructor( @SkipSelf() private listHost: ListComponent) {
         this.listHost = listHost;
     }
     public ngOnChanges(): void {

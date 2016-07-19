@@ -5,10 +5,8 @@ import { Renderer, Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class SelectOnFocusDirective {
     private nativeEl: HTMLInputElement;
-    private renderer: Renderer;
-    constructor(elementRef: ElementRef, renderer: Renderer) {
+    constructor(private renderer: Renderer, elementRef: ElementRef) {
         this.nativeEl = elementRef.nativeElement;
-        this.renderer = renderer;
     }
     @HostListener('focus')
     public onFocus(): void {

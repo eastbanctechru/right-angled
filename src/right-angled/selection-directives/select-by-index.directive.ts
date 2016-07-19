@@ -7,14 +7,12 @@ import { SelectionEventsEmitter, OnSelectedEvent, OnDeselectedEvent, OnSelection
     selector: '[rtSelectByIndex]'
 })
 export class SelectByIndexDirective implements SelectionEventsEmitter, OnInit {
-    private selectionArea: SelectionAreaForDirective;
     @Input('rtSelectByIndex') public index: number = null;
     @Output() public itemSelected: EventEmitter<OnSelectedEvent> = new EventEmitter<OnSelectedEvent>();
     @Output() public itemDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
     @Output() public selectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
 
-    constructor( @SkipSelf() selectionArea: SelectionAreaForDirective) {
-        this.selectionArea = selectionArea;
+    constructor( @SkipSelf() private selectionArea: SelectionAreaForDirective) {
     }
     public ngOnInit(): void {
         this.selectionArea.selectionService.registerEventEmitter(this, this.index);

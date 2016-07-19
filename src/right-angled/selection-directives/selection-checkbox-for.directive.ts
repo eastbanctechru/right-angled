@@ -6,10 +6,8 @@ import { SelectionAreaForDirective } from './selection-area-for.directive';
     selector: 'input[rtSelectionCheckboxFor]'
 })
 export class SelectionCheckboxForDirective {
-    private selectionArea: SelectionAreaForDirective;
     @Input('rtSelectionCheckboxFor') public index: number = null;
-    constructor( @SkipSelf() selectionArea: SelectionAreaForDirective) {
-        this.selectionArea = selectionArea;
+    constructor( @SkipSelf() private selectionArea: SelectionAreaForDirective) {
     }
 
     @HostBinding('checked')

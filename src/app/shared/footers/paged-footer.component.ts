@@ -10,8 +10,6 @@ import { MISC_DIRECTIVES } from '../../../right-angled/misc-directives';
     templateUrl: 'paged-footer.component.html'
 })
 export class PagedFooterComponent {
-    public hostList: ListComponent;
-    constructor(hostList: ListComponent) {
-        this.hostList = hostList;
+    constructor(public hostList: ListComponent) {
     }
 }

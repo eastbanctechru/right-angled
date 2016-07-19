@@ -6,8 +6,8 @@ import { NgQueryStringStateService } from './ng-query-string-state-service';
 
 @Injectable()
 export class NgPagedListService extends NgListServiceBase {
-    constructor(public pager: NgPagedPager, stateManager: NgQueryStringStateService) {
-        super(pager, stateManager);
+    constructor(public pager: NgPagedPager, stateManagementService: NgQueryStringStateService) {
+        super(pager, stateManagementService);
     }
     public loadData(): Promise<Object> {
         const promise = super.loadData();

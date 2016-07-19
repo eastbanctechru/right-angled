@@ -4,7 +4,7 @@ import { SelectionEventsEmitter, OnDeselectedEvent, OnSelectedEvent, OnSelection
 
 export class NgSelectionService extends DefaultSelectionService {
     private eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();
-    public globalEmitter: SelectionEventsEmitter;
+    public areaEventsEmitter: SelectionEventsEmitter;
     protected processSelection(tuple: SelectionTuple, selected: boolean): void {
         const initialSelectState = tuple.item.selected;
         super.processSelection(tuple, selected);
@@ -12,8 +12,8 @@ export class NgSelectionService extends DefaultSelectionService {
             if (this.eventEmitters.length > tuple.index && this.eventEmitters[tuple.index]) {
                 this.emitEvents(this.eventEmitters[tuple.index], selected, tuple);
             }
-            if (this.globalEmitter) {
-                this.emitEvents(this.globalEmitter, selected, tuple);
+            if (this.areaEventsEmitter) {
+                this.emitEvents(this.areaEventsEmitter, selected, tuple);
             }
         }
     }
@@ -26,7 +26,7 @@ export class NgSelectionService extends DefaultSelectionService {
         emitter.selectionChanged.emit(new OnSelectionChangedEvent(tuple.item, tuple.index));
     }
     public dispose(): void {
-        delete this.globalEmitter;
+        delete this.areaEventsEmitter;
         this.eventEmitters.length = 0;
         super.dispose();
     }

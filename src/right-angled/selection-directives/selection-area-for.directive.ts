@@ -11,7 +11,6 @@ import { SelectionEventsEmitter, OnSelectedEvent, OnDeselectedEvent, OnSelection
 export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit, OnChanges, OnDestroy, SelectionAreaConfig {
     @ContentChildren(SelectionAreaForDirective) public childSelectionAreas: QueryList<SelectionAreaForDirective>;
     private tabIndexPrivate: number;
-    public selectionService: NgSelectionService;
     public selectionEventsHelper: SelectionEventsHelper;
 
     @Input() public horizontal: boolean = false;
@@ -24,9 +23,8 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     @Output() public itemDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
     @Output() public selectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
 
-    constructor( @Host() selectionManager: NgSelectionService) {
-        this.selectionService = selectionManager;
-        this.selectionService.globalEmitter = this;
+    constructor( @Host() public selectionService: NgSelectionService) {
+        this.selectionService.areaEventsEmitter = this;
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }
     public ngOnDestroy(): void {

@@ -6,10 +6,8 @@ import { SelectionAreaForDirective } from './selection-area-for.directive';
     selector: '[rtDeselectAll]'
 })
 export class DeselectAllDirective {
-    private selectionArea: SelectionAreaForDirective;
     @Input() public recursive: boolean = true;
-    constructor( @SkipSelf() selectionArea: SelectionAreaForDirective) {
-        this.selectionArea = selectionArea;
+    constructor( @SkipSelf() private selectionArea: SelectionAreaForDirective) {
     }
     @HostListener('click')
     public clickHandler(event: MouseEvent): void {

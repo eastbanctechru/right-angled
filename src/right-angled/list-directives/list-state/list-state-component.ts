@@ -7,10 +7,8 @@ export abstract class ListStateComponent implements DoCheck, OnInit {
     private listDiffer: KeyValueDiffer;
     private visibleState: ProgressState;
     protected isVisible: boolean;
-    protected listHost: ListComponent;
-    constructor(listHost: ListComponent, differs: KeyValueDiffers, visibleState: ProgressState) {
+    constructor(protected listHost: ListComponent, differs: KeyValueDiffers, visibleState: ProgressState) {
         this.visibleState = visibleState;
-        this.listHost = listHost;
         this.listDiffer = differs.find([]).create(null);
     }
     public ngOnInit(): void {

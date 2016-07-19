@@ -9,11 +9,9 @@ export abstract class DataService {
 
     protected disposeEvent: EventEmitter<any> = new EventEmitter<any>();
     public faultHandlers: Array<(response: Response) => boolean> = [];
-    protected http: Http;
 
-    constructor(http: Http) {
+    constructor(protected http: Http) {
         this.faultHandler = this.faultHandler.bind(this);
-        this.http = http;
         this.faultHandlers.push(this.notFoundHandler);
     }
 
