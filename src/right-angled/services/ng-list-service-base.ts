@@ -25,9 +25,7 @@ export abstract class NgListServiceBase extends AbstractLifetime {
         this.pager = pager;
         this.stateService = stateService;
         this.stateService.target = this;
-        this.filtersService.registerFilterTarget(this);
-        this.filtersService.registerFilterTarget(this.pager);
-        this.filtersService.registerFilterTarget(this.sortingsService);
+        this.filtersService.registerFilterTarget(this, this.pager, this.sortingsService);
     }
     public init(): void {
         const restoredState = this.stateService.mergeStates();
