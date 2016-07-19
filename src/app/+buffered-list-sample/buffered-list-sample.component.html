@@ -1,6 +1,6 @@
 <div>
     <h1 class="page-title">Buffered List Sample</h1>
-    <rt-list>
+    <rt-list [destroyOnReload]="items" [fetchMethod]="loadData">
         <form class="filters">
             <div class="row">
                 <div class="col-md-3">

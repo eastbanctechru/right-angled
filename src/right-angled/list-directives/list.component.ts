@@ -10,6 +10,12 @@ import { NgListService } from '../services/ng-list-service.service';
 })
 export class ListComponent implements OnDestroy, OnInit {
     @Input() public loadOnInit: boolean = true;
+    @Input() public set destroyOnReload(value: Array<any>) {
+        this.serviceInstance.destroyOnReload = value;
+    }
+    @Input() public set fetchMethod(value: (requestParams: any) => Promise<any>) {
+        this.serviceInstance.fetchMethod = value;
+    }
     public serviceInstance: NgListService | NgBufferedListService | NgPagedListService;
     public isBufferedList: boolean;
     public isPagedList: boolean;

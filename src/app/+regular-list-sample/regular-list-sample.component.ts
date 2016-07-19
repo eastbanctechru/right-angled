@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { fetchMethod, disposeOnReload, filter, REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS, NgListService } from '../../right-angled';
+import { filter, REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS, NgListService } from '../../right-angled';
 
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 
@@ -12,11 +12,10 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 export class RegularListSampleComponent {
     @filter()
     public airportName: string;
-    @disposeOnReload() public items: Array<any> = new Array<any>();
+    public items: Array<any> = new Array<any>();
     constructor(public airportsService: AirportsService, public ngListService: NgListService) {
         this.ngListService.wrap(this);
     }
-    @fetchMethod()
     public loadData = (requestParams: any): Promise<any> => {
         return this.airportsService.getAirportsRegular(requestParams).then((result: any) => {
             this.items = result.items;

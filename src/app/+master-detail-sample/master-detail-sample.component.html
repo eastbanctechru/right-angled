@@ -1,6 +1,6 @@
 <div>
     <h1 class="page-title">Master-detail Sample</h1>
-    <rt-list>
+        <rt-list [destroyOnReload]="items" [fetchMethod]="loadData">
         <table class="table table-striped" [rtSelectionAreaFor]="items">
             <thead rt-demo-sortable-header>
             </thead>

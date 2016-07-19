@@ -1,6 +1,4 @@
 export * from 'e2e4';
-export {disposeOnReload} from './dispose-on-reload.annotation';
-export {fetchMethod} from './fetch-method.annotation';
 
 export { NgPagedListService } from './services/ng-paged-list-service.service';
 export { NgBufferedListService } from './services/ng-buffered-list-service.service';

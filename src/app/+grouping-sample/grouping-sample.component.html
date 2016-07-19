@@ -1,6 +1,6 @@
 <div>
     <h1 class="page-title">Grouping and recursive selection sample</h1>
-    <rt-list>
+    <rt-list [destroyOnReload]="continents" [fetchMethod]="loadData">
         <form class="filters">
             <div class="row">
                 <div class="col-md-3">

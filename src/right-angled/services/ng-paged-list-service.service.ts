@@ -11,7 +11,7 @@ export class NgPagedListService extends NgListServiceBase {
     }
     public loadData(): Promise<Object> {
         const promise = super.loadData();
-        this.disposeReloadDisposals();
+        this.destroyReloadDestroyables();
         return promise;
     }
     public wrap(target: any): NgPagedListService {

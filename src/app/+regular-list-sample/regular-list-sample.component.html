@@ -1,6 +1,6 @@
 <div>
     <h1 class="page-title">Regular List Sample</h1>
-    <rt-list>
+    <rt-list [destroyOnReload]="items" [fetchMethod]="loadData">
         <form class="filters">
             <div class="row">
                 <div class="col-md-3">
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <input rtLoadData type="submit" class="btn btn-img btn-load" value="Load data"/>
+                        <input rtLoadData type="submit" class="btn btn-img btn-load" value="Load data" />
                         <button rtResetSettings type="button" class="btn btn-img btn-refresh"></button>
                         <button type="button" class="btn btn-img btn-xlsx"></button>
                     </div>

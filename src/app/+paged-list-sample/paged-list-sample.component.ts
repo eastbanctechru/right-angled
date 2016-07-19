@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { fetchMethod, disposeOnReload, filter, PAGED_LIST_DIRECTIVES, PAGED_LIST_PROVIDERS, NgPagedListService } from '../../right-angled';
+import { filter, PAGED_LIST_DIRECTIVES, PAGED_LIST_PROVIDERS, NgPagedListService } from '../../right-angled';
 
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 
@@ -12,14 +12,12 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 export class PagedListSampleComponent {
     @filter()
     public airportName: string;
-    @disposeOnReload()
     public items: Array<any> = new Array<any>();
 
     constructor(public airportsService: AirportsService, public ngPagedListService: NgPagedListService) {
         this.airportsService = airportsService;
         this.ngPagedListService = ngPagedListService.wrap(this);
     }
-    @fetchMethod()
     public loadData = (requestParams: any): Promise<any> => {
         return this.airportsService.getAirportsPaged(requestParams).then((result: any) => {
             this.items = result.items;
