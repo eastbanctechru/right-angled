@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { NgSortingsService, NgFiltersService, NgPagedPager } from './injectables';
-import { NgListServiceBase } from './ng-list-service-base';
-import { NgQueryStringStateService } from './ng-query-string-state-service';
+import { RtSortingsService, RtFiltersService, RtPagedPager } from './injectables';
+import { RtListServiceBase } from './ng-list-service-base';
+import { RtQueryStringStateService } from './ng-query-string-state-service';
 
 @Injectable()
-export class NgPagedListService extends NgListServiceBase {
-    constructor(public pager: NgPagedPager, stateManagementService: NgQueryStringStateService, sortingsService: NgSortingsService, filtersService: NgFiltersService) {
+export class RtPagedListService extends RtListServiceBase {
+    constructor(public pager: RtPagedPager, stateManagementService: RtQueryStringStateService, sortingsService: RtSortingsService, filtersService: RtFiltersService) {
         super(pager, stateManagementService, sortingsService, filtersService);
     }
     public loadData(): Promise<Object> {
@@ -14,7 +14,7 @@ export class NgPagedListService extends NgListServiceBase {
         this.destroyReloadDestroyables();
         return promise;
     }
-    public wrap(target: any): NgPagedListService {
+    public wrap(target: any): RtPagedListService {
         super.wrap(target);
         return this;
     }

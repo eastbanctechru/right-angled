@@ -2,7 +2,7 @@ import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@
 import { ProgressState } from 'e2e4';
 
 import { ListComponent } from '../list.component';
-import { NgBufferedListService } from '../../services/ng-buffered-list-service.service';
+import { RtBufferedListService } from '../../services/ng-buffered-list-service.service';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
@@ -30,7 +30,7 @@ export class DisplayPagerComponent extends ListStateComponent implements DoCheck
     public setVisibility(): void {
         let isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.pager.totalCount !== 0;
         if (this.listHost.isBufferedList) {
-            isVisible = isVisible && (<NgBufferedListService>this.listHost.serviceInstance).pager.skip < this.listHost.serviceInstance.pager.totalCount;
+            isVisible = isVisible && (<RtBufferedListService>this.listHost.serviceInstance).pager.skip < this.listHost.serviceInstance.pager.totalCount;
         }
         this.isVisible = isVisible;
     }

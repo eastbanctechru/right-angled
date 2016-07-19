@@ -1,8 +1,8 @@
 import { Pager, Utility, AbstractLifetime, ProgressState } from 'e2e4';
-import { NgStateManagementService } from './ng-state-management-service';
-import { NgSortingsService, NgFiltersService } from './injectables';
+import { RtStateManagementService } from './ng-state-management-service';
+import { RtSortingsService, RtFiltersService } from './injectables';
 
-export abstract class NgListServiceBase extends AbstractLifetime {
+export abstract class RtListServiceBase extends AbstractLifetime {
     public fetchMethod: (requestParams: any) => Promise<any>;
     public destroyOnReload: any;
 
@@ -18,7 +18,7 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     private listLoadDataFailCallback = (): void => {
         this.state = ProgressState.Fail;
     }
-    constructor(public pager: Pager, public stateService: NgStateManagementService, public sortingsService: NgSortingsService, public filtersService: NgFiltersService) {
+    constructor(public pager: Pager, public stateService: RtStateManagementService, public sortingsService: RtSortingsService, public filtersService: RtFiltersService) {
         super();
         this.pager = pager;
         this.stateService.target = this;
@@ -51,7 +51,7 @@ export abstract class NgListServiceBase extends AbstractLifetime {
             }
         }
     }
-    public wrap(target: any): NgListServiceBase {
+    public wrap(target: any): RtListServiceBase {
         this.filtersService.registerFilterTarget(target);
         return this;
     }

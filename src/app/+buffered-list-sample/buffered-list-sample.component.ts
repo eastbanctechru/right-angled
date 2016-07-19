@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { filter, BUFFERED_LIST_DIRECTIVES, BUFFERED_LIST_PROVIDERS, NgBufferedListService } from '../../right-angled';
+import { filter, BUFFERED_LIST_DIRECTIVES, BUFFERED_LIST_PROVIDERS, RtBufferedListService } from '../../right-angled';
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 
 @Component({
@@ -11,7 +11,7 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 export class BufferedListSampleComponent {
     @filter() public airportName: string = null;
     public items: Array<any> = new Array<any>();
-    constructor(public airportsService: AirportsService, public ngBufferedListService: NgBufferedListService) {
+    constructor(public airportsService: AirportsService, public ngBufferedListService: RtBufferedListService) {
         this.ngBufferedListService.wrap(this);
     }
 

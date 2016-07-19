@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 
-import { NgSortingsService, NgFiltersService, NgSimplePager } from './injectables';
-import { NgListServiceBase } from './ng-list-service-base';
-import { NgQueryStringStateService } from './ng-query-string-state-service';
+import { RtSortingsService, RtFiltersService, RtSimplePager } from './injectables';
+import { RtListServiceBase } from './ng-list-service-base';
+import { RtQueryStringStateService } from './ng-query-string-state-service';
 
 @Injectable()
-export class NgListService extends NgListServiceBase {
-    constructor(public pager: NgSimplePager, stateManagementService: NgQueryStringStateService, sortingsService: NgSortingsService, filtersService: NgFiltersService) {
+export class RtListService extends RtListServiceBase {
+    constructor(public pager: RtSimplePager, stateManagementService: RtQueryStringStateService, sortingsService: RtSortingsService, filtersService: RtFiltersService) {
         super(pager, stateManagementService, sortingsService, filtersService);
     }
-    public wrap(target: any): NgListService {
+    public wrap(target: any): RtListService {
         super.wrap(target);
         return this;
     }

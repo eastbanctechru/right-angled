@@ -1,13 +1,13 @@
 import { HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 
 import { ListComponent } from '../list.component';
-import { NgPagedListService } from '../../services/ng-paged-list-service.service';
+import { RtPagedListService } from '../../services/ng-paged-list-service.service';
 
 @Directive({
     selector: 'input[rtPageSize]'
 })
 export class PageSizeDirective implements DoCheck {
-    private pagedListService: NgPagedListService;
+    private pagedListService: RtPagedListService;
     private pagerDiffer: KeyValueDiffer;
     @HostBinding('value')
     public innerPageSize: number;
@@ -16,7 +16,7 @@ export class PageSizeDirective implements DoCheck {
         if (!listHost.isPagedList) {
             throw new Error('[rtPageSize] directive can be used only with paged list services.');
         }
-        this.pagedListService = <NgPagedListService>listHost.serviceInstance;
+        this.pagedListService = <RtPagedListService>listHost.serviceInstance;
         this.innerPageSize = this.pagedListService.pager.pageSize;
         this.pagerDiffer = differs.find([]).create(null);
     }

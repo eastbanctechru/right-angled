@@ -1,7 +1,7 @@
 import { SkipSelf, Component, Input, OnChanges } from '@angular/core';
 
 import { ListComponent } from '../list.component';
-import { NgPagedListService } from '../../services/ng-paged-list-service.service';
+import { RtPagedListService } from '../../services/ng-paged-list-service.service';
 
 @Component({
     selector: 'rt-row-number',
@@ -17,7 +17,7 @@ export class RowNumberComponent implements OnChanges {
         if (this.listHost.isRegularList || this.listHost.isBufferedList) {
             this.rowNumber = this.index + 1;
         } else if (this.listHost.isPagedList) {
-            this.rowNumber = this.index + (<NgPagedListService>this.listHost.serviceInstance).pager.displayFrom;
+            this.rowNumber = this.index + (<RtPagedListService>this.listHost.serviceInstance).pager.displayFrom;
         }
     }
 }

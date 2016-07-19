@@ -1,10 +1,10 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable, SkipSelf, Optional } from '@angular/core';
 
-import { NgStateManagementService } from './ng-state-management-service';
+import { RtStateManagementService } from './ng-state-management-service';
 
 @Injectable()
-export class NgQueryStringStateService implements NgStateManagementService {
+export class RtQueryStringStateService implements RtStateManagementService {
     private static stateObject: Map<any, any> = new Map<any, any>();
     public target: any;
     public serializationKey: string;
@@ -12,8 +12,8 @@ export class NgQueryStringStateService implements NgStateManagementService {
     constructor( @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
     }
     public flushRequestState(state: Object): void {
-        NgQueryStringStateService.stateObject.set(this.target, NgQueryStringStateService.stateObject.get(this.target) || {});
-        let vmState = NgQueryStringStateService.stateObject.get(this.target);
+        RtQueryStringStateService.stateObject.set(this.target, RtQueryStringStateService.stateObject.get(this.target) || {});
+        let vmState = RtQueryStringStateService.stateObject.get(this.target);
         setTimeout(() => {
             let newState = {};
             Object.assign(newState, state);
@@ -34,7 +34,7 @@ export class NgQueryStringStateService implements NgStateManagementService {
         return restoredState;
     }
     private getRequestState(): any {
-        return NgQueryStringStateService.stateObject.get(this.target);
+        return RtQueryStringStateService.stateObject.get(this.target);
     }
     private getPersistedState(): any {
         return {};

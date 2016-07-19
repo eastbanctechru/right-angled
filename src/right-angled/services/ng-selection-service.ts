@@ -2,7 +2,7 @@ import { SelectionTuple, DefaultSelectionService } from 'e2e4';
 
 import { SelectionEventsEmitter, OnDeselectedEvent, OnSelectedEvent, OnSelectionChangedEvent } from './selection-events-emitter';
 
-export class NgSelectionService extends DefaultSelectionService {
+export class RtSelectionService extends DefaultSelectionService {
     private eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();
     public areaEventsEmitter: SelectionEventsEmitter;
     protected processSelection(tuple: SelectionTuple, selected: boolean): void {

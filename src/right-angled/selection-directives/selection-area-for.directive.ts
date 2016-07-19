@@ -1,11 +1,11 @@
 import { EventEmitter, ContentChildren, QueryList, Host, HostListener, Directive, OnInit, Input, Output, OnChanges, OnDestroy, HostBinding } from '@angular/core';
 import { SelectableItem, SelectionAreaConfig, SelectionEventsHelper } from 'e2e4';
 
-import { NgSelectionService } from '../services/ng-selection-service';
+import { RtSelectionService } from '../services/ng-selection-service';
 import { SelectionEventsEmitter, OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent } from '../services/selection-events-emitter';
 
 @Directive({
-    providers: [NgSelectionService],
+    providers: [RtSelectionService],
     selector: '[rtSelectionAreaFor]'
 })
 export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit, OnChanges, OnDestroy, SelectionAreaConfig {
@@ -23,7 +23,7 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     @Output() public itemDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
     @Output() public selectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
 
-    constructor( @Host() public selectionService: NgSelectionService) {
+    constructor( @Host() public selectionService: RtSelectionService) {
         this.selectionService.areaEventsEmitter = this;
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { filter, REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS, NgListService } from '../../right-angled';
+import { filter, REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS, RtListService } from '../../right-angled';
 
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 
@@ -12,7 +12,7 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 export class GroupingSampleComponent {
     @filter() public airportName: string;
     public continents: Array<any> = new Array<any>();
-    constructor(public airportsService: AirportsService, public ngListService: NgListService) {
+    constructor(public airportsService: AirportsService, public ngListService: RtListService) {
         this.ngListService.wrap(this);
     }
     public loadData = (requestParams: any): Promise<any> => {

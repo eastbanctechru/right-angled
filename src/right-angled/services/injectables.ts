@@ -2,12 +2,12 @@ import { PagedPager, BufferedPager, SimplePager, SortingsService, FiltersService
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class NgPagedPager extends PagedPager { }
+export class RtPagedPager extends PagedPager { }
 @Injectable()
-export class NgBufferedPager extends BufferedPager { }
+export class RtBufferedPager extends BufferedPager { }
 @Injectable()
-export class NgSimplePager extends SimplePager { }
+export class RtSimplePager extends SimplePager { }
 @Injectable()
-export class NgSortingsService extends SortingsService { }
+export class RtSortingsService extends SortingsService { }
 @Injectable()
-export class NgFiltersService extends FiltersService { }
+export class RtFiltersService extends FiltersService { }

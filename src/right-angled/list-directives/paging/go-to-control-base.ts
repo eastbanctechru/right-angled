@@ -1,11 +1,11 @@
 import { Renderer, KeyValueDiffers, KeyValueDiffer, ElementRef, DoCheck, OnInit } from '@angular/core';
 
 import { ListComponent } from '../list.component';
-import { NgPagedListService } from '../../services/ng-paged-list-service.service';
+import { RtPagedListService } from '../../services/ng-paged-list-service.service';
 
 export abstract class GoToControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
-    protected pagedListService: NgPagedListService;
+    protected pagedListService: RtPagedListService;
     protected innerDisabled: boolean = false;
     private nativeEl: any;
     public disabledCls: string;
@@ -13,7 +13,7 @@ export abstract class GoToControlBase implements DoCheck, OnInit {
         if (!listHost.isPagedList) {
             throw new Error('[rtGoToFirstPage] directive can be used only with paged list services.');
         }
-        this.pagedListService = <NgPagedListService>listHost.serviceInstance;
+        this.pagedListService = <RtPagedListService>listHost.serviceInstance;
         this.pagerDiffer = differs.find([]).create(null);
         this.nativeEl = elementRef.nativeElement;
     }

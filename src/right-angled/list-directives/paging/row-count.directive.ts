@@ -1,13 +1,13 @@
 import { SkipSelf, HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 
 import { ListComponent } from '../list.component';
-import { NgBufferedListService } from '../../services/ng-buffered-list-service.service';
+import { RtBufferedListService } from '../../services/ng-buffered-list-service.service';
 
 @Directive({
     selector: 'input[rtRowCount]'
 })
 export class RowCountDirective implements DoCheck {
-    public bufferedListService: NgBufferedListService;
+    public bufferedListService: RtBufferedListService;
     private pagerDiffer: KeyValueDiffer;
     @HostBinding('value')
     private innerRowCount: number;
@@ -20,7 +20,7 @@ export class RowCountDirective implements DoCheck {
         if (!listHost.isBufferedList) {
             throw new Error('[rtRowCount] directive can be used only with buffered list services.');
         }
-        this.bufferedListService = <NgBufferedListService>listHost.serviceInstance;
+        this.bufferedListService = <RtBufferedListService>listHost.serviceInstance;
         this.innerRowCount = this.bufferedListService.pager.takeRowCount;
         this.pagerDiffer = differs.find([]).create(null);
     }

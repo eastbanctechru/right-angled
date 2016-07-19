@@ -1,4 +1,4 @@
-export abstract class NgStateManagementService {
+export abstract class RtStateManagementService {
     public serializationKey: string;
     public target: any;
     public abstract flushRequestState(state: Object): void;
