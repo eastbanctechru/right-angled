@@ -9,8 +9,8 @@ export class NgListService extends NgListServiceBase {
     constructor(stateManager: NgQueryStringStateService) {
         super(new SimplePager(), stateManager);
     }
-    public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgListService {
-        super.wrap(target, dataReadDelegate);
+    public wrap(target: any): NgListService {
+        super.wrap(target);
         return this;
     }
 }

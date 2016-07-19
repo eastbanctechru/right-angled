@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { disposeOnReload, filter, REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS, NgListService } from '../../right-angled';
+import { fetchMethod, disposeOnReload, filter, REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS, NgListService } from '../../right-angled';
 
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 
@@ -16,8 +16,9 @@ export class GroupingSampleComponent {
     @disposeOnReload() public continents: Array<any> = new Array<any>();
     constructor(airportsService: AirportsService, ngListService: NgListService) {
         this.airportsService = airportsService;
-        this.ngListService = ngListService.wrap(this, this.loadData);
+        this.ngListService = ngListService.wrap(this);
     }
+    @fetchMethod()
     public loadData = (requestParams: any): Promise<any> => {
         return this.airportsService.getAirportsGroupedByContinent(requestParams).then((result: any) => {
             this.continents = result.items;

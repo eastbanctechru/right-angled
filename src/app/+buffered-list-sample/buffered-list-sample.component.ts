@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { disposeOnReload, filter, BUFFERED_LIST_DIRECTIVES, BUFFERED_LIST_PROVIDERS, NgBufferedListService } from '../../right-angled';
+import { fetchMethod, disposeOnReload, filter, BUFFERED_LIST_DIRECTIVES, BUFFERED_LIST_PROVIDERS, NgBufferedListService } from '../../right-angled';
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 
 @Component({
@@ -15,8 +15,10 @@ export class BufferedListSampleComponent {
     @disposeOnReload() public items: Array<any> = new Array<any>();
     constructor(airportsService: AirportsService, ngBufferedListService: NgBufferedListService) {
         this.airportsService = airportsService;
-        this.ngBufferedListService = ngBufferedListService.wrap(this, this.loadData);
+        this.ngBufferedListService = ngBufferedListService.wrap(this);
     }
+
+    @fetchMethod()
     public loadData = (requestParams: any): Promise<any> => {
         return this.airportsService.getAirportsBuffered(requestParams).then((result: any) => {
             this.items.push(...result.items);

@@ -15,8 +15,8 @@ export class NgPagedListService extends NgListServiceBase {
         this.disposeReloadDisposals();
         return promise;
     }
-    public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgPagedListService {
-        super.wrap(target, dataReadDelegate);
+    public wrap(target: any): NgPagedListService {
+        super.wrap(target);
         return this;
     }
     public goToFirstPage(): void {

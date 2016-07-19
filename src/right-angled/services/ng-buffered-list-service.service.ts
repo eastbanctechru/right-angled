@@ -10,8 +10,8 @@ export class NgBufferedListService extends NgListServiceBase {
     constructor(stateManager: NgQueryStringStateService) {
         super(new BufferedPager(), stateManager);
     }
-    public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgBufferedListService {
-        super.wrap(target, dataReadDelegate);
+    public wrap(target: any): NgBufferedListService {
+        super.wrap(target);
         return this;
     }
 }

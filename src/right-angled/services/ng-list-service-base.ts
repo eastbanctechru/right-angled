@@ -1,6 +1,7 @@
 import { Pager, Utility, AbstractLifetime, ProgressState, SortingsService, FiltersService } from 'e2e4';
 import { NgStateManagementService } from './ng-state-management-service';
 import { DISPOSE_ON_RELOAD_METADATA_KEY } from '../dispose-on-reload.annotation';
+import { FETCH_METHOD_METADATA_KEY } from '../fetch-method.annotation';
 
 export abstract class NgListServiceBase extends AbstractLifetime {
     public dataReadDelegate: (requestParams: any) => Promise<any>;
@@ -64,9 +65,9 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     public getDataReadPromise(): Promise<Object> {
         return this.dataReadDelegate(this.toRequest());
     }
-    public wrap(target: any, dataReadDelegate: (requestParams: any) => Promise<any>): NgListServiceBase {
+    public wrap(target: any): NgListServiceBase {
         this.target = target;
-        this.dataReadDelegate = dataReadDelegate;
+        this.dataReadDelegate = target[Reflect.getMetadata(FETCH_METHOD_METADATA_KEY, target)];
         this.filtersService.registerFilterTarget(target);
         return this;
     }
