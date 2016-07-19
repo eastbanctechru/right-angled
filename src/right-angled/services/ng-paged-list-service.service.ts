@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { NgPagedPager } from './injectables';
+import { NgSortingsService, NgFiltersService, NgPagedPager } from './injectables';
 import { NgListServiceBase } from './ng-list-service-base';
 import { NgQueryStringStateService } from './ng-query-string-state-service';
 
 @Injectable()
 export class NgPagedListService extends NgListServiceBase {
-    constructor(public pager: NgPagedPager, stateManagementService: NgQueryStringStateService) {
-        super(pager, stateManagementService);
+    constructor(public pager: NgPagedPager, stateManagementService: NgQueryStringStateService, sortingsService: NgSortingsService, filtersService: NgFiltersService) {
+        super(pager, stateManagementService, sortingsService, filtersService);
     }
     public loadData(): Promise<Object> {
         const promise = super.loadData();

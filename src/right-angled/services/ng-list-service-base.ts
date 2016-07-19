@@ -1,14 +1,11 @@
-import { Pager, Utility, AbstractLifetime, ProgressState, SortingsService, FiltersService } from 'e2e4';
+import { Pager, Utility, AbstractLifetime, ProgressState } from 'e2e4';
 import { NgStateManagementService } from './ng-state-management-service';
+import { NgSortingsService, NgFiltersService } from './injectables';
 import { DISPOSE_ON_RELOAD_METADATA_KEY } from '../dispose-on-reload.annotation';
 import { FETCH_METHOD_METADATA_KEY } from '../fetch-method.annotation';
 
 export abstract class NgListServiceBase extends AbstractLifetime {
     public dataReadDelegate: (requestParams: any) => Promise<any>;
-    public sortingsService: SortingsService;
-    public stateService: NgStateManagementService;
-    public filtersService: FiltersService;
-    public pager: Pager;
     public target: any;
 
     private listLoadDataSuccessCallback = (result: Object): Object => {
@@ -23,14 +20,13 @@ export abstract class NgListServiceBase extends AbstractLifetime {
     private listLoadDataFailCallback = (): void => {
         this.state = ProgressState.Fail;
     }
-    constructor(pager: Pager, stateService: NgStateManagementService) {
+    constructor(public pager: Pager, public stateService: NgStateManagementService, public sortingsService: NgSortingsService, public filtersService: NgFiltersService) {
         super();
         this.pager = pager;
         this.stateService = stateService;
         this.stateService.target = this;
-        this.filtersService = new FiltersService(this);
+        this.filtersService.registerFilterTarget(this);
         this.filtersService.registerFilterTarget(this.pager);
-        this.sortingsService = new SortingsService();
         this.filtersService.registerFilterTarget(this.sortingsService);
     }
     public init(): void {
