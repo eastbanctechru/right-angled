@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PAGED_FOOTER_DIRECTIVES } from '../../../right-angled/list-directives';
-import { MISC_DIRECTIVES } from '../../../right-angled/misc-directives';
+import { PAGED_FOOTER_DIRECTIVES } from 'right-angled';
+import { MISC_DIRECTIVES } from 'right-angled';
 
 @Component({
     directives: [PAGED_FOOTER_DIRECTIVES, MISC_DIRECTIVES],

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ListComponent } from '../../../right-angled/list-directives/list.component';
+import { ListComponent } from 'right-angled/list-directives/list.component';
 import { BufferedFooterComponent } from './buffered-footer.component';
 import { RegularFooterComponent } from './regular-footer.component';
 import { PagedFooterComponent } from './paged-footer.component';

@@ -1,10 +1,15 @@
 export * from 'e2e4';
 
+export { MISC_DIRECTIVES } from './misc-directives/index';
+
 export { RtListService } from './services/rt-list-service.service';
 export { RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/injectables';
 
+export { SELECTION_DIRECTIVES } from './selection-directives/index';
 import { SELECTION_DIRECTIVES } from './selection-directives/index';
 import { LIST_DIRECTIVES } from './list-directives/index';
+
+export { BUFFERED_FOOTER_DIRECTIVES, PAGED_FOOTER_DIRECTIVES, REGULAR_FOOTER_DIRECTIVES } from './list-directives/index';
 import { BUFFERED_FOOTER_DIRECTIVES, PAGED_FOOTER_DIRECTIVES, REGULAR_FOOTER_DIRECTIVES } from './list-directives/index';
 
 export { LIST_DIRECTIVES } from './list-directives/index';

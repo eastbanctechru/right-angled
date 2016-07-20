@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LIST_DIRECTIVES } from '../../../right-angled/list-directives';
+import { LIST_DIRECTIVES } from 'right-angled/list-directives/index';
 @Component({
   directives: [LIST_DIRECTIVES],
   moduleId: module.id,

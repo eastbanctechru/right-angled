@@ -5,6 +5,6 @@ import { MasterDetailSampleComponent }   from './master-detail-sample.component'
 export const MasterDetailSampleRoutes: RouterConfig = [
     {
         component: MasterDetailSampleComponent,
-        path: 'master-detail'
+        path: 'master-details'
     }
 ];

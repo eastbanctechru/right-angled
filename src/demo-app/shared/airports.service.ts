@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
-import { SelectableItem, SortParameter, SortDirection } from 'e2e4';
+import { SelectableItem, SortParameter, SortDirection } from 'right-angled';
 
 import { AirportInfo, airports }     from './airports';
 

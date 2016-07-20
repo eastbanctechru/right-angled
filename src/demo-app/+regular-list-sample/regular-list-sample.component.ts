@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS } from '../../right-angled';
+import { REGULAR_LIST_DIRECTIVES, REGULAR_LIST_PROVIDERS } from 'right-angled';
 
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 

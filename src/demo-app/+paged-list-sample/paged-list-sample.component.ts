@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PAGED_LIST_DIRECTIVES, PAGED_LIST_PROVIDERS } from '../../right-angled';
+import { PAGED_LIST_DIRECTIVES, PAGED_LIST_PROVIDERS } from 'right-angled';
 
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 

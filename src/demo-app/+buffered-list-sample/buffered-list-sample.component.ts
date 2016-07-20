@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BUFFERED_LIST_DIRECTIVES, BUFFERED_LIST_PROVIDERS } from '../../right-angled';
+import { BUFFERED_LIST_DIRECTIVES, BUFFERED_LIST_PROVIDERS } from 'right-angled';
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 
 @Component({

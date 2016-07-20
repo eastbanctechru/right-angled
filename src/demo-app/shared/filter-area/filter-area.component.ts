@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { filter, RtFiltersService, LIST_DIRECTIVES } from '../../../right-angled';
+import { filter, RtFiltersService, LIST_DIRECTIVES } from 'right-angled';
 
 @Component({
     directives: [LIST_DIRECTIVES],

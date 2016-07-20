@@ -1,6 +1,6 @@
 import { RightAngledPage } from './app.po';
 
-describe('right-angled App', function() {
+describe('right-angled demo App', function() {
   let page: RightAngledPage;
 
   beforeEach(() => {

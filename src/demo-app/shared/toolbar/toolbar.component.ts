@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SELECTION_DIRECTIVES } from '../../../right-angled/selection-directives';
+import { SELECTION_DIRECTIVES } from 'right-angled';
 @Component({
   directives: [SELECTION_DIRECTIVES],
   moduleId: module.id,

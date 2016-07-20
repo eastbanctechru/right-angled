@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { REGULAR_FOOTER_DIRECTIVES } from '../../../right-angled/list-directives';
+import { REGULAR_FOOTER_DIRECTIVES } from 'right-angled';
 
 @Component({
     directives: [REGULAR_FOOTER_DIRECTIVES],
