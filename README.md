@@ -1,36 +1,21 @@
-# right-angled
+# right-angled for Angular 2
 
 [![Build Status](https://travis-ci.org/fshchudlo/right-angled.svg?branch=master)](https://travis-ci.org/fshchudlo/right-angled)
 [![Dependency Status](https://david-dm.org/fshchudlo/right-angled.svg)](https://david-dm.org/fshchudlo/right-angled)
 [![devDependency Status](https://david-dm.org/fshchudlo/right-angled/dev-status.svg)](https://david-dm.org/fshchudlo/right-angled#info=devDependencies)
 [![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.9.
+Добро пожаловать на страницу right-angled - адаптер библиотеки [e2e4](https://github.com/fshchudlo/e2e4) для построения списков в [Angular 2](https://github.com/angular/angular) приложениях.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Смысл существования данного проекта
+Данная библиотека представляет собой набор директив и компонентов для построения функциональных списков, а так же реализации selection-функционала, не привязанного непосредственно к спискам.
+Основная идея данной библиотеки - ненавязчивость, которая достигается следующими способами:
+- Отсутствие тяжелых настроек - вместо настройки сортировок, столбцов, источников данных и т.д. (как это делается, например, [в Kendo UI](http://demos.telerik.com/kendo-ui/grid/index)) - декларативная разметка.
+- Отсутствие стилей и минимальные ограничения по структуре верстки, чтобы вы смогли использовать те верстку и стили, которые нужны вам, а не мучались со стилизацией наших компонент. 
+- Никаких тяжелых настроек data source - все, что требуется, чтобы список заработал - указать метод, возвращающий данные. 
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/route/class`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to Github Pages
-
-Run `ng github-pages:deploy` to deploy to Github Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Статус проекта
+На данный момент только закончена адаптация библиотеки к Angular 2. 
+Дальнейший план - начать по максимуму использовать возможности Angular 2. Например, подружить данную библиотеку с Observables и с async pipe.
+Естественно, такие изменения могут повлечь изменение существующего API. 
+Также впереди большая работа по развитию CI-инфраструктуры проекта.

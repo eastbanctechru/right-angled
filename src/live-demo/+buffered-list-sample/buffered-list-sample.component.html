@@ -1,0 +1,34 @@
+<div>
+    <h1 class="page-title">Buffered List Sample</h1>
+    <rt-list [destroyOnReload]="airports | async" [fetchMethod]="loadData">
+        <rt-demo-filter-area>
+        </rt-demo-filter-area>
+        <table class="table table-striped" [rtSelectionAreaFor]="airports | async">
+            <thead rt-demo-sortable-header>
+            </thead>
+            <caption rt-demo-toolbar>
+            </caption>
+
+            <tbody>
+                <tr *ngFor="let airport of airports | async, let index=index" [class.success]="airport.selected" [rtSelectByIndex]="index">
+                    <td>
+                        <rt-row-number [index]="index">
+                        </rt-row-number>
+                    </td>
+                    <td>{{airport.iata}}</td>
+                    <td>{{airport.name}}</td>
+                    <td>{{airport.continent}}</td>
+                    <td>{{airport.type}}</td>
+                    <td>Lat - {{airport.lat || 'unknown'}} Lon - {{airport.lon || 'unknown'}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="list-pager text-right">
+                        <rt-demo-footer></rt-demo-footer>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </rt-list>
+</div>
