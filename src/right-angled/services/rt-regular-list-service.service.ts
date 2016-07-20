@@ -5,7 +5,7 @@ import { RtListServiceBase } from './rt-list-service-base';
 import { RtQueryStringStateService } from './rt-query-string-state-service';
 
 @Injectable()
-export class RtListService extends RtListServiceBase {
+export class RtRegularListService extends RtListServiceBase {
     constructor(public pager: RtSimplePager, stateManagementService: RtQueryStringStateService, sortingsService: RtSortingsService, filtersService: RtFiltersService) {
         super(pager, stateManagementService, sortingsService, filtersService);
     }
