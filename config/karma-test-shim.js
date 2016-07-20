@@ -8,7 +8,7 @@ __karma__.loaded = function () {
 };
 
 var distPath = '/base/dist/';
-var appPaths = ['app']; //Add all valid source code folders here
+var appPaths = ['live-demo']; //Add all valid source code folders here
 
 function isJsFile(path) {
   return path.slice(-3) == '.js';

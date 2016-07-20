@@ -1,0 +1,56 @@
+<div>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-lg-10 col-lg-offset-1">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li dropdown>
+                            <a href="#" class="dropdown-toggle text-uppercase" dropdownToggle>Lists Samples <span class="caret"></span></a>
+                            <ul class="dropdown-menu" dropdownMenu>
+                                <li>
+                                    <a href="#" [routerLink]="['/paged-list']">Paged List Sample</a>
+                                </li>
+                                <li>
+                                    <a href="#" [routerLink]="['/buffered-list']">Buffered List Sample</a>
+                                </li>
+                                <li>
+                                    <a href="#" [routerLink]="['/regular-list']">Regular List Sample</a>
+                                </li>
+                                <li>
+                                    <a href="#" [routerLink]="['/master-details']">Master-details Sample</a>
+                                </li>
+                                <li>
+                                    <a href="#" [routerLink]="['/grouping']">Grouping Sample</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="layout">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-lg-10 col-lg-offset-1">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-lg-5 col-lg-offset-1">
+                    &copy; 2016 All rights reserved
+                </div>
+                <div class="col-md-6 col-lg-5 text-right">
+                    &copy; Created by <a href="http://eastbanctech.ru/">EastBanc Technologies</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

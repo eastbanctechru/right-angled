@@ -1,0 +1,47 @@
+<div>
+    <h1 class="page-title">Grouping and recursive selection sample</h1>
+    <rt-list [destroyOnReload]="continents" [fetchMethod]="loadData">
+        <rt-demo-filter-area>
+        </rt-demo-filter-area>
+        <table class="table table-striped" [rtSelectionAreaFor]="continents" [toggleOnly]="true">
+            <thead rt-demo-sortable-header>
+            </thead>
+            <caption rt-demo-toolbar>
+            </caption>
+
+            <tbody>
+                <template ngFor let-continent [ngForOf]="continents" let-index="index">
+                    <tr [class.success]="continent.selected" [rtSelectByIndex]="index">
+                        <td colspan="6" class="text-center">{{continent.name}} ({{continent.airports.length}} items)</td>
+                    </tr>
+                    <tr *ngIf="continent.selected">
+                        <td colspan=6>
+                            <table class="table table-striped">
+                                <tbody [rtSelectionAreaFor]="continent.airports">
+                                    <tr *ngFor="let item of continent.airports, let index=index" [class.success]="item.selected" [rtSelectByIndex]="index">
+                                        <td>
+                                            <rt-row-number [index]="index">
+                                            </rt-row-number>
+                                        </td>
+                                        <td>{{item.iata}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.continent}}</td>
+                                        <td>{{item.type}}</td>
+                                        <td>{{item.size || 'unspecified'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="list-pager text-right">
+                        <rt-demo-footer></rt-demo-footer>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </rt-list>
+</div>

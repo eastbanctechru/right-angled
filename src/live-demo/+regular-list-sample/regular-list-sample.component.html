@@ -1,0 +1,34 @@
+<div>
+    <h1 class="page-title">Regular List Sample</h1>
+    <rt-list [destroyOnReload]="airports" [fetchMethod]="loadData">
+        <rt-demo-filter-area>
+        </rt-demo-filter-area>
+        <table class="table table-striped" [rtSelectionAreaFor]="airports">
+            <thead rt-demo-sortable-header>
+            </thead>
+            <caption rt-demo-toolbar>
+            </caption>
+
+            <tbody>
+                <tr *ngFor="let item of airports, let index=index" [class.success]="item.selected" [rtSelectByIndex]="index">
+                    <td>
+                        <rt-row-number [index]="index">
+                        </rt-row-number>
+                    </td>
+                    <td>{{item.iata}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.continent}}</td>
+                    <td>{{item.type}}</td>
+                    <td>{{item.size || 'unspecified'}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="list-pager text-right">
+                        <rt-demo-footer></rt-demo-footer>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </rt-list>
+</div>

@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.9",
-    "name": "right-angled"
+    "name": "right-angled demo"
   },
   "apps": [
     {
@@ -23,7 +23,7 @@
     }
   },
   "defaults": {
-    "prefix": "app",
+    "prefix": "rt-demo",
     "sourceDir": "src",
     "styleExt": "css",
     "prefixInterfaces": false,

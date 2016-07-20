@@ -20,6 +20,7 @@ module.exports = function(defaults) {
       'ng2-bootstrap/**/*.+(js|js.map)',
       'bootstrap/**/*.*',
       'moment/moment.js',
+      'right-angled/**/*.+(js|js.map)',
       'lodash/lodash.js'
     ]
   });
