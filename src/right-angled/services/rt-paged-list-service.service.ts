@@ -14,10 +14,6 @@ export class RtPagedListService extends RtListServiceBase {
         this.destroyReloadDestroyables();
         return promise;
     }
-    public wrap(target: any): RtPagedListService {
-        super.wrap(target);
-        return this;
-    }
     public goToFirstPage(): void {
         if (this.pager.pageNumber > 1) {
             (this.pager).pageNumber = 1;

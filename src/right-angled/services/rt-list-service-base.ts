@@ -51,10 +51,6 @@ export abstract class RtListServiceBase extends AbstractLifetime {
             }
         }
     }
-    public wrap(target: any): RtListServiceBase {
-        this.filtersService.registerFilterTarget(target);
-        return this;
-    }
     public dispose(): void {
         super.dispose();
         this.filtersService.dispose();

@@ -9,8 +9,4 @@ export class RtBufferedListService extends RtListServiceBase {
     constructor(public pager: RtBufferedPager, stateManagementService: RtQueryStringStateService, sortingsService: RtSortingsService, filtersService: RtFiltersService) {
         super(pager, stateManagementService, sortingsService, filtersService);
     }
-    public wrap(target: any): RtBufferedListService {
-        super.wrap(target);
-        return this;
-    }
 }

@@ -33,7 +33,7 @@
     "zone.js": "0.6.12"
   },
   "devDependencies": {
-    "angular-cli": "1.0.0-beta.9",
+    "angular-cli": "1.0.0-beta.10",
     "codelyzer": "0.0.25",
     "ember-cli-inject-live-reload": "1.4.1",
     "jasmine-core": "2.4.1",

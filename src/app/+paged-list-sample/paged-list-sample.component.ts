@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { filter, PAGED_LIST_DIRECTIVES, PAGED_LIST_PROVIDERS, RtPagedListService } from '../../right-angled';
+import { PAGED_LIST_DIRECTIVES, PAGED_LIST_PROVIDERS } from '../../right-angled';
 
 import { SHARED_DIRECTIVES, AirportsService } from '../shared';
 
@@ -10,13 +10,10 @@ import { SHARED_DIRECTIVES, AirportsService } from '../shared';
     templateUrl: 'paged-list-sample.component.html'
 })
 export class PagedListSampleComponent {
-    @filter()
-    public airportName: string;
     public items: Array<any> = new Array<any>();
 
-    constructor(public airportsService: AirportsService, public ngPagedListService: RtPagedListService) {
+    constructor(public airportsService: AirportsService) {
         this.airportsService = airportsService;
-        this.ngPagedListService = ngPagedListService.wrap(this);
     }
     public loadData = (requestParams: any): Promise<any> => {
         return this.airportsService.getAirportsPaged(requestParams).then((result: any) => {
