@@ -1,7 +1,8 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
-import { Pager, ProgressState } from 'e2e4';
+import { ProgressState } from 'e2e4';
+import { RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/injectables';
 
-import { ListComponent } from '../list.component';
+import { RtListLifetimeInfo, RtNullObjectInjectableObject } from '../../services/injectables';
 
 @Component({
     selector: 'rt-total-records-text',
@@ -11,26 +12,26 @@ export class TotalRecordsTextComponent implements DoCheck, OnInit {
     private listDiffer: KeyValueDiffer;
     private pagerDiffer: KeyValueDiffer;
     private isVisible: boolean;
-    private pager: Pager;
-    constructor(@SkipSelf()private listHost: ListComponent, differs: KeyValueDiffers) {
+    private pager: RtPagedPager | RtBufferedPager | RtRegularPager;
+    constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() private lifetimeInfo: RtListLifetimeInfo, differs: KeyValueDiffers) {
         this.listDiffer = differs.find([]).create(null);
         this.pagerDiffer = differs.find([]).create(null);
-        this.pager = this.listHost.serviceInstance.pager;
+        this.pager = RtNullObjectInjectableObject.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);
     }
     public ngOnInit(): void {
         this.setVisibility();
     }
     public ngDoCheck(): void {
-        let listDiff = this.listDiffer.diff(this.listHost.serviceInstance);
-        if (listDiff) {
-            listDiff.forEachChangedItem(this.checkListChanges);
+        let stateDiff = this.listDiffer.diff(this.lifetimeInfo);
+        if (stateDiff) {
+            stateDiff.forEachChangedItem(this.checkStateFieldChanges);
         }
-        let pagerDiff = this.pagerDiffer.diff(this.listHost.serviceInstance.pager);
+        let pagerDiff = this.pagerDiffer.diff(this.pager);
         if (pagerDiff) {
             pagerDiff.forEachChangedItem(this.checkPagerChanges);
         }
     }
-    private checkListChanges = (item: any): void => {
+    private checkStateFieldChanges = (item: any): void => {
         if (item.key === 'state') {
             this.setVisibility();
         }
@@ -41,6 +42,6 @@ export class TotalRecordsTextComponent implements DoCheck, OnInit {
         }
     }
     private setVisibility(): void {
-        this.isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.pager.totalCount !== 0;
+        this.isVisible = this.lifetimeInfo.state === ProgressState.Done && this.pager.totalCount !== 0;
     }
 }

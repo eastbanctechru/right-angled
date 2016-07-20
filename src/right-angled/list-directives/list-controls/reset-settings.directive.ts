@@ -1,15 +1,15 @@
 import { SkipSelf, Directive, HostListener } from '@angular/core';
 
-import { ListComponent } from '../list.component';
+import { RtFiltersService } from '../../services/injectables';
 
 @Directive({
     selector: '[rtResetSettings]'
 })
 export class ResetSettingsDirective {
-    constructor(@SkipSelf()private listHost: ListComponent) {
+    constructor(@SkipSelf()private filtersService: RtFiltersService) {
     }
     @HostListener('click')
     public resetFilters(): void {
-        this.listHost.serviceInstance.filtersService.resetValues();
+        this.filtersService.resetValues();
     }
 }

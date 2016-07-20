@@ -1,14 +1,17 @@
-import { Pager, Utility, AbstractLifetime, ProgressState } from 'e2e4';
-import { RtStateManagementService } from './rt-state-management-service';
-import { RtSortingsService, RtFiltersService } from './injectables';
+import { Injectable } from '@angular/core';
+import { Pager, Utility, ProgressState } from 'e2e4';
+import { RtQueryStringStateService } from './rt-query-string-state-service';
+import { RtListLifetimeInfo, RtSortingsService, RtFiltersService } from './injectables';
 
-export abstract class RtListServiceBase extends AbstractLifetime {
+@Injectable()
+export class RtListService {
     public fetchMethod: (requestParams: any) => Promise<any>;
     public destroyOnReload: any;
+    public pager: Pager;
 
     private listLoadDataSuccessCallback = (result: Object): Object => {
         this.pager.processResponse(result);
-        this.state = ProgressState.Done;
+        this.lifetimeInfo.state = ProgressState.Done;
         // In case when filter changed from last request and theres no data now
         if (this.pager.totalCount === 0) {
             this.clearData();
@@ -16,25 +19,7 @@ export abstract class RtListServiceBase extends AbstractLifetime {
         return result;
     }
     private listLoadDataFailCallback = (): void => {
-        this.state = ProgressState.Fail;
-    }
-    constructor(public pager: Pager, public stateService: RtStateManagementService, public sortingsService: RtSortingsService, public filtersService: RtFiltersService) {
-        super();
-        this.pager = pager;
-        this.stateService.target = this;
-        this.stateService.serializationKey = 'ls';
-        this.filtersService.registerFilterTarget(this, this.pager, this.sortingsService);
-    }
-    public init(): void {
-        const restoredState = this.stateService.mergeStates();
-        this.filtersService.applyParams(restoredState);
-        super.init();
-    }
-    public toRequest(): any {
-        return this.filtersService.getRequestState(null);
-    }
-    public getLocalState(): Object {
-        return this.filtersService.getPersistedState(null);
+        this.lifetimeInfo.state = ProgressState.Fail;
     }
     private clearData(): void {
         this.pager.reset();
@@ -51,28 +36,44 @@ export abstract class RtListServiceBase extends AbstractLifetime {
             }
         }
     }
+    constructor(private lifetimeInfo: RtListLifetimeInfo, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
+        this.stateService.stateKey = this;
+        this.stateService.serializationKey = 'ls';
+    }
+    public init(): void {
+        this.filtersService.registerFilterTarget(this, this.pager, this.sortingsService);
+        const restoredState = this.stateService.mergeStates();
+        this.filtersService.applyParams(restoredState);
+        this.lifetimeInfo.init();
+    }
     public dispose(): void {
-        super.dispose();
+        this.lifetimeInfo.dispose();
         this.filtersService.dispose();
         this.sortingsService.dispose();
         this.clearData();
     }
 
     public loadData(): Promise<Object> {
-        if (!this.inited) {
+        if (!this.lifetimeInfo.inited) {
             throw new Error('loadData can be called only after activation.');
         }
         this.pager.totalCount = 0;
-        this.state = ProgressState.Progress;
-        const promise = this.fetchMethod(this.toRequest());
+        this.lifetimeInfo.state = ProgressState.Progress;
+        let requestState = this.filtersService.getRequestState();
+
+        const promise = this.fetchMethod(requestState);
+        if (this.pager.appendedOnLoad === false) {
+            this.destroyReloadDestroyables();
+        }
+
         this.addToCancellationSequence(promise);
         promise.then(this.listLoadDataSuccessCallback, this.listLoadDataFailCallback);
-        this.stateService.flushRequestState(this.toRequest());
-        this.stateService.persistLocalState(this.getLocalState());
+        this.stateService.flushRequestState(requestState);
+        this.stateService.persistLocalState(this.filtersService.getPersistedState());
         return promise;
     }
     public reloadData(): void {
-        if (this.ready) {
+        if (this.lifetimeInfo.ready) {
             this.clearData();
             this.loadData();
         }

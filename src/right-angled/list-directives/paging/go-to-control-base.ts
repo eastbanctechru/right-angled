@@ -1,19 +1,17 @@
 import { Renderer, KeyValueDiffers, KeyValueDiffer, ElementRef, DoCheck, OnInit } from '@angular/core';
 
-import { ListComponent } from '../list.component';
-import { RtPagedListService } from '../../services/rt-paged-list-service.service';
+import { RtPagedPager } from '../../services/injectables';
+import { RtNullObjectInjectableObject } from '../../services/injectables';
 
 export abstract class GoToControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
-    protected pagedListService: RtPagedListService;
     protected innerDisabled: boolean = false;
     private nativeEl: any;
     public disabledCls: string;
-    constructor(private renderer: Renderer, listHost: ListComponent, differs: KeyValueDiffers, elementRef: ElementRef) {
-        if (!listHost.isPagedList) {
-            throw new Error('[rtGoToFirstPage] directive can be used only with paged list services.');
+    constructor(private renderer: Renderer, protected pager: RtPagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
+        if (pager === RtNullObjectInjectableObject.instance) {
+            throw new Error('[rtGoTo...] directives can be used only with paged list.');
         }
-        this.pagedListService = <RtPagedListService>listHost.serviceInstance;
         this.pagerDiffer = differs.find([]).create(null);
         this.nativeEl = elementRef.nativeElement;
     }
@@ -21,13 +19,13 @@ export abstract class GoToControlBase implements DoCheck, OnInit {
     public get disabled(): boolean {
         return this.innerDisabled;
     }
-    protected checkPagerChanged = (item: any): void => {
-        if (item.key === 'pageNumberInternal') {
+    private checkPagerChanged = (item: any): void => {
+        if (item.key === 'pageNumberInternal' || item.key === 'pageSizeInternal' || item.key === 'totalCount') {
             this.setDisabledState();
         }
     }
     public ngDoCheck(): void {
-        let pagerDiff = this.pagerDiffer.diff(this.pagedListService.pager);
+        let pagerDiff = this.pagerDiffer.diff(this.pager);
         if (pagerDiff) {
             pagerDiff.forEachChangedItem(this.checkPagerChanged);
         }

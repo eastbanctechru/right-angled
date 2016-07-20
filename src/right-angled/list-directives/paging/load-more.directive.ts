@@ -1,22 +1,20 @@
 import { SkipSelf, HostListener, Directive } from '@angular/core';
 
-import { ListComponent } from '../list.component';
-import { RtBufferedListService } from '../../services/rt-buffered-list-service.service';
+import { RtListService } from '../../services/rt-list-service.service';
+import { RtNullObjectInjectableObject, RtBufferedPager } from '../../services/injectables';
 
 @Directive({
     selector: '[rtLoadMore]'
 })
 export class LoadMoreDirective {
-    public bufferedListService: RtBufferedListService;
-    constructor( @SkipSelf() listHost: ListComponent) {
-        if (!listHost.isBufferedList) {
-            throw new Error('[rtLoadMore] directive can be used only with buffered list services.');
+    constructor( @SkipSelf() private listService: RtListService, @SkipSelf() private pager: RtBufferedPager) {
+        if (pager === RtNullObjectInjectableObject.instance) {
+            throw new Error('[rtLoadMore] directive can be used only with buffered lists.');
         }
-        this.bufferedListService = <RtBufferedListService>listHost.serviceInstance;
     }
     @HostListener('click', ['$event'])
     public loadMore(evt: MouseEvent): void {
-        this.bufferedListService.loadData();
+        this.listService.loadData();
         evt.preventDefault();
     }
 }

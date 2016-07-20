@@ -6,14 +6,14 @@ import { RtStateManagementService } from './rt-state-management-service';
 @Injectable()
 export class RtQueryStringStateService implements RtStateManagementService {
     private static stateObject: Map<any, any> = new Map<any, any>();
-    public target: any;
+    public stateKey: any;
     public serializationKey: string;
 
     constructor( @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
     }
     public flushRequestState(state: Object): void {
-        RtQueryStringStateService.stateObject.set(this.target, RtQueryStringStateService.stateObject.get(this.target) || {});
-        let vmState = RtQueryStringStateService.stateObject.get(this.target);
+        RtQueryStringStateService.stateObject.set(this.stateKey, RtQueryStringStateService.stateObject.get(this.stateKey) || {});
+        let vmState = RtQueryStringStateService.stateObject.get(this.stateKey);
         setTimeout(() => {
             let newState = {};
             Object.assign(newState, state);
@@ -34,7 +34,7 @@ export class RtQueryStringStateService implements RtStateManagementService {
         return restoredState;
     }
     private getRequestState(): any {
-        return RtQueryStringStateService.stateObject.get(this.target);
+        return RtQueryStringStateService.stateObject.get(this.stateKey);
     }
     private getPersistedState(): any {
         return {};

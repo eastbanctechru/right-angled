@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ListComponent } from '../../../right-angled/list-directives/list.component';
 import { REGULAR_FOOTER_DIRECTIVES } from '../../../right-angled/list-directives';
 
 @Component({
@@ -9,6 +8,4 @@ import { REGULAR_FOOTER_DIRECTIVES } from '../../../right-angled/list-directives
     templateUrl: 'regular-footer.component.html'
 })
 export class RegularFooterComponent {
-    constructor(public hostList: ListComponent) {
-    }
 }

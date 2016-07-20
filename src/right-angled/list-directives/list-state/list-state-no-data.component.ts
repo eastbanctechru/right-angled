@@ -1,8 +1,9 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { ListComponent } from '../list.component';
+import { RtListLifetimeInfo } from '../../services/injectables';
 import { ListStateComponent } from './list-state-component';
+import { RtNullObjectInjectableObject, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/injectables';
 
 @Component({
     selector: 'rt-list-state-no-data',
@@ -10,13 +11,15 @@ import { ListStateComponent } from './list-state-component';
 })
 export class ListStateNoDataComponent extends ListStateComponent implements DoCheck {
     private pagerDiffer: KeyValueDiffer;
-    constructor(@SkipSelf()listHost: ListComponent, differs: KeyValueDiffers) {
-        super(listHost, differs, ProgressState.Done);
+    private pager: RtPagedPager | RtBufferedPager | RtRegularPager;
+    constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() lifetimeInfo: RtListLifetimeInfo, differs: KeyValueDiffers) {
+        super(lifetimeInfo, differs, ProgressState.Done);
         this.pagerDiffer = differs.find([]).create(null);
+        this.pager = RtNullObjectInjectableObject.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);
     }
     public ngDoCheck(): void {
         super.ngDoCheck();
-        let pagerDiff = this.pagerDiffer.diff(this.listHost.serviceInstance.pager);
+        let pagerDiff = this.pagerDiffer.diff(this.pager);
         if (pagerDiff) {
             pagerDiff.forEachChangedItem(this.checkLoadedCountChanges);
         }
@@ -27,6 +30,6 @@ export class ListStateNoDataComponent extends ListStateComponent implements DoCh
         }
     }
     protected setVisibility(): void {
-        this.isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.pager.loadedCount === 0;
+        this.isVisible = this.lifetimeInfo.state === ProgressState.Done && this.pager.loadedCount === 0;
     }
 }

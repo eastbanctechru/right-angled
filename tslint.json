@@ -10,7 +10,7 @@
     "linebreak-style": "CRLF",
     "max-line-length": [
       true,
-      240
+      300
     ],
     "member-access": [
       true,

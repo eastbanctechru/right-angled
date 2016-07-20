@@ -1,8 +1,7 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { ListComponent } from '../list.component';
-import { RtBufferedListService } from '../../services/rt-buffered-list-service.service';
+import { RtNullObjectInjectableObject, RtListLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/injectables';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
@@ -11,26 +10,28 @@ import { ListStateComponent } from './list-state-component';
 })
 export class DisplayPagerComponent extends ListStateComponent implements DoCheck {
     private pagerDiffer: KeyValueDiffer;
-    constructor(@SkipSelf()listHost: ListComponent, differs: KeyValueDiffers) {
-        super(listHost, differs, ProgressState.Done);
+    private pager: RtPagedPager | RtBufferedPager | RtRegularPager;
+    constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() protected lifetimeInfo: RtListLifetimeInfo, differs: KeyValueDiffers) {
+        super(lifetimeInfo, differs, ProgressState.Done);
         this.pagerDiffer = differs.find([]).create(null);
+        this.pager = RtNullObjectInjectableObject.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);
     }
     public ngDoCheck(): void {
         super.ngDoCheck();
-        let pagerDiff = this.pagerDiffer.diff(this.listHost.serviceInstance.pager);
+        let pagerDiff = this.pagerDiffer.diff(this.pager);
         if (pagerDiff) {
             pagerDiff.forEachChangedItem(this.checkPagerChanges);
         }
     }
     private checkPagerChanges = (item: any): void => {
-        if (item.key === 'totalCount' || (this.listHost.isBufferedList && item.key === 'skip')) {
+        if (item.key === 'totalCount' || (this.pager instanceof RtBufferedPager && item.key === 'skip')) {
             this.setVisibility();
         }
     }
     public setVisibility(): void {
-        let isVisible = this.listHost.serviceInstance.state === ProgressState.Done && this.listHost.serviceInstance.pager.totalCount !== 0;
-        if (this.listHost.isBufferedList) {
-            isVisible = isVisible && (<RtBufferedListService>this.listHost.serviceInstance).pager.skip < this.listHost.serviceInstance.pager.totalCount;
+        let isVisible = this.lifetimeInfo.state === ProgressState.Done && this.pager.totalCount !== 0;
+        if (this.pager instanceof RtBufferedPager) {
+            isVisible = isVisible && (<RtBufferedPager>this.pager).skip < this.pager.totalCount;
         }
         this.isVisible = isVisible;
     }

@@ -1,23 +1,29 @@
-import { SkipSelf, Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, OnInit } from '@angular/core';
+import { SkipSelf, Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, IterableDiffer, OnInit } from '@angular/core';
 import { SortDirection, SortParameter } from 'e2e4';
 
-import { Defaults } from './defaults';
+import { RtListLifetimeInfo, RtSortingsService } from '../../services/injectables';
 import { ListComponent } from '../list.component';
 
 @Directive({
     selector: '[rtSort]'
 })
 export class SortDirective implements DoCheck, OnInit {
+    public static classNames: any =
+    {
+        sortAsc: 'rt-sort-asc',
+        sortDesc: 'rt-sort-desc',
+        sortable: 'rt-sortable'
+    };
     private nativeEl: HTMLElement;
-    private differ: any;
+    private sortingsDiffer: IterableDiffer;
     @Input('rtSort') public fieldName: string;
-    constructor( @SkipSelf() private listHost: ListComponent, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
-        this.differ = differs.find([]).create(null);
+    constructor( @SkipSelf() private listComponent: ListComponent, @SkipSelf() private sortingsService: RtSortingsService, @SkipSelf() private lifetimeInfo: RtListLifetimeInfo, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
+        this.sortingsDiffer = differs.find([]).create(null);
         this.nativeEl = el.nativeElement;
     }
     public ngOnInit(): void {
-        this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortable, true);
-        this.listHost.serviceInstance.sortingsService.sortings.some((sortParameter: SortParameter) => {
+        this.renderer.setElementClass(this.nativeEl, SortDirective.classNames.sortable, true);
+        this.sortingsService.sortings.some((sortParameter: SortParameter) => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.setSortClasses(sortParameter);
                 return true;
@@ -27,13 +33,13 @@ export class SortDirective implements DoCheck, OnInit {
     }
     @HostListener('click', ['$event'])
     public clickHandler(evt: MouseEvent): void {
-        if (this.listHost.serviceInstance.ready) {
-            this.listHost.serviceInstance.sortingsService.setSort(this.fieldName, evt.ctrlKey);
-            this.listHost.serviceInstance.reloadData();
+        if (this.lifetimeInfo.ready) {
+            this.sortingsService.setSort(this.fieldName, evt.ctrlKey);
+            this.listComponent.listService.reloadData();
         }
     }
     public ngDoCheck(): void {
-        let changes = this.differ.diff(this.listHost.serviceInstance.sortingsService.sortings);
+        let changes = this.sortingsDiffer.diff(this.sortingsService.sortings);
         if (changes) {
             changes.forEachRemovedItem(this.sortItemRemovedCallback);
             changes.forEachAddedItem(this.sortItemAddedCallback);
@@ -50,12 +56,12 @@ export class SortDirective implements DoCheck, OnInit {
         }
     }
     private removeSortClasses(sortParameter: any): void {
-        this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortAsc, false);
-        this.renderer.setElementClass(this.nativeEl, Defaults.classNames.sortDesc, false);
+        this.renderer.setElementClass(this.nativeEl, SortDirective.classNames.sortAsc, false);
+        this.renderer.setElementClass(this.nativeEl, SortDirective.classNames.sortDesc, false);
     }
     private setSortClasses(sortParameter: any): void {
         const direction = sortParameter.direction;
-        this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? Defaults.classNames.sortDesc : Defaults.classNames.sortAsc, false);
-        this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? Defaults.classNames.sortAsc : Defaults.classNames.sortDesc, true);
+        this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? SortDirective.classNames.sortDesc : SortDirective.classNames.sortAsc, false);
+        this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? SortDirective.classNames.sortAsc : SortDirective.classNames.sortDesc, true);
     }
 }

@@ -1,9 +1,7 @@
 export * from 'e2e4';
 
-export { RtPagedListService } from './services/rt-paged-list-service.service';
-export { RtBufferedListService } from './services/rt-buffered-list-service.service';
-export { RtRegularListService } from './services/rt-regular-list-service.service';
-export { RtBufferedPager, RtPagedPager, RtSimplePager, RtSortingsService, RtFiltersService } from './services/injectables';
+export { RtListService } from './services/rt-list-service.service';
+export { RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/injectables';
 
 import { SELECTION_DIRECTIVES } from './selection-directives/index';
 import { LIST_DIRECTIVES } from './list-directives/index';
@@ -15,31 +13,40 @@ export var BUFFERED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(BUFFERED_FOO
 export var REGULAR_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(REGULAR_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
 
 import { RtQueryStringStateService } from './services/rt-query-string-state-service';
-import { RtPagedListService } from './services/rt-paged-list-service.service';
-import { RtBufferedListService } from './services/rt-buffered-list-service.service';
-import { RtRegularListService } from './services/rt-regular-list-service.service';
+import { RtListService } from './services/rt-list-service.service';
 
-import { RtBufferedPager, RtPagedPager, RtSimplePager, RtSortingsService, RtFiltersService } from './services/injectables';
+import { RtNullObjectInjectableObject, RtListLifetimeInfo, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/injectables';
+import { provide } from '@angular/core';
+
 export var PAGED_LIST_PROVIDERS: any[] = [
-    RtFiltersService,
+    RtListLifetimeInfo,
+    RtListService,
+    provide(RtBufferedPager, { useValue: RtNullObjectInjectableObject.instance }),
+    provide(RtRegularPager, { useValue: RtNullObjectInjectableObject.instance }),
     RtSortingsService,
     RtPagedPager,
-    RtPagedListService,
+    RtFiltersService,
     RtQueryStringStateService
 ];
 
 export var BUFFERED_LIST_PROVIDERS: any[] = [
+    RtListLifetimeInfo,
+    RtListService,
+    provide(RtPagedPager, { useValue: RtNullObjectInjectableObject.instance }),
+    provide(RtRegularPager, { useValue: RtNullObjectInjectableObject.instance }),
     RtFiltersService,
     RtSortingsService,
     RtBufferedPager,
-    RtBufferedListService,
     RtQueryStringStateService
 ];
 
 export var REGULAR_LIST_PROVIDERS: any[] = [
+    RtListLifetimeInfo,
+    RtListService,
+    provide(RtPagedPager, { useValue: RtNullObjectInjectableObject.instance }),
+    provide(RtBufferedPager, { useValue: RtNullObjectInjectableObject.instance }),
     RtFiltersService,
     RtSortingsService,
-    RtSimplePager,
-    RtRegularListService,
+    RtRegularPager,
     RtQueryStringStateService
 ];

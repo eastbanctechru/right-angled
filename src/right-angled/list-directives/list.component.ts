@@ -1,38 +1,45 @@
-import { SkipSelf, Component, Input, OnDestroy, OnInit, Optional } from '@angular/core';
+import { SkipSelf, Component, Input, OnDestroy, OnInit } from '@angular/core';
 
-import { RtBufferedListService } from '../services/rt-buffered-list-service.service';
-import { RtPagedListService } from '../services/rt-paged-list-service.service';
-import { RtRegularListService } from '../services/rt-regular-list-service.service';
+import { RtListService } from '../services/rt-list-service.service';
+import { RtNullObjectInjectableObject, RtPagedPager, RtBufferedPager, RtRegularPager } from '../services/injectables';
 
 @Component({
     selector: 'rt-list',
     template: `<ng-content></ng-content>`
 })
 export class ListComponent implements OnDestroy, OnInit {
-    @Input() public loadOnInit: boolean = true;
-    @Input() public set destroyOnReload(value: any) {
-        this.serviceInstance.destroyOnReload = value;
-    }
-    @Input() public set fetchMethod(value: (requestParams: any) => Promise<any>) {
-        this.serviceInstance.fetchMethod = value;
-    }
-    public serviceInstance: RtRegularListService | RtBufferedListService | RtPagedListService;
     public isBufferedList: boolean;
     public isPagedList: boolean;
     public isRegularList: boolean;
-    constructor( @SkipSelf() @Optional() bufferedListService: RtBufferedListService, @SkipSelf() @Optional() pagedListService: RtPagedListService, @SkipSelf() @Optional() listService: RtRegularListService) {
-        this.serviceInstance = listService || bufferedListService || pagedListService;
-        this.isBufferedList = !!bufferedListService;
-        this.isPagedList = !!pagedListService;
-        this.isRegularList = !!listService;
+
+    @Input() public loadOnInit: boolean = true;
+    @Input() public set destroyOnReload(value: any) {
+        this.listService.destroyOnReload = value;
+    }
+    @Input() public set fetchMethod(value: (requestParams: any) => Promise<any>) {
+        this.listService.fetchMethod = value;
+    }
+    constructor( @SkipSelf() public listService: RtListService, @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager) {
+        if (bufferedPager !== RtNullObjectInjectableObject.instance) {
+            this.isBufferedList = true;
+            this.listService.pager = bufferedPager;
+        }
+        if (pagedPager !== RtNullObjectInjectableObject.instance) {
+            this.isPagedList = true;
+            this.listService.pager = pagedPager;
+        }
+        if (regularPager !== RtNullObjectInjectableObject.instance) {
+            this.isRegularList = true;
+            this.listService.pager = regularPager;
+        }
     }
     public ngOnInit(): void {
-        this.serviceInstance.init();
-        if (this.loadOnInit && this.serviceInstance.inited) {
-            this.serviceInstance.loadData();
+        this.listService.init();
+        if (this.loadOnInit) {
+            this.listService.loadData();
         }
     }
     public ngOnDestroy(): void {
-        this.serviceInstance.dispose();
+        this.listService.dispose();
     }
 }

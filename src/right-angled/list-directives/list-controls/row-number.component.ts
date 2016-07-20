@@ -1,7 +1,6 @@
 import { SkipSelf, Component, Input, OnChanges } from '@angular/core';
 
-import { ListComponent } from '../list.component';
-import { RtPagedListService } from '../../services/rt-paged-list-service.service';
+import { RtNullObjectInjectableObject, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/injectables';
 
 @Component({
     selector: 'rt-row-number',
@@ -10,14 +9,13 @@ import { RtPagedListService } from '../../services/rt-paged-list-service.service
 export class RowNumberComponent implements OnChanges {
     @Input() public index: number;
     private rowNumber: number;
-    constructor( @SkipSelf() private listHost: ListComponent) {
-        this.listHost = listHost;
+    constructor( @SkipSelf() private pagedPager: RtPagedPager, @SkipSelf() private bufferedPager: RtBufferedPager, @SkipSelf() private regularPager: RtRegularPager) {
     }
     public ngOnChanges(): void {
-        if (this.listHost.isRegularList || this.listHost.isBufferedList) {
+        if (this.regularPager !== RtNullObjectInjectableObject.instance && this.bufferedPager !== RtNullObjectInjectableObject.instance) {
             this.rowNumber = this.index + 1;
-        } else if (this.listHost.isPagedList) {
-            this.rowNumber = this.index + (<RtPagedListService>this.listHost.serviceInstance).pager.displayFrom;
+        } else if (this.pagedPager !== RtNullObjectInjectableObject.instance) {
+            this.rowNumber = this.index + this.pagedPager.displayFrom;
         }
     }
 }

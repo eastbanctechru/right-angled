@@ -1,38 +1,39 @@
 import { SkipSelf, Directive, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 
+import { RtListLifetimeInfo } from '../../services/injectables';
 import { ListComponent } from '../list.component';
 
 @Directive({
     selector: '[rtLoadData]'
 })
 export class LoadDataDirective implements DoCheck, OnInit {
-    private listDiffer: KeyValueDiffer;
+    private stateDiffer: KeyValueDiffer;
     @HostBinding('disabled')
     public disabled: boolean;
 
-    constructor( @SkipSelf() public listHost: ListComponent, listDiffers: KeyValueDiffers) {
-        this.listHost = listHost;
-        this.listDiffer = listDiffers.find([]).create(null);
+    constructor( @SkipSelf() public lifetimeInfo: RtListLifetimeInfo, @SkipSelf() public listComponent: ListComponent, stateDiffers: KeyValueDiffers) {
+        this.lifetimeInfo = lifetimeInfo;
+        this.stateDiffer = stateDiffers.find([]).create(null);
     }
     public ngOnInit(): void {
         this.setAttributes();
     }
     public ngDoCheck(): void {
-        let listDiff = this.listDiffer.diff(this.listHost.serviceInstance);
-        if (listDiff) {
-            listDiff.forEachChangedItem(this.checkStatusChanges);
+        let stateDiff = this.stateDiffer.diff(this.lifetimeInfo);
+        if (stateDiff) {
+            stateDiff.forEachChangedItem(this.checkStateFieldChanges);
         }
     }
-    protected checkStatusChanges = (item: any): void => {
+    protected checkStateFieldChanges = (item: any): void => {
         if (item.key === 'state') {
             this.setAttributes();
         }
     }
     public setAttributes(): void {
-        this.disabled = this.listHost.serviceInstance.busy;
+        this.disabled = this.lifetimeInfo.busy;
     }
     @HostListener('click')
     public loadData(): void {
-        this.listHost.serviceInstance.reloadData();
+        this.listComponent.listService.reloadData();
     }
 }

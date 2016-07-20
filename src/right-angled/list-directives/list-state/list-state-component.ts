@@ -1,31 +1,31 @@
 import { KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { ListComponent } from '../list.component';
+import { RtListLifetimeInfo } from '../../services/injectables';
 
 export abstract class ListStateComponent implements DoCheck, OnInit {
-    private listDiffer: KeyValueDiffer;
+    private stateDiffer: KeyValueDiffer;
     private visibleState: ProgressState;
     protected isVisible: boolean;
-    constructor(protected listHost: ListComponent, differs: KeyValueDiffers, visibleState: ProgressState) {
+    constructor(protected lifetimeInfo: RtListLifetimeInfo, differs: KeyValueDiffers, visibleState: ProgressState) {
         this.visibleState = visibleState;
-        this.listDiffer = differs.find([]).create(null);
+        this.stateDiffer = differs.find([]).create(null);
     }
     public ngOnInit(): void {
         this.setVisibility();
     }
     public ngDoCheck(): void {
-        let listDiff = this.listDiffer.diff(this.listHost.serviceInstance);
-        if (listDiff) {
-            listDiff.forEachChangedItem(this.checkStateChanges);
+        let stateDiff = this.stateDiffer.diff(this.lifetimeInfo);
+        if (stateDiff) {
+            stateDiff.forEachChangedItem(this.checkStateFieldChanges);
         }
     }
-    private checkStateChanges = (item: any): void => {
+    private checkStateFieldChanges = (item: any): void => {
         if (item.key === 'state') {
             this.setVisibility();
         }
     }
     protected setVisibility(): void {
-        this.isVisible = this.listHost.serviceInstance.state === this.visibleState;
+        this.isVisible = this.lifetimeInfo.state === this.visibleState;
     }
 }

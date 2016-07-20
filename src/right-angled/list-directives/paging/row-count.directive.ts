@@ -1,13 +1,12 @@
 import { SkipSelf, HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 
-import { ListComponent } from '../list.component';
-import { RtBufferedListService } from '../../services/rt-buffered-list-service.service';
+import { RtListService } from '../../services/rt-list-service.service';
+import { RtNullObjectInjectableObject, RtBufferedPager } from '../../services/injectables';
 
 @Directive({
     selector: 'input[rtRowCount]'
 })
 export class RowCountDirective implements DoCheck {
-    public bufferedListService: RtBufferedListService;
     private pagerDiffer: KeyValueDiffer;
     @HostBinding('value')
     private innerRowCount: number;
@@ -16,18 +15,17 @@ export class RowCountDirective implements DoCheck {
             this.innerRowCount = item.currentValue;
         }
     }
-    constructor( @SkipSelf() listHost: ListComponent, differs: KeyValueDiffers) {
-        if (!listHost.isBufferedList) {
+    constructor( @SkipSelf() private listService: RtListService, @SkipSelf() private pager: RtBufferedPager, differs: KeyValueDiffers) {
+        if (pager === RtNullObjectInjectableObject.instance) {
             throw new Error('[rtRowCount] directive can be used only with buffered list services.');
         }
-        this.bufferedListService = <RtBufferedListService>listHost.serviceInstance;
-        this.innerRowCount = this.bufferedListService.pager.takeRowCount;
+        this.innerRowCount = pager.takeRowCount;
         this.pagerDiffer = differs.find([]).create(null);
     }
     @HostListener('keyup.enter')
     public onEnter(): void {
-        this.innerRowCount = this.bufferedListService.pager.takeRowCount;
-        this.bufferedListService.loadData();
+        this.innerRowCount = this.pager.takeRowCount;
+        this.listService.loadData();
     }
 
     @HostListener('input', ['$event.target.value'])
@@ -36,16 +34,16 @@ export class RowCountDirective implements DoCheck {
         if (value === null || value === undefined || value === '') {
             return;
         }
-        this.bufferedListService.pager.takeRowCount = value;
-        setTimeout(() => this.innerRowCount = this.bufferedListService.pager.takeRowCount);
+        this.pager.takeRowCount = value;
+        setTimeout(() => this.innerRowCount = this.pager.takeRowCount);
     }
 
     @HostListener('blur')
     public restoreInputValue(value: any): void {
-        this.innerRowCount = this.bufferedListService.pager.takeRowCount;
+        this.innerRowCount = this.pager.takeRowCount;
     }
     public ngDoCheck(): void {
-        let pagerDiff = this.pagerDiffer.diff(this.bufferedListService.pager);
+        let pagerDiff = this.pagerDiffer.diff(this.pager);
         if (pagerDiff) {
             pagerDiff.forEachChangedItem(this.checkRowCountChanged);
         }
