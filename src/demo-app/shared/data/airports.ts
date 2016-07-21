@@ -1,15 +1,5 @@
-export interface AirportInfo {
-    iata: string;
-    lon: string;
-    iso: string;
-    status: number;
-    name: string;
-    continent: string;
-    type: string;
-    lat: string;
-    size: string;
-}
-export var airports: AirportInfo[] = [
+import { Airport } from './airport';
+export var airports: Airport[] = [
     {
         'iata': 'UTK',
         'lon': '169.86667',
@@ -20,7 +10,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '11.233333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'FIV',
         'iso': 'US',
@@ -29,7 +19,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'FAK',
         'iso': 'US',
@@ -38,7 +28,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BWS',
         'iso': 'US',
@@ -47,7 +37,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'WKK',
         'lon': '-158.61111',
@@ -58,7 +48,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '59.27778',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TSS',
         'iso': 'US',
@@ -67,7 +57,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'FOB',
         'lon': '-123.79444',
@@ -78,7 +68,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '39.474445',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ABP',
         'lon': '141.1',
@@ -89,7 +79,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-6.066667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ALV',
         'iso': 'AD',
@@ -98,7 +88,7 @@ export var airports: AirportInfo[] = [
         'continent': 'EU',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ADC',
         'lon': '145.73334',
@@ -109,7 +99,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-7.133333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TJP',
         'lon': '-66.563545',
@@ -120,7 +110,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '18.010702',
         'size': 'large'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AEE',
         'iso': 'SS',
@@ -129,7 +119,7 @@ export var airports: AirportInfo[] = [
         'continent': 'AF',
         'type': 'airport',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AEI',
         'iso': 'ES',
@@ -138,7 +128,7 @@ export var airports: AirportInfo[] = [
         'continent': 'EU',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AEK',
         'lon': '146.28334',
@@ -149,7 +139,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-7.366667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'OLR',
         'lon': '36.130333',
@@ -160,7 +150,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '34.023167',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AFR',
         'lon': '148.38333',
@@ -171,7 +161,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.133333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AFT',
         'lon': '160.85',
@@ -182,7 +172,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.2',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ATD',
         'lon': '161.03334',
@@ -193,7 +183,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.866667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'VEV',
         'lon': '159.55',
@@ -204,7 +194,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-7.85',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'GEF',
         'lon': '156.59778',
@@ -215,7 +205,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-7.578333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AGG',
         'lon': '144.07388',
@@ -226,7 +216,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-4.168611',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AKS',
         'lon': '160.68083',
@@ -237,7 +227,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.697778',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BAS',
         'lon': '155.88333',
@@ -248,7 +238,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-6.983333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'FRE',
         'lon': '159.58333',
@@ -259,7 +249,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.1',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HIR',
         'lon': '160.04819',
@@ -270,7 +260,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.428592',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MBU',
         'lon': '160.75',
@@ -281,7 +271,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.733333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'IRA',
         'lon': '161.83333',
@@ -292,7 +282,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-10.5',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SCZ',
         'lon': '166.85',
@@ -303,7 +293,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-11.616667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MUA',
         'lon': '157.26971',
@@ -314,7 +304,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.32794',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'GZO',
         'lon': '156.83333',
@@ -325,7 +315,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.116667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MNY',
         'lon': '155.56462',
@@ -336,7 +326,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-7.417428',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'PRS',
         'lon': '158.0',
@@ -347,7 +337,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.166667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'OTV',
         'iso': 'SB',
@@ -356,7 +346,7 @@ export var airports: AirportInfo[] = [
         'continent': 'OC',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'RNL',
         'lon': '160.3',
@@ -367,7 +357,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-11.666667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'EGM',
         'lon': '157.87506',
@@ -378,7 +368,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.577956',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'RUS',
         'lon': '161.25',
@@ -389,7 +379,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.5',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'VAO',
         'lon': '158.66667',
@@ -400,7 +390,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-7.566667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AGK',
         'lon': '143.84666',
@@ -411,7 +401,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-6.403333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KGE',
         'lon': '157.5861',
@@ -422,7 +412,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.165',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AGL',
         'lon': '149.15527',
@@ -433,7 +423,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.340278',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'RIN',
         'lon': '157.03334',
@@ -444,7 +434,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.2',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'RBV',
         'lon': '157.63945',
@@ -455,7 +445,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.165556',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AHT',
         'iso': 'US',
@@ -464,7 +454,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AHY',
         'lon': '45.533333',
@@ -475,7 +465,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-20.016666',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AIE',
         'lon': '144.66667',
@@ -486,7 +476,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.166667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AIH',
         'lon': '141.26639',
@@ -497,7 +487,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-7.348611',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AIP',
         'lon': '168.81667',
@@ -508,7 +498,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '7.266667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AOS',
         'iso': 'US',
@@ -517,7 +507,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AKM',
         'lon': '19.816668',
@@ -528,7 +518,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '10.883333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ALZ',
         'iso': 'US',
@@ -537,7 +527,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AME',
         'lon': '37.583332',
@@ -548,7 +538,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-15.833333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AMF',
         'lon': '141.66667',
@@ -559,7 +549,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-4.166667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AMU',
         'lon': '141.15',
@@ -570,7 +560,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-3.516667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AMY',
         'lon': '45.666668',
@@ -581,7 +571,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.683332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ANH',
         'iso': 'SB',
@@ -590,7 +580,7 @@ export var airports: AirportInfo[] = [
         'continent': 'OC',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'INU',
         'lon': '166.91667',
@@ -601,7 +591,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-0.533333',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ANL',
         'lon': '17.25',
@@ -612,7 +602,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-11.25',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CNZ',
         'lon': '19.0',
@@ -623,7 +613,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-11.5',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'DRC',
         'lon': '20.7',
@@ -634,7 +624,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.833332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'GGC',
         'lon': '22.566668',
@@ -645,7 +635,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-12.65',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JMB',
         'lon': '16.083332',
@@ -656,7 +646,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-14.7',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KNP',
         'lon': '15.450278',
@@ -667,7 +657,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.766944',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NDF',
         'lon': '14.833333',
@@ -678,7 +668,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.333333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AOB',
         'lon': '144.65',
@@ -689,7 +679,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-4.916667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'APP',
         'lon': '148.13333',
@@ -700,7 +690,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.983333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'APR',
         'lon': '145.0',
@@ -711,7 +701,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.5',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AQY',
         'lon': '-149.11667',
@@ -722,7 +712,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '60.966667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QRF',
         'lon': '-60.466667',
@@ -733,7 +723,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-35.13333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CSZ',
         'lon': '-61.88333',
@@ -744,7 +734,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-37.433334',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CVI',
         'lon': '-67.416664',
@@ -755,7 +745,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-46.416668',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CNT',
         'lon': '-61.233334',
@@ -766,7 +756,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-27.216667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'VGS',
         'lon': '-63.0',
@@ -777,7 +767,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-35.083332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'LMD',
         'lon': '-68.13333',
@@ -788,7 +778,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-40.833332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'VCF',
         'lon': '-66.15',
@@ -799,7 +789,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-40.7',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'VME',
         'lon': '-65.416664',
@@ -810,7 +800,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-33.63333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NCJ',
         'iso': 'AR',
@@ -819,7 +809,7 @@ export var airports: AirportInfo[] = [
         'continent': 'SA',
         'type': 'airport',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CPG',
         'lon': '-62.979782',
@@ -830,7 +820,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-40.782757',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'PRQ',
         'lon': '-60.666668',
@@ -841,7 +831,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-26.833332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ARP',
         'lon': '149.5',
@@ -852,7 +842,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.8',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TAV',
         'lon': '-169.45',
@@ -863,7 +853,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-14.25',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ASZ',
         'lon': '150.36667',
@@ -874,7 +864,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.866667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ATP',
         'lon': '142.28334',
@@ -885,7 +875,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-3.166667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AGW',
         'lon': '142.15',
@@ -896,7 +886,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-12.15',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AYD',
         'lon': '135.95',
@@ -907,7 +897,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-19.3',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BCK',
         'lon': '144.16667',
@@ -918,7 +908,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.4',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BFC',
         'lon': '145.33333',
@@ -929,7 +919,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-15.9',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BVW',
         'lon': '143.21666',
@@ -940,7 +930,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-12.65',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BYX',
         'lon': '136.23334',
@@ -951,7 +941,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-13.2',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'COB',
         'lon': '130.93333',
@@ -962,7 +952,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-15.55',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CQP',
         'lon': '147.5',
@@ -973,7 +963,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-18.2',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CRJ',
         'lon': '132.3',
@@ -984,7 +974,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-31.9',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CRY',
         'lon': '128.61667',
@@ -995,7 +985,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-15.466667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CSD',
         'lon': '135.91667',
@@ -1006,7 +996,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.966667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CTR',
         'lon': '131.0',
@@ -1017,7 +1007,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.583332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'DYM',
         'lon': '139.16667',
@@ -1028,7 +1018,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-26.75',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'EDD',
         'lon': '133.2',
@@ -1039,7 +1029,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-25.25',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'EKD',
         'lon': '135.55',
@@ -1050,7 +1040,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-21.15',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HAT',
         'lon': '140.58333',
@@ -1061,7 +1051,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-19.720833',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HIG',
         'lon': '143.15',
@@ -1072,7 +1062,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-16.416668',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HIS',
         'iso': 'AU',
@@ -1081,7 +1071,7 @@ export var airports: AirportInfo[] = [
         'continent': 'OC',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HLV',
         'lon': '145.2',
@@ -1092,7 +1082,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-15.683333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KBD',
         'lon': '124.35',
@@ -1103,7 +1093,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.333332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KGR',
         'lon': '133.03334',
@@ -1114,7 +1104,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-25.833332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KOH',
         'lon': '142.41667',
@@ -1125,7 +1115,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-15.966667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KYF',
         'lon': '120.075',
@@ -1136,7 +1126,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-27.277779',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'LIB',
         'lon': '129.8',
@@ -1147,7 +1137,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.2',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MNW',
         'lon': '135.21666',
@@ -1158,7 +1148,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-22.45',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MUP',
         'lon': '141.05',
@@ -1169,7 +1159,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-31.133333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MWY',
         'lon': '141.51666',
@@ -1180,7 +1170,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-25.783333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MYO',
         'lon': '124.26667',
@@ -1191,7 +1181,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-18.116667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NKB',
         'lon': '124.85',
@@ -1202,7 +1192,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-18.55',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'OKB',
         'lon': '153.16667',
@@ -1213,7 +1203,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-25.25',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'PEP',
         'lon': '130.1',
@@ -1224,7 +1214,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-14.15',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'RDA',
         'lon': '135.16667',
@@ -1235,7 +1225,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-18.95',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SSK',
         'lon': '128.13333',
@@ -1246,7 +1236,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-19.2',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SWB',
         'lon': '119.36667',
@@ -1257,7 +1247,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-21.516666',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TPR',
         'lon': '117.666664',
@@ -1268,7 +1258,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-22.75',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TWP',
         'lon': '143.75',
@@ -1279,7 +1269,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.366667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'WRW',
         'lon': '120.71667',
@@ -1290,7 +1280,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-20.866667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'WSY',
         'lon': '148.75278',
@@ -1301,7 +1291,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-20.502777',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ZVG',
         'lon': '127.583336',
@@ -1312,7 +1302,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.866667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AUI',
         'lon': '143.075',
@@ -1323,7 +1313,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-1.458333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AUJ',
         'lon': '142.85',
@@ -1334,7 +1324,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-4.25',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AUP',
         'lon': '149.58333',
@@ -1345,7 +1335,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.983333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AUV',
         'lon': '148.43333',
@@ -1356,7 +1346,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.716667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BUA',
         'lon': '154.67288',
@@ -1367,7 +1357,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.422443',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CMU',
         'lon': '144.97444',
@@ -1378,7 +1368,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.993889',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'DAU',
         'lon': '143.20605',
@@ -1389,7 +1379,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.08351',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'GKA',
         'lon': '145.39293',
@@ -1400,7 +1390,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-6.075244',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'GUR',
         'lon': '150.33861',
@@ -1411,7 +1401,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-10.310833',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'PNP',
         'lon': '148.30873',
@@ -1422,7 +1412,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.807474',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HKN',
         'lon': '150.403',
@@ -1433,7 +1423,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.456876',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'LSA',
         'lon': '151.025',
@@ -1444,7 +1434,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-8.363889',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'UNG',
         'lon': '141.28601',
@@ -1455,7 +1445,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-6.125552',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KRI',
         'lon': '144.26666',
@@ -1466,7 +1456,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-7.483333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KMA',
         'lon': '145.77155',
@@ -1477,7 +1467,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-7.961702',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KVG',
         'lon': '150.80653',
@@ -1488,7 +1478,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-2.58075',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'LNV',
         'lon': '152.6272',
@@ -1499,7 +1489,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-3.043223',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MAG',
         'lon': '145.78784',
@@ -1510,7 +1500,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.210852',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HGU',
         'lon': '144.29738',
@@ -1521,7 +1511,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.828767',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MDU',
         'lon': '143.65',
@@ -1532,7 +1522,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-6.158611',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MAS',
         'lon': '147.42444',
@@ -1543,7 +1533,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-2.056667',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MXH',
         'lon': '143.25055',
@@ -1554,7 +1544,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-6.3525',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MIS',
         'lon': '152.84166',
@@ -1565,7 +1555,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-10.5',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'LAE',
         'lon': '146.72757',
@@ -1576,7 +1566,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-6.562694',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'POM',
         'lon': '147.21446',
@@ -1587,7 +1577,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-9.444308',
         'size': 'large'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TIZ',
         'lon': '142.94055',
@@ -1598,7 +1588,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.860556',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TBG',
         'lon': '141.227',
@@ -1609,7 +1599,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.274722',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'RAB',
         'lon': '152.36667',
@@ -1620,7 +1610,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-4.333333',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AYU',
         'lon': '145.9',
@@ -1631,7 +1621,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-6.333333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'VAI',
         'lon': '141.30194',
@@ -1642,7 +1632,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-2.694722',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'WBM',
         'lon': '143.91667',
@@ -1653,7 +1643,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-5.616667',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'WWK',
         'lon': '143.66916',
@@ -1664,7 +1654,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-3.580034',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AYY',
         'iso': 'LK',
@@ -1673,7 +1663,7 @@ export var airports: AirportInfo[] = [
         'continent': 'AS',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AYZ',
         'iso': 'US',
@@ -1682,7 +1672,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AZB',
         'lon': '148.81667',
@@ -1693,7 +1683,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-10.15',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BCW',
         'lon': '35.425',
@@ -1704,7 +1694,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-21.884722',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HKV',
         'lon': '25.55',
@@ -1715,7 +1705,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '41.933334',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JAM',
         'lon': '26.483334',
@@ -1726,7 +1716,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '42.516666',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SZR',
         'iso': 'BG',
@@ -1735,7 +1725,7 @@ export var airports: AirportInfo[] = [
         'continent': 'EU',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JEG',
         'lon': '-52.75',
@@ -1746,7 +1736,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '68.7',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AAP',
         'iso': 'GL',
@@ -1755,7 +1745,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AGM',
         'iso': 'GL',
@@ -1764,7 +1754,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'LLU',
         'iso': 'GL',
@@ -1773,7 +1763,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QUV',
         'iso': 'GL',
@@ -1782,7 +1772,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QUW',
         'iso': 'GL',
@@ -1791,7 +1781,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QGQ',
         'iso': 'GL',
@@ -1800,7 +1790,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'UAK',
         'lon': '-45.316666',
@@ -1811,7 +1801,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '61.166668',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JCH',
         'iso': 'GL',
@@ -1820,7 +1810,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CNP',
         'lon': '-22.658333',
@@ -1831,7 +1821,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '70.74306',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QFG',
         'iso': 'GL',
@@ -1840,7 +1830,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QFN',
         'iso': 'GL',
@@ -1849,7 +1839,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JFR',
         'iso': 'GL',
@@ -1858,7 +1848,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'GOH',
         'lon': '-51.725',
@@ -1869,7 +1859,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '64.181946',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JGO',
         'iso': 'GL',
@@ -1878,7 +1868,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'IKE',
         'iso': 'GL',
@@ -1887,7 +1877,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QFI',
         'iso': 'GL',
@@ -1896,7 +1886,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'XIQ',
         'iso': 'GL',
@@ -1905,7 +1895,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'INN',
         'iso': 'GL',
@@ -1914,7 +1904,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ISO',
         'iso': 'GL',
@@ -1923,7 +1913,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QJI',
         'iso': 'GL',
@@ -1932,7 +1922,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JJU',
         'iso': 'GL',
@@ -1941,7 +1931,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JAV',
         'lon': '-51.05991',
@@ -1952,7 +1942,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '69.24186',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QPW',
         'iso': 'GL',
@@ -1961,7 +1951,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KUS',
         'lon': '-37.11667',
@@ -1972,7 +1962,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '65.566666',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'UPK',
         'iso': 'GL',
@@ -1981,7 +1971,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KMT',
         'iso': 'GL',
@@ -1990,7 +1980,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KLQ',
         'iso': 'GL',
@@ -1999,7 +1989,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KAQ',
         'iso': 'GL',
@@ -2008,7 +1998,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QJE',
         'iso': 'GL',
@@ -2017,7 +2007,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ILL',
         'iso': 'GL',
@@ -2026,7 +2016,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MOR',
         'iso': 'GL',
@@ -2035,7 +2025,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JSU',
         'lon': '-52.93537',
@@ -2046,7 +2036,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '65.41244',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QMK',
         'iso': 'GL',
@@ -2055,7 +2045,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JNN',
         'iso': 'GL',
@@ -2064,7 +2054,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NUG',
         'iso': 'GL',
@@ -2073,7 +2063,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JNS',
         'iso': 'GL',
@@ -2082,7 +2072,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NIA',
         'iso': 'GL',
@@ -2091,7 +2081,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NUS',
         'iso': 'GL',
@@ -2100,7 +2090,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JFR',
         'lon': '-49.70028',
@@ -2111,7 +2101,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '62.00028',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QQT',
         'iso': 'GL',
@@ -2120,7 +2110,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NAQ',
         'lon': '-69.382996',
@@ -2131,7 +2121,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '77.48948',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'OBY',
         'iso': 'GL',
@@ -2140,7 +2130,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SFJ',
         'lon': '-50.719723',
@@ -2151,7 +2141,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '67.01222',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SMG',
         'iso': 'GL',
@@ -2160,7 +2150,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SIO',
         'iso': 'GL',
@@ -2169,7 +2159,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QUP',
         'iso': 'GL',
@@ -2178,7 +2168,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JHS',
         'lon': '-53.704166',
@@ -2189,7 +2179,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '66.93694',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SAA',
         'iso': 'GL',
@@ -2198,7 +2188,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SAV',
         'iso': 'GL',
@@ -2207,7 +2197,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'THU',
         'lon': '-68.7',
@@ -2218,7 +2208,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '76.53333',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TNT',
         'iso': 'GL',
@@ -2227,7 +2217,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JUV',
         'lon': '-56.130554',
@@ -2238,7 +2228,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '72.790276',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'UMD',
         'iso': 'GL',
@@ -2247,7 +2237,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JQA',
         'lon': '-52.702778',
@@ -2258,7 +2248,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '70.73194',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'UKK',
         'iso': 'GL',
@@ -2267,7 +2257,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AEY',
         'lon': '-18.075068',
@@ -2278,7 +2268,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '65.654564',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BIU',
         'lon': '-23.983334',
@@ -2289,7 +2279,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '65.833336',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BLO',
         'lon': '-20.3',
@@ -2300,7 +2290,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '65.666664',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HFN',
         'lon': '-15.266667',
@@ -2311,7 +2301,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '64.28333',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'FLI',
         'lon': '-23.7',
@@ -2322,7 +2312,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '65.98333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HZK',
         'lon': '-17.427778',
@@ -2333,7 +2323,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '65.95528',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KEF',
         'lon': '-22.624283',
@@ -2344,7 +2334,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '63.997765',
         'size': 'large'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'PFJ',
         'lon': '-19.008333',
@@ -2355,7 +2345,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '65.03333',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'OLI',
         'lon': '-23.983334',
@@ -2366,7 +2356,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '65.0',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'REK',
         'iso': 'IS',
@@ -2375,7 +2365,7 @@ export var airports: AirportInfo[] = [
         'continent': 'EU',
         'type': 'airport',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SIJ',
         'lon': '-18.933332',
@@ -2386,7 +2376,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '66.166664',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'THO',
         'lon': '-15.335653',
@@ -2397,7 +2387,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '66.219734',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'VEY',
         'lon': '-20.277779',
@@ -2408,7 +2398,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '63.426388',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BJE',
         'iso': 'SD',
@@ -2417,7 +2407,7 @@ export var airports: AirportInfo[] = [
         'continent': 'AF',
         'type': 'airport',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BJQ',
         'iso': 'OM',
@@ -2426,7 +2416,7 @@ export var airports: AirportInfo[] = [
         'continent': 'AS',
         'type': 'airport',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BLM',
         'lon': '-74.01667',
@@ -2437,7 +2427,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '40.183334',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BMQ',
         'lon': '39.833332',
@@ -2448,7 +2438,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-4.5',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'RBQ',
         'lon': '-67.55',
@@ -2459,7 +2449,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-14.45',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BVL',
         'lon': '-63.583332',
@@ -2470,7 +2460,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-13.583333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ALT',
         'iso': 'BR',
@@ -2479,7 +2469,7 @@ export var airports: AirportInfo[] = [
         'continent': 'SA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SWM',
         'iso': 'BR',
@@ -2488,7 +2478,7 @@ export var airports: AirportInfo[] = [
         'continent': 'SA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NSB',
         'iso': 'BS',
@@ -2497,7 +2487,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HUK',
         'lon': '21.75',
@@ -2508,7 +2498,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-23.983334',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BYV',
         'iso': 'LK',
@@ -2517,7 +2507,7 @@ export var airports: AirportInfo[] = [
         'continent': 'AS',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BCV',
         'lon': '-88.77904',
@@ -2528,7 +2518,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '17.270498',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BGK',
         'lon': '-88.4',
@@ -2539,7 +2529,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '16.516666',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CUK',
         'lon': '-88.02956',
@@ -2550,7 +2540,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '17.735527',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CYC',
         'lon': '-88.833336',
@@ -2561,7 +2551,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '17.666668',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CZH',
         'lon': '-88.410675',
@@ -2572,7 +2562,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '18.382334',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'DGA',
         'lon': '-88.23039',
@@ -2583,7 +2573,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '16.982765',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'INB',
         'lon': '-88.43826',
@@ -2594,7 +2584,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '16.535536',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'MDB',
         'lon': '-88.32056',
@@ -2605,7 +2595,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '16.998611',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ORZ',
         'lon': '-88.75',
@@ -2616,7 +2606,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '17.166668',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'PLJ',
         'lon': '-88.360886',
@@ -2627,7 +2617,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '16.53708',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'PND',
         'lon': '-88.816666',
@@ -2638,7 +2628,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '16.1',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SJX',
         'lon': '-88.333336',
@@ -2649,7 +2639,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '18.3',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SPR',
         'lon': '-87.96571',
@@ -2660,7 +2650,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '17.917067',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SQS',
         'lon': '-89.03333',
@@ -2671,7 +2661,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '17.183332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'STU',
         'lon': '-88.45',
@@ -2682,7 +2672,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '18.266666',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SVK',
         'lon': '-88.34',
@@ -2693,7 +2683,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '16.7253',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TZA',
         'lon': '-88.191666',
@@ -2704,7 +2694,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '17.51639',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'BZB',
         'lon': '35.49167',
@@ -2715,7 +2705,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-21.534721',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YUJ',
         'iso': 'CA',
@@ -2724,7 +2714,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YWO',
         'iso': 'CA',
@@ -2733,7 +2723,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YTJ',
         'iso': 'CA',
@@ -2742,7 +2732,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YMV',
         'iso': 'CA',
@@ -2751,7 +2741,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'airport',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBW',
         'iso': 'CA',
@@ -2760,7 +2750,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ZNA',
         'iso': 'CA',
@@ -2769,7 +2759,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YZZ',
         'lon': '-117.6',
@@ -2780,7 +2770,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '49.066666',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YWS',
         'iso': 'CA',
@@ -2789,7 +2779,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YPT',
         'iso': 'CA',
@@ -2798,7 +2788,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAA',
         'lon': '-125.3',
@@ -2809,7 +2799,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.45',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JHL',
         'lon': '-111.41889',
@@ -2820,7 +2810,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '57.22389',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YMU',
         'iso': 'CA',
@@ -2829,7 +2819,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YWM',
         'lon': '-56.01282',
@@ -2840,7 +2830,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.335438',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YFX',
         'lon': '-55.683334',
@@ -2851,7 +2841,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.36667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YHA',
         'lon': '-56.3',
@@ -2862,7 +2852,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.533333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YRG',
         'lon': '-58.416668',
@@ -2873,7 +2863,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '54.333332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CDK',
         'lon': '-83.03333',
@@ -2884,7 +2874,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '29.133333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCK',
         'lon': '-126.09047',
@@ -2895,7 +2885,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '67.03993',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'EE7',
         'iso': 'CA',
@@ -2904,7 +2894,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NML',
         'iso': 'CA',
@@ -2913,7 +2903,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'airport',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'DAS',
         'lon': '-119.712776',
@@ -2924,7 +2914,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '66.70306',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YFI',
         'iso': 'CA',
@@ -2933,7 +2923,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'airport',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'OKG',
         'lon': '15.0',
@@ -2944,7 +2934,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-1.466667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CGA',
         'iso': 'US',
@@ -2953,7 +2943,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SUR',
         'lon': '-88.5475',
@@ -2964,7 +2954,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.71528',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAX',
         'lon': '-89.565',
@@ -2975,7 +2965,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '53.251945',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'WNN',
         'lon': '-89.166664',
@@ -2986,7 +2976,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.916668',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YNO',
         'lon': '-92.416664',
@@ -2997,7 +2987,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.5',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'CLG',
         'iso': 'US',
@@ -3006,7 +2996,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'OHE',
         'lon': '122.42059',
@@ -3017,7 +3007,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.92113',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'FUO',
         'lon': '113.28333',
@@ -3028,7 +3018,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '23.133333',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'HUZ',
         'lon': '114.36667',
@@ -3039,7 +3029,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '23.083332',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'JGS',
         'lon': '114.7375',
@@ -3050,7 +3040,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '26.899721',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AEB',
         'lon': '106.96777',
@@ -3061,7 +3051,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '23.71947',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'AAT',
         'lon': '88.08444',
@@ -3072,7 +3062,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '47.750362',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YZY',
         'lon': '100.660835',
@@ -3083,7 +3073,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '38.8075',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'DDG',
         'lon': '124.28081',
@@ -3094,7 +3084,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '40.032368',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NTG',
         'lon': '120.9756',
@@ -3105,7 +3095,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '32.07292',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'XBE',
         'lon': '-90.98333',
@@ -3116,7 +3106,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '53.95',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'KIF',
         'lon': '-89.85',
@@ -3127,7 +3117,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '53.01389',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YOG',
         'lon': '-85.916664',
@@ -3138,7 +3128,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '51.666668',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'PRM',
         'iso': 'CO',
@@ -3147,7 +3137,7 @@ export var airports: AirportInfo[] = [
         'continent': 'SA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ISG',
         'iso': 'CO',
@@ -3156,7 +3146,7 @@ export var airports: AirportInfo[] = [
         'continent': 'SA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'API',
         'lon': '-73.05194',
@@ -3167,7 +3157,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '4.068889',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'ARQ',
         'lon': '-71.43166',
@@ -3178,7 +3168,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '7.033056',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'LCR',
         'lon': '-73.01667',
@@ -3189,7 +3179,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-0.733333',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'SNT',
         'lon': '-73.0',
@@ -3200,7 +3190,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '7.666667',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YEB',
         'iso': 'CA',
@@ -3209,7 +3199,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'airport',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YHP',
         'lon': '-94.3',
@@ -3220,7 +3210,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.083332',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YNX',
         'iso': 'CA',
@@ -3229,7 +3219,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'airport',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YKU',
         'lon': '-78.924065',
@@ -3240,7 +3230,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '53.806824',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAU',
         'lon': '-73.31694',
@@ -3251,7 +3241,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '61.662777',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'TR7',
         'iso': 'CA',
@@ -3260,7 +3250,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'seaplanes',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'PST',
         'lon': '-75.666664',
@@ -3271,7 +3261,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '20.75',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'NIC',
         'iso': 'CY',
@@ -3280,7 +3270,7 @@ export var airports: AirportInfo[] = [
         'continent': 'AS',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAC',
         'lon': '-91.816666',
@@ -3291,7 +3281,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '51.716667',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAG',
         'lon': '-93.44722',
@@ -3302,7 +3292,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '48.65278',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAH',
         'lon': '-73.65',
@@ -3313,7 +3303,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '53.75',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAL',
         'lon': '-126.916664',
@@ -3324,7 +3314,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '50.583332',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAM',
         'lon': '-84.49995',
@@ -3335,7 +3325,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '46.485302',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'XKS',
         'lon': '-88.64667',
@@ -3346,7 +3336,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '53.52',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YKG',
         'lon': '-70.0046',
@@ -3357,7 +3347,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '60.023083',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAT',
         'lon': '-82.4',
@@ -3368,7 +3358,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.941666',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAV',
         'lon': '-123.3',
@@ -3379,7 +3369,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '48.86667',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAW',
         'iso': 'CA',
@@ -3388,7 +3378,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAX',
         'lon': '-89.565',
@@ -3399,7 +3389,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '53.251945',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAY',
         'lon': '-55.583332',
@@ -3410,7 +3400,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '51.36667',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YAZ',
         'lon': '-125.77639',
@@ -3421,7 +3411,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '49.076942',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBB',
         'lon': '-89.85',
@@ -3432,7 +3422,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '68.88333',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBC',
         'lon': '-68.26667',
@@ -3443,7 +3433,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '49.2',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'QBC',
         'lon': '-126.666664',
@@ -3454,7 +3444,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.333332',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBE',
         'lon': '-108.48333',
@@ -3465,7 +3455,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '59.566666',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBY',
         'lon': '-110.73333',
@@ -3476,7 +3466,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '54.266666',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBG',
         'lon': '-70.98861',
@@ -3487,7 +3477,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '48.322224',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBK',
         'lon': '-96.083336',
@@ -3498,7 +3488,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '64.3',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBL',
         'lon': '-125.26813',
@@ -3509,7 +3499,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '49.951725',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBN',
         'iso': 'CA',
@@ -3518,7 +3508,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'XTL',
         'lon': '-98.51344',
@@ -3529,7 +3519,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '58.707954',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBR',
         'lon': '-99.94677',
@@ -3540,7 +3530,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '49.908688',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBT',
         'lon': '-101.67899',
@@ -3551,7 +3541,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '57.88847',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBV',
         'lon': '-97.02141',
@@ -3562,7 +3552,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '52.358696',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YBX',
         'lon': '-57.216667',
@@ -3573,7 +3563,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '51.433334',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YRF',
         'lon': '-57.03828',
@@ -3584,7 +3574,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '53.682606',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCB',
         'lon': '-105.13333',
@@ -3595,7 +3585,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '69.1',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCC',
         'lon': '-74.566666',
@@ -3606,7 +3596,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '45.1',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCD',
         'lon': '-123.86667',
@@ -3617,7 +3607,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '49.05',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCE',
         'lon': '-81.48333',
@@ -3628,7 +3618,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '43.283333',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCG',
         'lon': '-117.632225',
@@ -3639,7 +3629,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '49.295555',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCH',
         'lon': '-65.44744',
@@ -3650,7 +3640,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '47.014008',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCL',
         'lon': '-66.32881',
@@ -3661,7 +3651,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '47.99093',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCN',
         'lon': '-81.01289',
@@ -3672,7 +3662,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '49.106018',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCO',
         'lon': '-115.083336',
@@ -3683,7 +3673,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '67.833336',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCQ',
         'lon': '-121.63333',
@@ -3694,7 +3684,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '55.683334',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCR',
         'lon': '-97.75144',
@@ -3705,7 +3695,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '54.61306',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCS',
         'lon': '-90.71667',
@@ -3716,7 +3706,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '63.333332',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCV',
         'iso': 'CA',
@@ -3725,7 +3715,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'closed',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCX',
         'iso': 'CA',
@@ -3734,7 +3724,7 @@ export var airports: AirportInfo[] = [
         'continent': 'NA',
         'type': 'heliport',
         'size': null
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCY',
         'lon': '-68.5',
@@ -3745,7 +3735,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '70.416664',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YCZ',
         'lon': '-115.87361',
@@ -3756,7 +3746,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '50.331944',
         'size': 'small'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YDA',
         'lon': '-139.12083',
@@ -3767,7 +3757,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '64.041664',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YDB',
         'lon': '-139.01666',
@@ -3778,7 +3768,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '61.35',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YDF',
         'lon': '-57.399727',
@@ -3789,7 +3779,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '49.21027',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YDM',
         'lon': '138.8216',
@@ -3800,7 +3790,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '-17.939201',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YDN',
         'lon': '-100.05',
@@ -3811,7 +3801,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '51.1',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YDO',
         'lon': '-72.23333',
@@ -3822,7 +3812,7 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '48.86667',
         'size': 'medium'
-    } as AirportInfo,
+    } as Airport,
     {
         'iata': 'YDP',
         'lon': '-61.666668',
@@ -3833,5 +3823,5 @@ export var airports: AirportInfo[] = [
         'type': 'airport',
         'lat': '56.533333',
         'size': 'medium'
-    } as AirportInfo
+    } as Airport
 ];

@@ -1,5 +1,5 @@
 import { SkipSelf, Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, IterableDiffer, OnInit } from '@angular/core';
-import { SortDirection, SortParameter } from 'e2e4';
+import { SortDirection } from 'e2e4';
 
 import { RtListLifetimeInfo, RtSortingsService } from '../../services/injectables';
 import { ListComponent } from '../list.component';
@@ -23,7 +23,7 @@ export class SortDirective implements DoCheck, OnInit {
     }
     public ngOnInit(): void {
         this.renderer.setElementClass(this.nativeEl, SortDirective.classNames.sortable, true);
-        this.sortingsService.sortings.some((sortParameter: SortParameter) => {
+        this.sortingsService.sortings.some(sortParameter => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.setSortClasses(sortParameter);
                 return true;

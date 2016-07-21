@@ -2,16 +2,27 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <label class="control-label">Label</label>
+                <label class="control-label">Airport name</label>
                 <input type="text" class="form-control" [(ngModel)]="airportName" />
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label class="control-label">Label</label>
-                <input type="text" class="form-control" />
+                <label class="control-label">Airport type</label>
+                <select class="form-control" [(ngModel)]="selectedAirportType">
+                    <option *ngFor="let type of airportTypes|async" [value]="type.key">{{type.value}}</option>
+                </select>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label">Airport size</label>
+                <select class="form-control" [(ngModel)]="selectedAirportSize">
+                    <option *ngFor="let size of airportSizes|async" [value]="size.key">{{size.value}}</option>
+                </select>
+            </div>
+        </div>
+
         <div class="col-md-3">
             <div class="form-group">
                 <div class="row">
@@ -46,12 +57,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label class="control-label">Label</label>
-                <input type="text" class="form-control" />
             </div>
         </div>
         <div class="col-md-3">

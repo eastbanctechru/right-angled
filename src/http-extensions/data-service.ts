@@ -94,7 +94,7 @@ export abstract class DataService {
                         result.push(`${key}=${val}`);
                     } else {
                         if (value instanceof Array) {
-                            let array: string[] = value.map((e: string, idx: number) => this.objectToQuerySearch(e, !prefix ? `${prop}[${idx}]` : `${prefix}[${prop}][${idx}]`));
+                            let array: string[] = value.map((e, idx) => this.objectToQuerySearch(e, !prefix ? `${prop}[${idx}]` : `${prefix}[${prop}][${idx}]`));
                             result = result.concat(array);
                         } else {
                             result.push(this.objectToQuerySearch(value));

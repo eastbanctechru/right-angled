@@ -37,10 +37,10 @@ export abstract class CachedService extends DataService {
 
     public removeCacheEntry(key: string): void {
         Object.keys(this.cache)
-            .filter((prop: string) => {
+            .filter(prop => {
                 return prop === key || prop.indexOf(key + '__') === 0;
             })
-            .forEach((prop: string) => {
+            .forEach(prop => {
                 delete this.cache[prop];
             });
     }

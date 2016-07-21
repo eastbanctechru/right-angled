@@ -42,6 +42,6 @@ export class RtListLifetimeInfo extends AbstractLifetime { }
 export class RtNullObjectInjectableObject {
     public static instance: RtNullObjectInjectableObject = new RtNullObjectInjectableObject();
     public static getFirstNotNullInstance(...instances: any[]): any {
-        return instances.find((instance: any) => instance !== RtNullObjectInjectableObject.instance);
+        return instances.find(instance => instance !== RtNullObjectInjectableObject.instance);
     }
 }

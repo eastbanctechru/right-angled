@@ -16,7 +16,7 @@ export class CheckAllDirective {
             this.selectionArea.selectionService.selectAll();
             setTimeout(() => {
                 if (this.recursive && this.selectionArea.childSelectionAreas) {
-                    this.selectionArea.childSelectionAreas.toArray().forEach((area: SelectionAreaForDirective) => {
+                    this.selectionArea.childSelectionAreas.toArray().forEach(area => {
                         if (this.selectionArea !== area) {
                             area.selectionService.selectAll();
                         }
@@ -26,7 +26,7 @@ export class CheckAllDirective {
 
         } else {
             if (this.recursive && this.selectionArea.childSelectionAreas) {
-                this.selectionArea.childSelectionAreas.toArray().forEach((area: SelectionAreaForDirective) => {
+                this.selectionArea.childSelectionAreas.toArray().forEach(area => {
                     if (this.selectionArea !== area) {
                         area.selectionService.deselectAll();
                     }

@@ -12,7 +12,7 @@ export class DeselectAllDirective {
     @HostListener('click')
     public clickHandler(event: MouseEvent): void {
         if (this.recursive && this.selectionArea.childSelectionAreas) {
-            this.selectionArea.childSelectionAreas.toArray().forEach((area: SelectionAreaForDirective) => {
+            this.selectionArea.childSelectionAreas.toArray().forEach(area => {
                 if (area !== this.selectionArea) {
                     area.selectionService.deselectAll();
                 }

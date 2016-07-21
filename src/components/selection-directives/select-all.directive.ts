@@ -14,7 +14,7 @@ export class SelectAllDirective {
         this.selectionArea.selectionService.selectAll();
         setTimeout(() => {
             if (this.recursive && this.selectionArea.childSelectionAreas) {
-                this.selectionArea.childSelectionAreas.toArray().forEach((area: SelectionAreaForDirective) => {
+                this.selectionArea.childSelectionAreas.toArray().forEach(area => {
                     if (area !== this.selectionArea) {
                         area.selectionService.selectAll();
                     }

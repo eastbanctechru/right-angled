@@ -48,12 +48,12 @@ const barrels: string[] = [
   // App specific barrels.
   'demo-app',
   'demo-app/shared',
-  'right-angled',
+  'right-angled'
   /** @cli-barrel */
 ];
 
 const cliSystemConfigPackages: any = {};
-barrels.forEach((barrelName: string) => {
+barrels.forEach(barrelName => {
   cliSystemConfigPackages[barrelName] = { main: 'index' };
 });
 
