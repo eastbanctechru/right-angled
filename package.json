@@ -17,7 +17,7 @@
     "@angular/http": "2.0.0-rc.4",
     "@angular/router": "3.0.0-beta.2",
     "rxjs": "5.0.0-beta.6",
-    "e2e4": "^1.0.0-beta.10",
+    "e2e4": "^1.0.0-beta.11",
     "es6-shim": "0.35.1"
   },
   "devDependencies": {
