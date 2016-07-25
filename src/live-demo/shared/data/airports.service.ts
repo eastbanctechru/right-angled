@@ -90,7 +90,7 @@ export class AirportsService {
     private getAirports(): Observable<Array<Airport>> {
         return this.http.get('/live-demo/shared/data/airports.json').map(response => {
             return response.json().airports as Array<Airport>;
-        })
+        }).delay(1500)
         // use share to avoid multiple calls by angular async pipes
         .share();
     }
