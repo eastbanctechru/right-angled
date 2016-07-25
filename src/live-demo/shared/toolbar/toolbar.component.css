@@ -1,7 +1,12 @@
+label {
+    cursor: pointer;
+}
+
 li {
     display: block;
     list-style: none;
 }
+
 ul li {
     float: left;
     padding: 1px 3px;

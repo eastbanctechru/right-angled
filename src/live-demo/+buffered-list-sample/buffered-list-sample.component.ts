@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { BUFFERED_LIST_DIRECTIVES, BUFFERED_LIST_PROVIDERS } from 'right-angled';
-import { SHARED_DIRECTIVES, AirportsService, Airport, AirportsBufferedListRequest, ListResponse } from '../shared';
+import { SHARED_DIRECTIVES, AirportsService, Airport, AirportsBufferedListRequest } from '../shared';
 
 @Component({
     directives: [BUFFERED_LIST_DIRECTIVES, SHARED_DIRECTIVES],
@@ -14,7 +13,7 @@ export class BufferedListSampleComponent {
     constructor(public airportsService: AirportsService) {
     }
 
-    public loadData = (requestParams: AirportsBufferedListRequest): Observable<ListResponse<Airport>> => {
+    public loadData = (requestParams: AirportsBufferedListRequest): any => {
         return this.airportsService.getAirportsBuffered(requestParams).do(resp => {
             this.airports.push(...resp.items);
         });

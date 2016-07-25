@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { PAGED_LIST_DIRECTIVES, PAGED_LIST_PROVIDERS } from 'right-angled';
 
 import { SHARED_DIRECTIVES, AirportsService, Airport, AirportsPagedListRequest } from '../shared';
