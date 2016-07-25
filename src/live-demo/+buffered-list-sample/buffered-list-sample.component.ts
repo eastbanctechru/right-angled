@@ -10,13 +10,13 @@ import { SHARED_DIRECTIVES, AirportsService, Airport, AirportsBufferedListReques
     templateUrl: 'buffered-list-sample.component.html'
 })
 export class BufferedListSampleComponent {
-    public airports: Observable<Array<Airport>> = Observable.of([]);
+    public airports: Array<Airport> = new Array<Airport>();
     constructor(public airportsService: AirportsService) {
     }
 
     public loadData = (requestParams: AirportsBufferedListRequest): Observable<ListResponse<Airport>> => {
-        let result = this.airportsService.getAirportsBuffered(requestParams);
-        this.airports = result.map(resp => resp.items);
-        return result;
+        return this.airportsService.getAirportsBuffered(requestParams).do(resp => {
+            this.airports.push(...resp.items);
+        });
     };
 }

@@ -11,12 +11,10 @@ import { SHARED_DIRECTIVES, AirportsService, Airport, AirportsListRequest, ListR
     templateUrl: 'regular-list-sample.component.html'
 })
 export class RegularListSampleComponent {
-    public airports: Observable<Array<Airport>>;
+    public airports: Array<Airport> = new Array<Airport>();
     constructor(public airportsService: AirportsService) {
     }
     public loadData = (requestParams: AirportsListRequest): Observable<ListResponse<Airport>> => {
-        let result = this.airportsService.getAirportsRegular(requestParams);
-        this.airports = result.map(resp => resp.items);
-        return result;
+        return this.airportsService.getAirportsRegular(requestParams).do(resp => this.airports.push(...resp.items));
     };
 }

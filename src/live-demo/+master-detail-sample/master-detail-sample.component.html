@@ -1,14 +1,14 @@
 <div>
     <h1 class="page-title">Master-detail Sample</h1>
-        <rt-list [destroyOnReload]="airports | async" [fetchMethod]="loadData">
-        <table class="table table-striped" [rtSelectionAreaFor]="airports | async">
+        <rt-list [destroyOnReload]="airports" [fetchMethod]="loadData">
+        <table class="table table-striped" [rtSelectionAreaFor]="airports">
             <thead rt-demo-sortable-header>
             </thead>
             <caption rt-demo-toolbar>
             </caption>
 
             <tbody>
-                <template ngFor let-item [ngForOf]="airports | async" let-index="index">
+                <template ngFor let-item [ngForOf]="airports" let-index="index">
                     <tr [class.success]="item.selected" [rtSelectByIndex]="index">
                         <td>
                             <rt-row-number [index]="index">

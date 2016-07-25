@@ -11,12 +11,10 @@ import { SHARED_DIRECTIVES, AirportsService, AirportsListRequest, ListResponse }
     templateUrl: 'grouping-sample.component.html'
 })
 export class GroupingSampleComponent {
-    public continents: Observable<Array<any>>;
+    public continents: Array<any> = new Array<any>();
     constructor(public airportsService: AirportsService) {
     }
     public loadData = (requestParams: AirportsListRequest): Observable<ListResponse<any>> => {
-        let result = this.airportsService.getAirportsGroupedByContinent(requestParams);
-        this.continents = result.map(resp => resp.items);
-        return result;
+        return this.airportsService.getAirportsGroupedByContinent(requestParams).do(resp => this.continents.push(resp.items));
     };
 }

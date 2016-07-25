@@ -11,14 +11,11 @@ import { SHARED_DIRECTIVES, Airport, AirportsService, AirportsPagedListRequest }
     templateUrl: 'paged-list-sample.component.html'
 })
 export class PagedListSampleComponent {
-    public airports: Observable<Array<Airport>>;
-
+    public airports: Array<Airport> = new Array<Airport>();
     constructor(public airportsService: AirportsService) {
         this.airportsService = airportsService;
     }
     public loadData = (requestParams: AirportsPagedListRequest): any => {
-        let result = this.airportsService.getAirportsPaged(requestParams);
-        this.airports = result.map(resp => resp.items);
-        return result;
+        return this.airportsService.getAirportsPaged(requestParams).do(resp => this.airports.push(...resp.items));
     };
 }
