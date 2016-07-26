@@ -1,8 +1,7 @@
 import { SkipSelf, Component, Input, OnDestroy, OnInit, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { RtListService } from '../services/rt-list-service.service';
-import { RtNullObjectInjectableObject, RtPagedPager, RtBufferedPager, RtRegularPager } from '../services/injectables';
+import { RtListService, RtNullObjectInjectable, RtPagedPager, RtBufferedPager, RtRegularPager } from '../services/index';
 
 @Component({
     selector: 'rt-list',
@@ -21,15 +20,15 @@ export class ListComponent implements OnDestroy, OnInit {
         this.listService.fetchMethod = value;
     }
     constructor( @SkipSelf() public listService: RtListService, @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager) {
-        if (bufferedPager !== RtNullObjectInjectableObject.instance) {
+        if (bufferedPager !== RtNullObjectInjectable.instance) {
             this.isBufferedList = true;
             this.listService.pager = bufferedPager;
         }
-        if (pagedPager !== RtNullObjectInjectableObject.instance) {
+        if (pagedPager !== RtNullObjectInjectable.instance) {
             this.isPagedList = true;
             this.listService.pager = pagedPager;
         }
-        if (regularPager !== RtNullObjectInjectableObject.instance) {
+        if (regularPager !== RtNullObjectInjectable.instance) {
             this.isRegularList = true;
             this.listService.pager = regularPager;
         }

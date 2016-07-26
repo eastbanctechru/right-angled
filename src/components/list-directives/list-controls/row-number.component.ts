@@ -1,6 +1,6 @@
 import { SkipSelf, Component, Input, OnChanges } from '@angular/core';
 
-import { RtNullObjectInjectableObject, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/injectables';
+import { RtNullObjectInjectable, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/index';
 
 @Component({
     selector: 'rt-row-number',
@@ -12,9 +12,9 @@ export class RowNumberComponent implements OnChanges {
     constructor( @SkipSelf() private pagedPager: RtPagedPager, @SkipSelf() private bufferedPager: RtBufferedPager, @SkipSelf() private regularPager: RtRegularPager) {
     }
     public ngOnChanges(): void {
-        if (this.regularPager !== RtNullObjectInjectableObject.instance || this.bufferedPager !== RtNullObjectInjectableObject.instance) {
+        if (this.regularPager !== RtNullObjectInjectable.instance || this.bufferedPager !== RtNullObjectInjectable.instance) {
             this.rowNumber = this.index + 1;
-        } else if (this.pagedPager !== RtNullObjectInjectableObject.instance) {
+        } else if (this.pagedPager !== RtNullObjectInjectable.instance) {
             this.rowNumber = this.index + this.pagedPager.displayFrom;
         }
     }

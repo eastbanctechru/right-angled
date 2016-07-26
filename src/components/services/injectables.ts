@@ -38,10 +38,3 @@ export class RtSortingsService extends SortingsService { }
 export class RtFiltersService extends FiltersService { }
 @Injectable()
 export class RtListLifetimeInfo extends AbstractLifetime { }
-
-export class RtNullObjectInjectableObject {
-    public static instance: RtNullObjectInjectableObject = new RtNullObjectInjectableObject();
-    public static getFirstNotNullInstance(...instances: any[]): any {
-        return instances.find(instance => instance !== RtNullObjectInjectableObject.instance);
-    }
-}

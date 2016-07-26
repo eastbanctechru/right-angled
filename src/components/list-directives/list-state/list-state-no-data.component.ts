@@ -1,9 +1,8 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { RtListLifetimeInfo } from '../../services/injectables';
 import { ListStateComponent } from './list-state-component';
-import { RtNullObjectInjectableObject, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/injectables';
+import { RtNullObjectInjectable, RtListLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/index';
 
 @Component({
     selector: 'rt-list-state-no-data',
@@ -15,7 +14,7 @@ export class ListStateNoDataComponent extends ListStateComponent implements DoCh
     constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() lifetimeInfo: RtListLifetimeInfo, differs: KeyValueDiffers) {
         super(lifetimeInfo, differs, ProgressState.Done);
         this.pagerDiffer = differs.find([]).create(null);
-        this.pager = RtNullObjectInjectableObject.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);
+        this.pager = RtNullObjectInjectable.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);
     }
     public ngDoCheck(): void {
         super.ngDoCheck();

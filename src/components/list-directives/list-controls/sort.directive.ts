@@ -1,7 +1,7 @@
 import { SkipSelf, Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, IterableDiffer, OnInit } from '@angular/core';
 import { SortDirection } from 'e2e4';
 
-import { RtListLifetimeInfo, RtSortingsService } from '../../services/injectables';
+import { RtListLifetimeInfo, RtSortingsService } from '../../services/index';
 import { ListComponent } from '../list.component';
 
 @Directive({

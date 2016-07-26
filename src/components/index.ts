@@ -2,8 +2,7 @@ export * from 'e2e4';
 
 export { MISC_DIRECTIVES } from './misc-directives/index';
 
-export { RtListService } from './services/rt-list-service.service';
-export { RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/injectables';
+export { RtListService, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/index';
 
 export { SELECTION_DIRECTIVES } from './selection-directives/index';
 import { SELECTION_DIRECTIVES } from './selection-directives/index';
@@ -17,19 +16,15 @@ export var PAGED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(PAGED_FOOTER_DI
 export var BUFFERED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(BUFFERED_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
 export var REGULAR_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(REGULAR_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
 
-import { RtQueryStringStateService } from './services/rt-query-string-state-service';
-import { RtListService } from './services/rt-list-service.service';
-
-import { RtNullObjectInjectableObject, RtListLifetimeInfo, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/injectables';
-import { AsyncSubscriber } from './services/async-subscriber';
+import { AsyncSubscriber, RtNullObjectInjectable, RtListService, RtQueryStringStateService, RtListLifetimeInfo, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/index';
 import { provide } from '@angular/core';
 
 export var PAGED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtListLifetimeInfo,
     RtListService,
-    provide(RtBufferedPager, { useValue: RtNullObjectInjectableObject.instance }),
-    provide(RtRegularPager, { useValue: RtNullObjectInjectableObject.instance }),
+    provide(RtBufferedPager, { useValue: RtNullObjectInjectable.instance }),
+    provide(RtRegularPager, { useValue: RtNullObjectInjectable.instance }),
     RtSortingsService,
     RtPagedPager,
     RtFiltersService,
@@ -40,8 +35,8 @@ export var BUFFERED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtListLifetimeInfo,
     RtListService,
-    provide(RtPagedPager, { useValue: RtNullObjectInjectableObject.instance }),
-    provide(RtRegularPager, { useValue: RtNullObjectInjectableObject.instance }),
+    provide(RtPagedPager, { useValue: RtNullObjectInjectable.instance }),
+    provide(RtRegularPager, { useValue: RtNullObjectInjectable.instance }),
     RtFiltersService,
     RtSortingsService,
     RtBufferedPager,
@@ -52,8 +47,8 @@ export var REGULAR_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtListLifetimeInfo,
     RtListService,
-    provide(RtPagedPager, { useValue: RtNullObjectInjectableObject.instance }),
-    provide(RtBufferedPager, { useValue: RtNullObjectInjectableObject.instance }),
+    provide(RtPagedPager, { useValue: RtNullObjectInjectable.instance }),
+    provide(RtBufferedPager, { useValue: RtNullObjectInjectable.instance }),
     RtFiltersService,
     RtSortingsService,
     RtRegularPager,

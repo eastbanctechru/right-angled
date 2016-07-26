@@ -1,7 +1,6 @@
 import { Renderer, KeyValueDiffers, KeyValueDiffer, ElementRef, DoCheck, OnInit } from '@angular/core';
 
-import { RtPagedPager } from '../../services/injectables';
-import { RtNullObjectInjectableObject } from '../../services/injectables';
+import { RtNullObjectInjectable, RtPagedPager } from '../../services/index';
 
 export abstract class GoToControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
@@ -9,7 +8,7 @@ export abstract class GoToControlBase implements DoCheck, OnInit {
     private nativeEl: any;
     public disabledCls: string;
     constructor(private renderer: Renderer, protected pager: RtPagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
-        if (pager === RtNullObjectInjectableObject.instance) {
+        if (pager === RtNullObjectInjectable.instance) {
             throw new Error('[rtGoTo...] directives can be used only with paged list.');
         }
         this.pagerDiffer = differs.find([]).create(null);

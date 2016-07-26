@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Pager, Utility, ProgressState } from 'e2e4';
-import { RtQueryStringStateService } from './rt-query-string-state-service';
+import { RtQueryStringStateService } from './query-string-state-service';
 import { RtListLifetimeInfo, RtSortingsService, RtFiltersService } from './injectables';
 import { AsyncSubscriber } from './async-subscriber';
 import { Observable } from 'rxjs/Observable';

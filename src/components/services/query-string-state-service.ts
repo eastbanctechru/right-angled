@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable, SkipSelf, Optional } from '@angular/core';
 
-import { RtStateManagementService } from './rt-state-management-service';
+import { RtStateManagementService } from './state-management-service';
 
 @Injectable()
 export class RtQueryStringStateService implements RtStateManagementService {

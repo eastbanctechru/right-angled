@@ -1,7 +1,6 @@
 import { HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 
-import { RtListService } from '../../services/rt-list-service.service';
-import { RtNullObjectInjectableObject, RtPagedPager } from '../../services/injectables';
+import { RtListService, RtPagedPager, RtNullObjectInjectable } from '../../services/index';
 
 @Directive({
     selector: 'input[rtPageNumber]'
@@ -13,7 +12,7 @@ export class PageNumberDirective implements DoCheck {
     public innerPageNumber: number;
 
     constructor( private listService: RtListService, private pager: RtPagedPager, differs: KeyValueDiffers) {
-        if (pager === RtNullObjectInjectableObject.instance) {
+        if (pager === RtNullObjectInjectable.instance) {
             throw new Error('[rtPageNumber] directive can be used only with paged lists.');
         }
         this.innerPageNumber = pager.pageNumber;
