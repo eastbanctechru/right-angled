@@ -4,12 +4,12 @@
         <rt-demo-filter-area>
         </rt-demo-filter-area>
         <table class="table table-striped" [rtSelectionAreaFor]="airports">
+            <caption rt-demo-toolbar class="text-right">
+            </caption>
             <thead rt-demo-sortable-header>
             </thead>
-            <caption rt-demo-toolbar>
-            </caption>
             <tbody>
-                <tr *ngFor="let item of airports, let index=index" [class.success]="item.selected" [rtSelectByIndex]="index">
+                <tr *ngFor="let item of airports, let index=index" [class.selected]="item.selected" [rtSelectByIndex]="index">
                     <td>
                         <rt-row-number [index]="index">
                         </rt-row-number>
@@ -23,7 +23,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="6" class="list-pager text-right">
+                    <td colspan="6" class="list-pager">
                         <rt-demo-footer></rt-demo-footer>
                     </td>
                 </tr>

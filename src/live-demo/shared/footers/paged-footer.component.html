@@ -1,24 +1,24 @@
-<rt-list-state-no-data>
+<rt-list-state-no-data class="text-center">
     There are no data found
 </rt-list-state-no-data>
-<rt-list-state-request-canceled>
+<rt-list-state-request-canceled class="text-center">
     Data loading was cancelled
 </rt-list-state-request-canceled>
-<rt-list-state-failed>
+<rt-list-state-failed class="text-center">
     An error has occured since the last data loading
 </rt-list-state-failed>
-<rt-list-state-initial>
+<rt-list-state-initial class="text-center">
     Enter search options and press "Show" button
 </rt-list-state-initial>
-<rt-list-state-progress>
+<rt-list-state-progress class="text-center">
     Loading....
 </rt-list-state-progress>
-<rt-display-pager>
-    <span rtGoToFirstPage disabledCls="disabled" class="step-backward" title="go to first page"></span>
-    <span rtGoToPrevPage disabledCls="disabled" class="chevron-left" title="go to previous page"></span>
+<rt-display-pager class="text-right">
+    <span rtGoToFirstPage disabledCls="disabled" class="first-page" title="go to first page"></span>
+    <span rtGoToPrevPage disabledCls="disabled" class="prev" title="go to previous page"></span>
     <input rtSelectOnFocus rtPageNumber type="text" class="form-control" maxlength="4" />
-    <span rtGoToNextPage disabledCls="disabled" class="chevron-right" title="go to next page"></span>
-    <span rtGoToLastPage disabledCls="disabled" class="step-forward" title="go to last page"></span>
+    <span rtGoToNextPage disabledCls="disabled" class="next" title="go to next page"></span>
+    <span rtGoToLastPage disabledCls="disabled" class="last-page" title="go to last page"></span>
     <rt-total-records-text #rtref>
         Displaying records {{rtref.pager.displayFrom}} - {{rtref.pager.displayTo}} of {{rtref.pager.totalCount}}.
     </rt-total-records-text>
