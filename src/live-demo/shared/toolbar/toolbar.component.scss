@@ -1,14 +1,23 @@
-label {
-    cursor: pointer;
-}
+@import '../../styles.scss';
 
-li {
-    display: block;
-    list-style: none;
-}
-
-ul li {
-    float: left;
-    padding: 1px 3px;
-    border-right: 1px solid #ddd;
+ul {
+    margin-right: -5px;
+    margin-bottom: 0;
+    li {
+        .btn-primary {
+            background-color: $color-light-blue;
+            border-color: $color-light-blue;
+            @include border-radius(0);
+            &:hover,
+            &:focus {
+                background-color: $color-btn-primary-focus;
+                border-color: $color-btn-primary-focus;
+            }
+            &:active {
+                background-color: $color-btn-primary-active;
+                border-color: $color-btn-primary-active;
+                @include box-shadow(none);
+            }
+        }
+    }
 }
