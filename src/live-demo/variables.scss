@@ -1,0 +1,43 @@
+/*variables*/
+$color-blue: #039be5;
+$color-light-blue: #4fc3f7;
+$color-btn-primary-focus: #67cbf8;
+$color-btn-primary-active: #80d4f9;
+$color-selected: #ccedfd;
+$color-yellow: #ffd600;
+$color-black: #212121;
+$color-gray: #eeeeee;
+$color-light-gray: #fafafa;
+$color-muted: #727272;
+$color-striped: #fcfcfc;
+$font-medium: 14px;
+$color-white: #fff;
+/*variables*/
+
+
+/*mixins*/
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin opacity($opacity) {
+    -ms-opacity: $opacity;
+    opacity: $opacity;
+}
+
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+/*mixins*/

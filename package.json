@@ -37,7 +37,6 @@
     "karma-jasmine": "1.0.2",
     "lodash": "^4.13.1",
     "moment": "^2.14.1",
-    "ng2-bootstrap": "^1.0.24",
     "node-sass": "^3.8.0",
     "protractor": "4.0.1",
     "reflect-metadata": "0.1.3",

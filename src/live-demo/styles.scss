@@ -1,51 +1,4 @@
-/*variables*/
-
-$color-blue: #039be5;
-$color-light-blue: #4fc3f7;
-$color-btn-primary-focus: #67cbf8;
-$color-btn-primary-active: #80d4f9;
-$color-selected: #ccedfd;
-$color-yellow: #ffd600;
-$color-black: #212121;
-$color-gray: #eeeeee;
-$color-light-gray: #fafafa;
-$color-muted: #727272;
-$color-striped: #fcfcfc;
-$font-medium: 14px;
-$color-white: #fff;
-
-/*variables*/
-
-
-/*mixins*/
-
-@mixin border-radius($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    -ms-border-radius: $radius;
-    border-radius: $radius;
-}
-
-@mixin box-shadow($shadow) {
-    -webkit-box-shadow: $shadow;
-    box-shadow: $shadow;
-}
-
-@mixin opacity($opacity) {
-    -ms-opacity: $opacity;
-    opacity: $opacity;
-}
-
-@mixin transition($transition) {
-    -webkit-transition: $transition;
-    -moz-transition: $transition;
-    -ms-transition: $transition;
-    -o-transition: $transition;
-    transition: $transition;
-}
-
-
-/*mixins*/
+@import 'variables.scss';
 
 html, body {
     background: $color-light-gray;
@@ -57,18 +10,28 @@ html, body {
 }
 
 
-/*right-angled*/
+/*loaders*/
+.app-loader {
+    width: 100%;
+    height: 100vh;
+    background: url(img/progress/app-loader.gif) center center no-repeat;
+}
+.line-progress {
+    display: inline-block;
+    width: 128px;
+    height: 16px;
+    background: url(img/progress/line-progress.gif) center center no-repeat;
+}
+/*loaders*/
 
+/*right-angled*/
 rt-display-pager>div {
     display: inline;
 }
-
-
 /*right-angled*/
 
 
 /*forms*/
-
 .form-control {
     color: $color-black;
     @include border-radius(0);
@@ -80,11 +43,9 @@ rt-display-pager>div {
         border-color: $color-light-blue;
     }
 }
-
 /*forms*/
 
 /*table*/
-
 .table { 
     &.table-fixed {
         table-layout: fixed;
@@ -133,6 +94,9 @@ rt-display-pager>div {
                         display: block;
                         > * {
                             display: block;
+                        }
+                        rt-display-pager > * {
+                            vertical-align: middle;
                         }
                     }
                 }
@@ -199,8 +163,6 @@ rt-display-pager>div {
         }
     }
 }
-
-
 /*table*/
 
 /*t-col*/
@@ -227,7 +189,6 @@ rt-display-pager>div {
 /*t-col*/
 
 /*header*/
-
 .navbar-fixed-top {
     border: 0;
     margin-bottom: 0;
@@ -238,7 +199,7 @@ rt-display-pager>div {
         width: 138px;
         height: 44px;
         margin-top: 18px;
-        margin-right: 100px;
+        margin-right: 80px;
         margin-bottom: 18px;
         margin-left: 0 !important;
         padding: 0;
@@ -246,7 +207,9 @@ rt-display-pager>div {
     }
     .navbar-nav {
         > li {
-            > a {
+            > .dropdown-toggle {
+                display: block;
+                line-height: 20px;
                 padding: 40px 25px 20px 25px;
                 color: $color-white;
                 @include opacity(.85);
@@ -255,25 +218,34 @@ rt-display-pager>div {
                     @include opacity(1);
                 }
             }
-            &.open {
-                > a {
+            &:hover {
+                > .dropdown-toggle {
                     color: $color-white;
-                    padding-bottom: 15px;
                     background-color: transparent;
-                    border-bottom: 5px solid $color-yellow;
                     @include opacity(1);
+                    cursor: pointer;
                     &:hover, &:focus {
                         background-color: transparent;
                     }
                 }
+                .dropdown-menu {
+                    height: 205px;
+                }
             }
             .dropdown-menu {
+                display: block;
+                overflow: hidden;
+                height: 0;
                 min-width: 100%;
                 padding: 0;
-                margin: 0;
+                margin: -5px 0 0;
                 @include border-radius(0);
-                border: 0;
+                border:0;
                 @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.45));
+                @include transition(height .25s ease-in-out);
+                li:first-child {
+                    border-top:5px solid $color-yellow;
+                }
                 a {
                     color: $color-black;
                     padding: 10px 18px;
@@ -285,13 +257,10 @@ rt-display-pager>div {
         }
     }
 }
-
-
 /*header*/
 
 
 /*layout*/
-
 .layout {
     min-height: 100vh;
     padding: 110px 0;
@@ -300,8 +269,6 @@ rt-display-pager>div {
         margin-bottom: 20px;
     }
 }
-
-
 /*layout*/
 
 /*footer*/
