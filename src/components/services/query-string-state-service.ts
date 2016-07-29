@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable, SkipSelf, Optional } from '@angular/core';
 
@@ -6,21 +7,26 @@ import { RtStateManagementService } from './state-management-service';
 @Injectable()
 export class RtQueryStringStateService implements RtStateManagementService {
     private static stateObject: Map<any, any> = new Map<any, any>();
-    public stateKey: any;
     public serializationKey: string;
+    private internalStateKey: string;
 
-    constructor( @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
+    constructor(private location: Location, @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
+        this.internalStateKey = this.activatedRoute.snapshot.url[0].path;
     }
     public flushRequestState(state: Object): void {
-        RtQueryStringStateService.stateObject.set(this.stateKey, RtQueryStringStateService.stateObject.get(this.stateKey) || {});
-        let vmState = RtQueryStringStateService.stateObject.get(this.stateKey);
+
+        let vmState = this.getRequestState();
+        RtQueryStringStateService.stateObject.set(this.internalStateKey, vmState);
+
         setTimeout(() => {
             let newState = {};
             Object.assign(newState, state);
             vmState.lastRequestState = newState;
             let params = this.router.routerState.snapshot.queryParams || {};
             params[this.serializationKey] = JSON.stringify(vmState.lastRequestState);
-            this.router.navigate(['/' + this.activatedRoute.snapshot.url[0].path], { queryParams: params });
+            let path = this.location.path(true);
+            path = path.indexOf('?') === -1 ? path : path.substring(0, path.indexOf('?'));
+            this.location.replaceState(path, this.serializeQueryParams(params));
         }, 0);
     }
     public persistLocalState(state: Object): void { return void (0); }
@@ -28,13 +34,22 @@ export class RtQueryStringStateService implements RtStateManagementService {
         const restoredState = {};
         const requestState = this.getRequestState();
         const persistedState = this.getPersistedState();
-        let routerState = this.router.routerState.snapshot.queryParams[this.serializationKey] ? JSON.parse(decodeURIComponent(this.router.routerState.snapshot.queryParams[this.serializationKey])) : {};
+        let routerState = this.activatedRoute.snapshot.params[this.serializationKey] ? JSON.parse(decodeURIComponent(this.activatedRoute.snapshot.params[this.serializationKey])) : {};
 
         Object.assign(restoredState, persistedState || {}, requestState ? (requestState.lastRequestState || {}) : {}, routerState);
         return restoredState;
     }
+    private serializeQueryParams(params: { [key: string]: string }): string {
+        const res: string[] = [];
+        for (let prop in params) {
+            if (params.hasOwnProperty(prop)) {
+                res.push(`${encodeURIComponent(prop)}=${encodeURIComponent(params[prop])}`);
+            }
+        }
+        return res.join('&');
+    }
     private getRequestState(): any {
-        return RtQueryStringStateService.stateObject.get(this.stateKey);
+        return RtQueryStringStateService.stateObject.get(this.internalStateKey) || {};
     }
     private getPersistedState(): any {
         return {};

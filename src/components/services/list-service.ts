@@ -39,7 +39,6 @@ export class RtListService {
         }
     }
     constructor(private asyncSubscriber: AsyncSubscriber, private lifetimeInfo: RtListLifetimeInfo, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
-        this.stateService.stateKey = this;
         this.stateService.serializationKey = 'ls';
     }
     public init(): void {

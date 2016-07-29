@@ -1,6 +1,6 @@
 {
   "name": "right-angled",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "dependencies": {
     "@angular/core": "2.0.0-rc.4",
