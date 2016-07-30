@@ -17,7 +17,9 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     @Input('rtSelectionAreaFor') public items: Array<SelectableItem>;
     @Input() public autoSelectFirst: boolean = false;
     @Input() public toggleOnly: boolean = false;
-
+    @Input() public set trackBy(value: (index: number, item: any) => any) {
+        this.selectionService.trackByFn = value;
+    }
     @Output() public itemSelected: EventEmitter<OnSelectedEvent> = new EventEmitter<OnSelectedEvent>();
     @Output() public itemDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
     @Output() public selectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
