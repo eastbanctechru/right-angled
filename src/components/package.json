@@ -1,11 +1,23 @@
 {
   "name": "right-angled",
+  "description": "Set of components to provide lists functionality for Angular 2 apps",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fshchudlo/right-angled.git"
+  },
+  "keywords": ["grid", "list", "angular2"],
+  "bugs": {
+    "url": "https://github.com/fshchudlo/right-angled/issues"
+  },
+  "homepage": "https://github.com/fshchudlo/right-angled#readme",
+  "author": "Fedor Shchudlo",
   "version": "0.2.1",
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
     "@angular/core": "2.0.0-rc.4",
     "@angular/router": "3.0.0-beta.2",
-    "e2e4": "^1.0.0-beta.12",
+    "e2e4": "^1.0.0-beta.16",
     "es6-shim": "0.35.1",
     "rxjs": "5.0.0-beta.6"
   }

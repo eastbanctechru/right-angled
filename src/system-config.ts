@@ -10,9 +10,7 @@
 const map: any = {
   'e2e4': 'vendor/e2e4',
   'right-angled': 'vendor/right-angled',
-  'moment': 'vendor/moment/moment.js',
-  'lodash': 'vendor/lodash/lodash.js',
-  'ng2-bootstrap': 'vendor/ng2-bootstrap'
+  'lodash': 'vendor/lodash/lodash.js'
 };
 
 /** User packages configuration. */
@@ -24,8 +22,7 @@ const packages: any = {
   'right-angled': {
     defaultExtension: 'js',
     main: 'index.js'
-  },
-  'ng2-bootstrap': { defaultExtension: 'js' }
+  }
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************

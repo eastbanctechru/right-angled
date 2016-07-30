@@ -17,9 +17,7 @@ module.exports = function(defaults) {
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
       'e2e4/**/*.+(js|js.map)',
-      'ng2-bootstrap/**/*.+(js|js.map)',
       'bootstrap/**/*.*',
-      'moment/moment.js',
       'right-angled/**/*.+(js|js.map)',
       'lodash/lodash.js'
     ]
