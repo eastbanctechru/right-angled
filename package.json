@@ -4,14 +4,15 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve",
-    "postinstall": "typings install",
+    "e2e": "protractor",
     "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test",
+    "postinstall": "typings install",
+    "precommit-msg": "echo 'Run pre-commit checks...' && exit 0",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "start": "ng serve",
+    "test": "ng test"
   },
-  "pre-commit": [ "lint" ],
+  "pre-commit": [ "precommit-msg", "lint" ],
   "private": true,
   "dependencies": {
     "@angular/core": "2.0.0-rc.4",
