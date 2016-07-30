@@ -1,0 +1,14 @@
+@import '../../../shared.scss';
+
+.link {
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: middle;
+    color: $color-light-blue;
+    margin: 0 3px;
+    @include opacity(.85);
+    &:hover, &:focus {
+        @include opacity(1);
+        text-decoration: none;
+    }
+}

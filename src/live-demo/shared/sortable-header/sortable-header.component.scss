@@ -1,3 +1,39 @@
+@import '../../shared.scss';
+
+th.t-col-number {
+    width: 5%;
+}
+th.t-col-code {
+    width: 15%;
+}
+th.t-col-name {
+    width: 45%;
+}
+th.t-col-continent {
+    width: 15%;
+}
+th.t-col-type {
+    width: 10%;
+}
+th.t-col-size {
+    width: 10%;
+}
+
+.table { 
+    thead {
+        tr {
+            th {
+                background-color: $color-light-blue;
+                color: $color-white;
+                text-transform: uppercase;
+                border-bottom-color: $color-gray;
+                padding: 20px;
+            }
+        }
+    }
+}
+
+
 .rt-sortable {
     position: relative;
     padding-right: 45px;
