@@ -11,7 +11,7 @@ export class RtQueryStringStateService implements RtStateManagementService {
     private internalStateKey: string;
 
     constructor(private location: Location, @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
-        this.internalStateKey = this.activatedRoute.snapshot.url[0].path;
+        this.internalStateKey = this.activatedRoute.snapshot.url.length > 0 ? this.activatedRoute.snapshot.url[0].path : 'default-route';
     }
     public flushRequestState(state: Object): void {
 
