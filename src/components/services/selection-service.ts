@@ -1,6 +1,25 @@
-import { SelectionTuple, DefaultSelectionService } from 'e2e4';
+import { SelectionTuple, DefaultSelectionService, SelectableItem } from 'e2e4';
 
 import { SelectionEventsEmitter, OnDeselectedEvent, OnSelectedEvent, OnSelectionChangedEvent } from './selection-events-emitter';
+
+export interface OnSelected extends SelectableItem {
+    /**
+     * Опциональный хук-метод, который будет вызван реализациями контракта {@link SelectionService} при выборе данного элемента.
+     */
+    rtOnSelected(): void;
+}
+export interface OnDeselected extends SelectableItem {
+    /**
+     * Опциональный хук-метод, который будет вызван реализациями контракта {@link SelectionService} при отмене выбора данного элемента.
+     */
+    rtOnDeselected?(): void;
+}
+export interface OnSelectionChanged extends SelectableItem {
+    /**
+     * Опциональный хук-метод, который будет вызван реализациями контракта {@link SelectionService} как при выборе, так и при отмене выбора данного элемента.
+     */
+    rtOnSelectionChanged?(selected: boolean): void;
+}
 
 export class RtSelectionService extends DefaultSelectionService {
     private eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();
@@ -15,6 +34,19 @@ export class RtSelectionService extends DefaultSelectionService {
             if (this.areaEventsEmitter) {
                 this.emitEvents(this.areaEventsEmitter, selected, tuple);
             }
+
+            if ((<OnSelectionChanged>tuple.item).rtOnSelectionChanged !== undefined) {
+                (<OnSelectionChanged>tuple.item).rtOnSelectionChanged(selected);
+            }
+            if (selected === true && (<OnSelected>tuple.item).rtOnSelected !== undefined) {
+                (<OnSelected>tuple.item).rtOnSelected();
+            }
+            if (selected === false && (<OnDeselected>tuple.item).rtOnDeselected !== undefined) {
+                (<OnDeselected>tuple.item).rtOnDeselected();
+            }
+
+
+
         }
     }
     private emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
