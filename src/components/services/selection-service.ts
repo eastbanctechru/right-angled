@@ -44,9 +44,6 @@ export class RtSelectionService extends DefaultSelectionService {
             if (selected === false && (<OnDeselected>tuple.item).rtOnDeselected !== undefined) {
                 (<OnDeselected>tuple.item).rtOnDeselected();
             }
-
-
-
         }
     }
     private emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
