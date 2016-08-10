@@ -3,13 +3,13 @@
         <div class="col-md-3 col-sm-6">
             <div class="form-group">
                 <label>Airport name</label>
-                <input type="text" class="form-control" [(ngModel)]="airportName" />
+                <input type="text" class="form-control" [(ngModel)]="airportName" name="airportName" />
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label>Airport type</label>
-                <select class="form-control" [(ngModel)]="selectedAirportType">
+                <select class="form-control" [(ngModel)]="selectedAirportType" name="airportType">
                     <option *ngFor="let type of airportTypes | async" [value]="type.key">{{type.value}}</option>
                 </select>
             </div>
@@ -17,7 +17,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label>Airport size</label>
-                <select class="form-control" [(ngModel)]="selectedAirportSize">
+                <select class="form-control" [(ngModel)]="selectedAirportSize" name="airportSize">
                     <option *ngFor="let size of airportSizes | async" [value]="size.key">{{size.value}}</option>
                 </select>
             </div>

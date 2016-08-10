@@ -42,6 +42,9 @@ export class RtListService {
         this.stateService.serializationKey = 'ls';
     }
     public init(): void {
+        if (this.lifetimeInfo.inited) {
+            return;
+        }
         this.filtersService.registerFilterTarget(this, this.pager, this.sortingsService);
         const restoredState = this.stateService.mergeStates();
         this.filtersService.applyParams(restoredState);
@@ -56,9 +59,6 @@ export class RtListService {
     }
 
     public loadData(): Promise<any> | Observable<any> | EventEmitter<any> {
-        if (!this.lifetimeInfo.inited) {
-            throw new Error('loadData can be called only after activation.');
-        }
         this.pager.totalCount = 0;
         this.lifetimeInfo.state = ProgressState.Progress;
         let requestState = this.filtersService.getRequestState();

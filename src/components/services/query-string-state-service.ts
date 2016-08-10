@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable, SkipSelf, Optional } from '@angular/core';
 
 import { RtStateManagementService } from './state-management-service';
+import { Utility } from 'e2e4';
 
 @Injectable()
 export class RtQueryStringStateService implements RtStateManagementService {
@@ -11,7 +12,7 @@ export class RtQueryStringStateService implements RtStateManagementService {
     private internalStateKey: string;
 
     constructor(private location: Location, @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
-        this.internalStateKey = this.activatedRoute.snapshot.url.length > 0 ? this.activatedRoute.snapshot.url[0].path : 'default-route';
+        this.internalStateKey = this.activatedRoute.snapshot.url.length > 0 ? this.activatedRoute.snapshot.url.map(segment => segment.path).join(':') : 'default-route';
     }
     public flushRequestState(state: Object): void {
 
@@ -22,7 +23,8 @@ export class RtQueryStringStateService implements RtStateManagementService {
             let newState = {};
             Object.assign(newState, state);
             vmState.lastRequestState = newState;
-            let params = this.router.routerState.snapshot.queryParams || {};
+            let params = Utility.cloneLiteral(this.router.routerState.root.snapshot.queryParams || {});
+
             params[this.serializationKey] = JSON.stringify(vmState.lastRequestState);
             let path = this.location.path(true);
             path = path.indexOf('?') === -1 ? path : path.substring(0, path.indexOf('?'));

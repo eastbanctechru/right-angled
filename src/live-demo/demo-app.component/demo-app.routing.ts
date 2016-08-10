@@ -1,4 +1,5 @@
-import { RouterConfig, provideRouter } from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { BufferedListSampleRoutes } from '../+buffered-list-sample/buffered-list-sample.routes';
 import { GroupingSampleRoutes } from '../+grouping-sample/grouping-sample.routes';
@@ -6,7 +7,7 @@ import { MasterDetailSampleRoutes } from '../+master-detail-sample/master-detail
 import { PagedListSampleRoutes } from '../+paged-list-sample/paged-list-sample.routes';
 import { RegularListSampleRoutes } from '../+regular-list-sample/regular-list-sample.routes';
 
-const appRoutes: RouterConfig = [
+const appRoutes: Routes = [
     ...BufferedListSampleRoutes,
     ...GroupingSampleRoutes,
     ...MasterDetailSampleRoutes,
@@ -14,6 +15,4 @@ const appRoutes: RouterConfig = [
     ...RegularListSampleRoutes
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-    provideRouter(appRoutes)
-];
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
