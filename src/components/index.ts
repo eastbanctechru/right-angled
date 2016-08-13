@@ -16,12 +16,12 @@ export var PAGED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(PAGED_FOOTER_DI
 export var BUFFERED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(BUFFERED_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
 export var REGULAR_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(REGULAR_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
 
-import { AsyncSubscriber, RtNullObjectInjectable, RtListService, RtQueryStringStateService, RtListLifetimeInfo, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/index';
+import { AsyncSubscriber, RtNullObjectInjectable, RtListService, RtQueryStringStateService, RtLifetimeInfo, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/index';
 import { provide } from '@angular/core';
 
 export var PAGED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
-    RtListLifetimeInfo,
+    RtLifetimeInfo,
     RtListService,
     provide(RtBufferedPager, { useValue: RtNullObjectInjectable.instance }),
     provide(RtRegularPager, { useValue: RtNullObjectInjectable.instance }),
@@ -33,7 +33,7 @@ export var PAGED_LIST_PROVIDERS: any[] = [
 
 export var BUFFERED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
-    RtListLifetimeInfo,
+    RtLifetimeInfo,
     RtListService,
     provide(RtPagedPager, { useValue: RtNullObjectInjectable.instance }),
     provide(RtRegularPager, { useValue: RtNullObjectInjectable.instance }),
@@ -45,7 +45,7 @@ export var BUFFERED_LIST_PROVIDERS: any[] = [
 
 export var REGULAR_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
-    RtListLifetimeInfo,
+    RtLifetimeInfo,
     RtListService,
     provide(RtPagedPager, { useValue: RtNullObjectInjectable.instance }),
     provide(RtBufferedPager, { useValue: RtNullObjectInjectable.instance }),

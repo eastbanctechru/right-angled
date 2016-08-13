@@ -1,7 +1,7 @@
 import { SkipSelf, Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, IterableDiffer, OnInit } from '@angular/core';
 import { SortDirection } from 'e2e4';
 
-import { RtListLifetimeInfo, RtSortingsService } from '../../services/index';
+import { RtLifetimeInfo, RtSortingsService } from '../../services/index';
 import { ListComponent } from '../list.component';
 
 @Directive({
@@ -17,7 +17,7 @@ export class SortDirective implements DoCheck, OnInit {
     private nativeEl: HTMLElement;
     private sortingsDiffer: IterableDiffer;
     @Input('rtSort') public fieldName: string;
-    constructor( @SkipSelf() private listComponent: ListComponent, @SkipSelf() private sortingsService: RtSortingsService, @SkipSelf() private lifetimeInfo: RtListLifetimeInfo, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
+    constructor( @SkipSelf() private listComponent: ListComponent, @SkipSelf() private sortingsService: RtSortingsService, @SkipSelf() private lifetimeInfo: RtLifetimeInfo, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
         this.sortingsDiffer = differs.find([]).create(null);
         this.nativeEl = el.nativeElement;
     }

@@ -1,7 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Pager, destroyAll, ProgressState } from 'e2e4';
 import { RtQueryStringStateService } from './query-string-state-service';
-import { RtListLifetimeInfo, RtSortingsService, RtFiltersService } from './injectables';
+import { RtSortingsService, RtFiltersService } from './injectables';
+import { RtLifetimeInfo } from './lifetime-info';
 import { AsyncSubscriber } from './async-subscriber';
 import { Observable } from 'rxjs/Observable';
 
@@ -38,7 +39,7 @@ export class RtListService {
             }
         }
     }
-    constructor(private asyncSubscriber: AsyncSubscriber, private lifetimeInfo: RtListLifetimeInfo, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
+    constructor(private asyncSubscriber: AsyncSubscriber, private lifetimeInfo: RtLifetimeInfo, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
         this.stateService.serializationKey = 'ls';
     }
     public init(): void {

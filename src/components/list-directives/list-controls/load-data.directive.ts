@@ -1,6 +1,6 @@
 import { SkipSelf, Directive, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 
-import { RtListLifetimeInfo } from '../../services/index';
+import { RtLifetimeInfo } from '../../services/index';
 import { ListComponent } from '../list.component';
 
 @Directive({
@@ -11,7 +11,7 @@ export class LoadDataDirective implements DoCheck, OnInit {
     @HostBinding('disabled')
     public disabled: boolean;
 
-    constructor( @SkipSelf() public lifetimeInfo: RtListLifetimeInfo, @SkipSelf() public listComponent: ListComponent, stateDiffers: KeyValueDiffers) {
+    constructor( @SkipSelf() public lifetimeInfo: RtLifetimeInfo, @SkipSelf() public listComponent: ListComponent, stateDiffers: KeyValueDiffers) {
         this.lifetimeInfo = lifetimeInfo;
         this.stateDiffer = stateDiffers.find([]).create(null);
     }

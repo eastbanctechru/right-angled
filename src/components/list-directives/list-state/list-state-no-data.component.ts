@@ -2,7 +2,7 @@ import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@
 import { ProgressState } from 'e2e4';
 
 import { ListStateComponent } from './list-state-component';
-import { RtNullObjectInjectable, RtListLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/index';
+import { RtNullObjectInjectable, RtLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/index';
 
 @Component({
     selector: 'rt-list-state-no-data',
@@ -11,7 +11,7 @@ import { RtNullObjectInjectable, RtListLifetimeInfo, RtPagedPager, RtBufferedPag
 export class ListStateNoDataComponent extends ListStateComponent implements DoCheck {
     private pagerDiffer: KeyValueDiffer;
     private pager: RtPagedPager | RtBufferedPager | RtRegularPager;
-    constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() lifetimeInfo: RtListLifetimeInfo, differs: KeyValueDiffers) {
+    constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() lifetimeInfo: RtLifetimeInfo, differs: KeyValueDiffers) {
         super(lifetimeInfo, differs, ProgressState.Done);
         this.pagerDiffer = differs.find([]).create(null);
         this.pager = RtNullObjectInjectable.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);
