@@ -56,7 +56,9 @@ export class AsyncSubscriber implements SubscriptionFactory {
         this.subscription = this.factory.attach(target, completeAction, errorAction);
     }
     public dispose(): void {
-        this.factory.dispose(this.subscription);
+        if (this.factory) {
+            this.factory.dispose(this.subscription);
+        }
         this.factory = null;
         this.lastTarget = null;
         this.subscription = null;
