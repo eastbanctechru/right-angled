@@ -11,7 +11,7 @@
     "start": "ng serve",
     "test": "ng test"
   },
-  "private": true,
+  "private": false,
    "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -37,12 +37,12 @@
   },
   "devDependencies": {
     "angular-cli": "1.0.0-beta.10",
-    "codelyzer": "0.0.26",
+    "codelyzer": "0.0.28",
     "cz-conventional-changelog": "^1.1.7",
     "ember-cli-inject-live-reload": "1.4.1",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
-    "karma": "1.1.2",
+    "karma": "1.2.0",
     "karma-chrome-launcher": "1.0.1",
     "karma-jasmine": "1.0.2",
     "node-sass": "^3.8.0",
