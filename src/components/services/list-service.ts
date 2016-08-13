@@ -8,11 +8,16 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RtListService {
+    public static settings: any = {
+        itemsPropertyName: 'items'
+    };
+    public itemsPropertyName: string = RtListService.settings.itemsPropertyName;
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
-    public destroyOnReloadTarget: any;
     public pager: Pager;
+    public items: Array<any> = new Array<any>();
 
     private loadSuccessCallback = (result: Object): Object => {
+        this.items.push(...result[this.itemsPropertyName]);
         this.pager.processResponse(result);
         this.lifetimeInfo.state = ProgressState.Done;
         // In case when filter changed from last request and theres no data now
@@ -26,18 +31,7 @@ export class RtListService {
     }
     private clearData(): void {
         this.pager.reset();
-        this.destroyReloadDestroyables();
-    }
-    protected destroyReloadDestroyables(): void {
-        if (this.destroyOnReloadTarget) {
-            if (Array.isArray(this.destroyOnReloadTarget)) {
-                destroyAll(this.destroyOnReloadTarget);
-                return;
-            }
-            if (this.destroyOnReloadTarget.hasOwnProperty('destroy')) {
-                this.destroyOnReloadTarget.destroy();
-            }
-        }
+        destroyAll(this.items);
     }
     constructor(private asyncSubscriber: AsyncSubscriber, private lifetimeInfo: RtLifetimeInfo, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
         this.stateService.serializationKey = 'ls';
@@ -65,7 +59,7 @@ export class RtListService {
         let requestState = this.filtersService.getRequestState();
         const subscribable = this.fetchMethod(requestState);
         if (this.pager.appendedOnLoad === false) {
-            this.destroyReloadDestroyables();
+            destroyAll(this.items);
         }
         this.addToCancellationSequence(subscribable);
         this.asyncSubscriber.attach(subscribable, this.loadSuccessCallback, this.loadFailCallback);

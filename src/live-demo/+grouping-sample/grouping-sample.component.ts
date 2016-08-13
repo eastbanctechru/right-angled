@@ -10,10 +10,9 @@ import { SHARED_DIRECTIVES, AirportsService, AirportsListRequest } from '../shar
     templateUrl: 'grouping-sample.component.html'
 })
 export class GroupingSampleComponent {
-    public continents: Array<any> = new Array<any>();
     constructor(public airportsService: AirportsService) {
     }
     public loadData = (requestParams: AirportsListRequest): any => {
-        return this.airportsService.getAirportsGroupedByContinent(requestParams).do(resp => this.continents.push(...resp.items));
+        return this.airportsService.getAirportsGroupedByContinent(requestParams);
     };
 }

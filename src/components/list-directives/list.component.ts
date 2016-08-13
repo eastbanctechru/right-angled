@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { RtListService, RtNullObjectInjectable, RtPagedPager, RtBufferedPager, RtRegularPager } from '../services/index';
 
 @Component({
+    exportAs: 'rtList',
     selector: 'rt-list',
     template: `<ng-content></ng-content>`
 })
@@ -12,10 +13,10 @@ export class ListComponent implements OnDestroy, OnInit {
     public isPagedList: boolean;
     public isRegularList: boolean;
 
-    @Input() public loadOnInit: boolean = true;
-    @Input() public set destroyOnReload(value: any) {
-        this.listService.destroyOnReloadTarget = value;
+    public get items(): Array<any> {
+        return this.listService.items;
     }
+    @Input() public loadOnInit: boolean = true;
     @Input() public set fetchMethod(value: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>) {
         this.listService.fetchMethod = value;
     }
@@ -36,7 +37,6 @@ export class ListComponent implements OnDestroy, OnInit {
     public ngOnInit(): void {
         this.listService.init();
         if (this.loadOnInit) {
-            // run this via setTimeout since this call changes destroyOnReload value and we get error if call this directly in init phase
             setTimeout(() => {
                 this.listService.loadData();
             }, 0);

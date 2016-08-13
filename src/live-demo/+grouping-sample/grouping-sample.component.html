@@ -1,15 +1,15 @@
 <div>
     <h1 class="page-title">Grouping and recursive selection sample</h1>
-    <rt-list [destroyOnReload]="continents" [fetchMethod]="loadData">
+    <rt-list [fetchMethod]="loadData" #list="rtList">
         <rt-demo-filter-area>
         </rt-demo-filter-area>
-        <table class="table table-striped" [rtSelectionAreaFor]="continents" [toggleOnly]="true">
+        <table class="table table-striped" [rtSelectionAreaFor]="list.items" [toggleOnly]="true">
             <caption rt-demo-toolbar class="text-right">
             </caption>
             <thead rt-demo-sortable-header>
             </thead>
             <tbody>
-                <template ngFor let-continent [ngForOf]="continents" let-index="index">
+                <template ngFor let-continent [ngForOf]="list.items" let-index="index">
                     <tr [class.selected]="continent.selected" [rtSelectByIndex]="index">
                         <td colspan="6" class="text-center">{{continent.name}} ({{continent.airports.length}} items)</td>
                     </tr>
