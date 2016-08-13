@@ -2,7 +2,7 @@ export * from 'e2e4';
 
 export { MISC_DIRECTIVES } from './misc-directives/index';
 
-export { RtListService, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/index';
+export { RtListService, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService, RtQueryStringStateService } from './services/index';
 
 export { SELECTION_DIRECTIVES } from './selection-directives/index';
 import { SELECTION_DIRECTIVES } from './selection-directives/index';

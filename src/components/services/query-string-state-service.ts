@@ -2,20 +2,30 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable, SkipSelf, Optional } from '@angular/core';
 
-import { RtStateManagementService } from './state-management-service';
 import { cloneAsLiteral } from 'e2e4';
 
 @Injectable()
-export class RtQueryStringStateService implements RtStateManagementService {
+export class RtQueryStringStateService {
+    // tslint:disable-next-line: typedef
+    public static settings = {
+        persistanceEnabled: true,
+        requestFlushingEnabled: true
+    };
+
     private static stateObject: Map<any, any> = new Map<any, any>();
     public serializationKey: string;
+    public requestFlushingEnabled: boolean = RtQueryStringStateService.settings.requestFlushingEnabled;
+    public persistanceEnabled: boolean = RtQueryStringStateService.settings.persistanceEnabled;
+
     private internalStateKey: string;
 
     constructor(private location: Location, @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
         this.internalStateKey = this.activatedRoute.snapshot.url.length > 0 ? this.activatedRoute.snapshot.url.map(segment => segment.path).join(':') : 'default-route';
     }
     public flushRequestState(state: Object): void {
-
+        if (!this.requestFlushingEnabled) {
+            return;
+        }
         let vmState = this.getRequestState();
         RtQueryStringStateService.stateObject.set(this.internalStateKey, vmState);
 
@@ -31,7 +41,12 @@ export class RtQueryStringStateService implements RtStateManagementService {
             this.location.replaceState(path, this.serializeQueryParams(params));
         }, 0);
     }
-    public persistLocalState(state: Object): void { return void (0); }
+    public persistLocalState(state: Object): void {
+        if (!this.persistanceEnabled) {
+            return;
+        }
+        return void (0);
+    }
     public mergeStates(): Object {
         const restoredState = {};
         const requestState = this.getRequestState();

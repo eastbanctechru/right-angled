@@ -9,10 +9,11 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class RtListService {
-    public static settings: any = {
+    public static settings: { itemsPropertyName: string } = {
         itemsPropertyName: 'items'
     };
     public itemsPropertyName: string = RtListService.settings.itemsPropertyName;
+
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     public pager: Pager;
     public items: Array<any> = new Array<any>();
