@@ -1,20 +1,20 @@
-import { SelectionTuple, DefaultSelectionService, SelectableItem } from 'e2e4';
+import { SelectionTuple, DefaultSelectionService, SelectionItem } from 'e2e4';
 
 import { SelectionEventsEmitter, OnDeselectedEvent, OnSelectedEvent, OnSelectionChangedEvent } from './selection-events-emitter';
 
-export interface OnSelected extends SelectableItem {
+export interface OnSelected extends SelectionItem {
     /**
      * Опциональный хук-метод, который будет вызван реализациями контракта {@link SelectionService} при выборе данного элемента.
      */
     rtOnSelected(): void;
 }
-export interface OnDeselected extends SelectableItem {
+export interface OnDeselected extends SelectionItem {
     /**
      * Опциональный хук-метод, который будет вызван реализациями контракта {@link SelectionService} при отмене выбора данного элемента.
      */
     rtOnDeselected?(): void;
 }
-export interface OnSelectionChanged extends SelectableItem {
+export interface OnSelectionChanged extends SelectionItem {
     /**
      * Опциональный хук-метод, который будет вызван реализациями контракта {@link SelectionService} как при выборе, так и при отмене выбора данного элемента.
      */
@@ -54,10 +54,10 @@ export class RtSelectionService extends DefaultSelectionService {
         }
         emitter.selectionChanged.emit(new OnSelectionChangedEvent(tuple.item, tuple.index));
     }
-    public dispose(): void {
+    public destroy(): void {
         delete this.areaEventsEmitter;
         this.eventEmitters.length = 0;
-        super.dispose();
+        super.destroy();
     }
     public registerEventEmitter(emitter: SelectionEventsEmitter, index: number): void {
         this.eventEmitters[index] = emitter;

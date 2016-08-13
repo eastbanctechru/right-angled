@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 export interface SubscriptionFactory {
     attach(target: any, completeAction: any, errorAction: any): any;
-    dispose(subscription: any): void;
+    destroy(subscription: any): void;
     detach(subscription: any): void;
 }
 
@@ -11,7 +11,7 @@ class ObservableSubscriptionFactory implements SubscriptionFactory {
     public attach(target: any, completeAction: any, errorAction?: (error: any) => any): any {
         return target.subscribe({ error: errorAction, next: completeAction });
     }
-    public dispose(subscription: any): void { subscription.unsubscribe(); }
+    public destroy(subscription: any): void { subscription.unsubscribe(); }
     public detach(subscription: any): void { subscription.unsubscribe(); }
 }
 
@@ -19,7 +19,7 @@ class PromiseSubscriptionFactory implements SubscriptionFactory {
     public attach(target: Promise<any>, completeAction: (v: any) => any, errorAction?: (error: any) => any): any {
         return target.then(completeAction, errorAction);
     }
-    public dispose(subscription: any): void { return void (0); }
+    public destroy(subscription: any): void { return void (0); }
     public detach(subscription: any): void { throw 'Not supported'; }
 }
 
@@ -49,15 +49,15 @@ export class AsyncSubscriber implements SubscriptionFactory {
     }
     public attach(target: Observable<any> | Promise<any> | EventEmitter<any>, completeAction: (v: any) => any, errorAction?: (error: any) => any): void {
         if (this.lastTarget !== null) {
-            this.dispose();
+            this.destroy();
         }
         this.lastTarget = target;
         this.factory = this.chooseFactory(target);
         this.subscription = this.factory.attach(target, completeAction, errorAction);
     }
-    public dispose(): void {
+    public destroy(): void {
         if (this.factory) {
-            this.factory.dispose(this.subscription);
+            this.factory.destroy(this.subscription);
         }
         this.factory = null;
         this.lastTarget = null;

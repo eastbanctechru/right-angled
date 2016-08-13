@@ -1,5 +1,5 @@
 import { EventEmitter, ContentChildren, QueryList, Host, HostListener, Directive, OnInit, Input, Output, OnChanges, OnDestroy, HostBinding } from '@angular/core';
-import { SelectableItem, SelectionAreaConfig, SelectionEventsHelper } from 'e2e4';
+import { SelectionItem, SelectionAreaConfig, SelectionEventsHelper } from 'e2e4';
 
 import { RtSelectionService, SelectionEventsEmitter, OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent } from '../services/index';
 
@@ -14,7 +14,7 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
 
     @Input() public horizontal: boolean = false;
     @Input() public multiple: boolean = true;
-    @Input('rtSelectionAreaFor') public items: Array<SelectableItem>;
+    @Input('rtSelectionAreaFor') public items: Array<SelectionItem>;
     @Input() public autoSelectFirst: boolean = false;
     @Input() public toggleOnly: boolean = false;
     @Input() public set trackBy(value: (index: number, item: any) => any) {
@@ -29,7 +29,7 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }
     public ngOnDestroy(): void {
-        this.selectionService.dispose();
+        this.selectionService.destroy();
     }
     public ngOnChanges(changes: any): void {
         if (changes.items) {

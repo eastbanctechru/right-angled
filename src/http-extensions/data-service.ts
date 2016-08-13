@@ -7,7 +7,7 @@ import { RequestSettings } from './request-settings';
 
 export abstract class DataService {
 
-    protected disposeEvent: EventEmitter<any> = new EventEmitter<any>();
+    protected destroyEvent: EventEmitter<any> = new EventEmitter<any>();
     public faultHandlers: Array<(response: Response) => boolean> = [];
 
     constructor(protected http: Http) {
@@ -27,13 +27,13 @@ export abstract class DataService {
                 }
             })
             .catch(this.faultHandler)
-            .cancelOn(this.disposeEvent);
+            .cancelOn(this.destroyEvent);
 
         return obs.toPromise();
     }
 
-    public dispose(): void {
-        this.disposeEvent.emit(null);
+    public destroy(): void {
+        this.destroyEvent.emit(null);
     }
 
     protected faultHandler(response: Response): Observable<any> {

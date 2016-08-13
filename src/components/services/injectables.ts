@@ -2,32 +2,7 @@ import { ProgressState, PagedPager, BufferedPager, RegularPager, SortingsService
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class RtPagedPager extends PagedPager {
-    public tryMoveToFirstPage(): boolean {
-        if (this.pageNumber > 1) {
-            this.pageNumber = 1;
-            return true;
-        }
-    }
-    public tryMoveToPreviousPage(): boolean {
-        if (this.pageNumber > 1) {
-            this.pageNumber -= 1;
-            return true;
-        }
-    }
-    public tryMoveToNextPage(): boolean {
-        if (this.pageNumber < this.pageCount) {
-            this.pageNumber += 1;
-            return true;
-        }
-    }
-    public tryMoveToLastPage(): boolean {
-        if (this.pageNumber < this.pageCount) {
-            this.pageNumber = this.pageCount;
-            return true;
-        }
-    }
-}
+export class RtPagedPager extends PagedPager { }
 @Injectable()
 export class RtBufferedPager extends BufferedPager { }
 @Injectable()
@@ -39,9 +14,9 @@ export class RtFiltersService extends FiltersService { }
 @Injectable()
 export class RtListLifetimeInfo {
     /**
-     * True if object was already disposed via {@link dispose} call.  
+     * True if object was already destroyed via {@link destroy} call.  
      */
-    public disposed: boolean = false;
+    public destroyed: boolean = false;
     /**
      * True if object was already inited via {@link init} call.  
      */
@@ -71,9 +46,9 @@ export class RtListLifetimeInfo {
         this.inited = true;
     }
     /**
-     * Выставляет свойство {@link disposed} в true. Данный метод необходимо вызывать из классов-наследников при уничтожении.  
+     * Выставляет свойство {@link destroyed} в true. Данный метод необходимо вызывать из классов-наследников при уничтожении.  
      */
-    public dispose(): void {
-        this.disposed = true;
+    public destroy(): void {
+        this.destroyed = true;
     }
 }

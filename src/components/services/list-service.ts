@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Pager, Utility, ProgressState } from 'e2e4';
+import { Pager, destroyAll, ProgressState } from 'e2e4';
 import { RtQueryStringStateService } from './query-string-state-service';
 import { RtListLifetimeInfo, RtSortingsService, RtFiltersService } from './injectables';
 import { AsyncSubscriber } from './async-subscriber';
@@ -30,11 +30,11 @@ export class RtListService {
     protected destroyReloadDestroyables(): void {
         if (this.destroyOnReloadTarget) {
             if (Array.isArray(this.destroyOnReloadTarget)) {
-                Utility.disposeAll(this.destroyOnReloadTarget);
+                destroyAll(this.destroyOnReloadTarget);
                 return;
             }
-            if (this.destroyOnReloadTarget.hasOwnProperty('dispose')) {
-                this.destroyOnReloadTarget.dispose();
+            if (this.destroyOnReloadTarget.hasOwnProperty('destroy')) {
+                this.destroyOnReloadTarget.destroy();
             }
         }
     }
@@ -50,11 +50,11 @@ export class RtListService {
         this.filtersService.applyParams(restoredState);
         this.lifetimeInfo.init();
     }
-    public dispose(): void {
-        this.asyncSubscriber.dispose();
-        this.lifetimeInfo.dispose();
-        this.filtersService.dispose();
-        this.sortingsService.dispose();
+    public destroy(): void {
+        this.asyncSubscriber.destroy();
+        this.lifetimeInfo.destroy();
+        this.filtersService.destroy();
+        this.sortingsService.destroy();
         this.clearData();
     }
 

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable, SkipSelf, Optional } from '@angular/core';
 
 import { RtStateManagementService } from './state-management-service';
-import { Utility } from 'e2e4';
+import { cloneAsLiteral } from 'e2e4';
 
 @Injectable()
 export class RtQueryStringStateService implements RtStateManagementService {
@@ -23,7 +23,7 @@ export class RtQueryStringStateService implements RtStateManagementService {
             let newState = {};
             Object.assign(newState, state);
             vmState.lastRequestState = newState;
-            let params = Utility.cloneLiteral(this.router.routerState.root.snapshot.queryParams || {});
+            let params = cloneAsLiteral(this.router.routerState.root.snapshot.queryParams || {});
 
             params[this.serializationKey] = JSON.stringify(vmState.lastRequestState);
             let path = this.location.path(true);

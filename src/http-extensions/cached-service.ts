@@ -45,8 +45,8 @@ export abstract class CachedService extends DataService {
             });
     }
 
-    public dispose(): void {
-        super.dispose();
+    public destroy(): void {
+        super.destroy();
         this.cache = null;
     }
 }

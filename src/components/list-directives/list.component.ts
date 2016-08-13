@@ -43,6 +43,6 @@ export class ListComponent implements OnDestroy, OnInit {
         }
     }
     public ngOnDestroy(): void {
-        this.listService.dispose();
+        this.listService.destroy();
     }
 }
