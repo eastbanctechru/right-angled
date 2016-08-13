@@ -3,13 +3,13 @@
     <rt-list [fetchMethod]="loadData" #list="rtList">
         <rt-demo-filter-area>
         </rt-demo-filter-area>
-        <table class="table table-striped" [rtSelectionAreaFor]="list.items">
+        <table class="table table-striped" [rtSelectionAreaFor]="list">
             <caption rt-demo-toolbar class="text-right">
             </caption>
             <thead rt-demo-sortable-header>
             </thead>
             <tbody>
-                <tr *ngFor="let item of list.items, let index=index" [class.selected]="item.selected" [rtSelectByIndex]="index">
+                <tr *ngFor="let item of list, let index=index" [class.selected]="item.selected" [rtSelectByIndex]="index">
                     <td>
                         <rt-row-number [index]="index">
                         </rt-row-number>

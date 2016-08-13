@@ -5,6 +5,7 @@ import { RtSortingsService, RtFiltersService } from './injectables';
 import { RtLifetimeInfo } from './lifetime-info';
 import { AsyncSubscriber } from './async-subscriber';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class RtListService {
@@ -15,9 +16,12 @@ export class RtListService {
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     public pager: Pager;
     public items: Array<any> = new Array<any>();
+    public itemsStream: Subject<Array<any>> = Subject.create();
 
     private loadSuccessCallback = (result: Object): Object => {
         this.items.push(...result[this.itemsPropertyName]);
+        this.itemsStream.next(this.items);
+
         this.pager.processResponse(result);
         this.lifetimeInfo.state = ProgressState.Done;
         // In case when filter changed from last request and theres no data now
@@ -51,6 +55,7 @@ export class RtListService {
         this.filtersService.destroy();
         this.sortingsService.destroy();
         this.clearData();
+        this.itemsStream.complete();
     }
 
     public loadData(): Promise<any> | Observable<any> | EventEmitter<any> {

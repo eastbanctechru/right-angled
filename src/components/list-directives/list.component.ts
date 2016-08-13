@@ -1,5 +1,6 @@
 import { SkipSelf, Component, Input, OnDestroy, OnInit, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 import { RtListService, RtNullObjectInjectable, RtPagedPager, RtBufferedPager, RtRegularPager } from '../services/index';
 
@@ -15,6 +16,9 @@ export class ListComponent implements OnDestroy, OnInit {
 
     public get items(): Array<any> {
         return this.listService.items;
+    }
+    public get itemsStream(): Subject<Array<any>> {
+        return this.listService.itemsStream;
     }
     @Input() public loadOnInit: boolean = true;
     @Input() public set fetchMethod(value: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>) {
