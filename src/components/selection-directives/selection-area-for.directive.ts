@@ -18,6 +18,9 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     @Input() public autoSelectFirst: boolean = false;
     @Input() public toggleOnly: boolean = false;
     @Input() public set trackBy(value: (index: number, item: any) => any) {
+        if (typeof value !== 'function') {
+            throw new Error('trackBy parameter value must be a function');
+        }
         this.selectionService.trackByFn = value;
     }
     @Output() public itemSelected: EventEmitter<OnSelectedEvent> = new EventEmitter<OnSelectedEvent>();
@@ -32,7 +35,9 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
         this.selectionService.destroy();
     }
     public ngOnChanges(changes: any): void {
-        if (changes.items) {
+        // we doesn't set itemsSource to empty arrays to keep selection when trackByFn is provided
+        // it's must not be a problem since on destroy selections will be destroyed by this component 
+        if (changes.items && (!this.selectionService.itemsSource || !!this.trackBy || changes.items.currentValue.length > 0)) {
             this.selectionService.itemsSource = changes.items.currentValue;
         }
         if (false === this.selectionService.hasSelections() && this.autoSelectFirst === true) {

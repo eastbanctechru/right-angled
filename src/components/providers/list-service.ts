@@ -4,6 +4,7 @@ import { RtQueryStringStateService } from './query-string-state-service';
 import { RtSortingsService, RtFiltersService } from './injectables';
 import { AsyncSubscriber } from './async-subscriber';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class RtListService {
@@ -17,6 +18,7 @@ export class RtListService {
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     public pager: Pager;
     public items: Array<any> = new Array<any>();
+    public itemsStream: Subject<Array<any>> = Subject.create();
 
     /**
      * True if object was already destroyed via {@link destroy} call.  
@@ -45,7 +47,8 @@ export class RtListService {
         return this.state !== ProgressState.Progress;
     }
     private loadSuccessCallback = (result: Object): Object => {
-        this.items.push(...result[this.itemsPropertyName]);
+        this.items = this.items.concat(result[this.itemsPropertyName]);
+        this.itemsStream.next(this.items);
 
         this.pager.processResponse(result);
         this.state = ProgressState.Done;
@@ -61,6 +64,8 @@ export class RtListService {
     private clearData(): void {
         this.pager.reset();
         destroyAll(this.items);
+        this.items = [];
+        this.itemsStream.next(this.items);
     }
     constructor(private asyncSubscriber: AsyncSubscriber, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
         this.stateService.serializationKey = RtListService.settings.stateSerializationKeyName;
@@ -79,6 +84,7 @@ export class RtListService {
         this.filtersService.destroy();
         this.sortingsService.destroy();
         this.clearData();
+        this.itemsStream.complete();
         this.destroyed = true;
     }
 
@@ -89,6 +95,8 @@ export class RtListService {
         const subscribable = this.fetchMethod(requestState);
         if (this.pager.appendedOnLoad === false) {
             destroyAll(this.items);
+            this.items = [];
+            this.itemsStream.next(this.items);
         }
         this.addToCancellationSequence(subscribable);
         this.asyncSubscriber.attach(subscribable, this.loadSuccessCallback, this.loadFailCallback);
