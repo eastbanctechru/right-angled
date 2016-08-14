@@ -2,7 +2,7 @@ import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@
 import { ProgressState } from 'e2e4';
 
 import { ListStateComponent } from './list-state-component';
-import { RtNullObjectInjectable, RtLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/index';
+import { RtNullObjectInjectable, RtLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../providers/index';
 
 @Component({
     selector: 'rt-list-state-no-data',

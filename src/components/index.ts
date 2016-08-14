@@ -2,7 +2,7 @@ export * from 'e2e4';
 
 export { MISC_DIRECTIVES } from './misc-directives/index';
 
-export { RtListService, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService, RtQueryStringStateService } from './services/index';
+export { RtListService, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService, RtQueryStringStateService } from './providers/index';
 
 export { SELECTION_DIRECTIVES } from './selection-directives/index';
 import { SELECTION_DIRECTIVES } from './selection-directives/index';
@@ -16,7 +16,7 @@ export var PAGED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(PAGED_FOOTER_DI
 export var BUFFERED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(BUFFERED_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
 export var REGULAR_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(REGULAR_FOOTER_DIRECTIVES.concat(SELECTION_DIRECTIVES));
 
-import { AsyncSubscriber, RtNullObjectInjectable, RtListService, RtQueryStringStateService, RtLifetimeInfo, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './services/index';
+import { AsyncSubscriber, RtNullObjectInjectable, RtListService, RtQueryStringStateService, RtLifetimeInfo, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './providers/index';
 import { provide } from '@angular/core';
 
 export var PAGED_LIST_PROVIDERS: any[] = [

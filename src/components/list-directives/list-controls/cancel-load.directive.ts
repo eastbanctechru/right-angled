@@ -1,6 +1,6 @@
 import { SkipSelf, Directive, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 
-import { RtLifetimeInfo } from '../../services/index';
+import { RtLifetimeInfo } from '../../providers/index';
 import { ListComponent } from '../list.component';
 
 @Directive({

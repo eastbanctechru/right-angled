@@ -1,7 +1,7 @@
 import { EventEmitter, SkipSelf, HostListener, Directive, Input, Output, OnInit } from '@angular/core';
 
 import { SelectionAreaForDirective } from './selection-area-for.directive';
-import { SelectionEventsEmitter, OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent } from '../services/index';
+import { SelectionEventsEmitter, OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent } from '../providers/index';
 
 @Directive({
     selector: '[rtSelectByIndex]'

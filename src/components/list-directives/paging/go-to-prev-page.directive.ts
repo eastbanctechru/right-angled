@@ -1,6 +1,6 @@
 import { Renderer, Directive, HostListener, HostBinding, KeyValueDiffers, Input, ElementRef } from '@angular/core';
 
-import { RtListService, RtPagedPager } from '../../services/index';
+import { RtListService, RtPagedPager } from '../../providers/index';
 import { GoToControlBase } from './go-to-control-base';
 
 @Directive({

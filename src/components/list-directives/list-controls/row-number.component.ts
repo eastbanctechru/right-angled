@@ -1,6 +1,6 @@
 import { SkipSelf, Component, Input, OnChanges } from '@angular/core';
 
-import { RtNullObjectInjectable, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/index';
+import { RtNullObjectInjectable, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../providers/index';
 
 @Component({
     selector: 'rt-row-number',

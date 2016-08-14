@@ -1,6 +1,6 @@
 import { HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 
-import { RtListService, RtPagedPager, RtNullObjectInjectable } from '../../services/index';
+import { RtListService, RtPagedPager, RtNullObjectInjectable } from '../../providers/index';
 
 @Directive({
     selector: 'input[rtPageNumber]'

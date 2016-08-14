@@ -1,6 +1,6 @@
 import { Renderer, KeyValueDiffers, KeyValueDiffer, ElementRef, DoCheck, OnInit } from '@angular/core';
 
-import { RtNullObjectInjectable, RtPagedPager } from '../../services/index';
+import { RtNullObjectInjectable, RtPagedPager } from '../../providers/index';
 
 export abstract class GoToControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;

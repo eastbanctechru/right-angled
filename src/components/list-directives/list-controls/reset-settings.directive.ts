@@ -1,6 +1,6 @@
 import { SkipSelf, Directive, HostListener } from '@angular/core';
 
-import { RtFiltersService } from '../../services/index';
+import { RtFiltersService } from '../../providers/index';
 
 @Directive({
     selector: '[rtResetSettings]'

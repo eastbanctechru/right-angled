@@ -1,6 +1,6 @@
 import { SkipSelf, HostListener, Directive } from '@angular/core';
 
-import { RtListService, RtBufferedPager, RtNullObjectInjectable } from '../../services/index';
+import { RtListService, RtBufferedPager, RtNullObjectInjectable } from '../../providers/index';
 
 @Directive({
     selector: '[rtLoadMore]'

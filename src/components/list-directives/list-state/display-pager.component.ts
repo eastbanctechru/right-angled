@@ -1,7 +1,7 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { RtNullObjectInjectable, RtLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../services/index';
+import { RtNullObjectInjectable, RtLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../providers/index';
 import { ListStateComponent } from './list-state-component';
 
 @Component({

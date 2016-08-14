@@ -1,7 +1,7 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { RtLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager, RtNullObjectInjectable } from '../../services/index';
+import { RtLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager, RtNullObjectInjectable } from '../../providers/index';
 
 @Component({
     selector: 'rt-total-records-text',
