@@ -7,8 +7,10 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RtListService {
-    public static settings: { itemsPropertyName: string } = {
-        itemsPropertyName: 'items'
+    // tslint:disable-next-line: typedef
+    public static settings = {
+        itemsPropertyName: 'items',
+        stateSerializationKeyName: 'ls'
     };
     public itemsPropertyName: string = RtListService.settings.itemsPropertyName;
 
@@ -61,7 +63,7 @@ export class RtListService {
         destroyAll(this.items);
     }
     constructor(private asyncSubscriber: AsyncSubscriber, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
-        this.stateService.serializationKey = 'ls';
+        this.stateService.serializationKey = RtListService.settings.stateSerializationKeyName;
     }
     public init(): void {
         if (this.inited) {
