@@ -15,7 +15,6 @@ import { RtNullObjectInjectable } from './null-object-injectable';
 import { AsyncSubscriber } from './async-subscriber';
 import { provide } from '@angular/core';
 
-
 export var PAGED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtLifetimeInfo,
@@ -51,4 +50,3 @@ export var REGULAR_LIST_PROVIDERS: any[] = [
     RtRegularPager,
     RtQueryStringStateService
 ];
-
