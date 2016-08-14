@@ -1,10 +1,11 @@
-import { SkipSelf, Component, Input, OnChanges } from '@angular/core';
+import { SkipSelf, Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 
 import { RtNullObjectInjectable, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../providers/index';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-row-number',
-    template: `{{rowNumber}}<ng-content></ng-content>`
+    template: `{{rowNumber}}`
 })
 export class RowNumberComponent implements OnChanges {
     @Input() public index: number;
