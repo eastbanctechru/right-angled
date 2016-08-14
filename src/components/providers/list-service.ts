@@ -2,7 +2,6 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Pager, destroyAll, ProgressState } from 'e2e4';
 import { RtQueryStringStateService } from './query-string-state-service';
 import { RtSortingsService, RtFiltersService } from './injectables';
-import { RtLifetimeInfo } from './lifetime-info';
 import { AsyncSubscriber } from './async-subscriber';
 import { Observable } from 'rxjs/Observable';
 
@@ -17,11 +16,37 @@ export class RtListService {
     public pager: Pager;
     public items: Array<any> = new Array<any>();
 
+    /**
+     * True if object was already destroyed via {@link destroy} call.  
+     */
+    public destroyed: boolean = false;
+    /**
+     * True if object was already inited via {@link init} call.  
+     */
+    public inited: boolean = false;
+    /**
+     * Текущее состояние объекта.  
+     */
+    public state: ProgressState = ProgressState.Initial;
+    /**
+     * Вычисляемое свойство, указывающее что текущее состояние {@link AbstractLifetime.state} равно {@link ProgressState.Progress}.
+     * Реализовано для удобства использования в шаблонах.  
+     */
+    public get busy(): boolean {
+        return this.state === ProgressState.Progress;
+    }
+    /**
+     * Вычисляемое свойство, указывающее что текущее состояние {@link AbstractLifetime.state} НЕ равно {@link ProgressState.Progress}.
+     * Реализовано для удобства использования в шаблонах.  
+     */
+    public get ready(): boolean {
+        return this.state !== ProgressState.Progress;
+    }
     private loadSuccessCallback = (result: Object): Object => {
         this.items.push(...result[this.itemsPropertyName]);
 
         this.pager.processResponse(result);
-        this.lifetimeInfo.state = ProgressState.Done;
+        this.state = ProgressState.Done;
         // In case when filter changed from last request and theres no data now
         if (this.pager.totalCount === 0) {
             this.clearData();
@@ -29,35 +54,35 @@ export class RtListService {
         return result;
     }
     private loadFailCallback = (): void => {
-        this.lifetimeInfo.state = ProgressState.Fail;
+        this.state = ProgressState.Fail;
     }
     private clearData(): void {
         this.pager.reset();
         destroyAll(this.items);
     }
-    constructor(private asyncSubscriber: AsyncSubscriber, private lifetimeInfo: RtLifetimeInfo, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
+    constructor(private asyncSubscriber: AsyncSubscriber, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
         this.stateService.serializationKey = 'ls';
     }
     public init(): void {
-        if (this.lifetimeInfo.inited) {
+        if (this.inited) {
             return;
         }
         this.filtersService.registerFilterTarget(this, this.pager, this.sortingsService);
         const restoredState = this.stateService.mergeStates();
         this.filtersService.applyParams(restoredState);
-        this.lifetimeInfo.init();
+        this.inited = true;
     }
     public destroy(): void {
         this.asyncSubscriber.destroy();
-        this.lifetimeInfo.destroy();
         this.filtersService.destroy();
         this.sortingsService.destroy();
         this.clearData();
+        this.destroyed = true;
     }
 
     public loadData(): Promise<any> | Observable<any> | EventEmitter<any> {
         this.pager.totalCount = 0;
-        this.lifetimeInfo.state = ProgressState.Progress;
+        this.state = ProgressState.Progress;
         let requestState = this.filtersService.getRequestState();
         const subscribable = this.fetchMethod(requestState);
         if (this.pager.appendedOnLoad === false) {
@@ -70,7 +95,7 @@ export class RtListService {
         return subscribable;
     }
     public reloadData(): void {
-        if (this.lifetimeInfo.ready) {
+        if (this.ready) {
             this.clearData();
             this.loadData();
         }
@@ -79,6 +104,6 @@ export class RtListService {
     };
     public cancelRequests(): void {
         this.asyncSubscriber.detach();
-        this.lifetimeInfo.state = ProgressState.Cancelled;
+        this.state = ProgressState.Cancelled;
     };
 }

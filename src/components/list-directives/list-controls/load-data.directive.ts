@@ -1,24 +1,23 @@
 import { SkipSelf, Directive, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 
-import { RtLifetimeInfo, RtListService } from '../../providers/index';
+import { RtListService } from '../../providers/index';
 
 @Directive({
     selector: '[rtLoadData]'
 })
 export class LoadDataDirective implements DoCheck, OnInit {
-    private stateDiffer: KeyValueDiffer;
+    private listDiffer: KeyValueDiffer;
     @HostBinding('disabled')
     public disabled: boolean;
 
-    constructor( @SkipSelf() public lifetimeInfo: RtLifetimeInfo, @SkipSelf() public listService: RtListService, stateDiffers: KeyValueDiffers) {
-        this.lifetimeInfo = lifetimeInfo;
-        this.stateDiffer = stateDiffers.find([]).create(null);
+    constructor(@SkipSelf() public listService: RtListService, kvDiffers: KeyValueDiffers) {
+        this.listDiffer = kvDiffers.find([]).create(null);
     }
     public ngOnInit(): void {
         this.setAttributes();
     }
     public ngDoCheck(): void {
-        let stateDiff = this.stateDiffer.diff(this.lifetimeInfo);
+        let stateDiff = this.listDiffer.diff(this.listService);
         if (stateDiff) {
             stateDiff.forEachChangedItem(this.checkStateFieldChanges);
         }
@@ -29,7 +28,7 @@ export class LoadDataDirective implements DoCheck, OnInit {
         }
     }
     public setAttributes(): void {
-        this.disabled = this.lifetimeInfo.busy;
+        this.disabled = this.listService.busy;
     }
     @HostListener('click')
     public loadData(): void {

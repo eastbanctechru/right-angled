@@ -1,7 +1,7 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { RtLifetimeInfo, RtPagedPager, RtBufferedPager, RtRegularPager, RtNullObjectInjectable } from '../../providers/index';
+import { RtListService, RtPagedPager, RtBufferedPager, RtRegularPager, RtNullObjectInjectable } from '../../providers/index';
 
 @Component({
     selector: 'rt-total-records-text',
@@ -12,7 +12,7 @@ export class TotalRecordsTextComponent implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
     private isVisible: boolean;
     private pager: RtPagedPager | RtBufferedPager | RtRegularPager;
-    constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() private lifetimeInfo: RtLifetimeInfo, differs: KeyValueDiffers) {
+    constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() private listService: RtListService, differs: KeyValueDiffers) {
         this.listDiffer = differs.find([]).create(null);
         this.pagerDiffer = differs.find([]).create(null);
         this.pager = RtNullObjectInjectable.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);
@@ -21,7 +21,7 @@ export class TotalRecordsTextComponent implements DoCheck, OnInit {
         this.setVisibility();
     }
     public ngDoCheck(): void {
-        let stateDiff = this.listDiffer.diff(this.lifetimeInfo);
+        let stateDiff = this.listDiffer.diff(this.listService);
         if (stateDiff) {
             stateDiff.forEachChangedItem(this.checkStateFieldChanges);
         }
@@ -41,6 +41,6 @@ export class TotalRecordsTextComponent implements DoCheck, OnInit {
         }
     }
     private setVisibility(): void {
-        this.isVisible = this.lifetimeInfo.state === ProgressState.Done && this.pager.totalCount !== 0;
+        this.isVisible = this.listService.state === ProgressState.Done && this.pager.totalCount !== 0;
     }
 }
