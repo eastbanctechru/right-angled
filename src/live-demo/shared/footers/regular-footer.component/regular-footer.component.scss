@@ -1,11 +1,7 @@
-@import '../../shared.scss';
-
 rt-display-pager>div {
     display: inline;
 }
-rt-demo-paged-footer,
-rt-demo-buffered-footer,
-rt-demo-regular-footer {
+:host {
     text-align: right;
     display: block;
     > * {

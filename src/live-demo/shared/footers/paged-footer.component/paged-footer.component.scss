@@ -1,5 +1,19 @@
 @import '../../../shared.scss';
 
+rt-display-pager>div {
+    display: inline;
+}
+:host {
+    text-align: right;
+    display: block;
+    > * {
+        display: block;
+    }
+    rt-display-pager > * {
+        vertical-align: middle;
+    }
+}
+
 .first-page, .prev-page, .next-page, .last-page {
     display: inline-block;
     width: 24px;

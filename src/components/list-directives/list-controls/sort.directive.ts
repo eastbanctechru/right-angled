@@ -1,8 +1,7 @@
 import { SkipSelf, Renderer, HostListener, Directive, ElementRef, Input, DoCheck, IterableDiffers, IterableDiffer, OnInit } from '@angular/core';
 import { SortDirection } from 'e2e4';
 
-import { RtLifetimeInfo, RtSortingsService } from '../../providers/index';
-import { ListComponent } from '../list.component';
+import { RtLifetimeInfo, RtSortingsService, RtListService } from '../../providers/index';
 
 @Directive({
     selector: '[rtSort]'
@@ -17,7 +16,7 @@ export class SortDirective implements DoCheck, OnInit {
     private nativeEl: HTMLElement;
     private sortingsDiffer: IterableDiffer;
     @Input('rtSort') public fieldName: string;
-    constructor( @SkipSelf() private listComponent: ListComponent, @SkipSelf() private sortingsService: RtSortingsService, @SkipSelf() private lifetimeInfo: RtLifetimeInfo, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
+    constructor( @SkipSelf() private listService: RtListService, @SkipSelf() private sortingsService: RtSortingsService, @SkipSelf() private lifetimeInfo: RtLifetimeInfo, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
         this.sortingsDiffer = differs.find([]).create(null);
         this.nativeEl = el.nativeElement;
     }
@@ -35,7 +34,7 @@ export class SortDirective implements DoCheck, OnInit {
     public clickHandler(evt: MouseEvent): void {
         if (this.lifetimeInfo.ready) {
             this.sortingsService.setSort(this.fieldName, evt.ctrlKey);
-            this.listComponent.listService.reloadData();
+            this.listService.reloadData();
         }
     }
     public ngDoCheck(): void {
