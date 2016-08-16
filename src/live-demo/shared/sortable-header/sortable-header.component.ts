@@ -1,7 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { LIST_DIRECTIVES } from 'right-angled/list-directives/index';
 @Component({
-  directives: [LIST_DIRECTIVES],
   encapsulation: ViewEncapsulation.None,
   moduleId: module.id,
   // tslint:disable-next-line: component-selector-name component-selector-type component-selector-prefix

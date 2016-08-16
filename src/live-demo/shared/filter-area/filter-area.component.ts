@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterConfig, filter, RtFiltersService, LIST_DIRECTIVES } from 'right-angled';
+import { FilterConfig, filter, RtFiltersService } from 'right-angled';
 import { AirportsService } from '../data/airports.service';
 
 @Component({
-    directives: [LIST_DIRECTIVES],
     moduleId: module.id,
     selector: 'rt-demo-filter-area',
     styleUrls: ['filter-area.component.css'],
