@@ -67,7 +67,7 @@ export class RtListService {
         this.items = [];
         this.itemsStream.next(this.items);
     }
-    constructor(private asyncSubscriber: AsyncSubscriber, private stateService: RtQueryStringStateService, private sortingsService: RtSortingsService, private filtersService: RtFiltersService) {
+    constructor(private asyncSubscriber: AsyncSubscriber, public stateService: RtQueryStringStateService, public sortingsService: RtSortingsService, public filtersService: RtFiltersService) {
         this.stateService.serializationKey = RtListService.settings.stateSerializationKeyName;
     }
     public init(): void {
