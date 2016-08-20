@@ -106,4 +106,9 @@ export class AirportsService {
     public getAirportRegions(delay: number = 500): Observable<Array<LookupItem>> {
         return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map(item => item.region).uniq().value()));
     }
+    public getCountryInfo(countryName: string, delay: number = 500): Observable<any> {
+        return this.http.get(`https://restcountries.eu/rest/v1/name/${countryName}`).map(response => {
+            return response.json();
+        }).delay(delay);
+    }
 }
