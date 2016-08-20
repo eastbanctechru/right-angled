@@ -1,22 +1,31 @@
 @import '../../shared.scss';
 
-th.t-col-number {
+th.t-col-iata {
     width: 5%;
 }
-th.t-col-code {
+th.t-col-iata-code {
+    width: 10%;
+}
+th.t-col-timezone {
     width: 15%;
 }
-th.t-col-name {
-    width: 45%;
+th.t-col-airport-name {
+    width: 15%;
+}
+th.t-col-city-name {
+    width: 15%;
+}
+th.t-col-country-name {
+    width: 20%;
 }
 th.t-col-continent {
-    width: 15%;
+    width: 10%;
 }
 th.t-col-type {
-    width: 10%;
+    width: 5%;
 }
 th.t-col-size {
-    width: 10%;
+    width: 5%;
 }
 
 .table { 

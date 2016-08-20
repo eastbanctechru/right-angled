@@ -9,21 +9,24 @@
             <thead rt-demo-sortable-header>
             </thead>
             <tbody>
-                <tr *ngFor="let item of list.items, let index=index" [class.selected]="item.selected" [rtSelectByIndex]="index">
+                <tr *ngFor="let airport of list.items, let index=index" [class.selected]="airport.selected" [rtSelectByIndex]="index">
                     <td>
                         <rt-row-number [index]="index">
                         </rt-row-number>
                     </td>
-                    <td>{{item.iata}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.continent}}</td>
-                    <td>{{item.type}}</td>
-                    <td>{{item.size || 'unspecified'}}</td>
+                    <td>{{airport.iata}}</td>
+                    <td>{{airport.name}}</td>
+                    <td>{{airport.timeZone}}</td>
+                    <td>{{airport.cityName}}</td>
+                    <td>{{airport.countryName}}</td>
+                    <td>{{airport.continent}}</td>
+                    <td>{{airport.type}}</td>
+                    <td>{{airport.size || 'unspecified'}}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="6" class="list-pager">
+                    <td colspan="9" class="list-pager">
                         <rt-demo-footer></rt-demo-footer>
                     </td>
                 </tr>

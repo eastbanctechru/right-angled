@@ -16,6 +16,9 @@
                     </td>
                     <td>{{airport.iata}}</td>
                     <td>{{airport.name}}</td>
+                    <td>{{airport.timeZone}}</td>
+                    <td>{{airport.cityName}}</td>
+                    <td>{{airport.countryName}}</td>
                     <td>{{airport.continent}}</td>
                     <td>{{airport.type}}</td>
                     <td>{{airport.size || 'unspecified'}}</td>
@@ -23,7 +26,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="6" class="list-pager">
+                    <td colspan="9" class="list-pager">
                         <rt-demo-buffered-footer></rt-demo-buffered-footer>
                     </td>
                 </tr>
