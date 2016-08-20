@@ -65,13 +65,13 @@ export class AirportsService {
     public getAirportsRegular(request: AirportsListRequest, delay: number = 500): Observable<ListResponse<Airport>> {
         return this.getFilteredAirports(request, delay).map(airports => this.applyRequest(request, airports));
     }
-    public getAirportsGroupedByContinent(request: AirportsListRequest, delay: number = 500): Observable<ListResponse<Airport>> {
+    public getAirportsGroupedByRegion(request: AirportsListRequest, delay: number = 500): Observable<ListResponse<Airport>> {
         return this.getFilteredAirports(request, delay).map(airports => {
             let result = this.applyRequest(request, airports) as ListResponse<any>;
             result.items = _.chain(result.items)
-                .groupBy(item => item.continent)
+                .groupBy(item => item.region)
                 .map((item, index) => { return { airports: item, name: index, selected: false }; })
-                .orderBy(continent => continent.name)
+                .orderBy(region => region.name)
                 .value();
             return result;
         });
@@ -103,7 +103,7 @@ export class AirportsService {
     public getAirportSizes(delay: number = 500): Observable<Array<LookupItem>> {
         return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map(item => item.size).uniq().value()));
     }
-    public getAirportContinents(delay: number = 500): Observable<Array<LookupItem>> {
-        return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map(item => item.continent).uniq().value()));
+    public getAirportRegions(delay: number = 500): Observable<Array<LookupItem>> {
+        return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map(item => item.region).uniq().value()));
     }
 }

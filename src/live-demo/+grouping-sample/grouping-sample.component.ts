@@ -11,6 +11,6 @@ export class GroupingSampleComponent {
     constructor(public airportsService: AirportsService) {
     }
     public loadData = (requestParams: AirportsListRequest): any => {
-        return this.airportsService.getAirportsGroupedByContinent(requestParams);
+        return this.airportsService.getAirportsGroupedByRegion(requestParams);
     };
 }

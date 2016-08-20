@@ -3,7 +3,7 @@
         {
             "status": 1,
             "iata": "UTK",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "MH",
             "name": "Utirik Airport",
             "type": "airport",
@@ -18,7 +18,7 @@
         {
             "status": 1,
             "iata": "ABP",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "PG",
             "name": "Atkamba Airport",
             "type": "airport",
@@ -33,7 +33,7 @@
         {
             "status": 1,
             "iata": "ADC",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "PG",
             "name": "Andakombe Airport",
             "type": "airport",
@@ -48,7 +48,7 @@
         {
             "status": 1,
             "iata": "AEK",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "PG",
             "name": "Aseki Airport",
             "type": "airport",
@@ -63,7 +63,7 @@
         {
             "status": 1,
             "iata": "AFR",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "PG",
             "name": "Afore Airstrip",
             "type": "airport",
@@ -78,7 +78,7 @@
         {
             "status": 1,
             "iata": "AFT",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Afutara Aerodrome",
             "type": "airport",
@@ -93,7 +93,7 @@
         {
             "status": 1,
             "iata": "ATD",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Uru Harbour Airport",
             "type": "airport",
@@ -108,7 +108,7 @@
         {
             "status": 1,
             "iata": "VEV",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Barakoma Airport",
             "type": "airport",
@@ -123,7 +123,7 @@
         {
             "status": 1,
             "iata": "GEF",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Geva Airport",
             "type": "airport",
@@ -138,7 +138,7 @@
         {
             "status": 1,
             "iata": "AGG",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "PG",
             "name": "Angoram Airport",
             "type": "airport",
@@ -153,7 +153,7 @@
         {
             "status": 1,
             "iata": "BAS",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Ballalae Airport",
             "type": "airport",
@@ -168,7 +168,7 @@
         {
             "status": 1,
             "iata": "FRE",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Fera/Maringe Airport",
             "type": "airport",
@@ -183,7 +183,7 @@
         {
             "status": 1,
             "iata": "HIR",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Honiara International Airport",
             "type": "airport",
@@ -198,7 +198,7 @@
         {
             "status": 1,
             "iata": "MBU",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Babanakira Airport",
             "type": "airport",
@@ -213,7 +213,7 @@
         {
             "status": 1,
             "iata": "IRA",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Ngorangora Airport",
             "type": "airport",
@@ -228,7 +228,7 @@
         {
             "status": 1,
             "iata": "SCZ",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Santa Cruz/Graciosa Bay/Luova Airport",
             "type": "airport",
@@ -243,7 +243,7 @@
         {
             "status": 1,
             "iata": "MUA",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Munda Airport",
             "type": "airport",
@@ -258,7 +258,7 @@
         {
             "status": 1,
             "iata": "GZO",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Nusatupe Airport",
             "type": "airport",
@@ -273,7 +273,7 @@
         {
             "status": 1,
             "iata": "MNY",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Mono Airport",
             "type": "airport",
@@ -288,7 +288,7 @@
         {
             "status": 1,
             "iata": "PRS",
-            "continent": "OC",
+            "region": "Oceania",
             "iso": "SB",
             "name": "Parasi Airport",
             "type": "airport",
@@ -303,7 +303,7 @@
         {
             "status": 1,
             "iata": "FIV",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "Five Finger CG Heliport",
             "type": "heliport",
@@ -318,7 +318,7 @@
         {
             "status": 1,
             "iata": "FAK",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "False Island Seaplane Base",
             "type": "seaplanes",
@@ -333,7 +333,7 @@
         {
             "status": 0,
             "iata": "BWS",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "Blaine Municipal Airport",
             "type": "closed",
@@ -348,7 +348,7 @@
         {
             "status": 1,
             "iata": "WKK",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "Aleknagik / New Airport",
             "type": "airport",
@@ -363,7 +363,7 @@
         {
             "status": 1,
             "iata": "TSS",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "East 34th Street Heliport",
             "type": "heliport",
@@ -378,7 +378,7 @@
         {
             "status": 1,
             "iata": "FOB",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "Fort Bragg Airport",
             "type": "airport",
@@ -393,7 +393,7 @@
         {
             "status": 0,
             "iata": "AHT",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "Amchitka Army Airfield",
             "type": "closed",
@@ -408,7 +408,7 @@
         {
             "status": 1,
             "iata": "AOS",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "Amook Bay Seaplane Base",
             "type": "seaplanes",
@@ -423,7 +423,7 @@
         {
             "status": 1,
             "iata": "ALZ",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "Alitak Seaplane Base",
             "type": "seaplanes",
@@ -438,7 +438,7 @@
         {
             "status": 1,
             "iata": "AQY",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "Girdwood Airport",
             "type": "airport",
@@ -453,7 +453,7 @@
         {
             "status": 0,
             "iata": "AYZ",
-            "continent": "NA",
+            "region": "North America",
             "iso": "US",
             "name": "Zahn\"s Airport",
             "type": "closed",
@@ -468,7 +468,7 @@
         {
             "status": 1,
             "iata": "JEG",
-            "continent": "NA",
+            "region": "North America",
             "iso": "GL",
             "name": "Aasiaat Airport",
             "type": "airport",
@@ -483,7 +483,7 @@
         {
             "status": 1,
             "iata": "AAP",
-            "continent": "NA",
+            "region": "North America",
             "iso": "GL",
             "name": "Aappilattoq (Qaasuitsup) Heliport",
             "type": "heliport",
@@ -498,7 +498,7 @@
         {
             "status": 1,
             "iata": "AGM",
-            "continent": "NA",
+            "region": "North America",
             "iso": "GL",
             "name": "Tasiilaq Heliport",
             "type": "heliport",
@@ -513,7 +513,7 @@
         {
             "status": 1,
             "iata": "LLU",
-            "continent": "NA",
+            "region": "North America",
             "iso": "GL",
             "name": "Alluitsup Paa Heliport",
             "type": "heliport",
@@ -528,7 +528,7 @@
         {
             "status": 1,
             "iata": "QGQ",
-            "continent": "NA",
+            "region": "North America",
             "iso": "GL",
             "name": "Attu Heliport",
             "type": "heliport",
@@ -543,7 +543,7 @@
         {
             "status": 1,
             "iata": "UAK",
-            "continent": "NA",
+            "region": "North America",
             "iso": "GL",
             "name": "Narsarsuaq Airport",
             "type": "airport",
@@ -558,7 +558,7 @@
         {
             "status": 1,
             "iata": "JCH",
-            "continent": "NA",
+            "region": "North America",
             "iso": "GL",
             "name": "Qasigiannguit Heliport",
             "type": "heliport",
@@ -573,7 +573,7 @@
         {
             "status": 1,
             "iata": "CNP",
-            "continent": "NA",
+            "region": "North America",
             "iso": "GL",
             "name": "Neerlerit Inaat Airport",
             "type": "airport",
@@ -588,7 +588,7 @@
         {
             "status": 1,
             "iata": "JFR",
-            "continent": "NA",
+            "region": "North America",
             "iso": "GL",
             "name": "Paamiut Heliport",
             "type": "heliport",
@@ -603,7 +603,7 @@
         {
             "status": 1,
             "iata": "ALV",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "AD",
             "name": "Andorra la Vella Heliport",
             "type": "heliport",
@@ -618,7 +618,7 @@
         {
             "status": 1,
             "iata": "AEI",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "ES",
             "name": "Algeciras Heliport",
             "type": "heliport",
@@ -633,7 +633,7 @@
         {
             "status": 1,
             "iata": "HKV",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "BG",
             "name": "Haskovo Airport",
             "type": "airport",
@@ -648,7 +648,7 @@
         {
             "status": 1,
             "iata": "JAM",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "BG",
             "name": "Bezmer Air Base",
             "type": "airport",
@@ -663,7 +663,7 @@
         {
             "status": 0,
             "iata": "SZR",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "BG",
             "name": "Stara Zagora Airport",
             "type": "closed",
@@ -678,7 +678,7 @@
         {
             "status": 1,
             "iata": "AEY",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Akureyri Airport",
             "type": "airport",
@@ -693,7 +693,7 @@
         {
             "status": 1,
             "iata": "BIU",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Bildudalur Airport",
             "type": "airport",
@@ -708,7 +708,7 @@
         {
             "status": 1,
             "iata": "BLO",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Hjaltabakki Airport",
             "type": "airport",
@@ -723,7 +723,7 @@
         {
             "status": 1,
             "iata": "HFN",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Hornafjordur Airport",
             "type": "airport",
@@ -738,7 +738,7 @@
         {
             "status": 1,
             "iata": "FLI",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Holt Airport",
             "type": "airport",
@@ -753,7 +753,7 @@
         {
             "status": 1,
             "iata": "HZK",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Husavik Airport",
             "type": "airport",
@@ -768,7 +768,7 @@
         {
             "status": 1,
             "iata": "KEF",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Keflavik International Airport",
             "type": "airport",
@@ -783,7 +783,7 @@
         {
             "status": 1,
             "iata": "PFJ",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Patreksfjordur Airport",
             "type": "airport",
@@ -798,7 +798,7 @@
         {
             "status": 1,
             "iata": "OLI",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Rif Airport",
             "type": "airport",
@@ -813,7 +813,7 @@
         {
             "status": 1,
             "iata": "SIJ",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Siglufjordur Airport",
             "type": "airport",
@@ -828,7 +828,7 @@
         {
             "status": 1,
             "iata": "THO",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Thorshofn Airport",
             "type": "airport",
@@ -843,7 +843,7 @@
         {
             "status": 1,
             "iata": "VEY",
-            "continent": "EU",
+            "region": "Europe",
             "iso": "IS",
             "name": "Vestmannaeyjar Airport",
             "type": "airport",
@@ -858,7 +858,7 @@
         {
             "status": 1,
             "iata": "AHY",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "MG",
             "name": "Ambatolhy Airport",
             "type": "airport",
@@ -873,7 +873,7 @@
         {
             "status": 1,
             "iata": "AKM",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "TD",
             "name": "Zakuoma Airport",
             "type": "airport",
@@ -888,7 +888,7 @@
         {
             "status": 1,
             "iata": "AME",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "MZ",
             "name": "Alto Molocue Airport",
             "type": "airport",
@@ -903,7 +903,7 @@
         {
             "status": 1,
             "iata": "AMY",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "MG",
             "name": "Ambatomainty Airport",
             "type": "airport",
@@ -918,7 +918,7 @@
         {
             "status": 1,
             "iata": "ANL",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "AO",
             "name": "Andulo Airport",
             "type": "airport",
@@ -933,7 +933,7 @@
         {
             "status": 1,
             "iata": "CNZ",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "AO",
             "name": "Cangamba Airport",
             "type": "airport",
@@ -948,7 +948,7 @@
         {
             "status": 1,
             "iata": "DRC",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "AO",
             "name": "Dirico Airport",
             "type": "airport",
@@ -963,7 +963,7 @@
         {
             "status": 1,
             "iata": "GGC",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "AO",
             "name": "Lumbala Airport",
             "type": "airport",
@@ -978,7 +978,7 @@
         {
             "status": 1,
             "iata": "JMB",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "AO",
             "name": "Jamba Airport",
             "type": "airport",
@@ -993,7 +993,7 @@
         {
             "status": 1,
             "iata": "KNP",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "AO",
             "name": "Capanda Airport",
             "type": "airport",
@@ -1008,7 +1008,7 @@
         {
             "status": 1,
             "iata": "NDF",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "AO",
             "name": "Ndalatandos Airport",
             "type": "airport",
@@ -1023,7 +1023,7 @@
         {
             "status": 1,
             "iata": "BCW",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "MZ",
             "name": "Benguera Island Airport",
             "type": "airport",
@@ -1038,7 +1038,7 @@
         {
             "status": 1,
             "iata": "BMQ",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "KE",
             "name": "Bamburi Airport",
             "type": "airport",
@@ -1053,7 +1053,7 @@
         {
             "status": 1,
             "iata": "HUK",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "BW",
             "name": "Hukuntsi Airport",
             "type": "airport",
@@ -1068,7 +1068,7 @@
         {
             "status": 1,
             "iata": "BZB",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "MZ",
             "name": "Bazaruto Island Airport",
             "type": "airport",
@@ -1083,7 +1083,7 @@
         {
             "status": 1,
             "iata": "OKG",
-            "continent": "AF",
+            "region": "Africa",
             "iso": "CG",
             "name": "Okoyo Airport",
             "type": "airport",
@@ -1098,7 +1098,7 @@
         {
             "status": 1,
             "iata": "CSZ",
-            "continent": "SA",
+            "region": "South America",
             "iso": "AR",
             "name": "Brigadier Hector Ruiz Airport",
             "type": "airport",
@@ -1113,7 +1113,7 @@
         {
             "status": 1,
             "iata": "CVI",
-            "continent": "SA",
+            "region": "South America",
             "iso": "AR",
             "name": "Caleta Olivia Airport",
             "type": "airport",
@@ -1128,7 +1128,7 @@
         {
             "status": 1,
             "iata": "CNT",
-            "continent": "SA",
+            "region": "South America",
             "iso": "AR",
             "name": "Charata Airport",
             "type": "airport",
@@ -1143,7 +1143,7 @@
         {
             "status": 1,
             "iata": "VGS",
-            "continent": "SA",
+            "region": "South America",
             "iso": "AR",
             "name": "General Villegas Airport",
             "type": "airport",
@@ -1158,7 +1158,7 @@
         {
             "status": 1,
             "iata": "LMD",
-            "continent": "SA",
+            "region": "South America",
             "iso": "AR",
             "name": "Los Menucos Airport",
             "type": "airport",
@@ -1173,7 +1173,7 @@
         {
             "status": 1,
             "iata": "VCF",
-            "continent": "SA",
+            "region": "South America",
             "iso": "AR",
             "name": "Valcheta Airport",
             "type": "airport",
@@ -1188,7 +1188,7 @@
         {
             "status": 1,
             "iata": "VME",
-            "continent": "SA",
+            "region": "South America",
             "iso": "AR",
             "name": "Villa Mercedes Airport",
             "type": "airport",
@@ -1203,7 +1203,7 @@
         {
             "status": 1,
             "iata": "CPG",
-            "continent": "SA",
+            "region": "South America",
             "iso": "AR",
             "name": "Carmen De Patagones Airport",
             "type": "airport",
@@ -1218,7 +1218,7 @@
         {
             "status": 1,
             "iata": "PRQ",
-            "continent": "SA",
+            "region": "South America",
             "iso": "AR",
             "name": "Termal Airport",
             "type": "airport",
@@ -1233,7 +1233,7 @@
         {
             "status": 1,
             "iata": "RBQ",
-            "continent": "SA",
+            "region": "South America",
             "iso": "BO",
             "name": "Rurenabaque Airport",
             "type": "airport",
@@ -1248,7 +1248,7 @@
         {
             "status": 1,
             "iata": "BVL",
-            "continent": "SA",
+            "region": "South America",
             "iso": "BO",
             "name": "Baures Airport",
             "type": "airport",
@@ -1263,7 +1263,7 @@
         {
             "status": 0,
             "iata": "ALT",
-            "continent": "SA",
+            "region": "South America",
             "iso": "BR",
             "name": "Alenquer Airport",
             "type": "closed",
@@ -1278,7 +1278,7 @@
         {
             "status": 0,
             "iata": "SWM",
-            "continent": "SA",
+            "region": "South America",
             "iso": "BR",
             "name": "Suia-Missu Airport",
             "type": "closed",
@@ -1293,7 +1293,7 @@
         {
             "status": 1,
             "iata": "PRM",
-            "continent": "SA",
+            "region": "South America",
             "iso": "CO",
             "name": "Proma Heliport",
             "type": "heliport",
@@ -1308,7 +1308,7 @@
         {
             "status": 1,
             "iata": "ISG",
-            "continent": "SA",
+            "region": "South America",
             "iso": "CO",
             "name": "Isa Giron Heliport",
             "type": "heliport",
@@ -1323,7 +1323,7 @@
         {
             "status": 1,
             "iata": "API",
-            "continent": "SA",
+            "region": "South America",
             "iso": "CO",
             "name": "Apiay Airport",
             "type": "airport",
@@ -1338,7 +1338,7 @@
         {
             "status": 1,
             "iata": "ARQ",
-            "continent": "SA",
+            "region": "South America",
             "iso": "CO",
             "name": "El Troncal Airport",
             "type": "airport",
@@ -1353,7 +1353,7 @@
         {
             "status": 1,
             "iata": "LCR",
-            "continent": "SA",
+            "region": "South America",
             "iso": "CO",
             "name": "La Chorrera Airport",
             "type": "airport",
@@ -1368,7 +1368,7 @@
         {
             "status": 1,
             "iata": "SNT",
-            "continent": "SA",
+            "region": "South America",
             "iso": "CO",
             "name": "Las Cruces Airport",
             "type": "airport",
@@ -1383,7 +1383,7 @@
         {
             "status": 1,
             "iata": "FUO",
-            "continent": "AS",
+            "region": "Asia",
             "iso": "CN",
             "name": "Foshan Shadi Airport",
             "type": "airport",
@@ -1398,7 +1398,7 @@
         {
             "status": 1,
             "iata": "HUZ",
-            "continent": "AS",
+            "region": "Asia",
             "iso": "CN",
             "name": "Huizhou Airport",
             "type": "airport",
@@ -1413,7 +1413,7 @@
         {
             "status": 1,
             "iata": "JGS",
-            "continent": "AS",
+            "region": "Asia",
             "iso": "CN",
             "name": "Jinggangshan Airport",
             "type": "airport",
@@ -1428,7 +1428,7 @@
         {
             "status": 1,
             "iata": "AAT",
-            "continent": "AS",
+            "region": "Asia",
             "iso": "CN",
             "name": "Altay Air Base",
             "type": "airport",
@@ -1443,7 +1443,7 @@
         {
             "status": 1,
             "iata": "DDG",
-            "continent": "AS",
+            "region": "Asia",
             "iso": "CN",
             "name": "Dandong Airport",
             "type": "airport",
@@ -1458,7 +1458,7 @@
         {
             "status": 1,
             "iata": "NTG",
-            "continent": "AS",
+            "region": "Asia",
             "iso": "CN",
             "name": "Nantong Airport",
             "type": "airport",
@@ -1473,7 +1473,7 @@
         {
             "status": 0,
             "iata": "NIC",
-            "continent": "AS",
+            "region": "Asia",
             "iso": "CY",
             "name": "Nicosia International Airport",
             "type": "closed",

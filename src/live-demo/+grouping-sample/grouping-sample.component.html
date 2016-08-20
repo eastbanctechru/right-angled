@@ -9,15 +9,15 @@
             <thead rt-demo-sortable-header>
             </thead>
             <tbody>
-                <template ngFor let-continent [ngForOf]="list.items" let-index="index">
-                    <tr [class.selected]="continent.selected" [rtSelectByIndex]="index">
-                        <td colspan="9" class="text-center">{{continent.name}} ({{continent.airports.length}} items)</td>
+                <template ngFor let-region [ngForOf]="list.items" let-index="index">
+                    <tr [class.selected]="region.selected" [rtSelectByIndex]="index" style="cursor: pointer">
+                        <td colspan="9" class="text-center">{{region.name}} ({{region.airports.length}} items)</td>
                     </tr>
-                    <tr *ngIf="continent.selected">
+                    <tr *ngIf="region.selected">
                         <td colspan=9>
                             <table class="table table-striped">
-                                <tbody [rtSelectionAreaFor]="continent.airports">
-                                    <tr *ngFor="let airport of continent.airports, let index=index" [class.selected]="airport.selected" [rtSelectByIndex]="index">
+                                <tbody [rtSelectionAreaFor]="region.airports">
+                                    <tr *ngFor="let airport of region.airports, let index=index" [class.selected]="airport.selected" [rtSelectByIndex]="index">
                                         <td>
                                             <rt-row-number [index]="index">
                                             </rt-row-number>
@@ -27,7 +27,7 @@
                                         <td>{{airport.timeZone}}</td>
                                         <td>{{airport.cityName}}</td>
                                         <td>{{airport.countryName}}</td>
-                                        <td>{{airport.continent}}</td>
+                                        <td>{{airport.region}}</td>
                                         <td>{{airport.type}}</td>
                                         <td>{{airport.size || 'unspecified'}}</td>
                                     </tr>

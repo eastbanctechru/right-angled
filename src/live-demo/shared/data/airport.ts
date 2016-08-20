@@ -1,11 +1,15 @@
 export interface Airport {
     iata: string;
-    lon: string;
     iso: string;
     status: number;
     name: string;
-    continent: string;
+    region: string;
     type: string;
-    lat: string;
     size: string;
+    timeZone: string;
+    coordinates: string;
+    cityCode: string;
+    cityName: string;
+    countryName: string;
+    countryCode: string;
 }
