@@ -51,7 +51,7 @@ export class RtQueryStringStateService {
         const restoredState = {};
         const requestState = this.getRequestState();
         const persistedState = this.getPersistedState();
-        let routerState = this.activatedRoute.snapshot.params[this.serializationKey] ? JSON.parse(decodeURIComponent(this.activatedRoute.snapshot.params[this.serializationKey])) : {};
+        let routerState = this.router.routerState.snapshot.root.queryParams[this.serializationKey] ? JSON.parse(decodeURIComponent(this.router.routerState.snapshot.root.queryParams[this.serializationKey])) : {};
 
         Object.assign(restoredState, persistedState || {}, requestState ? (requestState.lastRequestState || {}) : {}, routerState);
         return restoredState;
