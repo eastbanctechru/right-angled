@@ -27,7 +27,7 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.5",
     "@angular/router": "3.0.0-rc.1",
     "bootstrap": "^3.3.7",
-    "e2e4": "^1.0.3",
+    "e2e4": "^1.1.1",
     "es6-shim": "0.35.1",
     "lodash": "^4.15.0",
     "reflect-metadata": "0.1.3",

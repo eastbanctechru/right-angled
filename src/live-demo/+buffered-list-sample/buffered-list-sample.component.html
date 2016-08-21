@@ -1,7 +1,7 @@
 <div>
     <h1 class="page-title">Buffered List Sample</h1>
     <rt-buffered-list [fetchMethod]="loadData" #list="rtList">
-        <rt-demo-filter-area>
+        <rt-demo-filter-area #filter [rtRegisterAsFilter]="filter">
         </rt-demo-filter-area>
         <table class="table table-striped" [rtSelectionAreaFor]="list.items">
             <caption rt-demo-toolbar class="text-right">

@@ -1,7 +1,7 @@
 <div>
     <h1 class="page-title">Paged List Sample</h1>
     <rt-paged-list [fetchMethod]="loadData" #list="rtList">
-        <rt-demo-filter-area>
+        <rt-demo-filter-area #filter [rtRegisterAsFilter]="filter">
         </rt-demo-filter-area>
         <table class="table table-striped" [rtSelectionAreaFor]="list.itemsStream | async">
             <caption rt-demo-toolbar class="text-right">

@@ -6,6 +6,9 @@ export * from 'e2e4';
 export { MISC_DIRECTIVES } from './misc-directives/index';
 import { MISC_DIRECTIVES } from './misc-directives/index';
 
+export { FILTER_DIRECTIVES } from './filter-directives/index';
+import { FILTER_DIRECTIVES } from './filter-directives/index';
+
 export { RtListService, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService, RtQueryStringStateService } from './providers/index';
 
 export { SELECTION_DIRECTIVES } from './selection-directives/index';
@@ -26,6 +29,13 @@ export var REGULAR_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(REGULAR_FOOTE
     imports: [CommonModule]
 })
 export class RTMiscModule { }
+
+@NgModule({
+    declarations: FILTER_DIRECTIVES,
+    exports: FILTER_DIRECTIVES,
+    imports: [CommonModule]
+})
+export class RTFiltersModule { }
 
 @NgModule({
     declarations: SELECTION_DIRECTIVES,

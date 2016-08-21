@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, RtFiltersService } from 'right-angled';
+import { filter } from 'right-angled';
 import { AirportsService } from '../data/airports.service';
 
 @Component({
@@ -14,8 +14,7 @@ export class FilterAreaComponent implements OnInit {
     @filter('type') public selectedAirportType: string = null;
     public airportSizes: any;
     public airportTypes: any;
-    constructor(public filtersService: RtFiltersService, private airportsService: AirportsService) {
-        this.filtersService.registerFilterTarget(this);
+    constructor(private airportsService: AirportsService) {
     }
     public ngOnInit(): void {
         this.airportSizes = this.airportsService.getAirportSizes();
