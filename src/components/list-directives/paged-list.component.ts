@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter } from '@angular/core';
+import { Component, Input, EventEmitter, Self } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ListBase } from './list-base';
 
@@ -15,7 +15,7 @@ export class PagedListComponent extends ListBase {
     @Input() public set fetchMethod(value: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>) {
         this.listService.fetchMethod = value;
     }
-    constructor(public listService: RtListService, pager: RtPagedPager) {
+    constructor(@Self() public listService: RtListService, @Self() pager: RtPagedPager) {
         super(listService, pager);
     }
 }
