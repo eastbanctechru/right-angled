@@ -9,6 +9,7 @@ import { AirportsService } from '../data/airports.service';
     templateUrl: 'filter-area.component.html'
 })
 export class FilterAreaComponent implements OnInit {
+    public useAdvancedFilters: boolean = false;
     @filter() public airportName: string = null;
     @filter('size') public selectedAirportSize: string = null;
     @filter('type') public selectedAirportType: string = null;
@@ -19,5 +20,8 @@ export class FilterAreaComponent implements OnInit {
     public ngOnInit(): void {
         this.airportSizes = this.airportsService.getAirportSizes();
         this.airportTypes = this.airportsService.getAirportTypes();
+    }
+    public toggleAdvancedFilters(): void {
+        this.useAdvancedFilters = !this.useAdvancedFilters;
     }
 }

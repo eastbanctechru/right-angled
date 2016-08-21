@@ -22,12 +22,16 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" *ngIf="!useAdvancedFilters">
             <div class="form-group">
                 <input rtLoadData type="submit" class="btn btn-img rt-btn-load" title="Load data from server" />
-                <input rtCancelLoad type="submit" class="btn btn-img rt-btn-cancel" title="Cancel loading" />
+                <input rtCancelLoad type="button" class="btn btn-img rt-btn-cancel" title="Cancel loading" />
                 <button rtResetSettings type="button" class="btn btn-img rt-btn-reset" title="Reset filters values"></button>
             </div>
         </div>
     </div>
+    <div class="row" *ngIf="useAdvancedFilters">
+        <rt-demo-additional-filter #additional [rtRegisterAsFilter]="additional"></rt-demo-additional-filter>
+    </div>
+    <div class="arrow-icon" [ngClass]="{collapsed: !useAdvancedFilters}" (click)="toggleAdvancedFilters()" [title]="useAdvancedFilters?'Disable advanced filters':'Enable advanced filters'"></div>
 </form>
