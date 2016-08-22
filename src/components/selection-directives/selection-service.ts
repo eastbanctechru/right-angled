@@ -1,25 +1,9 @@
-import { SelectionTuple, DefaultSelectionService, SelectionItem } from 'e2e4';
+import { SelectionTuple, DefaultSelectionService } from 'e2e4';
 
-import { SelectionEventsEmitter, OnDeselectedEvent, OnSelectedEvent, OnSelectionChangedEvent } from './selection-events-emitter';
-
-export interface OnSelected extends SelectionItem {
-    /**
-     * Опциональный хук-метод, который будет вызван реализациями контракта {@link SelectionService} при выборе данного элемента.
-     */
-    rtOnSelected(): void;
-}
-export interface OnDeselected extends SelectionItem {
-    /**
-     * Опциональный хук-метод, который будет вызван реализациями контракта {@link SelectionService} при отмене выбора данного элемента.
-     */
-    rtOnDeselected?(): void;
-}
-export interface OnSelectionChanged extends SelectionItem {
-    /**
-     * Опциональный хук-метод, который будет вызван реализациями контракта {@link SelectionService} как при выборе, так и при отмене выбора данного элемента.
-     */
-    rtOnSelectionChanged?(selected: boolean): void;
-}
+import { SelectionEventsEmitter } from './contract/selection-events-emitter';
+import { OnSelected } from './contract/on-selected-hook';
+import { OnDeselected } from './contract/on-deselected-hook';
+import { OnSelectionChanged } from './contract/on-selection-changed-hook';
 
 export class RtSelectionService extends DefaultSelectionService {
     private eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();
@@ -48,11 +32,11 @@ export class RtSelectionService extends DefaultSelectionService {
     }
     private emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
         if (selected) {
-            emitter.itemSelected.emit(new OnSelectedEvent(tuple.item, tuple.index));
+            emitter.itemSelected.emit({ index: tuple.index, item: tuple.item });
         } else {
-            emitter.itemDeselected.emit(new OnDeselectedEvent(tuple.item, tuple.index));
+            emitter.itemDeselected.emit({ index: tuple.index, item: tuple.item });
         }
-        emitter.selectionChanged.emit(new OnSelectionChangedEvent(tuple.item, tuple.index));
+        emitter.selectionChanged.emit({ index: tuple.index, item: tuple.item });
     }
     public destroy(): void {
         delete this.areaEventsEmitter;

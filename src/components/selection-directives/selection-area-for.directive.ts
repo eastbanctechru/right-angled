@@ -1,7 +1,11 @@
 import { EventEmitter, ContentChildren, QueryList, Self, HostListener, Directive, OnInit, Input, Output, OnChanges, OnDestroy, HostBinding } from '@angular/core';
 import { SelectionItem, SelectionAreaConfig, SelectionEventsHelper } from 'e2e4';
 
-import { RtSelectionService, SelectionEventsEmitter, OnSelectedEvent, OnDeselectedEvent, OnSelectionChangedEvent } from '../providers/index';
+import { RtSelectionService } from './selection-service';
+import { SelectionEventsEmitter } from './contract/selection-events-emitter';
+import { OnSelectedEvent } from './contract/on-selected-event';
+import { OnDeselectedEvent } from './contract/on-deselected-event';
+import { OnSelectionChangedEvent } from './contract/on-selection-changed-event';
 
 @Directive({
     providers: [RtSelectionService],

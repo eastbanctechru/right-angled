@@ -12,6 +12,8 @@ import { FILTER_DIRECTIVES } from './filter-directives/index';
 export { RtListService, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService, RtQueryStringStateService } from './providers/index';
 
 export { SELECTION_DIRECTIVES } from './selection-directives/index';
+export { RtSelectionService, OnDeselected, OnDeselectedEvent, OnSelected, OnSelectedEvent, OnSelectionChanged, OnSelectionChangedEvent, SelectionEventsEmitter } from './selection-directives/index';
+
 import { SELECTION_DIRECTIVES } from './selection-directives/index';
 import { LIST_DIRECTIVES, BufferedListComponent, PagedListComponent, ListComponent } from './list-directives/index';
 
