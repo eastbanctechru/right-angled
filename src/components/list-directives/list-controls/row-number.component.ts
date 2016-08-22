@@ -1,6 +1,6 @@
 import { SkipSelf, Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
-
-import { RtNullObjectInjectable, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../providers/index';
+import { BufferedPager, PagedPager, RegularPager } from 'e2e4';
+import { RtNullObjectInjectable } from '../null-object-injectable';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -10,7 +10,7 @@ import { RtNullObjectInjectable, RtPagedPager, RtBufferedPager, RtRegularPager }
 export class RowNumberComponent implements OnChanges {
     @Input() public index: number;
     private rowNumber: number;
-    constructor( @SkipSelf() private pagedPager: RtPagedPager, @SkipSelf() private bufferedPager: RtBufferedPager, @SkipSelf() private regularPager: RtRegularPager) {
+    constructor( @SkipSelf() private pagedPager: PagedPager, @SkipSelf() private bufferedPager: BufferedPager, @SkipSelf() private regularPager: RegularPager) {
     }
     public ngOnChanges(): void {
         if (this.regularPager !== RtNullObjectInjectable.instance || this.bufferedPager !== RtNullObjectInjectable.instance) {

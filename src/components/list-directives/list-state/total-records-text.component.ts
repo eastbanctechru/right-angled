@@ -1,7 +1,7 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
-import { ProgressState } from 'e2e4';
-
-import { RtListService, RtPagedPager, RtBufferedPager, RtRegularPager, RtNullObjectInjectable } from '../../providers/index';
+import { BufferedPager, PagedPager, RegularPager, ProgressState } from 'e2e4';
+import { RtListService } from '../list-service';
+import { RtNullObjectInjectable } from '../null-object-injectable';
 
 @Component({
     selector: 'rt-total-records-text',
@@ -11,8 +11,8 @@ export class TotalRecordsTextComponent implements DoCheck, OnInit {
     private listDiffer: KeyValueDiffer;
     private pagerDiffer: KeyValueDiffer;
     private isVisible: boolean;
-    private pager: RtPagedPager | RtBufferedPager | RtRegularPager;
-    constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() private listService: RtListService, differs: KeyValueDiffers) {
+    private pager: PagedPager | BufferedPager | RegularPager;
+    constructor( @SkipSelf() pagedPager: PagedPager, @SkipSelf() bufferedPager: BufferedPager, @SkipSelf() regularPager: RegularPager, @SkipSelf() private listService: RtListService, differs: KeyValueDiffers) {
         this.listDiffer = differs.find([]).create(null);
         this.pagerDiffer = differs.find([]).create(null);
         this.pager = RtNullObjectInjectable.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);

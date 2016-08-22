@@ -2,7 +2,7 @@ import { OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { Pager } from 'e2e4';
-import { RtListService } from '../providers/index';
+import { RtListService } from '../list-service';
 
 export abstract class ListBase implements OnDestroy, OnInit {
     public get items(): Array<any> {

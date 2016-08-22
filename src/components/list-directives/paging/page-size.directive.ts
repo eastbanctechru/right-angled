@@ -1,6 +1,7 @@
 import { HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
-
-import { RtListService, RtPagedPager, RtNullObjectInjectable } from '../../providers/index';
+import { PagedPager } from 'e2e4';
+import { RtListService } from '../list-service';
+import { RtNullObjectInjectable } from '../null-object-injectable';
 
 @Directive({
     selector: 'input[rtPageSize]'
@@ -10,7 +11,7 @@ export class PageSizeDirective implements DoCheck {
     @HostBinding('value')
     public innerPageSize: number;
 
-    constructor( private listService: RtListService, private pager: RtPagedPager, differs: KeyValueDiffers) {
+    constructor( private listService: RtListService, private pager: PagedPager, differs: KeyValueDiffers) {
         if (pager === RtNullObjectInjectable.instance) {
             throw new Error('[rtPageSize] directive can be used only with paged list provider.');
         }

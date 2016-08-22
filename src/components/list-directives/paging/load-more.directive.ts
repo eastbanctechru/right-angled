@@ -1,12 +1,13 @@
 import { SkipSelf, HostListener, Directive } from '@angular/core';
-
-import { RtListService, RtBufferedPager, RtNullObjectInjectable } from '../../providers/index';
+import { BufferedPager } from 'e2e4';
+import { RtListService } from '../list-service';
+import { RtNullObjectInjectable } from '../null-object-injectable';
 
 @Directive({
     selector: '[rtLoadMore]'
 })
 export class LoadMoreDirective {
-    constructor( @SkipSelf() private listService: RtListService, @SkipSelf() private pager: RtBufferedPager) {
+    constructor( @SkipSelf() private listService: RtListService, @SkipSelf() private pager: BufferedPager) {
         if (pager === RtNullObjectInjectable.instance) {
             throw new Error('[rtLoadMore] directive can be used only with buffered lists.');
         }

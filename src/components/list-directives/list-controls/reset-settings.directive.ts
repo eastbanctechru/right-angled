@@ -1,12 +1,12 @@
 import { SkipSelf, Directive, HostListener } from '@angular/core';
 
-import { RtFiltersService } from '../../providers/index';
+import { FiltersService } from 'e2e4';
 
 @Directive({
     selector: '[rtResetSettings]'
 })
 export class ResetSettingsDirective {
-    constructor(@SkipSelf()private filtersService: RtFiltersService) {
+    constructor(@SkipSelf()private filtersService: FiltersService) {
     }
     @HostListener('click')
     public resetFilters(): void {

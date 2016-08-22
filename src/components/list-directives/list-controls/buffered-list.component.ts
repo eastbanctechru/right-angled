@@ -1,8 +1,9 @@
 import { Component, Input, EventEmitter, Self } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ListBase } from './list-base';
-
-import { RtListService, RtBufferedPager, BUFFERED_LIST_PROVIDERS } from '../providers/index';
+import { BufferedPager } from 'e2e4';
+import { RtListService } from '../list-service';
+import { BUFFERED_LIST_PROVIDERS } from '../../providers';
 
 @Component({
     exportAs: 'rtList',
@@ -15,7 +16,7 @@ export class BufferedListComponent extends ListBase {
     @Input() public set fetchMethod(value: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>) {
         this.listService.fetchMethod = value;
     }
-    constructor( @Self() public listService: RtListService, @Self() pager: RtBufferedPager) {
+    constructor( @Self() public listService: RtListService, @Self() pager: BufferedPager) {
         super(listService, pager);
     }
 }

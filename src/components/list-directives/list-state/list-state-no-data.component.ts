@@ -1,8 +1,9 @@
 import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
-import { ProgressState } from 'e2e4';
+import { BufferedPager, PagedPager, RegularPager, ProgressState } from 'e2e4';
 
 import { ListStateComponent } from './list-state-component';
-import { RtNullObjectInjectable, RtListService, RtPagedPager, RtBufferedPager, RtRegularPager } from '../../providers/index';
+import { RtListService } from '../list-service';
+import { RtNullObjectInjectable } from '../null-object-injectable';
 
 @Component({
     selector: 'rt-list-state-no-data',
@@ -10,8 +11,8 @@ import { RtNullObjectInjectable, RtListService, RtPagedPager, RtBufferedPager, R
 })
 export class ListStateNoDataComponent extends ListStateComponent implements DoCheck {
     private pagerDiffer: KeyValueDiffer;
-    private pager: RtPagedPager | RtBufferedPager | RtRegularPager;
-    constructor( @SkipSelf() pagedPager: RtPagedPager, @SkipSelf() bufferedPager: RtBufferedPager, @SkipSelf() regularPager: RtRegularPager, @SkipSelf() listService: RtListService, differs: KeyValueDiffers) {
+    private pager: PagedPager | BufferedPager | RegularPager;
+    constructor( @SkipSelf() pagedPager: PagedPager, @SkipSelf() bufferedPager: BufferedPager, @SkipSelf() regularPager: RegularPager, @SkipSelf() listService: RtListService, differs: KeyValueDiffers) {
         super(listService, differs, ProgressState.Done);
         this.pagerDiffer = differs.find([]).create(null);
         this.pager = RtNullObjectInjectable.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);

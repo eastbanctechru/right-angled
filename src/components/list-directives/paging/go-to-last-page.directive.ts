@@ -1,6 +1,6 @@
 import { Renderer, Directive, HostListener, HostBinding, KeyValueDiffers, Input, ElementRef } from '@angular/core';
-
-import { RtListService, RtPagedPager } from '../../providers/index';
+import { PagedPager } from 'e2e4';
+import { RtListService } from '../list-service';
 import { GoToControlBase } from './go-to-control-base';
 
 @Directive({
@@ -8,7 +8,7 @@ import { GoToControlBase } from './go-to-control-base';
 })
 export class GoToLastPageDirective extends GoToControlBase {
     @Input() public disabledCls: string;
-    constructor(private listService: RtListService, pager: RtPagedPager, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
+    constructor(private listService: RtListService, pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
         super(renderer, pager, differs, elementRef);
     }
     @HostListener('click')

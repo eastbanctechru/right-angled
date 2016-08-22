@@ -1,6 +1,7 @@
 import { SkipSelf, HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
-
-import { RtListService, RtBufferedPager, RtNullObjectInjectable } from '../../providers/index';
+import { BufferedPager } from 'e2e4';
+import { RtListService } from '../list-service';
+import { RtNullObjectInjectable } from '../null-object-injectable';
 
 @Directive({
     selector: 'input[rtRowCount]'
@@ -14,7 +15,7 @@ export class RowCountDirective implements DoCheck {
             this.innerRowCount = item.currentValue;
         }
     }
-    constructor( @SkipSelf() private listService: RtListService, @SkipSelf() private pager: RtBufferedPager, differs: KeyValueDiffers) {
+    constructor( @SkipSelf() private listService: RtListService, @SkipSelf() private pager: BufferedPager, differs: KeyValueDiffers) {
         if (pager === RtNullObjectInjectable.instance) {
             throw new Error('[rtRowCount] directive can be used only with buffered list provider.');
         }

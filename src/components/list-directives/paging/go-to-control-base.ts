@@ -1,13 +1,13 @@
 import { Renderer, KeyValueDiffers, KeyValueDiffer, ElementRef, DoCheck, OnInit } from '@angular/core';
-
-import { RtNullObjectInjectable, RtPagedPager } from '../../providers/index';
+import { PagedPager } from 'e2e4';
+import { RtNullObjectInjectable } from '../null-object-injectable';
 
 export abstract class GoToControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
     protected innerDisabled: boolean = false;
     private nativeEl: any;
     public disabledCls: string;
-    constructor(private renderer: Renderer, protected pager: RtPagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
+    constructor(private renderer: Renderer, protected pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
         if (pager === RtNullObjectInjectable.instance) {
             throw new Error('[rtGoTo...] directives can be used only with paged list.');
         }

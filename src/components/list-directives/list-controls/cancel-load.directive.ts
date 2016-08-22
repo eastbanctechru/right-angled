@@ -1,6 +1,6 @@
 import { SkipSelf, Directive, HostBinding, HostListener, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
 
-import { RtListService } from '../../providers/index';
+import { RtListService } from '../list-service';
 
 @Directive({
     selector: '[rtCancelLoad]'

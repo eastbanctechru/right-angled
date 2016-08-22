@@ -1,8 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Pager, destroyAll, ProgressState } from 'e2e4';
+import { Pager, destroyAll, ProgressState, SortingsService, FiltersService } from 'e2e4';
 import { RtQueryStringStateService } from './query-string-state-service';
 import { RtPersistenceService } from './persistence-service';
-import { RtSortingsService, RtFiltersService } from './injectables';
+import {  } from './injectables';
 import { AsyncSubscriber } from './async-subscriber';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -71,7 +71,7 @@ export class RtListService {
         this.items = [];
         this.itemsStream.next(this.items);
     }
-    constructor(private asyncSubscriber: AsyncSubscriber, public stateService: RtQueryStringStateService, public persistenceService: RtPersistenceService, public sortingsService: RtSortingsService, public filtersService: RtFiltersService) {
+    constructor(private asyncSubscriber: AsyncSubscriber, public stateService: RtQueryStringStateService, public persistenceService: RtPersistenceService, public sortingsService: SortingsService, public filtersService: FiltersService) {
 
     }
     public init(): void {
