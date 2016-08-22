@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-export interface SubscriptionFactory {
+interface SubscriptionFactory {
     attach(target: any, completeAction: any, errorAction: any): any;
     destroy(subscription: any): void;
     detach(subscription: any): void;
@@ -24,7 +24,7 @@ class PromiseSubscriptionFactory implements SubscriptionFactory {
 }
 
 @Injectable()
-export class AsyncSubscriber implements SubscriptionFactory {
+export class AsyncSubscriber {
     private static promiseSubscription: PromiseSubscriptionFactory = new PromiseSubscriptionFactory();
     private static observableSubscription: ObservableSubscriptionFactory = new ObservableSubscriptionFactory();
 
