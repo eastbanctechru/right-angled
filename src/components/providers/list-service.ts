@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Pager, destroyAll, ProgressState } from 'e2e4';
 import { RtQueryStringStateService } from './query-string-state-service';
+import { RtPersistenceService } from './persistence-service';
 import { RtSortingsService, RtFiltersService } from './injectables';
 import { AsyncSubscriber } from './async-subscriber';
 import { Observable } from 'rxjs/Observable';
@@ -11,9 +12,12 @@ export class RtListService {
     // tslint:disable-next-line: typedef
     public static settings = {
         itemsPropertyName: 'items',
+        persistanceEnabled: false,
         stateSerializationKeyName: 'ls'
     };
     public itemsPropertyName: string = RtListService.settings.itemsPropertyName;
+    public stateSerializationKey: string = RtListService.settings.stateSerializationKeyName;
+    public persistanceEnabled: boolean = RtListService.settings.persistanceEnabled;
 
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     public pager: Pager;
@@ -67,15 +71,18 @@ export class RtListService {
         this.items = [];
         this.itemsStream.next(this.items);
     }
-    constructor(private asyncSubscriber: AsyncSubscriber, public stateService: RtQueryStringStateService, public sortingsService: RtSortingsService, public filtersService: RtFiltersService) {
-        this.stateService.serializationKey = RtListService.settings.stateSerializationKeyName;
+    constructor(private asyncSubscriber: AsyncSubscriber, public stateService: RtQueryStringStateService, public persistenceService: RtPersistenceService, public sortingsService: RtSortingsService, public filtersService: RtFiltersService) {
+
     }
     public init(): void {
         if (this.inited) {
             return;
         }
         this.filtersService.registerFilterTarget(this, this.pager, this.sortingsService);
-        const restoredState = this.stateService.mergeStates();
+        const restoredState = this.stateSerializationKey ? this.stateService.getRestoredStates(this.stateSerializationKey) : {};
+        const persistedState = this.persistanceEnabled ? this.persistenceService.getPersistedState() : {};
+        Object.assign(restoredState, persistedState || {});
+
         this.filtersService.applyParams(restoredState);
         this.inited = true;
     }
@@ -100,8 +107,12 @@ export class RtListService {
         }
         this.addToCancellationSequence(subscribable);
         this.asyncSubscriber.attach(subscribable, this.loadSuccessCallback, this.loadFailCallback);
-        this.stateService.flushRequestState(requestState);
-        this.stateService.persistLocalState(this.filtersService.getPersistedState());
+        if (this.stateSerializationKey) {
+            this.stateService.flushRequestState(this.stateSerializationKey, requestState);
+        }
+        if (this.persistanceEnabled) {
+            this.persistenceService.persistState(this.filtersService.getPersistedState());
+        }
         return subscribable;
     }
     public reloadData(): void {

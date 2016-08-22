@@ -1,11 +1,13 @@
 export { RtListService } from './list-service';
 export { RtQueryStringStateService } from './query-string-state-service';
+export { RtPersistenceService } from './persistence-service';
 export { RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './injectables';
 export { RtNullObjectInjectable } from './null-object-injectable';
 export { AsyncSubscriber } from './async-subscriber';
 
 import { RtListService } from './list-service';
 import { RtQueryStringStateService } from './query-string-state-service';
+import { RtPersistenceService } from './persistence-service';
 import { RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService } from './injectables';
 import { RtNullObjectInjectable } from './null-object-injectable';
 import { AsyncSubscriber } from './async-subscriber';
@@ -20,7 +22,8 @@ export var PAGED_LIST_PROVIDERS: any[] = [
     RtSortingsService,
     RtPagedPager,
     RtFiltersService,
-    RtQueryStringStateService
+    RtQueryStringStateService,
+    RtPersistenceService
 ];
 
 export var BUFFERED_LIST_PROVIDERS: any[] = [
@@ -32,7 +35,8 @@ export var BUFFERED_LIST_PROVIDERS: any[] = [
     RtFiltersService,
     RtSortingsService,
     RtBufferedPager,
-    RtQueryStringStateService
+    RtQueryStringStateService,
+    RtPersistenceService
 ];
 
 export var REGULAR_LIST_PROVIDERS: any[] = [
@@ -44,5 +48,6 @@ export var REGULAR_LIST_PROVIDERS: any[] = [
     RtFiltersService,
     RtSortingsService,
     RtRegularPager,
-    RtQueryStringStateService
+    RtQueryStringStateService,
+    RtPersistenceService
 ];

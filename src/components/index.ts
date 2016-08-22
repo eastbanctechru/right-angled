@@ -9,7 +9,7 @@ import { MISC_DIRECTIVES } from './misc-directives/index';
 export { FILTER_DIRECTIVES } from './filter-directives/index';
 import { FILTER_DIRECTIVES } from './filter-directives/index';
 
-export { RtListService, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService, RtQueryStringStateService } from './providers/index';
+export { RtListService, RtBufferedPager, RtPagedPager, RtRegularPager, RtSortingsService, RtFiltersService, RtQueryStringStateService, RtPersistenceService } from './providers/index';
 
 export { SELECTION_DIRECTIVES } from './selection-directives/index';
 export { RtSelectionService, OnDeselected, OnDeselectedEvent, OnSelected, OnSelectedEvent, OnSelectionChanged, OnSelectionChangedEvent, SelectionEventsEmitter } from './selection-directives/index';
