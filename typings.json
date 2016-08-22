@@ -8,7 +8,6 @@
     "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654"
   },
   "dependencies": {
-    "lodash": "registry:npm/lodash#4.0.0+20160701205107",
-    "moment": "registry:npm/moment#2.10.5+20160211003958"
+    "lodash": "registry:npm/lodash#4.0.0+20160701205107"
   }
 }
