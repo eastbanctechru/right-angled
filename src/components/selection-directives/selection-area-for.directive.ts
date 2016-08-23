@@ -65,7 +65,6 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     public keyDownHandler(event: KeyboardEvent): void {
         if (this.selectionEventsHelper.keyboardHandler(event.ctrlKey, event.shiftKey, event.keyCode)) {
             event.stopPropagation();
-            event.preventDefault();
         }
     }
 }
