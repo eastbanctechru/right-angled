@@ -2,7 +2,6 @@ import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@
 import { BufferedPager, PagedPager, RegularPager, ProgressState } from 'e2e4';
 
 import { RtListService } from '../list-service';
-import { RtNullObjectInjectable } from '../null-object-injectable';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
@@ -15,7 +14,7 @@ export class DisplayPagerComponent extends ListStateComponent implements DoCheck
     constructor( @SkipSelf() pagedPager: PagedPager, @SkipSelf() bufferedPager: BufferedPager, @SkipSelf() regularPager: RegularPager, @SkipSelf() protected listService: RtListService, differs: KeyValueDiffers) {
         super(listService, differs, ProgressState.Done);
         this.pagerDiffer = differs.find([]).create(null);
-        this.pager = RtNullObjectInjectable.getFirstNotNullInstance(pagedPager, bufferedPager, regularPager);
+        this.pager = pagedPager || bufferedPager || regularPager;
     }
     public ngDoCheck(): void {
         super.ngDoCheck();
