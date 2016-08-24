@@ -1,4 +1,4 @@
-import { SkipSelf, Component, KeyValueDiffers } from '@angular/core';
+import { Component, KeyValueDiffers, SkipSelf } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
 import { RtListService } from '../list-service';

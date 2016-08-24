@@ -1,4 +1,4 @@
-import { KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
+import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
 import { RtListService } from '../list-service';

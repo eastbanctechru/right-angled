@@ -1,4 +1,4 @@
-import { SkipSelf, Directive, HostListener } from '@angular/core';
+import { Directive, HostListener, SkipSelf } from '@angular/core';
 
 import { FiltersService } from 'e2e4';
 

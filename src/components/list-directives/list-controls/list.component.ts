@@ -1,9 +1,10 @@
-import { Component, Input, EventEmitter, Self } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { ListBase } from './list-base';
-import { RegularPager } from 'e2e4';
-import { RtListService } from '../list-service';
 import { REGULAR_LIST_PROVIDERS } from '../../providers';
+import { RtListService } from '../list-service';
+import { ListBase } from './list-base';
+
+import { Component, EventEmitter, Input, Self } from '@angular/core';
+import { RegularPager } from 'e2e4';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     exportAs: 'rtList',

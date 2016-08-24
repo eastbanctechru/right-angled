@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 export * from 'e2e4';
 
@@ -12,8 +12,8 @@ import { FILTER_DIRECTIVES } from './filter-directives/index';
 export { SELECTION_DIRECTIVES } from './selection-directives/index';
 export { RtSelectionService, OnDeselected, OnDeselectedEvent, OnSelected, OnSelectedEvent, OnSelectionChanged, OnSelectionChangedEvent, SelectionEventsEmitter } from './selection-directives/index';
 
+import { BufferedListComponent, LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, ListComponent, PagedListComponent } from './list-directives/index';
 import { SELECTION_DIRECTIVES } from './selection-directives/index';
-import { LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, BufferedListComponent, PagedListComponent, ListComponent } from './list-directives/index';
 
 export { BUFFERED_FOOTER_DIRECTIVES, PAGED_FOOTER_DIRECTIVES } from './list-directives/index';
 import { BUFFERED_FOOTER_DIRECTIVES, PAGED_FOOTER_DIRECTIVES } from './list-directives/index';

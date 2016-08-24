@@ -1,4 +1,4 @@
-import { Renderer, Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer } from '@angular/core';
 
 @Directive({
     selector: 'input[rtSelectOnFocus]'

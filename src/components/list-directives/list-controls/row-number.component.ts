@@ -1,4 +1,4 @@
-import { SkipSelf, Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
+import {  ChangeDetectionStrategy, Component, Input, OnChanges, SkipSelf } from '@angular/core';
 import { BufferedPager, PagedPager, RegularPager } from 'e2e4';
 
 @Component({

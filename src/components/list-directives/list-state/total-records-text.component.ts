@@ -1,6 +1,7 @@
-import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck, OnInit } from '@angular/core';
-import { BufferedPager, PagedPager, RegularPager, ProgressState } from 'e2e4';
 import { RtListService } from '../list-service';
+
+import { Component, DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit, SkipSelf } from '@angular/core';
+import { BufferedPager, PagedPager, ProgressState, RegularPager } from 'e2e4';
 
 @Component({
     selector: 'rt-total-records-text',

@@ -1,9 +1,9 @@
-import { SelectionTuple, DefaultSelectionService } from 'e2e4';
+import { DefaultSelectionService, SelectionTuple } from 'e2e4';
 
-import { SelectionEventsEmitter } from './contract/selection-events-emitter';
-import { OnSelected } from './contract/on-selected-hook';
 import { OnDeselected } from './contract/on-deselected-hook';
+import { OnSelected } from './contract/on-selected-hook';
 import { OnSelectionChanged } from './contract/on-selection-changed-hook';
+import { SelectionEventsEmitter } from './contract/selection-events-emitter';
 
 export class RtSelectionService extends DefaultSelectionService {
     private eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();

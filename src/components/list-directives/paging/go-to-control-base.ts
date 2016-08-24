@@ -1,4 +1,4 @@
-import { Renderer, KeyValueDiffers, KeyValueDiffer, ElementRef, DoCheck, OnInit } from '@angular/core';
+import { DoCheck, ElementRef, KeyValueDiffer, KeyValueDiffers, OnInit, Renderer } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
 export abstract class GoToControlBase implements DoCheck, OnInit {

@@ -1,4 +1,4 @@
-import { Directive, OnInit, OnDestroy, Input } from '@angular/core';
+import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
 import { FiltersService } from  'e2e4';
 
 @Directive({

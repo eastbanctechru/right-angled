@@ -1,4 +1,4 @@
-import { SkipSelf, HostListener, Directive, Input } from '@angular/core';
+import { Directive, HostListener, Input, SkipSelf } from '@angular/core';
 
 import { SelectionAreaForDirective } from './selection-area-for.directive';
 

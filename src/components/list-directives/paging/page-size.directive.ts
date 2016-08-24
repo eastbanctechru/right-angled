@@ -1,6 +1,7 @@
-import { HostBinding, HostListener, Directive, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
-import { PagedPager } from 'e2e4';
 import { RtListService } from '../list-service';
+
+import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers } from '@angular/core';
+import { PagedPager } from 'e2e4';
 
 @Directive({
     selector: 'input[rtPageSize]'

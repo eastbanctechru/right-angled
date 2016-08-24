@@ -1,5 +1,5 @@
-import { SkipSelf, Component, KeyValueDiffers, KeyValueDiffer, DoCheck } from '@angular/core';
-import { BufferedPager, PagedPager, RegularPager, ProgressState } from 'e2e4';
+import { Component, DoCheck, KeyValueDiffer, KeyValueDiffers, SkipSelf } from '@angular/core';
+import { BufferedPager, PagedPager, ProgressState, RegularPager } from 'e2e4';
 
 import { RtListService } from '../list-service';
 import { ListStateComponent } from './list-state-component';

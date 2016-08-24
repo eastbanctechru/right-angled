@@ -1,5 +1,5 @@
-import { PagedPager, BufferedPager, RegularPager, SortingsService, FiltersService } from 'e2e4';
 import { Injectable } from '@angular/core';
+import { BufferedPager, FiltersService, PagedPager, RegularPager, SortingsService } from 'e2e4';
 
 @Injectable()
 class RtPagedPager extends PagedPager { }
@@ -16,11 +16,11 @@ class RtSortingsService extends SortingsService { }
 @Injectable()
 class RtFiltersService extends FiltersService { }
 
-import { RtListService } from './list-directives/list-service';
-import { RtQueryStringStateService } from './list-directives/query-string-state-service';
-import { RtLocalStoragePersistenceService } from './list-directives/local-storage-persistence-service';
-import { RtSessionStoragePersistenceService } from './list-directives/session-storage-persistence-service';
 import { AsyncSubscriber } from './list-directives/async-subscriber';
+import { RtListService } from './list-directives/list-service';
+import { RtLocalStoragePersistenceService } from './list-directives/local-storage-persistence-service';
+import { RtQueryStringStateService } from './list-directives/query-string-state-service';
+import { RtSessionStoragePersistenceService } from './list-directives/session-storage-persistence-service';
 import { provide } from '@angular/core';
 
 export var PAGED_LIST_PROVIDERS: any[] = [
