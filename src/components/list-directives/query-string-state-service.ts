@@ -1,40 +1,35 @@
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable, SkipSelf, Optional } from '@angular/core';
-
-import { cloneAsLiteral } from 'e2e4';
+import { cloneAsLiteral, FiltersService } from 'e2e4';
+import { RtPersistenceService } from './persistence-service';
 
 @Injectable()
-export class RtQueryStringStateService {
-    private static stateObject: Map<any, any> = new Map<any, any>();
-    private internalStateKey: string;
-
+export class RtQueryStringStateService implements RtPersistenceService {
+    // tslint:disable-next-line: typedef
+    public static settings = {
+        serializationKeyName: 'ls'
+    };
+    public serializationKey: string = RtQueryStringStateService.settings.serializationKeyName;
     constructor(private location: Location, @Optional() @SkipSelf() private activatedRoute: ActivatedRoute, @Optional() @SkipSelf() private router: Router) {
-        this.internalStateKey = this.activatedRoute.snapshot.url.length > 0 ? this.activatedRoute.snapshot.url.map(segment => segment.path).join(':') : 'default-route';
     }
-
-    public flushRequestState(serializationKey: string, state: Object): void {
-        let vmState = this.getInternalState();
-        RtQueryStringStateService.stateObject.set(this.internalStateKey, vmState);
-
+    public persistState(filtersService: FiltersService): void {
         setTimeout(() => {
             let newState = {};
-            Object.assign(newState, state);
-            vmState.lastRequestState = newState;
+            Object.assign(newState, filtersService.getRequestState());
             let params = cloneAsLiteral(this.router.routerState.root.snapshot.queryParams || {});
 
-            params[serializationKey] = JSON.stringify(vmState.lastRequestState);
+            params[this.serializationKey] = JSON.stringify(newState);
             let path = this.location.path(true);
             path = path.indexOf('?') === -1 ? path : path.substring(0, path.indexOf('?'));
             this.location.replaceState(path, this.serializeQueryParams(params));
         }, 0);
     }
-    public getRestoredStates(serializationKey: string): Object {
+    public getPersistedState(): Object {
         const restoredState = {};
-        const savedState = this.getInternalState();
-        let routerState = this.router.routerState.snapshot.root.queryParams[serializationKey] ? JSON.parse(decodeURIComponent(this.router.routerState.snapshot.root.queryParams[serializationKey])) : {};
+        let routerState = this.router.routerState.snapshot.root.queryParams[this.serializationKey] ? JSON.parse(decodeURIComponent(this.router.routerState.snapshot.root.queryParams[this.serializationKey])) : {};
 
-        Object.assign(restoredState, savedState ? (savedState.lastRequestState || {}) : {}, routerState);
+        Object.assign(restoredState, routerState);
         return restoredState;
     }
     private serializeQueryParams(params: { [key: string]: string }): string {
@@ -45,8 +40,5 @@ export class RtQueryStringStateService {
             }
         }
         return res.join('&');
-    }
-    private getInternalState(): any {
-        return RtQueryStringStateService.stateObject.get(this.internalStateKey) || {};
     }
 }

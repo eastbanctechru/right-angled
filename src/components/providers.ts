@@ -18,7 +18,8 @@ class RtFiltersService extends FiltersService { }
 
 import { RtListService } from './list-directives/list-service';
 import { RtQueryStringStateService } from './list-directives/query-string-state-service';
-import { RtPersistenceService } from './list-directives/persistence-service';
+import { RtLocalStoragePersistenceService } from './list-directives/local-storage-persistence-service';
+import { RtSessionStoragePersistenceService } from './list-directives/session-storage-persistence-service';
 import { AsyncSubscriber } from './list-directives/async-subscriber';
 import { provide } from '@angular/core';
 
@@ -31,7 +32,8 @@ export var PAGED_LIST_PROVIDERS: any[] = [
     provide(FiltersService, { useClass: RtFiltersService }),
     provide(SortingsService, { useClass: RtSortingsService }),
     RtQueryStringStateService,
-    RtPersistenceService
+    RtLocalStoragePersistenceService,
+    RtSessionStoragePersistenceService
 ];
 
 export var BUFFERED_LIST_PROVIDERS: any[] = [
@@ -43,7 +45,8 @@ export var BUFFERED_LIST_PROVIDERS: any[] = [
     provide(FiltersService, { useClass: RtFiltersService }),
     provide(SortingsService, { useClass: RtSortingsService }),
     RtQueryStringStateService,
-    RtPersistenceService
+    RtLocalStoragePersistenceService,
+    RtSessionStoragePersistenceService
 ];
 
 export var REGULAR_LIST_PROVIDERS: any[] = [
@@ -55,5 +58,6 @@ export var REGULAR_LIST_PROVIDERS: any[] = [
     provide(FiltersService, { useClass: RtFiltersService }),
     provide(SortingsService, { useClass: RtSortingsService }),
     RtQueryStringStateService,
-    RtPersistenceService
+    RtLocalStoragePersistenceService,
+    RtSessionStoragePersistenceService
 ];
