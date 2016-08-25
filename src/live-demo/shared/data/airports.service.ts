@@ -90,7 +90,8 @@ export class AirportsService {
         } as LookupItem]).orderBy(item => item.value).value();
     }
     private getAirports(delay: number): Observable<Array<Airport>> {
-        return this.http.get('/live-demo/shared/data/airports.json').map(response => {
+        let url = (window.location.hostname === 'fshchudlo.github.io' ? '/right-angled' : '') + '/live-demo/shared/data/airports.json';
+        return this.http.get(url).map(response => {
             return response.json().airports as Array<Airport>;
         }).delay(delay)
             // use share to avoid multiple calls by angular async pipes
