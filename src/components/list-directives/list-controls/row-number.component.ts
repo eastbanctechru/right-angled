@@ -3,6 +3,7 @@ import { BufferedPager, PagedPager, RegularPager } from 'e2e4';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
+    moduleId: module.id,
     selector: 'rt-row-number',
     template: `{{rowNumber}}`
 })

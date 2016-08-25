@@ -45,8 +45,8 @@ export class RTFiltersModule { }
 export class RTSelectionModule { }
 
 @NgModule({
-    declarations: [PAGED_LIST_DIRECTIVES, BUFFERED_LIST_DIRECTIVES, REGULAR_LIST_DIRECTIVES],
-    exports: [PAGED_LIST_DIRECTIVES, BUFFERED_LIST_DIRECTIVES, REGULAR_LIST_DIRECTIVES],
+    declarations: [LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, PAGED_FOOTER_DIRECTIVES, BUFFERED_FOOTER_DIRECTIVES, PagedListComponent, BufferedListComponent, ListComponent],
+    exports: [LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, PAGED_FOOTER_DIRECTIVES, BUFFERED_FOOTER_DIRECTIVES, PagedListComponent, BufferedListComponent, ListComponent],
     imports: [CommonModule]
 })
 export class RTListModule { }

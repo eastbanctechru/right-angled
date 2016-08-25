@@ -4,6 +4,7 @@ import { BufferedPager, PagedPager, ProgressState, RegularPager } from 'e2e4';
 import { RtListService } from '../list-service';
 
 @Component({
+    moduleId: module.id,
     selector: 'rt-total-records-text',
     template: `<ng-content *ngIf="isVisible"></ng-content>`
 })

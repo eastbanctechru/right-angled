@@ -8,6 +8,7 @@ import { ListBase } from './list-base';
 
 @Component({
     exportAs: 'rtList',
+    moduleId: module.id,
     providers: [PAGED_LIST_PROVIDERS],
     selector: 'rt-paged-list',
     template: `<ng-content></ng-content>`
