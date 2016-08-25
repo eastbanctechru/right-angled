@@ -50,3 +50,8 @@ export class RTSelectionModule { }
     imports: [CommonModule]
 })
 export class RTListModule { }
+
+export { RtLocalStoragePersistenceService } from './list-directives/local-storage-persistence-service';
+export { RtQueryStringStateService } from './list-directives/query-string-state-service';
+export { RtSessionStoragePersistenceService } from './list-directives/session-storage-persistence-service';
+export { registerPersistenceService } from './providers';

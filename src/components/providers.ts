@@ -18,9 +18,7 @@ class RtFiltersService extends FiltersService { }
 
 import { AsyncSubscriber } from './list-directives/async-subscriber';
 import { RtListService } from './list-directives/list-service';
-import { RtLocalStoragePersistenceService } from './list-directives/local-storage-persistence-service';
-import { RtQueryStringStateService } from './list-directives/query-string-state-service';
-import { RtSessionStoragePersistenceService } from './list-directives/session-storage-persistence-service';
+import { RtPersistenceService } from './list-directives/persistence-service';
 
 export var PAGED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
@@ -29,10 +27,7 @@ export var PAGED_LIST_PROVIDERS: any[] = [
     provide(RegularPager, { useValue: null }),
     provide(PagedPager, { useClass: RtPagedPager }),
     provide(FiltersService, { useClass: RtFiltersService }),
-    provide(SortingsService, { useClass: RtSortingsService }),
-    RtQueryStringStateService,
-    RtLocalStoragePersistenceService,
-    RtSessionStoragePersistenceService
+    provide(SortingsService, { useClass: RtSortingsService })
 ];
 
 export var BUFFERED_LIST_PROVIDERS: any[] = [
@@ -42,10 +37,7 @@ export var BUFFERED_LIST_PROVIDERS: any[] = [
     provide(RegularPager, { useValue: null }),
     provide(BufferedPager, { useClass: RtBufferedPager }),
     provide(FiltersService, { useClass: RtFiltersService }),
-    provide(SortingsService, { useClass: RtSortingsService }),
-    RtQueryStringStateService,
-    RtLocalStoragePersistenceService,
-    RtSessionStoragePersistenceService
+    provide(SortingsService, { useClass: RtSortingsService })
 ];
 
 export var REGULAR_LIST_PROVIDERS: any[] = [
@@ -55,8 +47,40 @@ export var REGULAR_LIST_PROVIDERS: any[] = [
     provide(BufferedPager, { useValue: null }),
     provide(RegularPager, { useClass: RtRegularPager }),
     provide(FiltersService, { useClass: RtFiltersService }),
-    provide(SortingsService, { useClass: RtSortingsService }),
-    RtQueryStringStateService,
-    RtLocalStoragePersistenceService,
-    RtSessionStoragePersistenceService
+    provide(SortingsService, { useClass: RtSortingsService })
 ];
+
+export function registerPersistenceService({useClass, useValue, useExisting, useFactory, deps, multi}: {
+    useClass?: any;
+    useValue?: any;
+    useExisting?: any;
+    useFactory?: Function;
+    deps?: Object[];
+    multi?: boolean;
+}): void {
+
+    REGULAR_LIST_PROVIDERS.push(provide(RtPersistenceService, {
+        useClass,
+        useValue,
+        useExisting,
+        useFactory,
+        deps,
+        multi
+    }));
+    BUFFERED_LIST_PROVIDERS.push(provide(RtPersistenceService, {
+        useClass,
+        useValue,
+        useExisting,
+        useFactory,
+        deps,
+        multi
+    }));
+    PAGED_LIST_PROVIDERS.push(provide(RtPersistenceService, {
+        useClass,
+        useValue,
+        useExisting,
+        useFactory,
+        deps,
+        multi
+    }));
+}

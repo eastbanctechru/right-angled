@@ -1,5 +1,5 @@
 import { FiltersService } from 'e2e4';
-export interface RtPersistenceService {
-    persistState(filtersService: FiltersService): void;
-    getPersistedState(): any;
+export abstract class RtPersistenceService {
+    public abstract persistState(filtersService: FiltersService): void;
+    public abstract getPersistedState(): any;
 }
