@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SHARED_DIRECTIVES, AirportsService, AirportsBufferedListRequest } from '../shared';
+
+import { AirportsBufferedListRequest, AirportsService, SHARED_DIRECTIVES } from '../shared';
 
 @Component({
     directives: [SHARED_DIRECTIVES],

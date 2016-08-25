@@ -1,5 +1,5 @@
 import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { BufferedListSampleRoutes } from '../+buffered-list-sample/buffered-list-sample.routes';
 import { GroupingSampleRoutes } from '../+grouping-sample/grouping-sample.routes';

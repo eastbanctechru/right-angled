@@ -10,7 +10,7 @@
 const map: any = {
   'e2e4': 'vendor/e2e4',
   'right-angled': 'vendor/right-angled',
-  'lodash': 'vendor/lodash/lodash.js'
+  lodash: 'vendor/lodash/lodash.js'
 };
 
 /** User packages configuration. */
@@ -61,8 +61,8 @@ declare var System: any;
 System.config({
   map: {
     '@angular': 'vendor/@angular',
-    'rxjs': 'vendor/rxjs',
-    'main': 'main.js'
+    main: 'main.js',
+    rxjs: 'vendor/rxjs'
   },
   packages: cliSystemConfigPackages
 });

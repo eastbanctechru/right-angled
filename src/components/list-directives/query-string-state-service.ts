@@ -1,9 +1,9 @@
-import { RtPersistenceService } from './persistence-service';
-
 import { Location } from '@angular/common';
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FiltersService, cloneAsLiteral } from 'e2e4';
+
+import { RtPersistenceService } from './persistence-service';
 
 @Injectable()
 export class RtQueryStringStateService implements RtPersistenceService {

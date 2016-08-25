@@ -1,12 +1,12 @@
-import { AsyncSubscriber } from './async-subscriber';
-import { RtLocalStoragePersistenceService } from './local-storage-persistence-service';
-import { RtQueryStringStateService } from './query-string-state-service';
-import { RtSessionStoragePersistenceService } from './session-storage-persistence-service';
-
 import { EventEmitter, Injectable } from '@angular/core';
 import { FiltersService, Pager, ProgressState, SortingsService, destroyAll } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+
+import { AsyncSubscriber } from './async-subscriber';
+import { RtLocalStoragePersistenceService } from './local-storage-persistence-service';
+import { RtQueryStringStateService } from './query-string-state-service';
+import { RtSessionStoragePersistenceService } from './session-storage-persistence-service';
 
 @Injectable()
 export class RtListService {

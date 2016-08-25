@@ -1,4 +1,4 @@
-import { PagedListRequest, BufferedListRequest, ListRequest } from 'right-angled';
+import { BufferedListRequest, ListRequest, PagedListRequest } from 'right-angled';
 export interface AirportsPagedListRequest extends PagedListRequest {
     airportName: string;
     type: string;

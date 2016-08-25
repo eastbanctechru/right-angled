@@ -1,8 +1,8 @@
-import { RtPersistenceService } from './persistence-service';
-
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FiltersService } from 'e2e4';
+
+import { RtPersistenceService } from './persistence-service';
 
 @Injectable()
 export class RtLocalStoragePersistenceService implements RtPersistenceService {

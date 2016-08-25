@@ -17,7 +17,7 @@ export abstract class CachedService extends DataService {
     }
 
     public setCacheValue(key: string, value: any, expiresAt: Date | string): void {
-        this.cache[key] = { expiresAt: expiresAt, value: value };
+        this.cache[key] = { expiresAt, value };
     }
 
     public getCacheValue(key: string): any {

@@ -1,5 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import { Http, RequestOptionsArgs, RequestMethod, Headers, Response } from '@angular/http';
+import { Headers, Http, RequestMethod, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import './operators/cancelon.augmentation';
@@ -68,9 +68,9 @@ export abstract class DataService {
         }
 
         let callSettings: RequestOptionsArgs = {
-            body: body,
+            body,
             method: settings.method || RequestMethod.Post,
-            search: search,
+            search,
             url: settings.url
         };
 

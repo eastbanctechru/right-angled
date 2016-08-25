@@ -1,8 +1,8 @@
-import { RtListService } from '../list-service';
-import { GoToControlBase } from './go-to-control-base';
-
 import { Directive, ElementRef, HostBinding, HostListener, Input, KeyValueDiffers, Renderer } from '@angular/core';
 import { PagedPager } from 'e2e4';
+
+import { RtListService } from '../list-service';
+import { GoToControlBase } from './go-to-control-base';
 
 @Directive({
     selector: '[rtGoToFirstPage]'

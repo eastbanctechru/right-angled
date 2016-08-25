@@ -1,10 +1,10 @@
-import { PAGED_LIST_PROVIDERS } from '../../providers';
-import { RtListService } from '../list-service';
-import { ListBase } from './list-base';
-
 import { Component, EventEmitter, Input, Self } from '@angular/core';
 import { PagedPager } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
+
+import { PAGED_LIST_PROVIDERS } from '../../providers';
+import { RtListService } from '../list-service';
+import { ListBase } from './list-base';
 
 @Component({
     exportAs: 'rtList',

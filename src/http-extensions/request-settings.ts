@@ -1,4 +1,4 @@
-import { RequestMethod, Headers } from '@angular/http';
+import { Headers, RequestMethod } from '@angular/http';
 
 export interface RequestSettings {
     url: string;

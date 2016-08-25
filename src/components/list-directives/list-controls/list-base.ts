@@ -1,8 +1,8 @@
-import { RtListService } from '../list-service';
-
 import { AfterViewInit, OnDestroy } from '@angular/core';
 import { Pager } from 'e2e4';
 import { Subject } from 'rxjs/Subject';
+
+import { RtListService } from '../list-service';
 
 export abstract class ListBase implements OnDestroy, AfterViewInit {
     public get items(): Array<any> {

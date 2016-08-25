@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 
-import { CancelOnSignature } from './cancelon.signature';
 import { cancelOn } from './cancelon.extension';
+import { CancelOnSignature } from './cancelon.signature';
 
 Observable.prototype.cancelOn = cancelOn;
 

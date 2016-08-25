@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import * as _ from 'lodash';
+import { BufferedListRequest, ListRequest, ListResponse, PagedListRequest, PagedListResponse, SortDirection } from 'right-angled';
 import { Observable } from 'rxjs/Observable';
 
-import { SortDirection } from 'right-angled';
 import { Airport }     from './airport';
+import { AirportsBufferedListRequest, AirportsListRequest, AirportsPagedListRequest } from './airports-list-request';
 import { LookupItem } from './lookup-item';
-import { PagedListRequest, BufferedListRequest, ListRequest, ListResponse, PagedListResponse } from 'right-angled';
-import { AirportsPagedListRequest, AirportsBufferedListRequest, AirportsListRequest } from './airports-list-request';
 
 @Injectable()
 export class AirportsService {

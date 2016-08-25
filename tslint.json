@@ -1,9 +1,10 @@
 {
-  "extends": "tslint:recommended",
+  "extends": "tslint:latest",
   "rulesDirectory": [
     "./node_modules/codelyzer"
   ],
   "rules": {
+    "only-arrow-functions": false,
     "interface-name": [
       true, "never-prefix"
     ],
