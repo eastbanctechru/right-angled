@@ -44,8 +44,7 @@ const barrels: string[] = [
 
   // App specific barrels.
   'live-demo',
-  'live-demo/shared',
-  'right-angled'
+  'live-demo/shared'
   /** @cli-barrel */
 ];
 
