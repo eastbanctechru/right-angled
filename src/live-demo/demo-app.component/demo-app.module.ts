@@ -2,7 +2,7 @@ import { NgModule }      from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { RTFiltersModule, RTListModule, RTMiscModule, RTSelectionModule } from 'right-angled';
+import { RTModule } from 'right-angled';
 import { RtLocalStoragePersistenceService, RtQueryStringStateService, RtSessionStoragePersistenceService, registerPersistenceService } from 'right-angled';
 
 import { BufferedListSampleComponent } from '../+buffered-list-sample/buffered-list-sample.component';
@@ -20,6 +20,6 @@ registerPersistenceService({multi: true, useClass: RtLocalStoragePersistenceServ
 @NgModule({
   bootstrap: [DemoAppComponent],
   declarations: [DemoAppComponent, BufferedListSampleComponent, GroupingSampleComponent, MasterDetailSampleComponent, PagedListSampleComponent, RegularListSampleComponent],
-  imports: [BrowserModule, HttpModule, FormsModule, RTListModule, RTSelectionModule, RTMiscModule, RTFiltersModule, routing]
+  imports: [BrowserModule, HttpModule, FormsModule, RTModule, routing]
 })
 export class AppModule { }

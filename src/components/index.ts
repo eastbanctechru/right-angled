@@ -51,6 +51,12 @@ export class RTSelectionModule { }
 })
 export class RTListModule { }
 
+@NgModule({
+    exports: [RTListModule, RTSelectionModule, RTMiscModule, RTFiltersModule],
+    imports: [RTListModule, RTSelectionModule, RTMiscModule, RTFiltersModule]
+})
+export class RTModule { }
+
 export { RtLocalStoragePersistenceService } from './list-directives/local-storage-persistence-service';
 export { RtQueryStringStateService } from './list-directives/query-string-state-service';
 export { RtSessionStoragePersistenceService } from './list-directives/session-storage-persistence-service';
