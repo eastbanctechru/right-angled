@@ -1,4 +1,4 @@
-import { ContentChildren, Directive, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnDestroy, OnInit, Output, QueryList, Self } from '@angular/core';
+import { ContentChildren, Directive, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnDestroy, OnInit, Output, QueryList, Self, SimpleChange } from '@angular/core';
 import { SelectionAreaConfig, SelectionEventsHelper, SelectionItem } from 'e2e4';
 
 import { OnDeselectedEvent } from './contract/on-deselected-event';
@@ -38,7 +38,7 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     public ngOnDestroy(): void {
         this.selectionService.destroy();
     }
-    public ngOnChanges(changes: any): void {
+    public ngOnChanges(changes: { items?: SimpleChange }): void {
         // we doesn't set itemsSource to empty arrays to keep selection when trackByFn is provided
         // it's must not be a problem since on destroy selections will be destroyed by this component 
         if (changes.items && (!this.selectionService.itemsSource || !!this.trackBy || changes.items.currentValue.length > 0)) {
