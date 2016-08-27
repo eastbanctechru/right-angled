@@ -12,14 +12,3 @@ export var SELECTION_DIRECTIVES: any[] = [
     SelectAllDirective,
     DeselectAllDirective,
     CheckAllDirective];
-
-export { RtSelectionService } from './selection-service';
-export { SelectionEventsEmitter } from './contract/selection-events-emitter';
-
-export { OnSelected } from './contract/on-selected-hook';
-export { OnDeselected } from './contract/on-deselected-hook';
-export { OnSelectionChanged } from './contract/on-selection-changed-hook';
-
-export { OnSelectedEvent } from './contract/on-selected-event';
-export { OnDeselectedEvent } from './contract/on-deselected-event';
-export { OnSelectionChangedEvent } from './contract/on-selection-changed-event';

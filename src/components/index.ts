@@ -10,7 +10,7 @@ export { FILTER_DIRECTIVES } from './filter-directives/index';
 import { FILTER_DIRECTIVES } from './filter-directives/index';
 
 export { SELECTION_DIRECTIVES } from './selection-directives/index';
-export { RtSelectionService, OnDeselected, OnDeselectedEvent, OnSelected, OnSelectedEvent, OnSelectionChanged, OnSelectionChangedEvent, SelectionEventsEmitter } from './selection-directives/index';
+export * from './core/index';
 
 import { BufferedListComponent, LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, ListComponent, PagedListComponent } from './list-directives/index';
 import { SELECTION_DIRECTIVES } from './selection-directives/index';
@@ -57,7 +57,7 @@ export class RTListModule { }
 })
 export class RTModule { }
 
-export { RtLocalStoragePersistenceService } from './list-directives/local-storage-persistence-service';
-export { RtQueryStringStateService } from './list-directives/query-string-state-service';
-export { RtSessionStoragePersistenceService } from './list-directives/session-storage-persistence-service';
+export { RtLocalStoragePersistenceService } from './core/persistence/local-storage-persistence-service';
+export { RtQueryStringStateService } from './core/persistence/query-string-state-service';
+export { RtSessionStoragePersistenceService } from './core/persistence/session-storage-persistence-service';
 export { registerPersistenceService } from './providers';

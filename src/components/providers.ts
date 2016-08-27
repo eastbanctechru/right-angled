@@ -16,9 +16,9 @@ class RtSortingsService extends SortingsService { }
 @Injectable()
 class RtFiltersService extends FiltersService { }
 
-import { AsyncSubscriber } from './list-directives/async-subscriber';
-import { RtListService } from './list-directives/list-service';
-import { RtPersistenceService } from './list-directives/persistence-service';
+import { AsyncSubscriber } from './core/async-subscriber';
+import { RtListService } from './core/list-service';
+import { RtPersistenceService } from './core/persistence/persistence-service';
 
 export var PAGED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,

@@ -1,9 +1,9 @@
 import { Directive, EventEmitter, HostListener, Input, OnInit, Output, SkipSelf } from '@angular/core';
 
-import { OnDeselectedEvent } from './contract/on-deselected-event';
-import { OnSelectedEvent } from './contract/on-selected-event';
-import { OnSelectionChangedEvent } from './contract/on-selection-changed-event';
-import { SelectionEventsEmitter } from './contract/selection-events-emitter';
+import { OnDeselectedEvent } from '../core/selection/on-deselected-event';
+import { OnSelectedEvent } from '../core/selection/on-selected-event';
+import { OnSelectionChangedEvent } from '../core/selection/on-selection-changed-event';
+import { SelectionEventsEmitter } from '../core/selection/selection-events-emitter';
 import { SelectionAreaForDirective } from './selection-area-for.directive';
 
 @Directive({
