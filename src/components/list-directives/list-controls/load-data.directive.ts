@@ -1,4 +1,4 @@
-import { RtListService } from '..//list-service';
+import { RtListService } from '../list-service';
 
 import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers, OnInit, SkipSelf } from '@angular/core';
 

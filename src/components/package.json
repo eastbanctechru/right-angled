@@ -12,12 +12,12 @@
   },
   "homepage": "https://github.com/fshchudlo/right-angled#readme",
   "author": "Fedor Shchudlo",
-  "version": "0.10.2",
+  "version": "0.11.1",
   "license": "MIT",
   "peerDependencies": {
     "@angular/core": "2.0.0-rc.5",
     "@angular/router": "3.0.0-rc.1",
-    "e2e4": "^1.1.1",
+    "e2e4": "^1.2.0",
     "es6-shim": "0.35.1",
     "rxjs": "5.0.0-beta.6"
   }

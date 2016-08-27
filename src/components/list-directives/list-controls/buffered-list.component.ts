@@ -3,7 +3,7 @@ import { BufferedPager } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { BUFFERED_LIST_PROVIDERS } from '../../providers';
-import { RtListService } from '..//list-service';
+import { RtListService } from '../list-service';
 import { ListBase } from './list-base';
 
 @Component({
