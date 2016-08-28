@@ -11,14 +11,14 @@
     Enter search options and press "Show" button
 </rt-list-state-initial>
 <rt-list-state-progress class="text-center">
-    <div class="line-progress"></div>
+    <div></div>
 </rt-list-state-progress>
-<div class="text-right">
+<div>
     <rt-total-records-text #rtref>
         Loaded records {{rtref.pager.loadedCount}} of {{rtref.pager.totalCount}}
     </rt-total-records-text>
     <rt-display-pager>
-        <a tabindex="0" rtLoadMore class="link" href="#">Show more</a>
+        <a tabindex="0" rtLoadMore href="#">Show more</a>
         <input class="form-control" rtSelectOnFocus rtRowCount type="text" maxlength="3" title="count of rows to load" />
     </rt-display-pager>
 </div>

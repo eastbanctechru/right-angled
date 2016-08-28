@@ -1,10 +1,10 @@
 <div>
-    <h1 class="page-title">Paged List Sample</h1>
+    <h1>Paged List Sample</h1>
     <rt-paged-list [fetchMethod]="loadData" #list="rtList">
         <rt-demo-filter-area #filter [rtRegisterAsFilter]="filter">
         </rt-demo-filter-area>
         <table class="table table-striped" [rtSelectionAreaFor]="list.itemsStream | async">
-            <caption rt-demo-toolbar class="text-right">
+            <caption rt-demo-toolbar>
             </caption>
             <thead rt-demo-sortable-header>
             </thead>
@@ -26,7 +26,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="9" class="list-pager">
+                    <td colspan="9">
                         <rt-demo-paged-footer></rt-demo-paged-footer>
                     </td>
                 </tr>

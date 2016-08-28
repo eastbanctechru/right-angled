@@ -1,6 +1,6 @@
 @import '../shared.scss';
 
-.line-progress {
+rt-list-state-progress>div {
     display: inline-block;
     width: 128px;
     height: 16px;
@@ -21,6 +21,9 @@
 }
 
 .table { 
+    caption {
+        text-align: right;
+    }
     tbody {
         border: solid $color-gray;
         border-width: 0 2px 2px 2px;
@@ -46,10 +49,8 @@
             background-color: $color-gray;
             td {
                 border-top: 0;
-                &.list-pager {
-                    padding-right: 40px;
-                    vertical-align: middle;
-                }
+                padding-right: 40px;
+                vertical-align: middle;
                 rt-demo-footer, rt-demo-paged-footer, rt-demo-buffered-footer {
                     display: block;
                     .form-control {
@@ -105,7 +106,7 @@
                     }
                 }
                 .dropdown-menu {
-                    height: 205px;
+                    height: 245px;
                 }
             }
             .dropdown-menu {
@@ -137,7 +138,7 @@
 .layout {
     min-height: 100vh;
     padding: 110px 0;
-    h1.page-title {
+    h1 {
         color: $color-blue;
         margin-bottom: 20px;
     }

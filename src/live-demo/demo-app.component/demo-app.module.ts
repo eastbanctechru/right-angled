@@ -10,6 +10,7 @@ import { GroupingSampleComponent } from '../+grouping-sample/grouping-sample.com
 import { MasterDetailSampleComponent } from '../+master-detail-sample/master-detail-sample.component';
 import { PagedListSampleComponent } from '../+paged-list-sample/paged-list-sample.component';
 import { RegularListSampleComponent } from '../+regular-list-sample/regular-list-sample.component';
+import { SelectionSampleComponent } from '../+selection-sample/selection-sample.component';
 import { DemoAppComponent }  from './demo-app.component';
 import { routing }        from './demo-app.routing';
 
@@ -19,7 +20,7 @@ registerPersistenceService({multi: true, useClass: RtLocalStoragePersistenceServ
 
 @NgModule({
   bootstrap: [DemoAppComponent],
-  declarations: [DemoAppComponent, BufferedListSampleComponent, GroupingSampleComponent, MasterDetailSampleComponent, PagedListSampleComponent, RegularListSampleComponent],
+  declarations: [DemoAppComponent, BufferedListSampleComponent, GroupingSampleComponent, MasterDetailSampleComponent, PagedListSampleComponent, RegularListSampleComponent, SelectionSampleComponent],
   imports: [BrowserModule, HttpModule, FormsModule, RTModule, routing]
 })
 export class AppModule { }

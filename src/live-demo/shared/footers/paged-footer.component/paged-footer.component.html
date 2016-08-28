@@ -11,14 +11,14 @@
     Enter search options and press "Show" button
 </rt-list-state-initial>
 <rt-list-state-progress class="text-center">
-    <div class="line-progress"></div>
+    <div></div>
 </rt-list-state-progress>
-<rt-display-pager class="text-right">
-    <span rtGoToFirstPage disabledCls="disabled" class="first-page" title="go to first page"></span>
-    <span rtGoToPrevPage disabledCls="disabled" class="prev-page" title="go to previous page"></span>
+<rt-display-pager>
+    <span rtGoToFirstPage disabledCls="disabled" title="go to first page"></span>
+    <span rtGoToPrevPage disabledCls="disabled" title="go to previous page"></span>
     <input rtSelectOnFocus rtPageNumber type="text" class="form-control" maxlength="4" />
-    <span rtGoToNextPage disabledCls="disabled" class="next-page" title="go to next page"></span>
-    <span rtGoToLastPage disabledCls="disabled" class="last-page" title="go to last page"></span>
+    <span rtGoToNextPage disabledCls="disabled" title="go to next page"></span>
+    <span rtGoToLastPage disabledCls="disabled" title="go to last page"></span>
     <rt-total-records-text #rtref>
         Displaying records {{rtref.pager.displayFrom}} - {{rtref.pager.displayTo}} of {{rtref.pager.totalCount}}.
     </rt-total-records-text>
