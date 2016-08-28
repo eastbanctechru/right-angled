@@ -19,6 +19,7 @@ module.exports = function(defaults) {
       'e2e4/**/*.+(js|js.map)',
       'bootstrap/**/*.*',
       'right-angled/**/*.+(js|js.map)',
+      'google-code-prettify/bin/*.*',
       'lodash/lodash.js'
     ]
   });

@@ -8,6 +8,15 @@ import { AirportsBufferedListRequest, AirportsService, SHARED_DIRECTIVES } from 
     templateUrl: 'selection-sample.component.html'
 })
 export class SelectionSampleComponent {
+    public IMPORT_CODE_TS: string = `
+    import { RTSelectionModule } from 'right-angled';
+    @NgModule({
+        bootstrap: [AppComponent],
+        declarations: [AppComponent],
+        imports: [...RTSelectionModule...]
+    })
+    export class AppModule {}
+`;
     constructor(public airportsService: AirportsService) {
     }
 

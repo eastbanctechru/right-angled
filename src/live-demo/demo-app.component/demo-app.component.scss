@@ -6,7 +6,9 @@ rt-list-state-progress>div {
     height: 16px;
     background: url(live-demo/img/progress/line-progress.gif) center center no-repeat;
 }
-
+pre{
+    border: 1px solid #CCC !important;
+}
 
 .form-control {
     color: $color-black;
@@ -138,7 +140,7 @@ rt-list-state-progress>div {
 .layout {
     min-height: 100vh;
     padding: 110px 0;
-    h1 {
+    h1, h2, h3, h4, h5, h6 {
         color: $color-blue;
         margin-bottom: 20px;
     }

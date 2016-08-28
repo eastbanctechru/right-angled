@@ -6,8 +6,15 @@
   <title>RightAngled</title>
   <base href=".">
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="live-demo/styles.css"> {{#unless environment.production}}
-  <script src="/ember-cli-live-reload.js" type="text/javascript"></script> {{/unless}}
+  <link rel="stylesheet" href="live-demo/styles.css">
+  <link rel="stylesheet" href="vendor/google-code-prettify/bin/prettify.min.css">
+  <link rel="stylesheet" href="http://valor-software.com/ng2-bootstrap/assets/css/prettify-angulario.css">
+  
+  <script src="vendor/google-code-prettify/bin/prettify.min.js"></script>
+  
+  {{#unless environment.production}}
+  <script src="/ember-cli-live-reload.js" type="text/javascript"></script> 
+  {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="live-demo/favicon.ico">
 </head>
