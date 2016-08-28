@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 
-import { AirportsBufferedListRequest, AirportsService, SHARED_DIRECTIVES } from '../shared';
+import { BasicUsageComponent } from './basic-usage/basic-usage.component';
 
 @Component({
-    directives: [SHARED_DIRECTIVES],
+    directives: [BasicUsageComponent],
     moduleId: module.id,
     templateUrl: 'selection-sample.component.html'
 })
 export class SelectionSampleComponent {
-    public IMPORT_CODE_TS: string = `
+    public HOW_TO_USE_TS: string = `
     import { RTSelectionModule } from 'right-angled';
     @NgModule({
         bootstrap: [AppComponent],
@@ -17,10 +17,4 @@ export class SelectionSampleComponent {
     })
     export class AppModule {}
 `;
-    constructor(public airportsService: AirportsService) {
-    }
-
-    public loadData = (requestParams: AirportsBufferedListRequest): any => {
-        return this.airportsService.getAirportsBuffered(requestParams);
-    };
 }

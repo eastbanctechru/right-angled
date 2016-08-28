@@ -49,7 +49,7 @@ export class AirportsService {
         return this.getAirports(delay).map(airports => {
             return _.chain(airports)
                 .filter(item => !request.airportName || item.name.toLowerCase().indexOf(request.airportName.toLowerCase()) !== -1)
-                .filter(item => request.size === null || (item.size === null && request.size === '') || item.size === request.size)
+                .filter(item => request.size === null || request.size === undefined || (item.size === null && request.size === '') || item.size === request.size)
                 .filter(item => !request.type || item.type === request.type)
                 .filter(item => !request.regionName || item.region === request.regionName)
                 .filter(item => !request.cityName || item.cityName === request.cityName)
@@ -106,6 +106,13 @@ export class AirportsService {
     public getRegions(delay: number = 500): Observable<Array<LookupItem>> {
         return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map((item: Airport) => item.region).uniq().value()));
     }
+
+    public getSelectableRegions(delay: number = 500): Observable<Array<any>> {
+        return this.getAirports(500)
+            .map(airports => _.chain(airports).map((item: Airport) => ({ name: item.region, selected: false })).uniqBy('name').value())
+            .share();
+    }
+
     public getCountries(region?: string, delay: number = 500): Observable<Array<LookupItem>> {
         return this.getAirports(delay)
             .map(airports => this.transformToLookup(
