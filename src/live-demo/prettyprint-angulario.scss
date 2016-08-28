@@ -1,0 +1,123 @@
+$darkgrey: #5C707A;
+$lightgrey: #F5F6F7;
+$bismark: #7a8b94;
+$olive: #647f11;
+$pink: #D43669;
+$mono-font: Monaco, "Lucida Console", monospace;
+$regal: #0273D4;
+$unit: 8px;
+$fog: #CFD8DC;
+$storm: #E0E0E0;
+
+/*
+* Code Snippets
+*
+* These Code snippets are transformed by prettify and the code
+* below represents a custom theme that works with their formatting.
+*/
+pre.prettyprint {
+    border: 1px solid #CCC !important;
+}
+
+.prettyprint {
+  white-space: pre-wrap;
+  background: $lightgrey;
+  font-family: $mono-font;
+  color: $darkgrey;
+  width: auto;
+  overflow: auto;
+  position: relative;
+  padding: 0px;
+  font-size: 13px;
+  line-height: 24px;
+  margin-bottom: $unit * 3;
+  border-radius: 4px;
+  padding: ($unit * 2) ($unit * 4);
+
+  &.linenums,
+  &[class^="linenums:"],
+  &[class*=" linenums:"]  {
+    padding: 0px;
+  }
+
+  &.is-showcase {
+    border: 4px solid $regal;
+  }
+
+  code {
+    background: none;
+    font-size: 13px;
+    padding: 0px;
+  }
+
+  ol {
+    background: $lightgrey;
+    padding: ($unit * 2) ($unit * 4) ($unit * 2) ($unit * 7);
+    margin: 0px;
+    overflow: auto;
+    font-size: 13px;
+
+    li {
+      color: $bismark;
+      background: none;
+      margin-bottom: 5px;
+      line-height: normal;
+      list-style-type: decimal;
+      font-size: 12px;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+
+      code {
+        background: none;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .pnk,
+  .blk {
+    border-radius: 4px;
+    padding: 2px 4px;
+  }
+  .pnk {
+    background: $fog;
+    color: $darkgrey;
+  }
+  .blk {
+    background: $storm;
+  }
+  .otl {
+    outline: 1px solid rgba(darkgrey, .56);
+  }
+  .kwd {
+    color: $pink;
+  }
+  .typ,
+  .tag {
+    color: $pink;
+  }
+  .str,
+  .atv {
+    color: $olive;
+  }
+  .atn {
+    color: $olive;
+  }
+  .com {
+    color: $olive;
+  }
+  .lit {
+    color: $olive;
+  }
+  .pun {
+    color: $bismark;
+  }
+  .pln {
+    color: $darkgrey;
+  }
+  .dec {
+    color: $olive;
+  }
+}
