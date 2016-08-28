@@ -1,13 +1,13 @@
-$darkgrey: #5C707A;
-$lightgrey: #F5F6F7;
-$bismark: #7a8b94;
-$olive: #647f11;
-$pink: #D43669;
-$mono-font: Monaco, "Lucida Console", monospace;
-$regal: #0273D4;
+@import './shared.scss';
+
+
+
+$color-bismark: #7a8b94;
+$color-olive: #647f11;
+$color-pink: #D43669;
+$color-regal: #0273D4;
+$color-fog: #CFD8DC;
 $unit: 8px;
-$fog: #CFD8DC;
-$storm: #E0E0E0;
 
 /*
 * Code Snippets
@@ -22,9 +22,9 @@ pre.prettyprint {
 
 .prettyprint {
   white-space: pre-wrap;
-  background: $lightgrey;
-  font-family: $mono-font;
-  color: $darkgrey;
+  background: $color-muted-grey;
+  font-family: Monaco, "Lucida Console", monospace;
+  color: $color-dark-grey;
   width: auto;
   overflow: auto;
   position: relative;
@@ -42,7 +42,7 @@ pre.prettyprint {
   }
 
   &.is-showcase {
-    border: 4px solid $regal;
+    border: 4px solid $color-regal;
   }
 
   code {
@@ -52,14 +52,14 @@ pre.prettyprint {
   }
 
   ol {
-    background: $lightgrey;
+    background: $color-muted-grey;
     padding: ($unit * 2) ($unit * 4) ($unit * 2) ($unit * 7);
     margin: 0px;
     overflow: auto;
     font-size: 13px;
 
     li {
-      color: $bismark;
+      color: $color-bismark;
       background: none;
       margin-bottom: 5px;
       line-height: normal;
@@ -83,42 +83,42 @@ pre.prettyprint {
     padding: 2px 4px;
   }
   .pnk {
-    background: $fog;
-    color: $darkgrey;
+    background: $color-fog;
+    color: $color-dark-grey;
   }
   .blk {
-    background: $storm;
+    background: $color-striped;
   }
   .otl {
     outline: 1px solid rgba(darkgrey, .56);
   }
   .kwd {
-    color: $pink;
+    color: $color-pink;
   }
   .typ,
   .tag {
-    color: $pink;
+    color: $color-pink;
   }
   .str,
   .atv {
-    color: $olive;
+    color: $color-olive;
   }
   .atn {
-    color: $olive;
+    color: $color-olive;
   }
   .com {
-    color: $olive;
+    color: $color-olive;
   }
   .lit {
-    color: $olive;
+    color: $color-olive;
   }
   .pun {
-    color: $bismark;
+    color: $color-bismark;
   }
   .pln {
-    color: $darkgrey;
+    color: $color-dark-grey;
   }
   .dec {
-    color: $olive;
+    color: $color-olive;
   }
 }
