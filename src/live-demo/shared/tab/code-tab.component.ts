@@ -14,9 +14,7 @@ declare const PR: {
     selector: 'rt-demo-code-tab',
     template: `
     <div [hidden]="!isActive">
-        <pre class="prettyprint">
-        {{src | async}}
-        </pre>
+        <pre class="prettyprint">{{src | async}}</pre>
     </div>
   `
 })
