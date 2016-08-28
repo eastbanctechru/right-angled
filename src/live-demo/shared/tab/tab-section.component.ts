@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { TabComponent } from './tab.component';
+import { CodeTabComponent } from './code-tab.component';
 
 @Component({
     moduleId: module.id,
@@ -9,7 +9,7 @@ import { TabComponent } from './tab.component';
     template: `
     <ul>
         <li *ngFor="let tab of tabs" (click)="pick(tab)" [class.active]="tab.isActive">
-            <button class="btn btn-primary">{{ tab.tabTitle }}</button>
+            <button class="btn btn-primary">{{ tab.fileName }}</button>
         </li>
     </ul>
     <div class="tab-content">
@@ -18,14 +18,14 @@ import { TabComponent } from './tab.component';
   `
 })
 export class TabSectionComponent {
-    public tabs: TabComponent[] = [];
-    public addTab(tab: TabComponent): void {
+    public tabs: CodeTabComponent[] = [];
+    public addTab(tab: CodeTabComponent): void {
         if (this.tabs.length === 0) {
             tab.isActive = true;
         }
         this.tabs.push(tab);
     }
-    public pick(selectedTab: TabComponent): void {
+    public pick(selectedTab: CodeTabComponent): void {
         this.tabs.forEach((tab) => {
             tab.isActive = false;
         });

@@ -1,3 +1,4 @@
+
 <table class="table table-striped" [rtSelectionAreaFor]="regions|async">
     <tbody>
         <tr *ngFor="let region of regions | async, let index=index" [class.selected]="region.selected" [rtSelectByIndex]="index">

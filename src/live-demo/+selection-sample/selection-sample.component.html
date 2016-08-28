@@ -4,9 +4,11 @@
     <p>Чтобы подключить функционал selection, импортируйте модуль <code>RtSelectionModule</code> из библиотеки right-angled.
         Также можно импортировать модуль <code>RtModule</code>, включающий в себя функционал всей библиотеки целиком.
     </p>
-    <pre class="prettyprint lang-js" [innerHTML]="HOW_TO_USE_TS | async">
+    <rt-demo-tab-section>
+        <rt-demo-code-tab url="demo-stubs/selection-bootstrap/app.module.ts">
+        </rt-demo-code-tab>
+    </rt-demo-tab-section>
 
-    </pre>
     <h3>Общая идея</h3>
     <p>
         Функицонал selection позволяет реализовать модель выбора элементов из коллекции на основе их индексов. Общая идея заключается
@@ -19,18 +21,10 @@
         становятся элементами для выбора.
     </p>
     <rt-demo-basic-usage></rt-demo-basic-usage>
-    <pre class="prettyprint lang-js" [innerHTML]="BASIC_USAGE_TS | async">
-
-    </pre>
-
     <rt-demo-tab-section>
-        <rt-demo-tab tabTitle="Tab 1">
-            <pre class="prettyprint lang-js" [innerHTML]="HOW_TO_USE_TS | async">
-            </pre>
-        </rt-demo-tab>
-        <rt-demo-tab tabTitle="Tab 2">
-            <pre class="prettyprint lang-js" [innerHTML]="BASIC_USAGE_TS | async">
-            </pre>
-        </rt-demo-tab>
+        <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/basic-usage/basic-usage.component.ts">
+        </rt-demo-code-tab>
+        <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/basic-usage/basic-usage.component.html">
+        </rt-demo-code-tab>
     </rt-demo-tab-section>
 </div>
