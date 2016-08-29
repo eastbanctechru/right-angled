@@ -1,51 +1,148 @@
-<div>
-    <h1>Selection</h1>
-    <h3>Как подключить</h3>
-    <p>Чтобы подключить функционал selection, импортируйте модуль <code>RtSelectionModule</code> из библиотеки right-angled.
-        Также можно импортировать модуль <code>RtModule</code>, включающий в себя функционал всей библиотеки целиком.
-    </p>
-    <rt-demo-tab-section>
-        <rt-demo-code-tab url="demo-stubs/selection-bootstrap/app.module.ts">
-        </rt-demo-code-tab>
-    </rt-demo-tab-section>
+<div class="row">
+    <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
+        <h1>Selection</h1>
+        <h3>Table of contents</h3>
+        <ul>
+            <li><a href="/selection#common-idea">Общая идея</a></li>
+            <li><a href="/selection#bootstrap">Как подключить</a></li>
+            <li><a href="/selection#basic-use">Простейший пример</a></li>
+            <li><a href="/selection#handle-selection">Обработка selection</a>
+                <ul>
+                    <li><a href="/selection#handle-selection-selected">Флаг "selected"</a></li>
+                    <li><a href="/selection#handle-selection-events">События</a></li>
+                    <li><a href="/selection#handle-selection-hooks">Хук-методы</a></li>
+                </ul>
+            </li>
+        </ul>
 
-    <h3>Общая идея</h3>
-    <p>
-        Функицонал selection позволяет реализовать модель выбора элементов из коллекции на основе их индексов.
-    </p>
-    <p>
-        Общая идея заключается в пометке HTML элемента, представляющего собой область выбора, директивой <code>rtSelectionAreaFor</code>.
-        В качестве обязательного параметра директива принимает коллекцию элементов, выбор из которой предстоит осуществлять.
-    </p>
-    <p>
-        Элементы, отрисованые внутри отмеченной области и помеченые директивой <code>rtSelectByIndex</code> становятся доступными
-        для выбора посредством следующих действий:
-    </p>
-    <ul>
-        <li>Клик мышью выбирает кликнутый элемент сбрасывая предыдущий выбор.</li>
-        <li>Клик мышью с зажатой клавишей <code>Ctrl</code> выбирает кликнутый элемент сохраняя предыдщий выбор.</li>
-        <li>Клик мышью с зажатой клавишей <code>Shift</code> выбирает последовательность элементов от последнего выбранного до
-            кликнутого.</li>
-        <li>Нажатие клавиши <code>&uarr;</code> выбирает предыдущий элемент. Или первый элемент списка, если ранее ничего не
-            было выбрано.</li>
-        <li>Нажатие клавиши <code>&rarr;</code> выбирает следующий элемент. Или первый элемент списка, если ранее ничего не было
-            выбрано.</li>
-        <li>Нажатие клавиш <code>Ctrl + &uarr;</code> выбирает первый элемент в списке.</li>
-        <li>Нажатие клавиш <code>Ctrl + &rarr;</code> выбирает последний элемент в списке.</li>
-        <li>Нажатие клавиш <code>Ctrl + A;</code> выбирает все элементы списка.</li>
-    </ul>
+        <h3 id="common-idea">Общая идея</h3>
+        <p>
+            Функицонал selection позволяет реализовать на UI выбор элементов из произвольного набора данных на основе их индексов. Также,
+            при помощи selection можно легко реализовать такие сценарии как accordion, группированые списки, отображение
+            master-details.
+        </p>
 
-    <p>
-        Ниже вы можете увидеть минимальный живой пример и исходный код списка, элементы которого можно выбирать посредством следующих
-        операций:
-    </p>
-    <rt-demo-tab-section>
-        <rt-demo-sample-tab tabTitle="basic sample">
-            <rt-demo-basic-usage></rt-demo-basic-usage>
-        </rt-demo-sample-tab>
-        <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/basic-usage/basic-usage.component.ts">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/basic-usage/basic-usage.component.html">
-        </rt-demo-code-tab>
-    </rt-demo-tab-section>
+        <h3 id="bootstrap">Как подключить</h3>
+        <p>Чтобы подключить функционал selection, импортируйте модуль <code>RtSelectionModule</code> из библиотеки right-angled.
+            Также можно импортировать модуль <code>RtModule</code>, включающий в себя функционал всей библиотеки целиком.
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-code-tab url="demo-stubs/selection-bootstrap/app.module.ts">
+            </rt-demo-code-tab>
+        </rt-demo-tab-section>
+
+        <h3 id="basic-use">Простейший пример</h3>
+        <p>
+            Общая идея заключается в пометке HTML элемента, представляющего собой область выбора, директивой <code>rtSelectionAreaFor</code>.
+            В качестве обязательного параметра директива принимает коллекцию элементов, выбор из которой предстоит осуществлять
+        </p>
+        <p>
+            В примере кода ниже обратите внимание на то, что Observable, возвращаемый методом <code>getRegions</code>, использует
+            метод <code>share</code>, чтобы директива <code>ngFor</code> и <code>rtSelectionAreaFor</code> были привязаны
+            к одной и той же подписке.
+        </p>
+        <p>
+            Элементы, отрисованые внутри отмеченной области и помеченые директивой <code>rtSelectByIndex</code> становятся
+            доступными для выбора посредством следующих действий:
+        </p>
+        <ul>
+            <li>Клик мышью выбирает кликнутый элемент сбрасывая предыдущий выбор.</li>
+            <li>Клик мышью с зажатой клавишей <code>Ctrl</code> выбирает кликнутый элемент сохраняя предыдщий выбор.</li>
+            <li>Клик мышью с зажатой клавишей <code>Shift</code> выбирает последовательность элементов от последнего выбранного
+                до кликнутого.
+            </li>
+            <li>Нажатие клавиши <code>&uarr;</code> выбирает предыдущий элемент. Или первый элемент списка, если ранее ничего
+                не было выбрано.</li>
+            <li>Нажатие клавиши <code>&rarr;</code> выбирает следующий элемент. Или первый элемент списка, если ранее ничего
+                не было выбрано.
+            </li>
+            <li>Нажатие клавиш <code>Ctrl + &uarr;</code> выбирает первый элемент в списке.</li>
+            <li>Нажатие клавиш <code>Ctrl + &rarr;</code> выбирает последний элемент в списке.</li>
+            <li>Нажатие клавиш <code>Ctrl + A;</code> выбирает все элементы списка.</li>
+        </ul>
+
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab tabTitle="basic sample">
+                <rt-demo-basic-usage></rt-demo-basic-usage>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/basic-usage/basic-usage.component.ts">
+            </rt-demo-code-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/basic-usage/basic-usage.component.html">
+            </rt-demo-code-tab>
+        </rt-demo-tab-section>
+
+        <h3 id="handle-selection">Обработка selection</h3>
+        <p>
+            Для выполнения действий в ответ на изменения состояния выбора элементов у вас есть три варианта действий:
+        </p>
+        <h4 id="handle-selection-selected">Флаг "selected"</h4>
+        <p>
+            Если в элементе объявить флаг <code>selected</code>, то сервис будет автоматически менять его значения. Пример
+            этого подхода вы уже увидели в демо выше и ниже показан он же.
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab tabTitle="'selected' flag">
+                <rt-demo-selected-flag></rt-demo-selected-flag>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/selected-flag/selected-flag.component.ts">
+            </rt-demo-code-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/selected-flag/selected-flag.component.html">
+            </rt-demo-code-tab>
+        </rt-demo-tab-section>
+
+        <h4 id="handle-selection-events">События</h4>
+        <p>
+            Вторым способом обработки selection являются события. По сути это и есть основной способ, первый же используется просто как
+            shorthand для отображения состояния selection на UI.
+        </p>
+        <p>
+            У нас есть три события, на которые мы можем подписаться: <code>itemSelected</code>, <code>itemDeselected</code>            и <code>selectionChanged</code>. Обработчики которых получают параметр, реализующий контракт <code>RtSelectionEvent</code>.
+        </p>
+        <p>
+            Ниже вы можете увидеть пример, в котором при помощи обработчиков событий логируются все действия по выбору элементов.
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab tabTitle="selection events">
+                <rt-demo-selection-events></rt-demo-selection-events>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/selection-events/selection-events.component.ts">
+            </rt-demo-code-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/selection-events/selection-events.component.html">
+            </rt-demo-code-tab>
+            <rt-demo-code-tab url="src/components/core/selection/selection-event.ts">
+            </rt-demo-code-tab>
+        </rt-demo-tab-section>
+
+
+        <h4 id="handle-selection-hooks">Хук-методы</h4>
+        <p>
+            Этот подход схож с lifecycle hooks из состава непосредственно Angular.
+        </p>
+        <p>
+            От предыдущего подхода он отличается, прежде всего, тем, что методы-хуки необходимо декларировать на элементах, а не на родительском
+            компоненте.
+        </p>
+        <p>
+            Если в вашем элементе объявлены методы
+            <code>rtOnSelected</code>, <code>rtOnDeselected</code>, <code>rtOnSelectionChanged</code>, то они будут вызваны
+            автоматически при смене состояния selection. </p>
+        <p>
+            Для поддержки code completion вы можете использовать интерфейсы
+            <code>OnDeselected</code>, <code>OnSelected</code>, <code>OnSelectionChanged</code> как в примере ниже.
+        </p>
+        <p>
+            Ниже вы можете увидеть модификацию (не самую удачную, но достаточно простую для целей демки) предыдущего примера, в котором также логируются действия по выбору элементов, но при помощи хуков.
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab tabTitle="hook methods">
+                <rt-demo-hook-methods></rt-demo-hook-methods>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/hook-methods/hook-methods.component.ts">
+            </rt-demo-code-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/hook-methods/hook-methods.component.html">
+            </rt-demo-code-tab>
+            <rt-demo-code-tab url="src/components/core/selection/selection-hooks.ts">
+            </rt-demo-code-tab>
+        </rt-demo-tab-section>
+    </div>
 </div>

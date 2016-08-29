@@ -10,6 +10,8 @@ import { AirportsService } from '../../shared';
 export class BasicUsageComponent {
     public regions: any;
     constructor(public airportsService: AirportsService) {
-        this.regions = this.airportsService.getSelectableRegions();
+        this.regions = this.airportsService.getRegions()
+            .map(regions => regions.map(region => ({ name: region, selected: false })))
+            .share();
     }
 }

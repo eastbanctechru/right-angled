@@ -1,4 +1,4 @@
-export interface OnSelectedEvent {
+export interface RtSelectionEvent {
     item: any;
     index: number;
 }

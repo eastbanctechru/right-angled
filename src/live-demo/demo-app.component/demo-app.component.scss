@@ -20,6 +20,18 @@ rt-list-state-progress>div {
 }
 
 .table { 
+    thead {
+        tr {
+            th {
+                background-color: $color-light-blue;
+                color: $color-white;
+                text-transform: uppercase;
+                border-bottom-color: $color-gray;
+                padding: 20px;
+            }
+        }
+    }
+
     caption {
         text-align: right;
     }

@@ -97,23 +97,23 @@ export class AirportsService {
             // use share to avoid multiple calls by angular async pipes
             .share();
     }
-    public getAirportTypes(delay: number = 500): Observable<Array<LookupItem>> {
+    public getAirportTypeLookups(delay: number = 500): Observable<Array<LookupItem>> {
         return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map(item => item.type).uniq().value()));
     }
-    public getAirportSizes(delay: number = 500): Observable<Array<LookupItem>> {
+    public getAirportSizeLookups(delay: number = 500): Observable<Array<LookupItem>> {
         return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map(item => item.size).uniq().value()));
     }
-    public getRegions(delay: number = 500): Observable<Array<LookupItem>> {
+    public getRegionLookups(delay: number = 500): Observable<Array<LookupItem>> {
         return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map((item: Airport) => item.region).uniq().value()));
     }
 
-    public getSelectableRegions(delay: number = 500): Observable<Array<any>> {
+    public getRegions(delay: number = 500): Observable<Array<string>> {
         return this.getAirports(500)
-            .map(airports => _.chain(airports).map((item: Airport) => ({ name: item.region, selected: false })).uniqBy('name').value())
+            .map(airports => _.chain(airports).map((item: Airport) => (item.region)).uniq().value())
             .share();
     }
 
-    public getCountries(region?: string, delay: number = 500): Observable<Array<LookupItem>> {
+    public getCountryLookups(region?: string, delay: number = 500): Observable<Array<LookupItem>> {
         return this.getAirports(delay)
             .map(airports => this.transformToLookup(
                 _.chain(airports)
@@ -121,7 +121,7 @@ export class AirportsService {
                     .map((item: Airport) => item.countryName).uniq()
                     .value()));
     }
-    public getCities(country?: string, delay: number = 500): Observable<Array<LookupItem>> {
+    public getCityLookups(country?: string, delay: number = 500): Observable<Array<LookupItem>> {
         return this.getAirports(delay)
             .map(airports => this.transformToLookup(
                 _.chain(airports)

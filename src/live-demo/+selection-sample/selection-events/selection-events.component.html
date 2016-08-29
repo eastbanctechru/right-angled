@@ -1,0 +1,31 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Region</th>
+        </tr>
+    </thead>
+    <tbody [rtSelectionAreaFor]="regions|async">
+        <tr *ngFor="let region of regions | async, let index=index" 
+        [class.selected]="region.selected" 
+        [rtSelectByIndex]="index"
+        (itemSelected)="onItemSelected($event)"
+        (itemDeselected)="onItemDeselected($event)"
+        (selectionChanged)="onItemSelectionChanged($event)"
+        >
+            <td>{{region.name}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Selection log</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of selectionActivityLog">
+            <td>{{item}}</td>
+        </tr>
+    </tbody>
+</table>

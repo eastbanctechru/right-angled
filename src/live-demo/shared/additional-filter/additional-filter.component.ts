@@ -19,16 +19,16 @@ export class AdditionalFilterComponent implements OnInit {
     constructor(private airportsService: AirportsService) {
     }
     public ngOnInit(): void {
-        this.regions = this.airportsService.getRegions();
-        this.countries = this.airportsService.getCountries(this.selectedRegion);
-        this.cities = this.airportsService.getCities(this.selectedCountry);
+        this.regions = this.airportsService.getRegionLookups();
+        this.countries = this.airportsService.getCountryLookups(this.selectedRegion);
+        this.cities = this.airportsService.getCityLookups(this.selectedCountry);
     }
     public onRegionChanged(newValue: string): void {
         this.selectedRegion = newValue;
-        this.countries = this.airportsService.getCountries(this.selectedRegion);
+        this.countries = this.airportsService.getCountryLookups(this.selectedRegion);
     }
     public onCountryChanged(newValue: string): void {
         this.selectedCountry = newValue;
-        this.cities = this.airportsService.getCities(this.selectedCountry);
+        this.cities = this.airportsService.getCityLookups(this.selectedCountry);
     }
 }

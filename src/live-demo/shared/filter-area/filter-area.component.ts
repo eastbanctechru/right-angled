@@ -19,8 +19,8 @@ export class FilterAreaComponent implements OnInit {
     constructor(private airportsService: AirportsService) {
     }
     public ngOnInit(): void {
-        this.airportSizes = this.airportsService.getAirportSizes();
-        this.airportTypes = this.airportsService.getAirportTypes();
+        this.airportSizes = this.airportsService.getAirportSizeLookups();
+        this.airportTypes = this.airportsService.getAirportTypeLookups();
     }
     public toggleAdvancedFilters(): void {
         this.useAdvancedFilters = !this.useAdvancedFilters;

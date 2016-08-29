@@ -28,21 +28,6 @@ th.t-col-size {
     width: 5%;
 }
 
-.table { 
-    thead {
-        tr {
-            th {
-                background-color: $color-light-blue;
-                color: $color-white;
-                text-transform: uppercase;
-                border-bottom-color: $color-gray;
-                padding: 20px;
-            }
-        }
-    }
-}
-
-
 .rt-sortable {
     position: relative;
     padding-right: 45px;
