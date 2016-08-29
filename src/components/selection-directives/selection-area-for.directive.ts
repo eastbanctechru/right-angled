@@ -1,9 +1,7 @@
 import { ContentChildren, Directive, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnDestroy, OnInit, Output, QueryList, Self, SimpleChange } from '@angular/core';
 import { SelectionAreaConfig, SelectionEventsHelper, SelectionItem } from 'e2e4';
 
-import { OnDeselectedEvent } from '../core/selection/on-deselected-event';
-import { OnSelectedEvent } from '../core/selection/on-selected-event';
-import { OnSelectionChangedEvent } from '../core/selection/on-selection-changed-event';
+import { RtSelectionEvent } from '../core/selection/selection-event';
 import { SelectionEventsEmitter } from '../core/selection/selection-events-emitter';
 import { RtSelectionService } from '../core/selection/selection-service';
 
@@ -27,9 +25,9 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
         }
         this.selectionService.trackByFn = value;
     }
-    @Output() public itemSelected: EventEmitter<OnSelectedEvent> = new EventEmitter<OnSelectedEvent>();
-    @Output() public itemDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
-    @Output() public selectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
+    @Output() public itemSelected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+    @Output() public itemDeselected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+    @Output() public selectionChanged: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
 
     constructor( @Self() public selectionService: RtSelectionService) {
         this.selectionService.areaEventsEmitter = this;

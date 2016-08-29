@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AirportsService } from '../../shared';
-import { OnDeselectedEvent, OnSelectedEvent, OnSelectionChangedEvent } from 'right-angled';
+import { RtSelectionEvent } from 'right-angled';
 
 @Component({
     moduleId: module.id,
@@ -19,13 +19,13 @@ export class SelectionEventsComponent {
     public convertToSelectable(regions: Array<string>): Array<any> {
         return regions.map(region => ({ name: region, selected: false }));
     }
-    public onItemSelected(evt: OnSelectedEvent): void {
+    public onItemSelected(evt: RtSelectionEvent): void {
         this.selectionActivityLog.unshift(`${evt.item.name} - selected`);
     }
-    public onItemDeselected(evt: OnDeselectedEvent): void {
+    public onItemDeselected(evt: RtSelectionEvent): void {
         this.selectionActivityLog.unshift(`${evt.item.name} - deselected`);
     }
-    public onItemSelectionChanged(evt: OnSelectionChangedEvent): void {
+    public onItemSelectionChanged(evt: RtSelectionEvent): void {
         this.selectionActivityLog.unshift(`${evt.item.name} - selected state changed to ${evt.item.selected}`);
     }
 }

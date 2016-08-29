@@ -1,9 +1,7 @@
 import { DefaultSelectionService, SelectionTuple } from 'e2e4';
 
-import { OnDeselected } from './on-deselected-hook';
-import { OnSelected } from './on-selected-hook';
-import { OnSelectionChanged } from './on-selection-changed-hook';
 import { SelectionEventsEmitter } from './selection-events-emitter';
+import { OnDeselected, OnSelected, OnSelectionChanged } from './selection-hooks';
 
 export class RtSelectionService extends DefaultSelectionService {
     private eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();

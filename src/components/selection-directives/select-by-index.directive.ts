@@ -1,8 +1,6 @@
 import { Directive, EventEmitter, HostListener, Input, OnInit, Output, SkipSelf } from '@angular/core';
 
-import { OnDeselectedEvent } from '../core/selection/on-deselected-event';
-import { OnSelectedEvent } from '../core/selection/on-selected-event';
-import { OnSelectionChangedEvent } from '../core/selection/on-selection-changed-event';
+import { RtSelectionEvent } from '../core/selection/selection-event';
 import { SelectionEventsEmitter } from '../core/selection/selection-events-emitter';
 import { SelectionAreaForDirective } from './selection-area-for.directive';
 
@@ -11,9 +9,9 @@ import { SelectionAreaForDirective } from './selection-area-for.directive';
 })
 export class SelectByIndexDirective implements SelectionEventsEmitter, OnInit {
     @Input('rtSelectByIndex') public index: number = null;
-    @Output() public itemSelected: EventEmitter<OnSelectedEvent> = new EventEmitter<OnSelectedEvent>();
-    @Output() public itemDeselected: EventEmitter<OnDeselectedEvent> = new EventEmitter<OnDeselectedEvent>();
-    @Output() public selectionChanged: EventEmitter<OnSelectionChangedEvent> = new EventEmitter<OnSelectionChangedEvent>();
+    @Output() public itemSelected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+    @Output() public itemDeselected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+    @Output() public selectionChanged: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
 
     constructor( @SkipSelf() private selectionArea: SelectionAreaForDirective) {
     }
