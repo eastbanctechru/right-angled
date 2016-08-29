@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, OnChanges, SimpleChange } from '@angular/
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
+import { Tab } from './tab-base';
 import { TabSectionComponent } from './tab-section.component';
 
 // google code-prettify
@@ -18,24 +19,24 @@ declare const PR: {
     </div>
   `
 })
-export class CodeTabComponent implements OnChanges {
+export class CodeTabComponent extends Tab implements OnChanges {
     public isActive: boolean;
     public baseUrl: string = 'https://raw.githubusercontent.com/fshchudlo/right-angled/master/';
     public src: Observable<any> = Observable.empty();
-    public fileName: string = '';
-    public fileExtension: string = '';
     @Input() public url: string;
     constructor(tabs: TabSectionComponent, private http: Http, private elementRef: ElementRef) {
-        tabs.addTab(this);
+        super(tabs);
     }
     public ngOnChanges(changes: { url?: SimpleChange }): void {
-        if (changes.url && typeof PR !== 'undefined') {
-            this.fileName = this.url.substring(this.url.lastIndexOf('/') + 1);
-            this.fileExtension = this.fileName.substring(this.fileName.lastIndexOf('.') + 1).toLowerCase();
-            this.src = this.http.get(this.baseUrl + this.url)
-                .map(res => {
-                    return res.text();
-                }).do(res => { setTimeout(() => PR.prettyPrint(null, this.elementRef.nativeElement), 50); });
-        }
+
+        this.tabTitle = this.url.substring(this.url.lastIndexOf('/') + 1);
+        this.src = this.http.get(this.baseUrl + this.url)
+            .map(res => {
+                return res.text();
+            }).do(res => {
+                if (changes.url && typeof PR !== 'undefined') {
+                    setTimeout(() => PR.prettyPrint(null, this.elementRef.nativeElement), 50);
+                }
+            });
     }
 }

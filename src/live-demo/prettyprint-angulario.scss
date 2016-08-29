@@ -1,20 +1,11 @@
 @import './shared.scss';
 
-
-
 $color-bismark: #7a8b94;
 $color-olive: #647f11;
 $color-pink: #D43669;
 $color-regal: #0273D4;
 $color-fog: #CFD8DC;
-$unit: 8px;
 
-/*
-* Code Snippets
-*
-* These Code snippets are transformed by prettify and the code
-* below represents a custom theme that works with their formatting.
-*/
 pre.prettyprint {
     border: none !important;
     padding: 15px !important;
@@ -31,9 +22,9 @@ pre.prettyprint {
   padding: 0px;
   font-size: 13px;
   line-height: 24px;
-  margin-bottom: $unit * 3;
+  margin-bottom: $indent-unit * 3;
   border-radius: 4px;
-  padding: ($unit * 2) ($unit * 4);
+  padding: ($indent-unit * 2) ($indent-unit * 4);
 
   &.linenums,
   &[class^="linenums:"],
@@ -53,7 +44,7 @@ pre.prettyprint {
 
   ol {
     background: $color-muted-grey;
-    padding: ($unit * 2) ($unit * 4) ($unit * 2) ($unit * 7);
+    padding: ($indent-unit * 2) ($indent-unit * 4) ($indent-unit * 2) ($indent-unit * 7);
     margin: 0px;
     overflow: auto;
     font-size: 13px;
