@@ -1,30 +1,35 @@
 @import '../../shared.scss';
 
+:host rt-demo-sample-tab div {
+    background: $color-muted-grey;
+    padding: 15px;
+}
+
 ul {
     background-color: $color-light-blue;
     padding-top: 10px;
     padding-left: 5px;
     margin-bottom: 0px;
+    overflow: hidden;
     li {
     display: inline-block;
     border: none;
     button.btn {
-        line-height: 28px;
-        height: 28px;
-        padding: 0 24px;
+        padding: 6px 24px;
         font-size: 13px;
         background-color: $color-blue;
         color: $color-white;
-        border: 0px 0px 0 0;
-        border-radius: 0px;
-        border-width: 1px;
-        border-color: $color-blue;
+        border: none;
+        border-radius: 0;
     }
     }
 
     li.active, li.active button.btn {
-        background: $color-muted-grey;
         border-color: $color-muted-grey;
-        color: #333;
+        button.btn{
+            color: #333;
+            background: $color-muted-grey;
+            padding: 7px 24px;
+        }
     }
 }

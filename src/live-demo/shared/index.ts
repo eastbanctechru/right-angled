@@ -6,6 +6,7 @@ import { PagedFooterComponent } from './footers/paged-footer.component/paged-foo
 import { RegularFooterComponent } from './footers/regular-footer.component/regular-footer.component';
 import { SortableHeaderComponent } from './sortable-header/sortable-header.component';
 import { CodeTabComponent } from './tab/code-tab.component';
+import { SampleTabComponent } from './tab/sample-tab.component';
 import { TabSectionComponent } from './tab/tab-section.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
@@ -15,4 +16,4 @@ export { LookupItem } from './data/lookup-item';
 export { AirportsPagedListRequest, AirportsBufferedListRequest, AirportsListRequest } from './data/airports-list-request';
 export { ListResponse, PagedListResponse } from 'right-angled';
 
-export var SHARED_DIRECTIVES: any[] = [BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, ToolbarComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, TabSectionComponent];
+export var SHARED_DIRECTIVES: any[] = [BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, ToolbarComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent];
