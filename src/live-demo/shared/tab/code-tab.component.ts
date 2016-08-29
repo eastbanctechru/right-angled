@@ -28,12 +28,15 @@ export class CodeTabComponent extends Tab implements OnChanges {
         super(tabs);
     }
     public ngOnChanges(changes: { url?: SimpleChange }): void {
-        if (changes.url && typeof PR !== 'undefined') {
-            this.tabTitle = this.url.substring(this.url.lastIndexOf('/') + 1);
-            this.src = this.http.get(this.baseUrl + this.url)
-                .map(res => {
-                    return res.text();
-                }).do(res => { setTimeout(() => PR.prettyPrint(null, this.elementRef.nativeElement), 50); });
-        }
+
+        this.tabTitle = this.url.substring(this.url.lastIndexOf('/') + 1);
+        this.src = this.http.get(this.baseUrl + this.url)
+            .map(res => {
+                return res.text();
+            }).do(res => {
+                if (changes.url && typeof PR !== 'undefined') {
+                    setTimeout(() => PR.prettyPrint(null, this.elementRef.nativeElement), 50);
+                }
+            });
     }
 }
