@@ -8,6 +8,6 @@ import { EventsAttacherBase } from './events-attacher.base';
 export class StopEventsDirective extends EventsAttacherBase {
     @Input('rtStopEvents') public eventNames: Array<string>;
     constructor(elementRef: ElementRef) {
-        super(elementRef, (evt: Event) => { evt.stopPropagation(); })
+        super(elementRef, (evt: Event) => { evt.stopPropagation(); });
     }
 }
