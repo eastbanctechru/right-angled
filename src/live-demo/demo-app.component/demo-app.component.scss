@@ -19,6 +19,14 @@ rt-list-state-progress>div {
     }
 }
 
+.note {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid $color-muted-grey;
+    border-left-width: 5px;
+    border-left-color: $color-blue;
+}
+
 .table { 
     thead {
         tr {

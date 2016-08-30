@@ -58,7 +58,7 @@
             </li>
             <li>Нажатие клавиш <code>Ctrl + &uarr;</code> выбирает первый элемент в списке.</li>
             <li>Нажатие клавиш <code>Ctrl + &rarr;</code> выбирает последний элемент в списке.</li>
-            <li>Нажатие клавиш <code>Ctrl + A;</code> выбирает все элементы списка.</li>
+            <li>Нажатие клавиш <code>Ctrl + A</code> выбирает все элементы списка.</li>
         </ul>
 
         <rt-demo-tab-section>
@@ -70,6 +70,13 @@
             <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/basic-usage/basic-usage.component.html">
             </rt-demo-code-tab>
         </rt-demo-tab-section>
+        <div class="note">
+            <h4>Обратите внимание</h4>
+            <p>Вы могли заметить,что мы используем директиву <code>rtPreventDefaults</code> в данном примере. Это одна из наших
+                <a href="#" [routerLink]="['/misc']">вспомогательных директив</a>, 
+                при помощи который мы добиваемся того, что при нажатии <code>Ctrl + A</code> не выполняется selection всего текста в окне за счет вызова <code>preventDefault</code>
+            </p>
+        </div>
 
         <h3 id="handle-selection">Обработка selection</h3>
         <p>
@@ -131,7 +138,8 @@
             <code>OnDeselected</code>, <code>OnSelected</code>, <code>OnSelectionChanged</code> как в примере ниже.
         </p>
         <p>
-            Ниже вы можете увидеть модификацию (не самую удачную, но достаточно простую для целей демки) предыдущего примера, в котором также логируются действия по выбору элементов, но при помощи хуков.
+            Ниже вы можете увидеть модификацию (не самую удачную, но достаточно простую для целей демки) предыдущего примера, в котором
+            также логируются действия по выбору элементов, но при помощи хуков.
         </p>
         <rt-demo-tab-section>
             <rt-demo-sample-tab tabTitle="hook methods">

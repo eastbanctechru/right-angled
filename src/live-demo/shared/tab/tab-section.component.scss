@@ -1,6 +1,6 @@
 @import '../../shared.scss';
 :host>div {
-    margin-top: 35px;
+    margin: 35px 0;
 }
 :host rt-demo-sample-tab div {
     background: $color-muted-grey;
