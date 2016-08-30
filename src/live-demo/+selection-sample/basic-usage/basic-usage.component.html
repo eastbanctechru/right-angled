@@ -4,7 +4,7 @@
             <th>Region</th>
         </tr>
     </thead>
-    <tbody [rtSelectionAreaFor]="regions|async">
+    <tbody [rtSelectionAreaFor]="regions|async" [rtPreventDefaults]="['keydown']">
         <tr *ngFor="let region of regions | async, let index=index" [class.selected]="region.selected" [rtSelectByIndex]="index">
             <td>{{region.name}}</td>
         </tr>
