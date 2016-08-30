@@ -36,7 +36,7 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     public ngOnDestroy(): void {
         this.selectionService.destroy();
     }
-    public ngOnChanges(changes: { items?: SimpleChange }): void {
+    public ngOnChanges(changes: { multiple?: SimpleChange, items?: SimpleChange }): void {
         // we doesn't set itemsSource to empty arrays to keep selection when trackByFn is provided
         // it's must not be a problem since on destroy selections will be destroyed by this component 
         if (changes.items && (!this.selectionService.itemsSource || !!this.trackBy || changes.items.currentValue.length > 0)) {
@@ -44,6 +44,13 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
         }
         if (false === this.selectionService.hasSelections() && this.autoSelectFirst === true) {
             this.selectionService.selectIndex(0, false);
+        }
+        if (changes.multiple && changes.multiple.currentValue === false) {
+            let selectedIndexes = this.selectionService.getSelectedIndexes();
+            if (selectedIndexes.length > 1) {
+                selectedIndexes.splice(0, 1);
+                selectedIndexes.forEach((index) => this.selectionService.deselectIndex(index));
+            }
         }
     }
 
