@@ -1,0 +1,20 @@
+@import '../shared.scss';
+
+:host .region {
+    background-color: rebeccapurple;
+    padding: 35px;
+    color: $color-white;
+    text-align: center;
+    cursor: pointer;
+}
+:host .region.selected {
+    background-color: $color-blue;
+}
+
+:host .btn-load {
+    @include img-button();
+    @include icon-reset();
+    background-size: contain;
+    width: 28px;
+    height: 28px;
+}

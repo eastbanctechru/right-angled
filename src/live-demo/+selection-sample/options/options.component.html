@@ -1,0 +1,22 @@
+<div class="row" [rtSelectionAreaFor]="regions" [horizontal]="horizontal" [multiple]="multiple" [toggleOnly]="toggleOnly" [autoSelectFirst]="autoSelectFirst">
+    <div>
+        <label class="checkbox-inline">
+            <input type="checkbox" [(ngModel)]="horizontal">horizontal
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" [(ngModel)]="toggleOnly">toggleOnly
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" [(ngModel)]="multiple">multiple
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" [(ngModel)]="autoSelectFirst">autoSelectFirst
+        </label>
+        <button type="button" class="btn btn-load" title="Reload data" (click)="reload()"></button>
+    </div>
+    <div class="col-md-4" *ngFor="let region of regions, let index=index">
+        <div class="region" [class.selected]="region.selected" [rtSelectByIndex]="index">
+            {{region.name}}
+        </div>
+    </div>
+</div>

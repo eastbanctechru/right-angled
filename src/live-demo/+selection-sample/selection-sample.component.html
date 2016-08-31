@@ -6,6 +6,7 @@
             <li><a href="/selection#common-idea">Общая идея</a></li>
             <li><a href="/selection#bootstrap">Как подключить</a></li>
             <li><a href="/selection#basic-use">Простейший пример</a></li>
+            <li><a href="/selection#additional-settings">Дополнительные опции</a></li>
             <li><a href="/selection#handle-selection">Взаимодействие с selection</a>
                 <ul>
                     <li><a href="/selection#handle-selection-selected">Флаг "selected"</a></li>
@@ -13,17 +14,8 @@
                     <li><a href="/selection#handle-selection-hooks">Хук-методы</a></li>
                 </ul>
             </li>
-            <li><a href="/selection#additional-settings">Дополнительные настройки</a>
-                <ul>
-                    <li><a href="/selection#additional-settings-trackBy">trackBy function</a></li>
-                    <li><a href="/selection#additional-settings-horizontal">horizontal</a></li>
-                    <li><a href="/selection#additional-settings-multiple">multiple</a></li>
-                    <li><a href="/selection#additional-settings-toggleOnly">toggleOnly</a></li>
-                    <li><a href="/selection#additional-settings-autoSelectFirst">autoSelectFirst</a></li>
-                    <li><a href="/selection#additional-settings-preventEventDefaults">preventEventDefaults</a></li>
-                    <li><a href="/selection#additional-settings-stopEventsPropagation">stopEventsPropagation</a></li>
-                </ul>
-            </li>
+            <li><a href="/selection#additional-settings-trackBy">trackBy function</a></li>
+            <li><a href="/selection#prevent-stop-events">preventEventsDefaults и stopEventsPropagation</a></li>
         </ul>
 
         <h3 id="common-idea">Общая идея</h3>
@@ -73,8 +65,7 @@
             <li>Нажатие клавиши <code>Tab</code> и <code>Shift + Tab</code> перемещает вас по списку на элемент вверх или вниз.</li>
         </ul>
         <div class="note">
-            <h4>Обратите внимание</h4>
-            <p>В данном примере мы так же используем директиву <code>rtPreventDefaults</code>. Это одна из наших
+            <p>В данном примере мы также используем директиву <code>rtPreventDefaults</code>. Это одна из наших
                 <a href="#" [routerLink]="['/misc']">вспомогательных директив</a>, при помощи который мы добиваемся того,
                 что при нажатии <code>Ctrl + A</code> не выполняется selection всего текста в окне за счет вызова <code>preventDefault</code>
             </p>
@@ -89,7 +80,33 @@
             </rt-demo-code-tab>
         </rt-demo-tab-section>
 
-        <h3 id="handle-selection">Обработка selection</h3>
+
+        <h3 id="additional-options">Дополнительные опции</h3>
+        <p>
+            Директива <code>rtSelectionAreaFor</code> содержит множество рубильников, включая и выключая которые мы можем
+            тонко настраивать работу selection. Ниже указан их список и пример. Значения по умолчанию в примере аналогичны
+            значениям по умолчанию в <code>rtSelectionAreaFor</code>
+        </p>
+        <ul>
+            <li><code>horizontal</code> - обработчики selection реагируют на стрелки влево-вправо, вместо вверх-вних.</li>
+            <li><code>toggleOnly</code> - если включить данную опцию, то снять selection с элемента можно только повторно кликнув
+                по нему. Имеет смысл только при включенной настройке <code>multiple</code>.</li>
+            <li><code>multiple</code> - по умолчанию true. Позволяет выполнять множественный выбор элементов.</li>
+            <li><code>autoSelectFirst</code> - при каждой перезагрузке данных первая запись будет выбираться автоматически, если
+                не выбрано ничего.</li>
+        </ul>
+
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab tabTitle="Additional options">
+                <rt-demo-options></rt-demo-options>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/options/options.component.ts">
+            </rt-demo-code-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/options/options.component.html">
+            </rt-demo-code-tab>
+        </rt-demo-tab-section>
+
+        <h3 id="handle-selection">Взаимодействие с selection</h3>
         <p>
             Для выполнения действий в ответ на изменения состояния выбора элементов у вас есть три варианта действий:
         </p>
@@ -100,7 +117,6 @@
             inline-редактирования на основе флага selected.
         </p>
         <div class="note">
-            <h4>Обратите внимание</h4>
             <p>
                 В данном примере мы так же используем упомянутые выше <a href="#" [routerLink]="['/misc']">вспомогательных директивы</a>.
                 На этот раз это <code>rtFocusOnRender</code> для автоустановки фокуса в input после его отрисовки, и <code>rtStopEvents</code>                чтобы предотвратить bubbling события <code>mouseup</code>, который будет приводить к deselect-у строки.
@@ -172,13 +188,8 @@
             <rt-demo-code-tab url="src/components/core/selection/selection-hooks.ts">
             </rt-demo-code-tab>
         </rt-demo-tab-section>
-        <h3 id="additional-settings">Дополнительные настройки</h3>
-        <p>
-            Директива <code>rtSelectionAreaFor</code> содержит множество рубильников, включая и выключая которые мы можем
-            тонко настраивать работу selection.
-        </p>
 
-        <h4 id="additional-settings-trackBy">trackBy function</h4>
+        <h3 id="additional-settings-trackBy">trackBy function</h3>
         <p>
             Вдохновением для данной опции послужила одноименная опция у директивы <a targe="_blank" href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ngFor">ngFor</a>            из самого Angular 2.
         </p>
@@ -209,14 +220,20 @@
             </rt-demo-code-tab>
         </rt-demo-tab-section>
 
-
-
-        <h4 id="additional-settings-horizontal">horizontal</h4>
-        <h4 id="additional-settings-multiple">multiple</h4>
-        <h4 id="additional-settings-toggleOnly">toggleOnly</h4>
-        <h4 id="additional-settings-autoSelectFirst">autoSelectFirst</h4>
-        <h4 id="additional-settings-preventEventDefaults">preventEventDefaults</h4>
-        <h4 id="additional-settings-stopEventsPropagation">stopEventsPropagation</h4>
-
+        <h4 id="prevent-stop-events">preventEventsDefaults и stopEventsPropagation</h4>
+        <p>
+            Еще два рубильника, которые вам вряд ли понадобятся, но, если уж понадобятся, то очень.
+        </p>
+        <p>
+            Это <code>preventEventsDefaults</code> и <code>stopEventsPropagation</code>.
+        </p>
+        <p>
+            Смысл заключается в том, что selection при успешной обработке события мыши или клавиатуры, вызывает методы <code>stopPropagation</code> и <code>preventDefault</code>.
+            Это нужно, к примеру, чтобы при нажатии <code>Ctrl + A</code> не выбирался весь текст на странице.
+            При нажатии на <code>&uarr;</code> и <code>&rarr;</code> не скроллилась вся страница и т.д.
+        </p>
+        <p>
+            Но если такое поведение стало для вас проблемой, вы можете отключить его.
+        </p>
     </div>
 </div>

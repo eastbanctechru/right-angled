@@ -22,7 +22,7 @@ export class SelectByIndexDirective implements SelectionEventsEmitter, OnInit {
     public mouseUpHandler(event: MouseEvent): void {
         if (this.selectionArea.selectionEventsHelper.mouseHandler(event.ctrlKey, event.shiftKey, event.which, this.index)) {
             this.clearWindowSelection();
-            if (this.selectionArea.preventEventDefaults) {
+            if (this.selectionArea.preventEventsDefaults) {
                 event.preventDefault();
             }
             if (this.selectionArea.stopEventsPropagation) {
