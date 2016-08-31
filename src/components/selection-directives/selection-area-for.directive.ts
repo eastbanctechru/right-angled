@@ -14,6 +14,8 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     private tabIndexPrivate: number;
     public selectionEventsHelper: SelectionEventsHelper;
 
+    @Input() public preventEventDefaults: boolean = true;
+    @Input() public stopEventsPropagation: boolean = true;
     @Input() public horizontal: boolean = false;
     @Input() public multiple: boolean = true;
     @Input('rtSelectionAreaFor') public items: Array<SelectionItem>;
@@ -69,7 +71,12 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     @HostListener('keydown', ['$event'])
     public keyDownHandler(event: KeyboardEvent): void {
         if (this.selectionEventsHelper.keyboardHandler(event.ctrlKey, event.shiftKey, event.keyCode)) {
-            event.stopPropagation();
+            if (this.preventEventDefaults) {
+                event.preventDefault();
+            }
+            if (this.stopEventsPropagation) {
+                event.stopPropagation();
+            }
         }
     }
 }

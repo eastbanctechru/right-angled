@@ -5,8 +5,13 @@
         </tr>
     </thead>
     <tbody [rtSelectionAreaFor]="regions|async">
-        <tr *ngFor="let region of regions | async, let index=index" [class.selected]="region.selected" [rtSelectByIndex]="index">
-            <td>{{region.name}}</td>
+        <tr *ngFor="let region of regions | async, let index=index" [rtSelectByIndex]="index" [class.selected]="region.selected">
+            <td *ngIf="!region.selected">
+                {{region.name}}
+            </td>
+            <td *ngIf="region.selected">
+                <input class="form-control" type="text" [rtStopEvents]="['mouseup']" rtFocusOnRender [(ngModel)]="region.name" />
+            </td>
         </tr>
     </tbody>
 </table>

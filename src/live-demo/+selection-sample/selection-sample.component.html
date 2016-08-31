@@ -59,8 +59,15 @@
             <li>Нажатие клавиш <code>Ctrl + &uarr;</code> выбирает первый элемент в списке.</li>
             <li>Нажатие клавиш <code>Ctrl + &rarr;</code> выбирает последний элемент в списке.</li>
             <li>Нажатие клавиш <code>Ctrl + A</code> выбирает все элементы списка.</li>
+            <li>Нажатие клавиши <code>Tab</code> и <code>Shift + Tab</code> перемещает вас по списку на элемент вверх или вниз.</li>
         </ul>
-
+        <div class="note">
+            <h4>Обратите внимание</h4>
+            <p>В данном примере мы так же используем директиву <code>rtPreventDefaults</code>. Это одна из наших
+                <a href="#" [routerLink]="['/misc']">вспомогательных директив</a>, при помощи который мы добиваемся того,
+                что при нажатии <code>Ctrl + A</code> не выполняется selection всего текста в окне за счет вызова <code>preventDefault</code>
+            </p>
+        </div>
         <rt-demo-tab-section>
             <rt-demo-sample-tab tabTitle="basic sample">
                 <rt-demo-basic-usage></rt-demo-basic-usage>
@@ -70,13 +77,6 @@
             <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/basic-usage/basic-usage.component.html">
             </rt-demo-code-tab>
         </rt-demo-tab-section>
-        <div class="note">
-            <h4>Обратите внимание</h4>
-            <p>Вы могли заметить,что мы используем директиву <code>rtPreventDefaults</code> в данном примере. Это одна из наших
-                <a href="#" [routerLink]="['/misc']">вспомогательных директив</a>, 
-                при помощи который мы добиваемся того, что при нажатии <code>Ctrl + A</code> не выполняется selection всего текста в окне за счет вызова <code>preventDefault</code>
-            </p>
-        </div>
 
         <h3 id="handle-selection">Обработка selection</h3>
         <p>
@@ -84,9 +84,17 @@
         </p>
         <h4 id="handle-selection-selected">Флаг "selected"</h4>
         <p>
-            Если в элементе объявить флаг <code>selected</code>, то сервис будет автоматически менять его значения. Пример
-            этого подхода вы уже увидели в демо выше и ниже показан он же.
+            Если в элементе объявить флаг <code>selected</code>, то его значение будет обновляться автоматически. Базовый
+            пример такого подхода вы уже увидели в демо выше, поэтому ниже показан чуть более интересный пример - реализация
+            inline-редактирования на основе флага selected.
         </p>
+        <div class="note">
+            <h4>Обратите внимание</h4>
+            <p>
+                В данном примере мы так же упомянутые выше <a href="#" [routerLink]="['/misc']">вспомогательных директивы</a>.
+                На этот раз это <code>rtFocusOnRender</code> и <code>rtStopEvents</code>
+            </p>
+        </div>
         <rt-demo-tab-section>
             <rt-demo-sample-tab tabTitle="'selected' flag">
                 <rt-demo-selected-flag></rt-demo-selected-flag>
