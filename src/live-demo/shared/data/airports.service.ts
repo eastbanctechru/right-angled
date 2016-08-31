@@ -98,17 +98,17 @@ export class AirportsService {
             .share();
     }
     public getAirportTypeLookups(delay: number = 500): Observable<Array<LookupItem>> {
-        return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map(item => item.type).uniq().value()));
+        return this.getAirports(delay).map(airports => this.transformToLookup(_.chain(airports).map(item => item.type).uniq().value()));
     }
     public getAirportSizeLookups(delay: number = 500): Observable<Array<LookupItem>> {
-        return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map(item => item.size).uniq().value()));
+        return this.getAirports(delay).map(airports => this.transformToLookup(_.chain(airports).map(item => item.size).uniq().value()));
     }
     public getRegionLookups(delay: number = 500): Observable<Array<LookupItem>> {
-        return this.getAirports(500).map(airports => this.transformToLookup(_.chain(airports).map((item: Airport) => item.region).uniq().value()));
+        return this.getAirports(delay).map(airports => this.transformToLookup(_.chain(airports).map((item: Airport) => item.region).uniq().value()));
     }
 
     public getRegions(delay: number = 500): Observable<Array<string>> {
-        return this.getAirports(500)
+        return this.getAirports(delay)
             .map(airports => _.chain(airports).map((item: Airport) => (item.region)).uniq().value())
             .share();
     }

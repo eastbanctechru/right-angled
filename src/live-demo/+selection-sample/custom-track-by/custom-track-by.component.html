@@ -1,0 +1,15 @@
+<button class="btn btn-primary" title="Reload data" (click)="reload()">Reload data</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Region</th>
+        </tr>
+    </thead>
+    <tbody [rtSelectionAreaFor]="regions" [trackBy]="trackByName">
+        <tr *ngFor="let region of regions, let index=index" [rtSelectByIndex]="index" [class.selected]="region.selected">
+            <td>
+                {{region.name}}
+            </td>
+        </tr>
+    </tbody>
+</table>

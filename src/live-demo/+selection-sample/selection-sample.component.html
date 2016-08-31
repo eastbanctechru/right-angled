@@ -6,11 +6,22 @@
             <li><a href="/selection#common-idea">Общая идея</a></li>
             <li><a href="/selection#bootstrap">Как подключить</a></li>
             <li><a href="/selection#basic-use">Простейший пример</a></li>
-            <li><a href="/selection#handle-selection">Обработка selection</a>
+            <li><a href="/selection#handle-selection">Взаимодействие с selection</a>
                 <ul>
                     <li><a href="/selection#handle-selection-selected">Флаг "selected"</a></li>
                     <li><a href="/selection#handle-selection-events">События</a></li>
                     <li><a href="/selection#handle-selection-hooks">Хук-методы</a></li>
+                </ul>
+            </li>
+            <li><a href="/selection#additional-settings">Дополнительные настройки</a>
+                <ul>
+                    <li><a href="/selection#additional-settings-trackBy">trackBy function</a></li>
+                    <li><a href="/selection#additional-settings-horizontal">horizontal</a></li>
+                    <li><a href="/selection#additional-settings-multiple">multiple</a></li>
+                    <li><a href="/selection#additional-settings-toggleOnly">toggleOnly</a></li>
+                    <li><a href="/selection#additional-settings-autoSelectFirst">autoSelectFirst</a></li>
+                    <li><a href="/selection#additional-settings-preventEventDefaults">preventEventDefaults</a></li>
+                    <li><a href="/selection#additional-settings-stopEventsPropagation">stopEventsPropagation</a></li>
                 </ul>
             </li>
         </ul>
@@ -91,8 +102,8 @@
         <div class="note">
             <h4>Обратите внимание</h4>
             <p>
-                В данном примере мы так же упомянутые выше <a href="#" [routerLink]="['/misc']">вспомогательных директивы</a>.
-                На этот раз это <code>rtFocusOnRender</code> и <code>rtStopEvents</code>
+                В данном примере мы так же используем упомянутые выше <a href="#" [routerLink]="['/misc']">вспомогательных директивы</a>.
+                На этот раз это <code>rtFocusOnRender</code> для автоустановки фокуса в input после его отрисовки, и <code>rtStopEvents</code>                чтобы предотвратить bubbling события <code>mouseup</code>, который будет приводить к deselect-у строки.
             </p>
         </div>
         <rt-demo-tab-section>
@@ -130,6 +141,7 @@
 
 
         <h4 id="handle-selection-hooks">Хук-методы</h4>
+
         <p>
             Этот подход схож с lifecycle hooks из состава непосредственно Angular.
         </p>
@@ -160,5 +172,51 @@
             <rt-demo-code-tab url="src/components/core/selection/selection-hooks.ts">
             </rt-demo-code-tab>
         </rt-demo-tab-section>
+        <h3 id="additional-settings">Дополнительные настройки</h3>
+        <p>
+            Директива <code>rtSelectionAreaFor</code> содержит множество рубильников, включая и выключая которые мы можем
+            тонко настраивать работу selection.
+        </p>
+
+        <h4 id="additional-settings-trackBy">trackBy function</h4>
+        <p>
+            Вдохновением для данной опции послужила одноименная опция у директивы <a targe="_blank" href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ngFor">ngFor</a>            из самого Angular 2.
+        </p>
+        <p>
+            Суть заключается в том, что при обновлении данных выполняется повторная проверка selection. Например, при обновлении списка,
+            в большинстве случаев с сервера будут возвращены те же самые данные.
+
+        </p>
+        <p>
+            Но, поскольку объекты будут сконструированы новые, то проверка при помощи reference equals, которая выполняется по умолчанию,
+            не сможет восстановить selection.
+        </p>
+        <p>
+            Если у вас имеется способ идентифицировать ваши объекты (например, уникальное свойство id), то вы можете указать свою реализацию
+            функции <code>trackBy</code>, которая будет использоваться для восстановления selection.
+        </p>
+        <p>
+            В примере ниже мы используем реализацию <code>trackBy</code>, которая возвращает название региона. Таким образом,
+            пре перезагрузке данных selection сохраняется.
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab tabTitle="Custom trackBy">
+                <rt-demo-custom-track-by></rt-demo-custom-track-by>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/custom-track-by/custom-track-by.component.ts">
+            </rt-demo-code-tab>
+            <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/custom-track-by/custom-track-by.component.html">
+            </rt-demo-code-tab>
+        </rt-demo-tab-section>
+
+
+
+        <h4 id="additional-settings-horizontal">horizontal</h4>
+        <h4 id="additional-settings-multiple">multiple</h4>
+        <h4 id="additional-settings-toggleOnly">toggleOnly</h4>
+        <h4 id="additional-settings-autoSelectFirst">autoSelectFirst</h4>
+        <h4 id="additional-settings-preventEventDefaults">preventEventDefaults</h4>
+        <h4 id="additional-settings-stopEventsPropagation">stopEventsPropagation</h4>
+
     </div>
 </div>
