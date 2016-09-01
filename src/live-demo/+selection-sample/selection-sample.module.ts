@@ -11,7 +11,6 @@ import { SelectedFlagComponent } from './selected-flag/selected-flag.component';
 import { SelectionEventsComponent } from './selection-events/selection-events.component';
 import { SelectionSampleComponent } from './selection-sample.component';
 
-
 @NgModule({
     declarations: [BasicUsageComponent, CustomTrackByComponent, HooksMethodsComponent, OptionsComponent, SelectedFlagComponent, SelectionEventsComponent, SelectionSampleComponent],
     exports: [BasicUsageComponent, CustomTrackByComponent, HooksMethodsComponent, OptionsComponent, SelectedFlagComponent, SelectionEventsComponent, SelectionSampleComponent],
