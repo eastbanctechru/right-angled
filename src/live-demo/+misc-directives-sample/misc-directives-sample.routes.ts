@@ -1,10 +1,10 @@
-import { RouterConfig } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { MiscDirectivesSampleComponent }   from './misc-directives-sample.component';
 
-export const MiscDirectivesSampleRoutes: RouterConfig = [
+export const MiscDirectivesSampleRoutes: Routes = [
     {
         component: MiscDirectivesSampleComponent,
-        path: 'misc'
+        path: 'misc-directives'
     }
 ];

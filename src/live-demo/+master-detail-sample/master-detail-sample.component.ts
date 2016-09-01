@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
-import { AirportsPagedListRequest, AirportsService, SHARED_DIRECTIVES } from '../shared';
+import { AirportsPagedListRequest, AirportsService } from '../shared';
 
 @Component({
-  directives: [SHARED_DIRECTIVES],
   moduleId: module.id,
   templateUrl: 'master-detail-sample.component.html'
 })

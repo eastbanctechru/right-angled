@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
-import { AirportsListRequest, AirportsService, SHARED_DIRECTIVES } from '../shared';
+import { AirportsListRequest, AirportsService } from '../shared';
 
 @Component({
-    directives: [SHARED_DIRECTIVES],
     moduleId: module.id,
     templateUrl: 'grouping-sample.component.html'
 })

@@ -1,4 +1,4 @@
-import { Injectable, provide } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BufferedPager, FiltersService, PagedPager, RegularPager, SortingsService } from 'e2e4';
 
 @Injectable()
@@ -23,31 +23,31 @@ import { RtPersistenceService } from './core/persistence/persistence-service';
 export var PAGED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtListService,
-    provide(BufferedPager, { useValue: null }),
-    provide(RegularPager, { useValue: null }),
-    provide(PagedPager, { useClass: RtPagedPager }),
-    provide(FiltersService, { useClass: RtFiltersService }),
-    provide(SortingsService, { useClass: RtSortingsService })
+    { provide: BufferedPager, useValue: null },
+    { provide: RegularPager, useValue: null },
+    { provide: PagedPager, useClass: RtPagedPager },
+    { provide: FiltersService, useClass: RtFiltersService },
+    { provide: SortingsService, useClass: RtSortingsService }
 ];
 
 export var BUFFERED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtListService,
-    provide(PagedPager, { useValue: null }),
-    provide(RegularPager, { useValue: null }),
-    provide(BufferedPager, { useClass: RtBufferedPager }),
-    provide(FiltersService, { useClass: RtFiltersService }),
-    provide(SortingsService, { useClass: RtSortingsService })
+    { provide: BufferedPager, useClass: RtBufferedPager },
+    { provide: RegularPager, useValue: null },
+    { provide: PagedPager, useValue: null },
+    { provide: FiltersService, useClass: RtFiltersService },
+    { provide: SortingsService, useClass: RtSortingsService }
 ];
 
 export var REGULAR_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtListService,
-    provide(PagedPager, { useValue: null }),
-    provide(BufferedPager, { useValue: null }),
-    provide(RegularPager, { useClass: RtRegularPager }),
-    provide(FiltersService, { useClass: RtFiltersService }),
-    provide(SortingsService, { useClass: RtSortingsService })
+    { provide: BufferedPager, useValue: null },
+    { provide: RegularPager, useClass: RtRegularPager },
+    { provide: PagedPager, useValue: null },
+    { provide: FiltersService, useClass: RtFiltersService },
+    { provide: SortingsService, useClass: RtSortingsService }
 ];
 
 export function registerPersistenceService({useClass, useValue, useExisting, useFactory, deps, multi}: {
@@ -59,28 +59,31 @@ export function registerPersistenceService({useClass, useValue, useExisting, use
     multi?: boolean;
 }): void {
 
-    REGULAR_LIST_PROVIDERS.push(provide(RtPersistenceService, {
+    REGULAR_LIST_PROVIDERS.push({
+        provide: RtPersistenceService,
         useClass,
         useValue,
         useExisting,
         useFactory,
         deps,
         multi
-    }));
-    BUFFERED_LIST_PROVIDERS.push(provide(RtPersistenceService, {
+    });
+    BUFFERED_LIST_PROVIDERS.push({
+        provide: RtPersistenceService,
         useClass,
         useValue,
         useExisting,
         useFactory,
         deps,
         multi
-    }));
-    PAGED_LIST_PROVIDERS.push(provide(RtPersistenceService, {
+    });
+    PAGED_LIST_PROVIDERS.push({
+        provide: RtPersistenceService,
         useClass,
         useValue,
         useExisting,
         useFactory,
         deps,
         multi
-    }));
+    });
 }

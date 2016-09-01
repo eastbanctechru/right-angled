@@ -18,7 +18,7 @@ export class RtListService {
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     public pager: Pager;
     public items: Array<any> = new Array<any>();
-    public itemsStream: Subject<Array<any>> = Subject.create();
+    public itemsStream: Subject<Array<any>> = new Subject<Array<any>>();
 
     /**
      * True if object was already destroyed via {@link destroy} call.  
@@ -89,6 +89,7 @@ export class RtListService {
         Object.assign(restoredState, ...this.stateServices.map(service => service.getPersistedState() || {}));
         this.filtersService.applyParams(restoredState);
         this.inited = true;
+        this.itemsStream.publish();
     }
     public destroy(): void {
         this.asyncSubscriber.destroy();

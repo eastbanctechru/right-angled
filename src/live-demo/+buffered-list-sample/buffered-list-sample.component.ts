@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
-import { AirportsBufferedListRequest, AirportsService, SHARED_DIRECTIVES } from '../shared';
+import { AirportsBufferedListRequest, AirportsService } from '../shared';
 
 @Component({
-    directives: [SHARED_DIRECTIVES],
     moduleId: module.id,
     templateUrl: 'buffered-list-sample.component.html'
 })

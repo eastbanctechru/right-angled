@@ -1,3 +1,9 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { RTModule } from 'right-angled';
+
 import { AdditionalFilterComponent } from './additional-filter/additional-filter.component';
 import { CountryDetailsComponent } from './country-details/country-details.component';
 import { FilterAreaComponent } from './filter-area/filter-area.component';
@@ -10,8 +16,10 @@ import { SampleTabComponent } from './tab/sample-tab.component';
 import { TabSectionComponent } from './tab/tab-section.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
-export { AirportsService } from './data/airports.service';
-export { Airport } from './data/airport';
-export { LookupItem } from './data/lookup-item';
-export { AirportsPagedListRequest, AirportsBufferedListRequest, AirportsListRequest } from './data/airports-list-request';
-export { ListResponse, PagedListResponse } from 'right-angled';
+@NgModule({
+  declarations: [BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, ToolbarComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
+  exports: [CommonModule, FormsModule, RTModule, BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, ToolbarComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
+  imports: [CommonModule, FormsModule, RTModule]
+})
+export class SharedModule {
+}

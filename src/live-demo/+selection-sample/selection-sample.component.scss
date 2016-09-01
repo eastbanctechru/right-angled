@@ -1,17 +1,20 @@
 @import '../shared.scss';
 
-:host .region {
+:host /deep/ .col-md-4,:host /deep/ .options {
+    padding: 15px;
+}
+:host /deep/ .region {
     background-color: rebeccapurple;
     padding: 35px;
     color: $color-white;
     text-align: center;
     cursor: pointer;
 }
-:host .region.selected {
+:host /deep/ .region.selected {
     background-color: $color-blue;
 }
 
-:host .btn-load {
+:host /deep/ .btn-load {
     @include img-button();
     @include icon-reset();
     background-size: contain;

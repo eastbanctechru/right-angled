@@ -10,7 +10,8 @@
 const map: any = {
   'e2e4': 'vendor/e2e4',
   'right-angled': 'vendor/right-angled',
-  lodash: 'vendor/lodash/lodash.js'
+  lodash: 'vendor/lodash/lodash.js',
+  traceur: 'vendor/traceur/bin/traceur.js'
 };
 
 /** User packages configuration. */

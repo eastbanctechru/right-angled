@@ -2,7 +2,7 @@
 :host>div {
     margin: 35px 0;
 }
-:host rt-demo-sample-tab div {
+:host /deep/ rt-demo-sample-tab>div {
     background: $color-muted-grey;
     padding: 15px;
 }

@@ -1,12 +1,12 @@
-import { RouterConfig } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { PagedListSampleComponent }   from './paged-list-sample.component';
 
-export const PagedListSampleRoutes: RouterConfig = [
+export const PagedListSampleRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/paged-list',
-        terminal: true
+        pathMatch : 'full',
+        redirectTo: '/paged-list'
     },
     {
         component: PagedListSampleComponent,

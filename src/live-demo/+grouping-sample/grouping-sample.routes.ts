@@ -1,8 +1,8 @@
-import { RouterConfig } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { GroupingSampleComponent }   from './grouping-sample.component';
 
-export const GroupingSampleRoutes: RouterConfig = [
+export const GroupingSampleRoutes: Routes = [
     {
         component: GroupingSampleComponent,
         path: 'grouping'

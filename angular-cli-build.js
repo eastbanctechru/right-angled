@@ -20,7 +20,8 @@ module.exports = function(defaults) {
       'bootstrap/**/*.*',
       'right-angled/**/*.+(js|js.map)',
       'google-code-prettify/bin/*.*',
-      'lodash/lodash.js'
+      'lodash/lodash.js',
+      'traceur/bin/traceur.js'
     ]
   });
 };
