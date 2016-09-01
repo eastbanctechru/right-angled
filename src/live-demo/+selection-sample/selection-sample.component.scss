@@ -1,5 +1,14 @@
 @import '../shared.scss';
 
+:host /deep/ section {
+    margin-top: -80px;
+    padding-top: 80px;
+}
+
+:host /deep/ section:target h3 {
+    text-decoration: underline;
+}
+
 :host /deep/ .col-md-4,:host /deep/ .options {
     padding: 15px;
 }
