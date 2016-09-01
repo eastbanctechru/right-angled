@@ -14,6 +14,12 @@
                     <li><a href="/selection#handle-selection-hooks">Хук-методы</a></li>
                 </ul>
             </li>
+            <li><a href="/selection#additional-directives">Дополнительные директивы</a>
+                <ul>
+                    <li><a href="/selection#additional-directives-selectall"><code>rtSelectAll</code> и <code>rtDeselectAll</code></a></li>
+                    <li><a href="/selection#additional-directives-checkboxes"><code>rtSelectionCheckboxFor</code> и <code>rtCheckAll</code></a></li>
+                </ul>
+            </li>
             <li><a href="/selection#additional-settings-trackBy">trackBy function</a></li>
             <li><a href="/selection#prevent-stop-events">preventEventsDefaults и stopEventsPropagation</a></li>
         </ul>
@@ -68,12 +74,6 @@
                     вниз.
                 </li>
             </ul>
-            <div class="note">
-                <p>В данном примере мы также используем директиву <code>rtPreventDefaults</code>. Это одна из наших
-                    <a href="#" [routerLink]="['/misc']">вспомогательных директив</a>, при помощи который мы добиваемся того,
-                    что при нажатии <code>Ctrl + A</code> не выполняется selection всего текста в окне за счет вызова <code>preventDefault</code>
-                </p>
-            </div>
             <rt-demo-tab-section>
                 <rt-demo-sample-tab tabTitle="basic sample">
                     <rt-demo-basic-usage></rt-demo-basic-usage>
@@ -84,7 +84,7 @@
                 </rt-demo-code-tab>
             </rt-demo-tab-section>
         </section>
-        <section id="additional-settings">
+        <section id="additional-options">
             <h3>Дополнительные опции</h3>
             <p>
                 Директива <code>rtSelectionAreaFor</code> содержит множество рубильников, включая и выключая которые мы можем
@@ -124,8 +124,8 @@
                 </p>
                 <div class="note">
                     <p>
-                        В данном примере мы так же используем упомянутые выше <a href="#" [routerLink]="['/misc']">вспомогательных директивы</a>.
-                        На этот раз это <code>rtFocusOnRender</code> для автоустановки фокуса в input после его отрисовки,
+                        В данном примере используем <a href="#" [routerLink]="['/misc']">вспомогательных директивы</a> 
+                        <code>rtFocusOnRender</code> для автоустановки фокуса в input после его отрисовки,
                         и
                         <code>rtStopEvents</code> чтобы предотвратить bubbling события <code>mouseup</code>, который будет
                         приводить к deselect-у строки.
@@ -200,6 +200,51 @@
                 </rt-demo-tab-section>
             </section>
         </section>
+
+        <section id="additional-directives">
+            <h3>Дополнительные директивы</h3>
+            <p>
+                На всякий случай у нас припасено еще несколько полезных директив.
+            </p>
+            <section id="additional-directives-selectall">
+                <h4>
+                    <code>rtSelectAll</code> и <code>rtDeselectAll</code>
+                </h4>
+                <p>
+                    Вы можете пометить данными директивами кнопки (или не кнопки) расположенные внутри области
+                    <code>rtSelectionAreaFor</code> и по клику на них будет выполняться select/deselect всех элементов в
+                    коллекции.
+                </p>
+                <p>
+                    Обе директивы имеют дополнительный параметр <code>recursive</code>, который позволяет выполнять рекурсивный
+                    selection.
+                </p>
+                <p>
+                    Ниже вы можете увидеть пример всех четырех вариантов кнопок:
+                </p>
+                <div class="note">
+                    <p>
+                        Обратите внимание, что директива <code>rtSelectionAreaFor</code> перенесена на уровень элемента <code>table</code>
+                    </p>
+                </div>
+                <rt-demo-tab-section>
+                    <rt-demo-sample-tab tabTitle="rtSelectAll и rtDeselectAll">
+                        <rt-demo-select-all></rt-demo-select-all>
+                    </rt-demo-sample-tab>
+                    <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/select-all/select-all.component.ts">
+                    </rt-demo-code-tab>
+                    <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/select-all/select-all.component.html">
+                    </rt-demo-code-tab>
+                </rt-demo-tab-section>
+
+            </section>
+
+            <section id="additional-directives-checkboxes">
+                <h4><code>rtSelectionCheckboxFor</code> и <code>rtCheckAll</code></h4>
+            </section>
+        </section>
+
+
         <section id="additional-settings-trackBy">
             <h3>trackBy function</h3>
             <p>

@@ -6,7 +6,7 @@
     </thead>
     <tbody [rtSelectionAreaFor]="regions|async">
         <tr *ngFor="let region of regions | async, let index=index" [rtSelectByIndex]="index" [class.selected]="region.selected">
-            <td *ngIf="!region.selected">
+            <td *ngIf="!region.selected" class="text-center">
                 {{region.name}}
             </td>
             <td *ngIf="region.selected">

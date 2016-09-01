@@ -39,8 +39,8 @@ export class AirportsService {
         return this.applySortings(request, response, data);
     }
     private applySortings(request: ListRequest, response: ListResponse<Airport>, data: Airport[]): ListResponse<Airport> {
-        let fieldNames = request.sort.map(sort => { return sort.fieldName; });
-        let directions = request.sort.map(sort => { return sort.direction === SortDirection.Asc ? 'asc' : 'desc'; });
+        let fieldNames = request.sort.map(sort => (sort.fieldName));
+        let directions = request.sort.map(sort => (sort.direction === SortDirection.Asc ? 'asc' : 'desc'));
         response.items = _.orderBy(data, fieldNames, directions);
         return response;
     }
@@ -72,28 +72,24 @@ export class AirportsService {
             let result = this.applyRequest(request, airports) as ListResponse<any>;
             result.items = _.chain(result.items)
                 .groupBy(item => item.region)
-                .map((item, index) => { return { airports: item, name: index, selected: false }; })
+                .map((item, index) => ({ airports: item, name: index, selected: false }))
                 .orderBy(region => region.name)
                 .value();
             return result;
         });
     }
     private transformToLookup(data: Array<string>): Array<LookupItem> {
-        return _.chain(data).map(value => {
-            return {
-                key: value === null ? '' : value,
-                value: value === null ? '-unspecified-' : value
-            } as LookupItem;
-        }).concat([{
+        return _.chain(data).map(value => ({
+            key: value === null ? '' : value,
+            value: value === null ? '-unspecified-' : value
+        } as LookupItem)).concat([{
             key: null,
             value: ''
         } as LookupItem]).orderBy(item => item.value).value();
     }
     private getAirports(delay: number): Observable<Array<Airport>> {
         let url = (window.location.hostname === 'fshchudlo.github.io' ? '/right-angled' : '') + '/live-demo/shared/data/airports.json';
-        return this.http.get(url).map(response => {
-            return response.json().airports as Array<Airport>;
-        }).delay(delay)
+        return this.http.get(url).map(response => (response.json().airports as Array<Airport>)).delay(delay)
             // use share to avoid multiple calls by angular async pipes
             .share();
     }
@@ -111,6 +107,41 @@ export class AirportsService {
         return this.getAirports(delay)
             .map(airports => _.chain(airports).map((item: Airport) => (item.region)).uniq().value())
             .share();
+    }
+    public getRegionsWithCountriesAndAirports(delay: number = 500): Observable<Array<any>> {
+        return this.getAirports(delay).map(airports => (
+            _.chain(airports)
+                .groupBy(item => item.region)
+                .map((groupedByRegion, regionName) => (
+                    {
+                        countries: _.chain(groupedByRegion).groupBy(item => item.countryName).map((groupedByCountry, countryName) => (
+                            {
+                                cities: _.chain(groupedByCountry).groupBy(item => item.cityName).map((groupedByCity, cityName) => (
+                                    {
+                                        airports: groupedByCity
+                                            .map(airport => ({
+                                                iata: airport.iata,
+                                                name: airport.name,
+                                                selected: false
+                                            })),
+                                        name: cityName,
+                                        selected: false
+                                    }))
+                                    .orderBy(city => city.name)
+                                    .value(),
+                                name: countryName,
+                                selected: false
+                            }))
+                            .filter(country => country.cities.length > 1)
+                            .orderBy(country => country.name)
+                            .value(),
+                        name: regionName,
+                        selected: false
+                    }))
+                .filter(region => region.countries.length > 1)
+                .orderBy(region => region.name)
+                .value()
+        )).share();
     }
 
     public getCountryLookups(region?: string, delay: number = 500): Observable<Array<LookupItem>> {
@@ -130,8 +161,6 @@ export class AirportsService {
                     .value()));
     }
     public getCountryInfo(countryName: string, delay: number = 500): Observable<any> {
-        return this.http.get(`https://restcountries.eu/rest/v1/name/${countryName}`).map(response => {
-            return response.json();
-        }).delay(delay);
+        return this.http.get(`https://restcountries.eu/rest/v1/name/${countryName}`).map(response => (response.json())).delay(delay);
     }
 }

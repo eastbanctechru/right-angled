@@ -7,7 +7,7 @@
     </thead>
     <tbody [rtSelectionAreaFor]="regions" [trackBy]="trackByName">
         <tr *ngFor="let region of regions, let index=index" [rtSelectByIndex]="index" [class.selected]="region.selected">
-            <td>
+            <td class="text-center">
                 {{region.name}}
             </td>
         </tr>

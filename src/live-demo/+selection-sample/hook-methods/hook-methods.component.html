@@ -6,7 +6,7 @@
     </thead>
     <tbody [rtSelectionAreaFor]="regions|async">
         <tr *ngFor="let region of regions | async, let index=index" [class.selected]="region.selected" [rtSelectByIndex]="index">
-            <td>{{region.name}}</td>
+            <td class="text-center">{{region.name}}</td>
         </tr>
     </tbody>
 </table>
@@ -19,7 +19,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of selectionActivityLog">
-            <td>{{item}}</td>
+            <td class="text-center">{{item}}</td>
         </tr>
     </tbody>
 </table>
