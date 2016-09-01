@@ -79,7 +79,7 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
             }
         }
     }
-    public selectAllItems(recursive: boolean) {
+    public selectAllItems(recursive: boolean): void {
         this.selectionService.selectAll();
         // run this directly after render to give child selectionAreas ability to render
         setTimeout(() => {
@@ -92,7 +92,7 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
             }
         }, 0);
     }
-    public deselectAllItems(recursive: boolean) {
+    public deselectAllItems(recursive: boolean): void {
         if (recursive && this.childSelectionAreas) {
             this.childSelectionAreas.toArray().forEach(area => {
                 if (area !== this) {
