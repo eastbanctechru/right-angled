@@ -79,4 +79,27 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
             }
         }
     }
+    public selectAllItems(recursive: boolean) {
+        this.selectionService.selectAll();
+        // run this directly after render to give child selectionAreas ability to render
+        setTimeout(() => {
+            if (recursive && this.childSelectionAreas) {
+                this.childSelectionAreas.toArray().forEach(area => {
+                    if (area !== this) {
+                        area.selectAllItems(recursive);
+                    }
+                });
+            }
+        }, 0);
+    }
+    public deselectAllItems(recursive: boolean) {
+        if (recursive && this.childSelectionAreas) {
+            this.childSelectionAreas.toArray().forEach(area => {
+                if (area !== this) {
+                    area.deselectAllItems(recursive);
+                }
+            });
+        }
+        this.selectionService.deselectAll();
+    }
 }

@@ -11,16 +11,6 @@ export class SelectAllDirective {
     }
     @HostListener('click')
     public clickHandler(event: MouseEvent): void {
-        this.selectionArea.selectionService.selectAll();
-        // run this directly after render to give child selectionAreas ability to render
-        setTimeout(() => {
-            if (this.recursive && this.selectionArea.childSelectionAreas) {
-                this.selectionArea.childSelectionAreas.toArray().forEach(area => {
-                    if (area !== this.selectionArea) {
-                        area.selectionService.selectAll();
-                    }
-                });
-            }
-        }, 0);
+        this.selectionArea.selectAllItems(this.recursive);
     }
 }
