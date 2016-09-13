@@ -124,9 +124,8 @@
                 </p>
                 <div class="note">
                     <p>
-                        В данном примере используем <a href="#" [routerLink]="['/misc']">вспомогательных директивы</a> 
-                        <code>rtFocusOnRender</code> для автоустановки фокуса в input после его отрисовки,
-                        и
+                        В данном примере используем <a href="#" [routerLink]="['/misc']">вспомогательных директивы</a>
+                        <code>rtFocusOnRender</code> для автоустановки фокуса в input после его отрисовки, и
                         <code>rtStopEvents</code> чтобы предотвратить bubbling события <code>mouseup</code>, который будет
                         приводить к deselect-у строки.
                     </p>
@@ -216,8 +215,8 @@
                     коллекции.
                 </p>
                 <p>
-                    Обе директивы имеют дополнительный параметр <code>recursive</code>, который по умолчанию равен true и позволяет выполнять рекурсивный
-                    selection.
+                    Обе директивы имеют дополнительный параметр <code>recursive</code>, который по умолчанию равен true и
+                    позволяет выполнять рекурсивный selection.
                 </p>
                 <p>
                     Ниже вы можете увидеть пример всех четырех вариантов кнопок:
@@ -241,6 +240,25 @@
 
             <section id="additional-directives-checkboxes">
                 <h4><code>rtSelectionCheckboxFor</code> и <code>rtCheckAll</code></h4>
+                <p>
+                    Данные директивы будут полезна в том случае, если вам нужно реализовать модель выбора при помощи checkbox-ов вместо клика
+                    по элементам.
+                </p>
+                <p>
+                    На такие случаи директива <code>rtSelectionCheckboxFor</code> используется вместо <code>rtSelectByIndex</code> и так же принимает в качестве параметра индекс элемента.
+                </p>
+                <p>
+                    Директива <code>rtCheckAll</code> заменяет собой директивы <code>rtSelectAll</code> и <code>rtDeselectAll</code> и так же принимает в качестве параметра флаг <code>recursive</code>.
+                </p>
+                <rt-demo-tab-section>
+                    <rt-demo-sample-tab tabTitle="rtSelectionCheckboxFor и rtCheckAll">
+                        <rt-demo-selection-checkbox></rt-demo-selection-checkbox>
+                    </rt-demo-sample-tab>
+                    <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/selection-checkbox/selection-checkbox.component.ts">
+                    </rt-demo-code-tab>
+                    <rt-demo-code-tab url="src/live-demo/%2Bselection-sample/selection-checkbox/selection-checkbox.component.html">
+                    </rt-demo-code-tab>
+                </rt-demo-tab-section>
             </section>
         </section>
 

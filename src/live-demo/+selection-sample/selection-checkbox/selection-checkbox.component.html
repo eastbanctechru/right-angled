@@ -2,46 +2,50 @@
     <caption>
         <ul>
             <li>
-                <button class="btn btn-primary" title="Select all items" rtSelectAll [recursive]="false">Select all</button>
+                <label class="checkbox-inline">
+                    <input type="checkbox" rtCheckAll [recursive]="false" />Check all</label>
             </li>
             <li>
-                <button class="btn btn-primary" title="Deselect all items" rtDeselectAll [recursive]="false">Deselect all</button>
-            </li>
-            <li>
-                <button class="btn btn-primary" title="Select all items" rtSelectAll>Select all recursivelly</button>
-            </li>
-            <li>
-                <button class="btn btn-primary" title="Deselect all items" rtDeselectAll>Deselect all recursivelly</button>
+                <label class="checkbox-inline">
+                    <input type="checkbox" rtCheckAll/>Check all recursively</label>
             </li>
         </ul>
     </caption>
     <tbody>
         <template ngFor let-region [ngForOf]="regions | async" let-index="index">
-            <tr [class.selected]="region.selected" [rtSelectByIndex]="index">
-                <td class="text-center">{{region.name}} ({{region.countries.length}} countries)</td>
+            <tr [class.selected]="region.selected">
+                <td><input type="checkbox" [rtSelectionCheckboxFor]="index" />
+                </td>
+                <td>{{region.name}} ({{region.countries.length}} countries)</td>
             </tr>
             <tr *ngIf="region.selected" style="background-color: darkcyan;">
-                <td>
+                <td colspan="2">
                     <table class="table">
                         <tbody [rtSelectionAreaFor]="region.countries">
                             <template ngFor let-country [ngForOf]="region.countries" let-index="index">
-                                <tr [class.selected]="country.selected" [rtSelectByIndex]="index">
-                                    <td class="text-center">{{country.name}} ({{country.cities.length}} cities)</td>
+                                <tr [class.selected]="country.selected">
+                                    <td>
+                                        <input type="checkbox" [rtSelectionCheckboxFor]="index" />
+                                    </td>
+                                    <td>{{country.name}} ({{country.cities.length}} cities)</td>
                                 </tr>
                                 <tr *ngIf="country.selected" style="background-color: dodgerblue;">
-                                    <td>
+                                    <td colspan="2">
                                         <table class="table">
                                             <tbody [rtSelectionAreaFor]="country.cities">
                                                 <template ngFor let-city [ngForOf]="country.cities" let-index="index">
-                                                    <tr [class.selected]="city.selected" [rtSelectByIndex]="index">
-                                                        <td class="text-center">{{city.name}} ({{city.airports.length}} airports)</td>
+                                                    <tr [class.selected]="city.selected">
+                                                        <td>
+                                                            <input type="checkbox" [rtSelectionCheckboxFor]="index" />
+                                                        </td>
+                                                        <td>{{city.name}} ({{city.airports.length}} airports)</td>
                                                     </tr>
                                                     <tr *ngIf="city.selected" style="background-color: darkorange;">
-                                                        <td>
+                                                        <td colspan="2">
                                                             <table class="table">
                                                                 <tbody>
                                                                     <tr *ngFor="let airport of city.airports">
-                                                                        <td class="text-center">{{airport.name}} ({{airport.iata}})</td>
+                                                                        <td>{{airport.name}} ({{airport.iata}})</td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>

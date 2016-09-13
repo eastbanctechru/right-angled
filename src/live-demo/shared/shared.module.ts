@@ -14,11 +14,10 @@ import { SortableHeaderComponent } from './sortable-header/sortable-header.compo
 import { CodeTabComponent } from './tab/code-tab.component';
 import { SampleTabComponent } from './tab/sample-tab.component';
 import { TabSectionComponent } from './tab/tab-section.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
-  declarations: [BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, ToolbarComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
-  exports: [CommonModule, FormsModule, RTModule, BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, ToolbarComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
+  declarations: [BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
+  exports: [CommonModule, FormsModule, RTModule, BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
   imports: [CommonModule, FormsModule, RTModule]
 })
 export class SharedModule {
