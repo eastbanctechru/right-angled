@@ -17,7 +17,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
-- npm install -g angular-cli@1.0.0-beta.10
+- npm install -g angular-cli
 - npm install -g karma
 - npm install
 
