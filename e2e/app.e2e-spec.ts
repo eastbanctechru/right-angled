@@ -1,10 +1,10 @@
-import { RightAngledPage } from './app.po';
+import { RightAngledDemoPage } from './app.po';
 
-describe('right-angled demo App', function() {
-  let page: RightAngledPage;
+describe('right-angled-demo App', function() {
+  let page: RightAngledDemoPage;
 
   beforeEach(() => {
-    page = new RightAngledPage();
+    page = new RightAngledDemoPage();
   });
 
   it('should display message saying app works', () => {

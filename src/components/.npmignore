@@ -1,1 +1,2 @@
-**/*.js.map
+**/*[!.][!d].ts
+tsconfig.json

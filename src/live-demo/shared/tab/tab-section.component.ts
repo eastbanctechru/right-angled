@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 import { Tab } from './tab-base';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-tab-section',
-    styleUrls: ['tab-section.component.css'],
+    styleUrls: ['tab-section.component.scss'],
     templateUrl: 'tab-section.component.html'
 })
 export class TabSectionComponent {

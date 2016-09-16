@@ -4,9 +4,8 @@ import { filter } from 'right-angled';
 import { AirportsService } from '../data/airports.service';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-additional-filter',
-    styleUrls: ['../filter-area/filter-area.component.css'],
+    styleUrls: ['../filter-area/filter-area.component.scss'],
     templateUrl: 'additional-filter.component.html'
 })
 export class AdditionalFilterComponent implements OnInit {

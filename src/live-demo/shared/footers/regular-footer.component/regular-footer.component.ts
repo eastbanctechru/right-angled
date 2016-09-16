@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-footer',
-    styleUrls: ['regular-footer.component.css'],
+    styleUrls: ['regular-footer.component.scss'],
     templateUrl: 'regular-footer.component.html'
 })
 export class RegularFooterComponent {

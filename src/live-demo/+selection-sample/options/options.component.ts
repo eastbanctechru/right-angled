@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { AirportsService } from '../../shared';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-options',
     templateUrl: 'options.component.html'
 })

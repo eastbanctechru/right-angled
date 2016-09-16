@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { AirportsService } from '../../shared';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-custom-track-by',
     templateUrl: 'custom-track-by.component.html'
 })

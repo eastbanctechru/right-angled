@@ -4,7 +4,6 @@ import { AirportsService } from '../../shared';
 import { OnDeselected, OnSelected, OnSelectionChanged } from 'right-angled';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-hook-methods',
     templateUrl: 'hook-methods.component.html'
 })

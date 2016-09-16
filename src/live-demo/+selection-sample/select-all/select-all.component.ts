@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 import { AirportsService } from '../../shared';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-select-all',
-    styleUrls: ['select-all.component.css'],
+    styleUrls: ['select-all.component.scss'],
     templateUrl: 'select-all.component.html'
 })
 export class SelectAllComponent {

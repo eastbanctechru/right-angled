@@ -1,8 +1,10 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import './polyfills.ts';
 
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
+import { environment } from './live-demo/environments/environment';
 import { AppModule } from './live-demo/demo-app.component/demo-app.module';
-import { environment } from './live-demo/environment';
+
 
 if (environment.production) {
   enableProdMode();

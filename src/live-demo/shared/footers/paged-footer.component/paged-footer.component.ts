@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-paged-footer',
-    styleUrls: ['paged-footer.component.css'],
+    styleUrls: ['paged-footer.component.scss'],
     templateUrl: 'paged-footer.component.html'
 })
 export class PagedFooterComponent {

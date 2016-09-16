@@ -5,7 +5,6 @@ import { RtListService } from '../list-service';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-display-pager',
     template: `<ng-content *ngIf="isVisible"></ng-content>`
 })

@@ -4,7 +4,6 @@ import { AirportsService } from '../../shared';
 import { RtSelectionEvent } from 'right-angled';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-selection-events',
     templateUrl: 'selection-events.component.html'
 })

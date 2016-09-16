@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { AirportsPagedListRequest, AirportsService } from '../shared';
 
 @Component({
-    moduleId: module.id,
     templateUrl: 'paged-list-sample.component.html'
 })
 export class PagedListSampleComponent {

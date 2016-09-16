@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { AirportsService } from '../../shared';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-selected-flag',
     templateUrl: 'selected-flag.component.html'
 })

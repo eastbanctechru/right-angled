@@ -11,7 +11,6 @@ declare const PR: {
 };
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-code-tab',
     template: `
     <div [hidden]="!isActive">

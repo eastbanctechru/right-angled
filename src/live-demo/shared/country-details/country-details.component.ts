@@ -3,9 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AirportsService } from '../data/airports.service';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-country-details',
-    styleUrls: ['country-details.component.css'],
+    styleUrls: ['country-details.component.scss'],
     templateUrl: 'country-details.component.html'
 })
 export class CountryDetailsComponent implements OnInit {

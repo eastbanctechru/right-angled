@@ -5,10 +5,9 @@ import { AirportsService } from '../shared';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
-  moduleId: module.id,
   providers: [AirportsService],
   selector: 'rt-demo-app',
-  styleUrls: ['demo-app.component.css'],
+  styleUrls: ['demo-app.component.scss'],
   templateUrl: 'demo-app.component.html'
 })
 export class DemoAppComponent {

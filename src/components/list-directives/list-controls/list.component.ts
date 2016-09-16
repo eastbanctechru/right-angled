@@ -8,7 +8,6 @@ import { ListBase } from './list-base';
 
 @Component({
     exportAs: 'rtList',
-    moduleId: module.id,
     providers: [REGULAR_LIST_PROVIDERS],
     selector: 'rt-list',
     template: `<ng-content></ng-content>`

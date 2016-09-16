@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 import { AirportsService } from '../../shared';
 
 @Component({
-    moduleId: module.id,
     selector: 'rt-demo-selection-checkbox',
-    styleUrls: ['selection-checkbox.component.css'],
+    styleUrls: ['selection-checkbox.component.scss'],
     templateUrl: 'selection-checkbox.component.html'
 })
 export class SelectionCheckboxComponent {

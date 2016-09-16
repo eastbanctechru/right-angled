@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    moduleId: module.id,
-    styleUrls: ['selection-sample.component.css'],
+    styleUrls: ['selection-sample.component.scss'],
     templateUrl: 'selection-sample.component.html'
 })
 export class SelectionSampleComponent {

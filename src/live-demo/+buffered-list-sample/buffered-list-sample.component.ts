@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { AirportsBufferedListRequest, AirportsService } from '../shared';
 
 @Component({
-    moduleId: module.id,
     templateUrl: 'buffered-list-sample.component.html'
 })
 export class BufferedListSampleComponent {
