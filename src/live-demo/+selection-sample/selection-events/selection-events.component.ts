@@ -18,12 +18,15 @@ export class SelectionEventsComponent {
         return regions.map(region => ({ name: region, selected: false }));
     }
     public onItemSelected(evt: RtSelectionEvent): void {
-        alertify.log(`${evt.item.name} - selected`);
+        alertify.log(`${evt.item.name} - selection handled by item`);
     }
     public onItemDeselected(evt: RtSelectionEvent): void {
-        alertify.log(`${evt.item.name} - deselected`);
+        alertify.log(`${evt.item.name} - deselection handled by item`);
     }
-    public onItemSelectionChanged(evt: RtSelectionEvent): void {
-        alertify.log(`${evt.item.name} - selected state changed to ${evt.item.selected}`);
+    public onItemSelectedArea(evt: RtSelectionEvent): void {
+        alertify.log(`${evt.item.name} - selection handled by area`);
+    }
+    public onItemDeselectedArea(evt: RtSelectionEvent): void {
+        alertify.log(`${evt.item.name} - deselection handled by area`);
     }
 }

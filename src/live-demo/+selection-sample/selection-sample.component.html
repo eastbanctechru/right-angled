@@ -147,10 +147,13 @@
                     shorthand для отображения состояния selection на UI.
                 </p>
                 <p>
-                    У нас есть три события, на которые мы можем подписаться: <code>itemSelected</code>, <code>itemDeselected</code>                    и <code>selectionChanged</code>. Обработчики которых получают параметр, реализующий контракт <code>RtSelectionEvent</code>.
+                    У нас есть три события, на которые мы можем подписаться: <code>itemSelected</code>, <code>itemDeselected</code> и <code>selectionChanged</code>. Обработчики которых получают параметр, реализующий контракт <code>RtSelectionEvent</code>.
                 </p>
                 <p>
-                    Ниже вы можете увидеть пример, в котором при помощи обработчиков событий логируются все действия по выбору элементов.
+                    События генерируются как директивой <code>rtSelectByIndex</code>, так и <code>rtSelectionAreaFor</code>, поэтому обработчики могут быть объявлены на любом из уровней. 
+                </p>
+                <p>
+                    Ниже вы можете увидеть живой пример обработчиков <code>itemSelected</code> и <code>itemDeselected</code>.
                 </p>
                 <rt-demo-tab-section>
                     <rt-demo-sample-tab tabTitle="selection events">

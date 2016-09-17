@@ -4,13 +4,15 @@
             <th>Region</th>
         </tr>
     </thead>
-    <tbody [rtSelectionAreaFor]="regions|async">
+    <tbody [rtSelectionAreaFor]="regions|async"
+           (itemSelected)="onItemSelectedArea($event)"
+           (itemDeselected)="onItemDeselectedArea($event)"
+    >
         <tr *ngFor="let region of regions | async, let index=index" 
         [class.selected]="region.selected" 
         [rtSelectByIndex]="index"
         (itemSelected)="onItemSelected($event)"
         (itemDeselected)="onItemDeselected($event)"
-        (selectionChanged)="onItemSelectionChanged($event)"
         >
             <td class="text-center">{{region.name}}</td>
         </tr>
