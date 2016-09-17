@@ -42,7 +42,8 @@
             </p>
             <p>
                 В примере ниже вы можете увидеть, как элемент <code>input</code>, помеченый данной директивой, останавливает
-                распространение события keypress если установлена галочка "stop keypress events propagation" и не дает родительскому элементу <code>div</code> обрабатывать данные события. 
+                распространение события keypress если установлена галочка "stop keypress events propagation" и не дает родительскому
+                элементу <code>div</code> обрабатывать данные события.
             </p>
             <rt-demo-tab-section>
                 <rt-demo-sample-tab tabTitle="rtStopEvents">
@@ -64,7 +65,7 @@
                 предотвращая выполнение действий по умолчанию для событий.
             </p>
             <p>
-                В примере ниже вы можете увидеть ссылку, клик по которой не ведет к переходу благодаря директиве <code>rtPreventDefaults</code>. 
+                В примере ниже вы можете увидеть ссылку, клик по которой не ведет к переходу благодаря директиве <code>rtPreventDefaults</code>.
             </p>
             <rt-demo-tab-section>
                 <rt-demo-sample-tab tabTitle="rtPreventDefaults">
@@ -79,13 +80,32 @@
         <section id="select-on-focus">
             <h3>Директива <code>rtSelectOnFocus</code></h3>
             <p>
-                Данная директива используется на элементах input и выделяет все его содержимое при фокусе.
+                Данная директива используется на элементах input и выделяет все содержимое элемента при фокусе.
             </p>
             <rt-demo-tab-section>
                 <rt-demo-sample-tab tabTitle="rtSelectOnFocus">
                     <rt-demo-select-on-focus></rt-demo-select-on-focus>
                 </rt-demo-sample-tab>
                 <rt-demo-code-tab url="live-demo/%2Bmisc-directives-sample/select-on-focus/select-on-focus.component.ts">
+                </rt-demo-code-tab>
+            </rt-demo-tab-section>
+        </section>
+        <section id="focus-on-render">
+            <h3>Директива <code>rtFocusOnRender</code></h3>
+            <p>
+                Данная директива, по сути, представляет собой аналог HTML аттрибута <a target="_blank" href="http://www.w3schools.com/tags/att_input_autofocus.asp">autofocus</a>, но работает при динамической отрисовке.
+            </p>
+            <p>
+                Элемент input, помеченный данной директивой, автоматически получит фокус после того, как будет отрисован он сам и его вложенный
+                контент.
+            </p>
+            <rt-demo-tab-section>
+                <rt-demo-sample-tab tabTitle="rtFocusOnRender">
+                    <rt-demo-focus-on-render></rt-demo-focus-on-render>
+                </rt-demo-sample-tab>
+                <rt-demo-code-tab url="live-demo/%2Bmisc-directives-sample/focus-on-render/focus-on-render.component.ts">
+                </rt-demo-code-tab>
+                <rt-demo-code-tab url="live-demo/%2Bmisc-directives-sample/focus-on-render/focus-on-render.component.html">
                 </rt-demo-code-tab>
             </rt-demo-tab-section>
         </section>
