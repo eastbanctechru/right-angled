@@ -9,7 +9,6 @@ import { RtSelectionEvent } from 'right-angled';
 })
 export class SelectionEventsComponent {
     public regions: any;
-    public selectionActivityLog: Array<string> = new Array<string>();
     constructor(public airportsService: AirportsService) {
         this.regions = this.airportsService.getRegions()
             .map(this.convertToSelectable, this)
@@ -19,12 +18,12 @@ export class SelectionEventsComponent {
         return regions.map(region => ({ name: region, selected: false }));
     }
     public onItemSelected(evt: RtSelectionEvent): void {
-        this.selectionActivityLog.unshift(`${evt.item.name} - selected`);
+        alertify.log(`${evt.item.name} - selected`);
     }
     public onItemDeselected(evt: RtSelectionEvent): void {
-        this.selectionActivityLog.unshift(`${evt.item.name} - deselected`);
+        alertify.log(`${evt.item.name} - deselected`);
     }
     public onItemSelectionChanged(evt: RtSelectionEvent): void {
-        this.selectionActivityLog.unshift(`${evt.item.name} - selected state changed to ${evt.item.selected}`);
+        alertify.log(`${evt.item.name} - selected state changed to ${evt.item.selected}`);
     }
 }

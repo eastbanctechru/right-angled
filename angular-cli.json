@@ -16,9 +16,13 @@
       "mobile": false,
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/alertify/themes/alertify.core.css",
+        "../node_modules/alertify/themes/alertify.default.css",
         "live-demo/styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/alertify/lib/alertify.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
