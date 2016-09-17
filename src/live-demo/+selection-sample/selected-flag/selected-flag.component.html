@@ -11,7 +11,7 @@
             </td>
             <td *ngIf="region.selected">
                 <form>
-                    <input class="form-control" type="text" [rtStopEvents]="['mouseup']" rtFocusOnRender [(ngModel)]="region.name" name="name"
+                    <input class="form-control" type="text" rtStopEvents="mouseup" rtFocusOnRender [(ngModel)]="region.name" name="name"
                     />
                 </form>
             </td>

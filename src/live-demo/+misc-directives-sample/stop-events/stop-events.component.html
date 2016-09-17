@@ -1,0 +1,6 @@
+<div (keypress)="logKeyPress($event.key)">
+    <label class="checkbox-inline">
+            <input type="checkbox" [(ngModel)]="stopPropagation">stop keypress events propagation
+        </label>
+    <input class="form-control" type="text" [rtStopEvents]="stopPropagation?'keypress':null" />
+</div>
