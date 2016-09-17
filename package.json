@@ -36,7 +36,7 @@
     "@types/lodash": "^4.14.34",
     "angular-cli": "1.0.0-beta.14",
     "codelyzer": "~0.0.26",
-    "jasmine-core": "2.4.1",
+    "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
     "karma-chrome-launcher": "^2.0.0",
