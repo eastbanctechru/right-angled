@@ -3,25 +3,25 @@
         <h1>Selection</h1>
         <h3>Table of contents</h3>
         <ul>
-            <li><a href="/selection#common-idea">Общая идея</a></li>
-            <li><a href="/selection#bootstrap">Как подключить</a></li>
-            <li><a href="/selection#basic-use">Простейший пример</a></li>
-            <li><a href="/selection#additional-settings">Дополнительные опции</a></li>
-            <li><a href="/selection#handle-selection">Взаимодействие с selection</a>
+            <li><a href="selection#common-idea">Общая идея</a></li>
+            <li><a href="selection#bootstrap">Как подключить</a></li>
+            <li><a href="selection#basic-use">Простейший пример</a></li>
+            <li><a href="selection#additional-settings">Дополнительные опции</a></li>
+            <li><a href="selection#handle-selection">Взаимодействие с selection</a>
                 <ul>
-                    <li><a href="/selection#handle-selection-selected">Флаг "selected"</a></li>
-                    <li><a href="/selection#handle-selection-events">События</a></li>
-                    <li><a href="/selection#handle-selection-hooks">Хук-методы</a></li>
+                    <li><a href="selection#handle-selection-selected">Флаг "selected"</a></li>
+                    <li><a href="selection#handle-selection-events">События</a></li>
+                    <li><a href="selection#handle-selection-hooks">Хук-методы</a></li>
                 </ul>
             </li>
-            <li><a href="/selection#additional-directives">Дополнительные директивы</a>
+            <li><a href="selection#additional-directives">Дополнительные директивы</a>
                 <ul>
-                    <li><a href="/selection#additional-directives-selectall"><code>rtSelectAll</code> и <code>rtDeselectAll</code></a></li>
-                    <li><a href="/selection#additional-directives-checkboxes"><code>rtSelectionCheckboxFor</code> и <code>rtCheckAll</code></a></li>
+                    <li><a href="selection#additional-directives-selectall"><code>rtSelectAll</code> и <code>rtDeselectAll</code></a></li>
+                    <li><a href="selection#additional-directives-checkboxes"><code>rtSelectionCheckboxFor</code> и <code>rtCheckAll</code></a></li>
                 </ul>
             </li>
-            <li><a href="/selection#additional-settings-trackBy">trackBy function</a></li>
-            <li><a href="/selection#prevent-stop-events">preventEventsDefaults и stopEventsPropagation</a></li>
+            <li><a href="selection#additional-settings-trackBy">trackBy function</a></li>
+            <li><a href="selection#prevent-stop-events">preventEventsDefaults и stopEventsPropagation</a></li>
         </ul>
         <section id="common-idea">
             <h3>Общая идея</h3>
@@ -222,11 +222,12 @@
                     позволяет выполнять рекурсивный selection.
                 </p>
                 <p>
-                    Ниже вы можете увидеть пример всех четырех вариантов кнопок:
+                    Ниже вы можете увидеть пример всех четырех вариантов кнопок, которые разворачивают сгруппированный список.
                 </p>
                 <div class="note">
                     <p>
-                        Обратите внимание, что директива <code>rtSelectionAreaFor</code> перенесена на уровень элемента <code>table</code>
+                        Обратите внимание, что директива <code>rtSelectionAreaFor</code> перенесена на уровень элемента <code>table</code>. 
+                        Это нужно чтобы директивы <code>rtSelectAll</code> и <code>rtDeselectAll</code> получили корректный инстанс <code>rtSelectionAreaFor</code>, через который они и работают.  
                     </p>
                 </div>
                 <rt-demo-tab-section>
