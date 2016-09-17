@@ -1,6 +1,33 @@
 <div class="row">
     <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
-        <h1>Not implemented yet</h1>
-
+        <h1>Misc directives</h1>
+        <h3>Table of contents</h3>
+        <ul>
+            <li><a href="/misc-directives#common-idea">Общая идея</a></li>
+            <li><a href="/misc-directives#bootstrap">Как подключить</a></li>
+            <li><a href="/misc-directives#stop-events">Директива <code>rtStopEvents</code></a></li>
+            <li><a href="/misc-directives#prevent-defaults">Директива <code>rtPreventDefaults</code></a></li>
+            <li><a href="/misc-directives#select-on-focus">Директива <code>rtSelectOnFocus</code></a></li>
+            <li><a href="/misc-directives#focus-on-render">Директива <code>rtFocusOnRender</code></a></li>
+        </ul>
+        <section id="common-idea">
+            <h3>Общая идея</h3>
+            <p>
+                Данные директивы работают напрямую с браузерными элементами и их событиями, реализуя сугубо утилитарный функционал, не связанный напрямую с функционалом <code>right-angled</code>. 
+                Такой, например, как предотвращения всплывания событий.
+            </p>
+        </section>
+        <section id="bootstrap">
+            <h3>Как подключить</h3>
+            <p>Чтобы подключить данные директивы, достаточно импортировать модуль <code>RTMiscModule</code> из библиотеки <code>right-angled</code>.
+            </p>
+            <p>
+                Основной модуль <code>RtModule</code> уже включает в себя <code>RTMiscModule</code>, поэтому можно импортировать и его.
+            </p>
+            <rt-demo-tab-section>
+                <rt-demo-code-tab url="live-demo/%2Bmisc-directives/bootstrap/app.module.ts">
+                </rt-demo-code-tab>
+            </rt-demo-tab-section>
+        </section>
     </div>
 </div>
