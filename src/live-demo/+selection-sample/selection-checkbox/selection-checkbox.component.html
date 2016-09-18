@@ -1,5 +1,5 @@
-<table class="table" [rtSelectionAreaFor]="regions | async">
-    <caption>
+<div class="row" [rtSelectionAreaFor]="regions | async">
+    <div class="col-md-12 toolbar">
         <ul>
             <li>
                 <label class="checkbox-inline">
@@ -10,57 +10,30 @@
                     <input type="checkbox" rtCheckAll/>Check all recursively</label>
             </li>
         </ul>
-    </caption>
-    <tbody>
-        <template ngFor let-region [ngForOf]="regions | async" let-index="index">
-            <tr [class.selected]="region.selected">
-                <td><input type="checkbox" [rtSelectionCheckboxFor]="index" />
-                </td>
-                <td>{{region.name}} ({{region.countries.length}} countries)</td>
-            </tr>
-            <tr *ngIf="region.selected" style="background-color: darkcyan;">
-                <td colspan="2">
-                    <table class="table">
-                        <tbody [rtSelectionAreaFor]="region.countries">
-                            <template ngFor let-country [ngForOf]="region.countries" let-index="index">
-                                <tr [class.selected]="country.selected">
-                                    <td>
-                                        <input type="checkbox" [rtSelectionCheckboxFor]="index" />
-                                    </td>
-                                    <td>{{country.name}} ({{country.cities.length}} cities)</td>
-                                </tr>
-                                <tr *ngIf="country.selected" style="background-color: dodgerblue;">
-                                    <td colspan="2">
-                                        <table class="table">
-                                            <tbody [rtSelectionAreaFor]="country.cities">
-                                                <template ngFor let-city [ngForOf]="country.cities" let-index="index">
-                                                    <tr [class.selected]="city.selected">
-                                                        <td>
-                                                            <input type="checkbox" [rtSelectionCheckboxFor]="index" />
-                                                        </td>
-                                                        <td>{{city.name}} ({{city.airports.length}} airports)</td>
-                                                    </tr>
-                                                    <tr *ngIf="city.selected" style="background-color: darkorange;">
-                                                        <td colspan="2">
-                                                            <table class="table">
-                                                                <tbody>
-                                                                    <tr *ngFor="let airport of city.airports">
-                                                                        <td>{{airport.name}} ({{airport.iata}})</td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </template>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </template>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </template>
-    </tbody>
-</table>
+    </div>
+    <div class="col-md-12" *ngFor="let region of regions | async, let index=index">
+        <div class="col-md-12 country" [class.selected]="region.selected">
+            <label class="checkbox-inline">
+            <input type="checkbox" [rtSelectionCheckboxFor]="index" /> {{region.name}} ({{region.countries.length}} countries)
+            </label>
+        </div>
+        <div class="col-md-12" *ngIf="region.selected" [rtSelectionAreaFor]="region.countries">
+            <div *ngFor="let country of region.countries, let index=index">
+                <div class="col-md-12 country" [class.selected]="country.selected" style="background-color: darkcyan;">
+                    <label class="checkbox-inline">
+                    <input type="checkbox" [rtSelectionCheckboxFor]="index" /> {{country.name}} ({{country.airports.length}}
+                    airports)</label>
+                </div>
+                <div class="col-md-12" *ngIf="country.selected" [rtSelectionAreaFor]="country.airports">
+                    <div *ngFor="let airport of country.airports, let index=index">
+                        <div class="col-md-12 country" [class.selected]="airport.selected" style="background-color: darkorange;">
+                            <label class="checkbox-inline">
+                            <input type="checkbox" [rtSelectionCheckboxFor]="index" /> {{airport.name}} ({{airport.iata}})
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,13 +7,13 @@ import { AirportsService } from '../../shared';
     templateUrl: 'selected-flag.component.html'
 })
 export class SelectedFlagComponent {
-    public regions: any;
+    public countries: any;
     constructor(public airportsService: AirportsService) {
-        this.regions = this.airportsService.getRegions()
+        this.countries = this.airportsService.getTop5Countries()
             .map(this.convertToSelectable)
             .share();
     }
-    public convertToSelectable(regions: Array<string>): Array<any> {
-        return regions.map(region => ({ name: region, selected: false }));
+    public convertToSelectable(countries: Array<string>): Array<any> {
+        return countries.map(country => ({ name: country, selected: false }));
     }
 }

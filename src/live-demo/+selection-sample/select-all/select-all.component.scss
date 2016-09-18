@@ -1,6 +1,7 @@
 @import '../../shared.scss';
-:host caption {
+:host div.toolbar {
         text-align: right;
+        padding-bottom: 15px;
         ul {
         padding-left: 0;
         margin-left: -5px;

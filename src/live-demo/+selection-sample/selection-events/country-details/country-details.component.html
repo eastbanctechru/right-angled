@@ -1,0 +1,6 @@
+<div class="country" [class.selected]="selected" [rtSelectByIndex]="index" (itemSelected)="rtOnSelected($event)" (itemDeselected)="rtOnDeselected($event)">
+    {{country}}
+</div>
+<div *ngIf="selected">
+    {{this.countryInfo|async|json}}
+</div>

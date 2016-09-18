@@ -36,6 +36,7 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
         this.selectionEventsHelper = new SelectionEventsHelper(this);
     }
     public ngOnDestroy(): void {
+        this.selectionService.deselectAll();
         this.selectionService.destroy();
     }
     public ngOnChanges(changes: { multiple?: SimpleChange, items?: SimpleChange }): void {

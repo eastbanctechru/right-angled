@@ -1,12 +1,7 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Region</th>
-        </tr>
-    </thead>
-    <tbody [rtSelectionAreaFor]="regions|async">
-        <tr *ngFor="let region of regions | async, let index=index" [class.selected]="region.selected" [rtSelectByIndex]="index">
-            <td class="text-center">{{region.name}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="row" [rtSelectionAreaFor]="countries | async">
+    <div class="col-md-12" *ngFor="let country of countries | async, let index=index">
+        <div class="country" [class.selected]="country.selected" [rtSelectByIndex]="index">
+            {{country.name}}
+        </div>
+    </div>
+</div>

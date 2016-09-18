@@ -17,7 +17,7 @@ export class CountryDetailsComponent implements OnSelected, OnDeselected {
     }
     public rtOnSelected(): void {
         this.selected = true;
-        this.airportsService.getCountryInfo(this.country);
+        this.countryInfo = this.airportsService.getCountryInfo(this.country);
     }
     public rtOnDeselected(): void {
         this.selected = false;

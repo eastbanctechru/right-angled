@@ -12,7 +12,7 @@
 :host /deep/ .col-md-4,:host /deep/ .options {
     padding: 15px;
 }
-:host /deep/ .region {
+:host /deep/ .region, :host /deep/ .country {
     background-color: rebeccapurple;
     padding: 35px;
     color: $color-white;
@@ -20,8 +20,12 @@
     cursor: pointer;
     margin: 1px 0;
 }
-:host /deep/ .region.selected {
-    background-color: $color-blue;
+:host /deep/ .country
+{
+    padding: 25px;
+}
+:host /deep/ .region.selected, :host /deep/ .country.selected {
+    background-color: $color-blue !important;
 }
 
 :host /deep/ .btn-load {

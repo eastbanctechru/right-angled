@@ -1,5 +1,5 @@
-<table class="table" [rtSelectionAreaFor]="regions | async">
-    <caption>
+<div class="row" [rtSelectionAreaFor]="regions | async">
+    <div class="col-md-12 toolbar">
         <ul>
             <li>
                 <button class="btn btn-primary" title="Select all items" rtSelectAll [recursive]="false">Select all</button>
@@ -14,49 +14,25 @@
                 <button class="btn btn-primary" title="Deselect all items" rtDeselectAll>Deselect all recursivelly</button>
             </li>
         </ul>
-    </caption>
-    <tbody>
-        <template ngFor let-region [ngForOf]="regions | async" let-index="index">
-            <tr [class.selected]="region.selected" [rtSelectByIndex]="index">
-                <td class="text-center">{{region.name}} ({{region.countries.length}} countries)</td>
-            </tr>
-            <tr *ngIf="region.selected" style="background-color: darkcyan;">
-                <td>
-                    <table class="table">
-                        <tbody [rtSelectionAreaFor]="region.countries">
-                            <template ngFor let-country [ngForOf]="region.countries" let-index="index">
-                                <tr [class.selected]="country.selected" [rtSelectByIndex]="index">
-                                    <td class="text-center">{{country.name}} ({{country.cities.length}} cities)</td>
-                                </tr>
-                                <tr *ngIf="country.selected" style="background-color: dodgerblue;">
-                                    <td>
-                                        <table class="table">
-                                            <tbody [rtSelectionAreaFor]="country.cities">
-                                                <template ngFor let-city [ngForOf]="country.cities" let-index="index">
-                                                    <tr [class.selected]="city.selected" [rtSelectByIndex]="index">
-                                                        <td class="text-center">{{city.name}} ({{city.airports.length}} airports)</td>
-                                                    </tr>
-                                                    <tr *ngIf="city.selected" style="background-color: darkorange;">
-                                                        <td>
-                                                            <table class="table">
-                                                                <tbody>
-                                                                    <tr *ngFor="let airport of city.airports">
-                                                                        <td class="text-center">{{airport.name}} ({{airport.iata}})</td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </template>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </template>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </template>
-    </tbody>
-</table>
+    </div>
+    <div class="col-md-12" *ngFor="let region of regions | async, let index=index">
+        <div class="col-md-12 country" [class.selected]="region.selected" [rtSelectByIndex]="index">
+            {{region.name}} ({{region.countries.length}} countries)
+        </div>
+
+        <div class="col-md-12" *ngIf="region.selected" [rtSelectionAreaFor]="region.countries">
+            <div *ngFor="let country of region.countries, let index=index">
+                <div class="col-md-12 country" [class.selected]="country.selected" [rtSelectByIndex]="index" style="background-color: darkcyan;">
+                    {{country.name}} ({{country.airports.length}} airports)
+                </div>
+                <div class="col-md-12" *ngIf="country.selected" [rtSelectionAreaFor]="country.airports">
+                    <div *ngFor="let airport of country.airports, let index=index">
+                        <div class="col-md-12 country" [class.selected]="airport.selected" [rtSelectByIndex]="index" style="background-color: darkorange;">
+                            {{airport.name}} ({{airport.iata}})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

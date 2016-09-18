@@ -7,10 +7,10 @@ import { AirportsService } from '../../shared';
     templateUrl: 'basic-usage.component.html'
 })
 export class BasicUsageComponent {
-    public regions: any;
+    public countries: any;
     constructor(public airportsService: AirportsService) {
-        this.regions = this.airportsService.getRegions()
-            .map(regions => regions.map(region => ({ name: region, selected: false })))
+        this.countries = this.airportsService.getTop5Countries()
+            .map(countries => countries.map(country => ({ name: country, selected: false })))
             .share();
     }
 }

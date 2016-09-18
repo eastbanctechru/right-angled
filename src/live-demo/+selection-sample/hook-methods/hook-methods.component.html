@@ -1,5 +1,7 @@
 <div class="row" [rtSelectionAreaFor]="countries | async">
     <div class="col-md-12" *ngFor="let country of countries | async, let index=index">
-        <rt-demo-country-details [country]="country" [index]="index"></rt-demo-country-details>
+        <div class="country" [class.selected]="country.selected" [rtSelectByIndex]="index">
+            {{country.name}}
+        </div>
     </div>
 </div>

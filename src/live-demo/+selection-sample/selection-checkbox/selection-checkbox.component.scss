@@ -1,23 +1,13 @@
 @import '../../shared.scss';
-:host table {
-    tr {
-        td:first-child {
-            width: 20px;
-        }
-        td:nth-child(2) {
+:host div.toolbar {
+    ul {
+        padding-left: 17px;
+        list-style: none;
+        margin-bottom: 0;
+        li {
+            display: inline-block;
+            padding-right: 5px;
             padding-left: 5px;
-        }
-    }
-    caption {
-        ul {
-            padding-left: 17px;
-            list-style: none;
-            margin-bottom: 0;
-            li {
-                display: inline-block;
-                padding-right: 5px;
-                padding-left: 5px;
-            }
         }
     }
 }

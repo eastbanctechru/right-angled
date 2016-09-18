@@ -8,25 +8,14 @@ import { RtSelectionEvent } from 'right-angled';
     templateUrl: 'selection-events.component.html'
 })
 export class SelectionEventsComponent {
-    public regions: any;
+    public countries: any;
     constructor(public airportsService: AirportsService) {
-        this.regions = this.airportsService.getRegions()
-            .map(this.convertToSelectable, this)
-            .share();
-    }
-    public convertToSelectable(regions: Array<string>): Array<any> {
-        return regions.map(region => ({ name: region, selected: false }));
+        this.countries = this.airportsService.getTop5Countries();
     }
     public onItemSelected(evt: RtSelectionEvent): void {
-        alertify.log(`${evt.item.name} - selection handled by item`);
+        alertify.log(`${evt.item} - selection handled by area`);
     }
     public onItemDeselected(evt: RtSelectionEvent): void {
-        alertify.log(`${evt.item.name} - deselection handled by item`);
-    }
-    public onItemSelectedArea(evt: RtSelectionEvent): void {
-        alertify.log(`${evt.item.name} - selection handled by area`);
-    }
-    public onItemDeselectedArea(evt: RtSelectionEvent): void {
-        alertify.log(`${evt.item.name} - deselection handled by area`);
+        alertify.log(`${evt.item} - deselection handled by area`);
     }
 }

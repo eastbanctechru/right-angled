@@ -7,7 +7,7 @@ import { AirportsService } from '../../shared';
     templateUrl: 'options.component.html'
 })
 export class OptionsComponent {
-    public horizontal: boolean = false;
+    public horizontal: boolean = true;
     public multiple: boolean = true;
     public toggleOnly: boolean = false;
     public autoSelectFirst: boolean = false;

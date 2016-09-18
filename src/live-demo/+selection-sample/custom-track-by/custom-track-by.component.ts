@@ -7,19 +7,19 @@ import { AirportsService } from '../../shared';
     templateUrl: 'custom-track-by.component.html'
 })
 export class CustomTrackByComponent {
-    public regions: Array<string> = [];
+    public countries: Array<string> = [];
     constructor(public airportsService: AirportsService) {
         this.reload();
     }
-    public convertToSelectable(regions: Array<string>): Array<any> {
-        return regions.map(region => ({ name: region, selected: false }));
+    public convertToSelectable(countries: Array<string>): Array<any> {
+        return countries.map(country => ({ name: country, selected: false }));
     }
     public reload(): void {
-        this.regions = [];
-        this.airportsService.getRegions(700)
-            .subscribe(regions => this.regions = this.convertToSelectable(regions));
+        this.countries = [];
+        this.airportsService.getTop5Countries(700)
+            .subscribe(countries => this.countries = this.convertToSelectable(countries));
     }
-    public trackByName(index: number, region: any): string {
-        return region.name;
+    public trackByName(index: number, country: any): string {
+        return country.name;
     }
 }

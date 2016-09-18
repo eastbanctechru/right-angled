@@ -147,13 +147,16 @@
                     shorthand для отображения состояния selection на UI.
                 </p>
                 <p>
-                    У нас есть три события, на которые мы можем подписаться: <code>itemSelected</code>, <code>itemDeselected</code> и <code>selectionChanged</code>. Обработчики которых получают параметр, реализующий контракт <code>RtSelectionEvent</code>.
+                    У нас есть три события, на которые мы можем подписаться: <code>itemSelected</code>, <code>itemDeselected</code>                    и <code>selectionChanged</code>. Обработчики которых получают параметр, реализующий контракт <code>RtSelectionEvent</code>.
                 </p>
                 <p>
-                    События генерируются как директивой <code>rtSelectByIndex</code>, так и <code>rtSelectionAreaFor</code>, поэтому обработчики могут быть объявлены на любом из уровней. 
+                    События генерируются как директивой <code>rtSelectByIndex</code>, так и <code>rtSelectionAreaFor</code>,
+                    поэтому обработчики могут быть объявлены на любом из уровней.
                 </p>
                 <p>
-                    Ниже вы можете увидеть живой пример обработчиков <code>itemSelected</code> и <code>itemDeselected</code>.
+                    Ниже вы можете увидеть пример в котором обработчики <code>itemSelected</code> и <code>itemDeselected</code>                    уровня
+                    <code>rtSelectionAreaFor</code> выводят на UI уведомления о том, что элеменет был выбран. Обработчики
+                    уровня элемента, в свою очередь, при выборе обращаются к сервису <a target="_blank" href="https://restcountries.eu">restcountries.eu</a>                    и отображают полученную из него информацию о стране.
                 </p>
                 <rt-demo-tab-section>
                     <rt-demo-sample-tab tabTitle="selection events">
@@ -186,8 +189,8 @@
                     <code>OnDeselected</code>, <code>OnSelected</code>, <code>OnSelectionChanged</code> как в примере ниже.
                 </p>
                 <p>
-                    Ниже вы можете увидеть модификацию (не самую удачную, но достаточно простую для целей демки) предыдущего примера, в котором
-                    также логируются действия по выбору элементов, но при помощи хуков.
+                    Ниже вы можете увидеть не самый удачный, но достаточно простой пример, в котором
+                    логируются действия по выбору элементов.
                 </p>
                 <rt-demo-tab-section>
                     <rt-demo-sample-tab tabTitle="hook methods">
@@ -226,8 +229,9 @@
                 </p>
                 <div class="note">
                     <p>
-                        Обратите внимание, что директива <code>rtSelectionAreaFor</code> перенесена на уровень элемента <code>table</code>. 
-                        Это нужно чтобы директивы <code>rtSelectAll</code> и <code>rtDeselectAll</code> получили корректный инстанс <code>rtSelectionAreaFor</code>, через который они и работают.  
+                        Обратите внимание, что директива <code>rtSelectionAreaFor</code> перенесена на уровень элемента <code>table</code>.
+                        Это нужно чтобы директивы <code>rtSelectAll</code> и <code>rtDeselectAll</code> получили корректный
+                        инстанс <code>rtSelectionAreaFor</code>, через который они и работают.
                     </p>
                 </div>
                 <rt-demo-tab-section>
@@ -249,10 +253,10 @@
                     по элементам.
                 </p>
                 <p>
-                    На такие случаи директива <code>rtSelectionCheckboxFor</code> используется вместо <code>rtSelectByIndex</code> и так же принимает в качестве параметра индекс элемента.
+                    На такие случаи директива <code>rtSelectionCheckboxFor</code> используется вместо <code>rtSelectByIndex</code>                    и так же принимает в качестве параметра индекс элемента.
                 </p>
                 <p>
-                    Директива <code>rtCheckAll</code> заменяет собой директивы <code>rtSelectAll</code> и <code>rtDeselectAll</code> и так же принимает в качестве параметра флаг <code>recursive</code>.
+                    Директива <code>rtCheckAll</code> заменяет собой директивы <code>rtSelectAll</code> и <code>rtDeselectAll</code>                    и так же принимает в качестве параметра флаг <code>recursive</code>.
                 </p>
                 <rt-demo-tab-section>
                     <rt-demo-sample-tab tabTitle="rtSelectionCheckboxFor и rtCheckAll">
