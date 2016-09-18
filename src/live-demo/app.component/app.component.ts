@@ -7,8 +7,8 @@ import { AirportsService } from '../shared';
   encapsulation: ViewEncapsulation.None,
   providers: [AirportsService],
   selector: 'rt-demo-app',
-  styleUrls: ['demo-app.component.scss'],
-  templateUrl: 'demo-app.component.html'
+  styleUrls: ['app.component.scss'],
+  templateUrl: 'app.component.html'
 })
 export class DemoAppComponent {
 }

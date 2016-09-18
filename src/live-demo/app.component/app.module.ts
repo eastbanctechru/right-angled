@@ -10,8 +10,8 @@ import { MiscDirectivesSampleModule } from '../+misc-directives-sample/misc-dire
 import { SelectionSampleModule } from '../+selection-sample/selection-sample.module';
 import { SharedModule } from '../shared/shared.module';
 
-import { DemoAppComponent }  from './demo-app.component';
-import { routing }        from './demo-app.routing';
+import { DemoAppComponent }  from './app.component';
+import { routing }        from './app.routing';
 
 registerPersistenceService({multi: true, useClass: RtQueryStringStateService});
 registerPersistenceService({multi: true, useClass: RtSessionStoragePersistenceService});
