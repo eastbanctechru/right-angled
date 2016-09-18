@@ -1,6 +1,5 @@
 <div>
-    <h1>Buffered List Sample</h1>
-    <rt-buffered-list [fetchMethod]="loadData" #list="rtList">
+    <rt-paged-list [fetchMethod]="loadData" #list="rtList">
         <rt-demo-filter-area #filter [rtRegisterAsFilter]="filter">
         </rt-demo-filter-area>
         <table class="table table-striped" [rtSelectionAreaFor]="list.items">
@@ -18,17 +17,16 @@
                     <td>{{airport.cityName}}</td>
                     <td>{{airport.countryName}}</td>
                     <td>{{airport.region}}</td>
-                    <td>{{airport.type}}</td>
                     <td>{{airport.size || 'unspecified'}}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="9">
-                        <rt-demo-buffered-footer></rt-demo-buffered-footer>
+                        <rt-demo-paged-footer></rt-demo-paged-footer>
                     </td>
                 </tr>
             </tfoot>
         </table>
-    </rt-buffered-list>
+    </rt-paged-list>
 </div>

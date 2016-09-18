@@ -1,0 +1,6 @@
+<div class="region" [class.selected]="selected" [rtSelectByIndex]="index">
+    {{country}}
+</div>
+<div *ngIf="selected">
+    {{this.countryInfo|async|json}}
+</div>

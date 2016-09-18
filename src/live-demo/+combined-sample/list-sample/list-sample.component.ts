@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
-import { AirportsPagedListRequest, AirportsService } from '../shared';
+import { AirportsPagedListRequest, AirportsService } from '../../shared';
 
 @Component({
-    templateUrl: 'paged-list-sample.component.html'
+    selector: 'rt-demo-list-sample',
+    templateUrl: 'list-sample.component.html'
 })
-export class PagedListSampleComponent {
+export class ListSampleComponent {
     constructor(public airportsService: AirportsService) {
         this.airportsService = airportsService;
     }

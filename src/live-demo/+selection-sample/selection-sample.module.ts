@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { BasicUsageComponent } from './basic-usage/basic-usage.component';
 import { CustomTrackByComponent } from './custom-track-by/custom-track-by.component';
+import { CountryDetailsComponent } from './hook-methods/country-details/country-details.component';
 import { HooksMethodsComponent } from './hook-methods/hook-methods.component';
 import { OptionsComponent } from './options/options.component';
 import { SelectAllComponent } from './select-all/select-all.component';
@@ -14,8 +15,8 @@ import { SelectionEventsComponent } from './selection-events/selection-events.co
 import { SelectionSampleComponent } from './selection-sample.component';
 
 @NgModule({
-    declarations: [BasicUsageComponent, CustomTrackByComponent, HooksMethodsComponent, OptionsComponent, SelectAllComponent, SelectedFlagComponent, SelectionCheckboxComponent, SelectionEventsComponent, SelectionSampleComponent],
-    exports: [BasicUsageComponent, CustomTrackByComponent, HooksMethodsComponent, OptionsComponent, SelectAllComponent, SelectedFlagComponent, SelectionCheckboxComponent, SelectionEventsComponent, SelectionSampleComponent],
+    declarations: [BasicUsageComponent, CustomTrackByComponent, HooksMethodsComponent, CountryDetailsComponent, OptionsComponent, SelectAllComponent, SelectedFlagComponent, SelectionCheckboxComponent, SelectionEventsComponent, SelectionSampleComponent],
+    exports: [BasicUsageComponent, CustomTrackByComponent, HooksMethodsComponent, CountryDetailsComponent, OptionsComponent, SelectAllComponent, SelectedFlagComponent, SelectionCheckboxComponent, SelectionEventsComponent, SelectionSampleComponent],
     imports: [CommonModule, RouterModule, SharedModule]
 })
 export class SelectionSampleModule {

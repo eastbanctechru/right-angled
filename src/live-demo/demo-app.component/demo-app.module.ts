@@ -5,12 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RTModule } from 'right-angled';
 import { RtLocalStoragePersistenceService, RtQueryStringStateService, RtSessionStoragePersistenceService, registerPersistenceService } from 'right-angled';
 
-import { BufferedListSampleModule } from '../+buffered-list-sample/buffered-list-sample.module';
-import { GroupingSampleModule } from '../+grouping-sample/grouping-sample.module';
-import { MasterDetailSampleModule } from '../+master-detail-sample/master-detail-sample.module';
+import { CombinedSampleModule } from '../+combined-sample/combined-sample.module';
 import { MiscDirectivesSampleModule } from '../+misc-directives-sample/misc-directives-sample.module';
-import { PagedListSampleModule } from '../+paged-list-sample/paged-list-sample.module';
-import { RegularListSampleModule } from '../+regular-list-sample/regular-list-sample.module';
 import { SelectionSampleModule } from '../+selection-sample/selection-sample.module';
 import { SharedModule } from '../shared/shared.module';
 
@@ -24,6 +20,6 @@ registerPersistenceService({multi: true, useClass: RtLocalStoragePersistenceServ
 @NgModule({
   bootstrap: [DemoAppComponent],
   declarations: [DemoAppComponent],
-  imports: [BrowserModule, HttpModule, FormsModule, RTModule, routing, MiscDirectivesSampleModule, PagedListSampleModule, BufferedListSampleModule, GroupingSampleModule, MasterDetailSampleModule, RegularListSampleModule, SelectionSampleModule, SharedModule]
+  imports: [BrowserModule, HttpModule, FormsModule, RTModule, routing, CombinedSampleModule, MiscDirectivesSampleModule, SelectionSampleModule, SharedModule]
 })
 export class AppModule { }

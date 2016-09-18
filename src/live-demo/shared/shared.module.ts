@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { RTModule } from 'right-angled';
 
 import { AdditionalFilterComponent } from './additional-filter/additional-filter.component';
-import { CountryDetailsComponent } from './country-details/country-details.component';
 import { FilterAreaComponent } from './filter-area/filter-area.component';
 import { BufferedFooterComponent } from './footers/buffered-footer.component/buffered-footer.component';
 import { PagedFooterComponent } from './footers/paged-footer.component/paged-footer.component';
@@ -16,8 +15,8 @@ import { SampleTabComponent } from './tab/sample-tab.component';
 import { TabSectionComponent } from './tab/tab-section.component';
 
 @NgModule({
-  declarations: [BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
-  exports: [CommonModule, FormsModule, RTModule, BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, FilterAreaComponent, AdditionalFilterComponent, CountryDetailsComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
+  declarations: [BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, FilterAreaComponent, AdditionalFilterComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
+  exports: [CommonModule, FormsModule, RTModule, BufferedFooterComponent, RegularFooterComponent, PagedFooterComponent, SortableHeaderComponent, FilterAreaComponent, AdditionalFilterComponent, CodeTabComponent, SampleTabComponent, TabSectionComponent],
   imports: [CommonModule, FormsModule, RTModule]
 })
 export class SharedModule {
