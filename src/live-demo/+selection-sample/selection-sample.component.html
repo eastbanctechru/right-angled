@@ -6,12 +6,13 @@
             <li><a href="selection#common-idea">Общая идея</a></li>
             <li><a href="selection#bootstrap">Как подключить</a></li>
             <li><a href="selection#basic-use">Простейший пример</a></li>
-            <li><a href="selection#additional-settings">Дополнительные опции</a></li>
+            <li><a href="selection#additional-options">Дополнительные опции</a></li>
             <li><a href="selection#handle-selection">Взаимодействие с selection</a>
                 <ul>
                     <li><a href="selection#handle-selection-selected">Флаг "selected"</a></li>
                     <li><a href="selection#handle-selection-events">События</a></li>
                     <li><a href="selection#handle-selection-hooks">Хук-методы</a></li>
+                    <li><a href="selection#selection-service">Работа с <code>SelectionService</code></a></li>
                 </ul>
             </li>
             <li><a href="selection#additional-directives">Дополнительные директивы</a>
@@ -113,7 +114,7 @@
         <section id="handle-selection">
             <h3>Взаимодействие с selection</h3>
             <p>
-                Для выполнения действий в ответ на изменения состояния выбора элементов у вас есть три варианта действий:
+                Для выполнения действий с selection у вас есть следующие варианты:
             </p>
             <section id="handle-selection-selected">
                 <h4>Флаг "selected"</h4>
@@ -189,8 +190,7 @@
                     <code>OnDeselected</code>, <code>OnSelected</code>, <code>OnSelectionChanged</code> как в примере ниже.
                 </p>
                 <p>
-                    Ниже вы можете увидеть не самый удачный, но достаточно простой пример, в котором
-                    логируются действия по выбору элементов.
+                    Ниже вы можете увидеть не самый удачный, но достаточно простой пример, в котором логируются действия по выбору элементов.
                 </p>
                 <rt-demo-tab-section>
                     <rt-demo-sample-tab tabTitle="hook methods">
@@ -205,6 +205,14 @@
                     <rt-demo-code-tab url="components/core/selection/selection-hooks.ts">
                     </rt-demo-code-tab>
                 </rt-demo-tab-section>
+            </section>
+
+            <section id="selection-service">
+                <h4>Работа с <code>SelectionService</code></h4>
+                <p>
+                    Данный подход наиболее гибок, поскольку дает доступ ко множеству методов работы с selection. Перечень доступных методов для
+                    работы вы можете посмотреть в документации библиотеки <a target="_blank" href="http://fshchudlo.github.io/e2e4/interfaces/selectionservice.html">e2e4</a>                    (это библиотека нашего авторства, реализующая функционал работы со списками и selection в framework agnostic стиле)
+                </p>
             </section>
         </section>
 

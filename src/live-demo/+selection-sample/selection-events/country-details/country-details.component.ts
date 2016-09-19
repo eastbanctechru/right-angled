@@ -5,7 +5,6 @@ import { OnDeselected, OnSelected } from 'right-angled';
 
 @Component({
     selector: 'rt-demo-country-details',
-    styleUrls: ['country-details.component.scss'],
     templateUrl: 'country-details.component.html'
 })
 export class CountryDetailsComponent implements OnSelected, OnDeselected {
