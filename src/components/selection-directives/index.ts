@@ -12,3 +12,5 @@ export var SELECTION_DIRECTIVES: any[] = [
     SelectAllDirective,
     DeselectAllDirective,
     CheckAllDirective];
+
+export { SelectionAreaForDirective } from './selection-area-for.directive';

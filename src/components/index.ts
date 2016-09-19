@@ -23,6 +23,9 @@ export var PAGED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRE
 export var BUFFERED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat(BUFFERED_FOOTER_DIRECTIVES).concat([BufferedListComponent]);
 export var REGULAR_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat([ListComponent]);
 
+export { BufferedListComponent, ListComponent, PagedListComponent } from './list-directives/index'
+export { SelectionAreaForDirective } from './selection-directives/index'
+
 @NgModule({
     declarations: MISC_DIRECTIVES,
     exports: MISC_DIRECTIVES,
