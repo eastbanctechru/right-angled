@@ -12,21 +12,21 @@
         </ul>
     </div>
     <div class="col-md-12" *ngFor="let region of regions | async, let index=index">
-        <div class="col-md-12 country" [class.selected]="region.selected">
+        <div class="col-md-12 item" [class.selected]="region.selected">
             <label class="checkbox-inline">
             <input type="checkbox" [rtSelectionCheckboxFor]="index" /> {{region.name}} ({{region.countries.length}} countries)
             </label>
         </div>
         <div class="col-md-12" *ngIf="region.selected" [rtSelectionAreaFor]="region.countries">
             <div *ngFor="let country of region.countries, let index=index">
-                <div class="col-md-12 country" [class.selected]="country.selected" style="background-color: darkcyan;">
+                <div class="col-md-12 item" [class.selected]="country.selected" style="background-color: darkcyan;">
                     <label class="checkbox-inline">
                     <input type="checkbox" [rtSelectionCheckboxFor]="index" /> {{country.name}} ({{country.airports.length}}
                     airports)</label>
                 </div>
                 <div class="col-md-12" *ngIf="country.selected" [rtSelectionAreaFor]="country.airports">
                     <div *ngFor="let airport of country.airports, let index=index">
-                        <div class="col-md-12 country" [class.selected]="airport.selected" style="background-color: darkorange;">
+                        <div class="col-md-12 item" [class.selected]="airport.selected" style="background-color: darkorange;">
                             <label class="checkbox-inline">
                             <input type="checkbox" [rtSelectionCheckboxFor]="index" /> {{airport.name}} ({{airport.iata}})
                             </label>

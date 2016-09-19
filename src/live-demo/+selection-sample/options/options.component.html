@@ -1,4 +1,4 @@
-<div class="row" [rtSelectionAreaFor]="regions" [horizontal]="horizontal" [multiple]="multiple" [toggleOnly]="toggleOnly" [autoSelectFirst]="autoSelectFirst">
+<div class="row" [rtSelectionAreaFor]="countries" [horizontal]="horizontal" [multiple]="multiple" [toggleOnly]="toggleOnly" [autoSelectFirst]="autoSelectFirst">
     <div class="options">
         <label class="checkbox-inline">
             <input type="checkbox" [(ngModel)]="horizontal">horizontal
@@ -14,9 +14,9 @@
         </label>
         <button type="button" class="btn btn-load" title="Reload data" (click)="reload()"></button>
     </div>
-    <div class="col-md-4" *ngFor="let region of regions, let index=index">
-        <div class="region" [class.selected]="region.selected" [rtSelectByIndex]="index">
-            {{region.name}}
+    <div class="col-md-4" *ngFor="let country of countries, let index=index">
+        <div class="item" [class.selected]="country.selected" [rtSelectByIndex]="index">
+            {{country.name}}
         </div>
     </div>
 </div>

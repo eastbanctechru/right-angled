@@ -85,7 +85,7 @@ export class AirportsService {
             .map(airports => _.chain(airports).map((item: Airport) => (item.region)).uniq().value())
             .share();
     }
-    public getTop5Countries(delay: number = 0): Observable<Array<string>> {
+    public get5Countries(delay: number = 0): Observable<Array<string>> {
         return this.getAirports(delay)
             .map(airports =>
                 _.chain(airports)

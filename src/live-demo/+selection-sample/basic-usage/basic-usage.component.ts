@@ -9,7 +9,7 @@ import { AirportsService } from '../../shared';
 export class BasicUsageComponent {
     public countries: any;
     constructor(public airportsService: AirportsService) {
-        this.countries = this.airportsService.getTop5Countries()
+        this.countries = this.airportsService.get5Countries()
             .map(countries => countries.map(country => ({ name: country, selected: false })))
             .share();
     }

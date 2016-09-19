@@ -7,17 +7,15 @@ import { AirportsService } from '../../shared';
     templateUrl: 'custom-track-by.component.html'
 })
 export class CustomTrackByComponent {
-    public countries: Array<string> = [];
+    public countries: Array<any> = [];
     constructor(public airportsService: AirportsService) {
         this.reload();
     }
-    public convertToSelectable(countries: Array<string>): Array<any> {
-        return countries.map(country => ({ name: country, selected: false }));
-    }
     public reload(): void {
         this.countries = [];
-        this.airportsService.getTop5Countries(700)
-            .subscribe(countries => this.countries = this.convertToSelectable(countries));
+        this.airportsService
+            .get5Countries(700)
+            .subscribe(countries => this.countries = countries.map(country => ({ name: country, selected: false })));
     }
     public trackByName(index: number, country: any): string {
         return country.name;

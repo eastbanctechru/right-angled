@@ -10,21 +10,17 @@
 }
 
 :host /deep/ .col-md-4,:host /deep/ .options {
-    padding: 15px;
+    padding: 5px;
 }
-:host /deep/ .region, :host /deep/ .country {
+:host /deep/ .item {
     background-color: rebeccapurple;
-    padding: 35px;
+    padding: 25px;
     color: $color-white;
     text-align: center;
     cursor: pointer;
     margin: 1px 0;
 }
-:host /deep/ .country
-{
-    padding: 25px;
-}
-:host /deep/ .region.selected, :host /deep/ .country.selected {
+:host /deep/ .item.selected {
     background-color: $color-blue !important;
 }
 

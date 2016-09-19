@@ -16,18 +16,18 @@
         </ul>
     </div>
     <div class="col-md-12" *ngFor="let region of regions | async, let index=index">
-        <div class="col-md-12 country" [class.selected]="region.selected" [rtSelectByIndex]="index">
+        <div class="col-md-12 item" [class.selected]="region.selected" [rtSelectByIndex]="index">
             {{region.name}} ({{region.countries.length}} countries)
         </div>
 
         <div class="col-md-12" *ngIf="region.selected" [rtSelectionAreaFor]="region.countries">
             <div *ngFor="let country of region.countries, let index=index">
-                <div class="col-md-12 country" [class.selected]="country.selected" [rtSelectByIndex]="index" style="background-color: darkcyan;">
+                <div class="col-md-12 item" [class.selected]="country.selected" [rtSelectByIndex]="index" style="background-color: darkcyan;">
                     {{country.name}} ({{country.airports.length}} airports)
                 </div>
                 <div class="col-md-12" *ngIf="country.selected" [rtSelectionAreaFor]="country.airports">
                     <div *ngFor="let airport of country.airports, let index=index">
-                        <div class="col-md-12 country" [class.selected]="airport.selected" [rtSelectByIndex]="index" style="background-color: darkorange;">
+                        <div class="col-md-12 item" [class.selected]="airport.selected" [rtSelectByIndex]="index" style="background-color: darkorange;">
                             {{airport.name}} ({{airport.iata}})
                         </div>
                     </div>
