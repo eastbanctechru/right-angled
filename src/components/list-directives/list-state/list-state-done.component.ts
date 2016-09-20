@@ -5,7 +5,7 @@ import { RtListService } from '../list-service';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
-    selector: 'rt-list-state-request-canceled',
+    selector: 'rt-list-state-done',
     template: `<ng-content *ngIf="isVisible"></ng-content>`
 })
 export class ListStateDoneComponent extends ListStateComponent {
