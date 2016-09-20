@@ -15,6 +15,7 @@ export { BufferedListComponent}  from './list-controls/buffered-list.component';
 export { PagedListComponent}  from './list-controls/paged-list.component';
 
 import { DisplayPagerComponent } from './list-state/display-pager.component';
+import { ListStateDoneComponent } from './list-state/list-state-done.component';
 import { ListStateFailedComponent } from './list-state/list-state-failed.component';
 import { ListStateInProgressComponent } from './list-state/list-state-in-progress.component';
 import { ListStateInitialComponent } from './list-state/list-state-initial.component';
@@ -25,6 +26,7 @@ import { TotalRecordsTextComponent } from './list-state/total-records-text.compo
 export var LIST_STATE_DIRECTIVES: any[] = [
     ListStateNoDataComponent,
     ListStateRequestCanceledComponent,
+    ListStateDoneComponent,
     ListStateFailedComponent,
     ListStateInitialComponent,
     ListStateInProgressComponent,

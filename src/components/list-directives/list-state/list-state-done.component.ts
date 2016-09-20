@@ -5,11 +5,11 @@ import { RtListService } from '../list-service';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
-    selector: 'rt-list-state-no-data',
+    selector: 'rt-list-state-request-canceled',
     template: `<ng-content *ngIf="isVisible"></ng-content>`
 })
-export class ListStateNoDataComponent extends ListStateComponent {
-    constructor(@SkipSelf() listService: RtListService, differs: KeyValueDiffers) {
-        super(listService, differs, ProgressState.NoData);
+export class ListStateDoneComponent extends ListStateComponent {
+    constructor( @SkipSelf() listService: RtListService, differs: KeyValueDiffers) {
+        super(listService, differs, ProgressState.Done);
     }
 }
