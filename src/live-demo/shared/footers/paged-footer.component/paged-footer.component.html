@@ -19,9 +19,9 @@
     <input rtSelectOnFocus rtPageNumber type="text" class="form-control" maxlength="4" />
     <span rtGoToNextPage disabledCls="disabled" title="go to next page"></span>
     <span rtGoToLastPage disabledCls="disabled" title="go to last page"></span>
-    <rt-total-records-text #rtref>
-        Displaying records {{rtref.pager.displayFrom}} - {{rtref.pager.displayTo}} of {{rtref.pager.totalCount}}.
-    </rt-total-records-text>
+    <rt-list-state-done>
+        Displaying records {{pager.displayFrom}} - {{pager.displayTo}} of {{pager.totalCount}}.
+    </rt-list-state-done>
     <span>Page size</span>
     <input rtSelectOnFocus rtPageSize type="text" class="form-control" maxlength="3" />
 </rt-display-pager>

@@ -14,9 +14,9 @@
     <div></div>
 </rt-list-state-progress>
 <div>
-    <rt-total-records-text #rtref>
-        Loaded records {{rtref.pager.loadedCount}} of {{rtref.pager.totalCount}}
-    </rt-total-records-text>
+    <rt-list-state-done>
+        Loaded records {{pager.loadedCount}} of {{pager.totalCount}}
+    </rt-list-state-done>
     <rt-display-pager>
         <a tabindex="0" rtLoadMore href="#">Show more</a>
         <input class="form-control" rtSelectOnFocus rtRowCount type="text" maxlength="3" title="count of rows to load" />

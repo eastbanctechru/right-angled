@@ -21,7 +21,6 @@ import { ListStateInProgressComponent } from './list-state/list-state-in-progres
 import { ListStateInitialComponent } from './list-state/list-state-initial.component';
 import { ListStateNoDataComponent } from './list-state/list-state-no-data.component';
 import { ListStateRequestCanceledComponent } from './list-state/list-state-request-canceled.component';
-import { TotalRecordsTextComponent } from './list-state/total-records-text.component';
 
 export var LIST_STATE_DIRECTIVES: any[] = [
     ListStateNoDataComponent,
@@ -30,7 +29,6 @@ export var LIST_STATE_DIRECTIVES: any[] = [
     ListStateFailedComponent,
     ListStateInitialComponent,
     ListStateInProgressComponent,
-    TotalRecordsTextComponent,
     DisplayPagerComponent
 ];
 
