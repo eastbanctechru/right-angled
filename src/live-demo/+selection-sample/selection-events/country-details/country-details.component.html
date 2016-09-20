@@ -1,4 +1,4 @@
-<div class="item" [class.selected]="selected" [rtSelectByIndex]="index" (itemSelected)="rtOnSelected($event)" (itemDeselected)="rtOnDeselected($event)">
+<div class="item" [class.selected]="selected" [rtSelectByIndex]="index" (itemSelected)="onSelected($event)" (itemDeselected)="onDeselected($event)">
     {{country}}
 </div>
 <div *ngIf="selected">

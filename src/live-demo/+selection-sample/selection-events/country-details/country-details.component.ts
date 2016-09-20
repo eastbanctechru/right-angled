@@ -1,24 +1,23 @@
 import { Component, Input } from '@angular/core';
 
 import { AirportsService } from '../../../shared';
-import { OnDeselected, OnSelected } from 'right-angled';
 
 @Component({
     selector: 'rt-demo-country-details',
     templateUrl: 'country-details.component.html'
 })
-export class CountryDetailsComponent implements OnSelected, OnDeselected {
+export class CountryDetailsComponent {
     @Input() public country: string;
     @Input() public index: string;
     public selected: boolean = false;
     public countryInfo: any = null;
     constructor(private airportsService: AirportsService) {
     }
-    public rtOnSelected(): void {
+    public onSelected(): void {
         this.selected = true;
         this.countryInfo = this.airportsService.getCountryInfo(this.country);
     }
-    public rtOnDeselected(): void {
+    public onDeselected(): void {
         this.selected = false;
         this.countryInfo = null;
     }
