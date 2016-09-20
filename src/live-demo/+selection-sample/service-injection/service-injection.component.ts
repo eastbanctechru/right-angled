@@ -3,10 +3,10 @@ import { Component } from '@angular/core';
 import { AirportsService } from '../../shared';
 
 @Component({
-    selector: 'rt-demo-basic-usage',
-    templateUrl: 'basic-usage.component.html'
+    selector: 'rt-demo-service-injection',
+    templateUrl: 'service-injection.component.html'
 })
-export class BasicUsageComponent {
+export class ServiceInjectionComponent {
     public countries: any;
     constructor(public airportsService: AirportsService) {
         this.countries = this.airportsService.getSomeCountries()

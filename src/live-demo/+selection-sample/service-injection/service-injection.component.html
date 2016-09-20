@@ -1,0 +1,10 @@
+<div class="row" [rtSelectionAreaFor]="countries | async">
+    <div class="col-md-12 toolbar">
+        <rt-demo-nested-button></rt-demo-nested-button>
+    </div>
+    <div class="col-md-12" *ngFor="let country of countries | async, let index=index">
+        <div class="item" [class.selected]="country.selected" [rtSelectByIndex]="index">
+            {{country.name}}
+        </div>
+    </div>
+</div>

@@ -85,14 +85,14 @@ export class AirportsService {
             .map(airports => _.chain(airports).map((item: Airport) => (item.region)).uniq().value())
             .share();
     }
-    public get5Countries(delay: number = 0): Observable<Array<string>> {
+    public getSomeCountries(countriesCount: number = 5, delay: number = 0): Observable<Array<string>> {
         return this.getAirports(delay)
             .map(airports =>
                 _.chain(airports)
                     .map((item: Airport) => (item.countryName))
                     .filter(c => !!c)
                     .uniq()
-                    .take(5)
+                    .take(countriesCount)
                     .value())
             .share();
     }

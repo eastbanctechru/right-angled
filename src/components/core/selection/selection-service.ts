@@ -1,7 +1,6 @@
 import { DefaultSelectionService, SelectionTuple } from 'e2e4';
 
 import { SelectionEventsEmitter } from './selection-events-emitter';
-import { OnDeselected, OnSelected, OnSelectionChanged } from './selection-hooks';
 
 export class RtSelectionService extends DefaultSelectionService {
     private eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();
@@ -15,16 +14,6 @@ export class RtSelectionService extends DefaultSelectionService {
             }
             if (this.areaEventsEmitter) {
                 this.emitEvents(this.areaEventsEmitter, selected, tuple);
-            }
-
-            if ((<OnSelectionChanged>tuple.item).rtOnSelectionChanged !== undefined) {
-                (<OnSelectionChanged>tuple.item).rtOnSelectionChanged(selected);
-            }
-            if (selected === true && (<OnSelected>tuple.item).rtOnSelected !== undefined) {
-                (<OnSelected>tuple.item).rtOnSelected();
-            }
-            if (selected === false && (<OnDeselected>tuple.item).rtOnDeselected !== undefined) {
-                (<OnDeselected>tuple.item).rtOnDeselected();
             }
         }
     }

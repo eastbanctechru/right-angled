@@ -17,7 +17,7 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/alertify/themes/alertify.core.css",
-        "../node_modules/alertify/themes/alertify.default.css",
+        "../node_modules/alertify/themes/alertify.bootstrap.css",
         "live-demo/styles.scss"
       ],
       "scripts": [

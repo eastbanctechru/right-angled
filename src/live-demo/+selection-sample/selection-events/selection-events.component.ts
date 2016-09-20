@@ -10,7 +10,7 @@ import { RtSelectionEvent } from 'right-angled';
 export class SelectionEventsComponent {
     public countries: any;
     constructor(public airportsService: AirportsService) {
-        this.countries = this.airportsService.get5Countries();
+        this.countries = this.airportsService.getSomeCountries();
     }
     public onItemSelected(evt: RtSelectionEvent): void {
         alertify.log(`${evt.item} - selection handled by area`);

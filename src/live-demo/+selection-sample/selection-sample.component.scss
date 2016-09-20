@@ -31,3 +31,19 @@
     width: 28px;
     height: 28px;
 }
+
+:host /deep/ .btn-primary {
+    background-color: $color-light-blue;
+    border-color: $color-light-blue;
+    @include border-radius(0);
+    &:hover,
+    &:focus {
+        background-color: $color-btn-primary-focus;
+        border-color: $color-btn-primary-focus;
+    }
+    &:active {
+        background-color: $color-btn-primary-active;
+        border-color: $color-btn-primary-active;
+        @include box-shadow(none);
+    }
+}

@@ -9,7 +9,7 @@ import { AirportsService } from '../../shared';
 export class SelectedFlagComponent {
     public countries: any;
     constructor(public airportsService: AirportsService) {
-        this.countries = this.airportsService.get5Countries()
+        this.countries = this.airportsService.getSomeCountries()
             .map(this.convertToSelectable)
             .share();
     }

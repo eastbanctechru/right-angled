@@ -14,7 +14,7 @@ export class CustomTrackByComponent {
     public reload(): void {
         this.countries = [];
         this.airportsService
-            .get5Countries(700)
+            .getSomeCountries(5, 700)
             .subscribe(countries => this.countries = countries.map(country => ({ name: country, selected: false })));
     }
     public trackByName(index: number, country: any): string {

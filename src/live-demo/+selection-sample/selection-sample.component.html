@@ -11,8 +11,7 @@
                 <ul>
                     <li><a href="selection#handle-selection-selected">Флаг "selected"</a></li>
                     <li><a href="selection#handle-selection-events">События</a></li>
-                    <li><a href="selection#handle-selection-hooks">Хук-методы</a></li>
-                    <li><a href="selection#selection-service">Работа с <code>SelectionService</code></a></li>
+                    <li><a href="selection#selection-service">Работа с <code>RtSelectionService</code></a></li>
                 </ul>
             </li>
             <li><a href="selection#additional-directives">Дополнительные директивы</a>
@@ -50,7 +49,7 @@
                 В качестве обязательного параметра директива принимает коллекцию элементов, выбор из которой предстоит осуществлять
             </p>
             <p>
-                В примере кода ниже обратите внимание на то, что Observable, возвращаемый методом <code>get5Countries</code>,
+                В примере кода ниже обратите внимание на то, что Observable, возвращаемый методом <code>getSomeCountries</code>,
                 использует метод <code>share</code>, чтобы директива <code>ngFor</code> и <code>rtSelectionAreaFor</code>                были привязаны к одной и той же подписке.
             </p>
             <p>
@@ -171,48 +170,48 @@
                     </rt-demo-code-tab>
                 </rt-demo-tab-section>
             </section>
-            <section id="handle-selection-hooks">
-                <h4>Хук-методы</h4>
-
-                <p>
-                    Этот подход схож с lifecycle hooks из состава непосредственно Angular.
-                </p>
-                <p>
-                    От предыдущего подхода он отличается, прежде всего, тем, что методы-хуки необходимо декларировать на элементах, а не на родительском
-                    компоненте.
-                </p>
-                <p>
-                    Если в вашем элементе объявлены методы
-                    <code>rtOnSelected</code>, <code>rtOnDeselected</code>, <code>rtOnSelectionChanged</code>, то они будут
-                    вызваны автоматически при смене состояния selection. </p>
-                <p>
-                    Для поддержки code completion вы можете использовать интерфейсы
-                    <code>OnDeselected</code>, <code>OnSelected</code>, <code>OnSelectionChanged</code> как в примере ниже.
-                </p>
-                <p>
-                    Ниже вы можете увидеть не самый удачный, но достаточно простой пример, в котором логируются действия по выбору элементов.
-                </p>
-                <rt-demo-tab-section>
-                    <rt-demo-sample-tab tabTitle="hook methods">
-                        <rt-demo-hook-methods></rt-demo-hook-methods>
-                    </rt-demo-sample-tab>
-                    <rt-demo-code-tab url="live-demo/%2Bselection-sample/hook-methods/hook-methods.component.ts">
-                    </rt-demo-code-tab>
-                    <rt-demo-code-tab url="live-demo/%2Bselection-sample/hook-methods/hook-methods.component.html">
-                    </rt-demo-code-tab>
-                    <rt-demo-code-tab url="live-demo/%2Bselection-sample/hook-methods/country-with-hooks.ts">
-                    </rt-demo-code-tab>
-                    <rt-demo-code-tab url="components/core/selection/selection-hooks.ts">
-                    </rt-demo-code-tab>
-                </rt-demo-tab-section>
-            </section>
 
             <section id="selection-service">
-                <h4>Работа с <code>SelectionService</code></h4>
+                <h4>Работа с <code>RtSelectionService</code></h4>
                 <p>
                     Данный подход наиболее гибок, поскольку дает доступ ко множеству методов работы с selection. Перечень доступных методов для
-                    работы вы можете посмотреть в документации библиотеки <a target="_blank" href="http://fshchudlo.github.io/e2e4/interfaces/selectionservice.html">e2e4</a>                    (это библиотека нашего авторства, реализующая функционал работы со списками и selection в framework agnostic стиле)
+                    работы вы можете посмотреть в документации библиотеки <a target="_blank" href="http://fshchudlo.github.io/e2e4/interfaces/selectionservice.html">e2e4</a>                    (это библиотека нашего авторства, реализующая функционал работы со списками и selection в framework agnostic
+                    стиле)
                 </p>
+                <p>
+                    Данный сервис указан в коллекции <a target="_blank" href="https://angular.io/docs/ts/latest/api/core/index/Component-decorator.html">providers</a>                    для <code>rtSelectionAreaFor</code>. Поэтому, способ доступа к <code>SelectionService</code> в вашем
+                    компоненте зависит от того, где в иерархии компонентов ваш компонент располагается. Если он расположен
+                    внутри компонента <code>rtSelectionAreaFor</code>, то вам достаточно указать данный сервис в качестве
+                    параметра конструктора вашего компонента.
+                </p>
+                <rt-demo-tab-section>
+                    <rt-demo-sample-tab tabTitle="RtSelectionService and DI">
+                        <rt-demo-service-injection></rt-demo-service-injection>
+                    </rt-demo-sample-tab>
+                    <rt-demo-code-tab url="live-demo/%2Bselection-sample/service-injection/service-injection.component.ts">
+                    </rt-demo-code-tab>
+                    <rt-demo-code-tab url="live-demo/%2Bselection-sample/service-injection/service-injection.component.html">
+                    </rt-demo-code-tab>
+                    <rt-demo-code-tab url="live-demo/%2Bselection-sample/service-injection/nested-button.component.ts">
+                    </rt-demo-code-tab>
+                </rt-demo-tab-section>
+
+                <p>
+                    Если компонент, которому необходимо получить доступ, является родительским для <code>rtSelectionAreaFor</code>,
+                    то вы можете получить дочерний <code>rtSelectionAreaFor</code> при помощи декоратора <a target="_blank"
+                        href="https://angular.io/docs/ts/latest/api/core/index/ViewChild-decorator.html">ViewChild</a> и использовать
+                    его public свойство selectionService для работы с selection.
+                </p>
+                <rt-demo-tab-section>
+                    <rt-demo-sample-tab tabTitle="RtSelectionService and ViewChild">
+                        <rt-demo-service-view-child></rt-demo-service-view-child>
+                    </rt-demo-sample-tab>
+                    <rt-demo-code-tab url="live-demo/%2Bselection-sample/service-view-child/service-view-child.component.ts">
+                    </rt-demo-code-tab>
+                    <rt-demo-code-tab url="live-demo/%2Bselection-sample/service-view-child/service-view-child.component.html">
+                    </rt-demo-code-tab>
+                </rt-demo-tab-section>
+
             </section>
         </section>
 

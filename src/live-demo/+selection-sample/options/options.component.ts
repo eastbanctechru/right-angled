@@ -17,7 +17,7 @@ export class OptionsComponent {
     }
     public reload(): void {
         this.countries = [];
-        this.airportsService.get5Countries(700)
+        this.airportsService.getSomeCountries(6, 700)
             .subscribe(countries => this.countries = countries.map(country => ({ name: country, selected: false })));
     }
 }
