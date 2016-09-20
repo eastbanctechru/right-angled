@@ -1,7 +1,6 @@
 import { EventEmitter, Injectable, Optional } from '@angular/core';
 import { FiltersService, Pager, ProgressState, SortingsService, destroyAll } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 
 import { AsyncSubscriber } from './async-subscriber';
 import { RtPersistenceService } from './persistence/persistence-service';
@@ -18,8 +17,6 @@ export class RtListService {
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     public pager: Pager;
     public items: Array<any> = new Array<any>();
-    public itemsStream: Subject<Array<any>> = new Subject<Array<any>>();
-
     /**
      * True if object was already destroyed via {@link destroy} call.  
      */
@@ -48,10 +45,9 @@ export class RtListService {
     }
     private loadSuccessCallback = (result: Object): Object => {
         this.items = this.items.concat(result[this.itemsPropertyName]);
-        this.itemsStream.next(this.items);
 
         this.pager.processResponse(result);
-        this.state = ProgressState.Done;
+        this.state = this.pager.loadedCount === 0 ? ProgressState.NoData : ProgressState.Done;
         // In case when filter changed from last request and theres no data now
         if (this.pager.totalCount === 0) {
             this.clearData();
@@ -65,7 +61,6 @@ export class RtListService {
         this.pager.reset();
         destroyAll(this.items);
         this.items = [];
-        this.itemsStream.next(this.items);
     }
     constructor(
         private asyncSubscriber: AsyncSubscriber,
@@ -89,14 +84,12 @@ export class RtListService {
         Object.assign(restoredState, ...this.stateServices.map(service => service.getPersistedState() || {}));
         this.filtersService.applyParams(restoredState);
         this.inited = true;
-        this.itemsStream.publish();
     }
     public destroy(): void {
         this.asyncSubscriber.destroy();
         this.filtersService.destroy();
         this.sortingsService.destroy();
         this.clearData();
-        this.itemsStream.complete();
         this.destroyed = true;
     }
 
@@ -108,7 +101,6 @@ export class RtListService {
         if (this.pager.appendedOnLoad === false) {
             destroyAll(this.items);
             this.items = [];
-            this.itemsStream.next(this.items);
         }
         this.addToCancellationSequence(subscribable);
         this.asyncSubscriber.attach(subscribable, this.loadSuccessCallback, this.loadFailCallback);
