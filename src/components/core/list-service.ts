@@ -93,7 +93,7 @@ export class RtListService {
         this.destroyed = true;
     }
 
-    public loadData(): Promise<any> | Observable<any> | EventEmitter<any> {
+    public loadData(): void {
         this.pager.totalCount = 0;
         this.state = ProgressState.Progress;
         let requestState = this.filtersService.getRequestState();
@@ -102,7 +102,6 @@ export class RtListService {
             destroyAll(this.items);
             this.items = [];
         }
-        this.addToCancellationSequence(subscribable);
         this.asyncSubscriber.attach(subscribable, this.loadSuccessCallback, this.loadFailCallback);
         this.stateServices.forEach(service => service.persistState(this.filtersService));
         return subscribable;
@@ -113,8 +112,6 @@ export class RtListService {
             this.loadData();
         }
     }
-    private addToCancellationSequence(promise: Promise<any> | Observable<any> | EventEmitter<any>): void { // do nothing for now
-    };
     public cancelRequests(): void {
         this.asyncSubscriber.detach();
         this.state = ProgressState.Cancelled;

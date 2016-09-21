@@ -1,7 +1,7 @@
-import { RtListService } from '../list-service';
-
 import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers, SkipSelf } from '@angular/core';
 import { BufferedPager } from 'e2e4';
+
+import { RtListService } from '../list-service';
 
 @Directive({
     selector: 'input[rtRowCount]'
