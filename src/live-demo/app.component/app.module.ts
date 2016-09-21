@@ -6,8 +6,8 @@ import { RTModule } from 'right-angled';
 import { RtLocalStoragePersistenceService, RtQueryStringStateService, RtSessionStoragePersistenceService, registerPersistenceService } from 'right-angled';
 
 import { CombinedSampleModule } from '../+combined-sample/combined-sample.module';
-import { MiscDirectivesSampleModule } from '../+misc-directives-sample/misc-directives-sample.module';
-import { SelectionSampleModule } from '../+selection-sample/selection-sample.module';
+import { MiscDirectivesModule } from '../+misc-directives/misc-directives.module';
+import { SelectionModule } from '../+selection/selection.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { DemoAppComponent }  from './app.component';
@@ -20,6 +20,6 @@ registerPersistenceService({multi: true, useClass: RtLocalStoragePersistenceServ
 @NgModule({
   bootstrap: [DemoAppComponent],
   declarations: [DemoAppComponent],
-  imports: [BrowserModule, HttpModule, FormsModule, RTModule, routing, CombinedSampleModule, MiscDirectivesSampleModule, SelectionSampleModule, SharedModule]
+  imports: [BrowserModule, HttpModule, FormsModule, RTModule, routing, CombinedSampleModule, MiscDirectivesModule, SelectionModule, SharedModule]
 })
 export class AppModule { }

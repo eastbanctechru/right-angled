@@ -11,7 +11,7 @@ import { SelectedFlagComponent } from './selected-flag/selected-flag.component';
 import { SelectionCheckboxComponent } from './selection-checkbox/selection-checkbox.component';
 import { CountryDetailsComponent } from './selection-events/country-details/country-details.component';
 import { SelectionEventsComponent } from './selection-events/selection-events.component';
-import { SelectionSampleComponent } from './selection-sample.component';
+import { SelectionComponent } from './selection.component';
 import { NestedButtonComponent } from './service-injection/nested-button.component';
 import { ServiceInjectionComponent } from './service-injection/service-injection.component';
 import { ServiceViewChildComponent } from './service-view-child/service-view-child.component';
@@ -26,7 +26,7 @@ import { ServiceViewChildComponent } from './service-view-child/service-view-chi
         SelectedFlagComponent,
         SelectionCheckboxComponent,
         SelectionEventsComponent,
-        SelectionSampleComponent,
+        SelectionComponent,
         ServiceViewChildComponent,
         ServiceInjectionComponent,
         NestedButtonComponent],
@@ -38,11 +38,11 @@ import { ServiceViewChildComponent } from './service-view-child/service-view-chi
         SelectedFlagComponent,
         SelectionCheckboxComponent,
         SelectionEventsComponent,
-        SelectionSampleComponent,
+        SelectionComponent,
         ServiceViewChildComponent,
         ServiceInjectionComponent,
         NestedButtonComponent],
     imports: [CommonModule, RouterModule, SharedModule]
 })
-export class SelectionSampleModule {
+export class SelectionModule {
 }
