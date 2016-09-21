@@ -93,7 +93,7 @@ export abstract class DataService {
                         let val = encodeURIComponent(value);
                         result.push(`${key}=${val}`);
                     } else {
-                        if (value instanceof Array) {
+                        if (Array.isArray(value)) {
                             let array: string[] = value.map((e, idx) => this.objectToQuerySearch(e, !prefix ? `${prop}[${idx}]` : `${prefix}[${prop}][${idx}]`));
                             result = result.concat(array);
                         } else {
