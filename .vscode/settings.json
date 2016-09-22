@@ -1,0 +1,21 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "typescript.tsdk": "node_modules/typescript/lib/",
+    "files.exclude": {
+        "**/esm": true,
+        "**/*.d.ts": {
+            "when": "$(basename).ts"
+        },
+        "**/*.js.map": {
+            "when": "$(basename)"
+        },
+        "**/*.js": {
+            "when": "$(basename).ts"
+        }
+    },
+    "search.exclude": {
+        "**/docs": true,
+        "**/esm": true,
+        "**/coverage": true
+    }
+}

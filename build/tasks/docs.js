@@ -13,7 +13,7 @@ gulp.task('build-docs', function () {
     return gulp
         .src(paths.source)
         .pipe(typedoc({
-            module: "umd",
+            module: "es6",
             target: "es6",
             includeDeclarations: false,
             experimentalDecorators: true,

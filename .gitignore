@@ -1,6 +1,5 @@
 node_modules
 coverage
-.vscode
 .publish
 index.js
 index.d.ts
