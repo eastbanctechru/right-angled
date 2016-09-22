@@ -1,37 +1,23 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-/dist
-/tmp
-src/components/**/*.js
-src/components/**/*.js.map
-src/components/**/*.d.ts
-
-# dependencies
-/**/node_modules
-/bower_components
-
-# IDEs and editors
-/.vscode
-/.idea
-.project
-.classpath
-*.launch
-.settings/
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
+node_modules
+coverage
+.vscode
+.publish
+index.js
+index.d.ts
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+esm
 npm-debug.log
-testem.log
-/typings
 
-# e2e
-/e2e/*.js
-/e2e/*.map
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio
+*.iml
 
-#System Files
-.DS_Store
-Thumbs.db
+## Directory-based project format:
+.idea/
+
+## File-based project format:
+*.ipr
+*.iws
+

@@ -1,5 +1,0 @@
-<div class="row" [rtSelectionAreaFor]="countries | async" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
-    <div class="col-md-12" *ngFor="let country of countries | async, let index=index">
-        <rt-demo-country-details [country]="country" [index]="index"></rt-demo-country-details>
-    </div>
-</div>

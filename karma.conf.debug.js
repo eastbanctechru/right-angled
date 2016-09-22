@@ -2,8 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 module.exports = function (config) {
     config.set({
-        browsers: ['PhantomJS'],
-        singleRun: true,
+        browsers: ['Chrome'],
         frameworks: ['mocha'],
         files: [
             'node_modules/es6-shim/es6-shim.js',
@@ -11,15 +10,7 @@ module.exports = function (config) {
             'tests/**/*.ts'
         ],
         preprocessors: {
-            'tests/**/*.ts': ['webpack', 'sourcemap'],
-            'src/**/*.js': ['coverage']
-        },
-        reporters: ['spec', 'coverage'],
-        coverageReporter: {
-            dir: './',
-            reporters: [
-                { type: 'lcov', subdir: 'coverage' }
-            ]
+            'tests/**/*.ts': ['webpack', 'sourcemap']
         },
         webpack: {
             devtool: 'inline-source-map',
@@ -36,15 +27,9 @@ module.exports = function (config) {
                         include: [
                             path.resolve(__dirname, 'src'),
                             path.resolve(__dirname, 'tests')
-                        ],
-                        exclude: [path.resolve(__dirname, 'node_modules')]
+                        ]
                     }
-                ],
-                postLoaders: [{
-                    test: /\.ts$/,
-                    include: [path.resolve(__dirname, 'src')],
-                    loader: 'istanbul-instrumenter'
-                }]
+                ]
             },
             resolve: {
                 modulesDirectories: [

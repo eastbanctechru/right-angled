@@ -1,0 +1,17 @@
+.vscode
+.publish
+publish
+build
+docs
+node_modules
+coverage
+tests
+**/*[!.][!d].ts
+
+.cleandir.sh
+.travis.yml
+gulpfile.js
+karma.conf.js
+tsconfig.json
+tslint.json
+wallaby.js
