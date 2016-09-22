@@ -37,6 +37,7 @@ gulp.task('release', function (callback) {
         'git-commit-changes',
         'git-push-changes',
         'git-create-new-tag',
+        'conventional-release',
         function (error) {
             if (error) {
                 console.log(error.message);
