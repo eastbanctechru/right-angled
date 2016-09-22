@@ -1,51 +1,36 @@
-import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers, SkipSelf } from '@angular/core';
+import { Directive, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
 import { BufferedPager } from 'e2e4';
 
 import { RtListService } from '../list-service';
+import { PageSizeControlBase } from './page-size-control-base';
 
 @Directive({
     selector: 'input[rtRowCount]'
 })
-export class RowCountDirective implements DoCheck {
-    private pagerDiffer: KeyValueDiffer;
+export class RowCountDirective extends PageSizeControlBase {
     @HostBinding('value')
-    private innerRowCount: number;
-    private checkRowCountChanged = (item: any): void => {
-        if (item.key === 'takeRowCountInternal' && item.currentValue !== this.innerRowCount) {
-            this.innerRowCount = item.currentValue;
-        }
+    public innerValue: number;
+    public get pageSizePropertyName(): string {
+        return 'takeRowCountInternal';
     }
-    constructor( @SkipSelf() private listService: RtListService, @SkipSelf() private pager: BufferedPager, differs: KeyValueDiffers) {
+    constructor(listService: RtListService, pager: BufferedPager, differs: KeyValueDiffers) {
+        super(listService, pager, differs);
         if (pager === null) {
             throw new Error('[rtRowCount] directive can be used only with buffered list provider.');
         }
-        this.innerRowCount = pager.takeRowCount;
-        this.pagerDiffer = differs.find([]).create(null);
     }
     @HostListener('keyup.enter')
     public onEnter(): void {
-        this.innerRowCount = this.pager.takeRowCount;
-        this.listService.loadData();
+        super.onComplete();
     }
 
     @HostListener('input', ['$event.target.value'])
-    public setRowCount(value: any): void {
-        this.innerRowCount = value;
-        if (value === null || value === undefined || value === '') {
-            return;
-        }
-        this.pager.takeRowCount = value;
-        setTimeout(() => this.innerRowCount = this.pager.takeRowCount);
+    public inputHandler(value: any): void {
+        super.setPageSize(value);
     }
 
     @HostListener('blur')
-    public restoreInputValue(value: any): void {
-        this.innerRowCount = this.pager.takeRowCount;
-    }
-    public ngDoCheck(): void {
-        let pagerDiff = this.pagerDiffer.diff(this.pager);
-        if (pagerDiff) {
-            pagerDiff.forEachChangedItem(this.checkRowCountChanged);
-        }
+    public blurHandler(): void {
+        super.restoreInputValue();
     }
 }

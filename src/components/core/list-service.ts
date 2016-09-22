@@ -93,7 +93,7 @@ export class RtListService {
         this.destroyed = true;
     }
 
-    public loadData(): void {
+    public loadData(): Promise<any> | Observable<any> | EventEmitter<any> {
         this.pager.totalCount = 0;
         this.state = ProgressState.Progress;
         let requestState = this.filtersService.getRequestState();

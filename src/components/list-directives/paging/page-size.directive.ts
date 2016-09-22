@@ -1,51 +1,36 @@
-import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers } from '@angular/core';
+import { Directive, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
 import { RtListService } from '../list-service';
+import { PageSizeControlBase } from './page-size-control-base';
 
 @Directive({
     selector: 'input[rtPageSize]'
 })
-export class PageSizeDirective implements DoCheck {
-    private pagerDiffer: KeyValueDiffer;
+export class PageSizeDirective extends PageSizeControlBase {
     @HostBinding('value')
-    public innerPageSize: number;
-    private checkPageSizeChanged = (item: any): void => {
-        if (item.key === 'pageSizeInternal' && item.currentValue !== this.innerPageSize) {
-            this.innerPageSize = item.currentValue;
-        }
+    public innerValue: number;
+    public get pageSizePropertyName(): string {
+        return 'pageSizeInternal';
     }
-    constructor(private listService: RtListService, private pager: PagedPager, differs: KeyValueDiffers) {
+    constructor(listService: RtListService, pager: PagedPager, differs: KeyValueDiffers) {
+        super(listService, pager, differs);
         if (pager === null) {
             throw new Error('[rtPageSize] directive can be used only with paged list provider.');
         }
-        this.innerPageSize = this.pager.pageSize;
-        this.pagerDiffer = differs.find([]).create(null);
     }
     @HostListener('keyup.enter')
     public onEnter(): void {
-        this.innerPageSize = this.pager.pageSize;
-        this.listService.loadData();
+        super.onComplete();
     }
 
     @HostListener('input', ['$event.target.value'])
-    public setPageSize(value: any): void {
-        this.innerPageSize = value;
-        if (value === null || value === undefined || value === '') {
-            return;
-        }
-        this.pager.pageSize = value;
-        setTimeout(() => this.innerPageSize = this.pager.pageSize);
+    public inputHandler(value: any): void {
+        super.setPageSize(value);
     }
 
     @HostListener('blur')
-    public restoreInputValue(value: any): void {
-        this.innerPageSize = this.pager.pageSize;
-    }
-    public ngDoCheck(): void {
-        let pagerDiff = this.pagerDiffer.diff(this.pager);
-        if (pagerDiff) {
-            pagerDiff.forEachChangedItem(this.checkPageSizeChanged);
-        }
+    public blurHandler(): void {
+        super.restoreInputValue();
     }
 }
