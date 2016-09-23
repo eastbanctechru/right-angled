@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostBinding, HostListener, Input, KeyValueDiffers, Renderer } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
 import { RtListService } from '../list-service';
@@ -8,10 +8,8 @@ import { GoToControlBase } from './go-to-control-base';
     selector: '[rtGoToFirstPage]'
 })
 export class GoToFirstPageDirective extends GoToControlBase {
-    @Input() public disabledCls: string;
-
-    constructor(private listService: RtListService, pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef, renderer: Renderer) {
-        super(renderer, pager, differs, elementRef);
+    constructor(private listService: RtListService, pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
+        super(pager, differs, elementRef);
     }
     @HostListener('click')
     public goToFirstPage(): void {

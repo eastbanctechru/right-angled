@@ -1,12 +1,11 @@
-import { DoCheck, ElementRef, KeyValueDiffer, KeyValueDiffers, OnInit, Renderer } from '@angular/core';
+import { DoCheck, ElementRef, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
 export abstract class GoToControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
     protected innerDisabled: boolean = false;
     private nativeEl: any;
-    public disabledCls: string;
-    constructor(private renderer: Renderer, protected pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
+    constructor(protected pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
         if (pager === null) {
             throw new Error('[rtGoTo...] directives can be used only with paged list.');
         }
@@ -33,11 +32,6 @@ export abstract class GoToControlBase implements DoCheck, OnInit {
     }
     protected setDisabledState(): void {
         this.innerDisabled = this.isDisabled();
-        if (this.innerDisabled) {
-            this.renderer.setElementClass(this.nativeEl, this.disabledCls, true);
-        } else {
-            this.renderer.setElementClass(this.nativeEl, this.disabledCls, false);
-        }
     }
     public abstract isDisabled(): boolean;
 }
