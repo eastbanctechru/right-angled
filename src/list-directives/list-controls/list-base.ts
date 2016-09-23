@@ -8,6 +8,9 @@ export abstract class ListBase implements OnDestroy, AfterViewInit {
         return this.listService.items;
     }
     public loadOnInit: boolean = true;
+    public reloadData(): void {
+        this.listService.reloadData();
+    }
     constructor(public listService: RtListService, pager: Pager) {
         this.listService.pager = pager;
     }
