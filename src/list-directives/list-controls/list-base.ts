@@ -11,7 +11,7 @@ export abstract class ListBase implements OnDestroy, AfterViewInit {
     public reloadData(): void {
         this.listService.reloadData();
     }
-    constructor(public listService: RtListService, pager: Pager) {
+    constructor(public listService: RtListService, public pager: Pager) {
         this.listService.pager = pager;
     }
     public ngAfterViewInit(): void {
