@@ -18,7 +18,6 @@ class RtFiltersService extends FiltersService { }
 
 import { AsyncSubscriber } from './core/async-subscriber';
 import { RtListService } from './core/list-service';
-
 import { RtPersistenceService } from './core/persistence-service';
 
 export var PAGED_LIST_PROVIDERS: any[] = [

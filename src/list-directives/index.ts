@@ -10,11 +10,10 @@ export var LIST_DIRECTIVES: any[] = [
     SortDirective
 ];
 
-export { ListComponent}  from './list-controls/list.component';
-export { BufferedListComponent}  from './list-controls/buffered-list.component';
-export { PagedListComponent}  from './list-controls/paged-list.component';
+export { ListComponent } from './list-controls/list.component';
+export { BufferedListComponent } from './list-controls/buffered-list.component';
+export { PagedListComponent } from './list-controls/paged-list.component';
 
-import { DisplayPagerComponent } from './list-state/display-pager.component';
 import { ListStateDoneComponent } from './list-state/list-state-done.component';
 import { ListStateFailedComponent } from './list-state/list-state-failed.component';
 import { ListStateInProgressComponent } from './list-state/list-state-in-progress.component';
@@ -28,18 +27,18 @@ export var LIST_STATE_DIRECTIVES: any[] = [
     ListStateDoneComponent,
     ListStateFailedComponent,
     ListStateInitialComponent,
-    ListStateInProgressComponent,
-    DisplayPagerComponent
+    ListStateInProgressComponent
 ];
 
+import { DisplayPagerComponent } from './paging/display-pager.component';
 import { LoadMoreDirective } from './paging/load-more.directive';
 import { RowCountDirective } from './paging/row-count.directive';
 
 export var BUFFERED_FOOTER_DIRECTIVES: any[] = [
+    DisplayPagerComponent,
     LoadMoreDirective,
     RowCountDirective
 ];
-
 import { GoToFirstPageDirective } from './paging/go-to-first-page.directive';
 import { GoToLastPageDirective } from './paging/go-to-last-page.directive';
 import { GoToNextPageDirective } from './paging/go-to-next-page.directive';
@@ -48,10 +47,12 @@ import { PageNumberDirective } from './paging/page-number.directive';
 import { PageSizeDirective } from './paging/page-size.directive';
 
 export var PAGED_FOOTER_DIRECTIVES: any[] = [
+    DisplayPagerComponent,
     GoToFirstPageDirective,
     GoToLastPageDirective,
     GoToNextPageDirective,
     GoToPrevPageDirective,
     PageSizeDirective,
-    PageNumberDirective
+    PageNumberDirective,
+    DisplayPagerComponent
 ];
