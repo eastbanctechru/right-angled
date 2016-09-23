@@ -52,11 +52,11 @@ export class RTSelectionModule { }
     exports: [LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, PAGED_FOOTER_DIRECTIVES, BUFFERED_FOOTER_DIRECTIVES, PagedListComponent, BufferedListComponent, ListComponent],
     imports: [CommonModule]
 })
-export class RTListModule { }
+export class RTListsModule { }
 
 @NgModule({
-    exports: [RTListModule, RTSelectionModule, RTMiscModule, RTFiltersModule],
-    imports: [RTListModule, RTSelectionModule, RTMiscModule, RTFiltersModule]
+    exports: [RTListsModule, RTSelectionModule, RTMiscModule, RTFiltersModule],
+    imports: [RTListsModule, RTSelectionModule, RTMiscModule, RTFiltersModule]
 })
 export class RTModule { }
 
