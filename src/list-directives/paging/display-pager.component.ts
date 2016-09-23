@@ -10,7 +10,7 @@ import { RtListService } from '../list-service';
 export class DisplayPagerComponent implements DoCheck, OnInit {
     protected isVisible: boolean;
     private pagerDiffer: KeyValueDiffer;
-    private pager: PagedPager | BufferedPager | RegularPager;
+    public pager: PagedPager | BufferedPager | RegularPager;
     constructor( @SkipSelf() pagedPager: PagedPager, @SkipSelf() private bufferedPager: BufferedPager, @SkipSelf() regularPager: RegularPager, @SkipSelf() protected listService: RtListService, differs: KeyValueDiffers) {
         this.pagerDiffer = differs.find([]).create(null);
         this.pager = pagedPager || bufferedPager || regularPager;
