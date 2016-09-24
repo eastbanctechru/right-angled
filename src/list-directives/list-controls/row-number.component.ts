@@ -1,5 +1,7 @@
-import {  ChangeDetectionStrategy, Component, Input, OnChanges, SkipSelf } from '@angular/core';
-import { BufferedPager, PagedPager, RegularPager } from 'e2e4';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, SkipSelf } from '@angular/core';
+import { PagedPager } from 'e2e4';
+
+import { RtListService } from '../list-service';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -9,13 +11,13 @@ import { BufferedPager, PagedPager, RegularPager } from 'e2e4';
 export class RowNumberComponent implements OnChanges {
     @Input() public index: number;
     private rowNumber: number;
-    constructor( @SkipSelf() private pagedPager: PagedPager, @SkipSelf() private bufferedPager: BufferedPager, @SkipSelf() private regularPager: RegularPager) {
+    constructor( @SkipSelf() private listService: RtListService) {
     }
     public ngOnChanges(): void {
-        if (this.regularPager !== null || this.bufferedPager !== null) {
+        if (this.listService.pager !== null && (<PagedPager>this.listService.pager).displayFrom) {
+            this.rowNumber = this.index + (<PagedPager>this.listService.pager).displayFrom;
+        } else {
             this.rowNumber = this.index + 1;
-        } else if (this.pagedPager !== null) {
-            this.rowNumber = this.index + this.pagedPager.displayFrom;
         }
     }
 }
