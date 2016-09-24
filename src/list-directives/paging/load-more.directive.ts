@@ -14,7 +14,9 @@ export class LoadMoreDirective {
     }
     @HostListener('click', ['$event'])
     public loadMore(evt: MouseEvent): void {
-        this.listService.loadData();
+        if (!this.disabled) {
+            this.listService.loadData();
+        }
         evt.preventDefault();
     }
     @HostBinding('attr.disabled')

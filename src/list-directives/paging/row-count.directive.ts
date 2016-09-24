@@ -25,7 +25,9 @@ export class RowCountDirective extends PageSizeControlBase {
     }
     @HostListener('keyup.enter')
     public onEnter(): void {
-        super.onComplete();
+        if (!this.disabled) {
+            super.onComplete();
+        }
     }
 
     @HostListener('input', ['$event.target.value'])
