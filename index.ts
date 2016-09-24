@@ -15,12 +15,12 @@ export * from './src/core/index';
 import { BufferedListComponent, LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, ListComponent, PagedListComponent } from './src/list-directives/index';
 import { SELECTION_DIRECTIVES } from './src/selection-directives/index';
 
-export { BUFFERED_FOOTER_DIRECTIVES, PAGED_FOOTER_DIRECTIVES } from './src/list-directives/index';
-import { BUFFERED_FOOTER_DIRECTIVES, PAGED_FOOTER_DIRECTIVES } from './src/list-directives/index';
+export { BUFFERED_PAGER_DIRECTIVES, PAGED_PAGER_DIRECTIVES } from './src/list-directives/index';
+import { BUFFERED_PAGER_DIRECTIVES, PAGED_PAGER_DIRECTIVES } from './src/list-directives/index';
 
 export { LIST_DIRECTIVES, LIST_STATE_DIRECTIVES } from './src/list-directives/index';
-export var PAGED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat(PAGED_FOOTER_DIRECTIVES).concat([PagedListComponent]);
-export var BUFFERED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat(BUFFERED_FOOTER_DIRECTIVES).concat([BufferedListComponent]);
+export var PAGED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat(PAGED_PAGER_DIRECTIVES).concat([PagedListComponent]);
+export var BUFFERED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat(BUFFERED_PAGER_DIRECTIVES).concat([BufferedListComponent]);
 export var REGULAR_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat([ListComponent]);
 
 export { BufferedListComponent, ListComponent, PagedListComponent } from './src/list-directives/index'
@@ -48,8 +48,8 @@ export class RTFiltersModule { }
 export class RTSelectionModule { }
 
 @NgModule({
-    declarations: [LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, PAGED_FOOTER_DIRECTIVES, BUFFERED_FOOTER_DIRECTIVES, PagedListComponent, BufferedListComponent, ListComponent],
-    exports: [LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, PAGED_FOOTER_DIRECTIVES, BUFFERED_FOOTER_DIRECTIVES, PagedListComponent, BufferedListComponent, ListComponent],
+    declarations: [LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, PAGED_PAGER_DIRECTIVES, BUFFERED_PAGER_DIRECTIVES, PagedListComponent, BufferedListComponent, ListComponent],
+    exports: [LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, PAGED_PAGER_DIRECTIVES, BUFFERED_PAGER_DIRECTIVES, PagedListComponent, BufferedListComponent, ListComponent],
     imports: [CommonModule]
 })
 export class RTListsModule { }

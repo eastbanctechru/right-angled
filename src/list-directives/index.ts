@@ -30,12 +30,10 @@ export var LIST_STATE_DIRECTIVES: any[] = [
     ListStateInProgressComponent
 ];
 
-import { DisplayPagerComponent } from './paging/display-pager.component';
 import { LoadMoreDirective } from './paging/load-more.directive';
 import { RowCountDirective } from './paging/row-count.directive';
 
-export var BUFFERED_FOOTER_DIRECTIVES: any[] = [
-    DisplayPagerComponent,
+export var BUFFERED_PAGER_DIRECTIVES: any[] = [
     LoadMoreDirective,
     RowCountDirective
 ];
@@ -46,13 +44,11 @@ import { GoToPrevPageDirective } from './paging/go-to-prev-page.directive';
 import { PageNumberDirective } from './paging/page-number.directive';
 import { PageSizeDirective } from './paging/page-size.directive';
 
-export var PAGED_FOOTER_DIRECTIVES: any[] = [
-    DisplayPagerComponent,
+export var PAGED_PAGER_DIRECTIVES: any[] = [
     GoToFirstPageDirective,
     GoToLastPageDirective,
     GoToNextPageDirective,
     GoToPrevPageDirective,
     PageSizeDirective,
-    PageNumberDirective,
-    DisplayPagerComponent
+    PageNumberDirective
 ];

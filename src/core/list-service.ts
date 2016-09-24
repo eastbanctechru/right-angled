@@ -47,11 +47,12 @@ export class RtListService {
         this.items = this.items.concat(result[this.itemsPropertyName]);
 
         this.pager.processResponse(result);
-        this.state = this.pager.loadedCount === 0 ? ProgressState.NoData : ProgressState.Done;
-        // In case when filter changed from last request and theres no data now
+        // In case when filter changed from last request and there's no data now
         if (this.pager.totalCount === 0) {
             this.clearData();
+            this.pager.reset();
         }
+        this.state = this.pager.totalCount === 0 ? ProgressState.NoData : ProgressState.Done;
         return result;
     }
     private loadFailCallback = (): void => {
@@ -93,8 +94,10 @@ export class RtListService {
         this.destroyed = true;
     }
 
-    public loadData(): Promise<any> | Observable<any> | EventEmitter<any> {
-        this.pager.totalCount = 0;
+    public loadData(): void {
+        if (this.busy) {
+            return;
+        }
         this.state = ProgressState.Progress;
         let requestState = this.filtersService.getRequestState();
         const subscribable = this.fetchMethod(requestState);
@@ -104,13 +107,13 @@ export class RtListService {
         }
         this.asyncSubscriber.attach(subscribable, this.loadSuccessCallback, this.loadFailCallback);
         this.stateServices.forEach(service => service.persistState(this.filtersService));
-        return subscribable;
     }
     public reloadData(): void {
-        if (this.ready) {
-            this.clearData();
-            this.loadData();
+        if (this.busy) {
+            return;
         }
+        this.clearData();
+        this.loadData();
     }
     public cancelRequests(): void {
         this.asyncSubscriber.detach();
