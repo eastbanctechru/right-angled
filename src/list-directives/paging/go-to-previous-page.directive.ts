@@ -5,14 +5,14 @@ import { RtListService } from '../list-service';
 import { GoToControlBase } from './go-to-control-base';
 
 @Directive({
-    selector: '[rtGoToPrevPage]'
+    selector: '[rtGoToPreviousPage]'
 })
-export class GoToPrevPageDirective extends GoToControlBase {
+export class GoToPreviousPageDirective extends GoToControlBase {
     constructor(private listService: RtListService, pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
         super(pager, differs, elementRef);
     }
     @HostListener('click')
-    public goToPrevPage(): void {
+    public goToPreviousPage(): void {
         if (this.pager.tryMoveToPreviousPage()) {
             this.listService.loadData();
         }

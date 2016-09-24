@@ -42,7 +42,7 @@ export var BUFFERED_PAGER_DIRECTIVES: any[] = [
 import { GoToFirstPageDirective } from './paging/go-to-first-page.directive';
 import { GoToLastPageDirective } from './paging/go-to-last-page.directive';
 import { GoToNextPageDirective } from './paging/go-to-next-page.directive';
-import { GoToPrevPageDirective } from './paging/go-to-prev-page.directive';
+import { GoToPreviousPageDirective } from './paging/go-to-prev-page.directive';
 import { PageNumberDirective } from './paging/page-number.directive';
 import { PageSizeDirective } from './paging/page-size.directive';
 
@@ -50,7 +50,7 @@ export var PAGED_PAGER_DIRECTIVES: any[] = [
     GoToFirstPageDirective,
     GoToLastPageDirective,
     GoToNextPageDirective,
-    GoToPrevPageDirective,
+    GoToPreviousPageDirective,
     PageSizeDirective,
     PageNumberDirective
 ];
