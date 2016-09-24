@@ -1,9 +1,9 @@
-import { AfterViewInit, OnDestroy } from '@angular/core';
+import { AfterViewInit, OnDestroy, OnInit } from '@angular/core';
 import { Pager } from 'e2e4';
 
 import { RtListService } from '../list-service';
 
-export abstract class ListBase implements OnDestroy, AfterViewInit {
+export abstract class ListBase implements OnDestroy, OnInit, AfterViewInit {
     public get items(): Array<any> {
         return this.listService.items;
     }
@@ -14,8 +14,10 @@ export abstract class ListBase implements OnDestroy, AfterViewInit {
     constructor(public listService: RtListService, public pager: Pager) {
         this.listService.pager = pager;
     }
-    public ngAfterViewInit(): void {
+    public ngOnInit(): void {
         this.listService.init();
+    }
+    public ngAfterViewInit(): void {
         if (this.loadOnInit) {
             this.listService.loadData();
         }
