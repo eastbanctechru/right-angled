@@ -11,7 +11,6 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
-
     "diagnostics": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
@@ -23,5 +22,8 @@
     "pretty": true,
     "forceConsistentCasingInFileNames": true,
     "removeComments": false
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
