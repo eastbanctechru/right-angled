@@ -10,7 +10,13 @@ import { PageSizeControlBase } from './page-size-control-base';
 export class PageSizeDirective extends PageSizeControlBase {
     @HostBinding('value')
     public innerValue: number;
-    public get pageSizePropertyName(): string {
+    public get pageSize(): number {
+        return this.pager.pageSize;
+    }
+    public set pageSize(value: number) {
+        this.pager.pageSize = value;
+    }
+    public get checkChangesPropertyName(): string {
         return 'pageSizeInternal';
     }
     constructor(listService: RtListService, pager: PagedPager, differs: KeyValueDiffers) {

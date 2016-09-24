@@ -6,18 +6,20 @@ export abstract class PageSizeControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
     public innerValue: number;
     public checkPageSizeChanged = (item: any): void => {
-        if (item.key === this.pageSizePropertyName && item.currentValue !== this.innerValue) {
+        if (item.key === this.checkChangesPropertyName && item.currentValue !== this.innerValue) {
             this.innerValue = item.currentValue;
         }
     }
-    public abstract get pageSizePropertyName(): string;
+    public abstract get pageSize(): number;
+    public abstract set pageSize(value: number);
+    public abstract get checkChangesPropertyName(): string;
 
     constructor(private listService: RtListService, public pager: any, differs: KeyValueDiffers) {
         this.pagerDiffer = differs.find([]).create(null);
     }
 
     public onComplete(): void {
-        this.innerValue = this.pager[this.pageSizePropertyName];
+        this.innerValue = this.pageSize;
         this.listService.loadData();
     }
 
@@ -26,12 +28,12 @@ export abstract class PageSizeControlBase implements DoCheck, OnInit {
         if (value === null || value === undefined || value === '') {
             return;
         }
-        this.pager[this.pageSizePropertyName] = value;
-        setTimeout(() => this.innerValue = this.pager[this.pageSizePropertyName]);
+        this.pageSize = value;
+        setTimeout(() => this.innerValue = this.pageSize);
     }
 
     public restoreInputValue(): void {
-        this.innerValue = this.pager[this.pageSizePropertyName];
+        this.innerValue = this.pageSize;
     }
     public ngOnInit(): void {
         this.restoreInputValue();

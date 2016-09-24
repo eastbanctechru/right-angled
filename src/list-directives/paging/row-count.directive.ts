@@ -10,7 +10,13 @@ import { PageSizeControlBase } from './page-size-control-base';
 export class RowCountDirective extends PageSizeControlBase {
     @HostBinding('value')
     public innerValue: number;
-    public get pageSizePropertyName(): string {
+    public get pageSize(): number {
+        return this.pager.takeRowCount;
+    }
+    public set pageSize(value: number) {
+        this.pager.takeRowCount = value;
+    }
+    public get checkChangesPropertyName(): string {
         return 'takeRowCountInternal';
     }
     constructor(listService: RtListService, private bufferedPager: BufferedPager, differs: KeyValueDiffers) {
