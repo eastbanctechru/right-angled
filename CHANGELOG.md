@@ -1,3 +1,20 @@
+<a name="0.19.0"></a>
+# [0.19.0](https://github.com/fshchudlo/right-angled/compare/0.18.1...v0.19.0) (2016-09-25)
+
+
+### Bug Fixes
+
+* **buffered paging:** doesn't handle input events if disabled ([96f0075](https://github.com/fshchudlo/right-angled/commit/96f0075))
+* **page size:** correct validation of pageSize and takeRowCount value ([41a93c2](https://github.com/fshchudlo/right-angled/commit/41a93c2))
+
+
+### Features
+
+* **paging:** options controls added ([ec2572a](https://github.com/fshchudlo/right-angled/commit/ec2572a))
+* **sortings:** rtDefaultSortings directive ([aafa114](https://github.com/fshchudlo/right-angled/commit/aafa114))
+
+
+
 <a name="0.18.1"></a>
 # [0.18.1](https://github.com/fshchudlo/right-angled/compare/0.18.0...v0.18.1) (2016-09-24)
 
