@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Self } from '@angular/core';
-import { RegularPager } from 'e2e4';
+import { RegularPager, SortParameter } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { REGULAR_LIST_PROVIDERS } from '../../providers';
@@ -13,6 +13,7 @@ import { ListBase } from './list-base';
     template: `<ng-content></ng-content>`
 })
 export class ListComponent extends ListBase {
+    @Input() public defaultSortings: Array<SortParameter>;
     @Input() public loadOnInit: boolean = true;
     @Input() public set fetchMethod(value: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>) {
         this.listService.fetchMethod = value;

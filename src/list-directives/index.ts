@@ -1,5 +1,4 @@
 import { CancelLoadDirective } from './list-controls/cancel-load.directive';
-import { DefaultSortingsDirective } from './list-controls/default-sortings.directive';
 import { LoadDataDirective } from './list-controls/load-data.directive';
 import { RowNumberComponent } from './list-controls/row-number.component';
 import { SortDirective } from './list-controls/sort.directive';
@@ -8,8 +7,7 @@ export var LIST_DIRECTIVES: any[] = [
     LoadDataDirective,
     CancelLoadDirective,
     RowNumberComponent,
-    SortDirective,
-    DefaultSortingsDirective
+    SortDirective
 ];
 
 export { ListComponent } from './list-controls/list.component';
@@ -32,37 +30,25 @@ export var LIST_STATE_DIRECTIVES: any[] = [
     ListStateInProgressComponent
 ];
 
-import { DefaultRowCountDirective } from './paging/default-row-count.directive';
 import { LoadMoreDirective } from './paging/load-more.directive';
-import { MaxRowCountDirective } from './paging/max-row-count.directive';
-import { MinRowCountDirective } from './paging/min-row-count.directive';
 import { RowCountDirective } from './paging/row-count.directive';
 
 export var BUFFERED_PAGER_DIRECTIVES: any[] = [
-    DefaultRowCountDirective,
     LoadMoreDirective,
-    MaxRowCountDirective,
-    MinRowCountDirective,
     RowCountDirective
 ];
-import { DefaultPageSizeDirective } from './paging/default-page-size.directive';
 import { GoToFirstPageDirective } from './paging/go-to-first-page.directive';
 import { GoToLastPageDirective } from './paging/go-to-last-page.directive';
 import { GoToNextPageDirective } from './paging/go-to-next-page.directive';
 import { GoToPreviousPageDirective } from './paging/go-to-previous-page.directive';
-import { MaxPageSizeDirective } from './paging/max-page-size.directive';
-import { MinPageSizeDirective } from './paging/min-page-size.directive';
 import { PageNumberDirective } from './paging/page-number.directive';
 import { PageSizeDirective } from './paging/page-size.directive';
 
 export var PAGED_PAGER_DIRECTIVES: any[] = [
-    DefaultPageSizeDirective,
     GoToFirstPageDirective,
     GoToLastPageDirective,
     GoToNextPageDirective,
     GoToPreviousPageDirective,
-    MaxPageSizeDirective,
-    MinPageSizeDirective,
     PageSizeDirective,
     PageNumberDirective
 ];

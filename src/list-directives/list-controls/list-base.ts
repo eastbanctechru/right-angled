@@ -1,13 +1,15 @@
-import { AfterViewInit, OnDestroy, OnInit } from '@angular/core';
-import { Pager } from 'e2e4';
+import { AfterViewInit, OnChanges, OnDestroy, OnInit, SimpleChange } from '@angular/core';
+import { Pager, SortParameter } from 'e2e4';
 
 import { RtListService } from '../list-service';
 
-export abstract class ListBase implements OnDestroy, OnInit, AfterViewInit {
+export abstract class ListBase implements OnChanges, OnDestroy, OnInit, AfterViewInit {
     public get items(): Array<any> {
         return this.listService.items;
     }
     public loadOnInit: boolean = true;
+    public defaultSortings: Array<SortParameter>;
+
     public reloadData(): void {
         this.listService.reloadData();
     }
@@ -24,5 +26,10 @@ export abstract class ListBase implements OnDestroy, OnInit, AfterViewInit {
     }
     public ngOnDestroy(): void {
         this.listService.destroy();
+    }
+    public ngOnChanges(changes: { defaultSortings?: SimpleChange }): void {
+        if (changes.defaultSortings) {
+            this.listService.sortingsService.defaultSortings = changes.defaultSortings.currentValue;
+        }
     }
 }

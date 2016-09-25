@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Self } from '@angular/core';
-import { PagedPager } from 'e2e4';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Self, SimpleChange } from '@angular/core';
+import { PagedPager, SortParameter } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { PAGED_LIST_PROVIDERS } from '../../providers';
@@ -12,12 +12,32 @@ import { ListBase } from './list-base';
     selector: 'rt-paged-list',
     template: `<ng-content></ng-content>`
 })
-export class PagedListComponent extends ListBase {
+export class PagedListComponent extends ListBase implements OnChanges, OnInit {
+    @Input() public defaultPageSize: number = PagedPager.settings.defaultPageSize;
+    @Input() public maxPageSize: number = PagedPager.settings.maxPageSize;
+    @Input() public minPageSize: number = PagedPager.settings.minPageSize;
+    @Input() public defaultSortings: Array<SortParameter>;
     @Input() public loadOnInit: boolean = true;
     @Input() public set fetchMethod(value: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>) {
         this.listService.fetchMethod = value;
     }
-    constructor(@Self() public listService: RtListService, @Self() pager: PagedPager) {
+    constructor( @Self() public listService: RtListService, @Self() public pager: PagedPager) {
         super(listService, pager);
+    }
+    public ngOnInit(): void {
+        this.pager.pageSize = this.defaultPageSize * 1;
+        super.ngOnInit();
+    }
+    public ngOnChanges(changes: { defaultSortings?: SimpleChange, defaultPageSize?: SimpleChange, maxPageSize?: SimpleChange, minPageSize?: SimpleChange }): void {
+        super.ngOnChanges(changes);
+        if (changes.defaultPageSize) {
+            this.pager.defaultPageSize = changes.defaultPageSize.currentValue * 1;
+        }
+        if (changes.maxPageSize) {
+            this.pager.maxPageSize = changes.maxPageSize.currentValue * 1;
+        }
+        if (changes.minPageSize) {
+            this.pager.minPageSize = changes.minPageSize.currentValue * 1;
+        }
     }
 }
