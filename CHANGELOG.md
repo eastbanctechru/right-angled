@@ -1,3 +1,13 @@
+<a name="0.19.1"></a>
+## [0.19.1](https://github.com/fshchudlo/right-angled/compare/0.19.0...v0.19.1) (2016-09-25)
+
+
+### Bug Fixes
+
+* **package:** [@angular](https://github.com/angular) rollback to 2.0.0 ([2033ec0](https://github.com/fshchudlo/right-angled/commit/2033ec0))
+
+
+
 <a name="0.19.0"></a>
 # [0.19.0](https://github.com/fshchudlo/right-angled/compare/0.18.1...v0.19.0) (2016-09-25)
 
