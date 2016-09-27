@@ -23,8 +23,12 @@ export var PAGED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRE
 export var BUFFERED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat(BUFFERED_PAGER_DIRECTIVES).concat([BufferedListComponent]);
 export var REGULAR_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat([ListComponent]);
 
-export { BufferedListComponent, ListComponent, PagedListComponent } from './src/list-directives/index'
-export { SelectionAreaForDirective } from './src/selection-directives/index'
+export { BufferedListComponent, ListComponent, PagedListComponent } from './src/list-directives/index';
+export { SelectionAreaForDirective } from './src/selection-directives/index';
+
+import { RtPersistenceService } from './src/core/persistence-service';
+import { BUFFERED_LIST_PROVIDERS, PAGED_LIST_PROVIDERS, REGULAR_LIST_PROVIDERS } from './src/providers';
+
 
 @NgModule({
     declarations: MISC_DIRECTIVES,
@@ -52,12 +56,58 @@ export class RTSelectionModule { }
     exports: [LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, PAGED_PAGER_DIRECTIVES, BUFFERED_PAGER_DIRECTIVES, PagedListComponent, BufferedListComponent, ListComponent],
     imports: [CommonModule]
 })
-export class RTListsModule { }
+export class RTListsModule {
+    public static registerPersistenceService({useClass, useValue, useExisting, useFactory, deps, multi}: {
+        useClass?: any;
+        useValue?: any;
+        useExisting?: any;
+        useFactory?: Function;
+        deps?: Object[];
+        multi?: boolean;
+    }): void {
+        REGULAR_LIST_PROVIDERS.push({
+            provide: RtPersistenceService,
+            useClass,
+            useValue,
+            useExisting,
+            useFactory,
+            deps,
+            multi
+        });
+        BUFFERED_LIST_PROVIDERS.push({
+            provide: RtPersistenceService,
+            useClass,
+            useValue,
+            useExisting,
+            useFactory,
+            deps,
+            multi
+        });
+        PAGED_LIST_PROVIDERS.push({
+            provide: RtPersistenceService,
+            useClass,
+            useValue,
+            useExisting,
+            useFactory,
+            deps,
+            multi
+        });
+    }
+}
 
 @NgModule({
     exports: [RTListsModule, RTSelectionModule, RTMiscModule, RTFiltersModule],
     imports: [RTListsModule, RTSelectionModule, RTMiscModule, RTFiltersModule]
 })
-export class RTModule { }
-
-export { registerPersistenceService } from './src/providers';
+export class RTModule {
+    public static registerPersistenceService({useClass, useValue, useExisting, useFactory, deps, multi}: {
+        useClass?: any;
+        useValue?: any;
+        useExisting?: any;
+        useFactory?: Function;
+        deps?: Object[];
+        multi?: boolean;
+    }): void {
+        RTListsModule.registerPersistenceService({ useClass, useValue, useExisting, useFactory, deps, multi });
+    }
+}

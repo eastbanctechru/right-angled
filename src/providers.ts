@@ -18,7 +18,6 @@ class RtFiltersService extends FiltersService { }
 
 import { AsyncSubscriber } from './core/async-subscriber';
 import { RtListService } from './core/list-service';
-import { RtPersistenceService } from './core/persistence-service';
 
 export var PAGED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
@@ -49,41 +48,3 @@ export var REGULAR_LIST_PROVIDERS: any[] = [
     { provide: FiltersService, useClass: RtFiltersService },
     { provide: SortingsService, useClass: RtSortingsService }
 ];
-
-export function registerPersistenceService({useClass, useValue, useExisting, useFactory, deps, multi}: {
-    useClass?: any;
-    useValue?: any;
-    useExisting?: any;
-    useFactory?: Function;
-    deps?: Object[];
-    multi?: boolean;
-}): void {
-
-    REGULAR_LIST_PROVIDERS.push({
-        provide: RtPersistenceService,
-        useClass,
-        useValue,
-        useExisting,
-        useFactory,
-        deps,
-        multi
-    });
-    BUFFERED_LIST_PROVIDERS.push({
-        provide: RtPersistenceService,
-        useClass,
-        useValue,
-        useExisting,
-        useFactory,
-        deps,
-        multi
-    });
-    PAGED_LIST_PROVIDERS.push({
-        provide: RtPersistenceService,
-        useClass,
-        useValue,
-        useExisting,
-        useFactory,
-        deps,
-        multi
-    });
-}
