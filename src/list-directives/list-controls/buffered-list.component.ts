@@ -26,7 +26,6 @@ export class BufferedListComponent extends ListBase implements OnChanges, OnInit
     }
     public ngOnInit(): void {
         this.pager.takeRowCount = this.defaultRowCount * 1;
-        super.ngOnInit();
     }
     public ngOnChanges(changes: { defaultSortings?: SimpleChange, defaultRowCount?: SimpleChange, maxRowCount?: SimpleChange, minRowCount?: SimpleChange }): void {
         super.ngOnChanges(changes);

@@ -26,7 +26,6 @@ export class PagedListComponent extends ListBase implements OnChanges, OnInit {
     }
     public ngOnInit(): void {
         this.pager.pageSize = this.defaultPageSize * 1;
-        super.ngOnInit();
     }
     public ngOnChanges(changes: { defaultSortings?: SimpleChange, defaultPageSize?: SimpleChange, maxPageSize?: SimpleChange, minPageSize?: SimpleChange }): void {
         super.ngOnChanges(changes);
