@@ -25,7 +25,7 @@ export class RowCountDirective extends PageSizeControlBase {
             throw new Error('[rtRowCount] directive can be used only with buffered list provider.');
         }
     }
-    @HostBinding('attr.disabled')
+    @HostBinding('disabled')
     public get disabled(): boolean {
         return this.bufferedPager.skip >= this.bufferedPager.totalCount;
     }
