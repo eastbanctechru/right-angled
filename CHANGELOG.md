@@ -1,3 +1,13 @@
+<a name="0.19.2"></a>
+## [0.19.2](https://github.com/fshchudlo/right-angled/compare/0.19.1...v0.19.2) (2016-09-27)
+
+
+### Bug Fixes
+
+* **paging:** change `attr.disabled` to 'disabled' for input controls ([8415a9b](https://github.com/fshchudlo/right-angled/commit/8415a9b))
+
+
+
 <a name="0.19.1"></a>
 ## [0.19.1](https://github.com/fshchudlo/right-angled/compare/0.19.0...v0.19.1) (2016-09-25)
 
