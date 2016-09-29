@@ -1,7 +1,7 @@
 import { Directive, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
 import { BufferedPager } from 'e2e4';
 
-import { RtListService } from '../list-service';
+import { RtListService } from './list-service';
 import { PageSizeControlBase } from './page-size-control-base';
 
 @Directive({

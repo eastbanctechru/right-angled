@@ -1,6 +1,6 @@
 import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 
-import { RtListService } from '../list-service';
+import { RtListService } from './list-service';
 
 export abstract class PageSizeControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;

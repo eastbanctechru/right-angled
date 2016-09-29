@@ -29,26 +29,3 @@ export var LIST_STATE_DIRECTIVES: any[] = [
     ListStateInitialComponent,
     ListStateInProgressComponent
 ];
-
-import { LoadMoreDirective } from './paging/load-more.directive';
-import { RowCountDirective } from './paging/row-count.directive';
-
-export var BUFFERED_PAGER_DIRECTIVES: any[] = [
-    LoadMoreDirective,
-    RowCountDirective
-];
-import { GoToFirstPageDirective } from './paging/go-to-first-page.directive';
-import { GoToLastPageDirective } from './paging/go-to-last-page.directive';
-import { GoToNextPageDirective } from './paging/go-to-next-page.directive';
-import { GoToPreviousPageDirective } from './paging/go-to-previous-page.directive';
-import { PageNumberDirective } from './paging/page-number.directive';
-import { PageSizeDirective } from './paging/page-size.directive';
-
-export var PAGED_PAGER_DIRECTIVES: any[] = [
-    GoToFirstPageDirective,
-    GoToLastPageDirective,
-    GoToNextPageDirective,
-    GoToPreviousPageDirective,
-    PageSizeDirective,
-    PageNumberDirective
-];

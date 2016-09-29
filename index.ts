@@ -15,8 +15,8 @@ export * from './src/core/index';
 import { BufferedListComponent, LIST_DIRECTIVES, LIST_STATE_DIRECTIVES, ListComponent, PagedListComponent } from './src/list-directives/index';
 import { SELECTION_DIRECTIVES } from './src/selection-directives/index';
 
-export { BUFFERED_PAGER_DIRECTIVES, PAGED_PAGER_DIRECTIVES } from './src/list-directives/index';
-import { BUFFERED_PAGER_DIRECTIVES, PAGED_PAGER_DIRECTIVES } from './src/list-directives/index';
+export { BUFFERED_PAGER_DIRECTIVES, PAGED_PAGER_DIRECTIVES } from './src/paging-directives/index';
+import { BUFFERED_PAGER_DIRECTIVES, PAGED_PAGER_DIRECTIVES } from './src/paging-directives/index';
 
 export { LIST_DIRECTIVES, LIST_STATE_DIRECTIVES } from './src/list-directives/index';
 export var PAGED_LIST_DIRECTIVES: any[] = LIST_DIRECTIVES.concat(LIST_STATE_DIRECTIVES).concat(PAGED_PAGER_DIRECTIVES).concat([PagedListComponent]);

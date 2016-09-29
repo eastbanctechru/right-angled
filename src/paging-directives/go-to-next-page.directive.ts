@@ -1,19 +1,19 @@
 import { Directive, ElementRef, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RtListService } from '../list-service';
 import { GoToControlBase } from './go-to-control-base';
+import { RtListService } from './list-service';
 
 @Directive({
-    selector: '[rtGoToFirstPage]'
+    selector: '[rtGoToNextPage]'
 })
-export class GoToFirstPageDirective extends GoToControlBase {
+export class GoToNextPageDirective extends GoToControlBase {
     constructor(private listService: RtListService, pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
         super(pager, differs, elementRef);
     }
     @HostListener('click')
-    public goToFirstPage(): void {
-        if (this.pager.tryMoveToFirstPage()) {
+    public goToNextPage(): void {
+        if (this.pager.tryMoveToNextPage()) {
             this.listService.loadData();
         }
     }
@@ -22,6 +22,6 @@ export class GoToFirstPageDirective extends GoToControlBase {
         return this.innerDisabled;
     }
     public isDisabled(): boolean {
-        return this.pager.pageNumber === 1;
+        return this.pager.pageNumber === this.pager.pageCount;
     }
 }
