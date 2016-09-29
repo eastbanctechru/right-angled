@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BufferedPager, FiltersService, PagedPager, RegularPager, SortingsService } from 'e2e4';
+import { BufferedPager, FiltersService, NullObjectPager, PagedPager, SortingsService } from 'e2e4';
 
 @Injectable()
 class RtPagedPager extends PagedPager { }
@@ -8,7 +8,7 @@ class RtPagedPager extends PagedPager { }
 class RtBufferedPager extends BufferedPager { }
 
 @Injectable()
-class RtRegularPager extends RegularPager { }
+class RtNullObjectPager extends NullObjectPager { }
 
 @Injectable()
 class RtSortingsService extends SortingsService { }
@@ -23,7 +23,7 @@ export var PAGED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtListService,
     { provide: BufferedPager, useValue: null },
-    { provide: RegularPager, useValue: null },
+    { provide: NullObjectPager, useValue: null },
     { provide: PagedPager, useClass: RtPagedPager },
     { provide: FiltersService, useClass: RtFiltersService },
     { provide: SortingsService, useClass: RtSortingsService }
@@ -33,7 +33,7 @@ export var BUFFERED_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtListService,
     { provide: BufferedPager, useClass: RtBufferedPager },
-    { provide: RegularPager, useValue: null },
+    { provide: NullObjectPager, useValue: null },
     { provide: PagedPager, useValue: null },
     { provide: FiltersService, useClass: RtFiltersService },
     { provide: SortingsService, useClass: RtSortingsService }
@@ -43,7 +43,7 @@ export var REGULAR_LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtListService,
     { provide: BufferedPager, useValue: null },
-    { provide: RegularPager, useClass: RtRegularPager },
+    { provide: NullObjectPager, useClass: RtNullObjectPager },
     { provide: PagedPager, useValue: null },
     { provide: FiltersService, useClass: RtFiltersService },
     { provide: SortingsService, useClass: RtSortingsService }

@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable, Optional } from '@angular/core';
-import { FiltersService, Pager, ProgressState, SortingsService, destroyAll } from 'e2e4';
+import { FiltersService, ListResponse, Pager, ProgressState, SortingsService, destroyAll } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { AsyncSubscriber } from './async-subscriber';
@@ -43,7 +43,7 @@ export class RtListService {
     public get ready(): boolean {
         return this.state !== ProgressState.Progress;
     }
-    private loadSuccessCallback = (result: Object): Object => {
+    private loadSuccessCallback = (result: ListResponse<any>): Object => {
         this.items = this.items.concat(result[this.itemsPropertyName]);
 
         this.pager.processResponse(result);
