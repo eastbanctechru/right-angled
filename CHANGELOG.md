@@ -1,3 +1,18 @@
+<a name="0.20.0"></a>
+# [0.20.0](https://github.com/fshchudlo/right-angled/compare/0.19.2...v0.20.0) (2016-09-29)
+
+
+### Bug Fixes
+
+* **lyfecicle:** correct order of default values/custom controls values/persistence services values application ([496fa14](https://github.com/fshchudlo/right-angled/commit/496fa14))
+
+
+### Features
+
+* **persistence:** `registerPersistenceService` function defined in `RTListsModule` and `RTModule` ([56a6188](https://github.com/fshchudlo/right-angled/commit/56a6188))
+
+
+
 <a name="0.19.2"></a>
 ## [0.19.2](https://github.com/fshchudlo/right-angled/compare/0.19.1...v0.19.2) (2016-09-27)
 
