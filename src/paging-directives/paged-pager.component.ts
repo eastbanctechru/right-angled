@@ -2,10 +2,11 @@ import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core
 import { PagedPager } from 'e2e4';
 
 import { RtPagedPager } from '../providers';
+import { RtListService } from './list-service';
 
 @Component({
     providers: [{ provide: PagedPager, useClass: RtPagedPager }],
-    selector: 'rt-demo-paged--pager',
+    selector: 'rt-paged-pager',
     template: '<ng-content></ng-content>'
 })
 export class PagedPagerComponent implements OnChanges, OnInit {
@@ -13,7 +14,8 @@ export class PagedPagerComponent implements OnChanges, OnInit {
     @Input() public maxPageSize: number = PagedPager.settings.maxPageSize;
     @Input() public minPageSize: number = PagedPager.settings.minPageSize;
 
-    constructor(public pager: PagedPager) {
+    constructor(public pager: PagedPager, listService: RtListService) {
+        listService.pager = pager;
     }
     public ngOnInit(): void {
         this.pager.pageSize = this.defaultPageSize * 1;

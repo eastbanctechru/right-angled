@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable, Optional } from '@angular/core';
-import { FiltersService, ListResponse, Pager, ProgressState, SortingsService, destroyAll } from 'e2e4';
+import { FiltersService, ListResponse, NullObjectPager, Pager, ProgressState, SortingsService, destroyAll } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { AsyncSubscriber } from './async-subscriber';
@@ -15,7 +15,15 @@ export class RtListService {
     public itemsPropertyName: string = RtListService.settings.itemsPropertyName;
 
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
-    public pager: Pager;
+    private pagerInternal: Pager;
+    public get pager(): Pager {
+        return this.pagerInternal;
+    }
+    public set pager(value: Pager) {
+        this.filtersService.removeFilterTarget(this.pagerInternal);
+        this.pagerInternal = value;
+        this.filtersService.registerFilterTarget(this.pagerInternal);
+    }
     public items: Array<any> = new Array<any>();
     /**
      * True if object was already destroyed via {@link destroy} call.  
@@ -75,6 +83,7 @@ export class RtListService {
                 this.stateServices.push(stateServices);
             }
         }
+        this.pager = new NullObjectPager();
     }
     public init(): void {
         if (this.inited) {

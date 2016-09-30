@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, Self, SimpleChange } from '@angular/core';
-import { NullObjectPager, SortParameter } from 'e2e4';
+import { SortParameter } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { LIST_PROVIDERS } from '../../providers';
@@ -18,7 +18,6 @@ export class ListComponent implements OnChanges, OnDestroy, AfterViewInit {
         this.listService.fetchMethod = value;
     }
     constructor( @Self() public listService: RtListService) {
-        this.listService.pager = new NullObjectPager();
     }
     public get items(): Array<any> {
         return this.listService.items;
