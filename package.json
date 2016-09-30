@@ -82,7 +82,7 @@
     "tslint": "^3.15.1",
     "typedoc": "^0.4.5",
     "typescript": "^2.0.3",
-    "vinyl": "^1.2.0",
+    "vinyl": "^2.0.0",
     "vinyl-paths": "^2.1.0",
     "wallaby-webpack": "^0.0.24",
     "webpack": "^1.13.2",
