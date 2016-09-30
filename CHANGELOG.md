@@ -1,3 +1,15 @@
+<a name="0.21.0"></a>
+# [0.21.0](https://github.com/fshchudlo/right-angled/compare/0.20.0...v0.21.0) (2016-09-30)
+
+
+### Features
+
+* **all:** e2e4 version update ([e13194f](https://github.com/fshchudlo/right-angled/commit/e13194f))
+* **paging:** listService pager now can be setted dynamically ([879872d](https://github.com/fshchudlo/right-angled/commit/879872d))
+* **paging:** pagers components implemented ([d768b22](https://github.com/fshchudlo/right-angled/commit/d768b22))
+
+
+
 <a name="0.20.0"></a>
 # [0.20.0](https://github.com/fshchudlo/right-angled/compare/0.19.2...v0.20.0) (2016-09-29)
 
