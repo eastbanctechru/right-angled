@@ -51,7 +51,14 @@ export class RtListService {
     public get ready(): boolean {
         return this.state !== ProgressState.Progress;
     }
-    private loadSuccessCallback = (result: ListResponse<any>): Object => {
+    private loadSuccessCallback = (result: ListResponse<any> | Array<any>): Object => {
+        if (Array.isArray(result)) {
+            result = {
+                items: result,
+                loadedCount: result.length,
+                totalCount: result.length
+            } as ListResponse<any>;
+        }
         this.items = this.items.concat(result[this.itemsPropertyName]);
 
         this.pager.processResponse(result);

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, Self, SimpleChange } from '@angular/core';
-import { SortParameter } from 'e2e4';
+import { ListRequest, ListResponse, SortParameter } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { LIST_PROVIDERS } from '../../providers';
@@ -14,7 +14,7 @@ import { RtListService } from '../list-service';
 export class ListComponent implements OnChanges, OnDestroy, AfterViewInit {
     @Input() public defaultSortings: Array<SortParameter>;
     @Input() public loadOnInit: boolean = true;
-    @Input() public set fetchMethod(value: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>) {
+    @Input() public set fetchMethod(value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>) {
         this.listService.fetchMethod = value;
     }
     constructor( @Self() public listService: RtListService) {
