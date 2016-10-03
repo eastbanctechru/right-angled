@@ -1,3 +1,13 @@
+<a name="0.22.1"></a>
+## [0.22.1](https://github.com/fshchudlo/right-angled/compare/0.22.0...v0.22.1) (2016-10-03)
+
+
+### Bug Fixes
+
+* **all:** e2e4 version update ([d138a94](https://github.com/fshchudlo/right-angled/commit/d138a94))
+
+
+
 <a name="0.22.0"></a>
 # [0.22.0](https://github.com/fshchudlo/right-angled/compare/0.21.0...v0.22.0) (2016-10-03)
 
