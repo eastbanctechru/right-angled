@@ -86,6 +86,6 @@
     "vinyl-paths": "^2.1.0",
     "wallaby-webpack": "^0.0.24",
     "webpack": "^1.13.2",
-    "yargs": "^5.0.0"
+    "yargs": "^6.0.0"
   }
 }
