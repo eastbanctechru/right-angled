@@ -1,3 +1,13 @@
+<a name="0.22.0"></a>
+# [0.22.0](https://github.com/fshchudlo/right-angled/compare/0.21.0...v0.22.0) (2016-10-03)
+
+
+### Features
+
+* **lists:** list now can handle simple array as response ([4ff15c6](https://github.com/fshchudlo/right-angled/commit/4ff15c6))
+
+
+
 <a name="0.21.0"></a>
 # [0.21.0](https://github.com/fshchudlo/right-angled/compare/0.20.0...v0.21.0) (2016-09-30)
 
