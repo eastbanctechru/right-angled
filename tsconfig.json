@@ -21,7 +21,8 @@
     "noUnusedLocals": true,
     "pretty": true,
     "forceConsistentCasingInFileNames": true,
-    "removeComments": false
+    "removeComments": false,
+    "types": []
   },
   "exclude": [
     "node_modules"
