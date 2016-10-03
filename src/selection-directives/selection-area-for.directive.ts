@@ -41,7 +41,10 @@ export class SelectionAreaForDirective implements SelectionEventsEmitter, OnInit
     }
     public ngOnChanges(changes: { multiple?: SimpleChange, items?: SimpleChange }): void {
         // we doesn't set itemsSource to empty arrays to keep selection when trackByFn is provided
-        // it's must not be a problem since on destroy selections will be destroyed by this component 
+        // it's must not be a problem since on destroy selections will be destroyed by this component
+        if (changes.items && changes.items.currentValue && false === Array.isArray(changes.items.currentValue)) {
+            throw new Error('argument for rtSelectionAreaFor must be of type Array.');
+        }
         if (changes.items && (!this.selectionService.itemsSource || !!this.trackBy || changes.items.currentValue.length > 0)) {
             this.selectionService.itemsSource = changes.items.currentValue;
         }
