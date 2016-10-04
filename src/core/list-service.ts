@@ -149,9 +149,9 @@ export class RtListService {
         });
     }
     public registerFilterTarget(...targets: Object[]): void {
-        this.filtersService.registerFilterTarget(targets);
+        this.filtersService.registerFilterTarget(...targets);
     }
     public removeFilterTarget(...targets: Object[]): void {
-        this.filtersService.removeFilterTarget(targets);
+        this.filtersService.removeFilterTarget(...targets);
     }
 }
