@@ -30,12 +30,15 @@ export class ListComponent implements OnChanges, OnDestroy, AfterViewInit {
         // We call init in ngAfterViewInit to:
         // 1. allow all child controls to be applied to markup and regiter themself in filtersService
         // 2. give ability to all child controls to apply their default values
-        // 3. overwrite these default values by passed via persistence services
+        // 3. overwrite theese default values by values passed via persistence services
+        // 4. execute all ngAfterViewInit for custom services registration (setTimeout)
         this.onServiceInit.next(this.listService);
-        this.listService.init();
-        if (this.loadOnInit) {
-            this.listService.loadData();
-        }
+        setTimeout(() => {
+            this.listService.init();
+            if (this.loadOnInit) {
+                this.listService.loadData();
+            }
+        }, 0);
     }
     public ngOnDestroy(): void {
         this.listService.destroy();
