@@ -1,3 +1,20 @@
+<a name="0.24.0"></a>
+# [0.24.0](https://github.com/fshchudlo/right-angled/compare/0.23.0...0.24.0) (2016-10-04)
+
+
+### Code Refactoring
+
+* **state management:** make `RtListService.stateServices` private ([9505259](https://github.com/fshchudlo/right-angled/commit/9505259))
+
+
+### BREAKING CHANGES
+
+* state management: `RtPersistenceService` renamed to `RtStateService`. `RtListService.stateServices`
+
+becomes private
+
+
+
 <a name="0.23.0"></a>
 # [0.23.0](https://github.com/fshchudlo/right-angled/compare/0.22.2...v0.23.0) (2016-10-04)
 
