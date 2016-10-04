@@ -2,7 +2,7 @@
   "name": "right-angled",
   "homepage": "https://github.com/fshchudlo/right-angled#readme",
   "author": "Fedor Shchudlo",
-  "version": "0.25.1",
+  "version": "0.25.2",
   "license": "MIT",
   "description": "Set of components to provide lists functionality for Angular 2 apps",
   "main": "index.js",

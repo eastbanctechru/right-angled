@@ -1,3 +1,13 @@
+<a name="0.25.2"></a>
+## [0.25.2](https://github.com/fshchudlo/right-angled/compare/0.25.1...v0.25.2) (2016-10-04)
+
+
+### Bug Fixes
+
+* **listService:** fix `registerFilterTarget` and `removeFilterTarget` delegation ([9b66dc1](https://github.com/fshchudlo/right-angled/commit/9b66dc1))
+
+
+
 <a name="0.25.1"></a>
 ## [0.25.1](https://github.com/fshchudlo/right-angled/compare/0.25.0...v0.25.1) (2016-10-04)
 
