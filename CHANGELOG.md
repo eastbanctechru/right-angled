@@ -1,3 +1,20 @@
+<a name="0.25.0"></a>
+# [0.25.0](https://github.com/fshchudlo/right-angled/compare/0.24.0...v0.25.0) (2016-10-04)
+
+
+### Features
+
+* **RtListService:** encapsulate `RtListService` services ([8a7adad](https://github.com/fshchudlo/right-angled/commit/8a7adad))
+
+
+### BREAKING CHANGES
+
+* RtListService: `RtListService.sortingsService` and `RtListService.filtersService` becomes private.
+
+Use  angular DI instead.
+
+
+
 <a name="0.24.0"></a>
 # [0.24.0](https://github.com/fshchudlo/right-angled/compare/0.23.0...0.24.0) (2016-10-04)
 
