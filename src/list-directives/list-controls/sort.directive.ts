@@ -1,5 +1,5 @@
 import {  Directive, DoCheck, ElementRef, HostListener, Input, IterableDiffer, IterableDiffers, OnInit, Renderer, SkipSelf } from '@angular/core';
-import { SortDirection } from 'e2e4';
+import { SortDirection, SortingsService } from 'e2e4';
 
 import { RtListService } from '../list-service';
 
@@ -16,13 +16,13 @@ export class SortDirective implements DoCheck, OnInit {
     private nativeEl: HTMLElement;
     private sortingsDiffer: IterableDiffer;
     @Input('rtSort') public fieldName: string;
-    constructor( @SkipSelf() private listService: RtListService, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
+    constructor( @SkipSelf() private listService: RtListService, @SkipSelf() private sortingsService: SortingsService, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
         this.sortingsDiffer = differs.find([]).create(null);
         this.nativeEl = el.nativeElement;
     }
     public ngOnInit(): void {
         this.renderer.setElementClass(this.nativeEl, SortDirective.classNames.sortable, true);
-        this.listService.sortingsService.sortings.some(sortParameter => {
+        this.sortingsService.sortings.some(sortParameter => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.setSortClasses(sortParameter);
                 return true;
@@ -33,12 +33,12 @@ export class SortDirective implements DoCheck, OnInit {
     @HostListener('click', ['$event'])
     public clickHandler(evt: MouseEvent): void {
         if (this.listService.ready) {
-            this.listService.sortingsService.setSort(this.fieldName, evt.ctrlKey);
+            this.sortingsService.setSort(this.fieldName, evt.ctrlKey);
             this.listService.reloadData();
         }
     }
     public ngDoCheck(): void {
-        let changes = this.sortingsDiffer.diff(this.listService.sortingsService.sortings);
+        let changes = this.sortingsDiffer.diff(this.sortingsService.sortings);
         if (changes) {
             changes.forEachRemovedItem(this.sortItemRemovedCallback);
             changes.forEachAddedItem(this.sortItemAddedCallback);

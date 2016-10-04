@@ -81,8 +81,8 @@ export class RtListService {
     constructor(
         private asyncSubscriber: AsyncSubscriber,
         @Optional() stateServices: RtStateService,
-        public sortingsService: SortingsService,
-        public filtersService: FiltersService) {
+        private sortingsService: SortingsService,
+        private filtersService: FiltersService) {
         if (stateServices != null) {
             if (Array.isArray(stateServices)) {
                 this.stateServices = <any>stateServices;
@@ -147,5 +147,11 @@ export class RtListService {
                 this.stateServices.splice(index, 1);
             }
         });
+    }
+    public registerFilterTarget(...targets: Object[]): void {
+        this.filtersService.registerFilterTarget(targets);
+    }
+    public removeFilterTarget(...targets: Object[]): void {
+        this.filtersService.removeFilterTarget(targets);
     }
 }

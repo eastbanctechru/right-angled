@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, Output, Self, SimpleChange } from '@angular/core';
-import { ListRequest, ListResponse, SortParameter } from 'e2e4';
+import { ListRequest, ListResponse, SortParameter, SortingsService } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { LIST_PROVIDERS } from '../../providers';
@@ -18,7 +18,7 @@ export class ListComponent implements OnChanges, OnDestroy, AfterViewInit {
     @Input() public set fetchMethod(value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>) {
         this.listService.fetchMethod = value;
     }
-    constructor( @Self() public listService: RtListService) {
+    constructor( @Self() public listService: RtListService, @Self() private sortingsService: SortingsService) {
     }
     public get items(): Array<any> {
         return this.listService.items;
@@ -42,7 +42,7 @@ export class ListComponent implements OnChanges, OnDestroy, AfterViewInit {
     }
     public ngOnChanges(changes: { defaultSortings?: SimpleChange }): void {
         if (changes.defaultSortings) {
-            this.listService.sortingsService.defaultSortings = changes.defaultSortings.currentValue;
+            this.sortingsService.defaultSortings = changes.defaultSortings.currentValue;
         }
     }
 }
