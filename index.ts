@@ -20,7 +20,7 @@ import { BUFFERED_PAGER_DIRECTIVES, PAGED_PAGER_DIRECTIVES } from './src/paging-
 export { ListComponent } from './src/list-directives/index';
 export { SelectionAreaForDirective } from './src/selection-directives/index';
 
-import { RtPersistenceService } from './src/core/persistence-service';
+import { RtStateService } from './src/core/state-service';
 import { LIST_PROVIDERS } from './src/providers';
 
 @NgModule({
@@ -59,7 +59,7 @@ export class RTListsModule {
         multi?: boolean;
     }): void {
         LIST_PROVIDERS.push({
-            provide: RtPersistenceService,
+            provide: RtStateService,
             useClass,
             useValue,
             useExisting,

@@ -3,7 +3,7 @@ import { FiltersService, ListResponse, NullObjectPager, Pager, ProgressState, So
 import { Observable } from 'rxjs/Observable';
 
 import { AsyncSubscriber } from './async-subscriber';
-import { RtPersistenceService } from './persistence-service';
+import { RtStateService } from './state-service';
 
 @Injectable()
 export class RtListService {
@@ -11,7 +11,7 @@ export class RtListService {
     public static settings = {
         itemsPropertyName: 'items'
     };
-    public stateServices: Array<RtPersistenceService> = new Array<RtPersistenceService>();
+    private stateServices: Array<RtStateService> = new Array<RtStateService>();
     public itemsPropertyName: string = RtListService.settings.itemsPropertyName;
 
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
@@ -80,7 +80,7 @@ export class RtListService {
     }
     constructor(
         private asyncSubscriber: AsyncSubscriber,
-        @Optional() stateServices: RtPersistenceService,
+        @Optional() stateServices: RtStateService,
         public sortingsService: SortingsService,
         public filtersService: FiltersService) {
         if (stateServices != null) {
@@ -135,4 +135,17 @@ export class RtListService {
         this.asyncSubscriber.detach();
         this.state = ProgressState.Cancelled;
     };
+    public registerStateService(...services: RtStateService[]): void {
+        services.forEach((service) => {
+            this.stateServices.push(service);
+        });
+    }
+    public removeStateService(...services: RtStateService[]): void {
+        services.forEach((service: RtStateService) => {
+            const index = this.stateServices.findIndex(s => s === service);
+            if (index !== -1) {
+                this.stateServices.splice(index, 1);
+            }
+        });
+    }
 }
