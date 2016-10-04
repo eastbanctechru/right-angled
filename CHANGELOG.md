@@ -1,3 +1,18 @@
+<a name="0.23.0"></a>
+# [0.23.0](https://github.com/fshchudlo/right-angled/compare/0.22.2...v0.23.0) (2016-10-04)
+
+
+### Bug Fixes
+
+* **selection:** check that items parameter is array ([1ecb56c](https://github.com/fshchudlo/right-angled/commit/1ecb56c))
+
+
+### Features
+
+* **List:** `onServiceInit` event added ([aa89959](https://github.com/fshchudlo/right-angled/commit/aa89959))
+
+
+
 <a name="0.22.2"></a>
 ## [0.22.2](https://github.com/fshchudlo/right-angled/compare/0.22.1...v0.22.2) (2016-10-03)
 
