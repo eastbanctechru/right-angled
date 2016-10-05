@@ -3,19 +3,47 @@ import { NgModule } from '@angular/core';
 
 export * from 'e2e4';
 
-export { MISC_DIRECTIVES } from './src/misc-directives/index';
-import { MISC_DIRECTIVES } from './src/misc-directives/index';
+import { FocusOnRenderDirective, PreventDefaultsDirective, SelectOnFocusDirective, StopEventsDirective } from './src/misc-directives/index';
 
-export { FILTER_DIRECTIVES } from './src/filter-directives/index';
-import { FILTER_DIRECTIVES } from './src/filter-directives/index';
+import { RegisterAsFilterDirective, ResetSettingsDirective } from './src/filter-directives/index';
 
-export { SELECTION_DIRECTIVES } from './src/selection-directives/index';
 export * from './src/core/index';
 
-import { LIST_DIRECTIVES } from './src/list-directives/index';
-import { SELECTION_DIRECTIVES } from './src/selection-directives/index';
+import {
+    CancelLoadDirective,
+    ListComponent,
+    ListStateDoneComponent,
+    ListStateFailedComponent,
+    ListStateInProgressComponent,
+    ListStateInitialComponent,
+    ListStateNoDataComponent,
+    ListStateRequestCanceledComponent,
+    LoadDataDirective,
+    RowNumberComponent,
+    SortDirective
+} from './src/list-directives/index';
 
-import { BUFFERED_PAGER_DIRECTIVES, PAGED_PAGER_DIRECTIVES } from './src/paging-directives/index';
+import {
+    CheckAllDirective,
+    DeselectAllDirective,
+    SelectAllDirective,
+    SelectByIndexDirective,
+    SelectionAreaForDirective,
+    SelectionCheckboxForDirective
+} from './src/selection-directives/index';
+
+import {
+    BufferedPagerComponent,
+    GoToFirstPageDirective,
+    GoToLastPageDirective,
+    GoToNextPageDirective,
+    GoToPreviousPageDirective,
+    LoadMoreDirective,
+    PageNumberDirective,
+    PageSizeDirective,
+    PagedPagerComponent,
+    RowCountDirective
+} from './src/paging-directives/index';
 
 export { ListComponent } from './src/list-directives/index';
 export { SelectionAreaForDirective } from './src/selection-directives/index';
@@ -24,29 +52,81 @@ import { RtStateService } from './src/core/state-service';
 import { LIST_PROVIDERS } from './src/providers';
 
 @NgModule({
-    declarations: MISC_DIRECTIVES,
-    exports: MISC_DIRECTIVES,
+    declarations: [FocusOnRenderDirective, SelectOnFocusDirective, StopEventsDirective, PreventDefaultsDirective],
+    exports: [FocusOnRenderDirective, SelectOnFocusDirective, StopEventsDirective, PreventDefaultsDirective],
     imports: [CommonModule]
 })
 export class RTMiscModule { }
 
 @NgModule({
-    declarations: FILTER_DIRECTIVES,
-    exports: FILTER_DIRECTIVES,
+    declarations: [RegisterAsFilterDirective, ResetSettingsDirective],
+    exports: [RegisterAsFilterDirective, ResetSettingsDirective],
     imports: [CommonModule]
 })
 export class RTFiltersModule { }
 
 @NgModule({
-    declarations: SELECTION_DIRECTIVES,
-    exports: SELECTION_DIRECTIVES,
+    declarations: [
+        SelectionAreaForDirective,
+        SelectByIndexDirective,
+        SelectionCheckboxForDirective,
+        SelectAllDirective,
+        DeselectAllDirective,
+        CheckAllDirective],
+    exports: [
+        SelectionAreaForDirective,
+        SelectByIndexDirective,
+        SelectionCheckboxForDirective,
+        SelectAllDirective,
+        DeselectAllDirective,
+        CheckAllDirective],
     imports: [CommonModule]
 })
 export class RTSelectionModule { }
 
 @NgModule({
-    declarations: [LIST_DIRECTIVES, PAGED_PAGER_DIRECTIVES, BUFFERED_PAGER_DIRECTIVES],
-    exports: [LIST_DIRECTIVES, PAGED_PAGER_DIRECTIVES, BUFFERED_PAGER_DIRECTIVES],
+    declarations: [
+        ListComponent,
+        ListStateNoDataComponent,
+        ListStateRequestCanceledComponent,
+        ListStateDoneComponent,
+        ListStateFailedComponent,
+        ListStateInitialComponent,
+        ListStateInProgressComponent,
+        LoadDataDirective,
+        CancelLoadDirective,
+        RowNumberComponent,
+        SortDirective, PagedPagerComponent,
+        GoToFirstPageDirective,
+        GoToLastPageDirective,
+        GoToNextPageDirective,
+        GoToPreviousPageDirective,
+        PageSizeDirective,
+        PageNumberDirective,
+        BufferedPagerComponent,
+        LoadMoreDirective,
+        RowCountDirective],
+    exports: [ListComponent,
+        ListStateNoDataComponent,
+        ListStateRequestCanceledComponent,
+        ListStateDoneComponent,
+        ListStateFailedComponent,
+        ListStateInitialComponent,
+        ListStateInProgressComponent,
+        LoadDataDirective,
+        CancelLoadDirective,
+        RowNumberComponent,
+        SortDirective,
+        PagedPagerComponent,
+        GoToFirstPageDirective,
+        GoToLastPageDirective,
+        GoToNextPageDirective,
+        GoToPreviousPageDirective,
+        PageSizeDirective,
+        PageNumberDirective,
+        BufferedPagerComponent,
+        LoadMoreDirective,
+        RowCountDirective],
     imports: [CommonModule]
 })
 export class RTListsModule {

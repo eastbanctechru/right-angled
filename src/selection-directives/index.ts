@@ -1,16 +1,6 @@
-import { CheckAllDirective } from './check-all.directive';
-import { DeselectAllDirective } from './deselect-all.directive';
-import { SelectAllDirective } from './select-all.directive';
-import { SelectByIndexDirective } from './select-by-index.directive';
-import { SelectionAreaForDirective } from './selection-area-for.directive';
-import { SelectionCheckboxForDirective } from './selection-checkbox-for.directive';
-
-export var SELECTION_DIRECTIVES: any[] = [
-    SelectionAreaForDirective,
-    SelectByIndexDirective,
-    SelectionCheckboxForDirective,
-    SelectAllDirective,
-    DeselectAllDirective,
-    CheckAllDirective];
-
+export { CheckAllDirective } from './check-all.directive';
+export { DeselectAllDirective } from './deselect-all.directive';
+export { SelectAllDirective } from './select-all.directive';
+export { SelectByIndexDirective } from './select-by-index.directive';
 export { SelectionAreaForDirective } from './selection-area-for.directive';
+export { SelectionCheckboxForDirective } from './selection-checkbox-for.directive';
