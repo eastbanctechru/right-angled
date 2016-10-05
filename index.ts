@@ -130,7 +130,7 @@ export class RTSelectionModule { }
     imports: [CommonModule]
 })
 export class RTListsModule {
-    public static registerPersistenceService({useClass, useValue, useExisting, useFactory, deps, multi}: {
+    public static registerStateService({useClass, useValue, useExisting, useFactory, deps, multi}: {
         useClass?: any;
         useValue?: any;
         useExisting?: any;
@@ -155,7 +155,7 @@ export class RTListsModule {
     imports: [RTListsModule, RTSelectionModule, RTMiscModule, RTFiltersModule]
 })
 export class RTModule {
-    public static registerPersistenceService({useClass, useValue, useExisting, useFactory, deps, multi}: {
+    public static registerStateService({useClass, useValue, useExisting, useFactory, deps, multi}: {
         useClass?: any;
         useValue?: any;
         useExisting?: any;
@@ -163,6 +163,6 @@ export class RTModule {
         deps?: Object[];
         multi?: boolean;
     }): void {
-        RTListsModule.registerPersistenceService({ useClass, useValue, useExisting, useFactory, deps, multi });
+        RTListsModule.registerStateService({ useClass, useValue, useExisting, useFactory, deps, multi });
     }
 }

@@ -98,7 +98,7 @@ export class RtListService {
         }
         this.filtersService.registerFilterTarget(this, this.pager, this.sortingsService);
         let restoredState = {};
-        Object.assign(restoredState, ...this.stateServices.map(service => service.getPersistedState() || {}));
+        Object.assign(restoredState, ...this.stateServices.map(service => service.getState() || {}));
         this.filtersService.applyParams(restoredState);
         this.inited = true;
     }
