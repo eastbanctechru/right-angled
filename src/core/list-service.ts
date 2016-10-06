@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable, Optional } from '@angular/core';
-import { FiltersService, ListResponse, NullObjectPager, Pager, ProgressState, SortingsService, destroyAll } from 'e2e4';
+import { FilterConfig, FiltersService, ListResponse, NullObjectPager, Pager, ProgressState, SortingsService, destroyAll } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { AsyncSubscriber } from './async-subscriber';
@@ -153,5 +153,8 @@ export class RtListService {
     }
     public removeFilterTarget(...targets: Object[]): void {
         this.filtersService.removeFilterTarget(...targets);
+    }
+    public getRequestState(filterFn?: (config: FilterConfig, proposedValue: any, targetObject: Object) => boolean): any {
+        return this.filtersService.getRequestState(filterFn);
     }
 }
