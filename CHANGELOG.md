@@ -1,3 +1,25 @@
+<a name="0.26.0"></a>
+# [0.26.0](https://github.com/fshchudlo/right-angled/compare/0.25.2...v0.26.0) (2016-10-06)
+
+
+### Code Refactoring
+
+* **state services:** rename `registerPersistenceService` to `registerStateService` ([2ed3f02](https://github.com/fshchudlo/right-angled/commit/2ed3f02))
+
+
+### Features
+
+* **list service:** `getRequestState` method added ([5a05313](https://github.com/fshchudlo/right-angled/commit/5a05313))
+
+
+### BREAKING CHANGES
+
+* state services: `registerPersistenceService` renamed to `registerStateService`.
+
+`RtStateService.getPersistedState` renamed to `RtStateService.getState`
+
+
+
 <a name="0.25.2"></a>
 ## [0.25.2](https://github.com/fshchudlo/right-angled/compare/0.25.1...v0.25.2) (2016-10-04)
 
