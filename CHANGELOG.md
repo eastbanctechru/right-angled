@@ -1,3 +1,20 @@
+<a name="0.27.0"></a>
+# [0.27.0](https://github.com/fshchudlo/right-angled/compare/0.26.0...v0.27.0) (2016-10-07)
+
+
+### Code Refactoring
+
+* **List:** `ListComponent` is now directive ([03cb8ca](https://github.com/fshchudlo/right-angled/commit/03cb8ca))
+
+
+### BREAKING CHANGES
+
+* List: `rt-list` component now becomes `rtList` directive with fetch method as parameter
+
+instead of separate option as was before
+
+
+
 <a name="0.26.0"></a>
 # [0.26.0](https://github.com/fshchudlo/right-angled/compare/0.25.2...v0.26.0) (2016-10-06)
 
