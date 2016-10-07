@@ -1,21 +1,20 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, Output, Self, SimpleChange } from '@angular/core';
+import { AfterViewInit, Directive, EventEmitter, Input, OnChanges, OnDestroy, Output, Self, SimpleChange } from '@angular/core';
 import { ListRequest, ListResponse, SortParameter, SortingsService } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { LIST_PROVIDERS } from '../../providers';
 import { RtListService } from '../list-service';
 
-@Component({
+@Directive({
     exportAs: 'rtList',
     providers: [LIST_PROVIDERS],
-    selector: 'rt-list',
-    template: `<ng-content></ng-content>`
+    selector: '[rtList]'
 })
-export class ListComponent implements OnChanges, OnDestroy, AfterViewInit {
+export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     @Output() public onServiceInit: EventEmitter<RtListService> = new EventEmitter<RtListService>(false);
     @Input() public defaultSortings: Array<SortParameter>;
     @Input() public loadOnInit: boolean = true;
-    @Input() public set fetchMethod(value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>) {
+    @Input('rtList') public set fetchMethod(value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>) {
         this.listService.fetchMethod = value;
     }
     constructor( @Self() public listService: RtListService, @Self() private sortingsService: SortingsService) {

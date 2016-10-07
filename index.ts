@@ -11,7 +11,7 @@ export * from './src/core/index';
 
 import {
     CancelLoadDirective,
-    ListComponent,
+    ListDirective,
     ListStateDoneComponent,
     ListStateFailedComponent,
     ListStateInProgressComponent,
@@ -45,7 +45,7 @@ import {
     RowCountDirective
 } from './src/paging-directives/index';
 
-export { ListComponent } from './src/list-directives/index';
+export { ListDirective } from './src/list-directives/index';
 export { SelectionAreaForDirective } from './src/selection-directives/index';
 
 import { RtStateService } from './src/core/state-service';
@@ -86,7 +86,7 @@ export class RTSelectionModule { }
 
 @NgModule({
     declarations: [
-        ListComponent,
+        ListDirective,
         ListStateNoDataComponent,
         ListStateRequestCanceledComponent,
         ListStateDoneComponent,
@@ -106,7 +106,8 @@ export class RTSelectionModule { }
         BufferedPagerComponent,
         LoadMoreDirective,
         RowCountDirective],
-    exports: [ListComponent,
+    exports: [
+        ListDirective,
         ListStateNoDataComponent,
         ListStateRequestCanceledComponent,
         ListStateDoneComponent,

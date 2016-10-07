@@ -6,7 +6,7 @@ export { ListStateNoDataComponent } from './list-state/list-state-no-data.compon
 export { ListStateRequestCanceledComponent } from './list-state/list-state-request-canceled.component';
 
 export { CancelLoadDirective } from './list-controls/cancel-load.directive';
-export { ListComponent } from './list-controls/list.component';
+export { ListDirective } from './list-controls/list.directive';
 export { LoadDataDirective } from './list-controls/load-data.directive';
 export { RowNumberComponent } from './list-controls/row-number.component';
 export { SortDirective } from './list-controls/sort.directive';
