@@ -3,7 +3,7 @@ import { DefaultSelectionService, SelectionTuple } from 'e2e4';
 import { SelectionEventsEmitter } from './selection-events-emitter';
 
 export class RtSelectionService extends DefaultSelectionService {
-    private eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();
+    public eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();
     public areaEventsEmitter: SelectionEventsEmitter;
     protected processSelection(tuple: SelectionTuple, selected: boolean): void {
         const initialSelectState = tuple.item.selected;
@@ -18,6 +18,9 @@ export class RtSelectionService extends DefaultSelectionService {
         }
     }
     private emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
+        if (Object.prototype.hasOwnProperty.call(emitter, 'selected')) {
+            (<any>emitter).selected = selected;
+        }
         if (selected) {
             emitter.itemSelected.emit({ index: tuple.index, item: tuple.item });
         } else {
@@ -29,13 +32,5 @@ export class RtSelectionService extends DefaultSelectionService {
         delete this.areaEventsEmitter;
         this.eventEmitters.length = 0;
         super.destroy();
-    }
-    public registerEventEmitter(emitter: SelectionEventsEmitter, index: number): void {
-        this.eventEmitters[index] = emitter;
-    }
-    public unregisterEventEmitter(emitter: SelectionEventsEmitter, index: number): void {
-        if (this.eventEmitters[index] === emitter) {
-            this.eventEmitters[index] = null;
-        }
     }
 }

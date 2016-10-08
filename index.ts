@@ -27,8 +27,8 @@ import {
     CheckAllDirective,
     DeselectAllDirective,
     SelectAllDirective,
-    SelectByIndexDirective,
-    SelectionAreaForDirective,
+    SelectableDirective,
+    SelectionAreaDirective,
     SelectionCheckboxForDirective
 } from './src/selection-directives/index';
 
@@ -46,7 +46,7 @@ import {
 } from './src/paging-directives/index';
 
 export { ListDirective } from './src/list-directives/index';
-export { SelectionAreaForDirective } from './src/selection-directives/index';
+export { SelectionAreaDirective } from './src/selection-directives/index';
 
 import { RtStateService } from './src/core/state-service';
 import { LIST_PROVIDERS } from './src/providers';
@@ -67,15 +67,15 @@ export class RTFiltersModule { }
 
 @NgModule({
     declarations: [
-        SelectionAreaForDirective,
-        SelectByIndexDirective,
+        SelectableDirective,
+        SelectionAreaDirective,
         SelectionCheckboxForDirective,
         SelectAllDirective,
         DeselectAllDirective,
         CheckAllDirective],
     exports: [
-        SelectionAreaForDirective,
-        SelectByIndexDirective,
+        SelectableDirective,
+        SelectionAreaDirective,
         SelectionCheckboxForDirective,
         SelectAllDirective,
         DeselectAllDirective,
