@@ -12,6 +12,7 @@ import { RtListService } from '../list-service';
 })
 export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     @Output() public onServiceInit: EventEmitter<RtListService> = new EventEmitter<RtListService>(false);
+    @Output() public onServiceInited: EventEmitter<RtListService> = new EventEmitter<RtListService>(false);
     @Input() public defaultSortings: Array<SortParameter>;
     @Input() public loadOnInit: boolean = true;
     @Input('rtList') public set fetchMethod(value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>) {
@@ -31,9 +32,10 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
         // 2. give ability to all child controls to apply their default values
         // 3. overwrite theese default values by values passed via persistence services
         // 4. execute all ngAfterViewInit for custom services registration (setTimeout)
-        this.onServiceInit.next(this.listService);
         setTimeout(() => {
+            this.onServiceInit.next(this.listService);
             this.listService.init();
+            this.onServiceInited.next(this.listService);
             if (this.loadOnInit) {
                 this.listService.loadData();
             }
