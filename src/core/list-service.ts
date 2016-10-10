@@ -8,12 +8,7 @@ import { RtStateService } from './state-service';
 @Injectable()
 export class RtListService {
     // tslint:disable-next-line: typedef
-    public static settings = {
-        itemsPropertyName: 'items'
-    };
     private stateServices: Array<RtStateService> = new Array<RtStateService>();
-    public itemsPropertyName: string = RtListService.settings.itemsPropertyName;
-
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     private pagerInternal: Pager;
     public get pager(): Pager {
@@ -59,7 +54,7 @@ export class RtListService {
                 totalCount: result.length
             } as ListResponse<any>;
         }
-        this.items = this.items.concat(result[this.itemsPropertyName]);
+        this.items = this.items.concat(result.items);
 
         this.pager.processResponse(result);
         // In case when filter changed from last request and there's no data now
