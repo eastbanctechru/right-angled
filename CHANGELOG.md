@@ -1,3 +1,18 @@
+<a name="0.28.0"></a>
+# [0.28.0](https://github.com/fshchudlo/right-angled/compare/0.27.0...v0.28.0) (2016-10-10)
+
+
+### Code Refactoring
+
+* **selection:** Selection completely refactored ([71e2408](https://github.com/fshchudlo/right-angled/commit/71e2408))
+
+
+### BREAKING CHANGES
+
+* selection: `rtSelectionAreaFor` is now `rtSelectionArea` without any params. `rtSelectByIndex` is replaced by `rtSelectable`
+
+
+
 <a name="0.27.0"></a>
 # [0.27.0](https://github.com/fshchudlo/right-angled/compare/0.26.0...v0.27.0) (2016-10-07)
 
