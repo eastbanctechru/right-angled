@@ -1,3 +1,8 @@
+<a name="0.28.2"></a>
+## [0.28.2](https://github.com/fshchudlo/right-angled/compare/0.28.1...v0.28.2) (2016-10-11)
+
+
+
 <a name="0.28.1"></a>
 # [0.29.0](https://github.com/fshchudlo/right-angled/compare/0.28.0...v0.28.1) (2016-10-11)
 
