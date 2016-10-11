@@ -33,14 +33,14 @@
     }
   },
   "dependencies": {
-    "@angular/common": "2.0.0",
-    "@angular/core": "2.0.0",
+    "@angular/common": "2.0.2",
+    "@angular/core": "2.0.2",
     "e2e4": "^2.0.0-beta.6",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "0.6.25"
   },
   "devDependencies": {
-    "@angular/compiler": "2.0.0",
+    "@angular/compiler": "2.0.2",
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.32",
     "@types/sinon": "^1.16.31",
