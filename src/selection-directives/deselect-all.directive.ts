@@ -1,16 +1,16 @@
 import { Directive, HostListener, Input, SkipSelf } from '@angular/core';
 
-import { SelectionAreaDirective } from './selection-area.directive';
+import { RtSelectionService } from '../core/index';
 
 @Directive({
     selector: '[rtDeselectAll]'
 })
 export class DeselectAllDirective {
     @Input() public recursive: boolean = true;
-    constructor( @SkipSelf() private selectionArea: SelectionAreaDirective) {
+    constructor( @SkipSelf() private selectionService: RtSelectionService) {
     }
     @HostListener('click')
     public clickHandler(event: MouseEvent): void {
-        this.selectionArea.deselectAllItems(this.recursive);
+        this.selectionService.deselectAllItems(this.recursive);
     }
 }

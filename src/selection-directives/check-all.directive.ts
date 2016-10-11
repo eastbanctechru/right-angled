@@ -1,21 +1,21 @@
 import { Directive, HostListener, Input, SkipSelf } from '@angular/core';
 
-import { SelectionAreaDirective } from './selection-area.directive';
+import { RtSelectionService } from '../core/index';
 
 @Directive({
     selector: 'input[rtCheckAll]'
 })
 export class CheckAllDirective {
     @Input() public recursive: boolean = true;
-    constructor( @SkipSelf() private selectionArea: SelectionAreaDirective) {
+    constructor( @SkipSelf() private selectionService: RtSelectionService) {
     }
 
     @HostListener('change', ['$event'])
     public changeHandler(evt: MouseEvent): void {
         if ((evt.target as HTMLInputElement).checked) {
-            this.selectionArea.selectAllItems(this.recursive);
+            this.selectionService.selectAllItems(this.recursive);
         } else {
-            this.selectionArea.deselectAllItems(this.recursive);
+            this.selectionService.deselectAllItems(this.recursive);
         }
     }
 }

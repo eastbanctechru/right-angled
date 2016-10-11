@@ -16,11 +16,12 @@ import { SelectionCheckboxForDirective } from './selection-checkbox-for.directiv
 export class SelectionAreaDirective implements SelectionEventsEmitter, AfterContentInit, OnChanges, OnDestroy {
     @ContentChildren(SelectableDirective, { descendants: false }) public selectableItems: QueryList<SelectableDirective>;
     @ContentChildren(SelectionCheckboxForDirective, { descendants: false }) public childSelectionCheckboxes: QueryList<SelectionCheckboxForDirective>;
-    @ContentChildren(SelectionAreaDirective) public childSelectionAreas: QueryList<SelectionAreaDirective>;
+    @ContentChildren(SelectionAreaDirective, { descendants: false }) public childSelectionAreas: QueryList<SelectionAreaDirective>;
 
     private tabIndexPrivate: number;
     private itemsSubscription: Subscription;
     private checkboxesSubscription: Subscription;
+    private childSelectionAreasSubscription: Subscription;
 
     @Input() public set preventEventsDefaults(value: boolean) {
         this.selectionEventsHelper.preventEventsDefaults = value;
@@ -58,6 +59,9 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         }
         if (this.checkboxesSubscription) {
             this.checkboxesSubscription.unsubscribe();
+        }
+        if (this.childSelectionAreasSubscription) {
+            this.childSelectionAreasSubscription.unsubscribe();
         }
         this.selectionService.deselectAll();
         this.selectionService.destroy();
@@ -118,30 +122,11 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         if (this.childSelectionCheckboxes.length > 0) {
             this.buildSelectionSource(this.childSelectionCheckboxes);
         }
+        if (this.childSelectionAreas.length > 0) {
+            this.selectionService.childSelectionServices = this.childSelectionAreas.map(area => area.selectionService);
+        }
         this.itemsSubscription = this.selectableItems.changes.subscribe(this.buildSelectionSource.bind(this));
         this.checkboxesSubscription = this.childSelectionCheckboxes.changes.subscribe(this.buildSelectionSource.bind(this));
-    }
-    public selectAllItems(recursive: boolean): void {
-        this.selectionService.selectAll();
-        // run this directly after render to give child selectionAreas ability to render
-        setTimeout(() => {
-            if (recursive && this.childSelectionAreas) {
-                this.childSelectionAreas.toArray().forEach(area => {
-                    if (area !== this) {
-                        area.selectAllItems(recursive);
-                    }
-                });
-            }
-        }, 0);
-    }
-    public deselectAllItems(recursive: boolean): void {
-        if (recursive && this.childSelectionAreas) {
-            this.childSelectionAreas.toArray().forEach(area => {
-                if (area !== this) {
-                    area.deselectAllItems(recursive);
-                }
-            });
-        }
-        this.selectionService.deselectAll();
+        this.childSelectionAreasSubscription = this.childSelectionAreas.changes.subscribe((changes) => this.selectionService.childSelectionServices = changes.map(area => area.selectionService));
     }
 }
