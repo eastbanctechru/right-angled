@@ -57,7 +57,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-conventional-changelog": "^1.1.0",
     "gulp-git": "^1.11.3",
-    "gulp-sourcemaps": "^2.0.0",
+    "gulp-sourcemaps": "^2.1.0",
     "gulp-tslint": "^6.1.2",
     "gulp-typedoc": "^2.0.0",
     "gulp-typescript": "^3.0.1",
