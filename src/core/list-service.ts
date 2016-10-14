@@ -80,7 +80,7 @@ export class RtListService {
         private filtersService: FiltersService) {
         if (stateServices != null) {
             if (Array.isArray(stateServices)) {
-                this.stateServices = <any>stateServices;
+                this.stateServices.push(...<Array<RtStateService>>stateServices);
             } else {
                 this.stateServices.push(stateServices);
             }

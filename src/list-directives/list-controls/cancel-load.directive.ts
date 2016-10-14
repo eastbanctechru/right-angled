@@ -1,37 +1,23 @@
-import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers, OnInit, SkipSelf } from '@angular/core';
+import { Directive, HostBinding, HostListener, KeyValueDiffers, SkipSelf } from '@angular/core';
 
 import { RtListService } from '../list-service';
+import { DisabledByStateControl } from './disabled-by-state-control';
 
 @Directive({
     selector: '[rtCancelLoad]'
 })
-export class CancelLoadDirective implements DoCheck, OnInit {
-    private listDiffer: KeyValueDiffer;
+export class CancelLoadDirective extends DisabledByStateControl {
     @HostBinding('disabled')
     public disabled: boolean;
 
-    constructor( @SkipSelf() public listService: RtListService, kvDiffers: KeyValueDiffers) {
-        this.listDiffer = kvDiffers.find([]).create(null);
-    }
-    public ngOnInit(): void {
-        this.setAttributes();
-    }
-    public ngDoCheck(): void {
-        let stateDiff = this.listDiffer.diff(this.listService);
-        if (stateDiff) {
-            stateDiff.forEachChangedItem(this.checkStateFieldChanges);
-        }
-    }
-    protected checkStateFieldChanges = (item: any): void => {
-        if (item.key === 'state') {
-            this.setAttributes();
-        }
-    }
-    public setAttributes(): void {
-        this.disabled = this.listService.ready;
+    constructor( @SkipSelf() listService: RtListService, kvDiffers: KeyValueDiffers) {
+        super(listService, kvDiffers);
     }
     @HostListener('click')
-    public loadData(): void {
+    public cancelLoad(): void {
         this.listService.cancelRequests();
+    }
+    public setDisableState(): void {
+        this.disabled = this.listService.ready;
     }
 }

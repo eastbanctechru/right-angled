@@ -4,9 +4,9 @@ import { RtListService } from '../list-service';
 import { DisabledByStateControl } from './disabled-by-state-control';
 
 @Directive({
-    selector: '[rtLoadData]'
+    selector: '[rtReloadData]'
 })
-export class LoadDataDirective extends DisabledByStateControl {
+export class ReloadDataDirective extends DisabledByStateControl {
     @HostBinding('disabled')
     public disabled: boolean;
 
@@ -14,8 +14,8 @@ export class LoadDataDirective extends DisabledByStateControl {
         super(listService, kvDiffers);
     }
     @HostListener('click')
-    public loadData(): void {
-        this.listService.loadData();
+    public reloadData(): void {
+        this.listService.reloadData();
     }
     public setDisableState(): void {
         this.disabled = this.listService.busy;

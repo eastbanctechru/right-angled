@@ -8,5 +8,6 @@ export { ListStateRequestCanceledComponent } from './list-state/list-state-reque
 export { CancelLoadDirective } from './list-controls/cancel-load.directive';
 export { ListDirective } from './list-controls/list.directive';
 export { LoadDataDirective } from './list-controls/load-data.directive';
+export { ReloadDataDirective } from './list-controls/reload-data.directive';
 export { RowNumberComponent } from './list-controls/row-number.component';
 export { SortDirective } from './list-controls/sort.directive';
