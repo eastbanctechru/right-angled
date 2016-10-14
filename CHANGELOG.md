@@ -1,3 +1,13 @@
+<a name="0.28.3"></a>
+# [0.28.3](https://github.com/fshchudlo/right-angled/compare/0.28.2...v0.28.3) (2016-10-14)
+
+
+### Features
+
+* **list controls:** `RtReloadData` directive added ([b63de6a](https://github.com/fshchudlo/right-angled/commit/b63de6a))
+
+
+
 <a name="0.28.2"></a>
 ## [0.28.2](https://github.com/fshchudlo/right-angled/compare/0.28.1...v0.28.2) (2016-10-11)
 
