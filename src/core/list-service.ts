@@ -152,4 +152,7 @@ export class RtListService {
     public getRequestState(filterFn?: (config: FilterConfig, proposedValue: any, targetObject: Object) => boolean): any {
         return this.filtersService.getRequestState(filterFn);
     }
+    public resetSettings(): void {
+        this.filtersService.resetValues();
+    }
 }
