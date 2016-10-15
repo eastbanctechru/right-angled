@@ -1,3 +1,13 @@
+<a name="0.28.4"></a>
+# [0.28.4](https://github.com/fshchudlo/right-angled/compare/0.28.3...v0.28.4) (2016-10-15)
+
+
+### Features
+
+* **all:** updated to angular 2.1.0 ([deeaa52](https://github.com/fshchudlo/right-angled/commit/deeaa52))
+
+
+
 <a name="0.28.3"></a>
 # [0.28.3](https://github.com/fshchudlo/right-angled/compare/0.28.2...v0.28.3) (2016-10-14)
 
