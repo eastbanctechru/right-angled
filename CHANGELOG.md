@@ -1,3 +1,13 @@
+<a name="0.28.5"></a>
+# [0.28.5](https://github.com/fshchudlo/right-angled/compare/0.28.4...v0.28.5) (2016-10-15)
+
+
+### Features
+
+* **rtList:** add several shorthand to `listService` methods to `rtList` directive ([93caf68](https://github.com/fshchudlo/right-angled/commit/93caf68))
+
+
+
 <a name="0.28.4"></a>
 # [0.28.4](https://github.com/fshchudlo/right-angled/compare/0.28.3...v0.28.4) (2016-10-15)
 
