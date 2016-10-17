@@ -12,3 +12,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var __param = this.__param || function (index, decorator) {
+    return function (target, key) {
+        decorator(target, key, index); 
+    }
+};
