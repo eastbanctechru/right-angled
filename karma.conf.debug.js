@@ -12,18 +12,6 @@ module.exports = function (config) {
         preprocessors: {
             'karma.entry.js': ['webpack', 'sourcemap']
         },
-        babelPreprocessor: {
-            options: {
-                presets: ['es2015'],
-                sourceMap: 'inline'
-            },
-            filename: function (file) {
-                return file.originalPath.replace(/\.js$/, '.es5.js');
-            },
-            sourceFileName: function (file) {
-                return file.originalPath;
-            }
-            },
         webpack: {
             devtool: 'inline-source-map',
             ts: {

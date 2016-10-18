@@ -10,16 +10,6 @@ require('zone.js/dist/jasmine-patch');
 
 require('typescript/lib/typescript');
 
-//  const browserTesting = require('@angular/platform-browser-dynamic/testing');
-//  const coreTesting = require('@angular/core/testing');
- 
-// alert(browserTesting.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
-
-// coreTesting.setBaseTestProviders(
-//     browserTesting.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-//     browserTesting.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
-// );
-
 const context = require.context('./tests/', true, /\.spec\.ts$/);
 
 context.keys().forEach(context);
