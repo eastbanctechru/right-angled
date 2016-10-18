@@ -5,9 +5,6 @@ export { ListStateInitialComponent } from './list-state/list-state-initial.compo
 export { ListStateNoDataComponent } from './list-state/list-state-no-data.component';
 export { ListStateRequestCanceledComponent } from './list-state/list-state-request-canceled.component';
 
-export { CancelLoadDirective } from './list-controls/cancel-load.directive';
-export { ListDirective } from './list-controls/list.directive';
-export { LoadDataDirective } from './list-controls/load-data.directive';
-export { ReloadDataDirective } from './list-controls/reload-data.directive';
+export { ListDirective } from './list.directive';
 export { RowNumberPipe } from './row-number.pipe';
-export { SortDirective } from './list-controls/sort.directive';
+export { SortDirective } from './sort.directive';

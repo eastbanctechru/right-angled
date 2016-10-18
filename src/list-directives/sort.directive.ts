@@ -1,7 +1,7 @@
 import {  Directive, DoCheck, ElementRef, HostListener, Input, IterableDiffer, IterableDiffers, OnInit, Renderer, SkipSelf } from '@angular/core';
 import { SortDirection, SortingsService } from 'e2e4';
 
-import { RtListService } from '../list-service';
+import { RtListService } from './list-service';
 
 @Directive({
     selector: '[rtSort]'

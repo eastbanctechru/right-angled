@@ -5,12 +5,11 @@ export * from 'e2e4';
 
 import { FocusOnRenderDirective, PreventDefaultsDirective, SelectOnFocusDirective, StopEventsDirective } from './src/misc-directives/index';
 
-import { RegisterAsFilterDirective, ResetSettingsDirective } from './src/filter-directives/index';
+import { RegisterAsFilterDirective } from './src/filter-directives/index';
 
 export * from './src/core/index';
 
 import {
-    CancelLoadDirective,
     ListDirective,
     ListStateDoneComponent,
     ListStateFailedComponent,
@@ -18,8 +17,6 @@ import {
     ListStateInitialComponent,
     ListStateNoDataComponent,
     ListStateRequestCanceledComponent,
-    LoadDataDirective,
-    ReloadDataDirective,
     RowNumberPipe,
     SortDirective
 } from './src/list-directives/index';
@@ -60,8 +57,8 @@ import { LIST_PROVIDERS } from './src/providers';
 export class RTMiscModule { }
 
 @NgModule({
-    declarations: [RegisterAsFilterDirective, ResetSettingsDirective],
-    exports: [RegisterAsFilterDirective, ResetSettingsDirective],
+    declarations: [RegisterAsFilterDirective],
+    exports: [RegisterAsFilterDirective],
     imports: [CommonModule]
 })
 export class RTFiltersModule { }
@@ -94,9 +91,6 @@ export class RTSelectionModule { }
         ListStateFailedComponent,
         ListStateInitialComponent,
         ListStateInProgressComponent,
-        LoadDataDirective,
-        CancelLoadDirective,
-        ReloadDataDirective,
         RowNumberPipe,
         SortDirective, PagedPagerComponent,
         GoToFirstPageDirective,
@@ -116,9 +110,6 @@ export class RTSelectionModule { }
         ListStateFailedComponent,
         ListStateInitialComponent,
         ListStateInProgressComponent,
-        LoadDataDirective,
-        CancelLoadDirective,
-        ReloadDataDirective,
         RowNumberPipe,
         SortDirective,
         PagedPagerComponent,

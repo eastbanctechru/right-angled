@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { ListDirective } from './list-controls/list.directive';
+import { ListDirective } from './list.directive';
 
 @Pipe({ name: 'rtRowNumber' })
 export class RowNumberPipe implements PipeTransform {
