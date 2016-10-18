@@ -20,7 +20,7 @@ import {
     ListStateRequestCanceledComponent,
     LoadDataDirective,
     ReloadDataDirective,
-    RowNumberComponent,
+    RowNumberPipe,
     SortDirective
 } from './src/list-directives/index';
 
@@ -97,7 +97,7 @@ export class RTSelectionModule { }
         LoadDataDirective,
         CancelLoadDirective,
         ReloadDataDirective,
-        RowNumberComponent,
+        RowNumberPipe,
         SortDirective, PagedPagerComponent,
         GoToFirstPageDirective,
         GoToLastPageDirective,
@@ -119,7 +119,7 @@ export class RTSelectionModule { }
         LoadDataDirective,
         CancelLoadDirective,
         ReloadDataDirective,
-        RowNumberComponent,
+        RowNumberPipe,
         SortDirective,
         PagedPagerComponent,
         GoToFirstPageDirective,
