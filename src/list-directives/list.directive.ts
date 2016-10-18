@@ -11,8 +11,8 @@ import { LIST_PROVIDERS } from '../providers';
     selector: '[rtList]'
 })
 export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
-    @Output() public onServiceInit: EventEmitter<RtList> = new EventEmitter<RtList>(false);
-    @Output() public onServiceInited: EventEmitter<RtList> = new EventEmitter<RtList>(false);
+    @Output() public onListInit: EventEmitter<RtList> = new EventEmitter<RtList>(false);
+    @Output() public afterListInit: EventEmitter<RtList> = new EventEmitter<RtList>(false);
     @Input() public defaultSortings: Array<SortParameter>;
     @Input() public loadOnInit: boolean = true;
     @Input('rtList') public set fetchMethod(value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>) {
@@ -30,9 +30,9 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
         // 3. overwrite theese default values by values passed via persistence services
         // 4. execute all ngAfterViewInit for custom services registration (setTimeout)
         setTimeout(() => {
-            this.onServiceInit.next(this.listService);
+            this.onListInit.next(this.listService);
             this.listService.init();
-            this.onServiceInited.next(this.listService);
+            this.afterListInit.next(this.listService);
             if (this.loadOnInit) {
                 this.listService.loadData();
             }
