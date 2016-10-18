@@ -1,3 +1,37 @@
+<a name="0.29.0"></a>
+# [0.29.0](https://github.com/fshchudlo/right-angled/compare/0.28.5...v10.29.0) (2016-10-18)
+
+
+### Bug Fixes
+
+* **rt-row-number:** `index` parameter validation ([5ad345b](https://github.com/fshchudlo/right-angled/commit/5ad345b))
+
+
+### Code Refactoring
+
+* **list:** `RtListService` renamed to `RtList` since it pretty obvious what is this ([7441e72](https://github.com/fshchudlo/right-angled/commit/7441e72))
+* **list:** rename list events to more convenient names ([d43ae9c](https://github.com/fshchudlo/right-angled/commit/d43ae9c))
+
+
+### Features
+
+* **lists:** `rtRowNumber` pipe provided instead of `rt-row-number` component ([fe6d85f](https://github.com/fshchudlo/right-angled/commit/fe6d85f))
+* **lists:** excessive directives deleted ([062208b](https://github.com/fshchudlo/right-angled/commit/062208b))
+
+
+### BREAKING CHANGES
+
+* list: `onServiceInit` and `onServiceInited` event of 'rtList'directive is now
+
+`onListInit` and `afterListInit`
+* list: `RtListService` renamed to `RtList`
+* lists: `rtLoadData`, 'rtReloadData', `rtCancelLoad` and `rtResetSettings` directiives
+
+deleted. since they aren't flexible. Use `rtList` methods to implement same functionality
+* lists: `rt-row-number` component removed. Use `rtRowNumber` pipe instead
+
+
+
 <a name="0.28.5"></a>
 # [0.28.5](https://github.com/fshchudlo/right-angled/compare/0.28.4...v0.28.5) (2016-10-15)
 
