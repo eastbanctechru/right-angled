@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core
 import { BufferedPager } from 'e2e4';
 
 import { RtBufferedPager } from '../providers';
-import { RtListService } from './list-service';
+import { RtList } from './list';
 
 @Component({
     providers: [{ provide: BufferedPager, useClass: RtBufferedPager }],
@@ -14,7 +14,7 @@ export class BufferedPagerComponent implements OnChanges, OnInit {
     @Input() public maxRowCount: number = BufferedPager.settings.maxRowCount;
     @Input() public minRowCount: number = BufferedPager.settings.minRowCount;
 
-    constructor(public pager: BufferedPager, listService: RtListService) {
+    constructor(public pager: BufferedPager, listService: RtList) {
         listService.pager = pager;
     }
     public ngOnInit(): void {

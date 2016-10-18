@@ -6,7 +6,7 @@ import { AsyncSubscriber } from './async-subscriber';
 import { RtStateService } from './state-service';
 
 @Injectable()
-export class RtListService {
+export class RtList {
     private stateServices: Array<RtStateService> = new Array<RtStateService>();
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     private pagerInternal: Pager;

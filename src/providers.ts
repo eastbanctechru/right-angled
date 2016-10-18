@@ -26,11 +26,11 @@ export class RtSelectionEventsHelper extends SelectionEventsHelper {
 }
 
 import { AsyncSubscriber } from './core/async-subscriber';
-import { RtListService } from './core/list-service';
+import { RtList } from './core/list';
 
 export var LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
-    RtListService,
+    RtList,
     { provide: FiltersService, useClass: RtFiltersService },
     { provide: SortingsService, useClass: RtSortingsService }
 ];

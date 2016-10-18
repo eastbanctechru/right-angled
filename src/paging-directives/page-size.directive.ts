@@ -1,7 +1,7 @@
 import { Directive, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RtListService } from './list-service';
+import { RtList } from './list';
 import { PageSizeControlBase } from './page-size-control-base';
 
 @Directive({
@@ -19,7 +19,7 @@ export class PageSizeDirective extends PageSizeControlBase {
     public get checkChangesPropertyName(): string {
         return 'pageSizeInternal';
     }
-    constructor(listService: RtListService, pager: PagedPager, differs: KeyValueDiffers) {
+    constructor(listService: RtList, pager: PagedPager, differs: KeyValueDiffers) {
         super(listService, pager, differs);
         if (pager === null) {
             throw new Error('[rtPageSize] directive can be used only with paged list provider.');

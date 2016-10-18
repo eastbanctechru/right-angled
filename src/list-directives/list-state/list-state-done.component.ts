@@ -1,7 +1,7 @@
 import { Component, KeyValueDiffers, SkipSelf } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { RtListService } from './list-service';
+import { RtList } from './list';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
@@ -9,7 +9,7 @@ import { ListStateComponent } from './list-state-component';
     template: `<ng-content *ngIf="isVisible"></ng-content>`
 })
 export class ListStateDoneComponent extends ListStateComponent {
-    constructor( @SkipSelf() listService: RtListService, differs: KeyValueDiffers) {
+    constructor( @SkipSelf() listService: RtList, differs: KeyValueDiffers) {
         super(listService, differs, ProgressState.Done);
     }
 }

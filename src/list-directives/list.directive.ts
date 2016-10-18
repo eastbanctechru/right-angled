@@ -2,7 +2,7 @@ import { AfterViewInit, Directive, EventEmitter, Input, OnChanges, OnDestroy, Ou
 import { ListRequest, ListResponse, SortParameter, SortingsService } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
-import { RtListService } from '../core/list-service';
+import { RtList } from '../core/list';
 import { LIST_PROVIDERS } from '../providers';
 
 @Directive({
@@ -11,14 +11,14 @@ import { LIST_PROVIDERS } from '../providers';
     selector: '[rtList]'
 })
 export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
-    @Output() public onServiceInit: EventEmitter<RtListService> = new EventEmitter<RtListService>(false);
-    @Output() public onServiceInited: EventEmitter<RtListService> = new EventEmitter<RtListService>(false);
+    @Output() public onServiceInit: EventEmitter<RtList> = new EventEmitter<RtList>(false);
+    @Output() public onServiceInited: EventEmitter<RtList> = new EventEmitter<RtList>(false);
     @Input() public defaultSortings: Array<SortParameter>;
     @Input() public loadOnInit: boolean = true;
     @Input('rtList') public set fetchMethod(value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>) {
         this.listService.fetchMethod = value;
     }
-    constructor( @Self() public listService: RtListService, @Self() private sortingsService: SortingsService) {
+    constructor( @Self() public listService: RtList, @Self() private sortingsService: SortingsService) {
     }
     public get items(): Array<any> {
         return this.listService.items;

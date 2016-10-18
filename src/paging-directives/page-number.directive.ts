@@ -1,7 +1,7 @@
 import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RtListService } from './list-service';
+import { RtList } from './list';
 
 @Directive({
     selector: 'input[rtPageNumber]'
@@ -12,7 +12,7 @@ export class PageNumberDirective implements DoCheck {
     @HostBinding('value')
     public innerPageNumber: number;
 
-    constructor( private listService: RtListService, private pager: PagedPager, differs: KeyValueDiffers) {
+    constructor( private listService: RtList, private pager: PagedPager, differs: KeyValueDiffers) {
         if (pager === null) {
             throw new Error('[rtPageNumber] directive can be used only with paged lists.');
         }

@@ -1,7 +1,7 @@
 import { Directive, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
 import { BufferedPager } from 'e2e4';
 
-import { RtListService } from './list-service';
+import { RtList } from './list';
 import { PageSizeControlBase } from './page-size-control-base';
 
 @Directive({
@@ -19,7 +19,7 @@ export class RowCountDirective extends PageSizeControlBase {
     public get checkChangesPropertyName(): string {
         return 'takeRowCountInternal';
     }
-    constructor(listService: RtListService, private bufferedPager: BufferedPager, differs: KeyValueDiffers) {
+    constructor(listService: RtList, private bufferedPager: BufferedPager, differs: KeyValueDiffers) {
         super(listService, bufferedPager, differs);
         if (bufferedPager === null) {
             throw new Error('[rtRowCount] directive can be used only with buffered list provider.');

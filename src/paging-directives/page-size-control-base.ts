@@ -1,6 +1,6 @@
 import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 
-import { RtListService } from './list-service';
+import { RtList } from './list';
 
 export abstract class PageSizeControlBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
@@ -14,7 +14,7 @@ export abstract class PageSizeControlBase implements DoCheck, OnInit {
     public abstract set pageSize(value: number);
     public abstract get checkChangesPropertyName(): string;
 
-    constructor(private listService: RtListService, public pager: any, differs: KeyValueDiffers) {
+    constructor(private listService: RtList, public pager: any, differs: KeyValueDiffers) {
         this.pagerDiffer = differs.find([]).create(null);
     }
 

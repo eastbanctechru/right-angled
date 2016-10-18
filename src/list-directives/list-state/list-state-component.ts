@@ -1,13 +1,13 @@
 import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { RtListService } from './list-service';
+import { RtList } from './list';
 
 export abstract class ListStateComponent implements DoCheck, OnInit {
     private listDiffer: KeyValueDiffer;
     private visibleState: ProgressState;
     protected isVisible: boolean;
-    constructor(protected listService: RtListService, differs: KeyValueDiffers, visibleState: ProgressState) {
+    constructor(protected listService: RtList, differs: KeyValueDiffers, visibleState: ProgressState) {
         this.visibleState = visibleState;
         this.listDiffer = differs.find([]).create(null);
     }

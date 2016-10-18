@@ -2,13 +2,13 @@ import { Directive, ElementRef, HostBinding, HostListener, KeyValueDiffers } fro
 import { PagedPager } from 'e2e4';
 
 import { GoToControlBase } from './go-to-control-base';
-import { RtListService } from './list-service';
+import { RtList } from './list';
 
 @Directive({
     selector: '[rtGoToFirstPage]'
 })
 export class GoToFirstPageDirective extends GoToControlBase {
-    constructor(private listService: RtListService, pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
+    constructor(private listService: RtList, pager: PagedPager, differs: KeyValueDiffers, elementRef: ElementRef) {
         super(pager, differs, elementRef);
     }
     @HostListener('click')
