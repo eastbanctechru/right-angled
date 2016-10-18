@@ -47,6 +47,7 @@
     "@types/chai": "^3.4.34",
     "@types/jasmine": "^2.5.35",
     "@types/sinon": "^1.16.31",
+    "browserify": "^13.1.0",
     "chai": "^3.5.0",
     "codelyzer": "1.0.0-beta.2",
     "conventional-github-releaser": "^1.1.3",
