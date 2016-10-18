@@ -5,7 +5,6 @@ module.exports = function (config) {
         browsers: ['Chrome'],
         frameworks: ['jasmine'],
         files: [
-            'tests/@ts-emitted-functions.js',
             'node_modules/es6-shim/es6-shim.min.js',
             'karma.entry.js'
         ],
@@ -16,7 +15,7 @@ module.exports = function (config) {
             devtool: 'inline-source-map',
             ts: {
                 compilerOptions: {
-                    noEmitHelpers: true
+                    noEmitHelpers: false
                 }
             },
             module: {

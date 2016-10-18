@@ -4,10 +4,9 @@ module.exports = function (config) {
     config.set({
         browsers: ['PhantomJS'],
         singleRun: true,
-        frameworks: ['mocha'],
+        frameworks: ['jasmine'],
         files: [
             'node_modules/es6-shim/es6-shim.js',
-            'tests/@ts-emitted-functions.js',
             'tests/**/*.ts'
         ],
         preprocessors: {
@@ -25,7 +24,7 @@ module.exports = function (config) {
             devtool: 'inline-source-map',
             ts: {
                 compilerOptions: {
-                    noEmitHelpers: true
+                    noEmitHelpers: false
                 }
             },
             module: {

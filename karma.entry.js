@@ -10,7 +10,7 @@ require('zone.js/dist/jasmine-patch');
 
 require('typescript/lib/typescript');
 
-const context = require.context('./tests/', true, /\.spec\.ts$/);
+const context = require.context('./tests/', true, /\.test\.ts$/);
 
 context.keys().forEach(context);
 
