@@ -7,7 +7,6 @@ import { RtStateService } from './state-service';
 
 @Injectable()
 export class RtListService {
-    // tslint:disable-next-line: typedef
     private stateServices: Array<RtStateService> = new Array<RtStateService>();
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     private pagerInternal: Pager;
@@ -120,11 +119,10 @@ export class RtListService {
         this.stateServices.forEach(service => service.persistState(this.filtersService));
     }
     public reloadData(): void {
-        if (this.busy) {
-            return;
+        if (this.ready) {
+            this.clearData();
+            this.loadData();
         }
-        this.clearData();
-        this.loadData();
     }
     public cancelRequests(): void {
         this.asyncSubscriber.detach();

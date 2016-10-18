@@ -2,8 +2,8 @@ import { AfterViewInit, Directive, EventEmitter, Input, OnChanges, OnDestroy, Ou
 import { ListRequest, ListResponse, SortParameter, SortingsService } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
+import { RtListService } from '../core/list-service';
 import { LIST_PROVIDERS } from '../providers';
-import { RtListService } from './list-service';
 
 @Directive({
     exportAs: 'rtList',
