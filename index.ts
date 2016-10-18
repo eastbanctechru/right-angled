@@ -10,13 +10,16 @@ import { RegisterAsFilterDirective } from './src/filter-directives/index';
 export * from './src/core/index';
 
 import {
-    ListDirective,
     ListStateDoneComponent,
     ListStateFailedComponent,
     ListStateInProgressComponent,
     ListStateInitialComponent,
     ListStateNoDataComponent,
-    ListStateRequestCanceledComponent,
+    ListStateRequestCanceledComponent
+} from './src/list-state-components/index';
+
+import {
+    ListDirective,
     RowNumberPipe,
     SortDirective
 } from './src/list-directives/index';

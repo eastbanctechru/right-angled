@@ -1,7 +1,7 @@
 import { Component, KeyValueDiffers, SkipSelf } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { RtList } from './list';
+import { RtList } from '../core/list';
 import { ListStateComponent } from './list-state-component';
 
 @Component({

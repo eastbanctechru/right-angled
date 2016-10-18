@@ -1,15 +1,15 @@
 import { Component, KeyValueDiffers, SkipSelf } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { RtList } from './list';
+import { RtList } from '../core/list';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
-    selector: 'rt-list-state-progress',
+    selector: 'rt-list-state-request-canceled',
     template: `<ng-content *ngIf="isVisible"></ng-content>`
 })
-export class ListStateInProgressComponent extends ListStateComponent {
+export class ListStateRequestCanceledComponent extends ListStateComponent {
     constructor( @SkipSelf() listService: RtList, differs: KeyValueDiffers) {
-        super(listService, differs, ProgressState.Progress);
+        super(listService, differs, ProgressState.Cancelled);
     }
 }

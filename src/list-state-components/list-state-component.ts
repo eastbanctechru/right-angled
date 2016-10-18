@@ -1,7 +1,7 @@
 import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 import { ProgressState } from 'e2e4';
 
-import { RtList } from './list';
+import { RtList } from '../core/list';
 
 export abstract class ListStateComponent implements DoCheck, OnInit {
     private listDiffer: KeyValueDiffer;

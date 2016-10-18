@@ -1,7 +1,7 @@
 import { Directive, HostBinding, HostListener, SkipSelf } from '@angular/core';
 import { BufferedPager } from 'e2e4';
 
-import { RtList } from './list';
+import { RtList } from '../core/list';
 
 @Directive({
     selector: '[rtLoadMore]'

@@ -1,7 +1,7 @@
 import { Directive, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RtList } from './list';
+import { RtList } from '../core/list';
 import { PageSizeControlBase } from './page-size-control-base';
 
 @Directive({

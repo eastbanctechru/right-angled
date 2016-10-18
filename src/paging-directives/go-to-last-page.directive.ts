@@ -1,8 +1,8 @@
 import { Directive, ElementRef, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
+import { RtList } from '../core/list';
 import { GoToControlBase } from './go-to-control-base';
-import { RtList } from './list';
 
 @Directive({
     selector: '[rtGoToLastPage]'

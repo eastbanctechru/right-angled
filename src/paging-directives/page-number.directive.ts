@@ -1,7 +1,7 @@
 import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RtList } from './list';
+import { RtList } from '../core/list';
 
 @Directive({
     selector: 'input[rtPageNumber]'
