@@ -1,3 +1,20 @@
+<a name="0.30.0"></a>
+# [0.30.0](https://github.com/fshchudlo/right-angled/compare/0.29.0...v0.30.0) (2016-10-19)
+
+
+### Code Refactoring
+
+* **selection:** excessive directives deleted ([90251bf](https://github.com/fshchudlo/right-angled/commit/90251bf))
+
+
+### BREAKING CHANGES
+
+* selection: `rtSelectAll`, 'rtDeselectAll' and `rtCheckAll` directives dleeted. Use
+
+rtSelectionArea to implement same functionality
+
+
+
 <a name="0.29.0"></a>
 # [0.29.0](https://github.com/fshchudlo/right-angled/compare/0.28.5...v10.29.0) (2016-10-18)
 
