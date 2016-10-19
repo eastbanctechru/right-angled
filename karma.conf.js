@@ -7,10 +7,10 @@ module.exports = function (config) {
         frameworks: ['jasmine'],
         files: [
             'node_modules/es6-shim/es6-shim.js',
-            'karma.entry.js'
+            'karma.entry.ts'
         ],
         preprocessors: {
-            'karma.entry.js': ['webpack', 'sourcemap'],
+            'karma.entry.ts': ['webpack', 'sourcemap'],
             'src/**/*.js': ['coverage']
         },
         reporters: ['spec', 'coverage'],
