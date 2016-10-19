@@ -13,9 +13,9 @@ export class CheckAllDirective {
     @HostListener('change', ['$event'])
     public changeHandler(evt: MouseEvent): void {
         if ((evt.target as HTMLInputElement).checked) {
-            this.selectionService.selectAllItems(this.recursive);
+            this.selectionService.selectAll(this.recursive);
         } else {
-            this.selectionService.deselectAllItems(this.recursive);
+            this.selectionService.deselectAll(this.recursive);
         }
     }
 }

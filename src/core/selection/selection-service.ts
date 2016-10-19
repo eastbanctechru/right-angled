@@ -34,27 +34,27 @@ export class RtSelectionService extends DefaultSelectionService {
         this.eventEmitters.length = 0;
         super.destroy();
     }
-    public selectAllItems(recursive: boolean): void {
+    public selectAll(recursive: boolean = true): void {
         super.selectAll();
         // run this directly after render to give child selectionAreas ability to render
         setTimeout(() => {
             if (recursive && this.childSelectionServices) {
                 this.childSelectionServices.forEach(service => {
                     if (service !== this) {
-                        service.selectAllItems(recursive);
+                        service.selectAll(recursive);
                     }
                 });
             }
         }, 0);
     }
-    public deselectAllItems(recursive: boolean): void {
+    public deselectAll(recursive: boolean = true): void {
         if (recursive && this.childSelectionServices) {
             this.childSelectionServices.forEach(service => {
                 if (service !== this) {
-                    service.deselectAllItems(recursive);
+                    service.deselectAll(recursive);
                 }
             });
         }
-        this.deselectAll();
+        super.deselectAll();
     }
 }

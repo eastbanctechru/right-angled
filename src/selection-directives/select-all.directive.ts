@@ -11,6 +11,6 @@ export class SelectAllDirective {
     }
     @HostListener('click')
     public clickHandler(event: MouseEvent): void {
-        this.selectionService.selectAllItems(this.recursive);
+        this.selectionService.selectAll(this.recursive);
     }
 }
