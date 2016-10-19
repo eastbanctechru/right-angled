@@ -25,9 +25,6 @@ import {
 } from './src/list-directives/index';
 
 import {
-    CheckAllDirective,
-    DeselectAllDirective,
-    SelectAllDirective,
     SelectableDirective,
     SelectionAreaDirective,
     SelectionCheckboxForDirective
@@ -70,17 +67,12 @@ export class RTFiltersModule { }
     declarations: [
         SelectableDirective,
         SelectionAreaDirective,
-        SelectionCheckboxForDirective,
-        SelectAllDirective,
-        DeselectAllDirective,
-        CheckAllDirective],
+        SelectionCheckboxForDirective
+        ],
     exports: [
         SelectableDirective,
         SelectionAreaDirective,
-        SelectionCheckboxForDirective,
-        SelectAllDirective,
-        DeselectAllDirective,
-        CheckAllDirective],
+        SelectionCheckboxForDirective],
     imports: [CommonModule]
 })
 export class RTSelectionModule { }
