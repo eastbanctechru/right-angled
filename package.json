@@ -78,7 +78,7 @@
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
     "sinon": "2.0.0-pre.3",
-    "ts-loader": "^0.9.1",
+    "ts-loader": "^0.9.5",
     "tslint": "^3.15.1",
     "typedoc": "^0.5.0",
     "typescript": "^2.0.3",
