@@ -24,6 +24,9 @@
     "removeComments": false,
     "types": []
   },
+  "angularCompilerOptions": {
+    "genDir": "compiled"
+  },
   "exclude": [
     "node_modules"
   ]
