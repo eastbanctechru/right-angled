@@ -15,6 +15,7 @@ export class SortDirective implements DoCheck, OnInit {
     };
     private nativeEl: HTMLElement;
     private sortingsDiffer: IterableDiffer;
+    /* tslint:disable-next-line:no-input-rename */
     @Input('rtSort') public fieldName: string;
     constructor( @SkipSelf() private listService: RtList, @SkipSelf() private sortingsService: SortingsService, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
         this.sortingsDiffer = differs.find([]).create(null);

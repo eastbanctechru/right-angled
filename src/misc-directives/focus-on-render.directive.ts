@@ -1,7 +1,7 @@
 import { AfterContentInit, Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
-    selector: 'input[rtFocusOnRender]'
+    selector: '[rtFocusOnRender]'
 })
 export class FocusOnRenderDirective implements AfterContentInit {
     private nativeEl: HTMLInputElement;

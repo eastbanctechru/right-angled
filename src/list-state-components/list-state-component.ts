@@ -6,7 +6,7 @@ import { RtList } from '../core/list';
 export abstract class ListStateComponent implements DoCheck, OnInit {
     private listDiffer: KeyValueDiffer;
     private visibleState: ProgressState;
-    protected isVisible: boolean;
+    public isVisible: boolean;
     constructor(protected listService: RtList, differs: KeyValueDiffers, visibleState: ProgressState) {
         this.visibleState = visibleState;
         this.listDiffer = differs.find([]).create(null);

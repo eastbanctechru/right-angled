@@ -1,7 +1,6 @@
 // Place your settings in this file to overwrite default and user settings.
 {
     "files.exclude": {
-        "**/esm": true,
         "**/*.d.ts": {
             "when": "$(basename).ts"
         },
@@ -10,11 +9,11 @@
         },
         "**/*.js": {
             "when": "$(basename).ts"
-        }
+        },
+        "**/*.metadata.json": true
     },
     "search.exclude": {
         "**/docs": true,
-        "**/esm": true,
         "**/coverage": true
     }
 }

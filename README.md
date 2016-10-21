@@ -69,7 +69,6 @@ To build the project, follow these steps:
   ```shell
   gulp build
   ```
-5. You will find ES5-compiled code in the `src` folder and ES6-compiled code in `esm` folder.
 
 ## How to run tests
 

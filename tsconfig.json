@@ -9,7 +9,7 @@
     ],
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
+    "sourceMap": false,
     "target": "es5",
     "diagnostics": true,
     "allowUnreachableCode": false,
@@ -23,6 +23,9 @@
     "forceConsistentCasingInFileNames": true,
     "removeComments": false,
     "types": []
+  },
+  "angularCompilerOptions": {
+    "genDir": "compiled"
   },
   "exclude": [
     "node_modules"

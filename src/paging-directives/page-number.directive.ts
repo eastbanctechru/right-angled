@@ -4,6 +4,7 @@ import { PagedPager } from 'e2e4';
 import { RtList } from '../core/list';
 
 @Directive({
+    /* tslint:disable-next-line:directive-selector-name directive-selector-type directive-selector-prefix */
     selector: 'input[rtPageNumber]'
 })
 export class PageNumberDirective implements DoCheck {

@@ -12,6 +12,7 @@ import { RtSelectionEventsHelper } from '../providers';
 export class SelectableDirective implements SelectionEventsEmitter {
     public selected: boolean = false;
     public index: number = null;
+    /* tslint:disable-next-line:no-input-rename */
     @Input('rtSelectable') public item: any = null;
     @Output() public itemSelected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
     @Output() public itemDeselected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();

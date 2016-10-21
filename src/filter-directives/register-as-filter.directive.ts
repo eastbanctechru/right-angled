@@ -5,6 +5,7 @@ import { FiltersService } from  'e2e4';
     selector: '[rtRegisterAsFilter]'
 })
 export class RegisterAsFilterDirective implements OnInit, OnDestroy {
+    /* tslint:disable-next-line:no-input-rename */
     @Input('rtRegisterAsFilter') public filterTarget: any;
     constructor(public filtersService: FiltersService) {
     }

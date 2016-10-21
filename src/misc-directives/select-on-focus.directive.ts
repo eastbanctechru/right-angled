@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener, Renderer } from '@angular/core';
 
 @Directive({
-    selector: 'input[rtSelectOnFocus]'
+    selector: '[rtSelectOnFocus]'
 })
 export class SelectOnFocusDirective {
     private nativeEl: HTMLInputElement;

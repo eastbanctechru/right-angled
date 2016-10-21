@@ -6,12 +6,15 @@ docs
 node_modules
 coverage
 tests
+/compiled
 **/*[!.][!d].ts
 
 .cleandir.sh
+yarn.lock
 .travis.yml
 gulpfile.js
 karma.conf.js
+karma.conf.debug.js
 tsconfig.json
 tslint.json
 wallaby.js

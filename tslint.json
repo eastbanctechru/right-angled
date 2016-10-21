@@ -75,46 +75,27 @@
       "check-type"
     ],
     // Codelyzer rules
-    "directive-selector-name": [
-      true,
-      "camelCase"
-    ],
-    "component-selector-name": [
-      true,
-      "kebab-case"
-    ],
-    "directive-selector-type": [
-      false,
-      "attribute"
-    ],
-    "component-selector-type": [
-      true,
-      "element"
-    ],
-    "directive-selector-prefix": [
-      false,
-      "rt"
-    ],
-    "component-selector-prefix": [
-      true,
-      "rt"
-    ],
+    "directive-selector-name": [true, "camelCase"],
+    "component-selector-name": [true, "kebab-case"],
+    "directive-selector-type": [true, "attribute"],
+    "component-selector-type": [true, "element"],
+    "directive-selector-prefix": [true, "rt"],
+    "component-selector-prefix": [true, "rt"],
     "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    "use-host-property-decorator": true,
-    "no-attribute-parameter-decorator": true,
-    "no-input-rename": false,
-    "no-output-rename": false,
-    "no-forward-ref": true,
-    "use-life-cycle-interface": true,
-    "use-pipe-transform-interface": true,
-    "pipe-naming": [
-      true,
-      "camelCase",
-      "rt"
-    ],
-    "component-class-suffix": true,
-    "directive-class-suffix": true,
-    "import-destructuring-spacing": true
+    "use-output-property-decorator": true
+    // "use-host-property-decorator": true,
+    // "no-attribute-parameter-decorator": true,
+    // "no-input-rename": true,
+    // "no-output-rename": true,
+    // "no-forward-ref": true,
+    // "use-life-cycle-interface": true,
+    // "use-pipe-transform-interface": true,
+    // "pipe-naming": [true, "camelCase", "rt"],
+    // "component-class-suffix": true,
+    // "directive-class-suffix": true,
+    // "import-destructuring-spacing": true,
+    // "templates-use-public": false,
+    // "no-access-missing-member": false,
+    // "invoke-injectable": false
   }
 }

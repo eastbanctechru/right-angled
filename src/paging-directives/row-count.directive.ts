@@ -5,6 +5,7 @@ import { RtList } from '../core/list';
 import { PageSizeControlBase } from './page-size-control-base';
 
 @Directive({
+    /* tslint:disable-next-line:directive-selector-name directive-selector-type directive-selector-prefix */
     selector: 'input[rtRowCount]'
 })
 export class RowCountDirective extends PageSizeControlBase {
