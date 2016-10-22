@@ -4,47 +4,32 @@ module.exports = function (config) {
     config.set({
         browsers: ['PhantomJS'],
         singleRun: true,
-        frameworks: ['mocha'],
+        frameworks: ['jasmine'],
         files: [
             'node_modules/es6-shim/es6-shim.js',
-            'tests/@ts-emitted-functions.js',
-            'tests/**/*.ts'
+            'karma.entry.js'
         ],
         preprocessors: {
-            'tests/**/*.ts': ['webpack', 'sourcemap'],
-            'src/**/*.js': ['coverage']
-        },
-        reporters: ['spec', 'coverage'],
-        coverageReporter: {
-            dir: './',
-            reporters: [
-                { type: 'lcov', subdir: 'coverage' }
-            ]
+            'karma.entry.js': ['webpack', 'sourcemap']
         },
         webpack: {
             devtool: 'inline-source-map',
             ts: {
                 compilerOptions: {
-                    noEmitHelpers: true
+                    noEmitHelpers: false
                 }
             },
             module: {
                 loaders: [
                     {
-                        test: /.*(?!\.d\.ts)|(\.ts)$/,
-                        loader: 'ts-loader',
+                        test: /\.ts$/,
+                        loader: 'ts',
                         include: [
                             path.resolve(__dirname, 'src'),
                             path.resolve(__dirname, 'tests')
-                        ],
-                        exclude: [path.resolve(__dirname, 'node_modules')]
+                        ]
                     }
-                ],
-                postLoaders: [{
-                    test: /\.ts$/,
-                    include: [path.resolve(__dirname, 'src')],
-                    loader: 'istanbul-instrumenter'
-                }]
+                ]
             },
             resolve: {
                 modulesDirectories: [

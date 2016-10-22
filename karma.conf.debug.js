@@ -3,27 +3,27 @@ var path = require('path');
 module.exports = function (config) {
     config.set({
         browsers: ['Chrome'],
-        frameworks: ['mocha'],
+        singleRun: false,
+        frameworks: ['jasmine'],
         files: [
-            'node_modules/es6-shim/es6-shim.js',
-            'tests/@ts-emitted-functions.js',
-            'tests/**/*.ts'
+            'node_modules/es6-shim/es6-shim.min.js',
+            'karma.entry.js'
         ],
         preprocessors: {
-            'tests/**/*.ts': ['webpack', 'sourcemap']
+            'karma.entry.js': ['webpack', 'sourcemap']
         },
         webpack: {
             devtool: 'inline-source-map',
             ts: {
                 compilerOptions: {
-                    noEmitHelpers: true
+                    noEmitHelpers: false
                 }
             },
             module: {
                 loaders: [
                     {
-                        test: /.*(?!\.d\.ts)|(\.ts)$/,
-                        loader: 'ts-loader',
+                        test: /\.ts$/,
+                        loader: 'ts',
                         include: [
                             path.resolve(__dirname, 'src'),
                             path.resolve(__dirname, 'tests')
