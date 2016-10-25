@@ -1,3 +1,14 @@
+<a name="0.30.1"></a>
+## [0.30.1](https://github.com/fshchudlo/right-angled/compare/0.30.0...v0.30.1) (2016-10-25)
+
+
+### Bug Fixes
+
+* **package:** add `SortDirective` to library exports ([1d955af](https://github.com/fshchudlo/right-angled/commit/1d955af))
+* **sortings:** make class names of `sort` directive configurable ([cdfb5bd](https://github.com/fshchudlo/right-angled/commit/cdfb5bd))
+
+
+
 <a name="0.30.0"></a>
 # [0.30.0](https://github.com/fshchudlo/right-angled/compare/0.29.0...v0.30.0) (2016-10-19)
 
