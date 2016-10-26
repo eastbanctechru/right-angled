@@ -1,5 +1,4 @@
-import { Directive, HostBinding, HostListener, SkipSelf } from '@angular/core';
-import { BufferedPager } from 'e2e4';
+import { Directive, HostListener, SkipSelf } from '@angular/core';
 
 import { RtList } from '../core/list';
 
@@ -7,20 +6,11 @@ import { RtList } from '../core/list';
     selector: '[rtLoadMore]'
 })
 export class LoadMoreDirective {
-    constructor( @SkipSelf() private listService: RtList, @SkipSelf() private pager: BufferedPager) {
-        if (pager === null) {
-            throw new Error('[rtLoadMore] directive can be used only with buffered lists.');
-        }
+    constructor( @SkipSelf() private listService: RtList) {
     }
     @HostListener('click', ['$event'])
     public loadMore(evt: MouseEvent): void {
-        if (!this.disabled) {
-            this.listService.loadData();
-        }
+        this.listService.loadData();
         evt.preventDefault();
-    }
-    @HostBinding('attr.disabled')
-    public get disabled(): boolean {
-        return this.pager.skip >= this.pager.totalCount;
     }
 }

@@ -20,21 +20,15 @@ export class RowCountDirective extends PageSizeControlBase {
     public get checkChangesPropertyName(): string {
         return 'takeRowCountInternal';
     }
-    constructor(listService: RtList, private bufferedPager: BufferedPager, differs: KeyValueDiffers) {
+    constructor(listService: RtList, bufferedPager: BufferedPager, differs: KeyValueDiffers) {
         super(listService, bufferedPager, differs);
         if (bufferedPager === null) {
             throw new Error('[rtRowCount] directive can be used only with buffered list provider.');
         }
     }
-    @HostBinding('disabled')
-    public get disabled(): boolean {
-        return this.bufferedPager.skip >= this.bufferedPager.totalCount;
-    }
     @HostListener('keyup.enter')
     public onEnter(): void {
-        if (!this.disabled) {
-            super.onComplete();
-        }
+        super.onComplete();
     }
 
     @HostListener('input', ['$event.target.value'])
