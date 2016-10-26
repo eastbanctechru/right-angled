@@ -31,4 +31,7 @@ export class BufferedPagerComponent implements OnChanges, OnInit {
             this.pager.minRowCount = changes.minRowCount.currentValue * 1;
         }
     }
+    public get canLoadMore(): boolean {
+        return this.pager.canLoadMore;
+    }
 }
