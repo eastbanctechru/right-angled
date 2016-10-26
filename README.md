@@ -1,4 +1,4 @@
-# right-angled for Angular 2
+# right-angled - building kit for angular2 data grids
 
 [![Build Status](https://travis-ci.org/fshchudlo/right-angled.svg?branch=master)](https://travis-ci.org/fshchudlo/right-angled)
 [![Dependency Status](https://david-dm.org/fshchudlo/right-angled.svg)](https://david-dm.org/fshchudlo/right-angled)
