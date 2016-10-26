@@ -1,4 +1,5 @@
 import { Directive, HostListener, SkipSelf } from '@angular/core';
+import { BufferedPager } from 'e2e4';
 
 import { RtList } from '../core/list';
 
@@ -6,11 +7,13 @@ import { RtList } from '../core/list';
     selector: '[rtLoadMore]'
 })
 export class LoadMoreDirective {
-    constructor( @SkipSelf() private listService: RtList) {
+    constructor( @SkipSelf() private listService: RtList, @SkipSelf() private pager: BufferedPager) {
     }
     @HostListener('click', ['$event'])
     public loadMore(evt: MouseEvent): void {
-        this.listService.loadData();
-        evt.preventDefault();
+        if (this.pager.canLoadMore) {
+            this.listService.loadData();
+            evt.preventDefault();
+        }
     }
 }
