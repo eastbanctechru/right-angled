@@ -1,3 +1,30 @@
+<a name="0.31.0"></a>
+# [0.31.0](https://github.com/fshchudlo/right-angled/compare/0.30.1...v0.31.0) (2016-10-26)
+
+
+### Code Refactoring
+
+* **buffered pager:** `disabled` binding removed from `rtLoadMore` and `rtRowCount` directives ([5717e93](https://github.com/fshchudlo/right-angled/commit/5717e93))
+* **paged paging:** rtGoTo... controls deleted ([24250fa](https://github.com/fshchudlo/right-angled/commit/24250fa))
+
+
+### Features
+
+* **BufferedPagerComponent:** `canLoadMore` property added ([5597bb6](https://github.com/fshchudlo/right-angled/commit/5597bb6))
+* **PagedPagerComponent:** `canMoveForward` and `canMoveBackward` properties added ([cbc95a4](https://github.com/fshchudlo/right-angled/commit/cbc95a4))
+
+
+### BREAKING CHANGES
+
+* paged paging: rtGoTo... controls deleted since they're not flexible enough. You can use
+
+`rt-paged-pager` navigation methods to implement the same behaviour in your components
+* buffered pager: `disabled` binding removed from `rtLoadMore` and `rtRowCount` directives. Use
+
+`BufferedPager.canLoadMore` to implement disable or hide, or any other behaviour)
+
+
+
 <a name="0.30.1"></a>
 ## [0.30.1](https://github.com/fshchudlo/right-angled/compare/0.30.0...v0.30.1) (2016-10-25)
 
