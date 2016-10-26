@@ -14,7 +14,7 @@ export class PagedPagerComponent implements OnChanges, OnInit {
     @Input() public maxPageSize: number = PagedPager.settings.maxPageSize;
     @Input() public minPageSize: number = PagedPager.settings.minPageSize;
 
-    constructor(public pager: PagedPager, listService: RtList) {
+    constructor(public pager: PagedPager, public listService: RtList) {
         listService.pager = pager;
     }
     public ngOnInit(): void {
@@ -36,5 +36,25 @@ export class PagedPagerComponent implements OnChanges, OnInit {
     }
     public get canMoveBackward(): boolean {
         return this.pager.canMoveBackward;
+    }
+    public goToFirstPage(): void {
+        if (this.pager.tryMoveToFirstPage()) {
+            this.listService.loadData();
+        }
+    }
+    public goToLastPage(): void {
+        if (this.pager.tryMoveToLastPage()) {
+            this.listService.loadData();
+        }
+    }
+    public goToNextPage(): void {
+        if (this.pager.tryMoveToNextPage()) {
+            this.listService.loadData();
+        }
+    }
+    public goToPreviousPage(): void {
+        if (this.pager.tryMoveToPreviousPage()) {
+            this.listService.loadData();
+        }
     }
 }

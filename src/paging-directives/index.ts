@@ -1,10 +1,6 @@
 export { BufferedPagerComponent } from './buffered-pager.component';
 export { LoadMoreDirective } from './load-more.directive';
 export { RowCountDirective } from './row-count.directive';
-export { GoToFirstPageDirective } from './go-to-first-page.directive';
-export { GoToLastPageDirective } from './go-to-last-page.directive';
-export { GoToNextPageDirective } from './go-to-next-page.directive';
-export { GoToPreviousPageDirective } from './go-to-previous-page.directive';
 export { PageNumberDirective } from './page-number.directive';
 export { PageSizeDirective } from './page-size.directive';
 export { PagedPagerComponent } from './paged-pager.component';
