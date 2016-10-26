@@ -31,4 +31,10 @@ export class PagedPagerComponent implements OnChanges, OnInit {
             this.pager.minPageSize = changes.minPageSize.currentValue * 1;
         }
     }
+    public get canMoveForward(): boolean {
+        return this.pager.canMoveForward;
+    }
+    public get canMoveBackward(): boolean {
+        return this.pager.canMoveBackward;
+    }
 }
