@@ -32,7 +32,7 @@ import { ProgressState } from 'e2e4';
                     </rt-list-state-done>
                 </div>`
 })
-class TestComponent {
+class ListStatesContentVisibilityTestComponent {
     constructor(public list: RtList) {}
 }
 
@@ -42,8 +42,8 @@ class MockList {
 
 
 describe('Testing the behavior of list-state components', () => {
-    let testComponent: TestComponent;
-    let testFixture: any;
+    let testComponent: ListStatesContentVisibilityTestComponent;
+    let testComponentFixture: any;
     let listService: MockList;
     let nativeElement: any;
 
@@ -54,7 +54,7 @@ describe('Testing the behavior of list-state components', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [
-                TestComponent, 
+                ListStatesContentVisibilityTestComponent, 
                 ListStateRequestCanceledComponent, 
                 ListStateDoneComponent,
                 ListStateFailedComponent,
@@ -65,10 +65,9 @@ describe('Testing the behavior of list-state components', () => {
             providers: [{ provide: RtList, useValue: listService }]
         });
 
-        testFixture = TestBed.createComponent(TestComponent);
-        testComponent = testFixture.componentInstance;
-        nativeElement = testFixture.nativeElement;
-        testFixture.detectChanges();
+        testComponentFixture = TestBed.createComponent(ListStatesContentVisibilityTestComponent);
+        testComponent = testComponentFixture.componentInstance;
+        nativeElement = testComponentFixture.nativeElement;
     });
 
     it('Test component is defined', () => {
@@ -77,7 +76,7 @@ describe('Testing the behavior of list-state components', () => {
 
     it('Only list-state-initial content visible', () => {
         listService.state = ProgressState.Initial;
-        testFixture.detectChanges();
+        testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('#initial').querySelector('#initial-content') === null).toBeFalsy();
         expect(nativeElement.querySelector('#failed').querySelector('#failed-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#canceled').querySelector('#canceled-content') === null).toBeTruthy();
@@ -88,7 +87,7 @@ describe('Testing the behavior of list-state components', () => {
 
     it('Only list-state-failed content visible', () => {
         listService.state = ProgressState.Fail;
-        testFixture.detectChanges();
+        testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('#initial').querySelector('#initial-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#failed').querySelector('#failed-content') === null).toBeFalsy();
         expect(nativeElement.querySelector('#canceled').querySelector('#canceled-content') === null).toBeTruthy();
@@ -99,7 +98,7 @@ describe('Testing the behavior of list-state components', () => {
 
     it('Only list-state-canceled content visible', () => {
         listService.state = ProgressState.Cancelled;
-        testFixture.detectChanges();
+        testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('#initial').querySelector('#initial-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#failed').querySelector('#failed-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#canceled').querySelector('#canceled-content') === null).toBeFalsy();
@@ -111,7 +110,7 @@ describe('Testing the behavior of list-state components', () => {
 
     it('Only list-state-no-data content visible', () => {
         listService.state = ProgressState.NoData;
-        testFixture.detectChanges();
+        testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('#initial').querySelector('#initial-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#failed').querySelector('#failed-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#canceled').querySelector('#canceled-content') === null).toBeTruthy();
@@ -122,7 +121,7 @@ describe('Testing the behavior of list-state components', () => {
 
     it('Only list-state-progress content visible', () => {
         listService.state = ProgressState.Progress;
-        testFixture.detectChanges();
+        testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('#initial').querySelector('#initial-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#failed').querySelector('#failed-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#canceled').querySelector('#canceled-content') === null).toBeTruthy();
@@ -133,7 +132,7 @@ describe('Testing the behavior of list-state components', () => {
 
     it('Only list-state-done content visible', () => {
         listService.state = ProgressState.Done;
-        testFixture.detectChanges();
+        testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('#initial').querySelector('#initial-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#failed').querySelector('#failed-content') === null).toBeTruthy();
         expect(nativeElement.querySelector('#canceled').querySelector('#canceled-content') === null).toBeTruthy();
