@@ -1,3 +1,14 @@
+<a name="0.31.1"></a>
+## [0.31.1](https://github.com/fshchudlo/right-angled/compare/0.31.0...v0.31.1) (2016-10-29)
+
+
+### Bug Fixes
+
+* **loadMoreDirective:** check `canLoadMore` flag before perform data loading ([41023a7](https://github.com/fshchudlo/right-angled/commit/41023a7))
+* **package:** export of injectable services added ([92579a0](https://github.com/fshchudlo/right-angled/commit/92579a0))
+
+
+
 <a name="0.31.0"></a>
 # [0.31.0](https://github.com/fshchudlo/right-angled/compare/0.30.1...v0.31.0) (2016-10-26)
 
