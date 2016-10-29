@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BufferedPager, FiltersService, PagedPager, SelectionEventsHelper, SortingsService } from 'e2e4';
 
-import { RtSelectionService } from './core/selection/selection-service';
+import { AsyncSubscriber } from './async-subscriber';
+import { RtList } from './list';
+import { RtSelectionService } from './selection/selection-service';
 
 @Injectable()
 export class RtPagedPager extends PagedPager { }
@@ -24,9 +26,6 @@ export class RtSelectionEventsHelper extends SelectionEventsHelper {
         this.multiple = true;
     }
 }
-
-import { AsyncSubscriber } from './core/async-subscriber';
-import { RtList } from './core/list';
 
 export var LIST_PROVIDERS: any[] = [
     AsyncSubscriber,

@@ -5,3 +5,4 @@ export { RtSelectionEvent } from './selection/selection-event';
 export { RtList } from './list';
 export { RtStateService } from './state-service';
 export { AsyncSubscriber } from './async-subscriber';
+export * from './providers';

@@ -43,8 +43,7 @@ export { SortDirective } from './src/list-directives/sort.directive';
 export { ListDirective } from './src/list-directives';
 export { SelectionAreaDirective } from './src/selection-directives';
 
-import { RtStateService } from './src/core/state-service';
-import { LIST_PROVIDERS } from './src/providers';
+import { LIST_PROVIDERS, RtStateService } from './src/core';
 
 @NgModule({
     declarations: [FocusOnRenderDirective, SelectOnFocusDirective, StopEventsDirective, PreventDefaultsDirective],
@@ -65,7 +64,7 @@ export class RTFiltersModule { }
         SelectableDirective,
         SelectionAreaDirective,
         SelectionCheckboxForDirective
-        ],
+    ],
     exports: [
         SelectableDirective,
         SelectionAreaDirective,
