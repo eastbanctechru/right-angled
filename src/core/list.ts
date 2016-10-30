@@ -90,7 +90,7 @@ export class RtList {
         if (this.inited) {
             return;
         }
-        this.filtersService.registerFilterTarget(this, this.pager, this.sortingsService);
+        this.filtersService.registerFilterTarget(this.pager, this.sortingsService);
         let restoredState = {};
         Object.assign(restoredState, ...this.stateServices.map(service => service.getState() || {}));
         this.filtersService.applyParams(restoredState);
