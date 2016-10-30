@@ -1,3 +1,13 @@
+<a name="0.31.2"></a>
+## [0.31.2](https://github.com/fshchudlo/right-angled/compare/0.31.1...v0.31.2) (2016-10-30)
+
+
+### Bug Fixes
+
+* **aot:** call lifecycle hooks from inherited classes to support aot since it can't handle it correctly for now ([b5f10ac](https://github.com/fshchudlo/right-angled/commit/b5f10ac))
+
+
+
 <a name="0.31.1"></a>
 ## [0.31.1](https://github.com/fshchudlo/right-angled/compare/0.31.0...v0.31.1) (2016-10-29)
 
