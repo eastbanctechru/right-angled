@@ -1,4 +1,4 @@
-import { Directive, HostBinding, HostListener, KeyValueDiffers } from '@angular/core';
+import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffers, OnInit } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
 import { RtList } from '../core/list';
@@ -8,7 +8,7 @@ import { PageSizeControlBase } from './page-size-control-base';
     /* tslint:disable-next-line:directive-selector-name directive-selector-type directive-selector-prefix */
     selector: 'input[rtPageSize]'
 })
-export class PageSizeDirective extends PageSizeControlBase {
+export class PageSizeDirective extends PageSizeControlBase implements DoCheck, OnInit {
     @HostBinding('value')
     public innerValue: number;
     public get pageSize(): number {
@@ -39,5 +39,11 @@ export class PageSizeDirective extends PageSizeControlBase {
     @HostListener('blur')
     public blurHandler(): void {
         super.restoreInputValue();
+    }
+    public ngOnInit(): void {
+        super.ngOnInit();
+    }
+    public ngDoCheck(): void {
+        super.ngDoCheck();
     }
 }
