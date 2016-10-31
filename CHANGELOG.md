@@ -1,3 +1,20 @@
+<a name="0.32.0"></a>
+# [0.32.0](https://github.com/fshchudlo/right-angled/compare/0.31.2...v0.32.0) (2016-10-31)
+
+
+### Code Refactoring
+
+* **`ListStateRequestCancelledComponent`:** `rt-list-state-request-canceled` renamed to `rt-list ([e17bf8d](https://github.com/fshchudlo/right-angled/commit/e17bf8d))
+
+
+### BREAKING CHANGES
+
+* `ListStateRequestCancelledComponent`: Selector for `ListStateRequestCancelledComponent` changed to
+
+`rt-list-state-request-cancelled` (second 'l' added)
+
+
+
 <a name="0.31.2"></a>
 ## [0.31.2](https://github.com/fshchudlo/right-angled/compare/0.31.1...v0.31.2) (2016-10-30)
 
