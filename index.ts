@@ -15,7 +15,7 @@ import {
     ListStateInProgressComponent,
     ListStateInitialComponent,
     ListStateNoDataComponent,
-    ListStateRequestCanceledComponent
+    ListStateRequestCancelledComponent
 } from './src/list-state-components';
 
 import {
@@ -77,7 +77,7 @@ export class RTSelectionModule { }
     declarations: [
         ListDirective,
         ListStateNoDataComponent,
-        ListStateRequestCanceledComponent,
+        ListStateRequestCancelledComponent,
         ListStateDoneComponent,
         ListStateFailedComponent,
         ListStateInitialComponent,
@@ -92,7 +92,7 @@ export class RTSelectionModule { }
     exports: [
         ListDirective,
         ListStateNoDataComponent,
-        ListStateRequestCanceledComponent,
+        ListStateRequestCancelledComponent,
         ListStateDoneComponent,
         ListStateFailedComponent,
         ListStateInitialComponent,

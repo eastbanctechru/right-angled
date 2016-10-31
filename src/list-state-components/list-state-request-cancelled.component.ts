@@ -5,10 +5,10 @@ import { RtList } from '../core/list';
 import { ListStateComponent } from './list-state-component';
 
 @Component({
-    selector: 'rt-list-state-request-canceled',
+    selector: 'rt-list-state-request-cancelled',
     template: `<ng-content *ngIf="isVisible"></ng-content>`
 })
-export class ListStateRequestCanceledComponent extends ListStateComponent implements DoCheck, OnInit {
+export class ListStateRequestCancelledComponent extends ListStateComponent implements DoCheck, OnInit {
     constructor( @SkipSelf() listService: RtList, differs: KeyValueDiffers) {
         super(listService, differs, ProgressState.Cancelled);
     }

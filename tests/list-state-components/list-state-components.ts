@@ -1,5 +1,5 @@
 import { RtList } from '../../src/core/list';
-import { ListStateDoneComponent, ListStateFailedComponent, ListStateInProgressComponent, ListStateInitialComponent, ListStateNoDataComponent, ListStateRequestCanceledComponent } from '../../src/list-state-components';
+import { ListStateDoneComponent, ListStateFailedComponent, ListStateInProgressComponent, ListStateInitialComponent, ListStateNoDataComponent, ListStateRequestCancelledComponent } from '../../src/list-state-components';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProgressState } from 'e2e4';
@@ -12,9 +12,9 @@ import { ProgressState } from 'e2e4';
                     <rt-list-state-initial>
                         <span>State is initial</span>
                     </rt-list-state-initial>
-                    <rt-list-state-request-canceled>
-                        <span>State is request canceled</span>
-                    </rt-list-state-request-canceled>
+                    <rt-list-state-request-cancelled>
+                        <span>State is request cancelled</span>
+                    </rt-list-state-request-cancelled>
                     <rt-list-state-no-data>
                         <span>Stateis no data</span>
                     </rt-list-state-no-data>
@@ -42,7 +42,7 @@ describe('rt-list-state-... components', () => {
         TestBed.configureTestingModule({
             declarations: [
                 HostComponent,
-                ListStateRequestCanceledComponent,
+                ListStateRequestCancelledComponent,
                 ListStateDoneComponent,
                 ListStateFailedComponent,
                 ListStateInProgressComponent,
@@ -62,7 +62,7 @@ describe('rt-list-state-... components', () => {
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-cancelled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
@@ -73,7 +73,7 @@ describe('rt-list-state-... components', () => {
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeDefined();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-cancelled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
@@ -84,7 +84,7 @@ describe('rt-list-state-... components', () => {
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeDefined();
+        expect(nativeElement.querySelector('rt-list-state-request-cancelled  > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
@@ -95,7 +95,7 @@ describe('rt-list-state-... components', () => {
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-cancelled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
@@ -106,7 +106,7 @@ describe('rt-list-state-... components', () => {
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-cancelled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
@@ -117,7 +117,7 @@ describe('rt-list-state-... components', () => {
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-cancelled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeDefined();
