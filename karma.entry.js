@@ -18,6 +18,6 @@ Promise.all([
         var testing = _a[0], testingBrowser = _a[1];
         testing.getTestBed().initTestEnvironment(testingBrowser.BrowserDynamicTestingModule, testingBrowser.platformBrowserDynamicTesting());
     })
-    .then(function () { return require.context('./tests/', true, /\.test\.ts/); })
+    .then(function () { return require.context('./tests/', true, /\.ts/); })
     .then(function (context) { return context.keys().map(context); })
     .then(__karma__.start, __karma__.error);

@@ -5,7 +5,7 @@ import { TestBed } from '@angular/core/testing';
 import { ProgressState } from 'e2e4';
 
 @Component({
-    template: `<div id="testListStatesContainer">
+    template: `<div>
                     <rt-list-state-failed>
                         <span>State is failed</span>
                     </rt-list-state-failed>
@@ -33,7 +33,7 @@ class MockList {
     public state: ProgressState = ProgressState.Initial;
 }
 
-describe('Testing the behavior of list-state components', () => {
+describe('rt-list-state-... components', () => {
     let testComponent: ListStatesContentVisibilityTestComponent;
     let testComponentFixture: any;
     let listService: MockList;
@@ -62,71 +62,67 @@ describe('Testing the behavior of list-state components', () => {
         nativeElement = testComponentFixture.nativeElement;
     });
 
-    it('Test component is defined', () => {
-        expect(testComponent).toBeDefined();
-    });
-
-    it('Only list-state-initial content visible', () => {
+    it('Renders content of rt-list-state-initial when state is Initial', () => {
         listService.state = ProgressState.Initial;
         testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  >span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
     });
 
-    it('Only list-state-failed content visible', () => {
+    it('Renders content of rt-list-state-failed when state is Fail', () => {
         listService.state = ProgressState.Fail;
         testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeDefined();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  >span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
     });
 
-    it('Only list-state-canceled content visible', () => {
+    it('Renders content of rt-list-state-request-cancelled when state is Cancelled', () => {
         listService.state = ProgressState.Cancelled;
         testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  >span')).toBeDefined();
+        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
     });
 
-    it('Only list-state-no-data content visible', () => {
+    it('Renders content of rt-list-state-no-data when state is NoData', () => {
         listService.state = ProgressState.NoData;
         testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  >span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
     });
 
-    it('Only list-state-progress content visible', () => {
+    it('Renders content of rt-list-state-progress when state is Progress', () => {
         listService.state = ProgressState.Progress;
         testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  >span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
     });
 
-    it('Only list-state-done content visible', () => {
+    it('Renders content of rt-list-state-done when state is Done', () => {
         listService.state = ProgressState.Done;
         testComponentFixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
-        expect(nativeElement.querySelector('rt-list-state-request-canceled  >span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-canceled  > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-done > span')).toBeDefined();
