@@ -5,7 +5,7 @@ import { AfterContentInit, Directive, ElementRef, Renderer } from '@angular/core
 })
 export class FocusOnRenderDirective implements AfterContentInit {
     private nativeEl: HTMLInputElement;
-    constructor(private renderer: Renderer, elementRef: ElementRef) {
+    constructor(public renderer: Renderer, elementRef: ElementRef) {
         this.nativeEl = elementRef.nativeElement;
     }
     public ngAfterContentInit(): void {
