@@ -26,7 +26,6 @@ class FilterTargetComponent {
 describe('rt-list-state-... components', () => {
     let sut: HostComponent;
     let fixture: ComponentFixture<HostComponent>;
-    let nativeElement: any;
     let filtersService: RtFiltersService;
 
     beforeAll(() => {
@@ -45,8 +44,6 @@ describe('rt-list-state-... components', () => {
 
         fixture = TestBed.createComponent(HostComponent);
         sut = fixture.componentInstance;
-        nativeElement = fixture.nativeElement;
-        filtersService = fixture.debugElement.injector.get(FiltersService);
     });
 
     it('Registers component as filter target when it\'s rendered', () => {

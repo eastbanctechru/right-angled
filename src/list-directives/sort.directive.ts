@@ -35,10 +35,10 @@ export class SortDirective implements DoCheck, OnInit {
             return false;
         });
     }
-    @HostListener('click', ['$event'])
-    public clickHandler(evt: MouseEvent): void {
+    @HostListener('click', ['$event.ctrlKey'])
+    public clickHandler(ctrlKeyPressed: boolean): void {
         if (this.listService.ready) {
-            this.sortingsService.setSort(this.fieldName, evt.ctrlKey);
+            this.sortingsService.setSort(this.fieldName, ctrlKeyPressed);
             this.listService.reloadData();
         }
     }
