@@ -19,7 +19,7 @@ class ListStub {
     }
 }
 
-describe('rt-list-state-... components', () => {
+describe('rtSort directive', () => {
     let sortingsService: RtSortingsService;
     let listStub: ListStub = new ListStub();
 

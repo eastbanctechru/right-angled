@@ -19,9 +19,6 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     }
     constructor( @Self() public listService: RtList, @Self() private sortingsService: SortingsService) {
     }
-    public get items(): Array<any> {
-        return this.listService.items;
-    }
     public ngAfterViewInit(): void {
         // We call init in ngAfterViewInit to:
         // 1. allow all child controls to be applied to markup and regiter themself in filtersService
@@ -57,6 +54,9 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     public cancelRequests(): void {
         this.listService.cancelRequests();
     };
+    public get items(): Array<any> {
+        return this.listService.items;
+    }
     public get busy(): boolean {
         return this.listService.busy;
     };
