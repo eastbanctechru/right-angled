@@ -1,3 +1,13 @@
+<a name="0.32.1"></a>
+## [0.32.1](https://github.com/fshchudlo/right-angled/compare/0.32.0...v0.32.1) (2016-11-05)
+
+
+### Bug Fixes
+
+* **aot:** remove unused parameter from `restoreInputValue` method ([61d5aa3](https://github.com/fshchudlo/right-angled/commit/61d5aa3))
+
+
+
 <a name="0.32.0"></a>
 # [0.32.0](https://github.com/fshchudlo/right-angled/compare/0.31.2...v0.32.0) (2016-10-31)
 
