@@ -38,7 +38,7 @@ export class PageNumberDirective implements DoCheck {
     }
 
     @HostListener('blur')
-    public restoreInputValue(value: any): void {
+    public restoreInputValue(): void {
         this.innerPageNumber = this.pager.pageNumber;
     }
 
