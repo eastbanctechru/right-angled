@@ -25,9 +25,9 @@ export class SelectionCheckboxForDirective implements SelectionEventsEmitter {
     public get isChecked(): boolean {
         return this.selectionService.isIndexSelected(this.index);
     }
-    @HostListener('change', ['$event'])
-    public changeHandler(evt: MouseEvent): void {
-        if ((evt.target as HTMLInputElement).checked) {
+    @HostListener('change', ['$event.target.checked'])
+    public changeHandler(isChecked: boolean): void {
+        if (isChecked) {
             this.selectionService.selectIndex(this.index, true);
         } else {
             this.selectionService.deselectIndex(this.index);

@@ -17,9 +17,9 @@ export class SelectableDirective implements SelectionEventsEmitter {
     @Output() public selectionChanged: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
     constructor( @SkipSelf() public selectionEventsHelper: RtSelectionEventsHelper) {
     }
-    @HostListener('mouseup', ['$event'])
-    public mouseUpHandler(event: MouseEvent): void {
-        if (this.selectionEventsHelper.mouseHandler(event.ctrlKey, event.shiftKey, event.which, this.index)) {
+    @HostListener('mouseup', ['$event.ctrlKey', '$event.shiftKey', '$event.which'])
+    public mouseUpHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, mouseButton: number): void {
+        if (this.selectionEventsHelper.mouseHandler(ctrlKeyPressed, shiftKeyPressed, mouseButton, this.index)) {
             this.clearWindowSelection();
             if (this.selectionEventsHelper.preventEventsDefaults) {
                 event.preventDefault();

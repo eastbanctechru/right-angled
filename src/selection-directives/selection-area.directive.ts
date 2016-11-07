@@ -83,9 +83,9 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
     public set tabIndex(value: number) {
         this.tabIndexPrivate = value;
     }
-    @HostListener('keydown', ['$event'])
-    public keyDownHandler(event: KeyboardEvent): void {
-        if (this.selectionEventsHelper.keyboardHandler(event.ctrlKey, event.shiftKey, event.keyCode)) {
+    @HostListener('keydown', ['$event.ctrlKey', '$event.shiftKey', '$event.keyCode'])
+    public keyDownHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, keyCode: number): void {
+        if (this.selectionEventsHelper.keyboardHandler(ctrlKeyPressed, shiftKeyPressed, keyCode)) {
             if (this.selectionEventsHelper.preventEventsDefaults) {
                 event.preventDefault();
             }
