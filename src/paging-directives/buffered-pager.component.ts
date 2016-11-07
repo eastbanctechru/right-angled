@@ -13,8 +13,8 @@ export class BufferedPagerComponent implements OnChanges, OnInit {
     @Input() public maxRowCount: number = BufferedPager.settings.maxRowCount;
     @Input() public minRowCount: number = BufferedPager.settings.minRowCount;
 
-    constructor(public pager: BufferedPager, listService: RtList) {
-        listService.pager = pager;
+    constructor(public pager: BufferedPager, public listService: RtList) {
+        this.listService.pager = pager;
     }
     public ngOnInit(): void {
         this.pager.takeRowCount = this.defaultRowCount * 1;
@@ -32,5 +32,10 @@ export class BufferedPagerComponent implements OnChanges, OnInit {
     }
     public get canLoadMore(): boolean {
         return this.pager.canLoadMore;
+    }
+    public loadMore(): void {
+        if (this.canLoadMore) {
+            this.listService.loadData();
+        }
     }
 }

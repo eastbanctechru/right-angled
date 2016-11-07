@@ -32,7 +32,6 @@ import {
 
 import {
     BufferedPagerComponent,
-    LoadMoreDirective,
     PageNumberDirective,
     PageSizeDirective,
     PagedPagerComponent,
@@ -87,7 +86,6 @@ export class RTSelectionModule { }
         PageSizeDirective,
         PageNumberDirective,
         BufferedPagerComponent,
-        LoadMoreDirective,
         RowCountDirective],
     exports: [
         ListDirective,
@@ -103,7 +101,6 @@ export class RTSelectionModule { }
         PageSizeDirective,
         PageNumberDirective,
         BufferedPagerComponent,
-        LoadMoreDirective,
         RowCountDirective],
     imports: [CommonModule]
 })
