@@ -1,3 +1,20 @@
+<a name="0.33.0"></a>
+# [0.33.0](https://github.com/fshchudlo/right-angled/compare/0.32.2...v0.33.0) (2016-11-07)
+
+
+### Code Refactoring
+
+* **buffered pager:** `rtLoadMore` directive deleted. use `loadMore` method of `rt-buffered-page ([2e396c5](https://github.com/fshchudlo/right-angled/commit/2e396c5))
+
+
+### BREAKING CHANGES
+
+* buffered pager: `rtLoadMore` directive deleted. use `loadMore` method of `rt-buffered-pager`
+
+instead
+
+
+
 <a name="0.32.2"></a>
 ## [0.32.2](https://github.com/fshchudlo/right-angled/compare/0.32.1...v0.32.2) (2016-11-05)
 
