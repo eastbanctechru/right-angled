@@ -3,7 +3,7 @@ import { ListDirective } from '../../src/list-directives';
 
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ProgressState, SortDirection, SortParameter, SortingsService } from 'e2e4';
+import { FiltersService, ProgressState, SortDirection, SortParameter, SortingsService } from 'e2e4';
 import * as Rx from 'rxjs';
 
 @Component({
@@ -27,6 +27,13 @@ class HostComponent {
 class HostNotLoadOnInitComponent {
 }
 
+class ListStub {
+}
+class FiltersServiceStub {
+}
+class SortingsServiceStub {
+}
+
 describe('rtList directive', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -34,8 +41,24 @@ describe('rtList directive', () => {
                 HostComponent,
                 HostNotLoadOnInitComponent,
                 ListDirective
+            ],
+            providers: [
+                { provide: RtList, useClass: ListStub },
+                { provide: FiltersService, useClass: FiltersServiceStub },
+                { provide: SortingsService, useClass: SortingsServiceStub }
             ]
         });
+    });
+
+    it('Acts as DI root for list-related services', () => {
+        let fixture = TestBed.createComponent(HostComponent);
+        fixture.detectChanges();
+        let listService = fixture.debugElement.children[0].injector.get(RtList);
+        let filtersService = fixture.debugElement.children[0].injector.get(FiltersService);
+        let sortingsService = fixture.debugElement.children[0].injector.get(SortingsService);
+        expect(listService instanceof ListStub).toBeFalsy();
+        expect(filtersService instanceof ListStub).toBeFalsy();
+        expect(sortingsService instanceof ListStub).toBeFalsy();
     });
 
     it('Sets listService.fetchMethod to passed parameter', () => {
