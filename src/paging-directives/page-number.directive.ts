@@ -40,7 +40,7 @@ export class PageNumberDirective implements DoCheck {
     }
 
     private checkPageNumberChanged = (item: any): void => {
-        if (item.key === 'pageNumberInternal' && item.currentValue !== this.innerPageNumber) {
+        if (item.key === 'pageNumberInternal') {
             this.innerPageNumber = item.currentValue;
         }
     }
