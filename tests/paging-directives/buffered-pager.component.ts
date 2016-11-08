@@ -55,16 +55,12 @@ describe('rt-buffered-pager component', () => {
     });
 
     it('Sets takeRowCount to configured defaultRowCount on component init', () => {
-        let pagerService = pagerElement.injector.get(BufferedPager);
+        let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
         expect(pagerService.takeRowCount).toEqual(fixture.componentInstance.defaultRowCount);
-        fixture.componentInstance.maxRowCount = fixture.componentInstance.maxRowCount * 10;
-        fixture.detectChanges();
-        expect(pagerService.maxRowCount).toEqual(fixture.componentInstance.maxRowCount);
-        expect(pagerService.takeRowCount).toEqual(fixture.componentInstance.maxRowCount / 10);
     });
 
     it('Proxies config properties to pager service properties', () => {
-        let pagerService = pagerElement.injector.get(BufferedPager);
+        let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
 
         expect(fixture.componentInstance.minRowCount).toEqual(pagerService.minRowCount);
         fixture.componentInstance.minRowCount = fixture.componentInstance.minRowCount * 10;
@@ -85,5 +81,23 @@ describe('rt-buffered-pager component', () => {
         pagerService.totalCount = 100;
         fixture.detectChanges();
         expect(pagerElement.componentInstance.canLoadMore).toEqual(true);
+    });
+    it('Calls loadData method of RtList on loadMore methodCall if load is possible', () => {
+        let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
+        let listService = <RtList>pagerElement.injector.get(RtList);
+        spyOn(listService, 'loadData');
+        pagerService.totalCount = 100;
+        expect(pagerService.canLoadMore).toEqual(true);
+        (<BufferedPagerComponent>pagerElement.componentInstance).loadMore();
+        expect(listService.loadData).toHaveBeenCalled();
+    });
+    it('Doesn\'t call loadData method of RtList on loadMore methodCall if load is not possible', () => {
+        let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
+        let listService = <RtList>pagerElement.injector.get(RtList);
+        spyOn(listService, 'loadData');
+        pagerService.totalCount = 0;
+        expect(pagerService.canLoadMore).toEqual(false);
+        (<BufferedPagerComponent>pagerElement.componentInstance).loadMore();
+        expect(listService.loadData).not.toHaveBeenCalled();
     });
 });
