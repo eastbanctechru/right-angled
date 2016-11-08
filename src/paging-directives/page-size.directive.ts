@@ -22,9 +22,6 @@ export class PageSizeDirective extends PageSizeControlBase implements DoCheck, O
     }
     constructor(listService: RtList, pager: PagedPager, differs: KeyValueDiffers) {
         super(listService, pager, differs);
-        if (pager === null) {
-            throw new Error('[rtPageSize] directive can be used only with paged list provider.');
-        }
     }
     @HostListener('keyup.enter')
     public onEnter(): void {

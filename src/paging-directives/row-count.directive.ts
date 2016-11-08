@@ -22,9 +22,6 @@ export class RowCountDirective extends PageSizeControlBase implements DoCheck, O
     }
     constructor(listService: RtList, bufferedPager: BufferedPager, differs: KeyValueDiffers) {
         super(listService, bufferedPager, differs);
-        if (bufferedPager === null) {
-            throw new Error('[rtRowCount] directive can be used only with buffered list provider.');
-        }
     }
     @HostListener('keyup.enter')
     public onEnter(): void {

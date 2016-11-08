@@ -14,9 +14,6 @@ export class PageNumberDirective implements DoCheck {
     public innerPageNumber: number;
 
     constructor( private listService: RtList, private pager: PagedPager, differs: KeyValueDiffers) {
-        if (pager === null) {
-            throw new Error('[rtPageNumber] directive can be used only with paged lists.');
-        }
         this.innerPageNumber = pager.pageNumber;
         this.pagerDiffer = differs.find([]).create(null);
     }
