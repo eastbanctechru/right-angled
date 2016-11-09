@@ -16,7 +16,7 @@ module.exports = function (config) {
             devtool: 'inline-source-map',
             ts: {
                 compilerOptions: {
-                    noEmitHelpers: false
+                    noEmitHelpers: true
                 }
             },
             module: {

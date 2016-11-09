@@ -4,6 +4,7 @@ import { PagedPager } from 'e2e4';
 import { ListDirective } from './list.directive';
 
 @Pipe({ name: 'rtRowNumber' })
+// tslint:disable-next-line use-pipe-transform-interface
 export class RowNumberPipe implements PipeTransform {
     public transform(index: number, rtList: ListDirective): number {
         if (index !== 0 && (!index || isNaN(index))) {

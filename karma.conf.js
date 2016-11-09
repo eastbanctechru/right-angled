@@ -10,26 +10,44 @@ module.exports = function (config) {
             'karma.entry.js'
         ],
         preprocessors: {
-            'karma.entry.js': ['webpack', 'sourcemap']
+            'karma.entry.js': ['webpack', 'sourcemap'],
+            'src/**/*.js': ['coverage']
         },
+        reporters: ['spec', 'coverage'],
+        coverageReporter: {
+            dir: './',
+            reporters: [
+                { type: 'lcov', subdir: 'coverage' }
+            ]
+        },
+        colors: true,
         webpack: {
             devtool: 'inline-source-map',
             ts: {
                 compilerOptions: {
-                    noEmitHelpers: false
+                    noEmitHelpers: true
                 }
             },
             module: {
                 loaders: [
                     {
-                        test: /\.ts$/,
-                        loader: 'ts',
+                        test: /.*(?!\.d\.ts)|(\.ts)$/,
+                        loader: 'ts-loader',
                         include: [
                             path.resolve(__dirname, 'src'),
                             path.resolve(__dirname, 'tests')
-                        ]
+                        ],
+                        exclude: [path.resolve(__dirname, 'node_modules')]
                     }
-                ]
+                ],
+                postLoaders: [{
+                    test: /\.ts$/,
+                    include: [
+                        path.resolve(__dirname, 'src')
+                    ],
+                    exclude: [path.resolve(__dirname, 'node_modules/@angular'), path.resolve(__dirname, 'node_modules/rxjs')],
+                    loader: 'istanbul-instrumenter'
+                }]
             },
             resolve: {
                 modulesDirectories: [
