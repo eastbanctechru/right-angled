@@ -1,6 +1,8 @@
 # right-angled - building kit for angular2 data grids
 
 [![Build Status](https://travis-ci.org/fshchudlo/right-angled.svg?branch=master)](https://travis-ci.org/fshchudlo/right-angled)
+[![Coverage Status](https://coveralls.io/repos/github/fshchudlo/right-angled/badge.svg?branch=master)](https://coveralls.io/github/fshchudlo/right-angled?branch=master)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Dependency Status](https://david-dm.org/fshchudlo/right-angled.svg)](https://david-dm.org/fshchudlo/right-angled)
 [![devDependency Status](https://david-dm.org/fshchudlo/right-angled/dev-status.svg)](https://david-dm.org/fshchudlo/right-angled?type=dev)
 [![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
