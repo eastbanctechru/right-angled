@@ -6,7 +6,6 @@ module.exports = function (config) {
         singleRun: true,
         frameworks: ['jasmine'],
         files: [
-            'node_modules/es6-shim/es6-shim.js',
             'karma.entry.js'
         ],
         preprocessors: {

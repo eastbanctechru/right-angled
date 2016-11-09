@@ -30,7 +30,8 @@ class HostComponent {
 }
 
 class ListStub {
-    public state: ProgressState = ProgressState.Initial;
+    public state: ProgressState = ProgressState.Progress;
+    public items: Array<any> = null;
 }
 
 describe('rt-list-state-... components', () => {
@@ -53,8 +54,22 @@ describe('rt-list-state-... components', () => {
         });
 
         fixture = TestBed.createComponent(HostComponent);
+        fixture.detectChanges();
         nativeElement = fixture.nativeElement;
         listService = fixture.debugElement.injector.get(RtList);
+    });
+
+    it('Coverage stub for else statement in change tracking :)', () => {
+        listService.items = [];
+        fixture.detectChanges();
+    });
+    it('Renders content of rt-list-state-progress on component init since initial state is ProgressState.Progress', () => {
+        expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-request-cancelled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-no-data > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-list-state-progress > span')).toBeDefined();
+        expect(nativeElement.querySelector('rt-list-state-done > span')).toBeNull();
     });
 
     it('Renders content of rt-list-state-initial when state is Initial', () => {

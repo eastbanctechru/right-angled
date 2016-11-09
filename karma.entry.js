@@ -2,12 +2,11 @@ require('es6-shim');
 require('reflect-metadata');
 require('zone.js/dist/zone');
 require('zone.js/dist/long-stack-trace-zone');
-require('zone.js/dist/proxy.js');
+require('zone.js/dist/proxy');
 require('zone.js/dist/sync-test');
 require('zone.js/dist/jasmine-patch');
 require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
-require('typescript/lib/typescript');
 require('ts-helpers');
 // Prevent Karma from running prematurely.
 __karma__.loaded = function () { };

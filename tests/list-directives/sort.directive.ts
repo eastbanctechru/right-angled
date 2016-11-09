@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
 @Component({
-    template: `<div rtSort="field"></div>`
+    template: `<div rtSort="field"></div><div rtSort="anotherField"></div>`
 })
 class HostComponent {
 }
@@ -121,7 +121,7 @@ describe('rtSort directive', () => {
         fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
         expect(listStub.reloadData).toHaveBeenCalled();
     });
-    it('Doesn\'t call setSort and reloadData if list is not readu', () => {
+    it('Doesn\'t call setSort and reloadData if list is not ready', () => {
         let fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         spyOn(listStub, 'reloadData');

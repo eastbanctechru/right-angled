@@ -6,12 +6,12 @@ module.exports = function (config) {
         singleRun: false,
         frameworks: ['jasmine'],
         files: [
-            'node_modules/es6-shim/es6-shim.min.js',
             'karma.entry.js'
         ],
         preprocessors: {
             'karma.entry.js': ['webpack', 'sourcemap']
         },
+        colors: true,
         webpack: {
             devtool: 'inline-source-map',
             ts: {

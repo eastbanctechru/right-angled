@@ -76,6 +76,31 @@ describe('rt-paged-pager component', () => {
         fixture.componentInstance.defaultPageSize = fixture.componentInstance.defaultPageSize * 10;
         fixture.detectChanges();
         expect(pagerService.defaultPageSize).toEqual(fixture.componentInstance.defaultPageSize);
+
+        pagerService.totalCount = 0;
+        fixture.detectChanges();
+        expect(pagerElement.componentInstance.canMoveForward).toEqual(false);
+        expect(pagerService.canMoveForward).toEqual(false);
+
+        pagerService.totalCount = 100;
+        fixture.detectChanges();
+        expect(pagerElement.componentInstance.canMoveForward).toEqual(true);
+        expect(pagerService.canMoveForward).toEqual(true);
+
+        pagerService.totalCount = 0;
+        fixture.detectChanges();
+        expect(pagerElement.componentInstance.canMoveBackward).toEqual(false);
+        expect(pagerService.canMoveBackward).toEqual(false);
+
+        pagerService.totalCount = 100;
+        pagerService.pageNumber = 3;
+        fixture.detectChanges();
+        expect(pagerElement.componentInstance.canMoveBackward).toEqual(true);
+        expect(pagerService.canMoveBackward).toEqual(true);
+
+        fixture.componentInstance.defaultPageSize = fixture.componentInstance.defaultPageSize * 10;
+        fixture.detectChanges();
+        expect(pagerService.defaultPageSize).toEqual(fixture.componentInstance.defaultPageSize);
     });
 
     it('Calls loadData method of RtList on goToFirstPage methodCall if load is possible', () => {
