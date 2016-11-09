@@ -1,6 +1,6 @@
 import { RowNumberPipe } from '../../src/list-directives';
 
-describe('TitleCasePipe', () => {
+describe('RowNumberPipe', () => {
     let listStub: any = {
         listService: {
             pager: {

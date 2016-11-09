@@ -11,37 +11,37 @@ export class PageNumberDirective implements DoCheck {
     private pagerDiffer: KeyValueDiffer;
 
     @HostBinding('value')
-    public innerPageNumber: number;
+    public innerValue: number;
 
     constructor( private listService: RtList, private pager: PagedPager, differs: KeyValueDiffers) {
-        this.innerPageNumber = pager.pageNumber;
+        this.innerValue = pager.pageNumber;
         this.pagerDiffer = differs.find([]).create(null);
     }
 
     @HostListener('keyup.enter')
     public onEnter(): void {
-        this.innerPageNumber = this.pager.pageNumber;
+        this.innerValue = this.pager.pageNumber;
         this.listService.loadData();
     }
 
     @HostListener('input', ['$event.target.value'])
     public setPageSize(value: any): void {
-        this.innerPageNumber = value;
+        this.innerValue = value;
         if (value === null || value === undefined || value === '') {
             return;
         }
         this.pager.pageNumber = value;
-        setTimeout(() => this.innerPageNumber = this.pager.pageNumber);
+        setTimeout(() => this.innerValue = this.pager.pageNumber);
     }
 
     @HostListener('blur')
     public restoreInputValue(): void {
-        this.innerPageNumber = this.pager.pageNumber;
+        this.innerValue = this.pager.pageNumber;
     }
 
     private checkPageNumberChanged = (item: any): void => {
         if (item.key === 'pageNumberInternal') {
-            this.innerPageNumber = item.currentValue;
+            this.innerValue = item.currentValue;
         }
     }
     public ngDoCheck(): void {

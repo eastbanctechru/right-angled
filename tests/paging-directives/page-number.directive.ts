@@ -10,7 +10,7 @@ import * as Rx from 'rxjs';
 @Component({
     template: `<div [rtList]="getData">
                     <rt-paged-pager>
-                        <input rtPageNumber type="text" class="form-control" maxlength="4" />
+                        <input rtPageNumber type="text" />
                     </rt-paged-pager>
                 </div>`
 })
@@ -40,58 +40,61 @@ describe('rtPageNumber directive', () => {
         pageNumberDirective = fixture.debugElement.query(By.directive(PageNumberDirective)).injector.get(PageNumberDirective);
     });
 
-    it('sets innerPageNumber to pageNumber value on component init', () => {
-        expect(pageNumberDirective.innerPageNumber).toEqual(pagerComponent.pager.pageNumber);
+    it('sets innerValue to pageNumber value on component init', () => {
+        expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
     });
 
-    it('sets innerPageNumber to pageNumber on Enter key press', () => {
+    it('sets innerValue to pageNumber on Enter key press', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageNumber = 3;
-        expect(pageNumberDirective.innerPageNumber).not.toEqual(pagerComponent.pager.pageNumber);
+        expect(pageNumberDirective.innerValue).not.toEqual(pagerComponent.pager.pageNumber);
         fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup.enter', null);
-        expect(pageNumberDirective.innerPageNumber).toEqual(pagerComponent.pager.pageNumber);
+        expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
     });
+
     it('calls listService loadData method on Enter key press', () => {
         spyOn(listService, 'loadData');
         fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup.enter', null);
         expect(listService.loadData).toHaveBeenCalled();
     });
-    it('sets innerPageNumber to pageNumber on change detection cycle', () => {
+
+    it('sets innerValue to pageNumber on change detection cycle', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageNumber = 3;
-        expect(pageNumberDirective.innerPageNumber).not.toEqual(pagerComponent.pager.pageNumber);
+        expect(pageNumberDirective.innerValue).not.toEqual(pagerComponent.pager.pageNumber);
         fixture.detectChanges();
-        expect(pageNumberDirective.innerPageNumber).toEqual(pagerComponent.pager.pageNumber);
-    });
-    it('restores innerPageNumber  value on element blur to pageNumber property value', () => {
-        pagerComponent.pager.totalCount = 100;
-        pageNumberDirective.innerPageNumber = 5;
-        expect(pageNumberDirective.innerPageNumber).not.toEqual(pagerComponent.pager.pageNumber);
-        fixture.debugElement.query(By.css('input')).triggerEventHandler('blur', null);
-        expect(pageNumberDirective.innerPageNumber).toEqual(pagerComponent.pager.pageNumber);
+        expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
     });
 
-    it('sets innerPageNumber on input event if it incorrect value, but skips pageNumber property set', () => {
+    it('restores innerValue  value on element blur to pageNumber property value', () => {
+        pagerComponent.pager.totalCount = 100;
+        pageNumberDirective.innerValue = 5;
+        expect(pageNumberDirective.innerValue).not.toEqual(pagerComponent.pager.pageNumber);
+        fixture.debugElement.query(By.css('input')).triggerEventHandler('blur', null);
+        expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
+    });
+
+    it('sets innerValue on input event if it incorrect value, but skips pageNumber property set', () => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: null } });
-        expect(pageNumberDirective.innerPageNumber).toEqual(null);
+        expect(pageNumberDirective.innerValue).toEqual(null);
         expect(pagerComponent.pager.pageNumber).toEqual(1);
 
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: undefined } });
-        expect(pageNumberDirective.innerPageNumber).toEqual(undefined);
+        expect(pageNumberDirective.innerValue).toEqual(undefined);
         expect(pagerComponent.pager.pageNumber).toEqual(1);
 
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '' } });
-        expect(pageNumberDirective.innerPageNumber).toEqual('');
+        expect(pageNumberDirective.innerValue).toEqual('');
         expect(pagerComponent.pager.pageNumber).toEqual(1);
     });
 
-    it('sets pageNumber to raw input value and sets innerPageNumber to processed value after render cycle', () => {
+    it('sets pageNumber to raw input value and sets innerValue to processed value after render cycle', () => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3' } });
         expect(pagerComponent.pager.pageNumber).toEqual(3);
         fixture.whenStable().then(() => {
-            expect(pageNumberDirective.innerPageNumber).toEqual(pagerComponent.pager.pageNumber);
+            expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
         });
     });
 });
