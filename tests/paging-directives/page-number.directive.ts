@@ -43,6 +43,9 @@ describe('rtPageNumber directive', () => {
     it('sets innerValue to pageNumber value on component init', () => {
         expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
     });
+    it('overrides changeTrackingKey to pageNumberInternal', () => {
+        expect(pageNumberDirective.changeTrackingKey).toEqual('pageNumberInternal');
+    });
 
     it('sets innerValue to pageNumber on Enter key press', () => {
         pagerComponent.pager.totalCount = 100;
@@ -89,12 +92,13 @@ describe('rtPageNumber directive', () => {
         expect(pagerComponent.pager.pageNumber).toEqual(1);
     });
 
-    it('sets pageNumber to raw input value and sets innerValue to processed value after render cycle', () => {
+    it('sets pageNumber to raw input value and sets innerValue to processed value after render cycle', done => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3' } });
         expect(pagerComponent.pager.pageNumber).toEqual(3);
-        fixture.whenStable().then(() => {
+        setTimeout(() => {
             expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
-        });
+            done();
+        }, 0);
     });
 });

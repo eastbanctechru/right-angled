@@ -44,15 +44,15 @@ describe('rtRowCount directive', () => {
         expect(rowCountDirective.innerValue).toEqual(pagerComponent.pager.takeRowCount);
     });
 
-    it('overrides checkChangesPropertyName to takeRowCountInternal', () => {
-        expect(rowCountDirective.checkChangesPropertyName).toEqual('takeRowCountInternal');
+    it('overrides changeTrackingKey to takeRowCountInternal', () => {
+        expect(rowCountDirective.changeTrackingKey).toEqual('takeRowCountInternal');
     });
 
     it('proxies takeRowCount property to pager.takeRowCount', () => {
-        expect(rowCountDirective.pageSize).toEqual(pagerComponent.pager.takeRowCount);
+        expect(rowCountDirective.value).toEqual(pagerComponent.pager.takeRowCount);
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.takeRowCount = pagerComponent.pager.takeRowCount * 2;
-        expect(rowCountDirective.pageSize).toEqual(pagerComponent.pager.takeRowCount);
+        expect(rowCountDirective.value).toEqual(pagerComponent.pager.takeRowCount);
     });
 
     it('sets innerValue to takeRowCount on Enter key press', () => {
@@ -100,13 +100,14 @@ describe('rtRowCount directive', () => {
         expect(pagerComponent.pager.takeRowCount).toEqual(pagerComponent.defaultRowCount);
     });
 
-    it('sets takeRowCount to raw input value and sets innerValue to processed value after render cycle', () => {
+    it('sets takeRowCount to raw input value and sets innerValue to processed value after timeout', done => {
         pagerComponent.pager.totalCount = 100;
-        fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3' } });
+        fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3b' } });
         expect(pagerComponent.pager.takeRowCount).toEqual(3);
-        fixture.whenStable().then(() => {
+        setTimeout(() => {
             expect(rowCountDirective.innerValue).toEqual(pagerComponent.pager.takeRowCount);
-        });
+            done();
+        }, 0);
     });
 
 });

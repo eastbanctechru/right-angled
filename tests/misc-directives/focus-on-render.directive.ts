@@ -18,7 +18,7 @@ describe('rtFocusOnRender directive', () => {
         });
     });
 
-    it('Calls \'focus\' method on element after content render', () => {
+    it('Calls \'focus\' method on element after content render', done => {
         let fixture = TestBed.createComponent(HostComponent);
         let input = fixture.nativeElement.querySelector('input');
         let renderer = fixture.debugElement.children[0].injector.get(FocusOnRenderDirective).renderer;
@@ -26,7 +26,8 @@ describe('rtFocusOnRender directive', () => {
         fixture.detectChanges();
         expect(renderer.invokeElementMethod).not.toHaveBeenCalled();
         fixture.whenStable().then(() => {
-            expect(renderer.invokeElementMethod).toHaveBeenCalledWith(input, 'select', []);
+            expect(renderer.invokeElementMethod).toHaveBeenCalledWith(input, 'focus');
+            done();
         });
     });
 });

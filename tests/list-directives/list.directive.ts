@@ -7,17 +7,17 @@ import { FiltersService, ProgressState, SortDirection, SortParameter, SortingsSe
 import * as Rx from 'rxjs';
 
 @Component({
-    template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" (onListInit)="onListInit()" (afterListInit)="afterListInit()"></div>`
+    template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" (onListInit)="onListInit($event)" (afterListInit)="afterListInit($event)"></div>`
 })
 class HostComponent {
     public defaultSortings: Array<SortParameter> = [];
     public getData(): any {
         return Rx.Observable.from([]);
     }
-    public afterListInit(): void {
+    public afterListInit(list: RtList): void {
         return;
     }
-    public onListInit(): void {
+    public onListInit(list: RtList): void {
         return;
     }
 }
@@ -126,16 +126,17 @@ describe('rtList directive', () => {
         fixture.destroy();
         expect(listService.destroyed).toEqual(true);
     });
-    it('Inits listService after directive init', () => {
+    it('Inits listService after directive init', done => {
         let fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         let listService = fixture.debugElement.children[0].injector.get(RtList);
         expect(listService.inited).toEqual(false);
         fixture.whenStable().then(() => {
             expect(listService.inited).toEqual(true);
+            done();
         });
     });
-    it('Calls listService loadData after directive init', () => {
+    it('Calls listService loadData after directive init', done => {
         let fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         let listService = fixture.debugElement.children[0].injector.get(RtList);
@@ -143,9 +144,10 @@ describe('rtList directive', () => {
         expect(listService.loadData).not.toHaveBeenCalled();
         fixture.whenStable().then(() => {
             expect(listService.loadData).toHaveBeenCalled();
+            done();
         });
     });
-    it('Doesn\'t call listService loadData if \'loadOnInit\' is false', () => {
+    it('Doesn\'t call listService loadData if \'loadOnInit\' is false', done => {
         let fixture = TestBed.createComponent(HostNotLoadOnInitComponent);
         fixture.detectChanges();
         let listService = fixture.debugElement.children[0].injector.get(RtList);
@@ -153,10 +155,11 @@ describe('rtList directive', () => {
         expect(listService.loadData).not.toHaveBeenCalled();
         fixture.whenStable().then(() => {
             expect(listService.loadData).not.toHaveBeenCalled();
+            done();
         });
     });
 
-    it('Calls onListInit and afterListInit with listService instance after directive init', () => {
+    it('Calls onListInit and afterListInit with listService instance after directive init', done => {
         let fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         let listService = fixture.debugElement.children[0].injector.get(RtList);
@@ -169,6 +172,7 @@ describe('rtList directive', () => {
         fixture.whenStable().then(() => {
             expect(fixture.componentInstance.onListInit).toHaveBeenCalledWith(listService);
             expect(fixture.componentInstance.afterListInit).toHaveBeenCalledWith(listService);
+            done();
         });
     });
 });

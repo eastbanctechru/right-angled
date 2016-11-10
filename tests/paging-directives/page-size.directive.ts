@@ -44,15 +44,15 @@ describe('rtPageSize directive', () => {
         expect(pageSizeDirective.innerValue).toEqual(pagerComponent.pager.pageSize);
     });
 
-    it('overrides checkChangesPropertyName to pageSizeInternal', () => {
-        expect(pageSizeDirective.checkChangesPropertyName).toEqual('pageSizeInternal');
+    it('overrides changeTrackingKey to pageSizeInternal', () => {
+        expect(pageSizeDirective.changeTrackingKey).toEqual('pageSizeInternal');
     });
 
     it('proxies pageSize property to pager.pageSize', () => {
-        expect(pageSizeDirective.pageSize).toEqual(pagerComponent.pager.pageSize);
+        expect(pageSizeDirective.value).toEqual(pagerComponent.pager.pageSize);
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageSize = pagerComponent.pager.pageSize * 2;
-        expect(pageSizeDirective.pageSize).toEqual(pagerComponent.pager.pageSize);
+        expect(pageSizeDirective.value).toEqual(pagerComponent.pager.pageSize);
     });
 
     it('sets innerValue to pageSize on Enter key press', () => {
@@ -100,13 +100,13 @@ describe('rtPageSize directive', () => {
         expect(pagerComponent.pager.pageSize).toEqual(pagerComponent.defaultPageSize);
     });
 
-    it('sets pageSize to raw input value and sets innerValue to processed value after render cycle', () => {
+    it('sets pageSize to raw input value and sets innerValue to processed value after render cycle', done => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3' } });
         expect(pagerComponent.pager.pageSize).toEqual(3);
-        fixture.whenStable().then(() => {
+        setTimeout(() => {
             expect(pageSizeDirective.innerValue).toEqual(pagerComponent.pager.pageSize);
-        });
+            done();
+        }, 0);
     });
-
 });
