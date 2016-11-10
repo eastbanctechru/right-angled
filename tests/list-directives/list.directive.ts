@@ -57,8 +57,8 @@ describe('rtList directive', () => {
         let filtersService = fixture.debugElement.children[0].injector.get(FiltersService);
         let sortingsService = fixture.debugElement.children[0].injector.get(SortingsService);
         expect(listService instanceof ListStub).toBeFalsy();
-        expect(filtersService instanceof ListStub).toBeFalsy();
-        expect(sortingsService instanceof ListStub).toBeFalsy();
+        expect(filtersService instanceof FiltersServiceStub).toBeFalsy();
+        expect(sortingsService instanceof SortingsServiceStub).toBeFalsy();
     });
 
     it('Sets listService.fetchMethod to passed parameter', () => {

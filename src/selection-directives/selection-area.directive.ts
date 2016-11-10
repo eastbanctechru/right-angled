@@ -78,19 +78,19 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
 
     @HostBinding('tabIndex')
     public get tabIndex(): number {
-        return this.tabIndexPrivate === -1 ? 0 : this.tabIndexPrivate;
+        return (this.tabIndexPrivate === undefined || this.tabIndexPrivate === null || this.tabIndexPrivate === -1) ? 0 : this.tabIndexPrivate;
     }
     public set tabIndex(value: number) {
         this.tabIndexPrivate = value;
     }
-    @HostListener('keydown', ['$event.ctrlKey', '$event.shiftKey', '$event.keyCode'])
-    public keyDownHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, keyCode: number): void {
+    @HostListener('keydown', ['$event.ctrlKey', '$event.shiftKey', '$event.keyCode', '$event.preventDefault', '$event.stopPropagation'])
+    public keyDownHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, keyCode: number, preventDefaultFn: Function, stopPropagationFn: Function): void {
         if (this.selectionEventsHelper.keyboardHandler(ctrlKeyPressed, shiftKeyPressed, keyCode)) {
             if (this.selectionEventsHelper.preventEventsDefaults) {
-                event.preventDefault();
+                preventDefaultFn();
             }
             if (this.selectionEventsHelper.stopEventsPropagation) {
-                event.stopPropagation();
+                stopPropagationFn();
             }
         }
     }
