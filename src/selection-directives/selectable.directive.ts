@@ -17,15 +17,15 @@ export class SelectableDirective implements SelectionEventsEmitter {
     @Output() public selectionChanged: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
     constructor( @SkipSelf() public selectionEventsHelper: RtSelectionEventsHelper) {
     }
-    @HostListener('mouseup', ['$event.ctrlKey', '$event.shiftKey', '$event.which'])
-    public mouseUpHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, mouseButton: number): void {
+    @HostListener('mouseup', ['$event.ctrlKey', '$event.shiftKey', '$event.which', '$event.preventDefault', '$event.stopPropagation'])
+    public mouseUpHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, mouseButton: number, preventDefaultFn: Function, stopPropagationFn: Function): void {
         if (this.selectionEventsHelper.mouseHandler(ctrlKeyPressed, shiftKeyPressed, mouseButton, this.index)) {
             this.clearWindowSelection();
             if (this.selectionEventsHelper.preventEventsDefaults) {
-                event.preventDefault();
+                preventDefaultFn();
             }
             if (this.selectionEventsHelper.stopEventsPropagation) {
-                event.stopPropagation();
+                stopPropagationFn();
             }
         }
     }
@@ -34,11 +34,9 @@ export class SelectableDirective implements SelectionEventsEmitter {
         try {
             if (window && window.getSelection) {
                 window.getSelection().removeAllRanges();
-            } else if (document && document.hasOwnProperty('selection')) {
-                /* tslint:disable-next-line:no-string-literal */
-                document['selection'].empty();
             }
-        } catch (e) {// do nothing 
+        } catch (e) {
+            // do nothing 
         }
     }
 }
