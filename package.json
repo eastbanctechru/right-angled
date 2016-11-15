@@ -88,7 +88,7 @@
     "ts-loader": "^1.2.1",
     "tslint": "^3.15.1",
     "typedoc": "^0.5.1",
-    "typescript": "2.0.6",
+    "typescript": "2.0.10",
     "vinyl": "^2.0.0",
     "vinyl-paths": "^2.1.0",
     "wallaby-webpack": "^0.0.26",
