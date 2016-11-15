@@ -5,5 +5,6 @@ script:
   - gulp build
   - gulp tslint
   - gulp test-single-run
+  - npm run ngc
 after_success: 
   - 'npm run coveralls'
