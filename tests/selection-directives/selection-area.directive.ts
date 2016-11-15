@@ -3,6 +3,7 @@ import { SelectableDirective, SelectionAreaDirective } from '../../src/selection
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { KeyCodes } from 'e2e4';
 
 @Component({
@@ -13,14 +14,12 @@ import { KeyCodes } from 'e2e4';
     [multiple]="multiple"
     [toggleOnly]="toggleOnly"
     [autoSelectFirst]="autoSelectFirst"
-    [trackBy]="trackBy"
-    >
-    <div #selectable1 [rtSelectable]="selectable1"></div>
-    <div #selectable2 [rtSelectable]="selectable2"></div>
-    <div #selectable3 [rtSelectable]="selectable3"></div>
+    [trackBy]="trackBy">
+        <div *ngFor="let item of items" [rtSelectable]="item"></div>
     </div>`
 })
 class HostComponent {
+    public items: Array<any> = [1, 2, 3];
     public preventEventsDefaults: boolean = false;
     public stopEventsPropagation: boolean = false;
     public horizontal: boolean = false;
@@ -28,6 +27,30 @@ class HostComponent {
     public toggleOnly: boolean = false;
     public autoSelectFirst: boolean = false;
     public trackBy: (index: number, item: any) => any = (index: number, item: any) => item;
+}
+
+@Component({
+    template: `<div rtSelectionArea>
+                    <div *ngFor="let item of items" [rtSelectable]="item" rtSelectionArea>
+                        <div *ngFor="let item of item.items" [rtSelectable]="item">
+                        </div>
+                    </div>
+                </div>`
+})
+class NestedComponent {
+    public items: Array<any> = [
+        {
+            childItems: [{ number: 1 }, { number: 2 }, { number: 3 }],
+            number: 1
+        },
+        {
+            childItems: [{ number: 1 }, { number: 2 }, { number: 3 }],
+            number: 2
+        },
+        {
+            childItems: [{ number: 1 }, { number: 2 }, { number: 3 }],
+            number: 3
+        }];
 }
 
 class SelectionServiceStub {
@@ -44,6 +67,7 @@ describe('rtSelectionArea directive', () => {
         TestBed.configureTestingModule({
             declarations: [
                 HostComponent,
+                NestedComponent,
                 SelectionAreaDirective,
                 SelectableDirective
             ],
@@ -57,6 +81,21 @@ describe('rtSelectionArea directive', () => {
         selectionService = fixture.debugElement.children[0].injector.get(RtSelectionService);
         selectionEventsHelper = fixture.debugElement.children[0].injector.get(RtSelectionEventsHelper);
         selectionAreaDirective = <SelectionAreaDirective>fixture.debugElement.children[0].injector.get(SelectionAreaDirective);
+    });
+
+    it('Builds collection of child selection services for RtSelectionService and rebuilds it on change tracking cycle', () => {
+        let nestedFixture = TestBed.createComponent(NestedComponent);
+        nestedFixture.detectChanges();
+        selectionService = nestedFixture.debugElement.children[0].injector.get(RtSelectionService);
+        expect(selectionService.childSelectionServices.length).toEqual(3);
+        expect(selectionService.childSelectionServices).toEqual(nestedFixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectionAreaDirective).selectionService));
+        nestedFixture.componentInstance.items.push({
+            childItems: [{ number: 1 }],
+            number: 4
+        });
+        nestedFixture.detectChanges();
+        expect(selectionService.childSelectionServices.length).toEqual(4);
+        expect(selectionService.childSelectionServices).toEqual(nestedFixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectionAreaDirective).selectionService));
     });
 
     it('Acts as DI root for selection-related services', () => {
@@ -184,12 +223,63 @@ describe('rtSelectionArea directive', () => {
         expect(selectionService.getSelectedIndexes()).toEqual([1]);
     });
 
-    it('Doesn\'t change selection on change tracking cycle if multiple setted to false and single element is selected', () => {
+    it('Doesn\'t change selection on change tracking cycle if \'multiple\' setted to false and single element is selected', () => {
         expect(fixture.componentInstance.multiple).toEqual(true);
         selectionService.selectIndex(1);
         fixture.componentInstance.multiple = false;
         fixture.detectChanges();
         expect(selectionService.getSelectedIndexes()).toEqual([1]);
+    });
+
+    it('Runs \'checkSelection\' on change tracking cycle', (done) => {
+        spyOn(selectionService, 'checkSelection');
+        fixture.componentInstance.items.push(4);
+        fixture.detectChanges();
+        setTimeout(() => {
+            expect(selectionService.checkSelection).toHaveBeenCalled();
+            done();
+        }, 0);
+    });
+
+    it('Selects first element after selection check if \'autoSelectFirst\' is setted to true', (done) => {
+        selectionAreaDirective.autoSelectFirst = true;
+        fixture.componentInstance.items.push(4);
+        fixture.detectChanges();
+        expect(selectionService.getSelectedIndexes()).toEqual([]);
+        setTimeout(() => {
+            expect(selectionService.getSelectedIndexes()).toEqual([0]);
+            done();
+        }, 0);
+    });
+
+    it('Doesn\'t runs \'checkSelection\' on change tracking cycle if items source is empty', (done) => {
+        spyOn(selectionService, 'checkSelection');
+        fixture.componentInstance.items = [];
+        fixture.detectChanges();
+        setTimeout(() => {
+            expect(selectionService.checkSelection).not.toHaveBeenCalled();
+            done();
+        }, 0);
+    });
+
+    it('Rebuilds \'items\' collection of selection service on change tracking cycle', () => {
+        fixture.componentInstance.items = [1, 2, 3, 4];
+        fixture.detectChanges();
+        expect(selectionService.items).toEqual([1, 2, 3, 4]);
+    });
+
+    it('Rebuilds \'eventEmitters\' collection of selection service on change tracking cycle', () => {
+        fixture.componentInstance.items = [1, 2, 3, 4];
+        fixture.detectChanges();
+        expect(selectionService.eventEmitters).toEqual(fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective)));
+    });
+
+    it('Updates indexes of selectable items on  change tracking cycle', () => {
+        let selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective));
+        expect(selectables.map(s => s.index)).toEqual([0, 1, 2]);
+        fixture.componentInstance.items.unshift(0);
+        fixture.detectChanges();
+        expect(selectables.map(s => s.index)).toEqual([1, 2, 3]);
     });
 
     it('Deselects items on destroy', () => {
@@ -202,5 +292,15 @@ describe('rtSelectionArea directive', () => {
         spyOn(selectionService, 'destroy');
         fixture.destroy();
         expect(selectionService.destroy).toHaveBeenCalled();
+    });
+
+    it('Destroys ContentChildren subscriptions on destroy', () => {
+        spyOn(selectionAreaDirective.checkboxesSubscription, 'unsubscribe');
+        spyOn(selectionAreaDirective.itemsSubscription, 'unsubscribe');
+        spyOn(selectionAreaDirective.childSelectionAreasSubscription, 'unsubscribe');
+        fixture.destroy();
+        expect(selectionAreaDirective.checkboxesSubscription.unsubscribe).toHaveBeenCalled();
+        expect(selectionAreaDirective.itemsSubscription.unsubscribe).toHaveBeenCalled();
+        expect(selectionAreaDirective.childSelectionAreasSubscription.unsubscribe).toHaveBeenCalled();
     });
 });

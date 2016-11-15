@@ -40,9 +40,7 @@ export class RtSelectionService extends DefaultSelectionService {
         setTimeout(() => {
             if (recursive && this.childSelectionServices) {
                 this.childSelectionServices.forEach(service => {
-                    if (service !== this) {
-                        service.selectAll(recursive);
-                    }
+                    service.selectAll(recursive);
                 });
             }
         }, 0);
@@ -50,9 +48,7 @@ export class RtSelectionService extends DefaultSelectionService {
     public deselectAll(recursive: boolean = true): void {
         if (recursive && this.childSelectionServices) {
             this.childSelectionServices.forEach(service => {
-                if (service !== this) {
-                    service.deselectAll(recursive);
-                }
+                service.deselectAll(recursive);
             });
         }
         super.deselectAll();

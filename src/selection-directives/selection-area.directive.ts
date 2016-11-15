@@ -15,35 +15,46 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
     @ContentChildren(SelectionCheckboxForDirective, { descendants: false }) public childSelectionCheckboxes: QueryList<SelectionCheckboxForDirective>;
     @ContentChildren(SelectionAreaDirective, { descendants: false }) public childSelectionAreas: QueryList<SelectionAreaDirective>;
 
-    private tabIndexPrivate: number;
-    private itemsSubscription: Subscription;
-    private checkboxesSubscription: Subscription;
-    private childSelectionAreasSubscription: Subscription;
+    public itemsSubscription: Subscription;
+    public checkboxesSubscription: Subscription;
+    public childSelectionAreasSubscription: Subscription;
+
+    @HostBinding('tabIndex')
+    public tabIndex: number = 0;
 
     @Input() public set preventEventsDefaults(value: boolean) {
         this.selectionEventsHelper.preventEventsDefaults = value;
     }
+
     @Input() public set stopEventsPropagation(value: boolean) {
         this.selectionEventsHelper.stopEventsPropagation = value;
     }
+
     @Input() public set horizontal(value: boolean) {
         this.selectionEventsHelper.horizontal = value;
     }
+
     @Input() public set multiple(value: boolean) {
         this.selectionEventsHelper.multiple = value;
     }
+
     @Input() public set toggleOnly(value: boolean) {
         this.selectionEventsHelper.toggleOnly = value;
     }
+
     @Input() public autoSelectFirst: boolean = false;
+
     @Input() public set trackBy(value: (index: number, item: any) => any) {
         if (typeof value !== 'function') {
             throw new Error('trackBy parameter value must be a function');
         }
         this.selectionService.trackByFn = value;
     }
+
     @Output() public itemSelected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+
     @Output() public itemDeselected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+
     @Output() public selectionChanged: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
 
     constructor( @Self() public selectionService: RtSelectionService, @Self() public selectionEventsHelper: RtSelectionEventsHelper) {
@@ -51,15 +62,9 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         this.selectionEventsHelper = selectionEventsHelper;
     }
     public ngOnDestroy(): void {
-        if (this.itemsSubscription) {
-            this.itemsSubscription.unsubscribe();
-        }
-        if (this.checkboxesSubscription) {
-            this.checkboxesSubscription.unsubscribe();
-        }
-        if (this.childSelectionAreasSubscription) {
-            this.childSelectionAreasSubscription.unsubscribe();
-        }
+        this.itemsSubscription.unsubscribe();
+        this.checkboxesSubscription.unsubscribe();
+        this.childSelectionAreasSubscription.unsubscribe();
         this.selectionService.deselectAll();
         this.selectionService.destroy();
     }
@@ -76,13 +81,6 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         }
     }
 
-    @HostBinding('tabIndex')
-    public get tabIndex(): number {
-        return (this.tabIndexPrivate === undefined || this.tabIndexPrivate === null || this.tabIndexPrivate === -1) ? 0 : this.tabIndexPrivate;
-    }
-    public set tabIndex(value: number) {
-        this.tabIndexPrivate = value;
-    }
     @HostListener('keydown', ['$event.ctrlKey', '$event.shiftKey', '$event.keyCode', '$event.preventDefault', '$event.stopPropagation'])
     public keyDownHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, keyCode: number, preventDefaultFn: Function, stopPropagationFn: Function): void {
         if (this.selectionEventsHelper.keyboardHandler(ctrlKeyPressed, shiftKeyPressed, keyCode)) {
@@ -105,12 +103,18 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         if (this.selectionService.items.length > 0) {
             setTimeout(() => {
                 // since we've modify collection on first render, to prevent error 'Expression has changed after it was checked' we've do selection after render
-                this.selectionService.checkSelection();
-                if (false === this.selectionService.hasSelections() && this.autoSelectFirst) {
-                    this.selectionService.selectIndex(0, false);
+                if (this.selectionService.items.length > 0) {
+                    this.selectionService.checkSelection();
+                    // repeats first element selection since checking can deselect all elements 
+                    if (false === this.selectionService.hasSelections() && this.autoSelectFirst) {
+                        this.selectionService.selectIndex(0, false);
+                    }
                 }
             }, 0);
         }
+    }
+    private buildSelectionServicesList(items: QueryList<SelectionAreaDirective>): void {
+        this.selectionService.childSelectionServices = items.filter(area => area !== this).map(area => area.selectionService);
     }
     public ngAfterContentInit(): void {
         if (this.selectableItems.length > 0) {
@@ -120,10 +124,10 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
             this.buildSelectionSource(this.childSelectionCheckboxes);
         }
         if (this.childSelectionAreas.length > 0) {
-            this.selectionService.childSelectionServices = this.childSelectionAreas.map(area => area.selectionService);
+            this.buildSelectionServicesList(this.childSelectionAreas);
         }
         this.itemsSubscription = this.selectableItems.changes.subscribe(this.buildSelectionSource.bind(this));
         this.checkboxesSubscription = this.childSelectionCheckboxes.changes.subscribe(this.buildSelectionSource.bind(this));
-        this.childSelectionAreasSubscription = this.childSelectionAreas.changes.subscribe((changes) => this.selectionService.childSelectionServices = changes.map(area => area.selectionService));
+        this.childSelectionAreasSubscription = this.childSelectionAreas.changes.subscribe(this.buildSelectionServicesList.bind(this));
     }
 }
