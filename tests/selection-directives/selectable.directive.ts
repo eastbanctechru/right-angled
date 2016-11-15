@@ -35,7 +35,7 @@ describe('rtSelectable directive', () => {
         fixture.detectChanges();
         selectionService = fixture.debugElement.children[0].injector.get(RtSelectionService);
         selectionEventsHelper = fixture.debugElement.children[0].injector.get(RtSelectionEventsHelper);
-        selectableElements = [fixture.debugElement.children[0].children[0], fixture.debugElement.children[0].children[2], fixture.debugElement.children[0].children[2]];
+        selectableElements = [fixture.debugElement.children[0].children[0], fixture.debugElement.children[0].children[1], fixture.debugElement.children[0].children[2]];
     });
 
     it('Handles mouseup event by calling selectionEventsHelper.mouseHandler', () => {
