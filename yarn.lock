@@ -84,9 +84,9 @@
   dependencies:
     "@types/node" "*"
 
-"@types/sinon@^1.16.31":
-  version "1.16.31"
-  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-1.16.31.tgz#421deb2160e732171fc9ff558892ac15cb0fdef3"
+"@types/sinon@^1.16.32":
+  version "1.16.32"
+  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-1.16.32.tgz#b3246844902d7cb33f376b369b176a65a144af7e"
 
 abbrev@1, abbrev@1.0.x:
   version "1.0.9"
@@ -568,9 +568,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codelyzer@1.0.0-beta.3:
-  version "1.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-1.0.0-beta.3.tgz#779bf699aeae4194056dc5016a9970ba55353fee"
+codelyzer@1.0.0-beta.4:
+  version "1.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-1.0.0-beta.4.tgz#9b5e39222a024500a5bbbecfc95d6392ab851d03"
   dependencies:
     css-selector-tokenizer "^0.7.0"
     cssauron "^1.4.0"
@@ -4248,6 +4248,10 @@ typedoc@^0.5.1:
     shelljs "^0.7.0"
     typedoc-default-themes "^0.4.0"
     typescript "2.0.6"
+
+typescript@2.0.10:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.0.10.tgz#ccdd4ed86fd5550a407101a0814012e1b3fac3dd"
 
 typescript@2.0.6:
   version "2.0.6"
