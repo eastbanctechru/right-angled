@@ -1,14 +1,14 @@
 {
   "name": "right-angled",
-  "homepage": "https://github.com/fshchudlo/right-angled#readme",
-  "author": "Fedor Shchudlo",
+  "homepage": "https://github.com/eastbanctechru/right-angled#readme",
+  "author": "EastBanc Technologies",
   "version": "1.0.0-beta.0",
   "license": "MIT",
   "description": "Set of components to provide lists functionality for Angular 2 apps",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fshchudlo/right-angled.git"
+    "url": "git+https://github.com/eastbanctechru/right-angled.git"
   },
   "keywords": [
     "grid",
@@ -16,7 +16,7 @@
     "angular2"
   ],
   "bugs": {
-    "url": "https://github.com/fshchudlo/right-angled/issues"
+    "url": "https://github.com/eastbanctechru/right-angled/issues"
   },
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",

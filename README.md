@@ -1,19 +1,19 @@
 # right-angled - building kit for angular2 data grids
 
-[![Build Status](https://travis-ci.org/fshchudlo/right-angled.svg?branch=master)](https://travis-ci.org/fshchudlo/right-angled)
-[![Coverage Status](https://coveralls.io/repos/github/fshchudlo/right-angled/badge.svg?branch=master)](https://coveralls.io/github/fshchudlo/right-angled?branch=master)
+[![Build Status](https://travis-ci.org/eastbanctechru/right-angled.svg?branch=master)](https://travis-ci.org/eastbanctechru/right-angled)
+[![Coverage Status](https://coveralls.io/repos/github/eastbanctechru/right-angled/badge.svg?branch=master)](https://coveralls.io/github/eastbanctechru/right-angled?branch=master)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Dependency Status](https://david-dm.org/fshchudlo/right-angled.svg)](https://david-dm.org/fshchudlo/right-angled)
-[![devDependency Status](https://david-dm.org/fshchudlo/right-angled/dev-status.svg)](https://david-dm.org/fshchudlo/right-angled?type=dev)
+[![Dependency Status](https://david-dm.org/eastbanctechru/right-angled.svg)](https://david-dm.org/eastbanctechru/right-angled)
+[![devDependency Status](https://david-dm.org/eastbanctechru/right-angled/dev-status.svg)](https://david-dm.org/eastbanctechru/right-angled?type=dev)
 [![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
 Добро пожаловать на страницу right-angled - конструктора для построения списков в [Angular 2](https://github.com/angular/angular) приложениях.
 
 ## Changelog
-Changelog is available [here](https://github.com/fshchudlo/right-angled/blob/master/CHANGELOG.md)
+Changelog is available [here](https://github.com/eastbanctechru/right-angled/blob/master/CHANGELOG.md)
 
 ## Live demo
-Live demo with documentation is available [here](https://fshchudlo.github.io/right-angled-demo)
+Live demo with documentation is available [here](https://eastbanctechru.github.io/right-angled-demo)
 
 ## Смысл существования данного проекта
 `right-angled` это библиотека для построения функциональных списков данных (они же таблицы, они же гриды).
@@ -30,7 +30,7 @@ Live demo with documentation is available [here](https://fshchudlo.github.io/rig
 - Как следствие предыдущего пункта, библиотека содержит минимум директив и компонентов. Это означает, что некоторые компоненты придется реализовать вам. 
  Но мы уверены, что делать собственный компонент вам понравится больше, чем изучать множество опций и пытаться стилизовать сверстанный не вами компонент, верстку которого еще и невозможно модифицировать.
 - Единственной зависимостью, помимо `angular`, является нами же написанная библиотека
-            <a target="_blank" href="https://github.com/fshchudlo/e2e4">e2e4</a>. Данная библиотека реализует функционал списков в абстрактной манере и вообще не имеет зависимостей.
+            <a target="_blank" href="https://github.com/eastbanctechru/e2e4">e2e4</a>. Данная библиотека реализует функционал списков в абстрактной манере и вообще не имеет зависимостей.
 
 ## How to build the project
 
