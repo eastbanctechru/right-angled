@@ -12,7 +12,6 @@ tests
 .cleandir.sh
 yarn.lock
 .travis.yml
-gulpfile.js
 karma.conf.js
 karma.conf.debug.js
 tsconfig.json

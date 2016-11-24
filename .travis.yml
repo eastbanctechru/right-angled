@@ -2,9 +2,6 @@ language: node_js
 node_js:
   - "6"
 script:
-  - gulp build
-  - gulp tslint
-  - gulp test-single-run
-  - npm run ngc
+  - npm run precommit
 after_success: 
   - 'npm run coveralls'
