@@ -7,7 +7,7 @@
 [![devDependency Status](https://david-dm.org/eastbanctechru/right-angled/dev-status.svg)](https://david-dm.org/eastbanctechru/right-angled?type=dev)
 [![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
-Добро пожаловать на страницу right-angled - конструктора для построения списков в [Angular 2](https://github.com/angular/angular) приложениях.
+Добро пожаловать на страницу right-angled - конструктора для построения списков в [Angular 2](https://angular.io) приложениях.
 
 ## Changelog
 Changelog is available [here](https://github.com/eastbanctechru/right-angled/blob/master/CHANGELOG.md)
@@ -15,22 +15,21 @@ Changelog is available [here](https://github.com/eastbanctechru/right-angled/blo
 ## Live demo
 Live demo with documentation is available [here](https://eastbanctechru.github.io/right-angled-demo)
 
-## Смысл существования данного проекта
-`right-angled` это библиотека для построения функциональных списков данных (они же таблицы, они же гриды).
-        Еще в ней есть очень полезный selection, и неплохая модель работы с фильтрами. Selection и фильтры могут работать
-        и вообще без списков, но особенно хороши с ними.
+## Project Idea
+`right-angled` is the library for constructing functional data tables (aka data lists, aka data grids). 
+Also, it has a very useful selection model and quite a good model to work with filters. 
+Selection and filters can work even without lists, but they go much better with them. 
+The main feature providing the basis for the library is unobtrusiveness seen in the following:
 
-Главная характеристика, легшая в основу библиотеки, это "ненавязчивость". Которая выражается в следующем:
-- Библиотека не привязана к таким фреймворкам как `bootstrap` и сама не включает ни единого стиля. Все решения по поводу того, как будет выглядеть приложение, на 100% за вами. Единственное, о чем вас попросит наша библиотека - определить стили для трех классов:
-  `rt-sortable`, `rt-sort-asc` и `rt-sort-desc`. Эти классы определят, как будут выглядеть сортируемые столбцы ваших списков. Названия этих классов можно поменять на другие.
-
-- Минимальное влияние на вашу верстку. Мы не стали, к примеру, делать кнопку перехода на следующую страницу списка с мириадами опций, позволяющими скрыть, или disable, 
-или добавить класс, или сменить tooltip, когда переход на следующую страницу списка невозможен. И которую вам еще и придется стилизовать под свои потребности.
-  Вместо это мы реализовали сервис, который вы можете заинжектить используя angular dependency injection в свою собственную кнопку и реализовать нужное вам поведение.
-- Как следствие предыдущего пункта, библиотека содержит минимум директив и компонентов. Это означает, что некоторые компоненты придется реализовать вам. 
- Но мы уверены, что делать собственный компонент вам понравится больше, чем изучать множество опций и пытаться стилизовать сверстанный не вами компонент, верстку которого еще и невозможно модифицировать.
-- Единственной зависимостью, помимо `angular`, является нами же написанная библиотека
-            <a target="_blank" href="https://github.com/eastbanctechru/e2e4">e2e4</a>. Данная библиотека реализует функционал списков в абстрактной манере и вообще не имеет зависимостей.
+- The library is not tied to such frameworks as <a target="_blank" href="https://getbootstrap.com">bootstrap</a> and does not include any css styles. 
+It 100% up to you you how the app will be structured and look.
+- Minimal impact on your markup. `right-angled` provides directives instead of components whenever it’s possible. 
+There are only several components in `right-angled` which acts just as visibility containers without any additional markup. 
+Again, it 100% up to you to how the app will structured and look.
+- As a consequence of the above point, `right-angled` contains minimum of directives and components. 
+It means that you will have to implement some of the components by yourself (`right-angled` provides several useful services which you can inject and use to implement your components easily). 
+Nevertheless, we are sure that creating a new component will give you more pleasure, than learning dozens of options and trying to style an alien one with the markup that cannot be modified.
+- The only dependency of `right-angled`, except <a target="_blank" href="https://angular.io">angular</a>, is the <a target="_blank" href="https://github.com/eastbanctechru/e2e4">e2e4</a> library created by us. This library implements the functionality for the lists in abstract manner with no dependencies at all. 
 
 ## How to build the project
 
