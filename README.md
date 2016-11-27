@@ -21,7 +21,7 @@ Also, it has a very useful selection model and quite a good model to work with f
 Selection and filters can work even without lists, but they go much better with them. 
 The main feature providing the basis for the library is unobtrusiveness seen in the following:
 
-- The library is not tied to such frameworks as <a target="_blank" href="https://getbootstrap.com">bootstrap</a> and does not include any css styles. 
+- The library is not tied to such frameworks as [bootstrap](https://getbootstrap.com) and does not include any css styles. 
 It 100% up to you you how the app will be structured and look.
 - Minimal impact on your markup. `right-angled` provides directives instead of components whenever it’s possible. 
 There are only several components in `right-angled` which acts just as visibility containers without any additional markup. 
@@ -29,7 +29,7 @@ Again, it 100% up to you to how the app will structured and look.
 - As a consequence of the above point, `right-angled` contains minimum of directives and components. 
 It means that you will have to implement some of the components by yourself (`right-angled` provides several useful services which you can inject and use to implement your components easily). 
 Nevertheless, we are sure that creating a new component will give you more pleasure, than learning dozens of options and trying to style an alien one with the markup that cannot be modified.
-- The only dependency of `right-angled`, except <a target="_blank" href="https://angular.io">angular</a>, is the <a target="_blank" href="https://github.com/eastbanctechru/e2e4">e2e4</a> library created by us. This library implements the functionality for the lists in abstract manner with no dependencies at all. 
+- The only dependency of `right-angled`, except [angular](https://angular.io), is the [e2e4](https://github.com/eastbanctechru/e2e4) library created by us. This library implements the functionality for the lists in abstract manner with no dependencies at all. 
 
 ## How to build the project
 
