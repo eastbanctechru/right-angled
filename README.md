@@ -16,20 +16,18 @@ Changelog is available [here](https://github.com/eastbanctechru/right-angled/blo
 Live demo with documentation is available [here](https://eastbanctechru.github.io/right-angled-demo)
 
 ## Project Idea
-`right-angled` is the library for constructing functional data tables (aka data lists, aka data grids). 
-Also, it has a very useful selection model and quite a good model to work with filters. 
-Selection and filters can work even without lists, but they go much better with them. 
-The main feature providing the basis for the library is unobtrusiveness seen in the following:
+`right-angled` is the library for constructing functional data tables (aka data lists, data grids). 
+Also, it has a very useful selection and filter models. 
+They can work even without lists, but they go much better with them. The main feature providing the basis for the library is unobtrusiveness seen in the following:
 
-- The library is not tied to such frameworks as [bootstrap](https://getbootstrap.com) and does not include any css styles. 
-It 100% up to you you how the app will be structured and look.
+- The library is not tied to such frameworks as [bootstrap](https://getbootstrap.com) and does not include any css styles. It is 100% up to you how the app will be structured and look. 
 - Minimal impact on your markup. `right-angled` provides directives instead of components whenever it’s possible. 
-There are only several components in `right-angled` which acts just as visibility containers without any additional markup. 
-Again, it 100% up to you to how the app will structured and look.
+There are only several components in `right-angled` and they act just as visibility containers without any additional markup. 
+Again, it is 100% up to you how the app will structured and look.
 - As a consequence of the above point, `right-angled` contains minimum of directives and components. 
-It means that you will have to implement some of the components by yourself (`right-angled` provides several useful services which you can inject and use to implement your components easily). 
+It means that you will have to implement some of the components yourself (`right-angled` provides several useful services which you can inject and use to implement your components easily). 
 Nevertheless, we are sure that creating a new component will give you more pleasure, than learning dozens of options and trying to style an alien one with the markup that cannot be modified.
-- The only dependency of `right-angled`, except [angular](https://angular.io), is the [e2e4](https://github.com/eastbanctechru/e2e4) library created by us. This library implements the functionality for the lists in abstract manner with no dependencies at all. 
+- The only dependency of `right-angled`, except [angular](https://angular.io), is the [e2e4](https://github.com/eastbanctechru/e2e4) library created by us. This library implements the functionality for the lists in abstract manner with no dependencies at all.  
 
 ## How to build the project
 
