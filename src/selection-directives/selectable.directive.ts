@@ -17,15 +17,15 @@ export class SelectableDirective implements SelectionEventsEmitter {
     @Output() public selectionChanged: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
     constructor( @SkipSelf() public selectionEventsHelper: RtSelectionEventsHelper) {
     }
-    @HostListener('mouseup', ['$event.ctrlKey', '$event.shiftKey', '$event.which', '$event.preventDefault', '$event.stopPropagation'])
-    public mouseUpHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, mouseButton: number, preventDefaultFn: Function, stopPropagationFn: Function): void {
+    @HostListener('mouseup', ['$event.ctrlKey', '$event.shiftKey', '$event.which', '$event.preventDefault', '$event.stopPropagation', '$event'])
+    public mouseUpHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, mouseButton: number, preventDefaultFn: Function, stopPropagationFn: Function, executionContext: any): void {
         if (this.selectionEventsHelper.mouseHandler(ctrlKeyPressed, shiftKeyPressed, mouseButton, this.index)) {
             this.clearWindowSelection();
             if (this.selectionEventsHelper.preventEventsDefaults) {
-                preventDefaultFn();
+                preventDefaultFn.call(executionContext);
             }
             if (this.selectionEventsHelper.stopEventsPropagation) {
-                stopPropagationFn();
+                stopPropagationFn.call(executionContext);
             }
         }
     }
