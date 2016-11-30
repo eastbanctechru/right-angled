@@ -1,3 +1,4 @@
+// tslint:disable:max-classes-per-file
 import { RtList } from '../../src/core';
 import { ListDirective } from '../../src/list-directives';
 import { PagedPagerComponent } from '../../src/paging-directives';

@@ -1,16 +1,17 @@
+// tslint:disable:max-classes-per-file
 import { RtList } from '../../src/core';
 import { ListDirective } from '../../src/list-directives';
 
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { FiltersService, ProgressState, SortDirection, SortParameter, SortingsService } from 'e2e4';
+import { FiltersService, ProgressState, SortDirection, SortingsService, SortParameter } from 'e2e4';
 import * as Rx from 'rxjs';
 
 @Component({
     template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" (onListInit)="onListInit($event)" (afterListInit)="afterListInit($event)"></div>`
 })
 class HostComponent {
-    public defaultSortings: Array<SortParameter> = [];
+    public defaultSortings: SortParameter[] = [];
     public getData(): any {
         return Rx.Observable.from([]);
     }
@@ -126,7 +127,7 @@ describe('rtList directive', () => {
         fixture.destroy();
         expect(listService.destroyed).toEqual(true);
     });
-    it('Inits listService after directive init', done => {
+    it('Inits listService after directive init', (done) => {
         let fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         let listService = fixture.debugElement.children[0].injector.get(RtList);
@@ -136,7 +137,7 @@ describe('rtList directive', () => {
             done();
         });
     });
-    it('Calls listService loadData after directive init', done => {
+    it('Calls listService loadData after directive init', (done) => {
         let fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         let listService = fixture.debugElement.children[0].injector.get(RtList);
@@ -147,7 +148,7 @@ describe('rtList directive', () => {
             done();
         });
     });
-    it('Doesn\'t call listService loadData if \'loadOnInit\' is false', done => {
+    it('Doesn\'t call listService loadData if \'loadOnInit\' is false', (done) => {
         let fixture = TestBed.createComponent(HostNotLoadOnInitComponent);
         fixture.detectChanges();
         let listService = fixture.debugElement.children[0].injector.get(RtList);
@@ -159,7 +160,7 @@ describe('rtList directive', () => {
         });
     });
 
-    it('Calls onListInit and afterListInit with listService instance after directive init', done => {
+    it('Calls onListInit and afterListInit with listService instance after directive init', (done) => {
         let fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         let listService = fixture.debugElement.children[0].injector.get(RtList);

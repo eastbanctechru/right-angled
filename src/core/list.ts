@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable, Optional } from '@angular/core';
-import { FilterConfig, FiltersService, ListResponse, NullObjectPager, Pager, ProgressState, SortingsService, destroyAll } from 'e2e4';
+import { destroyAll, FilterConfig, FiltersService, ListResponse, NullObjectPager, Pager, ProgressState, SortingsService } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { AsyncSubscriber } from './async-subscriber';
@@ -7,7 +7,7 @@ import { RtStateService } from './state-service';
 
 @Injectable()
 export class RtList {
-    private stateServices: Array<RtStateService> = new Array<RtStateService>();
+    private stateServices: RtStateService[] = new Array<RtStateService>();
     public fetchMethod: (requestParams: any) => Promise<any> | Observable<any> | EventEmitter<any>;
     private pagerInternal: Pager;
     public get pager(): Pager {
@@ -18,7 +18,7 @@ export class RtList {
         this.pagerInternal = value;
         this.filtersService.registerFilterTarget(this.pagerInternal);
     }
-    public items: Array<any> = new Array<any>();
+    public items: any[] = new Array<any>();
     /**
      * True if object was already destroyed via {@link destroy} call.  
      */
@@ -45,7 +45,7 @@ export class RtList {
     public get ready(): boolean {
         return this.state !== ProgressState.Progress;
     }
-    private loadSuccessCallback = (result: ListResponse<any> | Array<any>): Object => {
+    private loadSuccessCallback = (result: ListResponse<any> | any[]): Object => {
         if (Array.isArray(result)) {
             result = {
                 items: result,
@@ -79,7 +79,7 @@ export class RtList {
         private filtersService: FiltersService) {
         if (stateServices != null) {
             if (Array.isArray(stateServices)) {
-                this.stateServices.push(...<Array<RtStateService>>stateServices);
+                this.stateServices.push(...<RtStateService[]>stateServices);
             } else {
                 this.stateServices.push(stateServices);
             }
@@ -92,7 +92,7 @@ export class RtList {
         }
         this.filtersService.registerFilterTarget(this.pager, this.sortingsService);
         let restoredState = {};
-        Object.assign(restoredState, ...this.stateServices.map(service => service.getState() || {}));
+        Object.assign(restoredState, ...this.stateServices.map((service) => service.getState() || {}));
         this.filtersService.applyParams(restoredState);
         this.inited = true;
     }
@@ -116,7 +116,7 @@ export class RtList {
             this.items = [];
         }
         this.asyncSubscriber.attach(subscribable, this.loadSuccessCallback, this.loadFailCallback);
-        this.stateServices.forEach(service => service.persistState(this.filtersService));
+        this.stateServices.forEach((service) => service.persistState(this.filtersService));
     }
     public reloadData(): void {
         if (this.ready) {
@@ -127,7 +127,7 @@ export class RtList {
     public cancelRequests(): void {
         this.asyncSubscriber.detach();
         this.state = ProgressState.Cancelled;
-    };
+    }
     public registerStateService(...services: RtStateService[]): void {
         services.forEach((service) => {
             this.stateServices.push(service);
@@ -135,7 +135,7 @@ export class RtList {
     }
     public removeStateService(...services: RtStateService[]): void {
         services.forEach((service: RtStateService) => {
-            const index = this.stateServices.findIndex(s => s === service);
+            const index = this.stateServices.findIndex((s) => s === service);
             if (index !== -1) {
                 this.stateServices.splice(index, 1);
             }

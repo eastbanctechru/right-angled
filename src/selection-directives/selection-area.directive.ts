@@ -94,12 +94,12 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
     }
     private buildSelectionSource(items: QueryList<SelectableDirective | SelectionCheckboxForDirective>): void {
         let index = 0;
-        this.selectionService.eventEmitters = items.map(item => {
+        this.selectionService.eventEmitters = items.map((item) => {
             item.index = index++;
             return item;
         });
 
-        this.selectionService.items = items.map(item => item.item);
+        this.selectionService.items = items.map((item) => item.item);
         if (this.selectionService.items.length > 0) {
             setTimeout(() => {
                 // since we've modify collection on first render, to prevent error 'Expression has changed after it was checked' we've do selection after render
@@ -114,7 +114,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         }
     }
     private buildSelectionServicesList(items: QueryList<SelectionAreaDirective>): void {
-        this.selectionService.childSelectionServices = items.filter(area => area !== this).map(area => area.selectionService);
+        this.selectionService.childSelectionServices = items.filter((area) => area !== this).map((area) => area.selectionService);
     }
     public ngAfterContentInit(): void {
         if (this.selectableItems.length > 0) {

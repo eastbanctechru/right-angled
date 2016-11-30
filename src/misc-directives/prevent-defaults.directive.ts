@@ -7,7 +7,7 @@ import { EventsAttacherBase } from './events-attacher.base';
 })
 export class PreventDefaultsDirective extends EventsAttacherBase implements OnChanges, OnDestroy {
     /* tslint:disable-next-line:no-input-rename */
-    @Input('rtPreventDefaults') public eventNames: Array<string>;
+    @Input('rtPreventDefaults') public eventNames: string[];
     constructor(elementRef: ElementRef) {
         super(elementRef, (evt: Event) => { evt.preventDefault(); });
     }

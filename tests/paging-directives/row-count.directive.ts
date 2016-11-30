@@ -100,7 +100,7 @@ describe('rtRowCount directive', () => {
         expect(pagerComponent.pager.takeRowCount).toEqual(pagerComponent.defaultRowCount);
     });
 
-    it('sets takeRowCount to raw input value and sets innerValue to processed value after timeout', done => {
+    it('sets takeRowCount to raw input value and sets innerValue to processed value after timeout', (done) => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3b' } });
         expect(pagerComponent.pager.takeRowCount).toEqual(3);

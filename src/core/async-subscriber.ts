@@ -1,3 +1,4 @@
+// tslint:disable:max-classes-per-file
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 

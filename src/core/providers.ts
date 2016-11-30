@@ -1,3 +1,4 @@
+// tslint:disable:max-classes-per-file
 import { Injectable } from '@angular/core';
 import { BufferedPager, FiltersService, PagedPager, SelectionEventsHelper, SortingsService } from 'e2e4';
 
@@ -27,7 +28,7 @@ export class RtSelectionEventsHelper extends SelectionEventsHelper {
     }
 }
 
-export var LIST_PROVIDERS: any[] = [
+export let LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtList,
     { provide: FiltersService, useClass: RtFiltersService },

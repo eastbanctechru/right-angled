@@ -7,7 +7,7 @@ import { RtSelectionService } from '../core/selection/selection-service';
 
 @Directive({
     exportAs: 'rtSelectionCheckboxFor',
-    /* tslint:disable-next-line:directive-selector-name directive-selector-type directive-selector-prefix */
+    /* tslint:disable-next-line:directive-selector */
     selector: 'input[rtSelectionCheckboxFor]'
 })
 export class SelectionCheckboxForDirective implements SelectionEventsEmitter {

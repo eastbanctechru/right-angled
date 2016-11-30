@@ -1,3 +1,4 @@
+// tslint:disable:max-classes-per-file
 import { RtSelectionEventsHelper, RtSelectionService } from '../../src/core';
 import { SelectableDirective, SelectionAreaDirective } from '../../src/selection-directives';
 
@@ -19,7 +20,7 @@ import { KeyCodes } from 'e2e4';
     </div>`
 })
 class HostComponent {
-    public items: Array<any> = [1, 2, 3];
+    public items: any[] = [1, 2, 3];
     public preventEventsDefaults: boolean = false;
     public stopEventsPropagation: boolean = false;
     public horizontal: boolean = false;
@@ -38,7 +39,7 @@ class HostComponent {
                 </div>`
 })
 class NestedComponent {
-    public items: Array<any> = [
+    public items: any[] = [
         {
             childItems: [{ number: 1 }, { number: 2 }, { number: 3 }],
             number: 1
@@ -88,14 +89,14 @@ describe('rtSelectionArea directive', () => {
         nestedFixture.detectChanges();
         selectionService = nestedFixture.debugElement.children[0].injector.get(RtSelectionService);
         expect(selectionService.childSelectionServices.length).toEqual(3);
-        expect(selectionService.childSelectionServices).toEqual(nestedFixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectionAreaDirective).selectionService));
+        expect(selectionService.childSelectionServices).toEqual(nestedFixture.debugElement.children[0].queryAll(By.css('div')).map((dn) => dn.injector.get(SelectionAreaDirective).selectionService));
         nestedFixture.componentInstance.items.push({
             childItems: [{ number: 1 }],
             number: 4
         });
         nestedFixture.detectChanges();
         expect(selectionService.childSelectionServices.length).toEqual(4);
-        expect(selectionService.childSelectionServices).toEqual(nestedFixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectionAreaDirective).selectionService));
+        expect(selectionService.childSelectionServices).toEqual(nestedFixture.debugElement.children[0].queryAll(By.css('div')).map((dn) => dn.injector.get(SelectionAreaDirective).selectionService));
     });
 
     it('Acts as DI root for selection-related services', () => {
@@ -271,15 +272,15 @@ describe('rtSelectionArea directive', () => {
     it('Rebuilds \'eventEmitters\' collection of selection service on change tracking cycle', () => {
         fixture.componentInstance.items = [1, 2, 3, 4];
         fixture.detectChanges();
-        expect(selectionService.eventEmitters).toEqual(fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective)));
+        expect(selectionService.eventEmitters).toEqual(fixture.debugElement.children[0].queryAll(By.css('div')).map((dn) => dn.injector.get(SelectableDirective)));
     });
 
     it('Updates indexes of selectable items on  change tracking cycle', () => {
-        let selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective));
-        expect(selectables.map(s => s.index)).toEqual([0, 1, 2]);
+        let selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map((dn) => dn.injector.get(SelectableDirective));
+        expect(selectables.map((s) => s.index)).toEqual([0, 1, 2]);
         fixture.componentInstance.items.unshift(0);
         fixture.detectChanges();
-        expect(selectables.map(s => s.index)).toEqual([1, 2, 3]);
+        expect(selectables.map((s) => s.index)).toEqual([1, 2, 3]);
     });
 
     it('Deselects items on destroy', () => {

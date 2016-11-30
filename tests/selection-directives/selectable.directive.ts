@@ -19,7 +19,7 @@ describe('rtSelectable directive', () => {
     let fixture: ComponentFixture<HostComponent>;
     let selectionService: RtSelectionService;
     let selectionEventsHelper: RtSelectionEventsHelper;
-    let selectableElements: Array<DebugElement>;
+    let selectableElements: DebugElement[];
     function getEventObject(): any {
         return { ctrlKey: true, preventDefault: () => { return; }, shiftKey: true, stopPropagation: () => { return; }, which: MouseButtons.Left };
     }

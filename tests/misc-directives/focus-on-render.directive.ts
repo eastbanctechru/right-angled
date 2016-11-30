@@ -18,7 +18,7 @@ describe('rtFocusOnRender directive', () => {
         });
     });
 
-    it('Calls \'focus\' method on element after content render', done => {
+    it('Calls \'focus\' method on element after content render', (done) => {
         let fixture = TestBed.createComponent(HostComponent);
         let input = fixture.nativeElement.querySelector('input');
         let renderer = fixture.debugElement.children[0].injector.get(FocusOnRenderDirective).renderer;

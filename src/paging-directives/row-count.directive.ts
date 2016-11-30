@@ -5,7 +5,7 @@ import { RtList } from '../core/list';
 import { PagerInputBase } from './pager-input-base';
 
 @Directive({
-    /* tslint:disable-next-line:directive-selector-name directive-selector-type directive-selector-prefix */
+    /* tslint:disable-next-line:directive-selector */
     selector: 'input[rtRowCount]'
 })
 export class RowCountDirective extends PagerInputBase implements DoCheck, OnInit {

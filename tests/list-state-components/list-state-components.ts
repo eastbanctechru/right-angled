@@ -1,5 +1,7 @@
+// tslint:disable:max-classes-per-file
 import { RtList } from '../../src/core/list';
-import { ListStateDoneComponent, ListStateFailedComponent, ListStateInProgressComponent, ListStateInitialComponent, ListStateNoDataComponent, ListStateRequestCancelledComponent } from '../../src/list-state-components';
+import { ListStateDoneComponent, ListStateFailedComponent, ListStateInitialComponent, ListStateInProgressComponent, ListStateNoDataComponent, ListStateRequestCancelledComponent } from '../../src/list-state-components';
+
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProgressState } from 'e2e4';
@@ -31,7 +33,7 @@ class HostComponent {
 
 class ListStub {
     public state: ProgressState = ProgressState.Progress;
-    public items: Array<any> = null;
+    public items: any[] = null;
 }
 
 describe('rt-list-state-... components', () => {

@@ -7,7 +7,7 @@ import { EventsAttacherBase } from './events-attacher.base';
 })
 export class StopEventsDirective extends EventsAttacherBase implements OnChanges, OnDestroy {
     /* tslint:disable-next-line:no-input-rename */
-    @Input('rtStopEvents') public eventNames: Array<string>;
+    @Input('rtStopEvents') public eventNames: string[];
     constructor(elementRef: ElementRef) {
         super(elementRef, (evt: Event) => { evt.stopPropagation(); });
     }

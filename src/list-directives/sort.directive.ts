@@ -27,7 +27,7 @@ export class SortDirective implements DoCheck, OnInit {
     }
     public ngOnInit(): void {
         this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortableClassName, true);
-        this.sortingsService.sortings.some(sortParameter => {
+        this.sortingsService.sortings.some((sortParameter) => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.setSortClasses(sortParameter);
                 return true;

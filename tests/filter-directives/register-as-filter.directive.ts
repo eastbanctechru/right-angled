@@ -1,10 +1,11 @@
+// tslint:disable:max-classes-per-file
 import { RtFiltersService } from '../../src/core';
 import { RegisterAsFilterDirective } from '../../src/filter-directives';
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { FiltersService, filter } from 'e2e4';
+import { filter, FiltersService } from 'e2e4';
 
 @Component({
     template: `<div *ngIf="renderFilter">

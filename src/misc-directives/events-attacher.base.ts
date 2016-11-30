@@ -1,7 +1,7 @@
 import { ElementRef, OnChanges, OnDestroy, SimpleChange } from '@angular/core';
 
 export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
-    public eventNames: string | Array<string>;
+    public eventNames: string | string[];
     constructor(private elementRef: ElementRef, public eventListener: EventListener | EventListenerObject) {
     }
     public ngOnChanges(changes: { eventNames?: SimpleChange }): void {
@@ -10,7 +10,7 @@ export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
             this.addListeners(this.adjustEvents(changes.eventNames.currentValue));
         }
     }
-    private adjustEvents(eventsNames: string | Array<string>): Array<string> {
+    private adjustEvents(eventsNames: string | string[]): string[] {
         return eventsNames ? Array.isArray(eventsNames) ? eventsNames : [eventsNames] : [];
     }
     public ngOnDestroy(): void {
@@ -20,7 +20,7 @@ export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
         if (!eventNames || !eventNames.length) {
             return;
         }
-        eventNames.forEach(eventName =>
+        eventNames.forEach((eventName) =>
             (<HTMLElement>this.elementRef.nativeElement).removeEventListener(eventName, this.eventListener)
         );
     }
@@ -28,7 +28,7 @@ export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
         if (!eventNames || !eventNames.length) {
             return;
         }
-        eventNames.forEach(eventName =>
+        eventNames.forEach((eventName) =>
             (<HTMLElement>this.elementRef.nativeElement).addEventListener(eventName, this.eventListener)
         );
     }

@@ -18,7 +18,7 @@ describe('rtSelectionCheckboxFor directive', () => {
     let fixture: ComponentFixture<HostComponent>;
     let selectionService: RtSelectionService;
     let selectionEventsHelper: RtSelectionEventsHelper;
-    let selectionCheckboxes: Array<DebugElement>;
+    let selectionCheckboxes: DebugElement[];
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [

@@ -1,3 +1,4 @@
+// tslint:disable:max-classes-per-file
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -12,8 +13,8 @@ export * from './src/core/index';
 import {
     ListStateDoneComponent,
     ListStateFailedComponent,
-    ListStateInProgressComponent,
     ListStateInitialComponent,
+    ListStateInProgressComponent,
     ListStateNoDataComponent,
     ListStateRequestCancelledComponent
 } from './src/list-state-components';
@@ -32,9 +33,9 @@ import {
 
 import {
     BufferedPagerComponent,
+    PagedPagerComponent,
     PageNumberDirective,
     PageSizeDirective,
-    PagedPagerComponent,
     RowCountDirective
 } from './src/paging-directives';
 

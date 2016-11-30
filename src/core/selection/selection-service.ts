@@ -3,8 +3,8 @@ import { DefaultSelectionService, SelectionTuple } from 'e2e4';
 import { SelectionEventsEmitter } from './selection-events-emitter';
 
 export class RtSelectionService extends DefaultSelectionService {
-    public eventEmitters: Array<SelectionEventsEmitter> = new Array<SelectionEventsEmitter>();
-    public childSelectionServices: Array<RtSelectionService> = new Array<RtSelectionService>();
+    public eventEmitters: SelectionEventsEmitter[] = new Array<SelectionEventsEmitter>();
+    public childSelectionServices: RtSelectionService[] = new Array<RtSelectionService>();
     public areaEventsEmitter: SelectionEventsEmitter;
     protected processSelection(tuple: SelectionTuple, selected: boolean): void {
         const initialSelectState = tuple.item.selected;
@@ -39,7 +39,7 @@ export class RtSelectionService extends DefaultSelectionService {
         // run this directly after render to give child selectionAreas ability to render
         setTimeout(() => {
             if (recursive && this.childSelectionServices) {
-                this.childSelectionServices.forEach(service => {
+                this.childSelectionServices.forEach((service) => {
                     service.selectAll(recursive);
                 });
             }
@@ -47,7 +47,7 @@ export class RtSelectionService extends DefaultSelectionService {
     }
     public deselectAll(recursive: boolean = true): void {
         if (recursive && this.childSelectionServices) {
-            this.childSelectionServices.forEach(service => {
+            this.childSelectionServices.forEach((service) => {
                 service.deselectAll(recursive);
             });
         }

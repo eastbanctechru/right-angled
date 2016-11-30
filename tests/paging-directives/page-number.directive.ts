@@ -1,6 +1,6 @@
 import { RtList } from '../../src/core';
 import { ListDirective } from '../../src/list-directives';
-import { PageNumberDirective, PagedPagerComponent } from '../../src/paging-directives';
+import { PagedPagerComponent, PageNumberDirective } from '../../src/paging-directives';
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -92,7 +92,7 @@ describe('rtPageNumber directive', () => {
         expect(pagerComponent.pager.pageNumber).toEqual(1);
     });
 
-    it('sets pageNumber to raw input value and sets innerValue to processed value after render cycle', done => {
+    it('sets pageNumber to raw input value and sets innerValue to processed value after render cycle', (done) => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3' } });
         expect(pagerComponent.pager.pageNumber).toEqual(3);

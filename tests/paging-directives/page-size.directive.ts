@@ -1,6 +1,6 @@
 import { RtList } from '../../src/core';
 import { ListDirective } from '../../src/list-directives';
-import { PageSizeDirective, PagedPagerComponent } from '../../src/paging-directives';
+import { PagedPagerComponent, PageSizeDirective } from '../../src/paging-directives';
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -100,7 +100,7 @@ describe('rtPageSize directive', () => {
         expect(pagerComponent.pager.pageSize).toEqual(pagerComponent.defaultPageSize);
     });
 
-    it('sets pageSize to raw input value and sets innerValue to processed value after render cycle', done => {
+    it('sets pageSize to raw input value and sets innerValue to processed value after render cycle', (done) => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3' } });
         expect(pagerComponent.pager.pageSize).toEqual(3);

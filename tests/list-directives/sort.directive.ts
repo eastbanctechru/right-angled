@@ -1,9 +1,10 @@
+// tslint:disable:max-classes-per-file
 import { RtList, RtSortingsService } from '../../src/core';
 import { SortDirective } from '../../src/list-directives';
-import { ProgressState, SortingsService } from 'e2e4';
 
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { ProgressState, SortingsService } from 'e2e4';
 
 @Component({
     template: `<div rtSort="field"></div><div rtSort="anotherField"></div>`
