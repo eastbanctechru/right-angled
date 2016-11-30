@@ -3,6 +3,7 @@
     "out": "docs",
     "name": "right-angled",
     "theme": "default",
+    "gaID": "UA-47538916-5",
     "ignoreCompilerErrors": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
