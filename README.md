@@ -1,4 +1,4 @@
-# right-angled - building kit for angular2 data grids
+# right-angled - lightweight building kit for angular2 data grids
 
 [![Build Status](https://travis-ci.org/eastbanctechru/right-angled.svg?branch=master)](https://travis-ci.org/eastbanctechru/right-angled)
 [![Coverage Status](https://coveralls.io/repos/github/eastbanctechru/right-angled/badge.svg?branch=master)](https://coveralls.io/github/eastbanctechru/right-angled?branch=master)
@@ -6,11 +6,6 @@
 [![Dependency Status](https://david-dm.org/eastbanctechru/right-angled.svg)](https://david-dm.org/eastbanctechru/right-angled)
 [![devDependency Status](https://david-dm.org/eastbanctechru/right-angled/dev-status.svg)](https://david-dm.org/eastbanctechru/right-angled?type=dev)
 [![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
-
-Добро пожаловать на страницу right-angled - конструктора для построения списков в [Angular 2](https://angular.io) приложениях.
-
-## Changelog
-Changelog is available [here](https://github.com/eastbanctechru/right-angled/blob/master/CHANGELOG.md)
 
 ## Live demo
 Live demo with documentation is available [here](https://eastbanctechru.github.io/right-angled-demo)
