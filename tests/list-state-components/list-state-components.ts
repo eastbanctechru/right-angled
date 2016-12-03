@@ -4,7 +4,7 @@ import { ListStateDoneComponent, ListStateFailedComponent, ListStateInitialCompo
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProgressState } from 'e2e4';
+import { OperationStatus } from 'e2e4';
 
 @Component({
     template: `<div>
@@ -32,7 +32,7 @@ class HostComponent {
 }
 
 class ListStub {
-    public state: ProgressState = ProgressState.Progress;
+    public state: OperationStatus = OperationStatus.Progress;
     public items: any[] = null;
 }
 
@@ -65,7 +65,7 @@ describe('rt-list-state-... components', () => {
         listService.items = [];
         fixture.detectChanges();
     });
-    it('Renders content of rt-list-state-progress on component init since initial state is ProgressState.Progress', () => {
+    it('Renders content of rt-list-state-progress on component init since initial state is OperationStatus.Progress', () => {
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-request-cancelled  > span')).toBeNull();
@@ -75,7 +75,7 @@ describe('rt-list-state-... components', () => {
     });
 
     it('Renders content of rt-list-state-initial when state is Initial', () => {
-        listService.state = ProgressState.Initial;
+        listService.state = OperationStatus.Initial;
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
@@ -86,7 +86,7 @@ describe('rt-list-state-... components', () => {
     });
 
     it('Renders content of rt-list-state-failed when state is Fail', () => {
-        listService.state = ProgressState.Fail;
+        listService.state = OperationStatus.Fail;
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeDefined();
@@ -97,7 +97,7 @@ describe('rt-list-state-... components', () => {
     });
 
     it('Renders content of rt-list-state-request-cancelled when state is Cancelled', () => {
-        listService.state = ProgressState.Cancelled;
+        listService.state = OperationStatus.Cancelled;
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
@@ -108,7 +108,7 @@ describe('rt-list-state-... components', () => {
     });
 
     it('Renders content of rt-list-state-no-data when state is NoData', () => {
-        listService.state = ProgressState.NoData;
+        listService.state = OperationStatus.NoData;
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
@@ -119,7 +119,7 @@ describe('rt-list-state-... components', () => {
     });
 
     it('Renders content of rt-list-state-progress when state is Progress', () => {
-        listService.state = ProgressState.Progress;
+        listService.state = OperationStatus.Progress;
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();
@@ -130,7 +130,7 @@ describe('rt-list-state-... components', () => {
     });
 
     it('Renders content of rt-list-state-done when state is Done', () => {
-        listService.state = ProgressState.Done;
+        listService.state = OperationStatus.Done;
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-list-state-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-list-state-failed > span')).toBeNull();

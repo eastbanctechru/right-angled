@@ -1,8 +1,7 @@
 import { EventEmitter, Injectable, Optional } from '@angular/core';
-import { destroyAll, FilterConfig, FiltersService, ListResponse, NullObjectPager, Pager, ProgressState, SortingsService } from 'e2e4';
+import { AsyncSubscriber, destroyAll, FilterConfig, FiltersService, ListResponse, NullObjectPager, OperationStatus, Pager, SortingsService } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
-import { AsyncSubscriber } from './async-subscriber';
 import { RtStateService } from './state-service';
 
 @Injectable()
@@ -30,20 +29,20 @@ export class RtList {
     /**
      * Текущее состояние объекта.  
      */
-    public state: ProgressState = ProgressState.Initial;
+    public state: OperationStatus = OperationStatus.Initial;
     /**
-     * Вычисляемое свойство, указывающее что текущее состояние {@link AbstractLifetime.state} равно {@link ProgressState.Progress}.
+     * Вычисляемое свойство, указывающее что текущее состояние {@link AbstractLifetime.state} равно {@link OperationStatus.Progress}.
      * Реализовано для удобства использования в шаблонах.  
      */
     public get busy(): boolean {
-        return this.state === ProgressState.Progress;
+        return this.state === OperationStatus.Progress;
     }
     /**
-     * Вычисляемое свойство, указывающее что текущее состояние {@link AbstractLifetime.state} НЕ равно {@link ProgressState.Progress}.
+     * Вычисляемое свойство, указывающее что текущее состояние {@link AbstractLifetime.state} НЕ равно {@link OperationStatus.Progress}.
      * Реализовано для удобства использования в шаблонах.  
      */
     public get ready(): boolean {
-        return this.state !== ProgressState.Progress;
+        return this.state !== OperationStatus.Progress;
     }
     private loadSuccessCallback = (result: ListResponse<any> | any[]): Object => {
         if (Array.isArray(result)) {
@@ -61,11 +60,11 @@ export class RtList {
             this.clearData();
             this.pager.reset();
         }
-        this.state = this.pager.totalCount === 0 ? ProgressState.NoData : ProgressState.Done;
+        this.state = this.pager.totalCount === 0 ? OperationStatus.NoData : OperationStatus.Done;
         return result;
     }
     private loadFailCallback = (): void => {
-        this.state = ProgressState.Fail;
+        this.state = OperationStatus.Fail;
     }
     private clearData(): void {
         this.pager.reset();
@@ -108,7 +107,7 @@ export class RtList {
         if (this.busy) {
             return;
         }
-        this.state = ProgressState.Progress;
+        this.state = OperationStatus.Progress;
         let requestState = this.filtersService.getRequestState();
         const subscribable = this.fetchMethod(requestState);
         if (this.pager.appendedOnLoad === false) {
@@ -126,7 +125,7 @@ export class RtList {
     }
     public cancelRequests(): void {
         this.asyncSubscriber.detach();
-        this.state = ProgressState.Cancelled;
+        this.state = OperationStatus.Cancelled;
     }
     public registerStateService(...services: RtStateService[]): void {
         services.forEach((service) => {

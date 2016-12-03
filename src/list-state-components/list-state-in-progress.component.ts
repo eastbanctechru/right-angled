@@ -1,5 +1,5 @@
 import { Component, DoCheck, KeyValueDiffers, OnInit, SkipSelf } from '@angular/core';
-import { ProgressState } from 'e2e4';
+import { OperationStatus } from 'e2e4';
 
 import { RtList } from '../core/list';
 import { ListStateComponent } from './list-state-component';
@@ -10,7 +10,7 @@ import { ListStateComponent } from './list-state-component';
 })
 export class ListStateInProgressComponent extends ListStateComponent implements DoCheck, OnInit {
     constructor( @SkipSelf() listService: RtList, differs: KeyValueDiffers) {
-        super(listService, differs, ProgressState.Progress);
+        super(listService, differs, OperationStatus.Progress);
     }
     public ngOnInit(): void {
         super.ngOnInit();

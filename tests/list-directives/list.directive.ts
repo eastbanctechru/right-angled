@@ -4,7 +4,7 @@ import { ListDirective } from '../../src/list-directives';
 
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { FiltersService, ProgressState, SortDirection, SortingsService, SortParameter } from 'e2e4';
+import { FiltersService, OperationStatus, SortDirection, SortingsService, SortParameter } from 'e2e4';
 import * as Rx from 'rxjs';
 
 @Component({
@@ -96,15 +96,15 @@ describe('rtList directive', () => {
         expect(listService.cancelRequests).toHaveBeenCalled();
 
         expect(listDirective.busy).toEqual(false);
-        listService.state = ProgressState.Progress;
+        listService.state = OperationStatus.Progress;
         expect(listDirective.busy).toEqual(true);
-        listService.state = ProgressState.Done;
+        listService.state = OperationStatus.Done;
         expect(listDirective.busy).toEqual(false);
 
         expect(listDirective.ready).toEqual(true);
-        listService.state = ProgressState.Progress;
+        listService.state = OperationStatus.Progress;
         expect(listDirective.ready).toEqual(false);
-        listService.state = ProgressState.Done;
+        listService.state = OperationStatus.Done;
         expect(listDirective.ready).toEqual(true);
 
         expect(listDirective.items).toEqual(listService.items);

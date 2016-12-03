@@ -4,7 +4,7 @@ import { SortDirective } from '../../src/list-directives';
 
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ProgressState, SortingsService } from 'e2e4';
+import { OperationStatus, SortingsService } from 'e2e4';
 
 @Component({
     template: `<div rtSort="field"></div><div rtSort="anotherField"></div>`
@@ -13,7 +13,7 @@ class HostComponent {
 }
 
 class ListStub {
-    public state: ProgressState = ProgressState.Initial;
+    public state: OperationStatus = OperationStatus.Initial;
     public ready: boolean = true;
     public reloadData(): void {
         return;
