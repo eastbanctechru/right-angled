@@ -44,6 +44,14 @@ describe('rtSelectable directive', () => {
         expect(selectionEventsHelper.mouseHandler).toHaveBeenCalledWith(true, true, MouseButtons.Left, 0);
     });
 
+    it('Sets selectedClassName property value as the element class when selection changed', () => {
+        SelectableDirective.settings.selectedClassName = 'custom-class-name';
+        selectableElements[0].triggerEventHandler('mouseup', { ctrlKey: false, shiftKey: false, which: MouseButtons.Left });
+        expect(selectableElements[0].nativeElement.classList).toContain(SelectableDirective.settings.selectedClassName);
+        selectableElements[0].triggerEventHandler('mouseup', { ctrlKey: false, shiftKey: false, which: MouseButtons.Left });
+        expect(selectableElements[0].nativeElement.classList).not.toContain(SelectableDirective.settings.selectedClassName);
+    });
+
     it('Calls event \'preventDefault\' method if \'preventEventsDefaults\' option specified and selection handler returns true', () => {
         selectionEventsHelper.preventEventsDefaults = true;
         fixture.detectChanges();

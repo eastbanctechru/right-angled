@@ -84,10 +84,10 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
     @HostListener('keydown', ['$event.ctrlKey', '$event.shiftKey', '$event.keyCode', '$event.preventDefault', '$event.stopPropagation', '$event'])
     public keyDownHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, keyCode: number, preventDefaultFn: Function, stopPropagationFn: Function, executionContext: any): void {
         if (this.selectionEventsHelper.keyboardHandler(ctrlKeyPressed, shiftKeyPressed, keyCode)) {
-            if (this.selectionEventsHelper.preventEventsDefaults) {
+            if (this.selectionEventsHelper.preventEventsDefaults && preventDefaultFn) {
                 preventDefaultFn.call(executionContext);
             }
-            if (this.selectionEventsHelper.stopEventsPropagation) {
+            if (this.selectionEventsHelper.stopEventsPropagation && stopPropagationFn) {
                 stopPropagationFn.call(executionContext);
             }
         }

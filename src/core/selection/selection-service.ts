@@ -12,6 +12,9 @@ export class RtSelectionService extends DefaultSelectionService {
         if (initialSelectState !== selected) {
             if (this.eventEmitters.length > tuple.index && this.eventEmitters[tuple.index]) {
                 this.emitEvents(this.eventEmitters[tuple.index], selected, tuple);
+                if ((<any>this.eventEmitters[tuple.index]).setSelection) {
+                    (<any>this.eventEmitters[tuple.index]).setSelection.call(this.eventEmitters[tuple.index], selected);
+                }
             }
             if (this.areaEventsEmitter) {
                 this.emitEvents(this.areaEventsEmitter, selected, tuple);
@@ -19,9 +22,6 @@ export class RtSelectionService extends DefaultSelectionService {
         }
     }
     private emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
-        if (Object.prototype.hasOwnProperty.call(emitter, 'selected')) {
-            (<any>emitter).selected = selected;
-        }
         if (selected) {
             emitter.itemSelected.emit({ index: tuple.index, item: tuple.item });
         } else {

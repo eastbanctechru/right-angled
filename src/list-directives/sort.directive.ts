@@ -26,7 +26,9 @@ export class SortDirective implements DoCheck, OnInit {
         this.nativeEl = el.nativeElement;
     }
     public ngOnInit(): void {
-        this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortableClassName, true);
+        if (SortDirective.settings.sortableClassName) {
+            this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortableClassName, true);
+        }
         this.sortingsService.sortings.some((sortParameter) => {
             if (sortParameter.fieldName === this.fieldName) {
                 this.setSortClasses(sortParameter);
@@ -60,12 +62,21 @@ export class SortDirective implements DoCheck, OnInit {
         }
     }
     private removeSortClasses(sortParameter: any): void {
-        this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortAscClassName, false);
-        this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortDescClassName, false);
+        if (SortDirective.settings.sortAscClassName) {
+            this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortAscClassName, false);
+        }
+        if (SortDirective.settings.sortDescClassName) {
+            this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortDescClassName, false);
+        }
     }
     private setSortClasses(sortParameter: any): void {
         const direction = sortParameter.direction;
-        this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? SortDirective.settings.sortDescClassName : SortDirective.settings.sortAscClassName, false);
-        this.renderer.setElementClass(this.nativeEl, direction === SortDirection.Asc ? SortDirective.settings.sortAscClassName : SortDirective.settings.sortDescClassName, true);
+        if (SortDirective.settings.sortAscClassName) {
+
+            this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortAscClassName, direction === SortDirection.Asc);
+        }
+        if (SortDirective.settings.sortDescClassName) {
+            this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortDescClassName, direction === SortDirection.Desc);
+        }
     }
 }
