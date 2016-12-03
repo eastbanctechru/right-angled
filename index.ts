@@ -42,6 +42,7 @@ import {
 export { SortDirective } from './src/list-directives/sort.directive';
 export { ListDirective } from './src/list-directives';
 export { SelectionAreaDirective } from './src/selection-directives';
+export { SelectableDirective } from './src/selection-directives';
 
 import { LIST_PROVIDERS, RtStateService } from './src/core';
 
