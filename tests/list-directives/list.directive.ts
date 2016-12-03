@@ -1,5 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RtList } from '../../src/core';
+import { RtList, RtStateService } from '../../src/core';
 import { ListDirective } from '../../src/list-directives';
 
 import { Component } from '@angular/core';
@@ -30,6 +30,12 @@ class HostNotLoadOnInitComponent {
 
 class ListStub {
 }
+
+class RtStateServiceStub extends RtStateService {
+    public getState(): void { return; }
+    public persistState(filtersService: FiltersService): void { return; }
+}
+
 class FiltersServiceStub {
 }
 class SortingsServiceStub {
@@ -44,6 +50,7 @@ describe('rtList directive', () => {
                 ListDirective
             ],
             providers: [
+                { provide: RtStateService, useClass: RtStateServiceStub },
                 { provide: RtList, useClass: ListStub },
                 { provide: FiltersService, useClass: FiltersServiceStub },
                 { provide: SortingsService, useClass: SortingsServiceStub }
