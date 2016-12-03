@@ -11,13 +11,13 @@ import { RegisterAsFilterDirective } from './src/filter-directives';
 export * from './src/core/index';
 
 import {
-    ListStateDoneComponent,
-    ListStateFailedComponent,
-    ListStateInitialComponent,
-    ListStateInProgressComponent,
-    ListStateNoDataComponent,
-    ListStateRequestCancelledComponent
-} from './src/list-state-components';
+    StatusDoneComponent,
+    StatusFailedComponent,
+    StatusInitialComponent,
+    StatusInProgressComponent,
+    StatusNoDataComponent,
+    StatusRequestCancelledComponent
+} from './src/status-components';
 
 import {
     ListDirective,
@@ -76,12 +76,12 @@ export class RTSelectionModule { }
 @NgModule({
     declarations: [
         ListDirective,
-        ListStateNoDataComponent,
-        ListStateRequestCancelledComponent,
-        ListStateDoneComponent,
-        ListStateFailedComponent,
-        ListStateInitialComponent,
-        ListStateInProgressComponent,
+        StatusNoDataComponent,
+        StatusRequestCancelledComponent,
+        StatusDoneComponent,
+        StatusFailedComponent,
+        StatusInitialComponent,
+        StatusInProgressComponent,
         RowNumberPipe,
         SortDirective, PagedPagerComponent,
         PageSizeDirective,
@@ -90,12 +90,12 @@ export class RTSelectionModule { }
         RowCountDirective],
     exports: [
         ListDirective,
-        ListStateNoDataComponent,
-        ListStateRequestCancelledComponent,
-        ListStateDoneComponent,
-        ListStateFailedComponent,
-        ListStateInitialComponent,
-        ListStateInProgressComponent,
+        StatusNoDataComponent,
+        StatusRequestCancelledComponent,
+        StatusDoneComponent,
+        StatusFailedComponent,
+        StatusInitialComponent,
+        StatusInProgressComponent,
         RowNumberPipe,
         SortDirective,
         PagedPagerComponent,

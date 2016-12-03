@@ -1,9 +1,12 @@
 // tslint:disable:max-classes-per-file
 import { Injectable, Optional } from '@angular/core';
-import { AsyncSubscriber, BufferedPager, FiltersService, List, PagedPager, SelectionEventsHelper, SortingsService, StateService } from 'e2e4';
+import { AsyncSubscriber, BufferedPager, FiltersService, List, OperationStatus, PagedPager, SelectionEventsHelper, SortingsService, StateService } from 'e2e4';
 
 import { RtSelectionService } from './selection/selection-service';
 
+export class RtOperationStatus {
+    public status: OperationStatus;
+}
 export abstract class RtStateService extends StateService { }
 
 @Injectable()
@@ -43,5 +46,6 @@ export let LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtList,
     { provide: FiltersService, useClass: RtFiltersService },
+    { provide: RtOperationStatus, useExisting: RtList},
     { provide: SortingsService, useClass: RtSortingsService }
 ];
