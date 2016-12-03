@@ -30,7 +30,11 @@ export class RtBufferedPager extends BufferedPager { }
 export class RtSortingsService extends SortingsService { }
 
 @Injectable()
-export class RtFiltersService extends FiltersService { }
+export class RtFiltersService extends FiltersService {
+    constructor() {
+        super();
+    }
+}
 
 @Injectable()
 export class RtSelectionEventsHelper extends SelectionEventsHelper {
@@ -46,6 +50,6 @@ export let LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
     RtList,
     { provide: FiltersService, useClass: RtFiltersService },
-    { provide: RtOperationStatus, useExisting: RtList},
+    { provide: RtOperationStatus, useExisting: RtList },
     { provide: SortingsService, useClass: RtSortingsService }
 ];

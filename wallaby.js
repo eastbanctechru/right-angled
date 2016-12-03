@@ -14,13 +14,12 @@ module.exports = function (wallaby) {
         postprocessor: webpackPostprocessor,
         env: {
             type: 'browser',
-            runner: require('phantomjs-prebuilt').path,
             params: {
                 runner: '--web-security=false'
             }
         },
 
-        testFramework: 'mocha@3.0.2',
+        testFramework: 'mocha@3.2.0',
 
         bootstrap: function () {
             window.__moduleBundler.loadTests();

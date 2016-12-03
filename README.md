@@ -48,7 +48,7 @@ You can run tests in Chrome with watch mode by executing the following command:
   ```shell
   npm test:watch
   ```
-  or execute single run in PhantomJS:
+  or execute single run:
   
   ```shell
   npm test
