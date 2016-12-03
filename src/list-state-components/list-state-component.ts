@@ -1,7 +1,7 @@
 import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 import { OperationStatus } from 'e2e4';
 
-import { RtList } from '../core/list';
+import { RtList } from '../core/providers';
 
 export abstract class ListStateComponent implements DoCheck, OnInit {
     private listDiffer: KeyValueDiffer;
@@ -21,11 +21,11 @@ export abstract class ListStateComponent implements DoCheck, OnInit {
         }
     }
     private checkStateFieldChanges = (item: any): void => {
-        if (item.key === 'state') {
+        if (item.key === 'status') {
             this.setVisibility();
         }
     }
     protected setVisibility(): void {
-        this.isVisible = this.listService.state === this.visibleState;
+        this.isVisible = this.listService.status === this.visibleState;
     }
 }

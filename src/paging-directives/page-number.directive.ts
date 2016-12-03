@@ -1,7 +1,7 @@
 import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffers, OnInit } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RtList } from '../core/list';
+import { RtList } from '../core/providers';
 import { PagerInputBase } from './pager-input-base';
 
 @Directive({

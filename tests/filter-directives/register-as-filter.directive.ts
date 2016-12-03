@@ -24,7 +24,7 @@ class FilterTargetComponent {
     @filter() public filterProperty: string;
 }
 
-describe('rt-list-state-... components', () => {
+describe('rtRegisterAsFiletr directive', () => {
     let sut: HostComponent;
     let fixture: ComponentFixture<HostComponent>;
     let filtersService: RtFiltersService;

@@ -1,7 +1,7 @@
 import { Component, DoCheck, KeyValueDiffers, OnInit, SkipSelf } from '@angular/core';
 import { OperationStatus } from 'e2e4';
 
-import { RtList } from '../core/list';
+import { RtList } from '../core/providers';
 import { ListStateComponent } from './list-state-component';
 
 @Component({

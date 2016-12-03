@@ -72,7 +72,7 @@ describe('rtList directive', () => {
     it('Proxies utility methods to list service methods', () => {
         let fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
-        let listService = fixture.debugElement.children[0].injector.get(RtList);
+        let listService = <RtList>fixture.debugElement.children[0].injector.get(RtList);
         let listDirective = fixture.debugElement.children[0].injector.get(ListDirective);
 
         spyOn(listService, 'reloadData');
@@ -96,15 +96,15 @@ describe('rtList directive', () => {
         expect(listService.cancelRequests).toHaveBeenCalled();
 
         expect(listDirective.busy).toEqual(false);
-        listService.state = OperationStatus.Progress;
+        listService.status = OperationStatus.Progress;
         expect(listDirective.busy).toEqual(true);
-        listService.state = OperationStatus.Done;
+        listService.status = OperationStatus.Done;
         expect(listDirective.busy).toEqual(false);
 
         expect(listDirective.ready).toEqual(true);
-        listService.state = OperationStatus.Progress;
+        listService.status = OperationStatus.Progress;
         expect(listDirective.ready).toEqual(false);
-        listService.state = OperationStatus.Done;
+        listService.status = OperationStatus.Done;
         expect(listDirective.ready).toEqual(true);
 
         expect(listDirective.items).toEqual(listService.items);

@@ -1,6 +1,6 @@
 import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 
-import { RtList } from '../core/list';
+import { RtList } from '../core/providers';
 
 export abstract class PagerInputBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;

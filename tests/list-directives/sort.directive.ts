@@ -13,7 +13,7 @@ class HostComponent {
 }
 
 class ListStub {
-    public state: OperationStatus = OperationStatus.Initial;
+    public status: OperationStatus = OperationStatus.Initial;
     public ready: boolean = true;
     public reloadData(): void {
         return;

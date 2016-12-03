@@ -1,9 +1,21 @@
 // tslint:disable:max-classes-per-file
-import { Injectable } from '@angular/core';
-import { AsyncSubscriber, BufferedPager, FiltersService, PagedPager, SelectionEventsHelper, SortingsService } from 'e2e4';
+import { Injectable, Optional } from '@angular/core';
+import { AsyncSubscriber, BufferedPager, FiltersService, List, PagedPager, SelectionEventsHelper, SortingsService, StateService } from 'e2e4';
 
-import { RtList } from './list';
 import { RtSelectionService } from './selection/selection-service';
+
+export abstract class RtStateService extends StateService { }
+
+@Injectable()
+export class RtList extends List {
+    constructor(
+        asyncSubscriber: AsyncSubscriber,
+        @Optional() stateServices: RtStateService,
+        sortingsService: SortingsService,
+        filtersService: FiltersService) {
+        super(asyncSubscriber, stateServices, sortingsService, filtersService);
+    }
+};
 
 @Injectable()
 export class RtPagedPager extends PagedPager { }
