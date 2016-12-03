@@ -1,20 +1,18 @@
 import { DefaultSelectionService, SelectionTuple } from 'e2e4';
 
+import { SelectionElementEventsEmitter } from './selection-element-events-emitter';
 import { SelectionEventsEmitter } from './selection-events-emitter';
 
 export class RtSelectionService extends DefaultSelectionService {
-    public eventEmitters: SelectionEventsEmitter[] = new Array<SelectionEventsEmitter>();
+    public eventEmitters: SelectionElementEventsEmitter[] = new Array<SelectionElementEventsEmitter>();
     public childSelectionServices: RtSelectionService[] = new Array<RtSelectionService>();
     public areaEventsEmitter: SelectionEventsEmitter;
     protected processSelection(tuple: SelectionTuple, selected: boolean): void {
-        const initialSelectState = tuple.item.selected;
-        super.processSelection(tuple, selected);
-        if (initialSelectState !== selected) {
+        const initialSelectState = this.eventEmitters[tuple.index].selected || null;
+        if (initialSelectState === null || initialSelectState !== selected) {
             if (this.eventEmitters.length > tuple.index && this.eventEmitters[tuple.index]) {
                 this.emitEvents(this.eventEmitters[tuple.index], selected, tuple);
-                if ((<any>this.eventEmitters[tuple.index]).setSelection) {
-                    (<any>this.eventEmitters[tuple.index]).setSelection.call(this.eventEmitters[tuple.index], selected);
-                }
+                this.eventEmitters[tuple.index].postProcessSelection(selected);
             }
             if (this.areaEventsEmitter) {
                 this.emitEvents(this.areaEventsEmitter, selected, tuple);
