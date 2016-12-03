@@ -1,7 +1,7 @@
 import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffers, OnInit } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RtList } from '../core/providers';
+import { RTList } from '../core/providers';
 import { PagerInputBase } from './pager-input-base';
 
 @Directive({
@@ -19,7 +19,7 @@ export class PageNumberDirective extends PagerInputBase implements DoCheck, OnIn
         this.pager.pageNumber = value;
     }
 
-    constructor(listService: RtList, pager: PagedPager, differs: KeyValueDiffers) {
+    constructor(listService: RTList, pager: PagedPager, differs: KeyValueDiffers) {
         super(listService, pager, differs, 'pageNumberInternal');
     }
 

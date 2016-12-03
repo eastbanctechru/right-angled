@@ -1,4 +1,4 @@
-import { RtList } from '../../src/core';
+import { RTList } from '../../src/core';
 import { ListDirective } from '../../src/list-directives';
 import { BufferedPagerComponent, RowCountDirective } from '../../src/paging-directives';
 
@@ -23,7 +23,7 @@ describe('rtRowCount directive', () => {
     let fixture: ComponentFixture<HostComponent>;
     let pagerComponent: BufferedPagerComponent;
     let rowCountDirective: RowCountDirective;
-    let listService: RtList;
+    let listService: RTList;
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [
@@ -36,7 +36,7 @@ describe('rtRowCount directive', () => {
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         pagerComponent = <BufferedPagerComponent>fixture.debugElement.query(By.css('rt-buffered-pager')).componentInstance;
-        listService = fixture.debugElement.children[0].injector.get(RtList);
+        listService = fixture.debugElement.children[0].injector.get(RTList);
         rowCountDirective = fixture.debugElement.query(By.directive(RowCountDirective)).injector.get(RowCountDirective);
     });
 

@@ -1,7 +1,7 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer } from '@angular/core';
 import { SkipSelf } from '@angular/core';
 
-import { RtSelectionEvent, RtSelectionEventsHelper, SelectionElementEventsEmitter } from '../core';
+import { RTSelectionEvent, RTSelectionEventsHelper, SelectionElementEventsEmitter } from '../core';
 
 @Directive({
     exportAs: 'rtSelectable',
@@ -19,10 +19,10 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
     /* tslint:disable-next-line:no-input-rename */
     @Input('rtSelectable') public item: any = null;
     @Output() public selectedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Output() public itemSelected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
-    @Output() public itemDeselected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
-    @Output() public selectionChanged: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
-    constructor( @SkipSelf() public selectionEventsHelper: RtSelectionEventsHelper, private renderer: Renderer, private el: ElementRef) {
+    @Output() public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output() public itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output() public selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    constructor( @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper, private renderer: Renderer, private el: ElementRef) {
     }
 
     @Input() public get selected(): boolean {

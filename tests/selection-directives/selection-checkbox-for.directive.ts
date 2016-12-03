@@ -1,4 +1,4 @@
-import { RtSelectionEventsHelper, RtSelectionService } from '../../src/core';
+import { RTSelectionEventsHelper, RTSelectionService } from '../../src/core';
 import { SelectionAreaDirective, SelectionCheckboxForDirective } from '../../src/selection-directives';
 
 import { Component, DebugElement } from '@angular/core';
@@ -16,8 +16,8 @@ class HostComponent {
 
 describe('rtSelectionCheckboxFor directive', () => {
     let fixture: ComponentFixture<HostComponent>;
-    let selectionService: RtSelectionService;
-    let selectionEventsHelper: RtSelectionEventsHelper;
+    let selectionService: RTSelectionService;
+    let selectionEventsHelper: RTSelectionEventsHelper;
     let selectionCheckboxes: DebugElement[];
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -29,8 +29,8 @@ describe('rtSelectionCheckboxFor directive', () => {
         });
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
-        selectionService = fixture.debugElement.children[0].injector.get(RtSelectionService);
-        selectionEventsHelper = fixture.debugElement.children[0].injector.get(RtSelectionEventsHelper);
+        selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService);
+        selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper);
         selectionCheckboxes = [fixture.debugElement.children[0].children[0], fixture.debugElement.children[0].children[1], fixture.debugElement.children[0].children[2]];
     });
 

@@ -2,18 +2,18 @@
 import { Injectable, Optional } from '@angular/core';
 import { AsyncSubscriber, BufferedPager, FiltersService, List, OperationStatus, PagedPager, SelectionEventsHelper, SortingsService, StateService } from 'e2e4';
 
-import { RtSelectionService } from './selection/selection-service';
+import { RTSelectionService } from './selection/selection-service';
 
-export class RtOperationStatus {
+export class RTOperationStatus {
     public status: OperationStatus;
 }
-export abstract class RtStateService extends StateService { }
+export abstract class RTStateService extends StateService { }
 
 @Injectable()
-export class RtList extends List {
+export class RTList extends List {
     constructor(
         asyncSubscriber: AsyncSubscriber,
-        @Optional() stateServices: RtStateService,
+        @Optional() stateServices: RTStateService,
         sortingsService: SortingsService,
         filtersService: FiltersService) {
         super(asyncSubscriber, stateServices, sortingsService, filtersService);
@@ -21,26 +21,26 @@ export class RtList extends List {
 };
 
 @Injectable()
-export class RtPagedPager extends PagedPager { }
+export class RTPagedPager extends PagedPager { }
 
 @Injectable()
-export class RtBufferedPager extends BufferedPager { }
+export class RTBufferedPager extends BufferedPager { }
 
 @Injectable()
-export class RtSortingsService extends SortingsService { }
+export class RTSortingsService extends SortingsService { }
 
 @Injectable()
-export class RtFiltersService extends FiltersService {
+export class RTFiltersService extends FiltersService {
     constructor() {
         super();
     }
 }
 
 @Injectable()
-export class RtSelectionEventsHelper extends SelectionEventsHelper {
+export class RTSelectionEventsHelper extends SelectionEventsHelper {
     public preventEventsDefaults: boolean = true;
     public stopEventsPropagation: boolean = true;
-    constructor(selectionService: RtSelectionService) {
+    constructor(selectionService: RTSelectionService) {
         super(selectionService);
         this.multiple = true;
     }
@@ -48,8 +48,8 @@ export class RtSelectionEventsHelper extends SelectionEventsHelper {
 
 export let LIST_PROVIDERS: any[] = [
     AsyncSubscriber,
-    RtList,
-    { provide: FiltersService, useClass: RtFiltersService },
-    { provide: RtOperationStatus, useExisting: RtList },
-    { provide: SortingsService, useClass: RtSortingsService }
+    RTList,
+    { provide: FiltersService, useClass: RTFiltersService },
+    { provide: RTOperationStatus, useExisting: RTList },
+    { provide: SortingsService, useClass: RTSortingsService }
 ];

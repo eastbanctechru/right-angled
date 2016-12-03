@@ -1,5 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RtList } from '../../src/core';
+import { RTList } from '../../src/core';
 import { ListDirective } from '../../src/list-directives';
 import { PagedPagerComponent } from '../../src/paging-directives';
 
@@ -52,7 +52,7 @@ describe('rt-paged-pager component', () => {
 
     it('Sets list service pager property to own service instance', () => {
         let pagerService = <PagedPager>pagerElement.injector.get(PagedPager);
-        expect(pagerElement.injector.get(RtList).pager).toEqual(pagerService);
+        expect(pagerElement.injector.get(RTList).pager).toEqual(pagerService);
     });
 
     it('Sets pageSize to configured defaultPageSize on component init', () => {
@@ -104,9 +104,9 @@ describe('rt-paged-pager component', () => {
         expect(pagerService.defaultPageSize).toEqual(fixture.componentInstance.defaultPageSize);
     });
 
-    it('Calls loadData method of RtList on goToFirstPage methodCall if load is possible', () => {
+    it('Calls loadData method of RTList on goToFirstPage methodCall if load is possible', () => {
         let pagerService = <PagedPager>pagerElement.injector.get(PagedPager);
-        let listService = <RtList>pagerElement.injector.get(RtList);
+        let listService = <RTList>pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 100;
         pagerService.pageNumber = 5;
@@ -114,18 +114,18 @@ describe('rt-paged-pager component', () => {
         (<PagedPagerComponent>pagerElement.componentInstance).goToFirstPage();
         expect(listService.loadData).toHaveBeenCalled();
     });
-    it('Doesn\'t call loadData method of RtList on goToFirstPage methodCall if load is not possible', () => {
+    it('Doesn\'t call loadData method of RTList on goToFirstPage methodCall if load is not possible', () => {
         let pagerService = pagerElement.injector.get(PagedPager);
-        let listService = pagerElement.injector.get(RtList);
+        let listService = pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canMoveBackward).toEqual(false);
         (<PagedPagerComponent>pagerElement.componentInstance).goToFirstPage();
         expect(listService.loadData).not.toHaveBeenCalled();
     });
-    it('Calls loadData method of RtList on goToPreviousPage methodCall if load is possible', () => {
+    it('Calls loadData method of RTList on goToPreviousPage methodCall if load is possible', () => {
         let pagerService = <PagedPager>pagerElement.injector.get(PagedPager);
-        let listService = <RtList>pagerElement.injector.get(RtList);
+        let listService = <RTList>pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 100;
         pagerService.pageNumber = 5;
@@ -133,9 +133,9 @@ describe('rt-paged-pager component', () => {
         (<PagedPagerComponent>pagerElement.componentInstance).goToPreviousPage();
         expect(listService.loadData).toHaveBeenCalled();
     });
-    it('Doesn\'t call loadData method of RtList on goToPreviousPage methodCall if load is not possible', () => {
+    it('Doesn\'t call loadData method of RTList on goToPreviousPage methodCall if load is not possible', () => {
         let pagerService = pagerElement.injector.get(PagedPager);
-        let listService = pagerElement.injector.get(RtList);
+        let listService = pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canMoveBackward).toEqual(false);
@@ -143,18 +143,18 @@ describe('rt-paged-pager component', () => {
         expect(listService.loadData).not.toHaveBeenCalled();
     });
 
-    it('Calls loadData method of RtList on goToLastPage methodCall if load is possible', () => {
+    it('Calls loadData method of RTList on goToLastPage methodCall if load is possible', () => {
         let pagerService = <PagedPager>pagerElement.injector.get(PagedPager);
-        let listService = <RtList>pagerElement.injector.get(RtList);
+        let listService = <RTList>pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 100;
         expect(pagerService.canMoveForward).toEqual(true);
         (<PagedPagerComponent>pagerElement.componentInstance).goToLastPage();
         expect(listService.loadData).toHaveBeenCalled();
     });
-    it('Doesn\'t call loadData method of RtList on goToLastPage methodCall if load is not possible', () => {
+    it('Doesn\'t call loadData method of RTList on goToLastPage methodCall if load is not possible', () => {
         let pagerService = pagerElement.injector.get(PagedPager);
-        let listService = pagerElement.injector.get(RtList);
+        let listService = pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canMoveForward).toEqual(false);
@@ -162,18 +162,18 @@ describe('rt-paged-pager component', () => {
         expect(listService.loadData).not.toHaveBeenCalled();
     });
 
-    it('Calls loadData method of RtList on goToNextPage methodCall if load is possible', () => {
+    it('Calls loadData method of RTList on goToNextPage methodCall if load is possible', () => {
         let pagerService = <PagedPager>pagerElement.injector.get(PagedPager);
-        let listService = <RtList>pagerElement.injector.get(RtList);
+        let listService = <RTList>pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 100;
         expect(pagerService.canMoveForward).toEqual(true);
         (<PagedPagerComponent>pagerElement.componentInstance).goToNextPage();
         expect(listService.loadData).toHaveBeenCalled();
     });
-    it('Doesn\'t call loadData method of RtList on goToNextPage methodCall if load is not possible', () => {
+    it('Doesn\'t call loadData method of RTList on goToNextPage methodCall if load is not possible', () => {
         let pagerService = pagerElement.injector.get(PagedPager);
-        let listService = pagerElement.injector.get(RtList);
+        let listService = pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canMoveForward).toEqual(false);

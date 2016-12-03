@@ -2,7 +2,7 @@ import { AfterViewInit, Directive, EventEmitter, Input, OnChanges, OnDestroy, Ou
 import { ListRequest, ListResponse, SortingsService, SortParameter } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
-import { LIST_PROVIDERS, RtList } from '../core';
+import { LIST_PROVIDERS, RTList } from '../core';
 
 @Directive({
     exportAs: 'rtList',
@@ -10,14 +10,14 @@ import { LIST_PROVIDERS, RtList } from '../core';
     selector: '[rtList]'
 })
 export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
-    @Output() public onListInit: EventEmitter<RtList> = new EventEmitter<RtList>(false);
-    @Output() public afterListInit: EventEmitter<RtList> = new EventEmitter<RtList>(false);
+    @Output() public onListInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
+    @Output() public afterListInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
     @Input() public defaultSortings: SortParameter[];
     @Input() public loadOnInit: boolean = true;
     @Input('rtList') public set fetchMethod(value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>) {
         this.listService.fetchMethod = value;
     }
-    constructor( @Self() public listService: RtList, @Self() private sortingsService: SortingsService) {
+    constructor( @Self() public listService: RTList, @Self() private sortingsService: SortingsService) {
     }
     public ngAfterViewInit(): void {
         // We call init in ngAfterViewInit to:

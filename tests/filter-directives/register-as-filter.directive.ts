@@ -1,5 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RtFiltersService } from '../../src/core';
+import { RTFiltersService } from '../../src/core';
 import { RegisterAsFilterDirective } from '../../src/filter-directives';
 
 import { Component } from '@angular/core';
@@ -27,10 +27,10 @@ class FilterTargetComponent {
 describe('rtRegisterAsFiletr directive', () => {
     let sut: HostComponent;
     let fixture: ComponentFixture<HostComponent>;
-    let filtersService: RtFiltersService;
+    let filtersService: RTFiltersService;
 
     beforeAll(() => {
-        filtersService = new RtFiltersService();
+        filtersService = new RTFiltersService();
     });
 
     beforeEach(() => {

@@ -1,5 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RtList } from '../../src/core';
+import { RTList } from '../../src/core';
 import { ListDirective } from '../../src/list-directives';
 import { BufferedPagerComponent } from '../../src/paging-directives';
 
@@ -52,7 +52,7 @@ describe('rt-buffered-pager component', () => {
 
     it('Sets list service pager property to own service instance', () => {
         let pagerService = pagerElement.injector.get(BufferedPager);
-        expect(pagerElement.injector.get(RtList).pager).toEqual(pagerService);
+        expect(pagerElement.injector.get(RTList).pager).toEqual(pagerService);
     });
 
     it('Sets takeRowCount to configured defaultRowCount on component init', () => {
@@ -83,18 +83,18 @@ describe('rt-buffered-pager component', () => {
         fixture.detectChanges();
         expect(pagerElement.componentInstance.canLoadMore).toEqual(true);
     });
-    it('Calls loadData method of RtList on loadMore methodCall if load is possible', () => {
+    it('Calls loadData method of RTList on loadMore methodCall if load is possible', () => {
         let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
-        let listService = <RtList>pagerElement.injector.get(RtList);
+        let listService = <RTList>pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 100;
         expect(pagerService.canLoadMore).toEqual(true);
         (<BufferedPagerComponent>pagerElement.componentInstance).loadMore();
         expect(listService.loadData).toHaveBeenCalled();
     });
-    it('Doesn\'t call loadData method of RtList on loadMore methodCall if load is not possible', () => {
+    it('Doesn\'t call loadData method of RTList on loadMore methodCall if load is not possible', () => {
         let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
-        let listService = <RtList>pagerElement.injector.get(RtList);
+        let listService = <RTList>pagerElement.injector.get(RTList);
         spyOn(listService, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canLoadMore).toEqual(false);

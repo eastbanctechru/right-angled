@@ -1,13 +1,13 @@
 import { AfterContentInit, ContentChildren, Directive, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnDestroy, Output, QueryList, Self, SimpleChange } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
-import { RtSelectionEvent, RtSelectionEventsHelper, RtSelectionService, SelectionEventsEmitter } from '../core';
+import { RTSelectionEvent, RTSelectionEventsHelper, RTSelectionService, SelectionEventsEmitter } from '../core';
 import { SelectableDirective } from './selectable.directive';
 import { SelectionCheckboxForDirective } from './selection-checkbox-for.directive';
 
 @Directive({
     exportAs: 'rtSelectionArea',
-    providers: [RtSelectionService, RtSelectionEventsHelper],
+    providers: [RTSelectionService, RTSelectionEventsHelper],
     selector: '[rtSelectionArea]'
 })
 export class SelectionAreaDirective implements SelectionEventsEmitter, AfterContentInit, OnChanges, OnDestroy {
@@ -51,13 +51,13 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         this.selectionService.trackByFn = value;
     }
 
-    @Output() public itemSelected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+    @Output() public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
 
-    @Output() public itemDeselected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+    @Output() public itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
 
-    @Output() public selectionChanged: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+    @Output() public selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
 
-    constructor( @Self() public selectionService: RtSelectionService, @Self() public selectionEventsHelper: RtSelectionEventsHelper) {
+    constructor( @Self() public selectionService: RTSelectionService, @Self() public selectionEventsHelper: RTSelectionEventsHelper) {
         this.selectionService.areaEventsEmitter = this;
         this.selectionEventsHelper = selectionEventsHelper;
     }

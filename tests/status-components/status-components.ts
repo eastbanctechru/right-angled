@@ -1,5 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RtList, RtOperationStatus } from '../../src/core/providers';
+import { RTList, RTOperationStatus } from '../../src/core/providers';
 import { StatusDoneComponent, StatusFailedComponent, StatusInitialComponent, StatusInProgressComponent, StatusNoDataComponent, StatusRequestCancelledComponent } from '../../src/status-components';
 
 import { Component } from '@angular/core';
@@ -53,15 +53,15 @@ describe('rt-status-... components', () => {
                 StatusNoDataComponent
             ],
             providers: [
-                { provide: RtList, useClass: ListStub },
-                { provide: RtOperationStatus, useExisting: RtList }
+                { provide: RTList, useClass: ListStub },
+                { provide: RTOperationStatus, useExisting: RTList }
             ]
         });
 
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         nativeElement = fixture.nativeElement;
-        listService = fixture.debugElement.injector.get(RtList);
+        listService = fixture.debugElement.injector.get(RTList);
     });
 
     it('Coverage stub for else statement in change tracking :)', () => {

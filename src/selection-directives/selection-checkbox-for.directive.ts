@@ -1,6 +1,6 @@
 import { Directive, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
 import { SkipSelf } from '@angular/core';
-import { RtSelectionEvent, RtSelectionEventsHelper, RtSelectionService, SelectionElementEventsEmitter } from '../core';
+import { RTSelectionEvent, RTSelectionEventsHelper, RTSelectionService, SelectionElementEventsEmitter } from '../core';
 
 @Directive({
     exportAs: 'rtSelectionCheckboxFor',
@@ -26,11 +26,11 @@ export class SelectionCheckboxForDirective implements SelectionElementEventsEmit
         });
     }
     @Output() public selectedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Output() public itemSelected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
-    @Output() public itemDeselected: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
-    @Output() public selectionChanged: EventEmitter<RtSelectionEvent> = new EventEmitter<RtSelectionEvent>();
+    @Output() public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output() public itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output() public selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
 
-    constructor( @SkipSelf() public selectionEventsHelper: RtSelectionEventsHelper, @SkipSelf() private selectionService: RtSelectionService) {
+    constructor( @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper, @SkipSelf() private selectionService: RTSelectionService) {
     }
 
     @HostBinding('checked')

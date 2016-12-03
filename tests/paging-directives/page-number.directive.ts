@@ -1,4 +1,4 @@
-import { RtList } from '../../src/core';
+import { RTList } from '../../src/core';
 import { ListDirective } from '../../src/list-directives';
 import { PagedPagerComponent, PageNumberDirective } from '../../src/paging-directives';
 
@@ -23,7 +23,7 @@ describe('rtPageNumber directive', () => {
     let fixture: ComponentFixture<HostComponent>;
     let pagerComponent: PagedPagerComponent;
     let pageNumberDirective: PageNumberDirective;
-    let listService: RtList;
+    let listService: RTList;
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [
@@ -36,7 +36,7 @@ describe('rtPageNumber directive', () => {
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         pagerComponent = <PagedPagerComponent>fixture.debugElement.query(By.css('rt-paged-pager')).componentInstance;
-        listService = fixture.debugElement.children[0].injector.get(RtList);
+        listService = fixture.debugElement.children[0].injector.get(RTList);
         pageNumberDirective = fixture.debugElement.query(By.directive(PageNumberDirective)).injector.get(PageNumberDirective);
     });
 

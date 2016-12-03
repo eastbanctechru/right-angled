@@ -44,7 +44,7 @@ export { ListDirective } from './src/list-directives';
 export { SelectionAreaDirective } from './src/selection-directives';
 export { SelectableDirective } from './src/selection-directives';
 
-import { LIST_PROVIDERS, RtStateService } from './src/core';
+import { LIST_PROVIDERS, RTStateService } from './src/core';
 
 @NgModule({
     declarations: [FocusOnRenderDirective, SelectOnFocusDirective, StopEventsDirective, PreventDefaultsDirective],
@@ -116,7 +116,7 @@ export class RTListsModule {
         multi?: boolean;
     }): void {
         LIST_PROVIDERS.push({
-            provide: RtStateService,
+            provide: RTStateService,
             useClass,
             useValue,
             useExisting,

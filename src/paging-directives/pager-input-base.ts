@@ -1,6 +1,6 @@
 import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 
-import { RtList } from '../core/providers';
+import { RTList } from '../core/providers';
 
 export abstract class PagerInputBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
@@ -14,7 +14,7 @@ export abstract class PagerInputBase implements DoCheck, OnInit {
     public abstract get value(): number;
     public abstract set value(value: number);
 
-    constructor(private listService: RtList, public pager: any, differs: KeyValueDiffers, changeTrackingKey: string) {
+    constructor(private listService: RTList, public pager: any, differs: KeyValueDiffers, changeTrackingKey: string) {
         this.changeTrackingKey = changeTrackingKey;
         this.pagerDiffer = differs.find([]).create(null);
     }

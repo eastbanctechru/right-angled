@@ -1,5 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RtList, RtSortingsService } from '../../src/core';
+import { RTList, RTSortingsService } from '../../src/core';
 import { SortDirective } from '../../src/list-directives';
 
 import { Component } from '@angular/core';
@@ -21,11 +21,11 @@ class ListStub {
 }
 
 describe('rtSort directive', () => {
-    let sortingsService: RtSortingsService;
+    let sortingsService: RTSortingsService;
     let listStub: ListStub = new ListStub();
 
     beforeEach(() => {
-        sortingsService = new RtSortingsService();
+        sortingsService = new RTSortingsService();
         TestBed.configureTestingModule({
             declarations: [
                 HostComponent,
@@ -33,7 +33,7 @@ describe('rtSort directive', () => {
             ],
             providers: [
                 { provide: SortingsService, useValue: sortingsService },
-                { provide: RtList, useValue: listStub }]
+                { provide: RTList, useValue: listStub }]
         });
     });
 

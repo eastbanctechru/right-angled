@@ -1,5 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RtSelectionEventsHelper, RtSelectionService } from '../../src/core';
+import { RTSelectionEventsHelper, RTSelectionService } from '../../src/core';
 import { SelectableDirective, SelectionAreaDirective } from '../../src/selection-directives';
 
 import { Component } from '@angular/core';
@@ -61,8 +61,8 @@ class SelectionEventsHelperStub {
 
 describe('rtSelectionArea directive', () => {
     let fixture: ComponentFixture<HostComponent>;
-    let selectionService: RtSelectionService;
-    let selectionEventsHelper: RtSelectionEventsHelper;
+    let selectionService: RTSelectionService;
+    let selectionEventsHelper: RTSelectionEventsHelper;
     let selectionAreaDirective: SelectionAreaDirective;
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -73,21 +73,21 @@ describe('rtSelectionArea directive', () => {
                 SelectableDirective
             ],
             providers: [
-                { provide: RtSelectionService, useClass: SelectionServiceStub },
-                { provide: RtSelectionEventsHelper, useClass: SelectionEventsHelperStub }
+                { provide: RTSelectionService, useClass: SelectionServiceStub },
+                { provide: RTSelectionEventsHelper, useClass: SelectionEventsHelperStub }
             ]
         });
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
-        selectionService = fixture.debugElement.children[0].injector.get(RtSelectionService);
-        selectionEventsHelper = fixture.debugElement.children[0].injector.get(RtSelectionEventsHelper);
+        selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService);
+        selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper);
         selectionAreaDirective = <SelectionAreaDirective>fixture.debugElement.children[0].injector.get(SelectionAreaDirective);
     });
 
-    it('Builds collection of child selection services for RtSelectionService and rebuilds it on change tracking cycle', () => {
+    it('Builds collection of child selection services for RTSelectionService and rebuilds it on change tracking cycle', () => {
         let nestedFixture = TestBed.createComponent(NestedComponent);
         nestedFixture.detectChanges();
-        selectionService = nestedFixture.debugElement.children[0].injector.get(RtSelectionService);
+        selectionService = nestedFixture.debugElement.children[0].injector.get(RTSelectionService);
         expect(selectionService.childSelectionServices.length).toEqual(3);
         expect(selectionService.childSelectionServices).toEqual(nestedFixture.debugElement.children[0].queryAll(By.css('div')).map((dn) => dn.injector.get(SelectionAreaDirective).selectionService));
         nestedFixture.componentInstance.items.push({
