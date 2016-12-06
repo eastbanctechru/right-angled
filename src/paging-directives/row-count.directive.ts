@@ -1,7 +1,6 @@
 import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffers, OnInit } from '@angular/core';
 import { BufferedPager } from 'e2e4';
 
-import { RTList } from '../core/providers';
 import { PagerInputBase } from './pager-input-base';
 
 @Directive({
@@ -17,12 +16,8 @@ export class RowCountDirective extends PagerInputBase implements DoCheck, OnInit
     public set value(value: number) {
         this.pager.takeRowCount = value;
     }
-    constructor(listService: RTList, bufferedPager: BufferedPager, differs: KeyValueDiffers) {
-        super(listService, bufferedPager, differs, 'takeRowCountInternal');
-    }
-    @HostListener('keyup.enter')
-    public onEnter(): void {
-        super.onComplete();
+    constructor(bufferedPager: BufferedPager, differs: KeyValueDiffers) {
+        super(bufferedPager, differs, 'takeRowCountInternal');
     }
 
     @HostListener('input', ['$event.target.value'])

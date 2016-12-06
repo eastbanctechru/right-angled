@@ -47,20 +47,6 @@ describe('rtPageNumber directive', () => {
         expect(pageNumberDirective.changeTrackingKey).toEqual('pageNumberInternal');
     });
 
-    it('sets innerValue to pageNumber on Enter key press', () => {
-        pagerComponent.pager.totalCount = 100;
-        pagerComponent.pager.pageNumber = 3;
-        expect(pageNumberDirective.innerValue).not.toEqual(pagerComponent.pager.pageNumber);
-        fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup.enter', null);
-        expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
-    });
-
-    it('calls listService loadData method on Enter key press', () => {
-        spyOn(listService, 'loadData');
-        fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup.enter', null);
-        expect(listService.loadData).toHaveBeenCalled();
-    });
-
     it('sets innerValue to pageNumber on change detection cycle', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageNumber = 3;

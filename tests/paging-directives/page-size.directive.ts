@@ -55,20 +55,6 @@ describe('rtPageSize directive', () => {
         expect(pageSizeDirective.value).toEqual(pagerComponent.pager.pageSize);
     });
 
-    it('sets innerValue to pageSize on Enter key press', () => {
-        pagerComponent.pager.totalCount = 100;
-        pagerComponent.pager.pageSize = 3;
-        expect(pageSizeDirective.innerValue).not.toEqual(pagerComponent.pager.pageSize);
-        fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup.enter', null);
-        expect(pageSizeDirective.innerValue).toEqual(pagerComponent.pager.pageSize);
-    });
-
-    it('calls listService loadData method on Enter key press', () => {
-        spyOn(listService, 'loadData');
-        fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup.enter', null);
-        expect(listService.loadData).toHaveBeenCalled();
-    });
-
     it('sets innerValue to pageSize on change detection cycle', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageSize = 3;

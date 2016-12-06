@@ -1,7 +1,6 @@
 import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffers, OnInit } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RTList } from '../core/providers';
 import { PagerInputBase } from './pager-input-base';
 
 @Directive({
@@ -19,13 +18,8 @@ export class PageNumberDirective extends PagerInputBase implements DoCheck, OnIn
         this.pager.pageNumber = value;
     }
 
-    constructor(listService: RTList, pager: PagedPager, differs: KeyValueDiffers) {
-        super(listService, pager, differs, 'pageNumberInternal');
-    }
-
-    @HostListener('keyup.enter')
-    public onEnter(): void {
-        super.onComplete();
+    constructor(pager: PagedPager, differs: KeyValueDiffers) {
+        super(pager, differs, 'pageNumberInternal');
     }
 
     @HostListener('input', ['$event.target.value'])

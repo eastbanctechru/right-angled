@@ -1,7 +1,6 @@
 import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffers, OnInit } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RTList } from '../core/providers';
 import { PagerInputBase } from './pager-input-base';
 
 @Directive({
@@ -17,12 +16,8 @@ export class PageSizeDirective extends PagerInputBase implements DoCheck, OnInit
     public set value(value: number) {
         this.pager.pageSize = value;
     }
-    constructor(listService: RTList, pager: PagedPager, differs: KeyValueDiffers) {
-        super(listService, pager, differs, 'pageSizeInternal');
-    }
-    @HostListener('keyup.enter')
-    public onEnter(): void {
-        super.onComplete();
+    constructor(pager: PagedPager, differs: KeyValueDiffers) {
+        super(pager, differs, 'pageSizeInternal');
     }
 
     @HostListener('input', ['$event.target.value'])

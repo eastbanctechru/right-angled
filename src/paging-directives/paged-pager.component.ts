@@ -56,4 +56,7 @@ export class PagedPagerComponent implements OnChanges, OnInit {
             this.listService.loadData();
         }
     }
+    public loadData(): void {
+        this.listService.loadData();
+    }
 }

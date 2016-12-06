@@ -1,7 +1,5 @@
 import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 
-import { RTList } from '../core/providers';
-
 export abstract class PagerInputBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
     public innerValue: number;
@@ -14,14 +12,9 @@ export abstract class PagerInputBase implements DoCheck, OnInit {
     public abstract get value(): number;
     public abstract set value(value: number);
 
-    constructor(private listService: RTList, public pager: any, differs: KeyValueDiffers, changeTrackingKey: string) {
+    constructor(public pager: any, differs: KeyValueDiffers, changeTrackingKey: string) {
         this.changeTrackingKey = changeTrackingKey;
         this.pagerDiffer = differs.find([]).create(null);
-    }
-
-    public onComplete(): void {
-        this.innerValue = this.value;
-        this.listService.loadData();
     }
 
     public setPageSize(value: any): void {

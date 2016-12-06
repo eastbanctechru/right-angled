@@ -55,20 +55,6 @@ describe('rtRowCount directive', () => {
         expect(rowCountDirective.value).toEqual(pagerComponent.pager.takeRowCount);
     });
 
-    it('sets innerValue to takeRowCount on Enter key press', () => {
-        pagerComponent.pager.totalCount = 100;
-        pagerComponent.pager.takeRowCount = 3;
-        expect(rowCountDirective.innerValue).not.toEqual(pagerComponent.pager.takeRowCount);
-        fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup.enter', null);
-        expect(rowCountDirective.innerValue).toEqual(pagerComponent.pager.takeRowCount);
-    });
-
-    it('calls listService loadData method on Enter key press', () => {
-        spyOn(listService, 'loadData');
-        fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup.enter', null);
-        expect(listService.loadData).toHaveBeenCalled();
-    });
-
     it('sets innerValue to takeRowCount on change detection cycle', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.takeRowCount = 3;
@@ -109,5 +95,4 @@ describe('rtRowCount directive', () => {
             done();
         }, 0);
     });
-
 });
