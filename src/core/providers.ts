@@ -13,15 +13,26 @@ export abstract class RTStateService extends StateService { }
 
 @Injectable()
 export class RTList extends List {
+    private filterTargets: Object[] = [];
     constructor(
         asyncSubscriber: AsyncSubscriber,
         @Optional() stateServices: RTStateService,
-        @SkipSelf() @Optional() @Inject(RTFilterTarget) filterTarget: any,
+        @SkipSelf() @Optional() @Inject(RTFilterTarget) filterTargets: Object,
         sortingsService: SortingsService,
-        filtersService: FiltersService) {
+        private intFiltersService: FiltersService) {
 
-        super(asyncSubscriber, stateServices, sortingsService, filtersService);
-        filtersService.registerFilterTarget(...filterTarget);
+        super(asyncSubscriber, stateServices, sortingsService, intFiltersService);
+        if (filterTargets != null) {
+            if (Array.isArray(filterTargets)) {
+                this.filterTargets.push(...filterTargets);
+            } else {
+                this.filterTargets.push(filterTargets);
+            }
+        }
+    }
+    public init(): void {
+        this.intFiltersService.registerFilterTarget(...this.filterTargets);
+        super.init();
     }
 };
 
