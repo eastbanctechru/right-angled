@@ -53,3 +53,5 @@ You can run tests in Chrome with watch mode by executing the following command:
   ```shell
   npm test
   ```
+
+You can also use [Yarn](https://yarnpkg.com/)
