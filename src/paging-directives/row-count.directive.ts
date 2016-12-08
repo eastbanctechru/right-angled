@@ -1,4 +1,4 @@
-import { Directive, DoCheck, HostBinding, HostListener, KeyValueDiffers, OnInit } from '@angular/core';
+import { Directive, KeyValueDiffers } from '@angular/core';
 import { BufferedPager } from 'e2e4';
 
 import { PagerInputBase } from './pager-input-base';
@@ -7,9 +7,7 @@ import { PagerInputBase } from './pager-input-base';
     /* tslint:disable-next-line:directive-selector */
     selector: 'input[rtRowCount]'
 })
-export class RowCountDirective extends PagerInputBase implements DoCheck, OnInit {
-    @HostBinding('value')
-    public innerValue: number;
+export class RowCountDirective extends PagerInputBase {
     public get value(): number {
         return this.pager.takeRowCount;
     }
@@ -18,21 +16,5 @@ export class RowCountDirective extends PagerInputBase implements DoCheck, OnInit
     }
     constructor(bufferedPager: BufferedPager, differs: KeyValueDiffers) {
         super(bufferedPager, differs, 'takeRowCountInternal');
-    }
-
-    @HostListener('input', ['$event.target.value'])
-    public inputHandler(value: any): void {
-        super.setPageSize(value);
-    }
-
-    @HostListener('blur')
-    public blurHandler(): void {
-        super.restoreInputValue();
-    }
-    public ngOnInit(): void {
-        super.ngOnInit();
-    }
-    public ngDoCheck(): void {
-        super.ngDoCheck();
     }
 }

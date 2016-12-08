@@ -1,7 +1,8 @@
-import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
+import { DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 
 export abstract class PagerInputBase implements DoCheck, OnInit {
     private pagerDiffer: KeyValueDiffer;
+    @HostBinding('value')
     public innerValue: number;
     public changeTrackingKey: string;
     private checkValueChanged = (item: any): void => {
@@ -16,7 +17,7 @@ export abstract class PagerInputBase implements DoCheck, OnInit {
         this.changeTrackingKey = changeTrackingKey;
         this.pagerDiffer = differs.find([]).create(null);
     }
-
+    @HostListener('input', ['$event.target.value'])
     public setPageSize(value: any): void {
         this.innerValue = value;
         if (value === null || value === undefined || value === '') {
@@ -25,7 +26,7 @@ export abstract class PagerInputBase implements DoCheck, OnInit {
         this.value = value;
         setTimeout(() => this.innerValue = this.value, 0);
     }
-
+    @HostListener('blur')
     public restoreInputValue(): void {
         this.innerValue = this.value;
     }
