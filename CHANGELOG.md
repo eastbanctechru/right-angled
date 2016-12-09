@@ -20,7 +20,7 @@
 * paging controls: call of `loadData` on `Enter` key press deleted from `rtPageSize`, `rtPageNumber` and `rtRowCount` directives to achieve single responsibility. You can use `loadData` and `loadMore` pagers methods of in your component templates instead.
 * all: `Rt` prefixes changed to `RT` in all services names
 * status controls: All `rt-list-state-...` components renamed to `rt-status-...` since they now decoupled from `RTList` service
-* lists: `RTListюstate` property renamed to `status` to avoid collisions with state management functionality
+* lists: `RTList.state` property renamed to `status` to avoid collisions with state management functionality
 * async operations: `ProgressState` enum renamed to `OperationStatus` in `e2e4` library
 
 <a name="1.0.0-beta.1"></a>
