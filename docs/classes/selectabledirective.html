@@ -77,7 +77,7 @@
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/selectioneventsemitter.html" class="tsd-signature-type">SelectionEventsEmitter</a></li>
+					<li><a href="../interfaces/selectionelementeventsemitter.html" class="tsd-signature-type">SelectionElementEventsEmitter</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -93,13 +93,22 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="selectabledirective.html#el" class="tsd-kind-icon">el</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="selectabledirective.html#index" class="tsd-kind-icon">index</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="selectabledirective.html#item" class="tsd-kind-icon">item</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="selectabledirective.html#itemdeselected" class="tsd-kind-icon">item<wbr>Deselected</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="selectabledirective.html#itemselected" class="tsd-kind-icon">item<wbr>Selected</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="selectabledirective.html#selected" class="tsd-kind-icon">selected</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="selectabledirective.html#renderer" class="tsd-kind-icon">renderer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="selectabledirective.html#selectedchange" class="tsd-kind-icon">selected<wbr>Change</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="selectabledirective.html#selectedinternal" class="tsd-kind-icon">selected<wbr>Internal</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="selectabledirective.html#selectionchanged" class="tsd-kind-icon">selection<wbr>Changed</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="selectabledirective.html#selectioneventshelper" class="tsd-kind-icon">selection<wbr>Events<wbr>Helper</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="selectabledirective.html#selected" class="tsd-kind-icon">selected</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -107,6 +116,13 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="selectabledirective.html#clearwindowselection" class="tsd-kind-icon">clear<wbr>Window<wbr>Selection</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="selectabledirective.html#mouseuphandler" class="tsd-kind-icon">mouse<wbr>UpHandler</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="selectabledirective.html#postprocessselection" class="tsd-kind-icon">post<wbr>Process<wbr>Selection</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-static"><a href="selectabledirective.html#settings" class="tsd-kind-icon">settings</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,19 +134,25 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Selectable<wbr>Directive<span class="tsd-signature-symbol">(</span>selectionEventsHelper<span class="tsd-signature-symbol">: </span><a href="rtselectioneventshelper.html" class="tsd-signature-type">RtSelectionEventsHelper</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="selectabledirective.html" class="tsd-signature-type">SelectableDirective</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Selectable<wbr>Directive<span class="tsd-signature-symbol">(</span>selectionEventsHelper<span class="tsd-signature-symbol">: </span><a href="rtselectioneventshelper.html" class="tsd-signature-type">RTSelectionEventsHelper</a>, renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Renderer</span>, el<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="selectabledirective.html" class="tsd-signature-type">SelectableDirective</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L17">selection-directives/selectable.directive.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L24">selection-directives/selectable.directive.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>selectionEventsHelper: <a href="rtselectioneventshelper.html" class="tsd-signature-type">RtSelectionEventsHelper</a></h5>
+									<h5>selectionEventsHelper: <a href="rtselectioneventshelper.html" class="tsd-signature-type">RTSelectionEventsHelper</a></h5>
+								</li>
+								<li>
+									<h5>renderer: <span class="tsd-signature-type">Renderer</span></h5>
+								</li>
+								<li>
+									<h5>el: <span class="tsd-signature-type">ElementRef</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="selectabledirective.html" class="tsd-signature-type">SelectableDirective</a></h4>
@@ -140,13 +162,23 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="el" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> el</h3>
+					<div class="tsd-signature tsd-kind-icon">el<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ElementRef</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L25">selection-directives/selectable.directive.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="index" class="tsd-anchor"></a>
 					<h3>index</h3>
 					<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L12">selection-directives/selectable.directive.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L18">selection-directives/selectable.directive.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -156,62 +188,117 @@
 					<div class="tsd-signature tsd-kind-icon">item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L14">selection-directives/selectable.directive.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L20">selection-directives/selectable.directive.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="itemdeselected" class="tsd-anchor"></a>
 					<h3>item<wbr>Deselected</h3>
-					<div class="tsd-signature tsd-kind-icon">item<wbr>Deselected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rtselectionevent.html" class="tsd-signature-type">RtSelectionEvent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter&lt;RtSelectionEvent&gt;()</span></div>
+					<div class="tsd-signature tsd-kind-icon">item<wbr>Deselected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rtselectionevent.html" class="tsd-signature-type">RTSelectionEvent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter&lt;RTSelectionEvent&gt;()</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/selectioneventsemitter.html">SelectionEventsEmitter</a>.<a href="../interfaces/selectioneventsemitter.html#itemdeselected">itemDeselected</a></p>
+						<p>Implementation of <a href="../interfaces/selectionelementeventsemitter.html">SelectionElementEventsEmitter</a>.<a href="../interfaces/selectionelementeventsemitter.html#itemdeselected">itemDeselected</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L16">selection-directives/selectable.directive.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L23">selection-directives/selectable.directive.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="itemselected" class="tsd-anchor"></a>
 					<h3>item<wbr>Selected</h3>
-					<div class="tsd-signature tsd-kind-icon">item<wbr>Selected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rtselectionevent.html" class="tsd-signature-type">RtSelectionEvent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter&lt;RtSelectionEvent&gt;()</span></div>
+					<div class="tsd-signature tsd-kind-icon">item<wbr>Selected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rtselectionevent.html" class="tsd-signature-type">RTSelectionEvent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter&lt;RTSelectionEvent&gt;()</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/selectioneventsemitter.html">SelectionEventsEmitter</a>.<a href="../interfaces/selectioneventsemitter.html#itemselected">itemSelected</a></p>
+						<p>Implementation of <a href="../interfaces/selectionelementeventsemitter.html">SelectionElementEventsEmitter</a>.<a href="../interfaces/selectionelementeventsemitter.html#itemselected">itemSelected</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L15">selection-directives/selectable.directive.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L22">selection-directives/selectable.directive.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="renderer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> renderer</h3>
+					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Renderer</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L25">selection-directives/selectable.directive.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="selected" class="tsd-anchor"></a>
-					<h3>selected</h3>
-					<div class="tsd-signature tsd-kind-icon">selected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<a name="selectedchange" class="tsd-anchor"></a>
+					<h3>selected<wbr>Change</h3>
+					<div class="tsd-signature tsd-kind-icon">selected<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter&lt;boolean&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L11">selection-directives/selectable.directive.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L21">selection-directives/selectable.directive.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="selectedinternal" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> selected<wbr>Internal</h3>
+					<div class="tsd-signature tsd-kind-icon">selected<wbr>Internal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L17">selection-directives/selectable.directive.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="selectionchanged" class="tsd-anchor"></a>
 					<h3>selection<wbr>Changed</h3>
-					<div class="tsd-signature tsd-kind-icon">selection<wbr>Changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rtselectionevent.html" class="tsd-signature-type">RtSelectionEvent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter&lt;RtSelectionEvent&gt;()</span></div>
+					<div class="tsd-signature tsd-kind-icon">selection<wbr>Changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rtselectionevent.html" class="tsd-signature-type">RTSelectionEvent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter&lt;RTSelectionEvent&gt;()</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/selectioneventsemitter.html">SelectionEventsEmitter</a>.<a href="../interfaces/selectioneventsemitter.html#selectionchanged">selectionChanged</a></p>
+						<p>Implementation of <a href="../interfaces/selectionelementeventsemitter.html">SelectionElementEventsEmitter</a>.<a href="../interfaces/selectionelementeventsemitter.html#selectionchanged">selectionChanged</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L17">selection-directives/selectable.directive.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L24">selection-directives/selectable.directive.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="selectioneventshelper" class="tsd-anchor"></a>
 					<h3>selection<wbr>Events<wbr>Helper</h3>
-					<div class="tsd-signature tsd-kind-icon">selection<wbr>Events<wbr>Helper<span class="tsd-signature-symbol">:</span> <a href="rtselectioneventshelper.html" class="tsd-signature-type">RtSelectionEventsHelper</a></div>
+					<div class="tsd-signature tsd-kind-icon">selection<wbr>Events<wbr>Helper<span class="tsd-signature-symbol">:</span> <a href="rtselectioneventshelper.html" class="tsd-signature-type">RTSelectionEventsHelper</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L18">selection-directives/selectable.directive.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L25">selection-directives/selectable.directive.ts:25</a></li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="selected" class="tsd-anchor"></a>
+					<h3>selected</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> selected<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> selected<span class="tsd-signature-symbol">(</span>selected<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L28">selection-directives/selectable.directive.ts:28</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L31">selection-directives/selectable.directive.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>selected: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -226,7 +313,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L33">selection-directives/selectable.directive.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L64">selection-directives/selectable.directive.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -243,7 +330,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/selection-directives/selectable.directive.ts#L21">selection-directives/selectable.directive.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L43">selection-directives/selectable.directive.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -271,6 +358,53 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="postprocessselection" class="tsd-anchor"></a>
+					<h3>post<wbr>Process<wbr>Selection</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">post<wbr>Process<wbr>Selection<span class="tsd-signature-symbol">(</span>selected<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/selectionelementeventsemitter.html">SelectionElementEventsEmitter</a>.<a href="../interfaces/selectionelementeventsemitter.html#postprocessselection">postProcessSelection</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L54">selection-directives/selectable.directive.ts:54</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>selected: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class tsd-is-static">
+					<a name="settings" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> settings</h3>
+					<div class="tsd-signature tsd-kind-icon">settings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L11">selection-directives/selectable.directive.ts:11</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="settings.selectedclassname" class="tsd-anchor"></a>
+						<h3>selected<wbr>Class<wbr>Name</h3>
+						<div class="tsd-signature tsd-kind-icon">selected<wbr>Class<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;rt-selected&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/selection-directives/selectable.directive.ts#L15">selection-directives/selectable.directive.ts:15</a></li>
+							</ul>
+						</aside>
+					</section>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -284,9 +418,6 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="asyncsubscriber.html" class="tsd-kind-icon">Async<wbr>Subscriber</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="bufferedpagercomponent.html" class="tsd-kind-icon">Buffered<wbr>Pager<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -297,30 +428,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="listdirective.html" class="tsd-kind-icon">List<wbr>Directive</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatecomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatedonecomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Done<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatefailedcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Failed<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststateinprogresscomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>InProgress<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststateinitialcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Initial<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatenodatacomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>NoData<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststaterequestcancelledcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Request<wbr>Cancelled<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="observablesubscriptionfactory.html" class="tsd-kind-icon">Observable<wbr>Subscription<wbr>Factory</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="pagenumberdirective.html" class="tsd-kind-icon">Page<wbr>Number<wbr>Directive</a>
@@ -337,8 +444,32 @@
 					<li class=" tsd-kind-class">
 						<a href="preventdefaultsdirective.html" class="tsd-kind-icon">Prevent<wbr>Defaults<wbr>Directive</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="promisesubscriptionfactory.html" class="tsd-kind-icon">Promise<wbr>Subscription<wbr>Factory</a>
+					<li class=" tsd-kind-class">
+						<a href="rtbufferedpager.html" class="tsd-kind-icon">RTBuffered<wbr>Pager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtfiltersservice.html" class="tsd-kind-icon">RTFilters<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtlist.html" class="tsd-kind-icon">RTList</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtoperationstatus.html" class="tsd-kind-icon">RTOperation<wbr>Status</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtpagedpager.html" class="tsd-kind-icon">RTPaged<wbr>Pager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtselectioneventshelper.html" class="tsd-kind-icon">RTSelection<wbr>Events<wbr>Helper</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtselectionservice.html" class="tsd-kind-icon">RTSelection<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtsortingsservice.html" class="tsd-kind-icon">RTSortings<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtstateservice.html" class="tsd-kind-icon">RTState<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="registerasfilterdirective.html" class="tsd-kind-icon">Register<wbr>AsFilter<wbr>Directive</a>
@@ -350,30 +481,6 @@
 						<a href="rownumberpipe.html" class="tsd-kind-icon">Row<wbr>Number<wbr>Pipe</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="rtbufferedpager.html" class="tsd-kind-icon">Rt<wbr>Buffered<wbr>Pager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtfiltersservice.html" class="tsd-kind-icon">Rt<wbr>Filters<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtlist.html" class="tsd-kind-icon">Rt<wbr>List</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtpagedpager.html" class="tsd-kind-icon">Rt<wbr>Paged<wbr>Pager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtselectioneventshelper.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Events<wbr>Helper</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtselectionservice.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtsortingsservice.html" class="tsd-kind-icon">Rt<wbr>Sortings<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtstateservice.html" class="tsd-kind-icon">Rt<wbr>State<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="selectonfocusdirective.html" class="tsd-kind-icon">Select<wbr>OnFocus<wbr>Directive</a>
 					</li>
 				</ul>
@@ -383,6 +490,9 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="selectabledirective.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="selectabledirective.html#el" class="tsd-kind-icon">el</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="selectabledirective.html#index" class="tsd-kind-icon">index</a>
@@ -396,8 +506,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="selectabledirective.html#itemselected" class="tsd-kind-icon">item<wbr>Selected</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="selectabledirective.html#renderer" class="tsd-kind-icon">renderer</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="selectabledirective.html#selected" class="tsd-kind-icon">selected</a>
+								<a href="selectabledirective.html#selectedchange" class="tsd-kind-icon">selected<wbr>Change</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="selectabledirective.html#selectedinternal" class="tsd-kind-icon">selected<wbr>Internal</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="selectabledirective.html#selectionchanged" class="tsd-kind-icon">selection<wbr>Changed</a>
@@ -405,11 +521,20 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="selectabledirective.html#selectioneventshelper" class="tsd-kind-icon">selection<wbr>Events<wbr>Helper</a>
 							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="selectabledirective.html#selected" class="tsd-kind-icon">selected</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="selectabledirective.html#clearwindowselection" class="tsd-kind-icon">clear<wbr>Window<wbr>Selection</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="selectabledirective.html#mouseuphandler" class="tsd-kind-icon">mouse<wbr>UpHandler</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="selectabledirective.html#postprocessselection" class="tsd-kind-icon">post<wbr>Process<wbr>Selection</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class tsd-is-static">
+								<a href="selectabledirective.html#settings" class="tsd-kind-icon">settings</a>
 							</li>
 						</ul>
 					</li>
@@ -425,19 +550,43 @@
 						<a href="sortdirective.html" class="tsd-kind-icon">Sort<wbr>Directive</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="statuscomponentbase.html" class="tsd-kind-icon">Status<wbr>Component<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusdonecomponent.html" class="tsd-kind-icon">Status<wbr>Done<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusfailedcomponent.html" class="tsd-kind-icon">Status<wbr>Failed<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusinprogresscomponent.html" class="tsd-kind-icon">Status<wbr>InProgress<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusinitialcomponent.html" class="tsd-kind-icon">Status<wbr>Initial<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusnodatacomponent.html" class="tsd-kind-icon">Status<wbr>NoData<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusrequestcancelledcomponent.html" class="tsd-kind-icon">Status<wbr>Request<wbr>Cancelled<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="stopeventsdirective.html" class="tsd-kind-icon">Stop<wbr>Events<wbr>Directive</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/rtselectionevent.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Event</a>
+						<a href="../interfaces/rtselectionevent.html" class="tsd-kind-icon">RTSelection<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/selectionelementeventsemitter.html" class="tsd-kind-icon">Selection<wbr>Element<wbr>Events<wbr>Emitter</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/selectioneventsemitter.html" class="tsd-kind-icon">Selection<wbr>Events<wbr>Emitter</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="../interfaces/subscriptionfactory.html" class="tsd-kind-icon">Subscription<wbr>Factory</a>
-					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../index.html#list_providers" class="tsd-kind-icon">LIST_<wbr>PROVIDERS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../index.html#rtfiltertarget" class="tsd-kind-icon">RTFilter<wbr>Target</a>
 					</li>
 				</ul>
 			</nav>

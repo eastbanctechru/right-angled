@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SubscriptionFactory | right-angled</title>
+	<title>SelectionElementEventsEmitter | right-angled</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="subscriptionfactory.html">SubscriptionFactory</a>
+					<a href="selectionelementeventsemitter.html">SelectionElementEventsEmitter</a>
 				</li>
 			</ul>
-			<h1>Interface SubscriptionFactory</h1>
+			<h1>Interface SelectionElementEventsEmitter</h1>
 		</div>
 	</div>
 </header>
@@ -70,103 +70,109 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">SubscriptionFactory</span>
+						<a href="selectioneventsemitter.html" class="tsd-signature-type">SelectionEventsEmitter</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">SelectionElementEventsEmitter</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/observablesubscriptionfactory.html" class="tsd-signature-type">ObservableSubscriptionFactory</a></li>
-					<li><a href="../classes/promisesubscriptionfactory.html" class="tsd-signature-type">PromiseSubscriptionFactory</a></li>
+					<li><a href="../classes/selectabledirective.html" class="tsd-signature-type">SelectableDirective</a></li>
+					<li><a href="../classes/selectioncheckboxfordirective.html" class="tsd-signature-type">SelectionCheckboxForDirective</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="selectionelementeventsemitter.html#itemdeselected" class="tsd-kind-icon">item<wbr>Deselected</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="selectionelementeventsemitter.html#itemselected" class="tsd-kind-icon">item<wbr>Selected</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="selectionelementeventsemitter.html#selected" class="tsd-kind-icon">selected</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="selectionelementeventsemitter.html#selectionchanged" class="tsd-kind-icon">selection<wbr>Changed</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="subscriptionfactory.html#attach" class="tsd-kind-icon">attach</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="subscriptionfactory.html#destroy" class="tsd-kind-icon">destroy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="subscriptionfactory.html#detach" class="tsd-kind-icon">detach</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="selectionelementeventsemitter.html#postprocessselection" class="tsd-kind-icon">post<wbr>Process<wbr>Selection</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="itemdeselected" class="tsd-anchor"></a>
+					<h3>item<wbr>Deselected</h3>
+					<div class="tsd-signature tsd-kind-icon">item<wbr>Deselected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><a href="rtselectionevent.html" class="tsd-signature-type">RTSelectionEvent</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="selectioneventsemitter.html">SelectionEventsEmitter</a>.<a href="selectioneventsemitter.html#itemdeselected">itemDeselected</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-events-emitter.ts#L7">core/selection/selection-events-emitter.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="itemselected" class="tsd-anchor"></a>
+					<h3>item<wbr>Selected</h3>
+					<div class="tsd-signature tsd-kind-icon">item<wbr>Selected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><a href="rtselectionevent.html" class="tsd-signature-type">RTSelectionEvent</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="selectioneventsemitter.html">SelectionEventsEmitter</a>.<a href="selectioneventsemitter.html#itemselected">itemSelected</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-events-emitter.ts#L6">core/selection/selection-events-emitter.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="selected" class="tsd-anchor"></a>
+					<h3>selected</h3>
+					<div class="tsd-signature tsd-kind-icon">selected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-element-events-emitter.ts#L3">core/selection/selection-element-events-emitter.ts:3</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="selectionchanged" class="tsd-anchor"></a>
+					<h3>selection<wbr>Changed</h3>
+					<div class="tsd-signature tsd-kind-icon">selection<wbr>Changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><a href="rtselectionevent.html" class="tsd-signature-type">RTSelectionEvent</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="selectioneventsemitter.html">SelectionEventsEmitter</a>.<a href="selectioneventsemitter.html#selectionchanged">selectionChanged</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-events-emitter.ts#L8">core/selection/selection-events-emitter.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="attach" class="tsd-anchor"></a>
-					<h3>attach</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">attach<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, completeAction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, errorAction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="postprocessselection" class="tsd-anchor"></a>
+					<h3>post<wbr>Process<wbr>Selection</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">post<wbr>Process<wbr>Selection<span class="tsd-signature-symbol">(</span>selected<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/async-subscriber.ts#L5">core/async-subscriber.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-element-events-emitter.ts#L4">core/selection/selection-element-events-emitter.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>target: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>completeAction: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>errorAction: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="destroy" class="tsd-anchor"></a>
-					<h3>destroy</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span>subscription<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/async-subscriber.ts#L6">core/async-subscriber.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>subscription: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="detach" class="tsd-anchor"></a>
-					<h3>detach</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">detach<span class="tsd-signature-symbol">(</span>subscription<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/async-subscriber.ts#L7">core/async-subscriber.ts:7</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>subscription: <span class="tsd-signature-type">any</span></h5>
+									<h5>selected: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -186,9 +192,6 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="../classes/asyncsubscriber.html" class="tsd-kind-icon">Async<wbr>Subscriber</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="../classes/bufferedpagercomponent.html" class="tsd-kind-icon">Buffered<wbr>Pager<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -199,30 +202,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/listdirective.html" class="tsd-kind-icon">List<wbr>Directive</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/liststatecomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/liststatedonecomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Done<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/liststatefailedcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Failed<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/liststateinprogresscomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>InProgress<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/liststateinitialcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Initial<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/liststatenodatacomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>NoData<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/liststaterequestcancelledcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Request<wbr>Cancelled<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="../classes/observablesubscriptionfactory.html" class="tsd-kind-icon">Observable<wbr>Subscription<wbr>Factory</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/pagenumberdirective.html" class="tsd-kind-icon">Page<wbr>Number<wbr>Directive</a>
@@ -239,8 +218,32 @@
 					<li class=" tsd-kind-class">
 						<a href="../classes/preventdefaultsdirective.html" class="tsd-kind-icon">Prevent<wbr>Defaults<wbr>Directive</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="../classes/promisesubscriptionfactory.html" class="tsd-kind-icon">Promise<wbr>Subscription<wbr>Factory</a>
+					<li class=" tsd-kind-class">
+						<a href="../classes/rtbufferedpager.html" class="tsd-kind-icon">RTBuffered<wbr>Pager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/rtfiltersservice.html" class="tsd-kind-icon">RTFilters<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/rtlist.html" class="tsd-kind-icon">RTList</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/rtoperationstatus.html" class="tsd-kind-icon">RTOperation<wbr>Status</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/rtpagedpager.html" class="tsd-kind-icon">RTPaged<wbr>Pager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/rtselectioneventshelper.html" class="tsd-kind-icon">RTSelection<wbr>Events<wbr>Helper</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/rtselectionservice.html" class="tsd-kind-icon">RTSelection<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/rtsortingsservice.html" class="tsd-kind-icon">RTSortings<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/rtstateservice.html" class="tsd-kind-icon">RTState<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/registerasfilterdirective.html" class="tsd-kind-icon">Register<wbr>AsFilter<wbr>Directive</a>
@@ -250,30 +253,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/rownumberpipe.html" class="tsd-kind-icon">Row<wbr>Number<wbr>Pipe</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/rtbufferedpager.html" class="tsd-kind-icon">Rt<wbr>Buffered<wbr>Pager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/rtfiltersservice.html" class="tsd-kind-icon">Rt<wbr>Filters<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/rtlist.html" class="tsd-kind-icon">Rt<wbr>List</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/rtpagedpager.html" class="tsd-kind-icon">Rt<wbr>Paged<wbr>Pager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/rtselectioneventshelper.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Events<wbr>Helper</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/rtselectionservice.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/rtsortingsservice.html" class="tsd-kind-icon">Rt<wbr>Sortings<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/rtstateservice.html" class="tsd-kind-icon">Rt<wbr>State<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/selectonfocusdirective.html" class="tsd-kind-icon">Select<wbr>OnFocus<wbr>Directive</a>
@@ -291,34 +270,64 @@
 						<a href="../classes/sortdirective.html" class="tsd-kind-icon">Sort<wbr>Directive</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="../classes/statuscomponentbase.html" class="tsd-kind-icon">Status<wbr>Component<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/statusdonecomponent.html" class="tsd-kind-icon">Status<wbr>Done<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/statusfailedcomponent.html" class="tsd-kind-icon">Status<wbr>Failed<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/statusinprogresscomponent.html" class="tsd-kind-icon">Status<wbr>InProgress<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/statusinitialcomponent.html" class="tsd-kind-icon">Status<wbr>Initial<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/statusnodatacomponent.html" class="tsd-kind-icon">Status<wbr>NoData<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/statusrequestcancelledcomponent.html" class="tsd-kind-icon">Status<wbr>Request<wbr>Cancelled<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="../classes/stopeventsdirective.html" class="tsd-kind-icon">Stop<wbr>Events<wbr>Directive</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="rtselectionevent.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="selectioneventsemitter.html" class="tsd-kind-icon">Selection<wbr>Events<wbr>Emitter</a>
+						<a href="rtselectionevent.html" class="tsd-kind-icon">RTSelection<wbr>Event</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-is-not-exported">
-						<a href="subscriptionfactory.html" class="tsd-kind-icon">Subscription<wbr>Factory</a>
+					<li class="current tsd-kind-interface">
+						<a href="selectionelementeventsemitter.html" class="tsd-kind-icon">Selection<wbr>Element<wbr>Events<wbr>Emitter</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="subscriptionfactory.html#attach" class="tsd-kind-icon">attach</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="selectionelementeventsemitter.html#itemdeselected" class="tsd-kind-icon">item<wbr>Deselected</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="subscriptionfactory.html#destroy" class="tsd-kind-icon">destroy</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="selectionelementeventsemitter.html#itemselected" class="tsd-kind-icon">item<wbr>Selected</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="subscriptionfactory.html#detach" class="tsd-kind-icon">detach</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="selectionelementeventsemitter.html#selected" class="tsd-kind-icon">selected</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="selectionelementeventsemitter.html#selectionchanged" class="tsd-kind-icon">selection<wbr>Changed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="selectionelementeventsemitter.html#postprocessselection" class="tsd-kind-icon">post<wbr>Process<wbr>Selection</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="selectioneventsemitter.html" class="tsd-kind-icon">Selection<wbr>Events<wbr>Emitter</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../index.html#list_providers" class="tsd-kind-icon">LIST_<wbr>PROVIDERS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../index.html#rtfiltertarget" class="tsd-kind-icon">RTFilter<wbr>Target</a>
 					</li>
 				</ul>
 			</nav>

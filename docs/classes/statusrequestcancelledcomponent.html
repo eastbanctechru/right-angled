@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ListStateDoneComponent | right-angled</title>
+	<title>StatusRequestCancelledComponent | right-angled</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="liststatedonecomponent.html">ListStateDoneComponent</a>
+					<a href="statusrequestcancelledcomponent.html">StatusRequestCancelledComponent</a>
 				</li>
 			</ul>
-			<h1>Class ListStateDoneComponent</h1>
+			<h1>Class StatusRequestCancelledComponent</h1>
 		</div>
 	</div>
 </header>
@@ -70,10 +70,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="liststatecomponent.html" class="tsd-signature-type">ListStateComponent</a>
+						<a href="statuscomponentbase.html" class="tsd-signature-type">StatusComponentBase</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ListStateDoneComponent</span>
+								<span class="target">StatusRequestCancelledComponent</span>
 							</li>
 						</ul>
 					</li>
@@ -82,8 +82,6 @@
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><span class="tsd-signature-type">DoCheck</span></li>
-					<li><span class="tsd-signature-type">OnInit</span></li>
 					<li><span class="tsd-signature-type">DoCheck</span></li>
 					<li><span class="tsd-signature-type">OnInit</span></li>
 				</ul>
@@ -95,22 +93,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="liststatedonecomponent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="statusrequestcancelledcomponent.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="liststatedonecomponent.html#isvisible" class="tsd-kind-icon">is<wbr>Visible</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="liststatedonecomponent.html#listservice" class="tsd-kind-icon">list<wbr>Service</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="statusrequestcancelledcomponent.html#isvisible" class="tsd-kind-icon">is<wbr>Visible</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="statusrequestcancelledcomponent.html#trackedstatusobject" class="tsd-kind-icon">tracked<wbr>Status<wbr>Object</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="liststatedonecomponent.html#ngdocheck" class="tsd-kind-icon">ng<wbr>DoCheck</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="liststatedonecomponent.html#ngoninit" class="tsd-kind-icon">ng<wbr>OnInit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="liststatedonecomponent.html#setvisibility" class="tsd-kind-icon">set<wbr>Visibility</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="statusrequestcancelledcomponent.html#ngdocheck" class="tsd-kind-icon">ng<wbr>DoCheck</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="statusrequestcancelledcomponent.html#ngoninit" class="tsd-kind-icon">ng<wbr>OnInit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="statusrequestcancelledcomponent.html#setvisibility" class="tsd-kind-icon">set<wbr>Visibility</a></li>
 							</ul>
 						</section>
 					</div>
@@ -122,26 +120,26 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>List<wbr>State<wbr>Done<wbr>Component<span class="tsd-signature-symbol">(</span>listService<span class="tsd-signature-symbol">: </span><a href="rtlist.html" class="tsd-signature-type">RtList</a>, differs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyValueDiffers</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="liststatedonecomponent.html" class="tsd-signature-type">ListStateDoneComponent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Status<wbr>Request<wbr>Cancelled<wbr>Component<span class="tsd-signature-symbol">(</span>trackedStatusObject<span class="tsd-signature-symbol">: </span><a href="rtoperationstatus.html" class="tsd-signature-type">RTOperationStatus</a>, differs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyValueDiffers</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="statusrequestcancelledcomponent.html" class="tsd-signature-type">StatusRequestCancelledComponent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="liststatecomponent.html">ListStateComponent</a>.<a href="liststatecomponent.html#constructor">constructor</a></p>
+								<p>Overrides <a href="statuscomponentbase.html">StatusComponentBase</a>.<a href="statuscomponentbase.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/list-state-components/list-state-done.component.ts#L11">list-state-components/list-state-done.component.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/status-components/status-request-cancelled.component.ts#L11">status-components/status-request-cancelled.component.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>listService: <a href="rtlist.html" class="tsd-signature-type">RtList</a></h5>
+									<h5>trackedStatusObject: <a href="rtoperationstatus.html" class="tsd-signature-type">RTOperationStatus</a></h5>
 								</li>
 								<li>
 									<h5>differs: <span class="tsd-signature-type">KeyValueDiffers</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="liststatedonecomponent.html" class="tsd-signature-type">ListStateDoneComponent</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="statusrequestcancelledcomponent.html" class="tsd-signature-type">StatusRequestCancelledComponent</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -153,56 +151,56 @@
 					<h3>is<wbr>Visible</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Visible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="liststatecomponent.html">ListStateComponent</a>.<a href="liststatecomponent.html#isvisible">isVisible</a></p>
+						<p>Inherited from <a href="statuscomponentbase.html">StatusComponentBase</a>.<a href="statuscomponentbase.html#isvisible">isVisible</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/list-state-components/list-state-component.ts#L9">list-state-components/list-state-component.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/status-components/status-component-base.ts#L9">status-components/status-component-base.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="listservice" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> list<wbr>Service</h3>
-					<div class="tsd-signature tsd-kind-icon">list<wbr>Service<span class="tsd-signature-symbol">:</span> <a href="rtlist.html" class="tsd-signature-type">RtList</a></div>
+					<a name="trackedstatusobject" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> tracked<wbr>Status<wbr>Object</h3>
+					<div class="tsd-signature tsd-kind-icon">tracked<wbr>Status<wbr>Object<span class="tsd-signature-symbol">:</span> <a href="rtoperationstatus.html" class="tsd-signature-type">RTOperationStatus</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="liststatecomponent.html">ListStateComponent</a>.<a href="liststatecomponent.html#listservice">listService</a></p>
+						<p>Inherited from <a href="statuscomponentbase.html">StatusComponentBase</a>.<a href="statuscomponentbase.html#trackedstatusobject">trackedStatusObject</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/list-state-components/list-state-component.ts#L10">list-state-components/list-state-component.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/status-components/status-component-base.ts#L10">status-components/status-component-base.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="ngdocheck" class="tsd-anchor"></a>
 					<h3>ng<wbr>DoCheck</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">ng<wbr>DoCheck<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="liststatecomponent.html">ListStateComponent</a>.<a href="liststatecomponent.html#ngdocheck">ngDoCheck</a></p>
+								<p>Inherited from <a href="statuscomponentbase.html">StatusComponentBase</a>.<a href="statuscomponentbase.html#ngdocheck">ngDoCheck</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/list-state-components/list-state-done.component.ts#L18">list-state-components/list-state-done.component.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/status-components/status-component-base.ts#L17">status-components/status-component-base.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="ngoninit" class="tsd-anchor"></a>
 					<h3>ng<wbr>OnInit</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">ng<wbr>OnInit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="liststatecomponent.html">ListStateComponent</a>.<a href="liststatecomponent.html#ngoninit">ngOnInit</a></p>
+								<p>Inherited from <a href="statuscomponentbase.html">StatusComponentBase</a>.<a href="statuscomponentbase.html#ngoninit">ngOnInit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/list-state-components/list-state-done.component.ts#L15">list-state-components/list-state-done.component.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/status-components/status-component-base.ts#L14">status-components/status-component-base.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -218,9 +216,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="liststatecomponent.html">ListStateComponent</a>.<a href="liststatecomponent.html#setvisibility">setVisibility</a></p>
+								<p>Inherited from <a href="statuscomponentbase.html">StatusComponentBase</a>.<a href="statuscomponentbase.html#setvisibility">setVisibility</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/list-state-components/list-state-component.ts#L28">list-state-components/list-state-component.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/status-components/status-component-base.ts#L28">status-components/status-component-base.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -240,9 +238,6 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="asyncsubscriber.html" class="tsd-kind-icon">Async<wbr>Subscriber</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="bufferedpagercomponent.html" class="tsd-kind-icon">Buffered<wbr>Pager<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -253,54 +248,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="listdirective.html" class="tsd-kind-icon">List<wbr>Directive</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatecomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Component</a>
-					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="liststatedonecomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Done<wbr>Component</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="liststatedonecomponent.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="liststatedonecomponent.html#isvisible" class="tsd-kind-icon">is<wbr>Visible</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="liststatedonecomponent.html#listservice" class="tsd-kind-icon">list<wbr>Service</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="liststatedonecomponent.html#ngdocheck" class="tsd-kind-icon">ng<wbr>DoCheck</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="liststatedonecomponent.html#ngoninit" class="tsd-kind-icon">ng<wbr>OnInit</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="liststatedonecomponent.html#setvisibility" class="tsd-kind-icon">set<wbr>Visibility</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="liststatefailedcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Failed<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststateinprogresscomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>InProgress<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststateinitialcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Initial<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatenodatacomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>NoData<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststaterequestcancelledcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Request<wbr>Cancelled<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="observablesubscriptionfactory.html" class="tsd-kind-icon">Observable<wbr>Subscription<wbr>Factory</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="pagenumberdirective.html" class="tsd-kind-icon">Page<wbr>Number<wbr>Directive</a>
@@ -317,8 +264,32 @@
 					<li class=" tsd-kind-class">
 						<a href="preventdefaultsdirective.html" class="tsd-kind-icon">Prevent<wbr>Defaults<wbr>Directive</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="promisesubscriptionfactory.html" class="tsd-kind-icon">Promise<wbr>Subscription<wbr>Factory</a>
+					<li class=" tsd-kind-class">
+						<a href="rtbufferedpager.html" class="tsd-kind-icon">RTBuffered<wbr>Pager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtfiltersservice.html" class="tsd-kind-icon">RTFilters<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtlist.html" class="tsd-kind-icon">RTList</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtoperationstatus.html" class="tsd-kind-icon">RTOperation<wbr>Status</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtpagedpager.html" class="tsd-kind-icon">RTPaged<wbr>Pager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtselectioneventshelper.html" class="tsd-kind-icon">RTSelection<wbr>Events<wbr>Helper</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtselectionservice.html" class="tsd-kind-icon">RTSelection<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtsortingsservice.html" class="tsd-kind-icon">RTSortings<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rtstateservice.html" class="tsd-kind-icon">RTState<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="registerasfilterdirective.html" class="tsd-kind-icon">Register<wbr>AsFilter<wbr>Directive</a>
@@ -328,30 +299,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="rownumberpipe.html" class="tsd-kind-icon">Row<wbr>Number<wbr>Pipe</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtbufferedpager.html" class="tsd-kind-icon">Rt<wbr>Buffered<wbr>Pager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtfiltersservice.html" class="tsd-kind-icon">Rt<wbr>Filters<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtlist.html" class="tsd-kind-icon">Rt<wbr>List</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtpagedpager.html" class="tsd-kind-icon">Rt<wbr>Paged<wbr>Pager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtselectioneventshelper.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Events<wbr>Helper</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtselectionservice.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtsortingsservice.html" class="tsd-kind-icon">Rt<wbr>Sortings<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtstateservice.html" class="tsd-kind-icon">Rt<wbr>State<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="selectonfocusdirective.html" class="tsd-kind-icon">Select<wbr>OnFocus<wbr>Directive</a>
@@ -369,19 +316,67 @@
 						<a href="sortdirective.html" class="tsd-kind-icon">Sort<wbr>Directive</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="statuscomponentbase.html" class="tsd-kind-icon">Status<wbr>Component<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusdonecomponent.html" class="tsd-kind-icon">Status<wbr>Done<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusfailedcomponent.html" class="tsd-kind-icon">Status<wbr>Failed<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusinprogresscomponent.html" class="tsd-kind-icon">Status<wbr>InProgress<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusinitialcomponent.html" class="tsd-kind-icon">Status<wbr>Initial<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusnodatacomponent.html" class="tsd-kind-icon">Status<wbr>NoData<wbr>Component</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="statusrequestcancelledcomponent.html" class="tsd-kind-icon">Status<wbr>Request<wbr>Cancelled<wbr>Component</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+								<a href="statusrequestcancelledcomponent.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="statusrequestcancelledcomponent.html#isvisible" class="tsd-kind-icon">is<wbr>Visible</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="statusrequestcancelledcomponent.html#trackedstatusobject" class="tsd-kind-icon">tracked<wbr>Status<wbr>Object</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="statusrequestcancelledcomponent.html#ngdocheck" class="tsd-kind-icon">ng<wbr>DoCheck</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="statusrequestcancelledcomponent.html#ngoninit" class="tsd-kind-icon">ng<wbr>OnInit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="statusrequestcancelledcomponent.html#setvisibility" class="tsd-kind-icon">set<wbr>Visibility</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class">
 						<a href="stopeventsdirective.html" class="tsd-kind-icon">Stop<wbr>Events<wbr>Directive</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/rtselectionevent.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Event</a>
+						<a href="../interfaces/rtselectionevent.html" class="tsd-kind-icon">RTSelection<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/selectionelementeventsemitter.html" class="tsd-kind-icon">Selection<wbr>Element<wbr>Events<wbr>Emitter</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/selectioneventsemitter.html" class="tsd-kind-icon">Selection<wbr>Events<wbr>Emitter</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="../interfaces/subscriptionfactory.html" class="tsd-kind-icon">Subscription<wbr>Factory</a>
-					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../index.html#list_providers" class="tsd-kind-icon">LIST_<wbr>PROVIDERS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../index.html#rtfiltertarget" class="tsd-kind-icon">RTFilter<wbr>Target</a>
 					</li>
 				</ul>
 			</nav>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RtSelectionService | right-angled</title>
+	<title>RTSelectionService | right-angled</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="rtselectionservice.html">RtSelectionService</a>
+					<a href="rtselectionservice.html">RTSelectionService</a>
 				</li>
 			</ul>
-			<h1>Class RtSelectionService</h1>
+			<h1>Class RTSelectionService</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 						<span class="tsd-signature-type">DefaultSelectionService</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">RtSelectionService</span>
+								<span class="target">RTSelectionService</span>
 							</li>
 						</ul>
 					</li>
@@ -142,34 +142,34 @@
 					<div class="tsd-signature tsd-kind-icon">area<wbr>Events<wbr>Emitter<span class="tsd-signature-symbol">:</span> <a href="../interfaces/selectioneventsemitter.html" class="tsd-signature-type">SelectionEventsEmitter</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/selection/selection-service.ts#L8">core/selection/selection-service.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-service.ts#L9">core/selection/selection-service.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="childselectionservices" class="tsd-anchor"></a>
 					<h3>child<wbr>Selection<wbr>Services</h3>
-					<div class="tsd-signature tsd-kind-icon">child<wbr>Selection<wbr>Services<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="rtselectionservice.html" class="tsd-signature-type">RtSelectionService</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Array&lt;RtSelectionService&gt;()</span></div>
+					<div class="tsd-signature tsd-kind-icon">child<wbr>Selection<wbr>Services<span class="tsd-signature-symbol">:</span> <a href="rtselectionservice.html" class="tsd-signature-type">RTSelectionService</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;new Array&lt;RTSelectionService&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/selection/selection-service.ts#L7">core/selection/selection-service.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-service.ts#L8">core/selection/selection-service.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="eventemitters" class="tsd-anchor"></a>
 					<h3>event<wbr>Emitters</h3>
-					<div class="tsd-signature tsd-kind-icon">event<wbr>Emitters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/selectioneventsemitter.html" class="tsd-signature-type">SelectionEventsEmitter</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Array&lt;SelectionEventsEmitter&gt;()</span></div>
+					<div class="tsd-signature tsd-kind-icon">event<wbr>Emitters<span class="tsd-signature-symbol">:</span> <a href="../interfaces/selectionelementeventsemitter.html" class="tsd-signature-type">SelectionElementEventsEmitter</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;new Array&lt;SelectionElementEventsEmitter&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/selection/selection-service.ts#L6">core/selection/selection-service.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-service.ts#L7">core/selection/selection-service.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="items" class="tsd-anchor"></a>
 					<h3>items</h3>
-					<div class="tsd-signature tsd-kind-icon">items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">SelectionItem</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">SelectionItem</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from DefaultSelectionService.items</p>
 						<ul>
@@ -178,9 +178,8 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<dl class="tsd-comment-tags">
-							<dt>see</dt>
-							<dd><p>{@link SelectionService.items}</p>
-							</dd>
+							<dt>inheritdoc</dt>
+							<dd></dd>
 						</dl>
 					</div>
 				</section>
@@ -196,16 +195,15 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<dl class="tsd-comment-tags">
-							<dt>see</dt>
-							<dd><p>{@link SelectionService.lastProcessedIndex}</p>
-							</dd>
+							<dt>inheritdoc</dt>
+							<dd></dd>
 						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="selectionslist" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> selections<wbr>List</h3>
-					<div class="tsd-signature tsd-kind-icon">selections<wbr>List<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">SelectionTuple</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">selections<wbr>List<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">SelectionTuple</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from DefaultSelectionService.selectionsList</p>
 						<ul>
@@ -230,9 +228,8 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<dl class="tsd-comment-tags">
-							<dt>see</dt>
-							<dd><p>{@link SelectionService.trackByFn}</p>
-							</dd>
+							<dt>inheritdoc</dt>
+							<dd></dd>
 						</dl>
 					</div>
 					<div class="tsd-type-declaration">
@@ -320,9 +317,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.checkSelection}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -340,7 +336,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides DefaultSelectionService.deselectAll</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/selection/selection-service.ts#L48">core/selection/selection-service.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-service.ts#L46">core/selection/selection-service.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -369,9 +365,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.deselectIndex}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -424,7 +419,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides DefaultSelectionService.destroy</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/selection/selection-service.ts#L32">core/selection/selection-service.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-service.ts#L30">core/selection/selection-service.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -441,7 +436,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/selection/selection-service.ts#L21">core/selection/selection-service.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-service.ts#L22">core/selection/selection-service.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -476,9 +471,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.getItemIndex}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -507,9 +501,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.getMaxSelectedIndex}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -532,9 +525,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.getMinSelectedIndex}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -545,7 +537,7 @@
 					<a name="getselectedelements" class="tsd-anchor"></a>
 					<h3>get<wbr>Selected<wbr>Elements</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Selected<wbr>Elements<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Selected<wbr>Elements<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -557,12 +549,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.getSelectedElements}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -570,7 +561,7 @@
 					<a name="getselectedindexes" class="tsd-anchor"></a>
 					<h3>get<wbr>Selected<wbr>Indexes</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Selected<wbr>Indexes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Selected<wbr>Indexes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -582,12 +573,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.getSelectedIndexes}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -636,9 +626,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.hasSelections}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -694,9 +683,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.isIndexSelected}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -725,9 +713,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.isRangeSelected}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -754,7 +741,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides DefaultSelectionService.processSelection</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/selection/selection-service.ts#L9">core/selection/selection-service.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-service.ts#L10">core/selection/selection-service.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -781,7 +768,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides DefaultSelectionService.selectAll</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/2f30192/src/core/selection/selection-service.ts#L37">core/selection/selection-service.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/579b86c/src/core/selection/selection-service.ts#L35">core/selection/selection-service.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -810,9 +797,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.selectFirst}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -835,9 +821,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.selectIndex}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -901,9 +886,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.selectLast}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -926,9 +910,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.selectRange}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -960,9 +943,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{@link SelectionService.toggleSelection}</p>
-									</dd>
+									<dt>inheritdoc</dt>
+									<dd></dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -991,9 +973,6 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="asyncsubscriber.html" class="tsd-kind-icon">Async<wbr>Subscriber</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="bufferedpagercomponent.html" class="tsd-kind-icon">Buffered<wbr>Pager<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -1004,30 +983,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="listdirective.html" class="tsd-kind-icon">List<wbr>Directive</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatecomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatedonecomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Done<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatefailedcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Failed<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststateinprogresscomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>InProgress<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststateinitialcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Initial<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststatenodatacomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>NoData<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="liststaterequestcancelledcomponent.html" class="tsd-kind-icon">List<wbr>State<wbr>Request<wbr>Cancelled<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="observablesubscriptionfactory.html" class="tsd-kind-icon">Observable<wbr>Subscription<wbr>Factory</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="pagenumberdirective.html" class="tsd-kind-icon">Page<wbr>Number<wbr>Directive</a>
@@ -1044,37 +999,28 @@
 					<li class=" tsd-kind-class">
 						<a href="preventdefaultsdirective.html" class="tsd-kind-icon">Prevent<wbr>Defaults<wbr>Directive</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="promisesubscriptionfactory.html" class="tsd-kind-icon">Promise<wbr>Subscription<wbr>Factory</a>
+					<li class=" tsd-kind-class">
+						<a href="rtbufferedpager.html" class="tsd-kind-icon">RTBuffered<wbr>Pager</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="registerasfilterdirective.html" class="tsd-kind-icon">Register<wbr>AsFilter<wbr>Directive</a>
+						<a href="rtfiltersservice.html" class="tsd-kind-icon">RTFilters<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="rowcountdirective.html" class="tsd-kind-icon">Row<wbr>Count<wbr>Directive</a>
+						<a href="rtlist.html" class="tsd-kind-icon">RTList</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="rownumberpipe.html" class="tsd-kind-icon">Row<wbr>Number<wbr>Pipe</a>
+						<a href="rtoperationstatus.html" class="tsd-kind-icon">RTOperation<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="rtbufferedpager.html" class="tsd-kind-icon">Rt<wbr>Buffered<wbr>Pager</a>
+						<a href="rtpagedpager.html" class="tsd-kind-icon">RTPaged<wbr>Pager</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="rtfiltersservice.html" class="tsd-kind-icon">Rt<wbr>Filters<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtlist.html" class="tsd-kind-icon">Rt<wbr>List</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtpagedpager.html" class="tsd-kind-icon">Rt<wbr>Paged<wbr>Pager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rtselectioneventshelper.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Events<wbr>Helper</a>
+						<a href="rtselectioneventshelper.html" class="tsd-kind-icon">RTSelection<wbr>Events<wbr>Helper</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="rtselectionservice.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Service</a>
+						<a href="rtselectionservice.html" class="tsd-kind-icon">RTSelection<wbr>Service</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="rtselectionservice.html#areaeventsemitter" class="tsd-kind-icon">area<wbr>Events<wbr>Emitter</a>
@@ -1177,10 +1123,19 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-class">
-						<a href="rtsortingsservice.html" class="tsd-kind-icon">Rt<wbr>Sortings<wbr>Service</a>
+						<a href="rtsortingsservice.html" class="tsd-kind-icon">RTSortings<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="rtstateservice.html" class="tsd-kind-icon">Rt<wbr>State<wbr>Service</a>
+						<a href="rtstateservice.html" class="tsd-kind-icon">RTState<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="registerasfilterdirective.html" class="tsd-kind-icon">Register<wbr>AsFilter<wbr>Directive</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rowcountdirective.html" class="tsd-kind-icon">Row<wbr>Count<wbr>Directive</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rownumberpipe.html" class="tsd-kind-icon">Row<wbr>Number<wbr>Pipe</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="selectonfocusdirective.html" class="tsd-kind-icon">Select<wbr>OnFocus<wbr>Directive</a>
@@ -1198,19 +1153,43 @@
 						<a href="sortdirective.html" class="tsd-kind-icon">Sort<wbr>Directive</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="statuscomponentbase.html" class="tsd-kind-icon">Status<wbr>Component<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusdonecomponent.html" class="tsd-kind-icon">Status<wbr>Done<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusfailedcomponent.html" class="tsd-kind-icon">Status<wbr>Failed<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusinprogresscomponent.html" class="tsd-kind-icon">Status<wbr>InProgress<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusinitialcomponent.html" class="tsd-kind-icon">Status<wbr>Initial<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusnodatacomponent.html" class="tsd-kind-icon">Status<wbr>NoData<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="statusrequestcancelledcomponent.html" class="tsd-kind-icon">Status<wbr>Request<wbr>Cancelled<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="stopeventsdirective.html" class="tsd-kind-icon">Stop<wbr>Events<wbr>Directive</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/rtselectionevent.html" class="tsd-kind-icon">Rt<wbr>Selection<wbr>Event</a>
+						<a href="../interfaces/rtselectionevent.html" class="tsd-kind-icon">RTSelection<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/selectionelementeventsemitter.html" class="tsd-kind-icon">Selection<wbr>Element<wbr>Events<wbr>Emitter</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/selectioneventsemitter.html" class="tsd-kind-icon">Selection<wbr>Events<wbr>Emitter</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="../interfaces/subscriptionfactory.html" class="tsd-kind-icon">Subscription<wbr>Factory</a>
-					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../index.html#list_providers" class="tsd-kind-icon">LIST_<wbr>PROVIDERS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../index.html#rtfiltertarget" class="tsd-kind-icon">RTFilter<wbr>Target</a>
 					</li>
 				</ul>
 			</nav>
