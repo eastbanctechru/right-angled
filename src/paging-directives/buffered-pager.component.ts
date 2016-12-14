@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { BufferedPager } from 'e2e4';
 
-import { RTBufferedPager, RTList } from '../core';
+import { RTBufferedPager, RTList } from '../core/index';
 
 @Component({
     providers: [{ provide: BufferedPager, useClass: RTBufferedPager }],

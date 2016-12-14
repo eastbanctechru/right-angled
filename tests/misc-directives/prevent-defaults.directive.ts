@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PreventDefaultsDirective } from '../../src/misc-directives';
+import { PreventDefaultsDirective } from '../../src/misc-directives/index';
 
 @Component({
     template: `<input [rtPreventDefaults]="preventOnEvents" />`

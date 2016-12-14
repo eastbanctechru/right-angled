@@ -1,6 +1,6 @@
 // tslint:disable:max-classes-per-file
-import { RTFiltersService } from '../../src/core';
-import { RegisterAsFilterDirective } from '../../src/filter-directives';
+import { RTFiltersService } from '../../src/core/index';
+import { RegisterAsFilterDirective } from '../../src/filter-directives/index';
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

@@ -1,6 +1,5 @@
-import { Directive, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
-import { SkipSelf } from '@angular/core';
-import { RTSelectionEvent, RTSelectionEventsHelper, RTSelectionService, SelectionElementEventsEmitter } from '../core';
+import { Directive, EventEmitter, HostBinding, HostListener, Input, Output, SkipSelf } from '@angular/core';
+import { RTSelectionEvent, RTSelectionEventsHelper, RTSelectionService, SelectionElementEventsEmitter } from '../core/index';
 
 @Directive({
     exportAs: 'rtSelectionCheckboxFor',

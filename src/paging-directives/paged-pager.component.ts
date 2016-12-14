@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { PagedPager } from 'e2e4';
 
-import { RTList, RTPagedPager } from '../core';
+import { RTList, RTPagedPager } from '../core/index';
 
 @Component({
     providers: [{ provide: PagedPager, useClass: RTPagedPager }],

@@ -1,5 +1,5 @@
-import { RTSelectionEventsHelper, RTSelectionService } from '../../src/core';
-import { SelectableDirective, SelectionAreaDirective } from '../../src/selection-directives';
+import { RTSelectionEventsHelper, RTSelectionService } from '../../src/core/index';
+import { SelectableDirective, SelectionAreaDirective } from '../../src/selection-directives/index';
 
 import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

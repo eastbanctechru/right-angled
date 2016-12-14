@@ -1,7 +1,7 @@
 import { AfterContentInit, ContentChildren, Directive, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnDestroy, Output, QueryList, Self, SimpleChange } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
-import { RTSelectionEvent, RTSelectionEventsHelper, RTSelectionService, SelectionEventsEmitter } from '../core';
+import { RTSelectionEvent, RTSelectionEventsHelper, RTSelectionService, SelectionEventsEmitter } from '../core/index';
 import { SelectableDirective } from './selectable.directive';
 import { SelectionCheckboxForDirective } from './selection-checkbox-for.directive';
 

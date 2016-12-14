@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
-import { SelectOnFocusDirective } from '../../src/misc-directives';
+import { SelectOnFocusDirective } from '../../src/misc-directives/index';
 
 @Component({
     template: `<input rtSelectOnFocus />`

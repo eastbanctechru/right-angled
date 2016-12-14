@@ -1,6 +1,13 @@
 // tslint:disable:max-classes-per-file
 import { RTList, RTOperationStatus } from '../../src/core/providers';
-import { StatusDoneComponent, StatusFailedComponent, StatusInitialComponent, StatusInProgressComponent, StatusNoDataComponent, StatusRequestCancelledComponent } from '../../src/status-components';
+import {
+    StatusDoneComponent,
+    StatusFailedComponent,
+    StatusInitialComponent,
+    StatusInProgressComponent,
+    StatusNoDataComponent,
+    StatusRequestCancelledComponent
+} from '../../src/status-components/index';
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

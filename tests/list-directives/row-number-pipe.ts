@@ -1,4 +1,4 @@
-import { RowNumberPipe } from '../../src/list-directives';
+import { RowNumberPipe } from '../../src/list-directives/index';
 
 describe('RowNumberPipe', () => {
     let listStub: any = {

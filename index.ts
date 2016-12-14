@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 
 export * from 'e2e4';
 
-import { FocusOnRenderDirective, PreventDefaultsDirective, SelectOnFocusDirective, StopEventsDirective } from './src/misc-directives';
+import { FocusOnRenderDirective, PreventDefaultsDirective, SelectOnFocusDirective, StopEventsDirective } from './src/misc-directives/index';
 
-import { RegisterAsFilterDirective } from './src/filter-directives';
+import { RegisterAsFilterDirective } from './src/filter-directives/index';
 
 export * from './src/core/index';
 
@@ -17,19 +17,19 @@ import {
     StatusInProgressComponent,
     StatusNoDataComponent,
     StatusRequestCancelledComponent
-} from './src/status-components';
+} from './src/status-components/index';
 
 import {
     ListDirective,
     RowNumberPipe,
     SortDirective
-} from './src/list-directives';
+} from './src/list-directives/index';
 
 import {
     SelectableDirective,
     SelectionAreaDirective,
     SelectionCheckboxForDirective
-} from './src/selection-directives';
+} from './src/selection-directives/index';
 
 import {
     BufferedPagerComponent,
@@ -37,14 +37,12 @@ import {
     PageNumberDirective,
     PageSizeDirective,
     RowCountDirective
-} from './src/paging-directives';
+} from './src/paging-directives/index';
 
-export { SortDirective } from './src/list-directives/sort.directive';
-export { ListDirective } from './src/list-directives';
-export { SelectionAreaDirective } from './src/selection-directives';
-export { SelectableDirective } from './src/selection-directives';
+export { ListDirective, SortDirective } from './src/list-directives/index';
+export { SelectableDirective, SelectionAreaDirective } from './src/selection-directives/index';
 
-import { LIST_PROVIDERS, RTStateService } from './src/core';
+import { LIST_PROVIDERS, RTStateService } from './src/core/index';
 
 @NgModule({
     declarations: [FocusOnRenderDirective, SelectOnFocusDirective, StopEventsDirective, PreventDefaultsDirective],
