@@ -95,4 +95,12 @@ describe('rtPageSize directive', () => {
             done();
         }, 0);
     });
+
+    it('gets and sets PagedPager.pageSize via "value" property', () => {
+        pagerComponent.pager.totalCount = 100;
+        pagerComponent.pager.pageSize = 3;
+        expect(pageSizeDirective.value).toEqual(3);
+        pageSizeDirective.value = 1;
+        expect(pagerComponent.pager.pageSize).toEqual(1);
+    });
 });

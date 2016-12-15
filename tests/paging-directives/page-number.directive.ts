@@ -87,4 +87,12 @@ describe('rtPageNumber directive', () => {
             done();
         }, 0);
     });
+
+    it('gets and sets PagedPager.pageNumber via "value" property', () => {
+        pagerComponent.pager.totalCount = 100;
+        pagerComponent.pager.pageNumber = 3;
+        expect(pageNumberDirective.value).toEqual(3);
+        pageNumberDirective.value = 1;
+        expect(pagerComponent.pager.pageNumber).toEqual(1);
+    });
 });

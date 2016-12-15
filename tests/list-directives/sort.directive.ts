@@ -25,6 +25,10 @@ describe('rtSort directive', () => {
     let listStub: ListStub = new ListStub();
 
     beforeEach(() => {
+        SortDirective.settings.sortableClassName = 'rt-sortable';
+        SortDirective.settings.sortAscClassName = 'rt-sort-asc';
+        SortDirective.settings.sortDescClassName = 'rt-sort-desc';
+
         sortingsService = new RTSortingsService();
         TestBed.configureTestingModule({
             declarations: [
@@ -91,6 +95,41 @@ describe('rtSort directive', () => {
         sortingsService.setSort('field', false);
         fixture.detectChanges();
         expect(fixture.nativeElement.querySelector('div').classList).toContain(customDescClassName);
+    });
+
+    it('Doesn\'t touch element classes if \'sortableClassName\' has falsy value', () => {
+        SortDirective.settings.sortableClassName = '';
+        let fixture = TestBed.createComponent(HostComponent);
+        fixture.detectChanges();
+        expect(fixture.nativeElement.querySelector('div').classList.value).toEqual('');
+    });
+
+    it('Doesn\'t touch element classes if \'sortAscClassName\' has falsy value', () => {
+        SortDirective.settings.sortAscClassName = '';
+        SortDirective.settings.sortableClassName = 'sortable';
+        let fixture = TestBed.createComponent(HostComponent);
+        sortingsService.setSort('field', false);
+        fixture.detectChanges();
+        expect(fixture.nativeElement.querySelectorAll('div')[0].classList.value).toEqual(SortDirective.settings.sortableClassName);
+
+        sortingsService.setSort('anotherField', false);
+        fixture.detectChanges();
+        expect(fixture.nativeElement.querySelectorAll('div')[1].classList.value).toEqual(SortDirective.settings.sortableClassName);
+    });
+
+    it('Doesn\'t touch element classes if \'sortAscClassName\' has falsy value', () => {
+        SortDirective.settings.sortDescClassName = '';
+        SortDirective.settings.sortableClassName = 'sortable';
+        let fixture = TestBed.createComponent(HostComponent);
+        sortingsService.setSort('field', false);
+        sortingsService.setSort('field', false);
+        fixture.detectChanges();
+        expect(fixture.nativeElement.querySelectorAll('div')[0].classList.value).toEqual(SortDirective.settings.sortableClassName);
+
+        sortingsService.setSort('anotherField', false);
+        sortingsService.setSort('anotherField', false);
+        fixture.detectChanges();
+        expect(fixture.nativeElement.querySelectorAll('div')[1].classList.value).toEqual(SortDirective.settings.sortableClassName);
     });
 
     it('Calls \'setSort\' method on click event', () => {

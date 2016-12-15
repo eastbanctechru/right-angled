@@ -6,12 +6,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 @Component({
     template: `<div rtSelectionArea>
-    <input type="checkbox" #selectable1 [rtSelectionCheckboxFor]="selectable1"/>
-    <input type="checkbox" #selectable2 [rtSelectionCheckboxFor]="selectable2"/>
-    <input type="checkbox" #selectable3 [rtSelectionCheckboxFor]="selectable3"/>
+    <input type="checkbox" #selectable1 [rtSelectionCheckboxFor]="selectable1" [(selected)]="firstElementSelected" />
+    <input type="checkbox" #selectable2 [rtSelectionCheckboxFor]="selectable2" [(selected)]="secondElementSelected" />
+    <input type="checkbox" #selectable3 [rtSelectionCheckboxFor]="selectable3" [(selected)]="thirdElementSelected" />
     </div>`
 })
 class HostComponent {
+    public firstElementSelected: boolean = false;
+    public secondElementSelected: boolean = false;
+    public thirdElementSelected: boolean = false;
 }
 
 describe('rtSelectionCheckboxFor directive', () => {
@@ -48,6 +51,55 @@ describe('rtSelectionCheckboxFor directive', () => {
         expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
         selectionCheckboxes[1].triggerEventHandler('change', { target: { checked: false } });
         expect(selectionService.deselectIndex).toHaveBeenCalledWith(1);
+    });
+
+    it('Emits selectedChange event when checkbox selection changed', () => {
+        let spy = jasmine.createSpy('spy');
+        (<SelectionCheckboxForDirective>selectionCheckboxes[0].injector.get(SelectionCheckboxForDirective))
+            .selectedChange.subscribe(spy);
+
+        selectionService.selectIndex(0, true);
+        fixture.detectChanges();
+        expect(spy).toHaveBeenCalledWith(true);
+    });
+
+    it('Doesn\'t emits selectedChange event when checkbox selection setted to the same value', () => {
+        let spy = jasmine.createSpy('spy');
+        selectionService.selectIndex(0, true);
+        fixture.detectChanges();
+
+        (<SelectionCheckboxForDirective>selectionCheckboxes[0].injector.get(SelectionCheckboxForDirective))
+            .selectedChange.subscribe(spy);
+
+        selectionService.selectIndex(0, true);
+        fixture.detectChanges();
+        expect(spy).not.toHaveBeenCalled();
+    });
+
+    it('Handles selected=true by calling selectionService.selectIndex', (done) => {
+        spyOn(selectionService, 'selectIndex');
+        fixture.componentInstance.firstElementSelected = true;
+        expect(selectionService.selectIndex).not.toHaveBeenCalled();
+        fixture.detectChanges();
+        expect(selectionService.selectIndex).not.toHaveBeenCalled();
+        fixture.whenStable().then(() => {
+            expect(selectionService.selectIndex).toHaveBeenCalledWith(0, selectionEventsHelper.multiple);
+            done();
+        });
+    });
+
+    it('Handles selected=false by calling selectionService.deselectIndex', (done) => {
+        fixture.componentInstance.firstElementSelected = true;
+        fixture.detectChanges();
+        fixture.whenStable().then(() => {
+            spyOn(selectionService, 'deselectIndex');
+            fixture.componentInstance.firstElementSelected = false;
+            fixture.detectChanges();
+            fixture.whenStable().then(() => {
+                expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
+                done();
+            });
+        });
     });
 
     it('Detects selection service selection changes and sets \'checked\' flag to appropriate value', () => {

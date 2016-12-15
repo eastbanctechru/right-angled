@@ -7,12 +7,15 @@ import { MouseButtons } from 'e2e4';
 
 @Component({
     template: `<div rtSelectionArea>
-    <div #selectable1 [rtSelectable]="selectable1"></div>
-    <div #selectable2 [rtSelectable]="selectable2"></div>
-    <div #selectable3 [rtSelectable]="selectable3"></div>
+    <div #selectable1 [rtSelectable]="selectable1" [(selected)]="firstElementSelected" ></div>
+    <div #selectable2 [rtSelectable]="selectable2" [(selected)]="secondElementSelected" ></div>
+    <div #selectable3 [rtSelectable]="selectable3" [(selected)]="thirdElementSelected" ></div>
     </div>`
 })
 class HostComponent {
+    public firstElementSelected: boolean = false;
+    public secondElementSelected: boolean = false;
+    public thirdElementSelected: boolean = false;
 }
 
 describe('rtSelectable directive', () => {
@@ -38,6 +41,55 @@ describe('rtSelectable directive', () => {
         selectableElements = [fixture.debugElement.children[0].children[0], fixture.debugElement.children[0].children[1], fixture.debugElement.children[0].children[2]];
     });
 
+    it('Emits selectedChange event when "selected" property changed', () => {
+        let spy = jasmine.createSpy('spy');
+        (<SelectableDirective>selectableElements[0].injector.get(SelectableDirective))
+            .selectedChange.subscribe(spy);
+
+        selectionService.selectIndex(0, true);
+        fixture.detectChanges();
+        expect(spy).toHaveBeenCalledWith(true);
+    });
+
+    it('Doesn\'t emits selectedChange event when "selected" setted to the same value', () => {
+        let spy = jasmine.createSpy('spy');
+        selectionService.selectIndex(0, true);
+        fixture.detectChanges();
+
+        (<SelectableDirective>selectableElements[0].injector.get(SelectableDirective))
+            .selectedChange.subscribe(spy);
+
+        selectionService.selectIndex(0, true);
+        fixture.detectChanges();
+        expect(spy).not.toHaveBeenCalled();
+    });
+
+    it('Handles selected=true by calling selectionService.selectIndex', (done) => {
+        spyOn(selectionService, 'selectIndex');
+        fixture.componentInstance.firstElementSelected = true;
+        expect(selectionService.selectIndex).not.toHaveBeenCalled();
+        fixture.detectChanges();
+        expect(selectionService.selectIndex).not.toHaveBeenCalled();
+        fixture.whenStable().then(() => {
+            expect(selectionService.selectIndex).toHaveBeenCalledWith(0, selectionEventsHelper.multiple);
+            done();
+        });
+    });
+
+    it('Handles selected=false by calling selectionService.deselectIndex', (done) => {
+        fixture.componentInstance.firstElementSelected = true;
+        fixture.detectChanges();
+        fixture.whenStable().then(() => {
+            spyOn(selectionService, 'deselectIndex');
+            fixture.componentInstance.firstElementSelected = false;
+            fixture.detectChanges();
+            fixture.whenStable().then(() => {
+                expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
+                done();
+            });
+        });
+    });
+
     it('Handles mouseup event by calling selectionEventsHelper.mouseHandler', () => {
         spyOn(selectionEventsHelper, 'mouseHandler');
         selectableElements[0].triggerEventHandler('mouseup', { ctrlKey: true, shiftKey: true, which: MouseButtons.Left });
@@ -50,6 +102,15 @@ describe('rtSelectable directive', () => {
         expect(selectableElements[0].nativeElement.classList).toContain(SelectableDirective.settings.selectedClassName);
         selectableElements[0].triggerEventHandler('mouseup', { ctrlKey: false, shiftKey: false, which: MouseButtons.Left });
         expect(selectableElements[0].nativeElement.classList).not.toContain(SelectableDirective.settings.selectedClassName);
+    });
+
+    it('Doesn\'t touch element classes if selectedClassName has falsy value', () => {
+        SelectableDirective.settings.selectedClassName = '';
+        expect(selectableElements[0].nativeElement.classList.value).toEqual('');
+        selectableElements[0].triggerEventHandler('mouseup', { ctrlKey: false, shiftKey: false, which: MouseButtons.Left });
+        expect(selectableElements[0].nativeElement.classList.value).toEqual('');
+        selectableElements[0].triggerEventHandler('mouseup', { ctrlKey: false, shiftKey: false, which: MouseButtons.Left });
+        expect(selectableElements[0].nativeElement.classList.value).toEqual('');
     });
 
     it('Calls event \'preventDefault\' method if \'preventEventsDefaults\' option specified and selection handler returns true', () => {

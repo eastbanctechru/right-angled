@@ -123,9 +123,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         if (this.childSelectionCheckboxes.length > 0) {
             this.buildSelectionSource(this.childSelectionCheckboxes);
         }
-        if (this.childSelectionAreas.length > 0) {
-            this.buildSelectionServicesList(this.childSelectionAreas);
-        }
+        this.buildSelectionServicesList(this.childSelectionAreas);
         this.itemsSubscription = this.selectableItems.changes.subscribe(this.buildSelectionSource.bind(this));
         this.checkboxesSubscription = this.childSelectionCheckboxes.changes.subscribe(this.buildSelectionSource.bind(this));
         this.childSelectionAreasSubscription = this.childSelectionAreas.changes.subscribe(this.buildSelectionServicesList.bind(this));
