@@ -8,7 +8,7 @@ export class RTSelectionService extends DefaultSelectionService {
     public childSelectionServices: RTSelectionService[] = new Array<RTSelectionService>();
     public areaEventsEmitter: SelectionEventsEmitter;
     protected processSelection(tuple: SelectionTuple, selected: boolean): void {
-        const initialSelectState = this.eventEmitters[tuple.index].selected || null;
+        const initialSelectState = this.eventEmitters[tuple.index] ? this.eventEmitters[tuple.index].selected || null : null;
         if (initialSelectState === null || initialSelectState !== selected) {
             if (this.eventEmitters.length > tuple.index && this.eventEmitters[tuple.index]) {
                 this.emitEvents(this.eventEmitters[tuple.index], selected, tuple);
@@ -28,7 +28,7 @@ export class RTSelectionService extends DefaultSelectionService {
         emitter.selectionChanged.emit({ index: tuple.index, item: tuple.item });
     }
     public destroy(): void {
-        delete this.areaEventsEmitter;
+        this.areaEventsEmitter = null;
         this.eventEmitters.length = 0;
         super.destroy();
     }
