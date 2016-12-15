@@ -104,6 +104,13 @@ describe('rt-paged-pager component', () => {
         expect(pagerService.defaultPageSize).toEqual(fixture.componentInstance.defaultPageSize);
     });
 
+    it('Calls loadData method of RTList on loadData method call', () => {
+        let listService = <RTList>pagerElement.injector.get(RTList);
+        spyOn(listService, 'loadData');
+        (<PagedPagerComponent>pagerElement.componentInstance).loadData();
+        expect(listService.loadData).toHaveBeenCalled();
+    });
+
     it('Calls loadData method of RTList on goToFirstPage methodCall if load is possible', () => {
         let pagerService = <PagedPager>pagerElement.injector.get(PagedPager);
         let listService = <RTList>pagerElement.injector.get(RTList);
