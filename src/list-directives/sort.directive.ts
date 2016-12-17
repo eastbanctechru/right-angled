@@ -17,10 +17,11 @@ export class SortDirective implements DoCheck, OnInit {
         sortDescClassName: 'rt-sort-desc',
         sortableClassName: 'rt-sortable'
     };
-    private nativeEl: HTMLElement;
-    private sortingsDiffer: IterableDiffer;
     /* tslint:disable-next-line:no-input-rename */
     @Input('rtSort') public fieldName: string;
+    private nativeEl: HTMLElement;
+    private sortingsDiffer: IterableDiffer;
+
     constructor( @SkipSelf() private listService: RTList, @SkipSelf() private sortingsService: SortingsService, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
         this.sortingsDiffer = differs.find([]).create(null);
         this.nativeEl = el.nativeElement;

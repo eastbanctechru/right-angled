@@ -7,26 +7,6 @@ export class RTSelectionService extends DefaultSelectionService {
     public eventEmitters: SelectionElementEventsEmitter[] = new Array<SelectionElementEventsEmitter>();
     public childSelectionServices: RTSelectionService[] = new Array<RTSelectionService>();
     public areaEventsEmitter: SelectionEventsEmitter;
-    protected processSelection(tuple: SelectionTuple, selected: boolean): void {
-        const initialSelectState = this.eventEmitters[tuple.index] ? this.eventEmitters[tuple.index].selected || null : null;
-        if (initialSelectState === null || initialSelectState !== selected) {
-            if (this.eventEmitters.length > tuple.index && this.eventEmitters[tuple.index]) {
-                this.emitEvents(this.eventEmitters[tuple.index], selected, tuple);
-                this.eventEmitters[tuple.index].postProcessSelection(selected);
-            }
-            if (this.areaEventsEmitter) {
-                this.emitEvents(this.areaEventsEmitter, selected, tuple);
-            }
-        }
-    }
-    private emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
-        if (selected) {
-            emitter.itemSelected.emit({ index: tuple.index, item: tuple.item });
-        } else {
-            emitter.itemDeselected.emit({ index: tuple.index, item: tuple.item });
-        }
-        emitter.selectionChanged.emit({ index: tuple.index, item: tuple.item });
-    }
     public destroy(): void {
         this.areaEventsEmitter = null;
         this.eventEmitters.length = 0;
@@ -50,5 +30,25 @@ export class RTSelectionService extends DefaultSelectionService {
             });
         }
         super.deselectAll();
+    }
+    protected processSelection(tuple: SelectionTuple, selected: boolean): void {
+        const initialSelectState = this.eventEmitters[tuple.index] ? this.eventEmitters[tuple.index].selected || null : null;
+        if (initialSelectState === null || initialSelectState !== selected) {
+            if (this.eventEmitters.length > tuple.index && this.eventEmitters[tuple.index]) {
+                this.emitEvents(this.eventEmitters[tuple.index], selected, tuple);
+                this.eventEmitters[tuple.index].postProcessSelection(selected);
+            }
+            if (this.areaEventsEmitter) {
+                this.emitEvents(this.areaEventsEmitter, selected, tuple);
+            }
+        }
+    }
+    private emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
+        if (selected) {
+            emitter.itemSelected.emit({ index: tuple.index, item: tuple.item });
+        } else {
+            emitter.itemDeselected.emit({ index: tuple.index, item: tuple.item });
+        }
+        emitter.selectionChanged.emit({ index: tuple.index, item: tuple.item });
     }
 }

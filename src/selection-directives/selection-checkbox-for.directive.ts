@@ -7,7 +7,6 @@ import { RTSelectionEvent, RTSelectionEventsHelper, RTSelectionService, Selectio
     selector: 'input[rtSelectionCheckboxFor]'
 })
 export class SelectionCheckboxForDirective implements SelectionElementEventsEmitter {
-    private selectedInternal: boolean = false;
     public index: number = null;
     /* tslint:disable-next-line:no-input-rename */
     @Input('rtSelectionCheckboxFor') public item: any = null;
@@ -28,6 +27,7 @@ export class SelectionCheckboxForDirective implements SelectionElementEventsEmit
     @Output() public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     @Output() public itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     @Output() public selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    private selectedInternal: boolean = false;
 
     constructor( @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper, @SkipSelf() private selectionService: RTSelectionService) {
     }

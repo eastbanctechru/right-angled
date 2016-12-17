@@ -4,9 +4,9 @@ import { OperationStatus } from 'e2e4';
 import { RTOperationStatus } from '../core/providers';
 
 export abstract class StatusComponentBase implements DoCheck, OnInit {
+    public isVisible: boolean;
     private listDiffer: KeyValueDiffer;
     private visibleState: OperationStatus;
-    public isVisible: boolean;
     constructor(protected trackedStatusObject: RTOperationStatus, differs: KeyValueDiffers, visibleState: OperationStatus) {
         this.visibleState = visibleState;
         this.listDiffer = differs.find([]).create(null);
@@ -20,12 +20,12 @@ export abstract class StatusComponentBase implements DoCheck, OnInit {
             stateDiff.forEachChangedItem(this.checkStateFieldChanges);
         }
     }
+    protected setVisibility(): void {
+        this.isVisible = this.trackedStatusObject.status === this.visibleState;
+    }
     private checkStateFieldChanges = (item: any): void => {
         if (item.key === 'status') {
             this.setVisibility();
         }
-    }
-    protected setVisibility(): void {
-        this.isVisible = this.trackedStatusObject.status === this.visibleState;
     }
 }

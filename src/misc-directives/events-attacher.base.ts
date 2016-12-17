@@ -10,11 +10,11 @@ export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
             this.addListeners(this.adjustEvents(changes.eventNames.currentValue));
         }
     }
-    private adjustEvents(eventsNames: string | string[]): string[] {
-        return eventsNames ? Array.isArray(eventsNames) ? eventsNames : [eventsNames] : [];
-    }
     public ngOnDestroy(): void {
         this.removeListeners(this.adjustEvents(this.eventNames));
+    }
+    private adjustEvents(eventsNames: string | string[]): string[] {
+        return eventsNames ? Array.isArray(eventsNames) ? eventsNames : [eventsNames] : [];
     }
     private removeListeners(eventNames: string[]): void {
         if (!eventNames || !eventNames.length) {

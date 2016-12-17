@@ -4,7 +4,6 @@
     "./node_modules/codelyzer"
   ],
   "rules": {
-    "only-arrow-functions": false,
     "interface-name": [
       true,
       "never-prefix"
@@ -12,27 +11,19 @@
     "linebreak-style": "CRLF",
     "max-line-length": [
       true,
-      300
-    ],
-    "member-access": [
-      true,
-      "check-accessor"
-    ],
-    "member-ordering": [
-      true,
-      "static-before-instance",
-      "variables-before-functions"
+      240
     ],
     "no-default-export": true,
-    "no-inferrable-types": false,
+    "no-inferrable-types": [
+      false
+    ],
     "no-mergeable-namespace": true,
-    "no-namespace": true,
-    "no-null-keyword": false,
-    "no-reference": true,
     "no-require-imports": true,
     "no-switch-case-fall-through": true,
     "no-use-before-declare": true,
-    "one-variable-per-declaration": true,
+    "one-variable-per-declaration": [
+      true
+    ],
     "quotemark": [
       true,
       "single"
@@ -60,12 +51,6 @@
         "property-declaration": "nospace",
         "variable-declaration": "nospace"
       }
-    ],
-    "variable-name": [
-      true,
-      "ban-keywords",
-      "check-format",
-      "allow-pascal-case"
     ],
     "whitespace": [
       true,
@@ -104,11 +89,11 @@
       "camelCase",
       "rt"
     ],
-    "component-class-suffix": true,
-    "directive-class-suffix": true,
     "import-destructuring-spacing": true,
-    "templates-use-public": false,
-    "no-access-missing-member": false,
-    "invoke-injectable": false
+    "templates-use-public": true,
+    "no-access-missing-member": true,
+    "invoke-injectable": true,
+    "component-class-suffix": true,
+    "directive-class-suffix": true
   }
 }

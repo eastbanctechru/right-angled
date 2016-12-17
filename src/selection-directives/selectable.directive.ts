@@ -13,7 +13,6 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
     {
         selectedClassName: 'rt-selected'
     };
-    private selectedInternal: boolean = false;
     public index: number = null;
     /* tslint:disable-next-line:no-input-rename */
     @Input('rtSelectable') public item: any = null;
@@ -21,6 +20,7 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
     @Output() public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     @Output() public itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     @Output() public selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    private selectedInternal: boolean = false;
     constructor( @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper, private renderer: Renderer, private el: ElementRef) {
     }
 

@@ -92,6 +92,18 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
             }
         }
     }
+    public ngAfterContentInit(): void {
+        if (this.selectableItems.length > 0) {
+            this.buildSelectionSource(this.selectableItems);
+        }
+        if (this.childSelectionCheckboxes.length > 0) {
+            this.buildSelectionSource(this.childSelectionCheckboxes);
+        }
+        this.buildSelectionServicesList(this.childSelectionAreas);
+        this.itemsSubscription = this.selectableItems.changes.subscribe(this.buildSelectionSource.bind(this));
+        this.checkboxesSubscription = this.childSelectionCheckboxes.changes.subscribe(this.buildSelectionSource.bind(this));
+        this.childSelectionAreasSubscription = this.childSelectionAreas.changes.subscribe(this.buildSelectionServicesList.bind(this));
+    }
     private buildSelectionSource(items: QueryList<SelectableDirective | SelectionCheckboxForDirective>): void {
         let index = 0;
         this.selectionService.eventEmitters = items.map((item) => {
@@ -115,17 +127,5 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
     }
     private buildSelectionServicesList(items: QueryList<SelectionAreaDirective>): void {
         this.selectionService.childSelectionServices = items.filter((area) => area !== this).map((area) => area.selectionService);
-    }
-    public ngAfterContentInit(): void {
-        if (this.selectableItems.length > 0) {
-            this.buildSelectionSource(this.selectableItems);
-        }
-        if (this.childSelectionCheckboxes.length > 0) {
-            this.buildSelectionSource(this.childSelectionCheckboxes);
-        }
-        this.buildSelectionServicesList(this.childSelectionAreas);
-        this.itemsSubscription = this.selectableItems.changes.subscribe(this.buildSelectionSource.bind(this));
-        this.checkboxesSubscription = this.childSelectionCheckboxes.changes.subscribe(this.buildSelectionSource.bind(this));
-        this.childSelectionAreasSubscription = this.childSelectionAreas.changes.subscribe(this.buildSelectionServicesList.bind(this));
     }
 }

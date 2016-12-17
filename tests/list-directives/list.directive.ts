@@ -26,6 +26,9 @@ class HostComponent {
     template: `<div [rtList]="getData" [loadOnInit]="false"></div>`
 })
 class HostNotLoadOnInitComponent {
+    public getData(request: any): void {
+        return;
+    }
 }
 
 class ListStub {
