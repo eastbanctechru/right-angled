@@ -33,6 +33,7 @@ import {
 
 import {
     BufferedPagerComponent,
+    InfiniteDirective,
     PagedPagerComponent,
     PageNumberDirective,
     PageSizeDirective,
@@ -86,6 +87,7 @@ export class RTSelectionModule { }
         PageSizeDirective,
         PageNumberDirective,
         BufferedPagerComponent,
+        InfiniteDirective,
         RowCountDirective],
     exports: [
         ListDirective,
@@ -101,6 +103,7 @@ export class RTSelectionModule { }
         PageSizeDirective,
         PageNumberDirective,
         BufferedPagerComponent,
+        InfiniteDirective,
         RowCountDirective],
     imports: [CommonModule]
 })

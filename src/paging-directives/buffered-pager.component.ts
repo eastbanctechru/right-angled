@@ -9,9 +9,9 @@ import { RTBufferedPager, RTList } from '../core/index';
     template: '<ng-content></ng-content>'
 })
 export class BufferedPagerComponent implements OnChanges, OnInit {
-    @Input() public defaultRowCount: number = BufferedPager.settings.defaultRowCount;
-    @Input() public maxRowCount: number = BufferedPager.settings.maxRowCount;
-    @Input() public minRowCount: number = BufferedPager.settings.minRowCount;
+    @Input() public defaultRowCount: number = RTBufferedPager.settings.defaultRowCount;
+    @Input() public maxRowCount: number = RTBufferedPager.settings.maxRowCount;
+    @Input() public minRowCount: number = RTBufferedPager.settings.minRowCount;
 
     constructor(public pager: BufferedPager, public listService: RTList) {
         this.listService.pager = pager;
