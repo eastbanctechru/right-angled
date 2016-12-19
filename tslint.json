@@ -95,5 +95,15 @@
     "invoke-injectable": true,
     "component-class-suffix": true,
     "directive-class-suffix": true
+  },
+  "jsRules": {
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
+    "trailing-comma": [
+      false
+    ]
   }
 }

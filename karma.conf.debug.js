@@ -3,44 +3,44 @@ var path = require('path');
 module.exports = function (config) {
     config.set({
         browsers: ['Chrome'],
-        singleRun: false,
-        frameworks: ['jasmine'],
+        colors: true,
         files: [
             'karma.entry.js'
         ],
+        frameworks: ['jasmine'],
         preprocessors: {
             'karma.entry.js': ['webpack', 'sourcemap']
         },
-        colors: true,
+        singleRun: false,
         webpack: {
             devtool: 'inline-source-map',
-            ts: {
-                compilerOptions: {
-                    noEmitHelpers: true
-                }
-            },
             module: {
                 loaders: [
                     {
-                        test: /\.ts$/,
-                        loader: 'ts',
                         include: [
                             path.resolve(__dirname, 'src'),
                             path.resolve(__dirname, 'tests')
-                        ]
+                        ],
+                        loader: 'ts',
+                        test: /\.ts$/
                     }
                 ]
             },
             resolve: {
+                extensions: ['', '.ts', '.tsx', '.json', '.js'],
                 modulesDirectories: [
                     'node_modules'
-                ],
-                extensions: ['', '.ts', '.tsx', '.json', '.js']
+                ]
+            },
+            ts: {
+                compilerOptions: {
+                    noEmitHelpers: true
+                }
             }
         },
         webpackServer: {
-            noLog: true,
-            noInfo: true
+            noInfo: true,
+            noLog: true
         }
     });
 };

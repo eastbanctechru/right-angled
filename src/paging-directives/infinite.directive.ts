@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnDestroy, OnInit, Renderer } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, OnDestroy, Renderer, SimpleChange } from '@angular/core';
 import { BufferedPager } from 'e2e4';
 
 import { RTList } from '../core/index';
@@ -6,14 +6,17 @@ import { RTList } from '../core/index';
 @Directive({
     selector: '[rtInfinite]'
 })
-export class InfiniteDirective implements OnInit, OnDestroy {
+export class InfiniteDirective implements OnDestroy, OnChanges {
     /* tslint:disable-next-line:no-input-rename */
     @Input('rtInfinite') public targetElement: HTMLElement;
-    private scrollListener: any;
+    public scrollListener: any;
     constructor(private elementRef: ElementRef, private bufferedPager: BufferedPager, private list: RTList, private renderer: Renderer) {
     }
-    public ngOnInit(): void {
-        if (this.targetElement) {
+    public ngOnChanges(changes: { targetElement?: SimpleChange }): void {
+        if (this.scrollListener) {
+            this.scrollListener();
+        }
+        if (changes.targetElement && changes.targetElement.currentValue) {
             this.scrollListener = this.renderer.listen(this.targetElement, 'scroll', () => {
                 if (this.list.busy || false === this.bufferedPager.canLoadMore) {
                     return;
@@ -39,8 +42,6 @@ export class InfiniteDirective implements OnInit, OnDestroy {
         }
     }
     public ngOnDestroy(): void {
-        if (this.scrollListener) {
-            this.scrollListener();
-        }
+        this.scrollListener();
     }
 }
