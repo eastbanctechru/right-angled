@@ -24,7 +24,7 @@ export abstract class StatusComponentBase implements DoCheck, OnInit {
         this.isVisible = this.trackedStatusObject.status === this.visibleState;
     }
     private checkStateFieldChanges = (item: any): void => {
-        if (item.key === 'status') {
+        if (item.key === 'status' || item.key === 'statusInternal') {
             this.setVisibility();
         }
     }
