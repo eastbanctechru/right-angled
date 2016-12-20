@@ -1054,9 +1054,9 @@ duplexify@^3.5.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-e2e4@^2.0.0-beta.9:
-  version "2.0.0-beta.9"
-  resolved "https://registry.yarnpkg.com/e2e4/-/e2e4-2.0.0-beta.9.tgz#0f43f86b9bdf0c601dd90ec0219d60d102a66b09"
+e2e4@^2.0.0-rc.0:
+  version "2.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/e2e4/-/e2e4-2.0.0-rc.0.tgz#801e1fa1e0772f3d634a8787de3db6054997f92b"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"
@@ -3183,13 +3183,9 @@ qjobs@^1.1.4:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/qjobs/-/qjobs-1.1.5.tgz#659de9f2cf8dcc27a1481276f205377272382e73"
 
-qs@6.2.0:
+qs@6.2.0, qs@~6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.0.tgz#3b7848c03c2dece69a9522b0fae8c4126d745f3b"
-
-qs@~6.2.0:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.1.tgz#ce03c5ff0935bc1d9d69a9f14cbd18e568d67625"
 
 qs@~6.3.0:
   version "6.3.0"

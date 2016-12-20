@@ -106,15 +106,15 @@ describe('rtList directive', () => {
         expect(listService.cancelRequests).toHaveBeenCalled();
 
         expect(listDirective.busy).toEqual(false);
-        listService.status = OperationStatus.Progress;
+        (<any>listService).statusInternal = OperationStatus.Progress;
         expect(listDirective.busy).toEqual(true);
-        listService.status = OperationStatus.Done;
+        (<any>listService).statusInternal = OperationStatus.Done;
         expect(listDirective.busy).toEqual(false);
 
         expect(listDirective.ready).toEqual(true);
-        listService.status = OperationStatus.Progress;
+        (<any>listService).statusInternal = OperationStatus.Progress;
         expect(listDirective.ready).toEqual(false);
-        listService.status = OperationStatus.Done;
+        (<any>listService).statusInternal = OperationStatus.Done;
         expect(listDirective.ready).toEqual(true);
 
         expect(listDirective.items).toEqual(listService.items);

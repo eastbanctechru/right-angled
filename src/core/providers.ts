@@ -19,9 +19,9 @@ export class RTList extends List {
         @Optional() stateServices: RTStateService,
         @SkipSelf() @Optional() @Inject(RTFilterTarget) filterTargets: Object,
         sortingsService: SortingsService,
-        private intFiltersService: FiltersService) {
+        filtersService: FiltersService) {
 
-        super(asyncSubscriber, stateServices, sortingsService, intFiltersService);
+        super(asyncSubscriber, stateServices, sortingsService, filtersService);
         if (filterTargets != null) {
             if (Array.isArray(filterTargets)) {
                 this.filterTargets.push(...filterTargets);
@@ -31,7 +31,7 @@ export class RTList extends List {
         }
     }
     public init(): void {
-        this.intFiltersService.registerFilterTarget(...this.filterTargets);
+        this.filtersService.registerFilterTarget(...this.filterTargets);
         super.init();
     }
 };
