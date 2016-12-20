@@ -15,10 +15,10 @@ class HostComponent {
     public getData(): any {
         return Rx.Observable.from([]);
     }
-    public afterListInit(list: RTList): void {
+    public afterListInit(): void {
         return;
     }
-    public onListInit(list: RTList): void {
+    public onListInit(): void {
         return;
     }
 }
@@ -26,7 +26,7 @@ class HostComponent {
     template: `<div [rtList]="getData" [loadOnInit]="false"></div>`
 })
 class HostNotLoadOnInitComponent {
-    public getData(request: any): void {
+    public getData(): void {
         return;
     }
 }
@@ -36,7 +36,7 @@ class ListStub {
 
 class RTStateServiceStub extends RTStateService {
     public getState(): void { return; }
-    public persistState(filtersService: FiltersService): void { return; }
+    public persistState(): void { return; }
 }
 
 class FiltersServiceStub {

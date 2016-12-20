@@ -54,7 +54,7 @@ export class SortDirective implements DoCheck, OnInit {
     }
     private sortItemRemovedCallback = (removedItem: any): void => {
         if (removedItem.item && removedItem.item.fieldName === this.fieldName) {
-            this.removeSortClasses(removedItem.item);
+            this.removeSortClasses();
         }
     }
     private sortItemAddedCallback = (addedItem: any): void => {
@@ -62,7 +62,7 @@ export class SortDirective implements DoCheck, OnInit {
             this.setSortClasses(addedItem.item);
         }
     }
-    private removeSortClasses(sortParameter: any): void {
+    private removeSortClasses(): void {
         if (SortDirective.settings.sortAscClassName) {
             this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortAscClassName, false);
         }

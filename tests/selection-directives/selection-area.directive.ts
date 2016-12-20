@@ -142,7 +142,7 @@ describe('rtSelectionArea directive', () => {
         expect(fixture.componentInstance.toggleOnly).toEqual(selectionEventsHelper.toggleOnly);
 
         expect(fixture.componentInstance.trackBy).toEqual(selectionService.trackByFn);
-        fixture.componentInstance.trackBy = (index: number, item: any) => index;
+        fixture.componentInstance.trackBy = (index: number) => index;
         expect(fixture.componentInstance.trackBy).not.toEqual(selectionService.trackByFn);
         fixture.detectChanges();
         expect(fixture.componentInstance.trackBy).toEqual(selectionService.trackByFn);

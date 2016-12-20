@@ -38,9 +38,9 @@ class ListStub {
 describe('infinite directive', () => {
     let fixture: ComponentFixture<ComponentWithHostComponent>;
     let hostElement: HTMLElement;
-    let rtList;
-    let pager;
-    let loadDataSpy;
+    let rtList: ListStub;
+    let pager: BufferedPagerStub;
+    let loadDataSpy: jasmine.Spy;
     let scrollTo = (target: HTMLElement | Window, scrollToNumber: number) => {
         if (target instanceof Window) {
             target.scrollTo(0, scrollToNumber);

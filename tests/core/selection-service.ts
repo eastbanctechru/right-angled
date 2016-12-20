@@ -14,7 +14,7 @@ class StubElementEventsEmitter implements SelectionElementEventsEmitter {
     public selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
 
     public selected: boolean = false;
-    public postProcessSelection(selected: boolean): void {
+    public postProcessSelection(): void {
         return;
     }
 }
@@ -26,7 +26,7 @@ class StubEventsEmitter implements SelectionEventsEmitter {
 }
 
 describe('RTSelectionService', () => {
-    let clock;
+    let clock: sinon.SinonFakeTimers;
     let service: RTSelectionService;
     beforeEach(() => {
         service = new RTSelectionService();

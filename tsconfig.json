@@ -14,14 +14,16 @@
     "diagnostics": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "noImplicitAny": false,
+    
     "suppressImplicitAnyIndexErrors": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
     "pretty": true,
     "forceConsistentCasingInFileNames": true,
     "removeComments": false,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
     "types": []
   },
   "angularCompilerOptions": {
