@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PageNumberDirective | right-angled</title>
+	<title>InfiniteDirective | right-angled</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="pagenumberdirective.html">PageNumberDirective</a>
+					<a href="infinitedirective.html">InfiniteDirective</a>
 				</li>
 			</ul>
-			<h1>Class PageNumberDirective</h1>
+			<h1>Class InfiniteDirective</h1>
 		</div>
 	</div>
 </header>
@@ -70,20 +70,15 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="pagerinputbase.html" class="tsd-signature-type">PagerInputBase</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">PageNumberDirective</span>
-							</li>
-						</ul>
+						<span class="target">InfiniteDirective</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><span class="tsd-signature-type">DoCheck</span></li>
-					<li><span class="tsd-signature-type">OnInit</span></li>
+					<li><span class="tsd-signature-type">OnDestroy</span></li>
+					<li><span class="tsd-signature-type">OnChanges</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -93,30 +88,25 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="pagenumberdirective.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-inherited">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="pagenumberdirective.html#changetrackingkey" class="tsd-kind-icon">change<wbr>Tracking<wbr>Key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="pagenumberdirective.html#innervalue" class="tsd-kind-icon">inner<wbr>Value</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="pagenumberdirective.html#pager" class="tsd-kind-icon">pager</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="infinitedirective.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Accessors</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-overwrite"><a href="pagenumberdirective.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="infinitedirective.html#bufferedpager" class="tsd-kind-icon">buffered<wbr>Pager</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="infinitedirective.html#elementref" class="tsd-kind-icon">element<wbr>Ref</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="infinitedirective.html#list" class="tsd-kind-icon">list</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="infinitedirective.html#renderer" class="tsd-kind-icon">renderer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="infinitedirective.html#scrolllistener" class="tsd-kind-icon">scroll<wbr>Listener</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="infinitedirective.html#targetelement" class="tsd-kind-icon">target<wbr>Element</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="pagenumberdirective.html#ngdocheck" class="tsd-kind-icon">ng<wbr>DoCheck</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="pagenumberdirective.html#ngoninit" class="tsd-kind-icon">ng<wbr>OnInit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="pagenumberdirective.html#restoreinputvalue" class="tsd-kind-icon">restore<wbr>Input<wbr>Value</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="pagenumberdirective.html#setpagesize" class="tsd-kind-icon">set<wbr>Page<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="infinitedirective.html#ngonchanges" class="tsd-kind-icon">ng<wbr>OnChanges</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="infinitedirective.html#ngondestroy" class="tsd-kind-icon">ng<wbr>OnDestroy</a></li>
 							</ul>
 						</section>
 					</div>
@@ -124,183 +114,145 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Page<wbr>Number<wbr>Directive<span class="tsd-signature-symbol">(</span>pager<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PagedPager</span>, differs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyValueDiffers</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pagenumberdirective.html" class="tsd-signature-type">PageNumberDirective</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Infinite<wbr>Directive<span class="tsd-signature-symbol">(</span>elementRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span>, bufferedPager<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BufferedPager</span>, list<span class="tsd-signature-symbol">: </span><a href="rtlist.html" class="tsd-signature-type">RTList</a>, renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Renderer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="infinitedirective.html" class="tsd-signature-type">InfiniteDirective</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/page-number.directive.ts#L16">paging-directives/page-number.directive.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/infinite.directive.ts#L12">paging-directives/infinite.directive.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>pager: <span class="tsd-signature-type">PagedPager</span></h5>
+									<h5>elementRef: <span class="tsd-signature-type">ElementRef</span></h5>
 								</li>
 								<li>
-									<h5>differs: <span class="tsd-signature-type">KeyValueDiffers</span></h5>
+									<h5>bufferedPager: <span class="tsd-signature-type">BufferedPager</span></h5>
+								</li>
+								<li>
+									<h5>list: <a href="rtlist.html" class="tsd-signature-type">RTList</a></h5>
+								</li>
+								<li>
+									<h5>renderer: <span class="tsd-signature-type">Renderer</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="pagenumberdirective.html" class="tsd-signature-type">PageNumberDirective</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="infinitedirective.html" class="tsd-signature-type">InfiniteDirective</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="changetrackingkey" class="tsd-anchor"></a>
-					<h3>change<wbr>Tracking<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">change<wbr>Tracking<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="bufferedpager" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> buffered<wbr>Pager</h3>
+					<div class="tsd-signature tsd-kind-icon">buffered<wbr>Pager<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BufferedPager</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#changetrackingkey">changeTrackingKey</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/pager-input-base.ts#L6">paging-directives/pager-input-base.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/infinite.directive.ts#L13">paging-directives/infinite.directive.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="innervalue" class="tsd-anchor"></a>
-					<h3>inner<wbr>Value</h3>
-					<div class="tsd-signature tsd-kind-icon">inner<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="elementref" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> element<wbr>Ref</h3>
+					<div class="tsd-signature tsd-kind-icon">element<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ElementRef</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#innervalue">innerValue</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/pager-input-base.ts#L5">paging-directives/pager-input-base.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/infinite.directive.ts#L13">paging-directives/infinite.directive.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="pager" class="tsd-anchor"></a>
-					<h3>pager</h3>
-					<div class="tsd-signature tsd-kind-icon">pager<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="list" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> list</h3>
+					<div class="tsd-signature tsd-kind-icon">list<span class="tsd-signature-symbol">:</span> <a href="rtlist.html" class="tsd-signature-type">RTList</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#pager">pager</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/pager-input-base.ts#L8">paging-directives/pager-input-base.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/infinite.directive.ts#L13">paging-directives/infinite.directive.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="renderer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> renderer</h3>
+					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Renderer</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/infinite.directive.ts#L13">paging-directives/infinite.directive.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="scrolllistener" class="tsd-anchor"></a>
+					<h3>scroll<wbr>Listener</h3>
+					<div class="tsd-signature tsd-kind-icon">scroll<wbr>Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/infinite.directive.ts#L12">paging-directives/infinite.directive.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="targetelement" class="tsd-anchor"></a>
+					<h3>target<wbr>Element</h3>
+					<div class="tsd-signature tsd-kind-icon">target<wbr>Element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/infinite.directive.ts#L11">paging-directives/infinite.directive.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Accessors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-overwrite">
-					<a name="value" class="tsd-anchor"></a>
-					<h3>value</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> value<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> value<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#value">value</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/page-number.directive.ts#L11">paging-directives/page-number.directive.ts:11</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#value">value</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/page-number.directive.ts#L14">paging-directives/page-number.directive.ts:14</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="ngdocheck" class="tsd-anchor"></a>
-					<h3>ng<wbr>DoCheck</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">ng<wbr>DoCheck<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="ngonchanges" class="tsd-anchor"></a>
+					<h3>ng<wbr>OnChanges</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">ng<wbr>OnChanges<span class="tsd-signature-symbol">(</span>changes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#ngdocheck">ngDoCheck</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/pager-input-base.ts#L31">paging-directives/pager-input-base.ts:31</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="ngoninit" class="tsd-anchor"></a>
-					<h3>ng<wbr>OnInit</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">ng<wbr>OnInit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#ngoninit">ngOnInit</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/pager-input-base.ts#L28">paging-directives/pager-input-base.ts:28</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="restoreinputvalue" class="tsd-anchor"></a>
-					<h3>restore<wbr>Input<wbr>Value</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">restore<wbr>Input<wbr>Value<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#restoreinputvalue">restoreInputValue</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/pager-input-base.ts#L25">paging-directives/pager-input-base.ts:25</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="setpagesize" class="tsd-anchor"></a>
-					<h3>set<wbr>Page<wbr>Size</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Page<wbr>Size<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="pagerinputbase.html">PagerInputBase</a>.<a href="pagerinputbase.html#setpagesize">setPageSize</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/pager-input-base.ts#L16">paging-directives/pager-input-base.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/infinite.directive.ts#L15">paging-directives/infinite.directive.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<h5>changes: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> target<wbr>Element<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SimpleChange</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="ngondestroy" class="tsd-anchor"></a>
+					<h3>ng<wbr>OnDestroy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">ng<wbr>OnDestroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/paging-directives/infinite.directive.ts#L44">paging-directives/infinite.directive.ts:44</a></li>
+								</ul>
+							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -326,48 +278,48 @@
 					<li class=" tsd-kind-class">
 						<a href="focusonrenderdirective.html" class="tsd-kind-icon">Focus<wbr>OnRender<wbr>Directive</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="infinitedirective.html" class="tsd-kind-icon">Infinite<wbr>Directive</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="listdirective.html" class="tsd-kind-icon">List<wbr>Directive</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="pagenumberdirective.html" class="tsd-kind-icon">Page<wbr>Number<wbr>Directive</a>
+						<a href="infinitedirective.html" class="tsd-kind-icon">Infinite<wbr>Directive</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="pagenumberdirective.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="infinitedirective.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="pagenumberdirective.html#changetrackingkey" class="tsd-kind-icon">change<wbr>Tracking<wbr>Key</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="infinitedirective.html#bufferedpager" class="tsd-kind-icon">buffered<wbr>Pager</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="pagenumberdirective.html#innervalue" class="tsd-kind-icon">inner<wbr>Value</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="infinitedirective.html#elementref" class="tsd-kind-icon">element<wbr>Ref</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="pagenumberdirective.html#pager" class="tsd-kind-icon">pager</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="infinitedirective.html#list" class="tsd-kind-icon">list</a>
 							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="pagenumberdirective.html#value" class="tsd-kind-icon">value</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="infinitedirective.html#renderer" class="tsd-kind-icon">renderer</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="pagenumberdirective.html#ngdocheck" class="tsd-kind-icon">ng<wbr>DoCheck</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="infinitedirective.html#scrolllistener" class="tsd-kind-icon">scroll<wbr>Listener</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="pagenumberdirective.html#ngoninit" class="tsd-kind-icon">ng<wbr>OnInit</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="infinitedirective.html#targetelement" class="tsd-kind-icon">target<wbr>Element</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="pagenumberdirective.html#restoreinputvalue" class="tsd-kind-icon">restore<wbr>Input<wbr>Value</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="infinitedirective.html#ngonchanges" class="tsd-kind-icon">ng<wbr>OnChanges</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="pagenumberdirective.html#setpagesize" class="tsd-kind-icon">set<wbr>Page<wbr>Size</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="infinitedirective.html#ngondestroy" class="tsd-kind-icon">ng<wbr>OnDestroy</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="listdirective.html" class="tsd-kind-icon">List<wbr>Directive</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="pagenumberdirective.html" class="tsd-kind-icon">Page<wbr>Number<wbr>Directive</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="pagesizedirective.html" class="tsd-kind-icon">Page<wbr>Size<wbr>Directive</a>
 					</li>
