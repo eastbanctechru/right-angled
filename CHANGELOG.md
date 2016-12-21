@@ -7,7 +7,6 @@
 * **all:** systemjs support added ([3e5229c](https://github.com/eastbanctechru/right-angled/commit/3e5229c))
 * **package:** `e2e4` version update ([e8ec615](https://github.com/eastbanctechru/right-angled/commit/e8ec615))
 * **package:** update `angular` to 2.4.0 ([de5415b](https://github.com/eastbanctechru/right-angled/commit/de5415b))
-* **package:** update angular to 2.3.1 ([bddef74](https://github.com/eastbanctechru/right-angled/commit/bddef74))
 * **paging:** `rtInfinite` directive implemented to add infinite scrolling to the lists ([a2710a5](https://github.com/eastbanctechru/right-angled/commit/a2710a5))
 
 
