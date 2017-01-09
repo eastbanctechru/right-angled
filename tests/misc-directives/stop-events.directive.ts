@@ -28,7 +28,7 @@ describe('rtStopEvents directive', () => {
     });
     it('Calls \'stopPropagation\' method on specified events handlers', () => {
 
-        let event = document.createEvent('MouseEvent');
+        const event = document.createEvent('MouseEvent');
         event.initEvent('click', false, false);
         spyOn(event, 'stopPropagation');
         nativeElement.dispatchEvent(event);

@@ -35,7 +35,7 @@ describe('rtPageSize directive', () => {
         });
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
-        pagerComponent = <PagedPagerComponent>fixture.debugElement.query(By.css('rt-paged-pager')).componentInstance;
+        pagerComponent = fixture.debugElement.query(By.css('rt-paged-pager')).componentInstance as PagedPagerComponent;
         listService = fixture.debugElement.children[0].injector.get(RTList);
         pageSizeDirective = fixture.debugElement.query(By.directive(PageSizeDirective)).injector.get(PageSizeDirective);
     });

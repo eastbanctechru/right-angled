@@ -42,8 +42,8 @@ describe('rtSelectable directive', () => {
     });
 
     it('Emits selectedChange event when "selected" property changed', () => {
-        let spy = jasmine.createSpy('spy');
-        (<SelectableDirective>selectableElements[0].injector.get(SelectableDirective))
+        const spy = jasmine.createSpy('spy');
+        (selectableElements[0].injector.get(SelectableDirective) as SelectableDirective)
             .selectedChange.subscribe(spy);
 
         selectionService.selectIndex(0, true);
@@ -52,11 +52,11 @@ describe('rtSelectable directive', () => {
     });
 
     it('Doesn\'t emits selectedChange event when "selected" setted to the same value', () => {
-        let spy = jasmine.createSpy('spy');
+        const spy = jasmine.createSpy('spy');
         selectionService.selectIndex(0, true);
         fixture.detectChanges();
 
-        (<SelectableDirective>selectableElements[0].injector.get(SelectableDirective))
+        (selectableElements[0].injector.get(SelectableDirective) as SelectableDirective)
             .selectedChange.subscribe(spy);
 
         selectionService.selectIndex(0, true);
@@ -116,7 +116,7 @@ describe('rtSelectable directive', () => {
     it('Calls event \'preventDefault\' method if \'preventEventsDefaults\' option specified and selection handler returns true', () => {
         selectionEventsHelper.preventEventsDefaults = true;
         fixture.detectChanges();
-        let event = getEventObject();
+        const event = getEventObject();
         spyOn(selectionEventsHelper, 'mouseHandler').and.returnValue(true);
         spyOn(event, 'preventDefault');
         selectableElements[0].triggerEventHandler('mouseup', event);
@@ -126,7 +126,7 @@ describe('rtSelectable directive', () => {
     it('Doesn\'t call event \'preventDefault\' method if \'preventEventsDefaults\' option specified and selection handler returns false', () => {
         selectionEventsHelper.preventEventsDefaults = true;
         fixture.detectChanges();
-        let event = getEventObject();
+        const event = getEventObject();
         spyOn(selectionEventsHelper, 'mouseHandler').and.returnValue(false);
         spyOn(event, 'preventDefault');
         selectableElements[0].triggerEventHandler('mouseup', event);
@@ -136,7 +136,7 @@ describe('rtSelectable directive', () => {
     it('Calls event \'stopPropagation\' method if \'stopEventsPropagation\' option specified and selection handler returns true', () => {
         selectionEventsHelper.stopEventsPropagation = true;
         fixture.detectChanges();
-        let event = getEventObject();
+        const event = getEventObject();
         spyOn(selectionEventsHelper, 'mouseHandler').and.returnValue(true);
         spyOn(event, 'stopPropagation');
         selectableElements[0].triggerEventHandler('mouseup', event);
@@ -146,7 +146,7 @@ describe('rtSelectable directive', () => {
     it('Doesn\'t call event \'stopPropagation\' method if \'stopEventsPropagation\' option specified and selection handler returns false', () => {
         selectionEventsHelper.stopEventsPropagation = true;
         fixture.detectChanges();
-        let event = getEventObject();
+        const event = getEventObject();
         spyOn(selectionEventsHelper, 'mouseHandler').and.returnValue(false);
         spyOn(event, 'stopPropagation');
         selectableElements[0].triggerEventHandler('mouseup', event);
@@ -154,8 +154,8 @@ describe('rtSelectable directive', () => {
     });
 
     it('Calls \'clearWindowSelection\' method if selection handler returns true', () => {
-        let selectable = selectableElements[0].injector.get(SelectableDirective);
-        let event = getEventObject();
+        const selectable = selectableElements[0].injector.get(SelectableDirective);
+        const event = getEventObject();
         spyOn(selectionEventsHelper, 'mouseHandler').and.returnValue(true);
         spyOn(selectable, 'clearWindowSelection');
         selectableElements[0].triggerEventHandler('mouseup', event);
@@ -163,8 +163,8 @@ describe('rtSelectable directive', () => {
     });
 
     it('Doesn\'t call \'clearWindowSelection\' method if selection handler returns false', () => {
-        let selectable = selectableElements[0].injector.get(SelectableDirective);
-        let event = getEventObject();
+        const selectable = selectableElements[0].injector.get(SelectableDirective);
+        const event = getEventObject();
         spyOn(selectionEventsHelper, 'mouseHandler').and.returnValue(false);
         spyOn(selectable, 'clearWindowSelection');
         selectableElements[0].triggerEventHandler('mouseup', event);

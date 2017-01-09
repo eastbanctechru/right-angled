@@ -21,7 +21,7 @@ export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
             return;
         }
         eventNames.forEach((eventName) =>
-            (<HTMLElement>this.elementRef.nativeElement).removeEventListener(eventName, this.eventListener)
+            (this.elementRef.nativeElement as HTMLElement).removeEventListener(eventName, this.eventListener)
         );
     }
     private addListeners(eventNames: string[]): void {
@@ -29,7 +29,7 @@ export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
             return;
         }
         eventNames.forEach((eventName) =>
-            (<HTMLElement>this.elementRef.nativeElement).addEventListener(eventName, this.eventListener)
+            (this.elementRef.nativeElement as HTMLElement).addEventListener(eventName, this.eventListener)
         );
     }
 }

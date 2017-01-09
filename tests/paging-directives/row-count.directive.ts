@@ -35,7 +35,7 @@ describe('rtRowCount directive', () => {
         });
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
-        pagerComponent = <BufferedPagerComponent>fixture.debugElement.query(By.css('rt-buffered-pager')).componentInstance;
+        pagerComponent = fixture.debugElement.query(By.css('rt-buffered-pager')).componentInstance as BufferedPagerComponent;
         listService = fixture.debugElement.children[0].injector.get(RTList);
         rowCountDirective = fixture.debugElement.query(By.directive(RowCountDirective)).injector.get(RowCountDirective);
     });

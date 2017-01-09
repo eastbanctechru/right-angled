@@ -46,22 +46,22 @@ describe('rt-buffered-pager component', () => {
 
     });
     it('Acts as DI root for buffered pager service', () => {
-        let pagerService = pagerElement.injector.get(BufferedPager);
+        const pagerService = pagerElement.injector.get(BufferedPager);
         expect(pagerService instanceof BufferedPagerStub).toBeFalsy();
     });
 
     it('Sets list service pager property to own service instance', () => {
-        let pagerService = pagerElement.injector.get(BufferedPager);
+        const pagerService = pagerElement.injector.get(BufferedPager);
         expect(pagerElement.injector.get(RTList).pager).toEqual(pagerService);
     });
 
     it('Sets takeRowCount to configured defaultRowCount on component init', () => {
-        let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
+        const pagerService = pagerElement.injector.get(BufferedPager) as BufferedPager;
         expect(pagerService.takeRowCount).toEqual(fixture.componentInstance.defaultRowCount);
     });
 
     it('Proxies config properties to pager service properties', () => {
-        let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
+        const pagerService = pagerElement.injector.get(BufferedPager) as BufferedPager;
 
         expect(fixture.componentInstance.minRowCount).toEqual(pagerService.minRowCount);
         fixture.componentInstance.minRowCount = fixture.componentInstance.minRowCount * 10;
@@ -84,21 +84,21 @@ describe('rt-buffered-pager component', () => {
         expect(pagerElement.componentInstance.canLoadMore).toEqual(true);
     });
     it('Calls loadData method of RTList on loadMore methodCall if load is possible', () => {
-        let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
-        let listService = <RTList>pagerElement.injector.get(RTList);
+        const pagerService = pagerElement.injector.get(BufferedPager) as BufferedPager;
+        const listService = pagerElement.injector.get(RTList) as RTList;
         spyOn(listService, 'loadData');
         pagerService.totalCount = 100;
         expect(pagerService.canLoadMore).toEqual(true);
-        (<BufferedPagerComponent>pagerElement.componentInstance).loadMore();
+        (pagerElement.componentInstance as BufferedPagerComponent).loadMore();
         expect(listService.loadData).toHaveBeenCalled();
     });
     it('Doesn\'t call loadData method of RTList on loadMore methodCall if load is not possible', () => {
-        let pagerService = <BufferedPager>pagerElement.injector.get(BufferedPager);
-        let listService = <RTList>pagerElement.injector.get(RTList);
+        const pagerService = pagerElement.injector.get(BufferedPager) as BufferedPager;
+        const listService = pagerElement.injector.get(RTList) as RTList;
         spyOn(listService, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canLoadMore).toEqual(false);
-        (<BufferedPagerComponent>pagerElement.componentInstance).loadMore();
+        (pagerElement.componentInstance as BufferedPagerComponent).loadMore();
         expect(listService.loadData).not.toHaveBeenCalled();
     });
 });

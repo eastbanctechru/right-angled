@@ -79,13 +79,13 @@ describe('rtSelectionArea directive', () => {
         });
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
-        selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService);
-        selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper);
-        selectionAreaDirective = <SelectionAreaDirective>fixture.debugElement.children[0].injector.get(SelectionAreaDirective);
+        selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService) as RTSelectionService;
+        selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper) as RTSelectionEventsHelper;
+        selectionAreaDirective = fixture.debugElement.children[0].injector.get(SelectionAreaDirective) as SelectionAreaDirective;
     });
 
     it('Builds collection of child selection services for RTSelectionService and rebuilds it on change tracking cycle', () => {
-        let nestedFixture = TestBed.createComponent(NestedComponent);
+        const nestedFixture = TestBed.createComponent(NestedComponent);
         nestedFixture.detectChanges();
         selectionService = nestedFixture.debugElement.children[0].injector.get(RTSelectionService);
         expect(selectionService.childSelectionServices.length).toEqual(3);
@@ -157,7 +157,7 @@ describe('rtSelectionArea directive', () => {
     it('Calls event \'preventDefault\' method if \'preventEventsDefaults\' option specified and selection handler returns true', () => {
         fixture.componentInstance.preventEventsDefaults = true;
         fixture.detectChanges();
-        let event = { ctrlKey: true, keyCode: KeyCodes.ArrowDown, preventDefault: () => { return; }, shiftKey: true };
+        const event = { ctrlKey: true, keyCode: KeyCodes.ArrowDown, preventDefault: () => { return; }, shiftKey: true };
         spyOn(selectionEventsHelper, 'keyboardHandler').and.returnValue(true);
         spyOn(event, 'preventDefault');
         fixture.debugElement.children[0].triggerEventHandler('keydown', event);
@@ -167,7 +167,7 @@ describe('rtSelectionArea directive', () => {
     it('Doesn\'t call event \'preventDefault\' method if \'preventEventsDefaults\' option specified and selection handler returns false', () => {
         fixture.componentInstance.preventEventsDefaults = true;
         fixture.detectChanges();
-        let event = { ctrlKey: true, keyCode: KeyCodes.ArrowDown, preventDefault: () => { return; }, shiftKey: true };
+        const event = { ctrlKey: true, keyCode: KeyCodes.ArrowDown, preventDefault: () => { return; }, shiftKey: true };
         spyOn(selectionEventsHelper, 'keyboardHandler').and.returnValue(false);
         spyOn(event, 'preventDefault');
         fixture.debugElement.children[0].triggerEventHandler('keydown', event);
@@ -177,7 +177,7 @@ describe('rtSelectionArea directive', () => {
     it('Calls event \'stopPropagation\' method if \'stopEventsPropagation\' option specified and selection handler returns true', () => {
         fixture.componentInstance.stopEventsPropagation = true;
         fixture.detectChanges();
-        let event = { ctrlKey: true, keyCode: KeyCodes.ArrowDown, preventDefault: () => { return; }, shiftKey: true, stopPropagation: () => { return; } };
+        const event = { ctrlKey: true, keyCode: KeyCodes.ArrowDown, preventDefault: () => { return; }, shiftKey: true, stopPropagation: () => { return; } };
         spyOn(selectionEventsHelper, 'keyboardHandler').and.returnValue(true);
         spyOn(event, 'stopPropagation');
         fixture.debugElement.children[0].triggerEventHandler('keydown', event);
@@ -187,7 +187,7 @@ describe('rtSelectionArea directive', () => {
     it('Doesn\'t call event \'stopPropagation\' method if \'stopEventsPropagation\' option specified and selection handler returns false', () => {
         fixture.componentInstance.stopEventsPropagation = true;
         fixture.detectChanges();
-        let event = { ctrlKey: true, keyCode: KeyCodes.ArrowDown, preventDefault: () => { return; }, shiftKey: true, stopPropagation: () => { return; } };
+        const event = { ctrlKey: true, keyCode: KeyCodes.ArrowDown, preventDefault: () => { return; }, shiftKey: true, stopPropagation: () => { return; } };
         spyOn(selectionEventsHelper, 'keyboardHandler').and.returnValue(false);
         spyOn(event, 'stopPropagation');
         fixture.debugElement.children[0].triggerEventHandler('keydown', event);
@@ -195,7 +195,7 @@ describe('rtSelectionArea directive', () => {
     });
 
     it('Throws error if specified trackBy input is not a function', () => {
-        fixture.componentInstance.trackBy = <any>5;
+        fixture.componentInstance.trackBy = 5 as any;
         expect(() => fixture.detectChanges()).toThrowError('Error in ./HostComponent class HostComponent - inline template:7:4 caused by: trackBy parameter value must be a function');
     });
 
@@ -276,7 +276,7 @@ describe('rtSelectionArea directive', () => {
     });
 
     it('Updates indexes of selectable items on  change tracking cycle', () => {
-        let selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map((dn) => dn.injector.get(SelectableDirective));
+        const selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map((dn) => dn.injector.get(SelectableDirective));
         expect(selectables.map((s) => s.index)).toEqual([0, 1, 2]);
         fixture.componentInstance.items.unshift(0);
         fixture.detectChanges();

@@ -19,11 +19,11 @@ describe('rtSelectOnFocus directive', () => {
     });
 
     it('Calls \'select\' method on focus event', () => {
-        let fixture = TestBed.createComponent(HostComponent);
-        let input = fixture.nativeElement.querySelector('input');
+        const fixture = TestBed.createComponent(HostComponent);
+        const input = fixture.nativeElement.querySelector('input');
         fixture.detectChanges();
 
-        let renderer = fixture.debugElement.children[0].injector.get(SelectOnFocusDirective).renderer;
+        const renderer = fixture.debugElement.children[0].injector.get(SelectOnFocusDirective).renderer;
         spyOn(renderer, 'invokeElementMethod');
         fixture.debugElement.children[0].triggerEventHandler('focus', null);
         expect(renderer.invokeElementMethod).toHaveBeenCalledWith(input, 'select', []);

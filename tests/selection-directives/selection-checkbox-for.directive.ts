@@ -54,8 +54,8 @@ describe('rtSelectionCheckboxFor directive', () => {
     });
 
     it('Emits selectedChange event when checkbox selection changed', () => {
-        let spy = jasmine.createSpy('spy');
-        (<SelectionCheckboxForDirective>selectionCheckboxes[0].injector.get(SelectionCheckboxForDirective))
+        const spy = jasmine.createSpy('spy');
+        (selectionCheckboxes[0].injector.get(SelectionCheckboxForDirective) as SelectionCheckboxForDirective)
             .selectedChange.subscribe(spy);
 
         selectionService.selectIndex(0, true);
@@ -64,11 +64,11 @@ describe('rtSelectionCheckboxFor directive', () => {
     });
 
     it('Doesn\'t emits selectedChange event when checkbox selection setted to the same value', () => {
-        let spy = jasmine.createSpy('spy');
+        const spy = jasmine.createSpy('spy');
         selectionService.selectIndex(0, true);
         fixture.detectChanges();
 
-        (<SelectionCheckboxForDirective>selectionCheckboxes[0].injector.get(SelectionCheckboxForDirective))
+        (selectionCheckboxes[0].injector.get(SelectionCheckboxForDirective) as SelectionCheckboxForDirective)
             .selectedChange.subscribe(spy);
 
         selectionService.selectIndex(0, true);

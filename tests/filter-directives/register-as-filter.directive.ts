@@ -50,7 +50,7 @@ describe('rtRegisterAsFiletr directive', () => {
     it('Registers component as filter target when it\'s rendered', () => {
         sut.renderFilter = true;
         fixture.detectChanges();
-        let targetComponent = fixture.debugElement.query(By.directive(RegisterAsFilterDirective)).componentInstance;
+        const targetComponent = fixture.debugElement.query(By.directive(RegisterAsFilterDirective)).componentInstance;
         expect(filtersService.appliedFiltersMap.get(targetComponent)).toBeDefined();
     });
     it('Unregisters component as filter target when it\'s not rendered', () => {

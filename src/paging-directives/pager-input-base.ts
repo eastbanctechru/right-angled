@@ -29,7 +29,7 @@ export abstract class PagerInputBase implements DoCheck, OnInit {
         this.restoreInputValue();
     }
     public ngDoCheck(): void {
-        let pagerDiff = this.pagerDiffer.diff(this.pager);
+        const pagerDiff = this.pagerDiffer.diff(this.pager);
         if (pagerDiff) {
             pagerDiff.forEachChangedItem(this.checkValueChanged);
         }

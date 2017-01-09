@@ -22,7 +22,7 @@ class ListStub {
 
 describe('rtSort directive', () => {
     let sortingsService: RTSortingsService;
-    let listStub: ListStub = new ListStub();
+    const listStub: ListStub = new ListStub();
 
     beforeEach(() => {
         SortDirective.settings.sortableClassName = 'rt-sortable';
@@ -42,7 +42,7 @@ describe('rtSort directive', () => {
     });
 
     it('Adds \'sortableClassName\' class to target element', () => {
-        let fixture = TestBed.createComponent(HostComponent);
+        const fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortableClassName);
     });
@@ -60,7 +60,7 @@ describe('rtSort directive', () => {
     });
 
     it('Sets appropriate class names when sortings changes', () => {
-        let fixture = TestBed.createComponent(HostComponent);
+        const fixture = TestBed.createComponent(HostComponent);
 
         sortingsService.setSort('field', false);
         fixture.detectChanges();
@@ -99,7 +99,7 @@ describe('rtSort directive', () => {
 
     it('Doesn\'t touch element classes if \'sortableClassName\' has falsy value', () => {
         SortDirective.settings.sortableClassName = '';
-        let fixture = TestBed.createComponent(HostComponent);
+        const fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         expect(fixture.nativeElement.querySelector('div').classList.value).toEqual('');
     });
@@ -107,7 +107,7 @@ describe('rtSort directive', () => {
     it('Doesn\'t touch element classes if \'sortAscClassName\' has falsy value', () => {
         SortDirective.settings.sortAscClassName = '';
         SortDirective.settings.sortableClassName = 'sortable';
-        let fixture = TestBed.createComponent(HostComponent);
+        const fixture = TestBed.createComponent(HostComponent);
         sortingsService.setSort('field', false);
         fixture.detectChanges();
         expect(fixture.nativeElement.querySelectorAll('div')[0].classList.value).toEqual(SortDirective.settings.sortableClassName);
@@ -120,7 +120,7 @@ describe('rtSort directive', () => {
     it('Doesn\'t touch element classes if \'sortAscClassName\' has falsy value', () => {
         SortDirective.settings.sortDescClassName = '';
         SortDirective.settings.sortableClassName = 'sortable';
-        let fixture = TestBed.createComponent(HostComponent);
+        const fixture = TestBed.createComponent(HostComponent);
         sortingsService.setSort('field', false);
         sortingsService.setSort('field', false);
         fixture.detectChanges();
@@ -133,7 +133,7 @@ describe('rtSort directive', () => {
     });
 
     it('Calls \'setSort\' method on click event', () => {
-        let fixture = TestBed.createComponent(HostComponent);
+        const fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         spyOn(sortingsService, 'setSort');
         fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: false });
@@ -144,7 +144,7 @@ describe('rtSort directive', () => {
     });
 
     it('Calls \'setSort\' method with \'savePrevious\' flag on ctrl+click', () => {
-        let fixture = TestBed.createComponent(HostComponent);
+        const fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         spyOn(sortingsService, 'setSort');
         fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
@@ -152,7 +152,7 @@ describe('rtSort directive', () => {
     });
 
     it('Calls \'listService.reloadData\' method  on click', () => {
-        let fixture = TestBed.createComponent(HostComponent);
+        const fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         spyOn(listStub, 'reloadData');
         fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: false });
@@ -162,7 +162,7 @@ describe('rtSort directive', () => {
         expect(listStub.reloadData).toHaveBeenCalled();
     });
     it('Doesn\'t call setSort and reloadData if list is not ready', () => {
-        let fixture = TestBed.createComponent(HostComponent);
+        const fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         spyOn(listStub, 'reloadData');
         spyOn(sortingsService, 'setSort');

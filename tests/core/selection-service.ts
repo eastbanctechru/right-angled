@@ -45,9 +45,9 @@ describe('RTSelectionService', () => {
     });
     describe('recursive selection', () => {
         it('Calls selectAll method of child services if recursive is true', () => {
-            let spy1 = spyOn(service.childSelectionServices[0], 'selectAll');
-            let spy2 = spyOn(service.childSelectionServices[1], 'selectAll');
-            let spy3 = spyOn(service.childSelectionServices[2], 'selectAll');
+            const spy1 = spyOn(service.childSelectionServices[0], 'selectAll');
+            const spy2 = spyOn(service.childSelectionServices[1], 'selectAll');
+            const spy3 = spyOn(service.childSelectionServices[2], 'selectAll');
             service.selectAll();
             clock.tick(100);
             expect(spy1).toHaveBeenCalled();
@@ -56,9 +56,9 @@ describe('RTSelectionService', () => {
         });
 
         it('Doesn\'t call selectAll method of child services if recursive is false', () => {
-            let spy1 = spyOn(service.childSelectionServices[0], 'selectAll');
-            let spy2 = spyOn(service.childSelectionServices[1], 'selectAll');
-            let spy3 = spyOn(service.childSelectionServices[2], 'selectAll');
+            const spy1 = spyOn(service.childSelectionServices[0], 'selectAll');
+            const spy2 = spyOn(service.childSelectionServices[1], 'selectAll');
+            const spy3 = spyOn(service.childSelectionServices[2], 'selectAll');
             service.selectAll(false);
             clock.tick(100);
             expect(spy1).not.toHaveBeenCalled();
@@ -67,9 +67,9 @@ describe('RTSelectionService', () => {
         });
 
         it('Calls deselectAll method of child services if recursive is true', () => {
-            let spy1 = spyOn(service.childSelectionServices[0], 'deselectAll');
-            let spy2 = spyOn(service.childSelectionServices[1], 'deselectAll');
-            let spy3 = spyOn(service.childSelectionServices[2], 'deselectAll');
+            const spy1 = spyOn(service.childSelectionServices[0], 'deselectAll');
+            const spy2 = spyOn(service.childSelectionServices[1], 'deselectAll');
+            const spy3 = spyOn(service.childSelectionServices[2], 'deselectAll');
             service.deselectAll();
             clock.tick(100);
             expect(spy1).toHaveBeenCalled();
@@ -78,9 +78,9 @@ describe('RTSelectionService', () => {
         });
 
         it('Doesn\'t call deselectAll method of child services if recursive is false', () => {
-            let spy1 = spyOn(service.childSelectionServices[0], 'deselectAll');
-            let spy2 = spyOn(service.childSelectionServices[1], 'deselectAll');
-            let spy3 = spyOn(service.childSelectionServices[2], 'deselectAll');
+            const spy1 = spyOn(service.childSelectionServices[0], 'deselectAll');
+            const spy2 = spyOn(service.childSelectionServices[1], 'deselectAll');
+            const spy3 = spyOn(service.childSelectionServices[2], 'deselectAll');
             service.deselectAll(false);
             clock.tick(100);
             expect(spy1).not.toHaveBeenCalled();
@@ -91,8 +91,8 @@ describe('RTSelectionService', () => {
     describe('processSelection ', () => {
         it('Doesn\'t call emitEvents if selected flag value is same as passed', () => {
             service.eventEmitters[0].selected = true;
-            let emitSpy = spyOn(service, 'emitEvents');
-            (<any>service).processSelection({
+            const emitSpy = spyOn(service, 'emitEvents');
+            (service as any).processSelection({
                 index: 0,
                 item: {}
             } as SelectionTuple, true);
@@ -100,8 +100,8 @@ describe('RTSelectionService', () => {
         });
 
         it('Calls emitEvents if selection performed', () => {
-            let emitSpy = spyOn(service, 'emitEvents');
-            (<any>service).processSelection({
+            const emitSpy = spyOn(service, 'emitEvents');
+            (service as any).processSelection({
                 index: 0,
                 item: {}
             } as SelectionTuple, true);
@@ -109,51 +109,51 @@ describe('RTSelectionService', () => {
         });
 
         it('Calls emitEvents with areaEventsEmitter if it exists', () => {
-            let emitSpy = spyOn(service, 'emitEvents');
-            let tuple = {
+            const emitSpy = spyOn(service, 'emitEvents');
+            const tuple = {
                 index: 0,
                 item: {}
             } as SelectionTuple;
-            (<any>service).processSelection(tuple, true);
+            (service as any).processSelection(tuple, true);
             expect(emitSpy).toHaveBeenCalledWith(service.areaEventsEmitter, true, tuple);
         });
         it('Doesn\'t call emitEvents with areaEventsEmitter if it doesn\'t exists', () => {
-            let emitSpy = spyOn(service, 'emitEvents');
+            const emitSpy = spyOn(service, 'emitEvents');
             service.areaEventsEmitter = null;
-            let tuple = {
+            const tuple = {
                 index: 0,
                 item: {}
             } as SelectionTuple;
-            (<any>service).processSelection(tuple, true);
+            (service as any).processSelection(tuple, true);
             expect(emitSpy).not.toHaveBeenCalledWith(service.areaEventsEmitter, true, tuple);
         });
 
         it('Calls elementEventsEmitter.postProcessSelection on selection', () => {
-            let processSpy = spyOn(service.eventEmitters[0], 'postProcessSelection');
-            let tuple = {
+            const processSpy = spyOn(service.eventEmitters[0], 'postProcessSelection');
+            const tuple = {
                 index: 0,
                 item: {}
             } as SelectionTuple;
-            (<any>service).processSelection(tuple, true);
+            (service as any).processSelection(tuple, true);
             expect(processSpy).toHaveBeenCalledWith(true);
         });
         it('Calls emitEvents with elementEventsEmitter if it exists', () => {
-            let emitSpy = spyOn(service, 'emitEvents');
-            let tuple = {
+            const emitSpy = spyOn(service, 'emitEvents');
+            const tuple = {
                 index: 0,
                 item: {}
             } as SelectionTuple;
-            (<any>service).processSelection(tuple, true);
+            (service as any).processSelection(tuple, true);
             expect(emitSpy).toHaveBeenCalledWith(service.eventEmitters[0], true, tuple);
         });
 
         it('Doesn\'t call emitEvents with elementEventsEmitter if it doesn\'t exists', () => {
-            let emitSpy = spyOn(service, 'emitEvents');
-            let tuple = {
+            const emitSpy = spyOn(service, 'emitEvents');
+            const tuple = {
                 index: 3,
                 item: {}
             } as SelectionTuple;
-            (<any>service).processSelection(tuple, true);
+            (service as any).processSelection(tuple, true);
             expect(emitSpy.calls.count()).toEqual(1);
             expect(emitSpy).toHaveBeenCalledWith(service.areaEventsEmitter, true, tuple);
         });

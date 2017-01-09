@@ -41,13 +41,13 @@ describe('infinite directive', () => {
     let rtList: ListStub;
     let pager: BufferedPagerStub;
     let loadDataSpy: jasmine.Spy;
-    let scrollTo = (target: HTMLElement | Window, scrollToNumber: number) => {
+    const scrollTo = (target: HTMLElement | Window, scrollToNumber: number) => {
         if (target instanceof Window) {
             target.scrollTo(0, scrollToNumber);
         } else {
             target.scrollTop = scrollToNumber;
         }
-        let event = new UIEvent('scroll');
+        const event = new UIEvent('scroll');
         target.dispatchEvent(event);
     };
     beforeEach(() => {
@@ -132,7 +132,7 @@ describe('infinite directive', () => {
     });
 
     it('Destroys "scrollListener" on directive destroy', () => {
-        let targetDirective = fixture.debugElement.query(By.directive(InfiniteDirective)).injector.get(InfiniteDirective);
+        const targetDirective = fixture.debugElement.query(By.directive(InfiniteDirective)).injector.get(InfiniteDirective);
         spyOn(targetDirective, 'scrollListener');
         fixture.destroy();
         expect(targetDirective.scrollListener).toHaveBeenCalledTimes(1);

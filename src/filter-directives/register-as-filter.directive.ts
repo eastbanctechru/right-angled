@@ -1,5 +1,5 @@
 import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
-import { FiltersService } from  'e2e4';
+import { FiltersService } from 'e2e4';
 
 @Directive({
     selector: '[rtRegisterAsFilter]'

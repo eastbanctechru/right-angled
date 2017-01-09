@@ -13,8 +13,8 @@ export class RowNumberPipe implements PipeTransform {
         if (!rtList) {
             throw new Error('Invalid value provided for parameter "rtList" of rtRowNumber pipe . Must be "rtList" directive instance.');
         }
-        if (rtList.listService.pager !== null && (<PagedPager>rtList.listService.pager).displayFrom) {
-            return index + (<PagedPager>rtList.listService.pager).displayFrom;
+        if (rtList.listService.pager !== null && (rtList.listService.pager as PagedPager).displayFrom) {
+            return index + (rtList.listService.pager as PagedPager).displayFrom;
         } else {
             return index + 1;
         }

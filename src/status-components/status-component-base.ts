@@ -15,7 +15,7 @@ export abstract class StatusComponentBase implements DoCheck, OnInit {
         this.setVisibility();
     }
     public ngDoCheck(): void {
-        let stateDiff = this.listDiffer.diff(this.trackedStatusObject);
+        const stateDiff = this.listDiffer.diff(this.trackedStatusObject);
         if (stateDiff) {
             stateDiff.forEachChangedItem(this.checkStateFieldChanges);
         }

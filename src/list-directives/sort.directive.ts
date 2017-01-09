@@ -46,7 +46,7 @@ export class SortDirective implements DoCheck, OnInit {
         }
     }
     public ngDoCheck(): void {
-        let changes = this.sortingsDiffer.diff(this.sortingsService.sortings);
+        const changes = this.sortingsDiffer.diff(this.sortingsService.sortings);
         if (changes) {
             changes.forEachRemovedItem(this.sortItemRemovedCallback);
             changes.forEachAddedItem(this.sortItemAddedCallback);

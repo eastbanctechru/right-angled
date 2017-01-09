@@ -3,14 +3,14 @@ import { RTFiltersService, RTList, RTOperationStatus, RTSortingsService } from '
 describe('providers', () => {
     describe('RTOperationStatus', () => {
         it('Coverage stub for else RTOperationStatus :)', () => {
-            let status = new RTOperationStatus();
+            const status = new RTOperationStatus();
             expect(status).not.toBeNull();
         });
     });
     describe('RTList', () => {
         it('registers passed filter services on init', () => {
             let filtersService: RTFiltersService = new RTFiltersService();
-            let sortingsService: RTSortingsService = new RTSortingsService();
+            const sortingsService: RTSortingsService = new RTSortingsService();
             let list = new RTList(null, null, null, sortingsService, filtersService);
             let registerSpy = spyOn(filtersService, 'registerFilterTarget');
             list.init();

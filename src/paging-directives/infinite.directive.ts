@@ -21,9 +21,9 @@ export class InfiniteDirective implements OnDestroy, OnChanges {
                 if (this.list.busy || false === this.bufferedPager.canLoadMore) {
                     return;
                 }
-                let targetTop = this.targetElement.getBoundingClientRect().top;
-                let targetHeight = this.targetElement.clientHeight;
-                let elementPosition = (<HTMLElement>this.elementRef.nativeElement).getBoundingClientRect().top;
+                const targetTop = this.targetElement.getBoundingClientRect().top;
+                const targetHeight = this.targetElement.clientHeight;
+                const elementPosition = (this.elementRef.nativeElement as HTMLElement).getBoundingClientRect().top;
                 if (targetTop + targetHeight >= elementPosition) {
                     this.list.loadData();
                 }
@@ -33,8 +33,8 @@ export class InfiniteDirective implements OnDestroy, OnChanges {
                 if (this.list.busy || false === this.bufferedPager.canLoadMore) {
                     return;
                 }
-                let windowHeight = document.documentElement.clientHeight;
-                let elementPosition = (<HTMLElement>this.elementRef.nativeElement).getBoundingClientRect().top;
+                const windowHeight = document.documentElement.clientHeight;
+                const elementPosition = (this.elementRef.nativeElement as HTMLElement).getBoundingClientRect().top;
                 if (elementPosition - windowHeight <= 0) {
                     this.list.loadData();
                 }

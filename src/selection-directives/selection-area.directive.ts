@@ -73,7 +73,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
             this.selectionService.selectIndex(0, false);
         }
         if (changes.multiple && changes.multiple.currentValue === false) {
-            let selectedIndexes = this.selectionService.getSelectedIndexes();
+            const selectedIndexes = this.selectionService.getSelectedIndexes();
             if (selectedIndexes.length > 1) {
                 selectedIndexes.splice(0, 1);
                 selectedIndexes.forEach((index) => this.selectionService.deselectIndex(index));

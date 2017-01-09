@@ -1,21 +1,21 @@
 import { RowNumberPipe } from '../../src/list-directives/index';
 
 describe('RowNumberPipe', () => {
-    let listStub: any = {
+    const listStub: any = {
         listService: {
             pager: {
             }
         }
     };
-    let pipe = new RowNumberPipe();
+    const pipe = new RowNumberPipe();
     it('Returns index + displayFrom if \'displayFrom\' property specified', () => {
-        expect(pipe.transform(0, <any>{
+        expect(pipe.transform(0, {
             listService: {
                 pager: {
                     displayFrom: 10
                 }
             }
-        })).toBe(10);
+        } as any)).toBe(10);
     });
     it('Returns index + 1 if \'displayFrom\' property not specified', () => {
         expect(pipe.transform(0, listStub)).toBe(1);
@@ -25,6 +25,6 @@ describe('RowNumberPipe', () => {
     });
     it('Throws error if index parameter is not numeric', () => {
         expect(() => pipe.transform(null, listStub)).toThrowError('Invalid input value for rtRowNumber pipe. Must be a valid numeric value.');
-        expect(() => pipe.transform(<any>'abc', listStub)).toThrowError('Invalid input value for rtRowNumber pipe. Must be a valid numeric value.');
+        expect(() => pipe.transform('abc' as any, listStub)).toThrowError('Invalid input value for rtRowNumber pipe. Must be a valid numeric value.');
     });
 });
