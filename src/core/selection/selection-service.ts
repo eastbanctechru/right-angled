@@ -31,7 +31,7 @@ export class RTSelectionService extends DefaultSelectionService {
         }
         super.deselectAll();
     }
-    protected processSelection(tuple: SelectionTuple, selected: boolean): void {
+    public processSelection(tuple: SelectionTuple, selected: boolean): void {
         const initialSelectState = this.eventEmitters[tuple.index] ? this.eventEmitters[tuple.index].selected || null : null;
         if (initialSelectState === null || initialSelectState !== selected) {
             if (this.eventEmitters.length > tuple.index && this.eventEmitters[tuple.index]) {

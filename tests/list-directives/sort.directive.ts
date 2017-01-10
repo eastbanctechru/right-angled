@@ -3,7 +3,7 @@ import { RTList, RTSortingsService } from '../../src/core/index';
 import { SortDirective } from '../../src/list-directives/index';
 
 import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { OperationStatus, SortingsService } from 'e2e4';
 
 @Component({
@@ -40,135 +40,119 @@ describe('rtSort directive', () => {
                 { provide: RTList, useValue: listStub }]
         });
     });
+    describe('css manipulations', () => {
+        it('Adds appropriate sort class name to target element if same sort identity is in list of sortings', () => {
+            sortingsService.setSort('field', false);
+            let fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortAscClassName);
 
-    it('Adds \'sortableClassName\' class to target element', () => {
-        const fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortableClassName);
+            sortingsService.setSort('field', false);
+            fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortDescClassName);
+        });
+        it('Adds custom class names class to target element', () => {
+            const customClassName = 'custom-class-name';
+            const customAscClassName = 'custom-asc-class-name';
+            const customDescClassName = 'custom-desc-class-name';
+            SortDirective.settings.sortableClassName = customClassName;
+            SortDirective.settings.sortAscClassName = customAscClassName;
+            SortDirective.settings.sortDescClassName = customDescClassName;
+
+            const fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList).toContain(customClassName);
+
+            sortingsService.setSort('field', false);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList).toContain(customAscClassName);
+
+            sortingsService.setSort('field', false);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList).toContain(customDescClassName);
+        });
+        it('Doesn\'t touch element classes if \'sortableClassName\' has falsy value', () => {
+            SortDirective.settings.sortableClassName = '';
+            const fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList.value).toEqual('');
+        });
+
+        it('Doesn\'t touch element classes if \'sortAscClassName\' has falsy value', () => {
+            SortDirective.settings.sortAscClassName = '';
+            SortDirective.settings.sortableClassName = 'sortable';
+            const fixture = TestBed.createComponent(HostComponent);
+            sortingsService.setSort('field', false);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelectorAll('div')[0].classList.value).toEqual(SortDirective.settings.sortableClassName);
+
+            sortingsService.setSort('anotherField', false);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelectorAll('div')[1].classList.value).toEqual(SortDirective.settings.sortableClassName);
+        });
+        it('Adds \'sortableClassName\' class to target element', () => {
+            const fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortableClassName);
+        });
+
+        it('Sets appropriate class names when sortings changes', () => {
+            const fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+
+            sortingsService.setSort('field', false);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortAscClassName);
+
+            sortingsService.setSort('field', false);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortDescClassName);
+
+            sortingsService.setSort('anotherField', false);
+            fixture.detectChanges();
+            expect(fixture.nativeElement.querySelector('div').classList).not.toContain(SortDirective.settings.sortDescClassName);
+            expect(fixture.nativeElement.querySelector('div').classList).not.toContain(SortDirective.settings.sortAscClassName);
+        });
+
     });
+    describe('interaction with list', () => {
+        let fixture: ComponentFixture<HostComponent>;
+        beforeEach(() => {
+            fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+        });
 
-    it('Adds appropriate sort class name to target element if same sort identity is in list of sortings', () => {
-        sortingsService.setSort('field', false);
-        let fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortAscClassName);
-        sortingsService.setSort('field', false);
+        it('Calls \'setSort\' method on click event', () => {
+            spyOn(sortingsService, 'setSort');
+            fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: false });
+            expect(sortingsService.setSort).toHaveBeenCalledWith('field', false);
 
-        fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortDescClassName);
-    });
+            fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
+            expect(sortingsService.setSort).toHaveBeenCalledWith('field', true);
+        });
 
-    it('Sets appropriate class names when sortings changes', () => {
-        const fixture = TestBed.createComponent(HostComponent);
+        it('Calls \'setSort\' method with \'savePrevious\' flag on ctrl+click', () => {
+            spyOn(sortingsService, 'setSort');
+            fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
+            expect(sortingsService.setSort).toHaveBeenCalledWith('field', true);
+        });
 
-        sortingsService.setSort('field', false);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortAscClassName);
+        it('Calls \'listService.reloadData\' method  on click', () => {
+            spyOn(listStub, 'reloadData');
+            fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: false });
+            expect(listStub.reloadData).toHaveBeenCalled();
 
-        sortingsService.setSort('field', false);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList).toContain(SortDirective.settings.sortDescClassName);
-
-        sortingsService.setSort('anotherField', false);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList).not.toContain(SortDirective.settings.sortDescClassName);
-        expect(fixture.nativeElement.querySelector('div').classList).not.toContain(SortDirective.settings.sortAscClassName);
-    });
-    it('Adds custom class names class to target element', () => {
-        const customClassName = 'custom-class-name';
-        const customAscClassName = 'custom-asc-class-name';
-        const customDescClassName = 'custom-desc-class-name';
-        SortDirective.settings.sortableClassName = customClassName;
-        SortDirective.settings.sortAscClassName = customAscClassName;
-        SortDirective.settings.sortDescClassName = customDescClassName;
-
-        let fixture = TestBed.createComponent(HostComponent);
-        fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList).toContain(customClassName);
-
-        sortingsService.setSort('field', false);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList).toContain(customAscClassName);
-
-        sortingsService.setSort('field', false);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList).toContain(customDescClassName);
-    });
-
-    it('Doesn\'t touch element classes if \'sortableClassName\' has falsy value', () => {
-        SortDirective.settings.sortableClassName = '';
-        const fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('div').classList.value).toEqual('');
-    });
-
-    it('Doesn\'t touch element classes if \'sortAscClassName\' has falsy value', () => {
-        SortDirective.settings.sortAscClassName = '';
-        SortDirective.settings.sortableClassName = 'sortable';
-        const fixture = TestBed.createComponent(HostComponent);
-        sortingsService.setSort('field', false);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelectorAll('div')[0].classList.value).toEqual(SortDirective.settings.sortableClassName);
-
-        sortingsService.setSort('anotherField', false);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelectorAll('div')[1].classList.value).toEqual(SortDirective.settings.sortableClassName);
-    });
-
-    it('Doesn\'t touch element classes if \'sortAscClassName\' has falsy value', () => {
-        SortDirective.settings.sortDescClassName = '';
-        SortDirective.settings.sortableClassName = 'sortable';
-        const fixture = TestBed.createComponent(HostComponent);
-        sortingsService.setSort('field', false);
-        sortingsService.setSort('field', false);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelectorAll('div')[0].classList.value).toEqual(SortDirective.settings.sortableClassName);
-
-        sortingsService.setSort('anotherField', false);
-        sortingsService.setSort('anotherField', false);
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelectorAll('div')[1].classList.value).toEqual(SortDirective.settings.sortableClassName);
-    });
-
-    it('Calls \'setSort\' method on click event', () => {
-        const fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        spyOn(sortingsService, 'setSort');
-        fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: false });
-        expect(sortingsService.setSort).toHaveBeenCalledWith('field', false);
-
-        fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
-        expect(sortingsService.setSort).toHaveBeenCalledWith('field', true);
-    });
-
-    it('Calls \'setSort\' method with \'savePrevious\' flag on ctrl+click', () => {
-        const fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        spyOn(sortingsService, 'setSort');
-        fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
-        expect(sortingsService.setSort).toHaveBeenCalledWith('field', true);
-    });
-
-    it('Calls \'listService.reloadData\' method  on click', () => {
-        const fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        spyOn(listStub, 'reloadData');
-        fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: false });
-        expect(listStub.reloadData).toHaveBeenCalled();
-
-        fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
-        expect(listStub.reloadData).toHaveBeenCalled();
-    });
-    it('Doesn\'t call setSort and reloadData if list is not ready', () => {
-        const fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        spyOn(listStub, 'reloadData');
-        spyOn(sortingsService, 'setSort');
-        listStub.ready = false;
-        fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: false });
-        expect(listStub.reloadData).not.toHaveBeenCalled();
-        expect(sortingsService.setSort).not.toHaveBeenCalled();
+            fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
+            expect(listStub.reloadData).toHaveBeenCalled();
+        });
+        it('Doesn\'t call setSort and reloadData if list is not ready', () => {
+            spyOn(listStub, 'reloadData');
+            spyOn(sortingsService, 'setSort');
+            listStub.ready = false;
+            fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: false });
+            expect(listStub.reloadData).not.toHaveBeenCalled();
+            expect(sortingsService.setSort).not.toHaveBeenCalled();
+        });
     });
 });
