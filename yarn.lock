@@ -2,11 +2,11 @@
 # yarn lockfile v1
 
 
-"@angular/common@~2.4.1":
+"@angular/common@~2.4.0":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-2.4.2.tgz#7a32c76808cbd0e80ffcd6e1fd68f58fc8d0ff61"
 
-"@angular/compiler-cli@~2.4.1":
+"@angular/compiler-cli@~2.4.0":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-2.4.2.tgz#88ab967cb75df7442f03b3a0c9f9bd1dfe0997e1"
   dependencies:
@@ -14,23 +14,23 @@
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler@~2.4.1":
+"@angular/compiler@~2.4.0":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.4.2.tgz#0b1f63059330a922cd3b86444a705ca8199d69c2"
 
-"@angular/core@~2.4.1":
+"@angular/core@~2.4.0":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.4.2.tgz#774fb675733437be5eab635ab13235c76ec961ba"
 
-"@angular/platform-browser-dynamic@~2.4.1":
+"@angular/platform-browser-dynamic@~2.4.0":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.4.2.tgz#fe1fd5e41c2cab789039faaa9899389357100be1"
 
-"@angular/platform-browser@~2.4.1":
+"@angular/platform-browser@~2.4.0":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-2.4.2.tgz#06d0382a050d3abe115a6538eaa40e6fa5e80a6a"
 
-"@angular/platform-server@~2.4.1":
+"@angular/platform-server@~2.4.0":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-2.4.2.tgz#fd3053494604d62b25e809538a13b03cb195e437"
   dependencies:
@@ -65,8 +65,8 @@
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.40.tgz#875c7ae739dcab1342794f51231c4aadcda6eb79"
 
 "@types/lodash@^4.14.37":
-  version "4.14.47"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.47.tgz#4f780d1de593baae2171998b24b4282c5a1f8698"
+  version "4.14.48"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.48.tgz#d4d7747c28c63581e803bb2d03d0f0f36d2ac624"
 
 "@types/marked@0.0.28":
   version "0.0.28"
@@ -77,8 +77,8 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-2.0.29.tgz#5002e14f75e2d71e564281df0431c8c1b4a2a36a"
 
 "@types/node@*":
-  version "6.0.58"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.58.tgz#7b3b7065f3cdf24e2349d35b68d2795cfa874553"
+  version "6.0.59"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.59.tgz#b7fd8f3144c447c829a8eab8805c3a523e9e5b44"
 
 "@types/shelljs@^0.3.32":
   version "0.3.33"
@@ -1010,7 +1010,7 @@ diff@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-1.4.0.tgz#7f28d2eb9ee7b15a97efd89ce63dcfdaa3ccbabf"
 
-diff@^3.0.1:
+diff@^3.0.1, diff@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
@@ -2794,6 +2794,10 @@ nan@^2.3.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.0.tgz#aa8f1e34531d807e9e27755b234b4a6ec0c152a8"
 
+native-promise-only@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/native-promise-only/-/native-promise-only-0.8.1.tgz#20a318c30cb45f71fe7adfbf7b21c99c1472ef11"
+
 natives@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/natives/-/natives-1.1.0.tgz#e9ff841418a6b2ec7a495e939984f78f163e6e31"
@@ -3098,6 +3102,12 @@ path-root@^0.1.1:
   resolved "https://registry.yarnpkg.com/path-root/-/path-root-0.1.1.tgz#9a4a6814cac1c0cd73360a95f32083c8ea4745b7"
   dependencies:
     path-root-regex "^0.1.0"
+
+path-to-regexp@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-1.7.0.tgz#59fde0f435badacba103a84e9d3bc64e96b9937d"
+  dependencies:
+    isarray "0.0.1"
 
 path-type@^1.0.0:
   version "1.1.0"
@@ -3568,17 +3578,9 @@ sha.js@2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/sha.js/-/sha.js-2.2.6.tgz#17ddeddc5f722fb66501658895461977867315ba"
 
-shelljs@0.7.4:
+shelljs@0.7.4, shelljs@^0.7.0:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.4.tgz#b8f04b3a74ddfafea22acf98e0be45ded53d59c8"
-  dependencies:
-    glob "^7.0.0"
-    interpret "^1.0.0"
-    rechoir "^0.6.2"
-
-shelljs@^0.7.0:
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.6.tgz#379cccfb56b91c8601e4793356eb5382924de9ad"
   dependencies:
     glob "^7.0.0"
     interpret "^1.0.0"
@@ -3592,14 +3594,18 @@ signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-sinon@2.0.0-pre.4:
-  version "2.0.0-pre.4"
-  resolved "https://registry.yarnpkg.com/sinon/-/sinon-2.0.0-pre.4.tgz#f29fbcca8d2fa73b633a3b0c0e4e3c78f2360c2c"
+sinon@2.0.0-pre.5:
+  version "2.0.0-pre.5"
+  resolved "https://registry.yarnpkg.com/sinon/-/sinon-2.0.0-pre.5.tgz#d87357f93ba0404c89b9d50e29e4681382f766d6"
   dependencies:
+    colors "^1.1.2"
+    diff "^3.1.0"
     formatio "1.1.1"
     lolex "^1.4.0"
+    native-promise-only "^0.8.1"
+    path-to-regexp "^1.7.0"
     samsam "^1.1.3"
-    text-encoding "0.5.2"
+    text-encoding "0.6.2"
 
 slide@^1.1.5:
   version "1.1.6"
@@ -3894,9 +3900,9 @@ ternary-stream@^2.0.0:
     merge-stream "^1.0.0"
     through2 "^2.0.1"
 
-text-encoding@0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/text-encoding/-/text-encoding-0.5.2.tgz#85b4660819f088777609465551690fea137d824a"
+text-encoding@0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/text-encoding/-/text-encoding-0.6.2.tgz#111e648e757bea92d34ef0019d9fdb06ebb9f53e"
 
 text-extensions@^1.0.0:
   version "1.4.0"
@@ -4239,9 +4245,9 @@ void-elements@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
-wallaby-webpack@^0.0.28:
-  version "0.0.28"
-  resolved "https://registry.yarnpkg.com/wallaby-webpack/-/wallaby-webpack-0.0.28.tgz#bbaff854f9c2ad94f32a3346f47b8a25419c0403"
+wallaby-webpack@^0.0.30:
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/wallaby-webpack/-/wallaby-webpack-0.0.30.tgz#190e679c816d3c881896178c349f0723585ee525"
   dependencies:
     graceful-fs "^4.1.3"
     lodash "^3.5.0"
