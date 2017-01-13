@@ -1,3 +1,5 @@
+# Current Status: Regular and AOT modes works well. Waiting the merge of Angular Universal into the Angular repo to implement server side rendering support.
+
 # right-angled - lightweight building kit for angular2 data grids
 
 [![Build Status](https://travis-ci.org/eastbanctechru/right-angled.svg?branch=master)](https://travis-ci.org/eastbanctechru/right-angled)
