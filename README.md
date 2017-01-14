@@ -1,5 +1,5 @@
 # Current Status
-JIT and AOT modes works well. Waiting the merge of Angular Universal into the Angular repo to implement server side rendering support.
+`right-angled` works well in JIT and AOT modes. Waiting the merge of Angular Universal into the Angular repo to implement server side rendering support.
 
 # right-angled - lightweight building kit for angular2 data grids
 
