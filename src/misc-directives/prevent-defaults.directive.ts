@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer } from '@angular/core';
 
 import { EventsAttacherBase } from './events-attacher.base';
 
@@ -8,7 +8,7 @@ import { EventsAttacherBase } from './events-attacher.base';
 export class PreventDefaultsDirective extends EventsAttacherBase {
     /* tslint:disable-next-line:no-input-rename */
     @Input('rtPreventDefaults') public eventNames: string[];
-    constructor(elementRef: ElementRef) {
-        super(elementRef, (evt: Event) => { evt.preventDefault(); });
+    constructor(elementRef: ElementRef, renderer: Renderer) {
+        super(elementRef, renderer, (evt: Event) => { evt.preventDefault(); });
     }
 }

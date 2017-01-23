@@ -1,35 +1,32 @@
-import { ElementRef, OnChanges, OnDestroy, SimpleChange } from '@angular/core';
+import { ElementRef, OnChanges, OnDestroy, Renderer, SimpleChange } from '@angular/core';
 
 export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
     public eventNames: string | string[];
-    constructor(private elementRef: ElementRef, public eventListener: EventListener | EventListenerObject) {
+    public eventListeners: any[] = [];
+    constructor(private elementRef: ElementRef, public renderer: Renderer, public eventListener: Function) {
     }
     public ngOnChanges(changes: { eventNames?: SimpleChange }): void {
         if (changes.eventNames) {
-            this.removeListeners(this.adjustEvents(changes.eventNames.previousValue));
+            this.removeListeners();
             this.addListeners(this.adjustEvents(changes.eventNames.currentValue));
         }
     }
     public ngOnDestroy(): void {
-        this.removeListeners(this.adjustEvents(this.eventNames));
+        this.removeListeners();
     }
     private adjustEvents(eventsNames: string | string[]): string[] {
         return eventsNames ? Array.isArray(eventsNames) ? eventsNames : [eventsNames] : [];
     }
-    private removeListeners(eventNames: string[]): void {
-        if (!eventNames || !eventNames.length) {
-            return;
-        }
-        eventNames.forEach((eventName) =>
-            (this.elementRef.nativeElement as HTMLElement).removeEventListener(eventName, this.eventListener)
-        );
+    private removeListeners(): void {
+        this.eventListeners.forEach((listener) => { if (typeof listener === 'function') { listener(); } });
+        this.eventListeners = [];
     }
     private addListeners(eventNames: string[]): void {
         if (!eventNames || !eventNames.length) {
             return;
         }
-        eventNames.forEach((eventName) =>
-            (this.elementRef.nativeElement as HTMLElement).addEventListener(eventName, this.eventListener)
+        this.eventListeners = eventNames.map((eventName) =>
+            this.renderer.listen(this.elementRef.nativeElement, eventName, this.eventListener)
         );
     }
 }
