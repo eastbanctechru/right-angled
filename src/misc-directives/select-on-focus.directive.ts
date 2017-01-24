@@ -4,12 +4,10 @@ import { Directive, ElementRef, HostListener, Renderer } from '@angular/core';
     selector: '[rtSelectOnFocus]'
 })
 export class SelectOnFocusDirective {
-    private nativeEl: HTMLInputElement;
-    constructor(public renderer: Renderer, elementRef: ElementRef) {
-        this.nativeEl = elementRef.nativeElement;
+    constructor(public renderer: Renderer, private elementRef: ElementRef) {
     }
     @HostListener('focus')
     public onFocus(): void {
-        this.renderer.invokeElementMethod(this.nativeEl, 'select', []);
+        this.renderer.invokeElementMethod(this.elementRef.nativeElement, 'select', []);
     }
 }

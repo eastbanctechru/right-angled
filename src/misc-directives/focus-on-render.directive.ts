@@ -4,12 +4,10 @@ import { AfterContentInit, Directive, ElementRef, Renderer } from '@angular/core
     selector: '[rtFocusOnRender]'
 })
 export class FocusOnRenderDirective implements AfterContentInit {
-    private nativeEl: HTMLInputElement;
-    constructor(public renderer: Renderer, elementRef: ElementRef) {
-        this.nativeEl = elementRef.nativeElement;
+    constructor(public renderer: Renderer, private elementRef: ElementRef) {
     }
     public ngAfterContentInit(): void {
         // we need set timeout for the cases when element itself is rendered by *ngIf directive and we need to wait it's rendering
-        setTimeout(() => this.renderer.invokeElementMethod(this.nativeEl, 'focus'), 0);
+        setTimeout(() => this.renderer.invokeElementMethod(this.elementRef.nativeElement, 'focus'), 0);
     }
 }
