@@ -41,6 +41,7 @@ describe('infinite directive', () => {
     let rtList: ListStub;
     let pager: BufferedPagerStub;
     let loadDataSpy: jasmine.Spy;
+    const scrollMaxValue: number = 4000;
     const scrollTo = (target: HTMLElement | Window, scrollToNumber: number) => {
         if (target instanceof Window) {
             target.scrollTo(0, scrollToNumber);
@@ -71,7 +72,7 @@ describe('infinite directive', () => {
     it('Doesn\'t call "loadData" method when list is busy in global mode', () => {
         rtList.busy = true;
         pager.canLoadMore = true;
-        scrollTo(window, Number.MAX_VALUE);
+        scrollTo(window, scrollMaxValue);
         expect(loadDataSpy).not.toHaveBeenCalled();
     });
 
@@ -80,14 +81,14 @@ describe('infinite directive', () => {
         pager.canLoadMore = true;
         fixture.componentInstance.listHostReference = fixture.componentInstance.listHost.nativeElement;
         fixture.detectChanges();
-        scrollTo(hostElement, Number.MAX_VALUE);
+        scrollTo(hostElement, scrollMaxValue);
         expect(loadDataSpy).not.toHaveBeenCalled();
     });
 
     it('Doesn\'t call "loadData" method when pager.canLoadMore is false in global mode', () => {
         rtList.busy = false;
         pager.canLoadMore = false;
-        scrollTo(window, Number.MAX_VALUE);
+        scrollTo(window, scrollMaxValue);
         expect(loadDataSpy).not.toHaveBeenCalled();
     });
     it('Doesn\'t call "loadData" method when pager.canLoadMore is false', () => {
@@ -95,7 +96,7 @@ describe('infinite directive', () => {
         pager.canLoadMore = false;
         fixture.componentInstance.listHostReference = fixture.componentInstance.listHost.nativeElement;
         fixture.detectChanges();
-        scrollTo(hostElement, Number.MAX_VALUE);
+        scrollTo(hostElement, scrollMaxValue);
         expect(loadDataSpy).not.toHaveBeenCalled();
     });
 
@@ -118,7 +119,7 @@ describe('infinite directive', () => {
     it('Calls "loadData" method when scrolled to bottom and services are ready to load data in global mode', () => {
         rtList.busy = false;
         pager.canLoadMore = true;
-        scrollTo(window, Number.MAX_VALUE);
+        scrollTo(window, scrollMaxValue);
         expect(loadDataSpy).toHaveBeenCalledTimes(1);
     });
 
@@ -127,7 +128,7 @@ describe('infinite directive', () => {
         pager.canLoadMore = true;
         fixture.componentInstance.listHostReference = fixture.componentInstance.listHost.nativeElement;
         fixture.detectChanges();
-        scrollTo(hostElement, Number.MAX_VALUE);
+        scrollTo(hostElement, scrollMaxValue);
         expect(loadDataSpy).toHaveBeenCalledTimes(1);
     });
 

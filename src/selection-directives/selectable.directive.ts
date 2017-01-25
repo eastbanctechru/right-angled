@@ -64,7 +64,7 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
         try {
             window.getSelection().removeAllRanges();
         } catch (e) {
-            // do nothing 
+            // do nothing
         }
     }
 }

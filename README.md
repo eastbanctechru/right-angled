@@ -1,6 +1,5 @@
 # Current Status
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/eastbanctechru/right-angled.svg)](https://greenkeeper.io/)
 `right-angled` works well in JIT and AOT modes. Waiting the merge of Angular Universal into the Angular repo to implement server side rendering support.
 
 # right-angled - lightweight building kit for angular2 data grids
@@ -8,6 +7,7 @@
 [![Build Status](https://travis-ci.org/eastbanctechru/right-angled.svg?branch=master)](https://travis-ci.org/eastbanctechru/right-angled)
 [![Coverage Status](https://coveralls.io/repos/github/eastbanctechru/right-angled/badge.svg?branch=master)](https://coveralls.io/github/eastbanctechru/right-angled?branch=master)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/eastbanctechru/right-angled.svg)](https://greenkeeper.io/)
 [![Dependency Status](https://david-dm.org/eastbanctechru/right-angled.svg)](https://david-dm.org/eastbanctechru/right-angled)
 [![devDependency Status](https://david-dm.org/eastbanctechru/right-angled/dev-status.svg)](https://david-dm.org/eastbanctechru/right-angled?type=dev)
 [![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)

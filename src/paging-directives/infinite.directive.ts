@@ -21,6 +21,7 @@ export class InfiniteDirective implements OnDestroy, OnChanges {
                 if (this.list.busy || false === this.bufferedPager.canLoadMore) {
                     return;
                 }
+
                 const targetTop = this.targetElement.getBoundingClientRect().top;
                 const targetHeight = this.targetElement.clientHeight;
                 const elementPosition = (this.elementRef.nativeElement as HTMLElement).getBoundingClientRect().top;

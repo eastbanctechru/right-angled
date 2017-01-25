@@ -117,7 +117,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
                 // since we've modify collection on first render, to prevent error 'Expression has changed after it was checked' we've do selection after render
                 if (this.selectionService.items.length > 0) {
                     this.selectionService.checkSelection();
-                    // repeats first element selection since checking can deselect all elements 
+                    // repeats first element selection since checking can deselect all elements
                     if (false === this.selectionService.hasSelections() && this.autoSelectFirst) {
                         this.selectionService.selectIndex(0, false);
                     }
