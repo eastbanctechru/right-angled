@@ -1,5 +1,7 @@
 # Current Status
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/eastbanctechru/right-angled.svg)](https://greenkeeper.io/)
+
 `right-angled` works well in JIT and AOT modes. Waiting the merge of Angular Universal into the Angular repo to implement server side rendering support.
 
 # right-angled - lightweight building kit for angular2 data grids
