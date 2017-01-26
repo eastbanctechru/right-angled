@@ -1,7 +1,3 @@
-# Current Status
-
-`right-angled` works well in JIT and AOT modes. Waiting the merge of Angular Universal into the Angular repo to implement server side rendering support.
-
 # right-angled - lightweight building kit for angular2 data grids
 
 [![Build Status](https://travis-ci.org/eastbanctechru/right-angled.svg?branch=master)](https://travis-ci.org/eastbanctechru/right-angled)
@@ -28,6 +24,10 @@ Again, it is 100% up to you how the app will structured and look.
 It means that you will have to implement some of the components yourself (`right-angled` provides several useful services which you can inject and use to implement your components easily). 
 Nevertheless, we are sure that creating a new component will give you more pleasure, than learning dozens of options and trying to style an alien one with the markup that cannot be modified.
 - The only dependency of `right-angled`, except [angular](https://angular.io), is the [e2e4](https://github.com/eastbanctechru/e2e4) library created by us. This library implements the functionality for the lists in abstract manner with no dependencies at all.  
+
+# Current Status
+
+`right-angled` works well in JIT and AOT modes. Waiting the merge of Angular Universal into the Angular repo to implement server side rendering support.
 
 ## How to build the project
 
