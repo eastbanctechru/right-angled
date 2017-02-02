@@ -15,27 +15,28 @@ module.exports = function (config) {
         webpack: {
             devtool: 'inline-source-map',
             module: {
-                loaders: [
+                rules: [
                     {
+						exclude: [path.resolve(__dirname, 'node_modules')],
                         include: [
                             path.resolve(__dirname, 'src'),
                             path.resolve(__dirname, 'tests')
                         ],
-                        loader: 'ts',
-                        test: /\.ts$/
+                        loader: 'ts-loader',
+                        test: /\.ts$/,
+                        options: {
+                            compilerOptions: {
+                                noEmitHelpers: true
+                            }
+                        }
                     }
                 ]
             },
             resolve: {
-                extensions: ['', '.ts', '.tsx', '.json', '.js'],
-                modulesDirectories: [
+                extensions: ['.ts', '.tsx', '.json', '.js'],
+                modules: [
                     'node_modules'
                 ]
-            },
-            ts: {
-                compilerOptions: {
-                    noEmitHelpers: true
-                }
             }
         },
         webpackServer: {

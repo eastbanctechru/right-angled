@@ -29,7 +29,7 @@ module.exports = function (config) {
         webpack: {
             devtool: 'inline-source-map',
             module: {
-                loaders: [
+                rules: [
                     {
                         exclude: [path.resolve(__dirname, 'node_modules')],
                         include: [
@@ -38,30 +38,31 @@ module.exports = function (config) {
                         ],
                         loader: 'ts-loader',
                         test: /.*(?!\.d\.ts)|(\.ts)$/,
+                        options: {
+                            compilerOptions: {
+                                noEmitHelpers: true
+                            }
+                        }
+                    },
+                    {
+                        exclude: [
+                            path.resolve(__dirname, 'node_modules/@angular'),
+                            path.resolve(__dirname, 'node_modules/rxjs')
+                        ],
+                        include: [
+                            path.resolve(__dirname, 'src')
+                        ],
+                        loader: 'istanbul-instrumenter-loader',
+                        test: /\.ts$/,
+                        enforce: 'post'
                     }
-                ],
-                postLoaders: [{
-                    exclude: [
-                        path.resolve(__dirname, 'node_modules/@angular'),
-                        path.resolve(__dirname, 'node_modules/rxjs')
-                    ],
-                    include: [
-                        path.resolve(__dirname, 'src')
-                    ],
-                    loader: 'istanbul-instrumenter',
-                    test: /\.ts$/
-                }]
-            },
-            resolve: {
-                extensions: ['', '.ts', '.tsx', '.json', '.js'],
-                modulesDirectories: [
-                    'node_modules'
                 ]
             },
-            ts: {
-                compilerOptions: {
-                    noEmitHelpers: true
-                }
+            resolve: {
+                extensions: ['.ts', '.tsx', '.json', '.js'],
+                modules: [
+                    'node_modules'
+                ]
             }
         },
         webpackServer: {
