@@ -196,7 +196,7 @@ describe('rtSelectionArea directive', () => {
 
     it('Throws error if specified trackBy input is not a function', () => {
         fixture.componentInstance.trackBy = 5 as any;
-        expect(() => fixture.detectChanges()).toThrowError('Error in ./HostComponent class HostComponent - inline template:7:4 caused by: trackBy parameter value must be a function');
+        expect(() => fixture.detectChanges()).toThrowError('trackBy parameter value must be a function');
     });
 
     it('Selects first item on change tracking cycle if autoSelectFirst is true and nothings selected', () => {

@@ -60,7 +60,7 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
             this.renderer.setElementClass(this.el.nativeElement, SelectableDirective.settings.selectedClassName, this.selected);
         }
     }
-    private clearWindowSelection(): void {
+    public clearWindowSelection(): void {
         try {
             window.getSelection().removeAllRanges();
         } catch (e) {

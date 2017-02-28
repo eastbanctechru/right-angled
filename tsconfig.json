@@ -14,7 +14,6 @@
     "diagnostics": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    
     "suppressImplicitAnyIndexErrors": true,
     "pretty": true,
     "forceConsistentCasingInFileNames": true,
@@ -27,7 +26,7 @@
     "types": []
   },
   "angularCompilerOptions": {
-    "genDir": "compiled"
+    "skipTemplateCodegen": true
   },
   "exclude": [
     "node_modules"
