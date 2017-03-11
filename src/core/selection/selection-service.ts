@@ -43,7 +43,7 @@ export class RTSelectionService extends DefaultSelectionService {
             }
         }
     }
-    public emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
+    private emitEvents(emitter: SelectionEventsEmitter, selected: boolean, tuple: SelectionTuple): void {
         if (selected) {
             emitter.itemSelected.emit({ index: tuple.index, item: tuple.item });
         } else {

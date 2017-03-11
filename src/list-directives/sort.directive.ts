@@ -20,7 +20,7 @@ export class SortDirective implements DoCheck, OnInit {
     /* tslint:disable-next-line:no-input-rename */
     @Input('rtSort') public fieldName: string;
     private nativeEl: HTMLElement;
-    private sortingsDiffer: IterableDiffer<any>;
+    private sortingsDiffer: IterableDiffer;
 
     constructor( @SkipSelf() private listService: RTList, @SkipSelf() private sortingsService: SortingsService, private renderer: Renderer, el: ElementRef, differs: IterableDiffers) {
         this.sortingsDiffer = differs.find([]).create(null);

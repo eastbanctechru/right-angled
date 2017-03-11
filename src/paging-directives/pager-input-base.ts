@@ -4,7 +4,7 @@ export abstract class PagerInputBase implements DoCheck, OnInit {
     @HostBinding('value')
     public innerValue: number;
     public changeTrackingKey: string;
-    private pagerDiffer: KeyValueDiffer<string, any>;
+    private pagerDiffer: KeyValueDiffer;
     constructor(public pager: any, differs: KeyValueDiffers, changeTrackingKey: string) {
         this.changeTrackingKey = changeTrackingKey;
         this.pagerDiffer = differs.find([]).create(null);

@@ -5,7 +5,7 @@ import { RTOperationStatus } from '../core/providers';
 
 export abstract class StatusComponentBase implements DoCheck, OnInit {
     public isVisible: boolean;
-    private listDiffer: KeyValueDiffer<string, any>;
+    private listDiffer: KeyValueDiffer;
     private visibleState: OperationStatus;
     constructor(protected trackedStatusObject: RTOperationStatus, differs: KeyValueDiffers, visibleState: OperationStatus) {
         this.visibleState = visibleState;
