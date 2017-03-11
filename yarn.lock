@@ -1210,9 +1210,9 @@ duplexify@^3.5.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-e2e4@^2.0.0-rc.1:
-  version "2.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/e2e4/-/e2e4-2.0.0-rc.1.tgz#f66fbeda18fe1e6f3345b1dd8e104032044e1420"
+e2e4@^2.0.0-rc.0:
+  version "2.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/e2e4/-/e2e4-2.0.0-rc.0.tgz#801e1fa1e0772f3d634a8787de3db6054997f92b"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"
