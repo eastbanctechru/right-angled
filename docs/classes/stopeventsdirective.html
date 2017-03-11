@@ -100,7 +100,9 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="stopeventsdirective.html#eventlistener" class="tsd-kind-icon">event<wbr>Listener</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="stopeventsdirective.html#eventlisteners" class="tsd-kind-icon">event<wbr>Listeners</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="stopeventsdirective.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="stopeventsdirective.html#renderer" class="tsd-kind-icon">renderer</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
@@ -119,20 +121,23 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Stop<wbr>Events<wbr>Directive<span class="tsd-signature-symbol">(</span>elementRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="stopeventsdirective.html" class="tsd-signature-type">StopEventsDirective</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Stop<wbr>Events<wbr>Directive<span class="tsd-signature-symbol">(</span>elementRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span>, renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Renderer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="stopeventsdirective.html" class="tsd-signature-type">StopEventsDirective</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="eventsattacherbase.html">EventsAttacherBase</a>.<a href="eventsattacherbase.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/misc-directives/stop-events.directive.ts#L10">misc-directives/stop-events.directive.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/ad0aac8/src/misc-directives/stop-events.directive.ts#L10">misc-directives/stop-events.directive.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>elementRef: <span class="tsd-signature-type">ElementRef</span></h5>
+								</li>
+								<li>
+									<h5>renderer: <span class="tsd-signature-type">Renderer</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="stopeventsdirective.html" class="tsd-signature-type">StopEventsDirective</a></h4>
@@ -145,11 +150,22 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="eventlistener" class="tsd-anchor"></a>
 					<h3>event<wbr>Listener</h3>
-					<div class="tsd-signature tsd-kind-icon">event<wbr>Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventListener</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">EventListenerObject</span></div>
+					<div class="tsd-signature tsd-kind-icon">event<wbr>Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="eventsattacherbase.html">EventsAttacherBase</a>.<a href="eventsattacherbase.html#eventlistener">eventListener</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/misc-directives/events-attacher.base.ts#L5">misc-directives/events-attacher.base.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/ad0aac8/src/misc-directives/events-attacher.base.ts#L6">misc-directives/events-attacher.base.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="eventlisteners" class="tsd-anchor"></a>
+					<h3>event<wbr>Listeners</h3>
+					<div class="tsd-signature tsd-kind-icon">event<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="eventsattacherbase.html">EventsAttacherBase</a>.<a href="eventsattacherbase.html#eventlisteners">eventListeners</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/ad0aac8/src/misc-directives/events-attacher.base.ts#L5">misc-directives/events-attacher.base.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +176,18 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="eventsattacherbase.html">EventsAttacherBase</a>.<a href="eventsattacherbase.html#eventnames">eventNames</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/misc-directives/stop-events.directive.ts#L10">misc-directives/stop-events.directive.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/ad0aac8/src/misc-directives/stop-events.directive.ts#L10">misc-directives/stop-events.directive.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="renderer" class="tsd-anchor"></a>
+					<h3>renderer</h3>
+					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Renderer</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="eventsattacherbase.html">EventsAttacherBase</a>.<a href="eventsattacherbase.html#renderer">renderer</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/ad0aac8/src/misc-directives/events-attacher.base.ts#L6">misc-directives/events-attacher.base.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +205,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="eventsattacherbase.html">EventsAttacherBase</a>.<a href="eventsattacherbase.html#ngonchanges">ngOnChanges</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/misc-directives/events-attacher.base.ts#L7">misc-directives/events-attacher.base.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/ad0aac8/src/misc-directives/events-attacher.base.ts#L8">misc-directives/events-attacher.base.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -207,7 +234,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="eventsattacherbase.html">EventsAttacherBase</a>.<a href="eventsattacherbase.html#ngondestroy">ngOnDestroy</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/4309a27/src/misc-directives/events-attacher.base.ts#L13">misc-directives/events-attacher.base.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/ad0aac8/src/misc-directives/events-attacher.base.ts#L14">misc-directives/events-attacher.base.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -339,8 +366,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="stopeventsdirective.html#eventlistener" class="tsd-kind-icon">event<wbr>Listener</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="stopeventsdirective.html#eventlisteners" class="tsd-kind-icon">event<wbr>Listeners</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 								<a href="stopeventsdirective.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="stopeventsdirective.html#renderer" class="tsd-kind-icon">renderer</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="stopeventsdirective.html#ngonchanges" class="tsd-kind-icon">ng<wbr>OnChanges</a>
