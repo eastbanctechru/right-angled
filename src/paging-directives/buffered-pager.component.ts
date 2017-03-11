@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { BufferedPager } from 'e2e4';
+import { Observable } from 'rxjs/Observable';
 
 import { RTBufferedPager, RTList } from '../core/index';
 
@@ -33,9 +34,10 @@ export class BufferedPagerComponent implements OnChanges, OnInit {
     public get canLoadMore(): boolean {
         return this.pager.canLoadMore;
     }
-    public loadMore(): void {
+    public loadMore(): Observable<any> | Promise<any> | EventEmitter<any> {
         if (this.canLoadMore) {
-            this.listService.loadData();
+            return this.listService.loadData();
         }
+        return null;
     }
 }

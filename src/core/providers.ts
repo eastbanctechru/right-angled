@@ -1,6 +1,7 @@
 // tslint:disable:max-classes-per-file
-import { Inject, Injectable, OpaqueToken, Optional, SkipSelf } from '@angular/core';
+import { EventEmitter, Inject, Injectable, OpaqueToken, Optional, SkipSelf } from '@angular/core';
 import { AsyncSubscriber, BufferedPager, FiltersService, List, OperationStatus, PagedPager, SelectionEventsHelper, SortingsService, StateService } from 'e2e4';
+import { Observable } from 'rxjs/Observable';
 
 import { RTSelectionService } from './selection/selection-service';
 
@@ -29,6 +30,12 @@ export class RTList extends List {
                 this.filterTargets.push(filterTargets);
             }
         }
+    }
+    public loadData(): Observable<any> | Promise<any> | EventEmitter<any>  {
+        return super.loadData();
+    }
+    public reloadData(): Observable<any> | Promise<any> | EventEmitter<any> {
+        return super.reloadData();
     }
     public init(): void {
         this.filtersService.registerFilterTarget(...this.filterTargets);

@@ -42,11 +42,11 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
             this.sortingsService.defaultSortings = changes.defaultSortings.currentValue;
         }
     }
-    public reloadData(): void {
-        this.listService.reloadData();
+    public reloadData(): Observable<any> | Promise<any> | EventEmitter<any> {
+        return this.listService.reloadData();
     }
-    public loadData(): void {
-        this.listService.loadData();
+    public loadData(): Observable<any> | Promise<any> | EventEmitter<any> {
+        return this.listService.loadData();
     }
     public resetSettings(): void {
         this.listService.resetSettings();

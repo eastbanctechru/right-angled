@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { PagedPager } from 'e2e4';
+import { Observable } from 'rxjs/Observable';
 
 import { RTList, RTPagedPager } from '../core/index';
 
@@ -36,27 +37,31 @@ export class PagedPagerComponent implements OnChanges, OnInit {
     public get canMoveBackward(): boolean {
         return this.pager.canMoveBackward;
     }
-    public goToFirstPage(): void {
+    public goToFirstPage(): Observable<any> | Promise<any> | EventEmitter<any> {
         if (this.pager.tryMoveToFirstPage()) {
-            this.listService.loadData();
+            return this.listService.loadData();
         }
+        return null;
     }
-    public goToLastPage(): void {
+    public goToLastPage(): Observable<any> | Promise<any> | EventEmitter<any> {
         if (this.pager.tryMoveToLastPage()) {
-            this.listService.loadData();
+            return this.listService.loadData();
         }
+        return null;
     }
-    public goToNextPage(): void {
+    public goToNextPage(): Observable<any> | Promise<any> | EventEmitter<any> {
         if (this.pager.tryMoveToNextPage()) {
-            this.listService.loadData();
+            return this.listService.loadData();
         }
+        return null;
     }
-    public goToPreviousPage(): void {
+    public goToPreviousPage(): Observable<any> | Promise<any> | EventEmitter<any> {
         if (this.pager.tryMoveToPreviousPage()) {
-            this.listService.loadData();
+            return this.listService.loadData();
         }
+        return null;
     }
-    public loadData(): void {
-        this.listService.loadData();
+    public loadData(): Observable<any> | Promise<any> | EventEmitter<any>  {
+        return this.listService.loadData();
     }
 }
