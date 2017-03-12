@@ -30,6 +30,7 @@
     "postversion": "git push && git push --tags && conventional-github-releaser -p angular",
     "build": "npm run clean:src && npm run ngc",
     "precommit": "npm run rimraf -- coverage compiled .publish && npm run clean:src && npm run clean:tests && npm run lint && npm run build && npm run test",
+    "ci": "npm run lint && npm run build && npm run test",
     "clean:src": "npm run rimraf -- \"src/**/*.+(js|js.map|d.ts|metadata.json)\" ",
     "clean:tests": "npm run rimraf -- \"tests/**/*.+(js|js.map|d.ts|metadata.json)\" ",
     "docs": "npm run rimraf -- docs && typedoc --options typedoc.json src/ && npm run docs:replace:paths",
