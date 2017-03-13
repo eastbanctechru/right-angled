@@ -2,14 +2,8 @@
 # [1.0.0-beta.4](https://github.com/eastbanctechru/right-angled/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2017-03-11)
 
 
-### Bug Fixes
-
-* **all:** replace `OpaqueToken` with `InjectionToken` ([8c0e291](https://github.com/eastbanctechru/right-angled/commit/8c0e291))
-
-
 ### Features
 
-* **all:** angular version updated to 4.x ([9fa7c17](https://github.com/eastbanctechru/right-angled/commit/9fa7c17))
 * **list:** `loadData` now return result of `fetchMethod` execution ([ad0aac8](https://github.com/eastbanctechru/right-angled/commit/ad0aac8))
 * **package:** e2e4 version updated ([a45239e](https://github.com/eastbanctechru/right-angled/commit/a45239e))
 
