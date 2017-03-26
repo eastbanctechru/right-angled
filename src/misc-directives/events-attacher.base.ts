@@ -3,7 +3,7 @@ import { ElementRef, OnChanges, OnDestroy, Renderer, SimpleChange } from '@angul
 export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
     public eventNames: string | string[];
     public eventListeners: any[] = [];
-    constructor(private elementRef: ElementRef, public renderer: Renderer, public eventListener: Function) {
+    constructor(private elementRef: ElementRef, public renderer: Renderer, public eventListener: (evt: Event) => void) {
     }
     public ngOnChanges(changes: { eventNames?: SimpleChange }): void {
         if (changes.eventNames) {

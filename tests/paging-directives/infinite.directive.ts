@@ -22,7 +22,7 @@ import { BufferedPager } from 'e2e4';
 class ComponentWithHostComponent {
     @ViewChild('listHost') public listHost: ElementRef;
     public listHostReference: HTMLElement = null;
-    public items: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    public items: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 }
 
 class BufferedPagerStub {

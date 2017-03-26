@@ -1,11 +1,11 @@
 // tslint:disable:max-classes-per-file
-import { EventEmitter, Inject, Injectable, OpaqueToken, Optional, SkipSelf } from '@angular/core';
+import { EventEmitter, Inject, Injectable, InjectionToken, Optional, SkipSelf } from '@angular/core';
 import { AsyncSubscriber, BufferedPager, FiltersService, List, OperationStatus, PagedPager, SelectionEventsHelper, SortingsService, StateService } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
 import { RTSelectionService } from './selection/selection-service';
 
-export const RTFilterTarget = new OpaqueToken('RTFilterTarget');
+export const RTFilterTarget = new InjectionToken('RTFilterTarget');
 
 export class RTOperationStatus {
     public status: OperationStatus;
@@ -14,11 +14,11 @@ export abstract class RTStateService extends StateService { }
 
 @Injectable()
 export class RTList extends List {
-    private filterTargets: Object[] = [];
+    private filterTargets: Array<object> = [];
     constructor(
         asyncSubscriber: AsyncSubscriber,
         @Optional() stateServices: RTStateService,
-        @SkipSelf() @Optional() @Inject(RTFilterTarget) filterTargets: Object,
+        @SkipSelf() @Optional() @Inject(RTFilterTarget) filterTargets: object,
         sortingsService: SortingsService,
         filtersService: FiltersService) {
 

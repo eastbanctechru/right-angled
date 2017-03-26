@@ -39,7 +39,7 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
     }
 
     @HostListener('mouseup', ['$event.ctrlKey', '$event.shiftKey', '$event.which', '$event.preventDefault', '$event.stopPropagation', '$event'])
-    public mouseUpHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, mouseButton: number, preventDefaultFn: Function, stopPropagationFn: Function, executionContext: any): void {
+    public mouseUpHandler(ctrlKeyPressed: boolean, shiftKeyPressed: boolean, mouseButton: number, preventDefaultFn: () => void, stopPropagationFn: () => void, executionContext: any): void {
         if (this.selectionEventsHelper.mouseHandler(ctrlKeyPressed, shiftKeyPressed, mouseButton, this.index)) {
             this.clearWindowSelection();
             if (this.selectionEventsHelper.preventEventsDefaults && preventDefaultFn) {
@@ -60,7 +60,7 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
             this.renderer.setElementClass(this.el.nativeElement, SelectableDirective.settings.selectedClassName, this.selected);
         }
     }
-    private clearWindowSelection(): void {
+    public clearWindowSelection(): void {
         try {
             window.getSelection().removeAllRanges();
         } catch (e) {

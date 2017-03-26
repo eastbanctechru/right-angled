@@ -27,7 +27,7 @@
     "types": []
   },
   "angularCompilerOptions": {
-    "genDir": "compiled"
+    "skipTemplateCodegen": true
   },
   "exclude": [
     "node_modules"

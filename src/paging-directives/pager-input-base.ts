@@ -2,9 +2,9 @@ import { DoCheck, HostBinding, HostListener, KeyValueDiffer, KeyValueDiffers, On
 
 export abstract class PagerInputBase implements DoCheck, OnInit {
     @HostBinding('value')
-    public innerValue: number;
+    public innerValue: string | number;
     public changeTrackingKey: string;
-    private pagerDiffer: KeyValueDiffer;
+    private pagerDiffer: KeyValueDiffer<string, any>;
     constructor(public pager: any, differs: KeyValueDiffers, changeTrackingKey: string) {
         this.changeTrackingKey = changeTrackingKey;
         this.pagerDiffer = differs.find([]).create(null);
