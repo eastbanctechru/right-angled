@@ -1,3 +1,14 @@
+<a name="1.0.0-beta.5"></a>
+# [1.0.0-beta.5](https://github.com/eastbanctechru/right-angled/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2017-03-26)
+
+
+### Features
+
+* **all:** `e2e4` version updated ([bef69b7](https://github.com/eastbanctechru/right-angled/commit/bef69b7))
+* **all:** update `angular` to 4.0 ([88db919](https://github.com/eastbanctechru/right-angled/commit/88db919))
+
+
+
 <a name="1.0.0-beta.4"></a>
 # [1.0.0-beta.4](https://github.com/eastbanctechru/right-angled/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2017-03-11)
 
