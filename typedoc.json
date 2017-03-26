@@ -7,6 +7,8 @@
     "ignoreCompilerErrors": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "excludeExternals": true,
+    "externalPattern": "**/+(node_modules|tests)/**/*.ts",
     "target": "ES5",
     "moduleResolution": "node",
     "preserveConstEnums": true,

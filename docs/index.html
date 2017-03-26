@@ -38,8 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -81,11 +79,16 @@
 								<li class="tsd-kind-class"><a href="classes/pagerinputbase.html" class="tsd-kind-icon">Pager<wbr>Input<wbr>Base</a></li>
 								<li class="tsd-kind-class"><a href="classes/preventdefaultsdirective.html" class="tsd-kind-icon">Prevent<wbr>Defaults<wbr>Directive</a></li>
 								<li class="tsd-kind-class"><a href="classes/rtbufferedpager.html" class="tsd-kind-icon">RTBuffered<wbr>Pager</a></li>
+								<li class="tsd-kind-class"><a href="classes/rtfiltersmodule.html" class="tsd-kind-icon">RTFilters<wbr>Module</a></li>
 								<li class="tsd-kind-class"><a href="classes/rtfiltersservice.html" class="tsd-kind-icon">RTFilters<wbr>Service</a></li>
 								<li class="tsd-kind-class"><a href="classes/rtlist.html" class="tsd-kind-icon">RTList</a></li>
+								<li class="tsd-kind-class"><a href="classes/rtlistsmodule.html" class="tsd-kind-icon">RTLists<wbr>Module</a></li>
+								<li class="tsd-kind-class"><a href="classes/rtmiscmodule.html" class="tsd-kind-icon">RTMisc<wbr>Module</a></li>
+								<li class="tsd-kind-class"><a href="classes/rtmodule.html" class="tsd-kind-icon">RTModule</a></li>
 								<li class="tsd-kind-class"><a href="classes/rtoperationstatus.html" class="tsd-kind-icon">RTOperation<wbr>Status</a></li>
 								<li class="tsd-kind-class"><a href="classes/rtpagedpager.html" class="tsd-kind-icon">RTPaged<wbr>Pager</a></li>
 								<li class="tsd-kind-class"><a href="classes/rtselectioneventshelper.html" class="tsd-kind-icon">RTSelection<wbr>Events<wbr>Helper</a></li>
+								<li class="tsd-kind-class"><a href="classes/rtselectionmodule.html" class="tsd-kind-icon">RTSelection<wbr>Module</a></li>
 								<li class="tsd-kind-class"><a href="classes/rtselectionservice.html" class="tsd-kind-icon">RTSelection<wbr>Service</a></li>
 								<li class="tsd-kind-class"><a href="classes/rtsortingsservice.html" class="tsd-kind-icon">RTSortings<wbr>Service</a></li>
 								<li class="tsd-kind-class"><a href="classes/rtstateservice.html" class="tsd-kind-icon">RTState<wbr>Service</a></li>
@@ -133,17 +136,17 @@
 					<div class="tsd-signature tsd-kind-icon">LIST_<wbr>PROVIDERS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[AsyncSubscriber,RTList,{ provide: FiltersService, useClass: RTFiltersService },{ provide: RTOperationStatus, useExisting: RTList },{ provide: SortingsService, useClass: RTSortingsService }]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/ad0aac8/src/core/providers.ts#L72">core/providers.ts:72</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/88db919/src/core/providers.ts#L72">src/core/providers.ts:72</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="rtfiltertarget" class="tsd-anchor"></a>
 					<h3>RTFilter<wbr>Target</h3>
-					<div class="tsd-signature tsd-kind-icon">RTFilter<wbr>Target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">OpaqueToken</span><span class="tsd-signature-symbol"> =&nbsp;new OpaqueToken(&#x27;RTFilterTarget&#x27;)</span></div>
+					<div class="tsd-signature tsd-kind-icon">RTFilter<wbr>Target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">InjectionToken</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new InjectionToken(&#x27;RTFilterTarget&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/ad0aac8/src/core/providers.ts#L8">core/providers.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/eastbanctechru/right-angled/blob/88db919/src/core/providers.ts#L8">src/core/providers.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -193,10 +196,22 @@
 						<a href="classes/rtbufferedpager.html" class="tsd-kind-icon">RTBuffered<wbr>Pager</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/rtfiltersmodule.html" class="tsd-kind-icon">RTFilters<wbr>Module</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/rtfiltersservice.html" class="tsd-kind-icon">RTFilters<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/rtlist.html" class="tsd-kind-icon">RTList</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/rtlistsmodule.html" class="tsd-kind-icon">RTLists<wbr>Module</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/rtmiscmodule.html" class="tsd-kind-icon">RTMisc<wbr>Module</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/rtmodule.html" class="tsd-kind-icon">RTModule</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/rtoperationstatus.html" class="tsd-kind-icon">RTOperation<wbr>Status</a>
@@ -206,6 +221,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/rtselectioneventshelper.html" class="tsd-kind-icon">RTSelection<wbr>Events<wbr>Helper</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/rtselectionmodule.html" class="tsd-kind-icon">RTSelection<wbr>Module</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/rtselectionservice.html" class="tsd-kind-icon">RTSelection<wbr>Service</a>

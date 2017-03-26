@@ -90,7 +90,7 @@
     "ts-helpers": "^1.1.2",
     "ts-loader": "^2.0.3",
     "tslint": "4.5.1",
-    "typedoc": "0.5.1",
+    "typedoc": "^0.5.9",
     "typescript": "2.2.1",
     "wallaby-webpack": "^0.0.37",
     "webpack": "^2.3.2",
