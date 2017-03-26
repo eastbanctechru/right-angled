@@ -35,7 +35,7 @@
     "clean:tests": "npm run rimraf -- \"tests/**/*.+(js|js.map|d.ts|metadata.json)\" ",
     "docs": "npm run rimraf -- docs && typedoc --options typedoc.json src/ && npm run docs:replace:paths",
     "docs:replace:paths": "replace \"Defined in C:/Users/f.shchudlo/Documents/GitHub/right-angled/node_modules/e2e4\" \"e2e4\" ./docs -r",
-    "lint": "npm run tslint \"src/**/*[!.][!d].ts\" \"tests/**/*[!.][!d].ts\"",
+    "lint": "npm run tslint -- --type-check --project tsconfig.json",
     "test": "npm run clean:tests && karma start karma.conf.js",
     "test:watch": "npm run clean:tests && karma start karma.conf.debug.js"
   },

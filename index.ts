@@ -108,12 +108,12 @@ export class RTSelectionModule { }
     imports: [CommonModule]
 })
 export class RTListsModule {
-    public static registerStateService({useClass, useValue, useExisting, useFactory, deps, multi}: {
+    public static registerStateService({ useClass, useValue, useExisting, useFactory, deps, multi }: {
         useClass?: any;
         useValue?: any;
         useExisting?: any;
-        useFactory?: Function;
-        deps?: Object[];
+        useFactory?: () => any;
+        deps?: Array<object>;
         multi?: boolean;
     }): void {
         LIST_PROVIDERS.push({
@@ -133,12 +133,12 @@ export class RTListsModule {
     imports: [RTListsModule, RTSelectionModule, RTMiscModule, RTFiltersModule]
 })
 export class RTModule {
-    public static registerStateService({useClass, useValue, useExisting, useFactory, deps, multi}: {
+    public static registerStateService({ useClass, useValue, useExisting, useFactory, deps, multi }: {
         useClass?: any;
         useValue?: any;
         useExisting?: any;
-        useFactory?: Function;
-        deps?: Object[];
+        useFactory?: () => any;
+        deps?: Array<object>;
         multi?: boolean;
     }): void {
         RTListsModule.registerStateService({ useClass, useValue, useExisting, useFactory, deps, multi });

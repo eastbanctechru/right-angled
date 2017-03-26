@@ -89,9 +89,8 @@
       "camelCase",
       "rt"
     ],
-    "import-destructuring-spacing": true,
     "templates-use-public": true,
-    "no-access-missing-member": false,
+    "no-access-missing-member": true,
     "invoke-injectable": true,
     "component-class-suffix": true,
     "directive-class-suffix": true
