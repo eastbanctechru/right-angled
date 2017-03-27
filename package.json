@@ -92,7 +92,7 @@
     "tslint": "4.5.1",
     "typedoc": "^0.5.9",
     "typescript": "2.2.1",
-    "wallaby-webpack": "^0.0.37",
+    "wallaby-webpack": "^0.0.38",
     "webpack": "^2.3.2",
     "zone.js": "^0.8.5"
   },
