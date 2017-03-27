@@ -1,3 +1,13 @@
+<a name="1.0.0-beta.6"></a>
+# [1.0.0-beta.6](https://github.com/eastbanctechru/right-angled/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2017-03-27)
+
+
+### Bug Fixes
+
+* **aot:** AOT compilation fixed ([f15332b](https://github.com/eastbanctechru/right-angled/commit/f15332b))
+
+
+
 <a name="1.0.0-beta.5"></a>
 # [1.0.0-beta.5](https://github.com/eastbanctechru/right-angled/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2017-03-26)
 
