@@ -18,7 +18,7 @@ export class RTList extends List {
     constructor(
         asyncSubscriber: AsyncSubscriber,
         @Optional() stateServices: RTStateService,
-        @SkipSelf() @Optional() @Inject(RTFilterTarget) filterTargets: object,
+        @SkipSelf() @Optional() @Inject(RTFilterTarget) filterTargets: any,
         sortingsService: SortingsService,
         filtersService: FiltersService) {
 
