@@ -4,7 +4,7 @@
   "author": "EastBanc Technologies",
   "version": "1.0.0-beta.6",
   "license": "MIT",
-  "description": "Set of components to provide lists functionality for Angular 2 apps",
+  "description": "Set of components to provide lists functionality for angular apps",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "keywords": [
     "grid",
     "list",
-    "angular2"
+    "angular"
   ],
   "bugs": {
     "url": "https://github.com/eastbanctechru/right-angled/issues"
