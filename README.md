@@ -10,6 +10,11 @@
 ## Live demo
 Live demo with documentation is available [here](https://eastbanctechru.github.io/right-angled-demo)
 
+## Documentation
+Documentation is available [here](http://eastbanctechru.github.io/right-angled)
+
+You can also see nice project vizualization on [angulardocs.io](http://angulardoc.io/repos/github/54775184/project/%2F/overview)
+
 ## Project Idea
 `right-angled` is the library for constructing functional data tables (aka data lists, data grids). 
 Also, it has a very useful selection and filter models. 
@@ -23,10 +28,6 @@ Again, it is 100% up to you how the app will structured and look.
 It means that you will have to implement some of the components yourself (`right-angled` provides several useful services which you can inject and use to implement your components easily). 
 Nevertheless, we are sure that creating a new component will give you more pleasure, than learning dozens of options and trying to style an alien one with the markup that cannot be modified.
 - The only dependency of `right-angled`, except [angular](https://angular.io), is the [e2e4](https://github.com/eastbanctechru/e2e4) library created by us. This library implements the functionality for the lists in abstract manner with no dependencies at all.  
-
-# Current Status
-
-`right-angled` works well in JIT and AOT modes. Waiting the merge of Angular Universal into the Angular repo to implement server side rendering support.
 
 ## How to build the project
 
