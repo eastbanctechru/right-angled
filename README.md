@@ -1,4 +1,4 @@
-# right-angled - lightweight building kit for angular data grids
+# right-angled - lightweight and easy to use angular data grids. Integrates with your markup and styles rather than generating its own.
 
 [![Build Status](https://travis-ci.org/eastbanctechru/right-angled.svg?branch=master)](https://travis-ci.org/eastbanctechru/right-angled)
 [![Coverage Status](https://coveralls.io/repos/github/eastbanctechru/right-angled/badge.svg?branch=master)](https://coveralls.io/github/eastbanctechru/right-angled?branch=master)
