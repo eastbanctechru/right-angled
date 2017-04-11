@@ -1,21 +1,32 @@
-# right-angled - lightweight and easy to use angular data grids. Integrates with your markup and styles rather than generating its own.
-
+[![npm version](https://badge.fury.io/js/right-angled.svg)](https://badge.fury.io/js/right-angled)
 [![Build Status](https://travis-ci.org/eastbanctechru/right-angled.svg?branch=master)](https://travis-ci.org/eastbanctechru/right-angled)
 [![Coverage Status](https://coveralls.io/repos/github/eastbanctechru/right-angled/badge.svg?branch=master)](https://coveralls.io/github/eastbanctechru/right-angled?branch=master)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Dependency Status](https://david-dm.org/eastbanctechru/right-angled.svg)](https://david-dm.org/eastbanctechru/right-angled)
 [![devDependency Status](https://david-dm.org/eastbanctechru/right-angled/dev-status.svg)](https://david-dm.org/eastbanctechru/right-angled?type=dev)
-[![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
-## Live demo
-Live demo with documentation is available [here](https://eastbanctechru.github.io/right-angled-demo)
+<div style="margin: 30px 0;">
+   <a href="https://github.com/eastbanctechru/right-angled">
+    <img src="https://raw.githubusercontent.com/eastbanctechru/right-angled/master/logo.png">
+  </a>
+</div>
 
-## Documentation
-Documentation is available [here](http://eastbanctechru.github.io/right-angled)
+## What is it
 
-You can also see nice project vizualization on [angulardocs.io](http://angulardoc.io/repos/github/54775184/project/%2F/overview)
+right-angled is a lightweight and easy to use angular data grids which integrates with your markup and styles rather than generating its own
 
-## Project Idea
+## Getting started
+
+Check out our demo application at [https://eastbanctechru.github.io/right-angled-demo/](https://eastbanctechru.github.io/right-angled-demo)
+
+## Install
+
+  ```shell
+  npm install right-angled
+  ```
+
+## TL;DR
+
 `right-angled` is the library for constructing functional data tables (aka data lists, data grids). 
 Also, it has a very useful selection and filter models. 
 They can work even without lists, but they go much better with them. The main feature providing the basis for the library is unobtrusiveness seen in the following:
