@@ -4,7 +4,7 @@
   "author": "EastBanc Technologies",
   "version": "1.0.0-beta.6",
   "license": "MIT",
-  "description": "Set of components to provide data grids functionality for angular apps",
+  "description": "Lightweight and easy to use angular data grids. Integrates with your markup and styles rather than generating its own.",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "data table",
     "grid",
     "list",
-    "angular"
+    "angular",
+    "unobtrusive"
   ],
   "bugs": {
     "url": "https://github.com/eastbanctechru/right-angled/issues"
