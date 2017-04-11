@@ -8,9 +8,10 @@ import { FiltersService, OperationStatus, SortDirection, SortingsService, SortPa
 import * as Rx from 'rxjs';
 
 @Component({
-    template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" (onListInit)="onListInit($event)" (afterListInit)="afterListInit($event)"></div>`
+    template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" [keepRecordsOnLoad]="keepRecordsOnLoad" (onListInit)="onListInit($event)" (afterListInit)="afterListInit($event)"></div>`
 })
 class HostComponent {
+    public keepRecordsOnLoad: boolean = false;
     public defaultSortings: SortParameter[] = [];
     public getData(): any {
         return Rx.Observable.from([]);
@@ -122,6 +123,13 @@ describe('rtList directive', () => {
         fixture.debugElement.componentInstance.defaultSortings = [{ direction: SortDirection.Asc, fieldName: 'field' }];
         fixture.detectChanges();
         expect(sortingsService.defaultSortings).toEqual(fixture.debugElement.componentInstance.defaultSortings);
+    });
+
+    it('Sets keepRecordsOnLoad to passed input', () => {
+        expect(listService.keepRecordsOnLoad).toEqual(fixture.debugElement.componentInstance.keepRecordsOnLoad);
+        fixture.debugElement.componentInstance.keepRecordsOnLoad = !fixture.debugElement.componentInstance.keepRecordsOnLoad;
+        fixture.detectChanges();
+        expect(listService.keepRecordsOnLoad).toEqual(fixture.debugElement.componentInstance.keepRecordsOnLoad);
     });
 
     it('Destroys listService on directive destroy', () => {

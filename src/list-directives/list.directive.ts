@@ -14,6 +14,7 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     @Output() public afterListInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
     @Input() public defaultSortings: SortParameter[];
     @Input() public loadOnInit: boolean = true;
+    @Input() public keepRecordsOnLoad: boolean = false;
     @Input('rtList') public set fetchMethod(value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>) {
         this.listService.fetchMethod = value;
     }
@@ -37,9 +38,12 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     public ngOnDestroy(): void {
         this.listService.destroy();
     }
-    public ngOnChanges(changes: { defaultSortings?: SimpleChange }): void {
+    public ngOnChanges(changes: { keepRecordsOnLoad?: SimpleChange, defaultSortings?: SimpleChange }): void {
         if (changes.defaultSortings) {
             this.sortingsService.defaultSortings = changes.defaultSortings.currentValue;
+        }
+        if (changes.keepRecordsOnLoad) {
+            this.listService.keepRecordsOnLoad = changes.keepRecordsOnLoad.currentValue;
         }
     }
     public reloadData(): Observable<any> | Promise<any> | EventEmitter<any> {
