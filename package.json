@@ -4,13 +4,15 @@
   "author": "EastBanc Technologies",
   "version": "1.0.0-beta.6",
   "license": "MIT",
-  "description": "Set of components to provide lists functionality for angular apps",
+  "description": "Set of components to provide data grids functionality for angular apps",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eastbanctechru/right-angled.git"
   },
   "keywords": [
+    "data",
+    "data table",
     "grid",
     "list",
     "angular"
