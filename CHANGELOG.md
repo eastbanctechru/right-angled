@@ -1,3 +1,13 @@
+<a name="1.0.0-rc.0"></a>
+# [1.0.0-rc.0](https://github.com/eastbanctechru/right-angled/compare/v1.0.0-beta.6...v1.0.0-rc.0) (2017-04-11)
+
+
+### Features
+
+* **list:** `keepRecordsOnLoad` option implemented ([0fb2d83](https://github.com/eastbanctechru/right-angled/commit/0fb2d83))
+
+
+
 <a name="1.0.0-beta.6"></a>
 # [1.0.0-beta.6](https://github.com/eastbanctechru/right-angled/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2017-03-27)
 
