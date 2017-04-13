@@ -1,6 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RTList, RTStateService } from '../../src/core/index';
-import { ListDirective } from '../../src/list-directives/index';
+import { ListDirective, RTList, RTStateService } from '../../index';
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

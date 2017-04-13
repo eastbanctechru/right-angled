@@ -1,6 +1,7 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer, SkipSelf } from '@angular/core';
-
-import { RTSelectionEvent, RTSelectionEventsHelper, SelectionElementEventsEmitter } from '../core/index';
+import { SelectionElementEventsEmitter } from './providers/selection-element-events-emitter';
+import { RTSelectionEvent } from './providers/selection-event';
+import { RTSelectionEventsHelper } from './providers/selection-events-helper';
 
 @Directive({
     exportAs: 'rtSelectable',

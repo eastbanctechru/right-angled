@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
-import { FocusOnRenderDirective } from '../../src/misc-directives/index';
+import { FocusOnRenderDirective } from '../../index';
 
 @Component({
     template: `<input rtFocusOnRender />`

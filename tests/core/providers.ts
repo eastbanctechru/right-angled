@@ -1,4 +1,4 @@
-import { RTFiltersService, RTList, RTOperationStatus, RTSortingsService } from './../../src/core/providers';
+import { RTFiltersService, RTList, RTOperationStatus, RTSortingsService } from '../../index';
 
 describe('providers', () => {
     describe('RTOperationStatus', () => {

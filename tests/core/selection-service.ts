@@ -1,8 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { SelectionElementEventsEmitter } from './../../src/core/selection/selection-element-events-emitter';
-import { RTSelectionEvent } from './../../src/core/selection/selection-event';
-import { SelectionEventsEmitter } from './../../src/core/selection/selection-events-emitter';
-import { RTSelectionService } from './../../src/core/selection/selection-service';
+import { RTSelectionEvent, RTSelectionService, SelectionElementEventsEmitter, SelectionEventsEmitter } from '../../index';
 
 import { EventEmitter } from '@angular/core';
 import { SelectionTuple } from 'e2e4';

@@ -1,6 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RTSelectionEventsHelper, RTSelectionService } from '../../src/core/index';
-import { SelectableDirective, SelectionAreaDirective } from '../../src/selection-directives/index';
+import { RTSelectionEventsHelper, RTSelectionService, SelectableDirective, SelectionAreaDirective } from '../../index';
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

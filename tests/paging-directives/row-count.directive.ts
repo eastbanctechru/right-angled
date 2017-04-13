@@ -1,6 +1,4 @@
-import { RTList } from '../../src/core/index';
-import { ListDirective } from '../../src/list-directives/index';
-import { BufferedPagerComponent, RowCountDirective } from '../../src/paging-directives/index';
+import { BufferedPagerComponent, ListDirective, RowCountDirective, RTList } from '../../index';
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

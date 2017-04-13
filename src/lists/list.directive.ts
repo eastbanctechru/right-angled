@@ -1,8 +1,7 @@
 import { AfterViewInit, Directive, EventEmitter, Input, OnChanges, OnDestroy, Output, Self, SimpleChange } from '@angular/core';
 import { ListRequest, ListResponse, SortingsService, SortParameter } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
-
-import { LIST_PROVIDERS, RTList } from '../core/index';
+import { LIST_PROVIDERS, RTList } from './providers/list';
 
 @Directive({
     exportAs: 'rtList',

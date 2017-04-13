@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChange } from 
 import { PagedPager } from 'e2e4';
 import { Observable } from 'rxjs/Observable';
 
-import { RTList, RTPagedPager } from '../core/index';
+import { RTList, RTPagedPager } from '../providers/list';
 
 @Component({
     providers: [{ provide: PagedPager, useClass: RTPagedPager }],

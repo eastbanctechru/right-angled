@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StopEventsDirective } from '../../src/misc-directives/index';
+import { StopEventsDirective } from '../../index';
 
 @Component({
     template: `<input [rtStopEvents]="stopEvents" />`

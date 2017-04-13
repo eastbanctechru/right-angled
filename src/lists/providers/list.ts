@@ -1,16 +1,17 @@
 // tslint:disable:max-classes-per-file
-import { EventEmitter, Inject, Injectable, InjectionToken, Optional, SkipSelf } from '@angular/core';
-import { AsyncSubscriber, BufferedPager, FiltersService, List, OperationStatus, PagedPager, SelectionEventsHelper, SortingsService, StateService } from 'e2e4';
-import { Observable } from 'rxjs/Observable';
 
-import { RTSelectionService } from './selection/selection-service';
+import { EventEmitter, Inject, Injectable, InjectionToken, Optional, SkipSelf } from '@angular/core';
+import { AsyncSubscriber, BufferedPager, FiltersService, List, OperationStatus, PagedPager, SortingsService, StateService } from 'e2e4';
+import { Observable } from 'rxjs/Observable';
+import { RTFiltersService } from '../../filters/filters-service';
 
 export const RTFilterTarget = new InjectionToken('RTFilterTarget');
+
+export abstract class RTStateService extends StateService { }
 
 export class RTOperationStatus {
     public status: OperationStatus;
 }
-export abstract class RTStateService extends StateService { }
 
 @Injectable()
 export class RTList extends List {
@@ -31,7 +32,7 @@ export class RTList extends List {
             }
         }
     }
-    public loadData(): Observable<any> | Promise<any> | EventEmitter<any>  {
+    public loadData(): Observable<any> | Promise<any> | EventEmitter<any> {
         return super.loadData();
     }
     public reloadData(): Observable<any> | Promise<any> | EventEmitter<any> {
@@ -51,23 +52,6 @@ export class RTBufferedPager extends BufferedPager { }
 
 @Injectable()
 export class RTSortingsService extends SortingsService { }
-
-@Injectable()
-export class RTFiltersService extends FiltersService {
-    constructor() {
-        super();
-    }
-}
-
-@Injectable()
-export class RTSelectionEventsHelper extends SelectionEventsHelper {
-    public preventEventsDefaults: boolean = true;
-    public stopEventsPropagation: boolean = true;
-    constructor(selectionService: RTSelectionService) {
-        super(selectionService);
-        this.multiple = true;
-    }
-}
 
 export let LIST_PROVIDERS: any[] = [
     AsyncSubscriber,

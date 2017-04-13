@@ -1,7 +1,7 @@
 import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
 import { OperationStatus } from 'e2e4';
 
-import { RTOperationStatus } from '../core/providers';
+import { RTOperationStatus } from '../providers/list';
 
 export abstract class StatusComponentBase implements DoCheck, OnInit {
     public isVisible: boolean;

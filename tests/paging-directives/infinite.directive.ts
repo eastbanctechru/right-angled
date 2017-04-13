@@ -1,6 +1,5 @@
 // tslint:disable:max-classes-per-file
-import { RTList } from '../../src/core/index';
-import { InfiniteDirective } from '../../src/paging-directives/index';
+import { InfiniteDirective, RTList } from '../../index';
 
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

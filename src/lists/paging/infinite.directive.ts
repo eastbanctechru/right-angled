@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, Renderer, SimpleChange } from '@angular/core';
 import { BufferedPager } from 'e2e4';
 
-import { RTList } from '../core/index';
+import { RTList } from '../providers/list';
 
 @Directive({
     selector: '[rtInfinite]'
