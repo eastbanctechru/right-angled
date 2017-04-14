@@ -1,3 +1,14 @@
+<a name="1.1.0-beta.0"></a>
+# [1.1.0-beta.0](https://github.com/eastbanctechru/right-angled/compare/v1.0.0...v1.1.0-beta.0) (2017-04-14)
+
+
+### Features
+
+* **all:** reorganize internal structure ([2eb5e91](https://github.com/eastbanctechru/right-angled/commit/2eb5e91))
+* **package:** library package now meets angular best practices ([d8dfd68](https://github.com/eastbanctechru/right-angled/commit/d8dfd68))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/eastbanctechru/right-angled/compare/v1.0.0-rc.0...v1.0.0) (2017-04-11)
 
