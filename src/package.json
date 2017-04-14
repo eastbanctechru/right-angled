@@ -22,10 +22,12 @@
   "module": "right-angled.es5.js",
   "es2015": "right-angled.js",
   "typings": "right-angled.d.ts",
+  "dependencies": {
+    "e2e4": "^2.0.1"
+  },
   "peerDependencies": {
     "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0",
-    "e2e4": "^2.0.1",
     "rxjs": "^5.0.3"
   }
 }
