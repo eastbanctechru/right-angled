@@ -1,3 +1,13 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/eastbanctechru/right-angled/compare/v1.1.0-beta.0...v1.1.0) (2017-04-14)
+
+
+### Bug Fixes
+
+* **package:** move `e2e4` to dependencies from `peerDependencies` ([e8b0b84](https://github.com/eastbanctechru/right-angled/commit/e8b0b84))
+
+
+
 <a name="1.1.0-beta.0"></a>
 # [1.1.0-beta.0](https://github.com/eastbanctechru/right-angled/compare/v1.0.0...v1.1.0-beta.0) (2017-04-14)
 

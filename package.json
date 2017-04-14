@@ -2,7 +2,7 @@
   "name": "right-angled",
   "homepage": "https://github.com/eastbanctechru/right-angled#readme",
   "author": "EastBanc Technologies",
-  "version": "1.1.0-beta.0",
+  "version": "1.1.0",
   "license": "MIT",
   "description": "Lightweight and easy to use angular data grids. Integrates with your markup and styles rather than generating its own.",
   "repository": {
