@@ -36,7 +36,7 @@
     "preversion": "npm run precommit && npm run copy:assets",
     "version": "npm run docs && git add -A docs && npm run changelog && git add CHANGELOG.md",
     "postversion": "git push && git push --tags && conventional-github-releaser -p angular",
-    "precommit": "npm run clean:compile && npm run clean:tests && npm run lint && npm run compile && npm run test",
+    "precommit": "npm run clean:compile && npm run clean:tests && npm run lint && npm run compile && npm run copy:assets && npm run test",
     "ci": "npm run lint && npm run compile && npm run test",
     "clean:compile": "npm run rimraf -- dist build",
     "clean:tests": "npm run rimraf -- coverage && npm run rimraf -- \"tests/**/*.+(js|js.map|d.ts|metadata.json)\" ",
