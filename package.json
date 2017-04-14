@@ -21,7 +21,7 @@
     "url": "https://github.com/eastbanctechru/right-angled/issues"
   },
   "scripts": {
-    "compile": "npm run clean:compile && npm run compile:es2015 && npm run compile:es5",
+    "compile": "npm run compile:es2015 && npm run compile:es5",
     "compile:es2015": "npm run ngc -- -p src/tsconfig-es2015.json && npm run rollup -- build/right-angled.js -o dist/right-angled.js",
     "compile:es5": "npm run ngc -- -p src/tsconfig-es5.json && npm run rollup -- build/right-angled.js -o dist/right-angled.es5.js",
     "copy:assets": "npm run cpy -- \"**/*.*\" \"!**/*.js\" \"../dist\" --parents --cwd=build && npm run cpy -- src/package.json dist && npm run cpy -- README.md dist && npm run cpy -- CHANGELOG.md dist",
