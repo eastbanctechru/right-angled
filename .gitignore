@@ -1,6 +1,7 @@
 node_modules
 coverage
-compiled
+dist
+build
 .publish
 index.js
 index.d.ts

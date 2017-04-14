@@ -1,0 +1,32 @@
+{
+  "name": "right-angled",
+  "homepage": "https://github.com/eastbanctechru/right-angled#readme",
+  "author": "EastBanc Technologies",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Lightweight and easy to use angular data grids. Integrates with your markup and styles rather than generating its own.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eastbanctechru/right-angled.git"
+  },
+  "keywords": [
+    "data",
+    "data table",
+    "grid",
+    "list",
+    "angular",
+    "unobtrusive"
+  ],
+  "bugs": {
+    "url": "https://github.com/eastbanctechru/right-angled/issues"
+  },
+  "module": "right-angled.es5.js",
+  "es2015": "right-angled.js",
+  "typings": "right-angled.d.ts",
+  "peerDependencies": {
+    "@angular/common": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "e2e4": "^2.0.1",
+    "rxjs": "^5.0.3"
+  }
+}

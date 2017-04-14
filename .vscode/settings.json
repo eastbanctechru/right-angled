@@ -14,7 +14,8 @@
     },
     "search.exclude": {
         "**/docs": true,
-        "**/compiled": true,
+        "**/dist": true,
+        "**/build": true,
         "**/coverage": true
     }
 ,

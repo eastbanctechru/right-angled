@@ -76,7 +76,7 @@ export class RTListsModule {
     }
 }
 
-export { RTList, RTOperationStatus, RTSortingsService, RTFilterTarget } from './providers/list';
+export { RTList, RTBufferedPager, RTPagedPager, RTOperationStatus, RTSortingsService, RTFilterTarget } from './providers/list';
 export { ListDirective } from './list.directive';
 export { StatusNoDataComponent } from './status/status-no-data.component';
 export { StatusRequestCancelledComponent } from './status/status-request-cancelled.component';

@@ -1,3 +1,5 @@
+export * from 'e2e4';
+
 export * from './misc/misc.module';
 export * from './filters/filters.module';
 export * from './selection/selection.module';

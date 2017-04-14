@@ -5,7 +5,6 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "Lightweight and easy to use angular data grids. Integrates with your markup and styles rather than generating its own.",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eastbanctechru/right-angled.git"
@@ -22,31 +21,34 @@
     "url": "https://github.com/eastbanctechru/right-angled/issues"
   },
   "scripts": {
+    "compile": "npm run clean:compile && npm run compile:es2015 && npm run compile:es5",
+    "compile:es2015": "npm run ngc -- -p src/tsconfig-es2015.json && npm run rollup -- build/right-angled.js -o dist/right-angled.js",
+    "compile:es5": "npm run ngc -- -p src/tsconfig-es5.json && npm run rollup -- build/right-angled.js -o dist/right-angled.es5.js",
+    "copy:assets": "npm run cpy -- \"**/*.*\" \"!**/*.js\" \"../dist\" --parents --cwd=build && npm run cpy -- src/package.json dist && npm run cpy -- README.md dist && npm run cpy -- CHANGELOG.md dist",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "conventional-changelog": "conventional-changelog",
     "changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
     "rimraf": "rimraf",
     "tslint": "tslint",
-    "ngc": "ngc -p tsconfig.json",
-    "preversion": "npm run precommit",
+    "ngc": "ngc",
+    "rollup": "rollup",
+    "cpy": "cpy",
+    "preversion": "npm run precommit && npm run copy:assets",
     "version": "npm run docs && git add -A docs && npm run changelog && git add CHANGELOG.md",
     "postversion": "git push && git push --tags && conventional-github-releaser -p angular",
-    "build": "npm run clean:src && npm run ngc",
-    "precommit": "npm run rimraf -- coverage compiled .publish && npm run clean:src && npm run clean:tests && npm run lint && npm run build && npm run test",
-    "ci": "npm run lint && npm run build && npm run test",
-    "clean:src": "npm run rimraf -- \"src/**/*.+(js|js.map|d.ts|metadata.json)\" ",
-    "clean:tests": "npm run rimraf -- \"tests/**/*.+(js|js.map|d.ts|metadata.json)\" ",
+    "precommit": "npm run clean:compile && npm run clean:tests && npm run lint && npm run compile && npm run test",
+    "ci": "npm run lint && npm run compile && npm run test",
+    "clean:compile": "npm run rimraf -- dist build",
+    "clean:tests": "npm run rimraf -- coverage && npm run rimraf -- \"tests/**/*.+(js|js.map|d.ts|metadata.json)\" ",
     "docs": "npm run rimraf -- docs && typedoc --options typedoc.json src/ && npm run docs:replace:paths",
     "docs:replace:paths": "replace \"Defined in C:/Users/f.shchudlo/Documents/GitHub/right-angled/node_modules/e2e4\" \"e2e4\" ./docs -r",
     "lint": "npm run tslint -- --type-check --project tsconfig.json",
     "test": "npm run clean:tests && karma start karma.conf.js",
     "test:watch": "npm run clean:tests && karma start karma.conf.debug.js"
   },
-  "jspm": {
-    "registry": "npm",
-    "main": "index.js",
-    "format": "commonjs"
-  },
+  "module": "right-angled.es5.js",
+  "es2015": "right-angled.js",
+  "typings": "right-angled.d.ts",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -56,6 +58,7 @@
     "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0",
     "e2e4": "^2.0.1",
+    "rollup": "^0.41.6",
     "rxjs": "^5.0.3"
   },
   "devDependencies": {
@@ -73,6 +76,7 @@
     "conventional-changelog-cli": "^1.3.1",
     "conventional-github-releaser": "^1.1.3",
     "coveralls": "^2.13.0",
+    "cpy-cli": "^1.0.1",
     "cz-conventional-changelog": "^2.0.0",
     "es6-shim": "0.35.3",
     "git-pre-commit": "^2.1.3",
