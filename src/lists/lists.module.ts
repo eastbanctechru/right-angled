@@ -61,7 +61,7 @@ export class RTListsModule {
         useValue?: any;
         useExisting?: any;
         useFactory?: () => any;
-        deps?: Array<object>;
+        deps?: object[];
         multi?: boolean;
     }): void {
         LIST_PROVIDERS.push({

@@ -22,7 +22,7 @@ export class RTModule {
         useValue?: any;
         useExisting?: any;
         useFactory?: () => any;
-        deps?: Array<object>;
+        deps?: object[];
         multi?: boolean;
     }): void {
         RTListsModule.registerStateService({ useClass, useValue, useExisting, useFactory, deps, multi });

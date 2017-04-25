@@ -7,7 +7,7 @@ import { By } from '@angular/platform-browser';
 import { KeyCodes } from 'e2e4';
 
 @Component({
-    template: `<div rtSelectionArea 
+    template: `<div rtSelectionArea
     [preventEventsDefaults]="preventEventsDefaults"
     [stopEventsPropagation]="stopEventsPropagation"
     [horizontal]="horizontal"

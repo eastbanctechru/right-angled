@@ -15,7 +15,7 @@ export class RTOperationStatus {
 
 @Injectable()
 export class RTList extends List {
-    private filterTargets: Array<object> = [];
+    private filterTargets: object[] = [];
     constructor(
         asyncSubscriber: AsyncSubscriber,
         @Optional() stateServices: RTStateService,
@@ -42,7 +42,7 @@ export class RTList extends List {
         this.filtersService.registerFilterTarget(...this.filterTargets);
         super.init();
     }
-};
+}
 
 @Injectable()
 export class RTPagedPager extends PagedPager { }

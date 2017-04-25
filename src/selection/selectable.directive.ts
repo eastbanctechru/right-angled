@@ -8,10 +8,7 @@ import { RTSelectionEventsHelper } from './providers/selection-events-helper';
     selector: '[rtSelectable]'
 })
 export class SelectableDirective implements SelectionElementEventsEmitter {
-    public static settings: {
-        selectedClassName: string
-    } =
-    {
+    public static settings: { selectedClassName: string } = {
         selectedClassName: 'rt-selected'
     };
     public index: number = null;
