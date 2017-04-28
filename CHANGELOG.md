@@ -1,3 +1,13 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/eastbanctechru/right-angled/compare/v1.1.0...v1.2.0) (2017-04-28)
+
+
+### Features
+
+* **list:** Add support to load data with async actions ([a7cab7d](https://github.com/eastbanctechru/right-angled/commit/a7cab7d))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/eastbanctechru/right-angled/compare/v1.1.0-beta.0...v1.1.0) (2017-04-14)
 
