@@ -57,7 +57,7 @@
   "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0",
-    "e2e4": "^2.0.1",
+    "e2e4": "^2.1.0",
     "rollup": "^0.41.6",
     "rxjs": "^5.0.3"
   },
