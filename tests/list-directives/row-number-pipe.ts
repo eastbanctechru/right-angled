@@ -9,6 +9,7 @@ describe('RowNumberPipe', () => {
     };
     const pipe = new RowNumberPipe();
     it('Returns index + displayFrom if \'displayFrom\' property specified', () => {
+        // tslint:disable-next-line:no-object-literal-type-assertion
         expect(pipe.transform(0, {
             listService: {
                 pager: {
