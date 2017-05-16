@@ -23,7 +23,7 @@
   "es2015": "right-angled.js",
   "typings": "right-angled.d.ts",
   "dependencies": {
-    "e2e4": "^2.1.0"
+    "e2e4": "^2.1.1"
   },
   "peerDependencies": {
     "@angular/common": "^4.0.0",
