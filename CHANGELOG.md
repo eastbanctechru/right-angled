@@ -1,3 +1,13 @@
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/eastbanctechru/right-angled/compare/v1.2.0...v1.2.1) (2017-05-16)
+
+
+### Bug Fixes
+
+* **pager:** `pager.pageSize` property resetted correctly ([f129972](https://github.com/eastbanctechru/right-angled/commit/f129972))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/eastbanctechru/right-angled/compare/v1.1.0...v1.2.0) (2017-04-28)
 
