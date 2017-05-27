@@ -65,13 +65,13 @@ export class RTListsModule {
         multi?: boolean;
     }): void {
         LIST_PROVIDERS.push({
+            deps,
+            multi,
             provide: RTStateService,
             useClass,
-            useValue,
             useExisting,
             useFactory,
-            deps,
-            multi
+            useValue
         });
     }
 }
