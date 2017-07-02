@@ -1,13 +1,22 @@
 // tslint:disable:max-classes-per-file
 
-import { EventEmitter, Inject, Injectable, InjectionToken, Optional, SkipSelf } from '@angular/core';
-import { AsyncSubscriber, BufferedPager, FiltersService, List, OperationStatus, PagedPager, SortingsService, StateService } from 'e2e4';
-import { Observable } from 'rxjs/Observable';
-import { RTFiltersService } from '../../filters/filters-service';
+import { EventEmitter, Inject, Injectable, InjectionToken, Optional, SkipSelf } from "@angular/core";
+import {
+    AsyncSubscriber,
+    BufferedPager,
+    FiltersService,
+    List,
+    OperationStatus,
+    PagedPager,
+    SortingsService,
+    StateService
+} from "e2e4";
+import { Observable } from "rxjs/Observable";
+import { RTFiltersService } from "../../filters/filters-service";
 
-export const RTFilterTarget = new InjectionToken('RTFilterTarget');
+export const RTFilterTarget = new InjectionToken("RTFilterTarget");
 
-export abstract class RTStateService extends StateService { }
+export abstract class RTStateService extends StateService {}
 
 export class RTOperationStatus {
     public status: OperationStatus;
@@ -19,10 +28,13 @@ export class RTList extends List {
     constructor(
         asyncSubscriber: AsyncSubscriber,
         @Optional() stateServices: RTStateService,
-        @SkipSelf() @Optional() @Inject(RTFilterTarget) filterTargets: any,
+        @SkipSelf()
+        @Optional()
+        @Inject(RTFilterTarget)
+        filterTargets: any,
         sortingsService: SortingsService,
-        filtersService: FiltersService) {
-
+        filtersService: FiltersService
+    ) {
         super(asyncSubscriber, stateServices, sortingsService, filtersService);
         if (filterTargets != null) {
             if (Array.isArray(filterTargets)) {
@@ -45,13 +57,13 @@ export class RTList extends List {
 }
 
 @Injectable()
-export class RTPagedPager extends PagedPager { }
+export class RTPagedPager extends PagedPager {}
 
 @Injectable()
-export class RTBufferedPager extends BufferedPager { }
+export class RTBufferedPager extends BufferedPager {}
 
 @Injectable()
-export class RTSortingsService extends SortingsService { }
+export class RTSortingsService extends SortingsService {}
 
 export let LIST_PROVIDERS: any[] = [
     AsyncSubscriber,

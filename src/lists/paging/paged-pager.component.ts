@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
-import { PagedPager } from 'e2e4';
-import { Observable } from 'rxjs/Observable';
+import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChange } from "@angular/core";
+import { PagedPager } from "e2e4";
+import { Observable } from "rxjs/Observable";
 
-import { RTList, RTPagedPager } from '../providers/list';
+import { RTList, RTPagedPager } from "../providers/list";
 
 @Component({
     providers: [{ provide: PagedPager, useClass: RTPagedPager }],
-    selector: 'rt-paged-pager',
-    template: '<ng-content></ng-content>'
+    selector: "rt-paged-pager",
+    template: "<ng-content></ng-content>"
 })
 export class PagedPagerComponent implements OnChanges, OnInit {
     @Input() public defaultPageSize: number = PagedPager.settings.defaultPageSize;
@@ -20,7 +20,11 @@ export class PagedPagerComponent implements OnChanges, OnInit {
     public ngOnInit(): void {
         this.pager.pageSize = this.defaultPageSize * 1;
     }
-    public ngOnChanges(changes: { defaultPageSize?: SimpleChange, maxPageSize?: SimpleChange, minPageSize?: SimpleChange }): void {
+    public ngOnChanges(changes: {
+        defaultPageSize?: SimpleChange;
+        maxPageSize?: SimpleChange;
+        minPageSize?: SimpleChange;
+    }): void {
         if (changes.defaultPageSize) {
             this.pager.defaultPageSize = changes.defaultPageSize.currentValue * 1;
         }
@@ -61,7 +65,7 @@ export class PagedPagerComponent implements OnChanges, OnInit {
         }
         return null;
     }
-    public loadData(): Observable<any> | Promise<any> | EventEmitter<any>  {
+    public loadData(): Observable<any> | Promise<any> | EventEmitter<any> {
         return this.listService.loadData();
     }
 }

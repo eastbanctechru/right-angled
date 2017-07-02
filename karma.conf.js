@@ -1,42 +1,35 @@
-var webpack = require('webpack');
-var path = require('path');
-module.exports = function (config) {
+var webpack = require("webpack");
+var path = require("path");
+module.exports = function(config) {
     config.set({
-        browsers: ['Chrome'],
+        browsers: ["Chrome"],
         colors: true,
         coverageReporter: {
-            dir: './',
-            reporters: [
-                { type: 'lcov', subdir: 'coverage' }
-            ]
+            dir: "./",
+            reporters: [{ type: "lcov", subdir: "coverage" }]
         },
         customLaunchers: {
             Chrome_travis_ci: {
-                base: 'Chrome',
-                flags: ['--no-sandbox']
+                base: "Chrome",
+                flags: ["--no-sandbox"]
             }
         },
-        files: [
-            'karma.entry.js'
-        ],
-        frameworks: ['jasmine'],
+        files: ["karma.entry.js"],
+        frameworks: ["jasmine"],
         preprocessors: {
-            'karma.entry.js': ['webpack', 'sourcemap'],
-            'src/**/*.js': ['coverage']
+            "karma.entry.js": ["webpack", "sourcemap"],
+            "src/**/*.js": ["coverage"]
         },
-        reporters: ['spec', 'coverage'],
+        reporters: ["spec", "coverage"],
         singleRun: true,
         webpack: {
-            devtool: 'inline-source-map',
+            devtool: "inline-source-map",
             module: {
                 rules: [
                     {
-                        exclude: [path.resolve(__dirname, 'node_modules')],
-                        include: [
-                            path.resolve(__dirname, 'src'),
-                            path.resolve(__dirname, 'tests')
-                        ],
-                        loader: 'ts-loader',
+                        exclude: [path.resolve(__dirname, "node_modules")],
+                        include: [path.resolve(__dirname, "src"), path.resolve(__dirname, "tests")],
+                        loader: "ts-loader",
                         test: /.*(?!\.d\.ts)|(\.ts)$/,
                         options: {
                             compilerOptions: {
@@ -46,23 +39,19 @@ module.exports = function (config) {
                     },
                     {
                         exclude: [
-                            path.resolve(__dirname, 'node_modules/@angular'),
-                            path.resolve(__dirname, 'node_modules/rxjs')
+                            path.resolve(__dirname, "node_modules/@angular"),
+                            path.resolve(__dirname, "node_modules/rxjs")
                         ],
-                        include: [
-                            path.resolve(__dirname, 'src')
-                        ],
-                        loader: 'istanbul-instrumenter-loader',
+                        include: [path.resolve(__dirname, "src")],
+                        loader: "istanbul-instrumenter-loader",
                         test: /\.ts$/,
-                        enforce: 'post'
+                        enforce: "post"
                     }
                 ]
             },
             resolve: {
-                extensions: ['.ts', '.tsx', '.json', '.js'],
-                modules: [
-                    'node_modules'
-                ]
+                extensions: [".ts", ".tsx", ".json", ".js"],
+                modules: ["node_modules"]
             }
         },
         webpackServer: {
@@ -71,6 +60,6 @@ module.exports = function (config) {
         }
     });
     if (process.env.TRAVIS) {
-        config.browsers = ['Chrome_travis_ci'];
+        config.browsers = ["Chrome_travis_ci"];
     }
 };

@@ -1,13 +1,12 @@
-import { Directive, ElementRef, HostListener, Renderer } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer } from "@angular/core";
 
 @Directive({
-    selector: '[rtSelectOnFocus]'
+    selector: "[rtSelectOnFocus]"
 })
 export class SelectOnFocusDirective {
-    constructor(public renderer: Renderer, private elementRef: ElementRef) {
-    }
-    @HostListener('focus')
+    constructor(public renderer: Renderer, private elementRef: ElementRef) {}
+    @HostListener("focus")
     public onFocus(): void {
-        this.renderer.invokeElementMethod(this.elementRef.nativeElement, 'select', []);
+        this.renderer.invokeElementMethod(this.elementRef.nativeElement, "select", []);
     }
 }

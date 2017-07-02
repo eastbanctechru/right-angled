@@ -1,6 +1,6 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter } from "@angular/core";
 
-import { RTSelectionEvent } from './selection-event';
+import { RTSelectionEvent } from "./selection-event";
 
 export interface SelectionEventsEmitter {
     itemSelected: EventEmitter<RTSelectionEvent>;

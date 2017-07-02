@@ -1,7 +1,7 @@
-import { DefaultSelectionService, SelectionTuple } from 'e2e4';
+import { DefaultSelectionService, SelectionTuple } from "e2e4";
 
-import { SelectionElementEventsEmitter } from './selection-element-events-emitter';
-import { SelectionEventsEmitter } from './selection-events-emitter';
+import { SelectionElementEventsEmitter } from "./selection-element-events-emitter";
+import { SelectionEventsEmitter } from "./selection-events-emitter";
 
 export class RTSelectionService extends DefaultSelectionService {
     public eventEmitters: SelectionElementEventsEmitter[] = new Array<SelectionElementEventsEmitter>();
@@ -17,7 +17,7 @@ export class RTSelectionService extends DefaultSelectionService {
         // run this directly after render to give child selectionAreas ability to render
         setTimeout(() => {
             if (recursive && this.childSelectionServices) {
-                this.childSelectionServices.forEach((service) => {
+                this.childSelectionServices.forEach(service => {
                     service.selectAll(recursive);
                 });
             }
@@ -25,14 +25,16 @@ export class RTSelectionService extends DefaultSelectionService {
     }
     public deselectAll(recursive: boolean = true): void {
         if (recursive && this.childSelectionServices) {
-            this.childSelectionServices.forEach((service) => {
+            this.childSelectionServices.forEach(service => {
                 service.deselectAll(recursive);
             });
         }
         super.deselectAll();
     }
     public processSelection(tuple: SelectionTuple, selected: boolean): void {
-        const initialSelectState = this.eventEmitters[tuple.index] ? this.eventEmitters[tuple.index].selected || null : null;
+        const initialSelectState = this.eventEmitters[tuple.index]
+            ? this.eventEmitters[tuple.index].selected || null
+            : null;
         if (initialSelectState === null || initialSelectState !== selected) {
             if (this.eventEmitters.length > tuple.index && this.eventEmitters[tuple.index]) {
                 this.emitEvents(this.eventEmitters[tuple.index], selected, tuple);

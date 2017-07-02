@@ -1,16 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
+import { TestBed } from "@angular/core/testing";
 
-import { FocusOnRenderDirective } from '../../index';
+import { FocusOnRenderDirective } from "../../index";
 
 @Component({
     template: `<input rtFocusOnRender />`
 })
-class HostComponent {
-}
+class HostComponent {}
 
-describe('rtFocusOnRender directive', () => {
+describe("rtFocusOnRender directive", () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [HostComponent, FocusOnRenderDirective],
@@ -18,15 +17,15 @@ describe('rtFocusOnRender directive', () => {
         });
     });
 
-    it('Calls \'focus\' method on element after content render', (done) => {
+    it("Calls 'focus' method on element after content render", done => {
         const fixture = TestBed.createComponent(HostComponent);
-        const input = fixture.nativeElement.querySelector('input');
+        const input = fixture.nativeElement.querySelector("input");
         const renderer = fixture.debugElement.children[0].injector.get(FocusOnRenderDirective).renderer;
-        spyOn(renderer, 'invokeElementMethod');
+        spyOn(renderer, "invokeElementMethod");
         fixture.detectChanges();
         expect(renderer.invokeElementMethod).not.toHaveBeenCalled();
         fixture.whenStable().then(() => {
-            expect(renderer.invokeElementMethod).toHaveBeenCalledWith(input, 'focus');
+            expect(renderer.invokeElementMethod).toHaveBeenCalledWith(input, "focus");
             done();
         });
     });

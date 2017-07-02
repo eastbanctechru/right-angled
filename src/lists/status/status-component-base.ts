@@ -1,13 +1,17 @@
-import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from '@angular/core';
-import { OperationStatus } from 'e2e4';
+import { DoCheck, KeyValueDiffer, KeyValueDiffers, OnInit } from "@angular/core";
+import { OperationStatus } from "e2e4";
 
-import { RTOperationStatus } from '../providers/list';
+import { RTOperationStatus } from "../providers/list";
 
 export abstract class StatusComponentBase implements DoCheck, OnInit {
     public isVisible: boolean;
     private listDiffer: KeyValueDiffer<string, any>;
     private visibleState: OperationStatus;
-    constructor(protected trackedStatusObject: RTOperationStatus, differs: KeyValueDiffers, visibleState: OperationStatus) {
+    constructor(
+        protected trackedStatusObject: RTOperationStatus,
+        differs: KeyValueDiffers,
+        visibleState: OperationStatus
+    ) {
         this.visibleState = visibleState;
         this.listDiffer = differs.find([]).create(null);
     }
@@ -24,8 +28,8 @@ export abstract class StatusComponentBase implements DoCheck, OnInit {
         this.isVisible = this.trackedStatusObject.status === this.visibleState;
     }
     private checkStateFieldChanges = (item: any): void => {
-        if (item.key === 'status' || item.key === 'statusInternal') {
+        if (item.key === "status" || item.key === "statusInternal") {
             this.setVisibility();
         }
-    }
+    };
 }

@@ -1,19 +1,20 @@
-import { Directive, EventEmitter, HostBinding, HostListener, Input, Output, SkipSelf } from '@angular/core';
-import { SelectionElementEventsEmitter } from './providers/selection-element-events-emitter';
-import { RTSelectionEvent } from './providers/selection-event';
-import { RTSelectionEventsHelper } from './providers/selection-events-helper';
-import { RTSelectionService } from './providers/selection-service';
+import { Directive, EventEmitter, HostBinding, HostListener, Input, Output, SkipSelf } from "@angular/core";
+import { SelectionElementEventsEmitter } from "./providers/selection-element-events-emitter";
+import { RTSelectionEvent } from "./providers/selection-event";
+import { RTSelectionEventsHelper } from "./providers/selection-events-helper";
+import { RTSelectionService } from "./providers/selection-service";
 
 @Directive({
-    exportAs: 'rtSelectionCheckboxFor',
+    exportAs: "rtSelectionCheckboxFor",
     /* tslint:disable-next-line:directive-selector */
-    selector: 'input[rtSelectionCheckboxFor]'
+    selector: "input[rtSelectionCheckboxFor]"
 })
 export class SelectionCheckboxForDirective implements SelectionElementEventsEmitter {
     public index: number = null;
     /* tslint:disable-next-line:no-input-rename */
-    @Input('rtSelectionCheckboxFor') public item: any = null;
-    @Input() public get selected(): boolean {
+    @Input("rtSelectionCheckboxFor") public item: any = null;
+    @Input()
+    public get selected(): boolean {
         return this.selectedInternal;
     }
     public set selected(selected: boolean) {
@@ -32,14 +33,16 @@ export class SelectionCheckboxForDirective implements SelectionElementEventsEmit
     @Output() public selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     private selectedInternal: boolean = false;
 
-    constructor( @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper, @SkipSelf() private selectionService: RTSelectionService) {
-    }
+    constructor(
+        @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper,
+        @SkipSelf() private selectionService: RTSelectionService
+    ) {}
 
-    @HostBinding('checked')
+    @HostBinding("checked")
     public get isChecked(): boolean {
         return this.selectionService.isIndexSelected(this.index);
     }
-    @HostListener('change', ['$event.target.checked'])
+    @HostListener("change", ["$event.target.checked"])
     public changeHandler(isChecked: boolean): void {
         if (isChecked) {
             this.selectionService.selectIndex(this.index, this.selectionEventsHelper.multiple);

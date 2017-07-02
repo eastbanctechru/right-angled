@@ -1,35 +1,30 @@
 {
-  "compilerOptions": {
-    "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "es6",
-      "dom"
-    ],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": false,
-    "target": "es5",
-    "diagnostics": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    
-    "suppressImplicitAnyIndexErrors": true,
-    "pretty": true,
-    "forceConsistentCasingInFileNames": true,
-    "removeComments": false,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitThis": true,
-    "types": []
-  },
-  "angularCompilerOptions": {
-    "skipTemplateCodegen": true
-  },
-  "exclude": [
-    "node_modules"
-  ]
+    "compilerOptions": {
+        "declaration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": ["es6", "dom"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": false,
+        "target": "es5",
+        "diagnostics": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+
+        "suppressImplicitAnyIndexErrors": true,
+        "pretty": true,
+        "forceConsistentCasingInFileNames": true,
+        "removeComments": false,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitThis": true,
+        "types": []
+    },
+    "angularCompilerOptions": {
+        "skipTemplateCodegen": true
+    },
+    "exclude": ["node_modules"]
 }
