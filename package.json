@@ -9,7 +9,14 @@
         "type": "git",
         "url": "git+https://github.com/eastbanctechru/right-angled.git"
     },
-    "keywords": ["data", "data table", "grid", "list", "angular", "unobtrusive"],
+    "keywords": [
+        "data",
+        "data table",
+        "grid",
+        "list",
+        "angular",
+        "unobtrusive"
+    ],
     "bugs": {
         "url": "https://github.com/eastbanctechru/right-angled/issues"
     },
@@ -54,7 +61,7 @@
     "dependencies": {
         "@angular/common": "^4.0.0",
         "@angular/core": "^4.0.0",
-        "e2e4": "^2.2.0",
+        "e2e4": "^2.2.1",
         "rxjs": "^5.0.3"
     },
     "devDependencies": {

@@ -1,5 +1,6 @@
 {
     "name": "right-angled",
+    "version": "1.2.4",
     "homepage": "https://github.com/eastbanctechru/right-angled#readme",
     "author": "EastBanc Technologies",
     "license": "MIT",
@@ -16,7 +17,7 @@
     "es2015": "right-angled.js",
     "typings": "right-angled.d.ts",
     "dependencies": {
-        "e2e4": "^2.2.0"
+        "e2e4": "^2.2.1"
     },
     "peerDependencies": {
         "@angular/common": "^4.0.0",
