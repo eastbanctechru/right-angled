@@ -1,3 +1,18 @@
+<a name="1.2.5"></a>
+## [1.2.5](https://github.com/eastbanctechru/right-angled/compare/v1.2.4...v1.2.5) (2017-07-12)
+
+
+### Bug Fixes
+
+* **list:** prevent pager reset for flat responses ([6923b30](https://github.com/eastbanctechru/right-angled/commit/6923b30))
+
+
+### Features
+
+* **package:** `e2e4` version update ([5203150](https://github.com/eastbanctechru/right-angled/commit/5203150))
+
+
+
 <a name="1.2.4"></a>
 ## [1.2.4](https://github.com/eastbanctechru/right-angled/compare/v1.2.3...v1.2.4) (2017-06-26)
 
