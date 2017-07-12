@@ -1,3 +1,13 @@
+<a name="1.2.6"></a>
+## [1.2.6](https://github.com/eastbanctechru/right-angled/compare/v1.2.5...v1.2.6) (2017-07-12)
+
+
+### Bug Fixes
+
+* **list:** correct list status for flat responses ([faa250d](https://github.com/eastbanctechru/right-angled/commit/faa250d))
+
+
+
 <a name="1.2.5"></a>
 ## [1.2.5](https://github.com/eastbanctechru/right-angled/compare/v1.2.4...v1.2.5) (2017-07-12)
 
