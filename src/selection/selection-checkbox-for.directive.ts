@@ -18,14 +18,11 @@ export class SelectionCheckboxForDirective implements SelectionElementEventsEmit
         return this.selectedInternal;
     }
     public set selected(selected: boolean) {
-        setTimeout(() => {
-            // we perform selected handling to run possible deselection in next change detection cycle
-            if (selected) {
-                this.selectionService.selectIndex(this.index, this.selectionEventsHelper.multiple);
-            } else {
-                this.selectionService.deselectIndex(this.index);
-            }
-        });
+        if (selected) {
+            this.selectionService.selectIndex(this.index, this.selectionEventsHelper.multiple);
+        } else {
+            this.selectionService.deselectIndex(this.index);
+        }
     }
     @Output() public selectedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();

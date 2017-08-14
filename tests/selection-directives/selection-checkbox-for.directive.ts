@@ -82,29 +82,22 @@ describe("rtSelectionCheckboxFor directive", () => {
         expect(spy).not.toHaveBeenCalled();
     });
 
-    it("Handles selected=true by calling selectionService.selectIndex", done => {
+    it("Handles selected=true by calling selectionService.selectIndex", () => {
         spyOn(selectionService, "selectIndex");
         fixture.componentInstance.firstElementSelected = true;
         expect(selectionService.selectIndex).not.toHaveBeenCalled();
         fixture.detectChanges();
-        expect(selectionService.selectIndex).not.toHaveBeenCalled();
-        fixture.whenStable().then(() => {
-            expect(selectionService.selectIndex).toHaveBeenCalledWith(0, selectionEventsHelper.multiple);
-            done();
-        });
+        expect(selectionService.selectIndex).toHaveBeenCalledWith(0, selectionEventsHelper.multiple);
     });
 
-    it("Handles selected=false by calling selectionService.deselectIndex", done => {
+    it("Handles selected=false by calling selectionService.deselectIndex", () => {
         fixture.componentInstance.firstElementSelected = true;
         fixture.detectChanges();
         fixture.whenStable().then(() => {
             spyOn(selectionService, "deselectIndex");
             fixture.componentInstance.firstElementSelected = false;
             fixture.detectChanges();
-            fixture.whenStable().then(() => {
-                expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
-                done();
-            });
+            expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
         });
     });
 

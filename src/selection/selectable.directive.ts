@@ -30,17 +30,11 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
         return this.selectedInternal;
     }
     public set selected(selected: boolean) {
-        setTimeout(() => {
-            // we perform selected handling to run possible deselection in next change detection cycle
-            if (selected) {
-                this.selectionEventsHelper.selectionService.selectIndex(
-                    this.index,
-                    this.selectionEventsHelper.multiple
-                );
-            } else {
-                this.selectionEventsHelper.selectionService.deselectIndex(this.index);
-            }
-        });
+        if (selected) {
+            this.selectionEventsHelper.selectionService.selectIndex(this.index, this.selectionEventsHelper.multiple);
+        } else {
+            this.selectionEventsHelper.selectionService.deselectIndex(this.index);
+        }
     }
 
     @HostListener("mouseup", [
