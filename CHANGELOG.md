@@ -1,3 +1,13 @@
+<a name="1.2.7"></a>
+## [1.2.7](https://github.com/eastbanctechru/right-angled/compare/v1.2.6...v1.2.7) (2017-08-14)
+
+
+### Bug Fixes
+
+* **selection:** fix selection inconsistency on large set of records ([5406882](https://github.com/eastbanctechru/right-angled/commit/5406882))
+
+
+
 <a name="1.2.6"></a>
 ## [1.2.6](https://github.com/eastbanctechru/right-angled/compare/v1.2.5...v1.2.6) (2017-07-12)
 
