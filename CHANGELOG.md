@@ -1,3 +1,13 @@
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/eastbanctechru/right-angled/compare/v1.2.7...v1.3.0) (2017-08-24)
+
+
+### Features
+
+* **list:** `onLoadSucceed` and `onLoadFailed` events added to list ([560a983](https://github.com/eastbanctechru/right-angled/commit/560a983))
+
+
+
 <a name="1.2.7"></a>
 ## [1.2.7](https://github.com/eastbanctechru/right-angled/compare/v1.2.6...v1.2.7) (2017-08-14)
 
