@@ -7,18 +7,35 @@ import { FiltersService, OperationStatus, SortDirection, SortingsService, SortPa
 import * as Rx from "rxjs";
 
 @Component({
-    template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" [keepRecordsOnLoad]="keepRecordsOnLoad" (onListInit)="onListInit($event)" (afterListInit)="afterListInit($event)"></div>`
+    template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" [keepRecordsOnLoad]="keepRecordsOnLoad"
+    (onListInit)="onListInit($event)" (afterListInit)="afterListInit($event)" (onLoadSucceed)="onLoadSucceed($event)" (onLoadFailed)="onLoadFailed()"></div>`
 })
 class HostComponent {
+    public failOnLoad: boolean = false;
     public keepRecordsOnLoad: boolean = false;
     public defaultSortings: SortParameter[] = [];
-    public getData(): any {
-        return Rx.Observable.from([]);
-    }
+    public getData = (): any => {
+        return Rx.Observable.create((observer: any) => {
+            setTimeout(() => {
+                if (this.failOnLoad) {
+                    observer.error();
+                } else {
+                    observer.next([]);
+                }
+                observer.complete();
+            }, 100);
+        });
+    };
     public afterListInit(): void {
         return;
     }
     public onListInit(): void {
+        return;
+    }
+    public onLoadSucceed(): void {
+        return;
+    }
+    public onLoadFailed(): void {
         return;
     }
 }
@@ -158,6 +175,24 @@ describe("rtList directive", () => {
         fixture.whenStable().then(() => {
             expect(fixture.componentInstance.onListInit).toHaveBeenCalledWith(listService);
             expect(fixture.componentInstance.afterListInit).toHaveBeenCalledWith(listService);
+            done();
+        });
+    });
+
+    it("Calls onLoadSucceed after successful data load", done => {
+        spyOn(fixture.componentInstance, "onLoadSucceed");
+        expect(fixture.componentInstance.onLoadSucceed).not.toHaveBeenCalled();
+        fixture.whenStable().then(() => {
+            expect(fixture.componentInstance.onLoadSucceed).toHaveBeenCalled();
+            done();
+        });
+    });
+    it("Calls onLoadFail after data loading failed", done => {
+        spyOn(fixture.componentInstance, "onLoadFailed");
+        expect(fixture.componentInstance.onLoadFailed).not.toHaveBeenCalled();
+        fixture.componentInstance.failOnLoad = true;
+        fixture.whenStable().then(() => {
+            expect(fixture.componentInstance.onLoadFailed).toHaveBeenCalled();
             done();
         });
     });

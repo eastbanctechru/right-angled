@@ -11,6 +11,7 @@ import {
 } from "@angular/core";
 import { ListRequest, ListResponse, SortingsService, SortParameter } from "e2e4";
 import { Observable } from "rxjs/Observable";
+import { Subscription } from "rxjs/Subscription";
 import { LIST_PROVIDERS, RTList } from "./providers/list";
 
 @Directive({
@@ -21,6 +22,9 @@ import { LIST_PROVIDERS, RTList } from "./providers/list";
 export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     @Output() public onListInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
     @Output() public afterListInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
+    @Output()
+    public onLoadSucceed: EventEmitter<ListResponse<any> | any[]> = new EventEmitter<ListResponse<any> | any[]>();
+    @Output() public onLoadFailed: EventEmitter<any> = new EventEmitter<any>();
     @Input() public defaultSortings: SortParameter[];
     @Input() public loadOnInit: boolean = true;
     @Input() public keepRecordsOnLoad: boolean = false;
@@ -32,7 +36,18 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     ) {
         this.listService.fetchMethod = value;
     }
-    constructor(@Self() public listService: RTList, @Self() private sortingsService: SortingsService) {}
+
+    private successSubscription: Subscription;
+    private failSubscription: Subscription;
+
+    constructor(@Self() public listService: RTList, @Self() private sortingsService: SortingsService) {
+        this.successSubscription = listService.onLoadSucceed.subscribe((response: ListResponse<any> | any[]) => {
+            this.onLoadSucceed.emit(response);
+        });
+        this.failSubscription = listService.onLoadFailed.subscribe(() => {
+            this.onLoadFailed.emit();
+        });
+    }
     public ngAfterViewInit(): void {
         // We call init in ngAfterViewInit to:
         // 1. allow all child controls to be applied to markup and regiter themself in filtersService
@@ -40,9 +55,9 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
         // 3. overwrite theese default values by values passed via persistence services
         // 4. execute all ngAfterViewInit for custom services registration (setTimeout)
         setTimeout(() => {
-            this.onListInit.next(this.listService);
+            this.onListInit.emit(this.listService);
             this.listService.init();
-            this.afterListInit.next(this.listService);
+            this.afterListInit.emit(this.listService);
             if (this.loadOnInit) {
                 this.listService.loadData();
             }
@@ -50,6 +65,8 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     }
     public ngOnDestroy(): void {
         this.listService.destroy();
+        this.successSubscription.unsubscribe();
+        this.failSubscription.unsubscribe();
     }
     public ngOnChanges(changes: { keepRecordsOnLoad?: SimpleChange; defaultSortings?: SimpleChange }): void {
         if (changes.defaultSortings) {

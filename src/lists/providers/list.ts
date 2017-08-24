@@ -6,6 +6,7 @@ import {
     BufferedPager,
     FiltersService,
     List,
+    ListResponse,
     OperationStatus,
     PagedPager,
     SortingsService,
@@ -24,6 +25,8 @@ export class RTOperationStatus {
 
 @Injectable()
 export class RTList extends List {
+    public onLoadSucceed: EventEmitter<ListResponse<any> | any[]> = new EventEmitter<ListResponse<any> | any[]>();
+    public onLoadFailed: EventEmitter<any> = new EventEmitter<any>();
     private filterTargets: object[] = [];
     constructor(
         asyncSubscriber: AsyncSubscriber,
@@ -44,6 +47,16 @@ export class RTList extends List {
             }
         }
     }
+    public loadSuccessCallback(response: ListResponse<any> | any[]): ListResponse<any> | any[] {
+        const result = super.loadSuccessCallback(response);
+        this.onLoadSucceed.emit(result);
+        return result;
+    }
+    public loadFailCallback(): void {
+        super.loadFailCallback();
+        this.onLoadFailed.emit();
+    }
+
     public loadData(): Observable<any> | Promise<any> | EventEmitter<any> {
         return super.loadData();
     }
