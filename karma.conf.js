@@ -2,17 +2,25 @@ var webpack = require("webpack");
 var path = require("path");
 module.exports = function(config) {
     config.set({
-        browsers: ["Chrome"],
+        browsers: ["ChromeNoSandboxHeadless"],
         colors: true,
         coverageReporter: {
             dir: "./",
             reporters: [{ type: "lcov", subdir: "coverage" }]
         },
         customLaunchers: {
-            Chrome_travis_ci: {
+            ChromeNoSandboxHeadless: {
                 base: "Chrome",
-                flags: ["--no-sandbox"]
+                flags: [
+                    "--no-sandbox",
+                    "--headless",
+                    // Without a remote debugging port, Google Chrome exits immediately.
+                    " --remote-debugging-port=9222"
+                ]
             }
+        },
+        mime: {
+            "text/x-typescript": ["ts", "tsx"]
         },
         files: ["karma.entry.js"],
         frameworks: ["jasmine"],
@@ -59,7 +67,4 @@ module.exports = function(config) {
             noLog: true
         }
     });
-    if (process.env.TRAVIS) {
-        config.browsers = ["Chrome_travis_ci"];
-    }
 };

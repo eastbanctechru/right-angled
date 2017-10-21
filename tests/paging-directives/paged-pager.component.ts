@@ -1,4 +1,5 @@
 // tslint:disable:max-classes-per-file
+// tslint:disable:no-implicit-dependencies
 import { ListDirective, PagedPagerComponent, RTList } from "../../index";
 
 import { Component, DebugElement } from "@angular/core";

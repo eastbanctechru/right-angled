@@ -1,4 +1,5 @@
 // tslint:disable:max-classes-per-file
+// tslint:disable:no-implicit-dependencies
 import { RTSelectionEventsHelper, RTSelectionService, SelectableDirective, SelectionAreaDirective } from "../../index";
 
 import { Component } from "@angular/core";

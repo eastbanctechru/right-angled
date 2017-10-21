@@ -1,3 +1,4 @@
+// tslint:disable:no-implicit-dependencies
 import { BufferedPagerComponent, ListDirective, RowCountDirective, RTList } from "../../index";
 
 import { Component } from "@angular/core";

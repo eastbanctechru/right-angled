@@ -1,4 +1,5 @@
 // tslint:disable:max-classes-per-file
+// tslint:disable:no-implicit-dependencies
 import { RegisterAsFilterDirective, RTFiltersService } from "../../index";
 
 import { Component } from "@angular/core";

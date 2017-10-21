@@ -1,4 +1,5 @@
 // tslint:disable:max-classes-per-file
+// tslint:disable:no-implicit-dependencies
 import { InfiniteDirective, RTList } from "../../index";
 
 import { Component, ElementRef, ViewChild } from "@angular/core";

@@ -1,3 +1,4 @@
+// tslint:disable:no-implicit-dependencies
 import { ListDirective, PagedPagerComponent, PageNumberDirective, RTList } from "../../index";
 
 import { Component } from "@angular/core";
