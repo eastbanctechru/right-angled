@@ -6,8 +6,10 @@ import {
     Input,
     IterableDiffer,
     IterableDiffers,
+    OnChanges,
     OnInit,
     Renderer,
+    SimpleChange,
     SkipSelf
 } from "@angular/core";
 import { SortDirection, SortingsService, SortParameter } from "e2e4";
@@ -17,7 +19,7 @@ import { RTList } from "./providers/list";
 @Directive({
     selector: "[rtSort]"
 })
-export class SortDirective implements DoCheck, OnInit {
+export class SortDirective implements DoCheck, OnInit, OnChanges {
     public static settings: {
         sortAscClassName: string;
         sortDescClassName: string;
@@ -29,6 +31,7 @@ export class SortDirective implements DoCheck, OnInit {
     };
     /* tslint:disable-next-line:no-input-rename */
     @Input("rtSort") public fieldName: string;
+    @Input() public disableSort: false;
     private nativeEl: HTMLElement;
     private sortingsDiffer: IterableDiffer<SortParameter>;
 
@@ -56,7 +59,7 @@ export class SortDirective implements DoCheck, OnInit {
     }
     @HostListener("click", ["$event.ctrlKey"])
     public clickHandler(ctrlKeyPressed: boolean): void {
-        if (this.listService.ready) {
+        if (this.listService.ready && !this.disableSort) {
             this.sortingsService.setSort(this.fieldName, ctrlKeyPressed);
             this.listService.reloadData();
         }
@@ -66,6 +69,11 @@ export class SortDirective implements DoCheck, OnInit {
         if (changes) {
             changes.forEachRemovedItem(this.sortItemRemovedCallback);
             changes.forEachAddedItem(this.sortItemAddedCallback);
+        }
+    }
+    public ngOnChanges(changes: { disableSort?: SimpleChange }): void {
+        if (changes.disableSort && changes.disableSort.currentValue) {
+            this.sortingsService.removeSort(this.fieldName);
         }
     }
     private sortItemRemovedCallback = (removedItem: any): void => {

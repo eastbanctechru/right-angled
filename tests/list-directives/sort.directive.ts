@@ -6,9 +6,11 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { OperationStatus, SortingsService } from "e2e4";
 
 @Component({
-    template: `<div rtSort="field"></div><div rtSort="anotherField"></div>`
+    template: `<div rtSort="field" [disableSort]="disableSort"></div><div rtSort="anotherField"></div>`
 })
-class HostComponent {}
+class HostComponent {
+    public disableSort: boolean = false;
+}
 
 class ListStub {
     public status: OperationStatus = OperationStatus.Initial;
@@ -136,6 +138,23 @@ describe("rtSort directive", () => {
             fixture.detectChanges();
         });
 
+        it("Call 'removeSort' when sort is disabled", () => {
+            spyOn(sortingsService, "removeSort");
+            fixture.debugElement.children[0].triggerEventHandler("click", { ctrlKey: false });
+            expect(sortingsService.sortings[0].fieldName).toEqual("field");
+            fixture.componentInstance.disableSort = true;
+            fixture.detectChanges();
+            expect(sortingsService.removeSort).toHaveBeenCalledWith("field");
+        });
+        it("Doesn't call 'setSort' if sort is disabled", () => {
+            spyOn(sortingsService, "setSort");
+
+            fixture.componentInstance.disableSort = true;
+            fixture.detectChanges();
+
+            fixture.debugElement.children[0].triggerEventHandler("click", { ctrlKey: false });
+            expect(sortingsService.setSort).not.toHaveBeenCalled();
+        });
         it("Calls 'setSort' method on click event", () => {
             spyOn(sortingsService, "setSort");
             fixture.debugElement.children[0].triggerEventHandler("click", { ctrlKey: false });

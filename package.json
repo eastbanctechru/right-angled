@@ -4,24 +4,27 @@
     "author": "EastBanc Technologies",
     "version": "1.3.0",
     "license": "MIT",
-    "description":
-        "Lightweight and easy to use angular data grids. Integrates with your markup and styles rather than generating its own.",
+    "description": "Lightweight and easy to use angular data grids. Integrates with your markup and styles rather than generating its own.",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/eastbanctechru/right-angled.git"
     },
-    "keywords": ["data", "data table", "grid", "list", "angular", "unobtrusive"],
+    "keywords": [
+        "data",
+        "data table",
+        "grid",
+        "list",
+        "angular",
+        "unobtrusive"
+    ],
     "bugs": {
         "url": "https://github.com/eastbanctechru/right-angled/issues"
     },
     "scripts": {
         "compile": "npm run compile:es2015 && npm run compile:es5",
-        "compile:es2015":
-            "npm run ngc -- -p src/tsconfig-es2015.json && npm run rollup -- build/right-angled.js --output.file dist/right-angled.js --output.format es",
-        "compile:es5":
-            "npm run ngc -- -p src/tsconfig-es5.json && npm run rollup -- build/right-angled.js --output.file dist/right-angled.es5.js --output.format es",
-        "copy:assets":
-            "npm run cpy -- \"**/*.*\" \"!**/*.js\" \"../dist\" --parents --cwd=build && npm run cpy -- src/package.json dist && npm run cpy -- README.md dist && npm run cpy -- CHANGELOG.md dist",
+        "compile:es2015": "npm run ngc -- -p src/tsconfig-es2015.json && npm run rollup -- build/right-angled.js --output.file dist/right-angled.js --output.format es",
+        "compile:es5": "npm run ngc -- -p src/tsconfig-es5.json && npm run rollup -- build/right-angled.js --output.file dist/right-angled.es5.js --output.format es",
+        "copy:assets": "npm run cpy -- \"**/*.*\" \"!**/*.js\" \"../dist\" --parents --cwd=build && npm run cpy -- src/package.json dist && npm run cpy -- README.md dist && npm run cpy -- CHANGELOG.md dist",
         "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
         "conventional-changelog": "conventional-changelog",
         "changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
@@ -37,15 +40,12 @@
         "preversion": "npm run precommit && npm run copy:assets",
         "version": "npm run docs && git add -A docs && npm run changelog && git add CHANGELOG.md",
         "postversion": "git push && git push --tags && conventional-github-releaser -p angular",
-        "precommit":
-            "npm run clean:compile && npm run clean:tests && npm run lint && npm run compile && npm run copy:assets && npm run test",
+        "precommit": "npm run clean:compile && npm run clean:tests && npm run lint && npm run compile && npm run copy:assets && npm run test",
         "ci": "npm run lint && npm run compile && npm run test",
         "clean:compile": "npm run rimraf -- dist build",
-        "clean:tests":
-            "npm run rimraf -- coverage && npm run rimraf -- \"tests/**/*.+(js|js.map|d.ts|metadata.json)\" ",
+        "clean:tests": "npm run rimraf -- coverage && npm run rimraf -- \"tests/**/*.+(js|js.map|d.ts|metadata.json)\" ",
         "docs": "npm run rimraf -- docs && typedoc --options typedoc.json src/ && npm run docs:replace:paths",
-        "docs:replace:paths":
-            "replace \"Defined in C:/Users/f.shchudlo/Documents/GitHub/right-angled/node_modules/e2e4\" \"e2e4\" ./docs -r",
+        "docs:replace:paths": "replace \"Defined in C:/Users/f.shchudlo/Documents/GitHub/right-angled/node_modules/e2e4\" \"e2e4\" ./docs -r",
         "lint": "npm run tslint -- --project tsconfig.json",
         "test": "npm run clean:tests && karma start karma.conf.js",
         "test:watch": "npm run clean:tests && karma start karma.conf.debug.js"
@@ -61,7 +61,7 @@
     "dependencies": {
         "@angular/common": "^4.0.0",
         "@angular/core": "^4.0.0",
-        "e2e4": "^2.2.3",
+        "e2e4": "^2.3.0",
         "rxjs": "^5.0.3"
     },
     "devDependencies": {
