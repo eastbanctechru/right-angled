@@ -1,3 +1,8 @@
+<a name="1.4.2"></a>
+## [1.4.2](https://github.com/eastbanctechru/right-angled/compare/v1.4.1...v1.4.2) (2017-10-21)
+
+
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/eastbanctechru/right-angled/compare/v1.3.0...v1.4.1) (2017-10-21)
 
