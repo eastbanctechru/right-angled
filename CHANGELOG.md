@@ -1,3 +1,23 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/eastbanctechru/right-angled/compare/v1.3.0...v1.4.0) (2017-10-21)
+
+
+### Features
+
+* **sort:** `disableSort` parameter added to `rtSort` directive ([b871dac](https://github.com/eastbanctechru/right-angled/commit/b871dac))
+
+
+
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/eastbanctechru/right-angled/compare/v1.3.0...v1.4.0) (2017-10-21)
+
+
+### Features
+
+* **sort:** `disableSort` parameter added to `rtSort` directive ([b871dac](https://github.com/eastbanctechru/right-angled/commit/b871dac))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/eastbanctechru/right-angled/compare/v1.2.7...v1.3.0) (2017-08-24)
 
