@@ -13,7 +13,7 @@ export abstract class StatusComponentBase implements DoCheck, OnInit {
         visibleState: OperationStatus
     ) {
         this.visibleState = visibleState;
-        this.listDiffer = differs.find([]).create(null);
+        this.listDiffer = differs.find([]).create();
     }
     public ngOnInit(): void {
         this.setVisibility();
