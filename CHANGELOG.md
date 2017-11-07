@@ -1,3 +1,18 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/eastbanctechru/right-angled/compare/v1.4.2...v2.0.0) (2017-11-07)
+
+
+### Features
+
+* **all:** Package update to angular@5.x.x ([1386b06](https://github.com/eastbanctechru/right-angled/commit/1386b06))
+
+
+### BREAKING CHANGES
+
+* **all:** Minimal required version of Angular is 5.x.x
+
+
+
 <a name="1.4.2"></a>
 ## [1.4.2](https://github.com/eastbanctechru/right-angled/compare/v1.4.1...v1.4.2) (2017-10-21)
 
