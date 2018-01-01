@@ -59,7 +59,6 @@
 
         "cyclomatic-complexity": [true, 15],
         "deprecation": true,
-        "linebreak-style": [true, "CRLF"],
         "max-file-line-count": [true, 600],
         "max-line-length": [true, 200],
         "no-default-export": true,
