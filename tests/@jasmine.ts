@@ -1,2 +1,3 @@
 // tslint:disable:no-implicit-dependencies
-import {} from "jasmine";
+// tslint:disable-next-line:import-destructuring-spacing
+import {} from 'jasmine';

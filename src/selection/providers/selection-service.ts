@@ -1,7 +1,7 @@
-import { DefaultSelectionService, SelectionTuple } from "e2e4";
+import { DefaultSelectionService, SelectionTuple } from 'e2e4';
 
-import { SelectionElementEventsEmitter } from "./selection-element-events-emitter";
-import { SelectionEventsEmitter } from "./selection-events-emitter";
+import { SelectionElementEventsEmitter } from './selection-element-events-emitter';
+import { SelectionEventsEmitter } from './selection-events-emitter';
 
 export class RTSelectionService extends DefaultSelectionService {
     public eventEmitters: SelectionElementEventsEmitter[] = new Array<SelectionElementEventsEmitter>();

@@ -8,16 +8,16 @@ import {
     Output,
     Self,
     SimpleChange
-} from "@angular/core";
-import { ListRequest, ListResponse, SortingsService, SortParameter } from "e2e4";
-import { Observable } from "rxjs/Observable";
-import { Subscription } from "rxjs/Subscription";
-import { LIST_PROVIDERS, RTList } from "./providers/list";
+} from '@angular/core';
+import { ListRequest, ListResponse, SortingsService, SortParameter } from 'e2e4';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import { LIST_PROVIDERS, RTList } from './providers/list';
 
 @Directive({
-    exportAs: "rtList",
+    exportAs: 'rtList',
     providers: [LIST_PROVIDERS],
-    selector: "[rtList]"
+    selector: '[rtList]'
 })
 export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     @Output() public onListInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
@@ -28,7 +28,7 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     @Input() public defaultSortings: SortParameter[];
     @Input() public loadOnInit: boolean = true;
     @Input() public keepRecordsOnLoad: boolean = false;
-    @Input("rtList")
+    @Input('rtList')
     public set fetchMethod(
         value: (
             requestParams: ListRequest

@@ -1,19 +1,19 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer, SkipSelf } from "@angular/core";
-import { SelectionElementEventsEmitter } from "./providers/selection-element-events-emitter";
-import { RTSelectionEvent } from "./providers/selection-event";
-import { RTSelectionEventsHelper } from "./providers/selection-events-helper";
+import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2, SkipSelf } from '@angular/core';
+import { SelectionElementEventsEmitter } from './providers/selection-element-events-emitter';
+import { RTSelectionEvent } from './providers/selection-event';
+import { RTSelectionEventsHelper } from './providers/selection-events-helper';
 
 @Directive({
-    exportAs: "rtSelectable",
-    selector: "[rtSelectable]"
+    exportAs: 'rtSelectable',
+    selector: '[rtSelectable]'
 })
 export class SelectableDirective implements SelectionElementEventsEmitter {
     public static settings: { selectedClassName: string } = {
-        selectedClassName: "rt-selected"
+        selectedClassName: 'rt-selected'
     };
     public index: number = null;
     /* tslint:disable-next-line:no-input-rename */
-    @Input("rtSelectable") public item: any = null;
+    @Input('rtSelectable') public item: any = null;
     @Output() public selectedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     @Output() public itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
@@ -21,7 +21,7 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
     private selectedInternal: boolean = false;
     constructor(
         @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper,
-        private renderer: Renderer,
+        private renderer: Renderer2,
         private el: ElementRef
     ) {}
 
@@ -37,13 +37,13 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
         }
     }
 
-    @HostListener("mouseup", [
-        "$event.ctrlKey",
-        "$event.shiftKey",
-        "$event.which",
-        "$event.preventDefault",
-        "$event.stopPropagation",
-        "$event"
+    @HostListener('mouseup', [
+        '$event.ctrlKey',
+        '$event.shiftKey',
+        '$event.which',
+        '$event.preventDefault',
+        '$event.stopPropagation',
+        '$event'
     ])
     public mouseUpHandler(
         ctrlKeyPressed: boolean,
@@ -70,11 +70,11 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
         this.selectedInternal = selected;
         this.selectedChange.emit(this.selectedInternal);
         if (SelectableDirective.settings.selectedClassName) {
-            this.renderer.setElementClass(
-                this.el.nativeElement,
-                SelectableDirective.settings.selectedClassName,
-                this.selected
-            );
+            if (this.selected) {
+                this.renderer.addClass(this.el.nativeElement, SelectableDirective.settings.selectedClassName);
+            } else {
+                this.renderer.removeClass(this.el.nativeElement, SelectableDirective.settings.selectedClassName);
+            }
         }
     }
     public clearWindowSelection(): void {

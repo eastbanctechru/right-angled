@@ -21,5 +21,6 @@
     "editor.formatOnSave": true,
     "prettier.tabWidth": 4,
     "prettier.printWidth": 120,
+    "prettier.singleQuote": true,
     "typescript.tsdk": "./node_modules/typescript/lib"
 }

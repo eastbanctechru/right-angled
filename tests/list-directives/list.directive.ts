@@ -1,10 +1,10 @@
 // tslint:disable:max-classes-per-file
-import { ListDirective, RTList, RTStateService } from "../../index";
+import { ListDirective, RTList, RTStateService } from '../../index';
 
-import { Component } from "@angular/core";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { FiltersService, OperationStatus, SortDirection, SortingsService, SortParameter } from "e2e4";
-import * as Rx from "rxjs";
+import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FiltersService, OperationStatus, SortDirection, SortingsService, SortParameter } from 'e2e4';
+import * as Rx from 'rxjs';
 
 @Component({
     template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" [keepRecordsOnLoad]="keepRecordsOnLoad"
@@ -62,7 +62,7 @@ class RTStateServiceStub extends RTStateService {
 class FiltersServiceStub {}
 class SortingsServiceStub {}
 
-describe("rtList directive", () => {
+describe('rtList directive', () => {
     let fixture: ComponentFixture<HostComponent>;
     let listService: RTList;
     beforeEach(() => {
@@ -80,7 +80,7 @@ describe("rtList directive", () => {
         listService = fixture.debugElement.children[0].injector.get(RTList);
     });
 
-    it("Acts as DI root for list-related services", () => {
+    it('Acts as DI root for list-related services', () => {
         const filtersService = fixture.debugElement.children[0].injector.get(FiltersService);
         const sortingsService = fixture.debugElement.children[0].injector.get(SortingsService);
         expect(listService instanceof ListStub).toBeFalsy();
@@ -88,29 +88,29 @@ describe("rtList directive", () => {
         expect(sortingsService instanceof SortingsServiceStub).toBeFalsy();
     });
 
-    it("Sets listService.fetchMethod to passed parameter", () => {
+    it('Sets listService.fetchMethod to passed parameter', () => {
         expect(listService.fetchMethod).toEqual(fixture.debugElement.componentInstance.getData);
     });
 
-    it("Proxies utility methods to list service methods", () => {
+    it('Proxies utility methods to list service methods', () => {
         const listDirective = fixture.debugElement.children[0].injector.get(ListDirective);
 
-        spyOn(listService, "reloadData");
+        spyOn(listService, 'reloadData');
         expect(listService.reloadData).not.toHaveBeenCalled();
         listDirective.reloadData();
         expect(listService.reloadData).toHaveBeenCalled();
 
-        spyOn(listService, "loadData");
+        spyOn(listService, 'loadData');
         expect(listService.loadData).not.toHaveBeenCalled();
         listDirective.loadData();
         expect(listService.loadData).toHaveBeenCalled();
 
-        spyOn(listService, "resetSettings");
+        spyOn(listService, 'resetSettings');
         expect(listService.resetSettings).not.toHaveBeenCalled();
         listDirective.resetSettings();
         expect(listService.resetSettings).toHaveBeenCalled();
 
-        spyOn(listService, "cancelRequests");
+        spyOn(listService, 'cancelRequests');
         expect(listService.cancelRequests).not.toHaveBeenCalled();
         listDirective.cancelRequests();
         expect(listService.cancelRequests).toHaveBeenCalled();
@@ -130,15 +130,15 @@ describe("rtList directive", () => {
         expect(listDirective.items).toEqual(listService.items);
     });
 
-    it("Sets sortingsService.defaultSortings to passed input", () => {
+    it('Sets sortingsService.defaultSortings to passed input', () => {
         const sortingsService = fixture.debugElement.children[0].injector.get(SortingsService);
         expect(sortingsService.defaultSortings).toEqual(fixture.debugElement.componentInstance.defaultSortings);
-        fixture.debugElement.componentInstance.defaultSortings = [{ direction: SortDirection.Asc, fieldName: "field" }];
+        fixture.debugElement.componentInstance.defaultSortings = [{ direction: SortDirection.Asc, fieldName: 'field' }];
         fixture.detectChanges();
         expect(sortingsService.defaultSortings).toEqual(fixture.debugElement.componentInstance.defaultSortings);
     });
 
-    it("Sets keepRecordsOnLoad to passed input", () => {
+    it('Sets keepRecordsOnLoad to passed input', () => {
         expect(listService.keepRecordsOnLoad).toEqual(fixture.debugElement.componentInstance.keepRecordsOnLoad);
         fixture.debugElement.componentInstance.keepRecordsOnLoad = !fixture.debugElement.componentInstance
             .keepRecordsOnLoad;
@@ -146,29 +146,29 @@ describe("rtList directive", () => {
         expect(listService.keepRecordsOnLoad).toEqual(fixture.debugElement.componentInstance.keepRecordsOnLoad);
     });
 
-    it("Destroys listService on directive destroy", () => {
+    it('Destroys listService on directive destroy', () => {
         expect(listService.destroyed).toEqual(false);
         fixture.destroy();
         expect(listService.destroyed).toEqual(true);
     });
-    it("Inits listService after directive init", done => {
+    it('Inits listService after directive init', done => {
         expect(listService.inited).toEqual(false);
         fixture.whenStable().then(() => {
             expect(listService.inited).toEqual(true);
             done();
         });
     });
-    it("Calls listService loadData after directive init", done => {
-        spyOn(listService, "loadData");
+    it('Calls listService loadData after directive init', done => {
+        spyOn(listService, 'loadData');
         expect(listService.loadData).not.toHaveBeenCalled();
         fixture.whenStable().then(() => {
             expect(listService.loadData).toHaveBeenCalled();
             done();
         });
     });
-    it("Calls onListInit and afterListInit with listService instance after directive init", done => {
-        spyOn(fixture.componentInstance, "onListInit");
-        spyOn(fixture.componentInstance, "afterListInit");
+    it('Calls onListInit and afterListInit with listService instance after directive init', done => {
+        spyOn(fixture.componentInstance, 'onListInit');
+        spyOn(fixture.componentInstance, 'afterListInit');
 
         expect(fixture.componentInstance.onListInit).not.toHaveBeenCalled();
         expect(fixture.componentInstance.afterListInit).not.toHaveBeenCalled();
@@ -179,16 +179,16 @@ describe("rtList directive", () => {
         });
     });
 
-    it("Calls onLoadSucceed after successful data load", done => {
-        spyOn(fixture.componentInstance, "onLoadSucceed");
+    it('Calls onLoadSucceed after successful data load', done => {
+        spyOn(fixture.componentInstance, 'onLoadSucceed');
         expect(fixture.componentInstance.onLoadSucceed).not.toHaveBeenCalled();
         fixture.whenStable().then(() => {
             expect(fixture.componentInstance.onLoadSucceed).toHaveBeenCalled();
             done();
         });
     });
-    it("Calls onLoadFail after data loading failed", done => {
-        spyOn(fixture.componentInstance, "onLoadFailed");
+    it('Calls onLoadFail after data loading failed', done => {
+        spyOn(fixture.componentInstance, 'onLoadFailed');
         expect(fixture.componentInstance.onLoadFailed).not.toHaveBeenCalled();
         fixture.componentInstance.failOnLoad = true;
         fixture.whenStable().then(() => {
@@ -200,7 +200,7 @@ describe("rtList directive", () => {
         const notLoadFixture = TestBed.createComponent(NotLoadOnInitHostComponent);
         notLoadFixture.detectChanges();
         const notLoadListService = notLoadFixture.debugElement.children[0].injector.get(RTList);
-        spyOn(notLoadListService, "loadData");
+        spyOn(notLoadListService, 'loadData');
         expect(notLoadListService.loadData).not.toHaveBeenCalled();
         notLoadFixture.whenStable().then(() => {
             expect(notLoadListService.loadData).not.toHaveBeenCalled();

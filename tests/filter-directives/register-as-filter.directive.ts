@@ -1,11 +1,11 @@
 // tslint:disable:max-classes-per-file
 // tslint:disable:no-implicit-dependencies
-import { RegisterAsFilterDirective, RTFiltersService } from "../../index";
+import { RegisterAsFilterDirective, RTFiltersService } from '../../index';
 
-import { Component } from "@angular/core";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { By } from "@angular/platform-browser";
-import { filter, FiltersService } from "e2e4";
+import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { filter, FiltersService } from 'e2e4';
 
 @Component({
     template: `<div *ngIf="renderFilter">
@@ -17,14 +17,14 @@ class HostComponent {
     public renderFilter: boolean = true;
 }
 @Component({
-    selector: "rt-test-filter-target",
+    selector: 'rt-test-filter-target',
     template: `<div></div>`
 })
 class FilterTargetComponent {
     @filter() public filterProperty: string;
 }
 
-describe("rtRegisterAsFiletr directive", () => {
+describe('rtRegisterAsFiletr directive', () => {
     let sut: HostComponent;
     let fixture: ComponentFixture<HostComponent>;
     let filtersService: RTFiltersService;

@@ -8,16 +8,16 @@ import {
     IterableDiffers,
     OnChanges,
     OnInit,
-    Renderer,
+    Renderer2,
     SimpleChange,
     SkipSelf
-} from "@angular/core";
-import { SortDirection, SortingsService, SortParameter } from "e2e4";
+} from '@angular/core';
+import { SortDirection, SortingsService, SortParameter } from 'e2e4';
 
-import { RTList } from "./providers/list";
+import { RTList } from './providers/list';
 
 @Directive({
-    selector: "[rtSort]"
+    selector: '[rtSort]'
 })
 export class SortDirective implements DoCheck, OnInit, OnChanges {
     public static settings: {
@@ -25,12 +25,12 @@ export class SortDirective implements DoCheck, OnInit, OnChanges {
         sortDescClassName: string;
         sortableClassName: string;
     } = {
-        sortAscClassName: "rt-sort-asc",
-        sortDescClassName: "rt-sort-desc",
-        sortableClassName: "rt-sortable"
+        sortAscClassName: 'rt-sort-asc',
+        sortDescClassName: 'rt-sort-desc',
+        sortableClassName: 'rt-sortable'
     };
     /* tslint:disable-next-line:no-input-rename */
-    @Input("rtSort") public fieldName: string;
+    @Input('rtSort') public fieldName: string;
     @Input() public disableSort: false;
     private nativeEl: HTMLElement;
     private sortingsDiffer: IterableDiffer<SortParameter>;
@@ -38,7 +38,7 @@ export class SortDirective implements DoCheck, OnInit, OnChanges {
     constructor(
         @SkipSelf() private listService: RTList,
         @SkipSelf() private sortingsService: SortingsService,
-        private renderer: Renderer,
+        private renderer: Renderer2,
         el: ElementRef,
         differs: IterableDiffers
     ) {
@@ -47,7 +47,7 @@ export class SortDirective implements DoCheck, OnInit, OnChanges {
     }
     public ngOnInit(): void {
         if (SortDirective.settings.sortableClassName) {
-            this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortableClassName, true);
+            this.renderer.addClass(this.nativeEl, SortDirective.settings.sortableClassName);
         }
         this.sortingsService.sortings.some(sortParameter => {
             if (sortParameter.fieldName === this.fieldName) {
@@ -57,7 +57,7 @@ export class SortDirective implements DoCheck, OnInit, OnChanges {
             return false;
         });
     }
-    @HostListener("click", ["$event.ctrlKey"])
+    @HostListener('click', ['$event.ctrlKey'])
     public clickHandler(ctrlKeyPressed: boolean): void {
         if (this.listService.ready && !this.disableSort) {
             this.sortingsService.setSort(this.fieldName, ctrlKeyPressed);
@@ -88,27 +88,27 @@ export class SortDirective implements DoCheck, OnInit, OnChanges {
     };
     private removeSortClasses(): void {
         if (SortDirective.settings.sortAscClassName) {
-            this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortAscClassName, false);
+            this.renderer.removeClass(this.nativeEl, SortDirective.settings.sortAscClassName);
         }
         if (SortDirective.settings.sortDescClassName) {
-            this.renderer.setElementClass(this.nativeEl, SortDirective.settings.sortDescClassName, false);
+            this.renderer.removeClass(this.nativeEl, SortDirective.settings.sortDescClassName);
         }
     }
     private setSortClasses(sortParameter: any): void {
         const direction = sortParameter.direction;
         if (SortDirective.settings.sortAscClassName) {
-            this.renderer.setElementClass(
-                this.nativeEl,
-                SortDirective.settings.sortAscClassName,
-                direction === SortDirection.Asc
-            );
+            if (direction === SortDirection.Asc) {
+                this.renderer.addClass(this.nativeEl, SortDirective.settings.sortAscClassName);
+            } else {
+                this.renderer.removeClass(this.nativeEl, SortDirective.settings.sortAscClassName);
+            }
         }
         if (SortDirective.settings.sortDescClassName) {
-            this.renderer.setElementClass(
-                this.nativeEl,
-                SortDirective.settings.sortDescClassName,
-                direction === SortDirection.Desc
-            );
+            if (direction === SortDirection.Desc) {
+                this.renderer.addClass(this.nativeEl, SortDirective.settings.sortDescClassName);
+            } else {
+                this.renderer.removeClass(this.nativeEl, SortDirective.settings.sortDescClassName);
+            }
         }
     }
 }

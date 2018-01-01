@@ -8,11 +8,11 @@ import {
     StatusInProgressComponent,
     StatusNoDataComponent,
     StatusRequestCancelledComponent
-} from "../../index";
+} from '../../index';
 
-import { Component } from "@angular/core";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { OperationStatus } from "e2e4";
+import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { OperationStatus } from 'e2e4';
 
 @Component({
     template: `<div>
@@ -43,7 +43,7 @@ class ListStub {
     public items: any[] = null;
 }
 
-describe("rt-status-... components", () => {
+describe('rt-status-... components', () => {
     let fixture: ComponentFixture<HostComponent>;
     let nativeElement: HTMLElement;
     let listService: ListStub;
@@ -68,82 +68,82 @@ describe("rt-status-... components", () => {
         listService = fixture.debugElement.injector.get(RTList);
     });
 
-    it("Coverage stub for else statement in change tracking :)", () => {
+    it('Coverage stub for else statement in change tracking :)', () => {
         listService.items = [];
         fixture.detectChanges();
     });
-    it("Renders content of rt-status-progress on component init since initial state is OperationStatus.Progress", () => {
-        expect(nativeElement.querySelector("rt-status-initial > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-failed > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-request-cancelled  > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-no-data > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-progress > span")).toBeDefined();
-        expect(nativeElement.querySelector("rt-status-done > span")).toBeNull();
+    it('Renders content of rt-status-progress on component init since initial state is OperationStatus.Progress', () => {
+        expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-request-cancelled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-no-data > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-progress > span')).toBeDefined();
+        expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it("Renders content of rt-status-initial when state is Initial", () => {
+    it('Renders content of rt-status-initial when state is Initial', () => {
         listService.status = OperationStatus.Initial;
         fixture.detectChanges();
-        expect(nativeElement.querySelector("rt-status-initial > span")).toBeDefined();
-        expect(nativeElement.querySelector("rt-status-failed > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-request-cancelled  > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-no-data > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-progress > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-done > span")).toBeNull();
+        expect(nativeElement.querySelector('rt-status-initial > span')).toBeDefined();
+        expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-request-cancelled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-no-data > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-progress > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it("Renders content of rt-status-failed when state is Fail", () => {
+    it('Renders content of rt-status-failed when state is Fail', () => {
         listService.status = OperationStatus.Fail;
         fixture.detectChanges();
-        expect(nativeElement.querySelector("rt-status-initial > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-failed > span")).toBeDefined();
-        expect(nativeElement.querySelector("rt-status-request-cancelled  > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-no-data > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-progress > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-done > span")).toBeNull();
+        expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-failed > span')).toBeDefined();
+        expect(nativeElement.querySelector('rt-status-request-cancelled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-no-data > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-progress > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it("Renders content of rt-status-request-cancelled when state is Cancelled", () => {
+    it('Renders content of rt-status-request-cancelled when state is Cancelled', () => {
         listService.status = OperationStatus.Cancelled;
         fixture.detectChanges();
-        expect(nativeElement.querySelector("rt-status-initial > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-failed > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-request-cancelled  > span")).toBeDefined();
-        expect(nativeElement.querySelector("rt-status-no-data > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-progress > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-done > span")).toBeNull();
+        expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-request-cancelled  > span')).toBeDefined();
+        expect(nativeElement.querySelector('rt-status-no-data > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-progress > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it("Renders content of rt-status-no-data when state is NoData", () => {
+    it('Renders content of rt-status-no-data when state is NoData', () => {
         listService.status = OperationStatus.NoData;
         fixture.detectChanges();
-        expect(nativeElement.querySelector("rt-status-initial > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-failed > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-request-cancelled  > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-no-data > span")).toBeDefined();
-        expect(nativeElement.querySelector("rt-status-progress > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-done > span")).toBeNull();
+        expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-request-cancelled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-no-data > span')).toBeDefined();
+        expect(nativeElement.querySelector('rt-status-progress > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it("Renders content of rt-status-progress when state is Progress", () => {
+    it('Renders content of rt-status-progress when state is Progress', () => {
         listService.status = OperationStatus.Progress;
         fixture.detectChanges();
-        expect(nativeElement.querySelector("rt-status-initial > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-failed > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-request-cancelled  > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-no-data > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-progress > span")).toBeDefined();
-        expect(nativeElement.querySelector("rt-status-done > span")).toBeNull();
+        expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-request-cancelled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-no-data > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-progress > span')).toBeDefined();
+        expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it("Renders content of rt-status-done when state is Done", () => {
+    it('Renders content of rt-status-done when state is Done', () => {
         listService.status = OperationStatus.Done;
         fixture.detectChanges();
-        expect(nativeElement.querySelector("rt-status-initial > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-failed > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-request-cancelled  > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-no-data > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-progress > span")).toBeNull();
-        expect(nativeElement.querySelector("rt-status-done > span")).toBeDefined();
+        expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-request-cancelled  > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-no-data > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-progress > span')).toBeNull();
+        expect(nativeElement.querySelector('rt-status-done > span')).toBeDefined();
     });
 });

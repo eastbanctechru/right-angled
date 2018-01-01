@@ -1,14 +1,14 @@
-import { Directive, ElementRef, Input, Renderer } from "@angular/core";
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
-import { EventsAttacherBase } from "./events-attacher.base";
+import { EventsAttacherBase } from './events-attacher.base';
 
 @Directive({
-    selector: "[rtStopEvents]"
+    selector: '[rtStopEvents]'
 })
 export class StopEventsDirective extends EventsAttacherBase {
     /* tslint:disable-next-line:no-input-rename */
-    @Input("rtStopEvents") public eventNames: string[];
-    constructor(elementRef: ElementRef, renderer: Renderer) {
+    @Input('rtStopEvents') public eventNames: string[];
+    constructor(elementRef: ElementRef, renderer: Renderer2) {
         super(elementRef, renderer, (evt: Event) => {
             evt.stopPropagation();
         });

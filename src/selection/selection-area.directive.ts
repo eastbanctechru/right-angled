@@ -12,20 +12,20 @@ import {
     QueryList,
     Self,
     SimpleChange
-} from "@angular/core";
-import { Subscription } from "rxjs/Subscription";
+} from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 
-import { RTSelectionEvent } from "./providers/selection-event";
-import { SelectionEventsEmitter } from "./providers/selection-events-emitter";
-import { RTSelectionEventsHelper } from "./providers/selection-events-helper";
-import { RTSelectionService } from "./providers/selection-service";
-import { SelectableDirective } from "./selectable.directive";
-import { SelectionCheckboxForDirective } from "./selection-checkbox-for.directive";
+import { RTSelectionEvent } from './providers/selection-event';
+import { SelectionEventsEmitter } from './providers/selection-events-emitter';
+import { RTSelectionEventsHelper } from './providers/selection-events-helper';
+import { RTSelectionService } from './providers/selection-service';
+import { SelectableDirective } from './selectable.directive';
+import { SelectionCheckboxForDirective } from './selection-checkbox-for.directive';
 
 @Directive({
-    exportAs: "rtSelectionArea",
+    exportAs: 'rtSelectionArea',
     providers: [RTSelectionService, RTSelectionEventsHelper],
-    selector: "[rtSelectionArea]"
+    selector: '[rtSelectionArea]'
 })
 export class SelectionAreaDirective implements SelectionEventsEmitter, AfterContentInit, OnChanges, OnDestroy {
     @ContentChildren(SelectableDirective, { descendants: false })
@@ -39,7 +39,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
     public checkboxesSubscription: Subscription;
     public childSelectionAreasSubscription: Subscription;
 
-    @HostBinding("tabIndex") public tabIndex: number = 0;
+    @HostBinding('tabIndex') public tabIndex: number = 0;
 
     @Input()
     public set preventEventsDefaults(value: boolean) {
@@ -70,8 +70,8 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
 
     @Input()
     public set trackBy(value: (index: number, item: any) => any) {
-        if (typeof value !== "function") {
-            throw new Error("trackBy parameter value must be a function");
+        if (typeof value !== 'function') {
+            throw new Error('trackBy parameter value must be a function');
         }
         this.selectionService.trackByFn = value;
     }
@@ -108,18 +108,20 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
             const selectedIndexes = this.selectionService.getSelectedIndexes();
             if (selectedIndexes.length > 1) {
                 selectedIndexes.splice(0, 1);
-                selectedIndexes.forEach(index => this.selectionService.deselectIndex(index));
+                selectedIndexes.forEach(index => {
+                    this.selectionService.deselectIndex(index);
+                });
             }
         }
     }
 
-    @HostListener("keydown", [
-        "$event.ctrlKey",
-        "$event.shiftKey",
-        "$event.keyCode",
-        "$event.preventDefault",
-        "$event.stopPropagation",
-        "$event"
+    @HostListener('keydown', [
+        '$event.ctrlKey',
+        '$event.shiftKey',
+        '$event.keyCode',
+        '$event.preventDefault',
+        '$event.stopPropagation',
+        '$event'
     ])
     public keyDownHandler(
         ctrlKeyPressed: boolean,

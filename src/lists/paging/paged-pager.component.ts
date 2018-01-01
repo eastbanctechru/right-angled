@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChange } from "@angular/core";
-import { PagedPager } from "e2e4";
-import { Observable } from "rxjs/Observable";
+import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { PagedPager } from 'e2e4';
+import { Observable } from 'rxjs/Observable';
 
-import { RTList, RTPagedPager } from "../providers/list";
+import { RTList, RTPagedPager } from '../providers/list';
 
 @Component({
     providers: [{ provide: PagedPager, useClass: RTPagedPager }],
-    selector: "rt-paged-pager",
-    template: "<ng-content></ng-content>"
+    selector: 'rt-paged-pager',
+    template: '<ng-content></ng-content>'
 })
 export class PagedPagerComponent implements OnChanges, OnInit {
     @Input() public defaultPageSize: number = PagedPager.settings.defaultPageSize;

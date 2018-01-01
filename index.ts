@@ -1,2 +1,2 @@
-export * from "e2e4";
-export * from "./src/index";
+export * from 'e2e4';
+export * from './src/index';

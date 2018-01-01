@@ -3,7 +3,10 @@
         "declaration": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "lib": ["es6", "dom"],
+        "lib": [
+            "es6",
+            "dom"
+        ],
         "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": false,
@@ -11,7 +14,6 @@
         "diagnostics": true,
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
-
         "suppressImplicitAnyIndexErrors": true,
         "pretty": true,
         "forceConsistentCasingInFileNames": true,
@@ -26,5 +28,7 @@
     "angularCompilerOptions": {
         "skipTemplateCodegen": true
     },
-    "exclude": ["node_modules"]
+    "exclude": [
+        "node_modules"
+    ]
 }

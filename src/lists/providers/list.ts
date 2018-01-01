@@ -1,6 +1,6 @@
 // tslint:disable:max-classes-per-file
 
-import { EventEmitter, Inject, Injectable, InjectionToken, Optional, SkipSelf } from "@angular/core";
+import { EventEmitter, Inject, Injectable, InjectionToken, Optional, SkipSelf } from '@angular/core';
 import {
     AsyncSubscriber,
     BufferedPager,
@@ -11,11 +11,11 @@ import {
     PagedPager,
     SortingsService,
     StateService
-} from "e2e4";
-import { Observable } from "rxjs/Observable";
-import { RTFiltersService } from "../../filters/filters-service";
-
-export const RTFilterTarget = new InjectionToken("RTFilterTarget");
+} from 'e2e4';
+import { Observable } from 'rxjs/Observable';
+import { RTFiltersService } from '../../filters/filters-service';
+// tslint:disable-next-line:no-inferred-empty-object-type
+export const RTFilterTarget = new InjectionToken('RTFilterTarget');
 
 export abstract class RTStateService extends StateService {}
 

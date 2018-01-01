@@ -1,11 +1,11 @@
-import { Directive, KeyValueDiffers } from "@angular/core";
-import { PagedPager } from "e2e4";
+import { Directive, KeyValueDiffers } from '@angular/core';
+import { PagedPager } from 'e2e4';
 
-import { PagerInputBase } from "./pager-input-base";
+import { PagerInputBase } from './pager-input-base';
 
 @Directive({
     /* tslint:disable-next-line:directive-selector */
-    selector: "input[rtPageSize]"
+    selector: 'input[rtPageSize]'
 })
 export class PageSizeDirective extends PagerInputBase {
     public get value(): number {
@@ -15,6 +15,6 @@ export class PageSizeDirective extends PagerInputBase {
         this.pager.pageSize = value;
     }
     constructor(pager: PagedPager, differs: KeyValueDiffers) {
-        super(pager, differs, "pageSizeInternal");
+        super(pager, differs, 'pageSizeInternal');
     }
 }

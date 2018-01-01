@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { SelectionEventsHelper } from "e2e4";
-import { RTSelectionService } from "./selection-service";
+import { Injectable } from '@angular/core';
+import { SelectionEventsHelper } from 'e2e4';
+import { RTSelectionService } from './selection-service';
 
 @Injectable()
 export class RTSelectionEventsHelper extends SelectionEventsHelper {
