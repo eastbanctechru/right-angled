@@ -1,3 +1,8 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/eastbanctechru/right-angled/compare/v2.0.0...v2.0.1) (2018-01-01)
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/eastbanctechru/right-angled/compare/v1.4.2...v2.0.0) (2017-11-07)
 
