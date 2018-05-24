@@ -12,7 +12,7 @@ import {
     SortingsService,
     StateService
 } from 'e2e4';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { RTFiltersService } from '../../filters/filters-service';
 // tslint:disable-next-line:no-inferred-empty-object-type
 export const RTFilterTarget = new InjectionToken('RTFilterTarget');

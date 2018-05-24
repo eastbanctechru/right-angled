@@ -6,7 +6,7 @@ import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { BufferedPager } from 'e2e4';
-import * as Rx from 'rxjs';
+import { from } from 'rxjs';
 
 @Component({
     template: `<div [rtList]="getData">
@@ -18,7 +18,7 @@ class HostComponent {
     public maxRowCount: number = 1;
     public defaultRowCount: number = 1;
     public getData(): any {
-        return Rx.Observable.from([]);
+        return from([]);
     }
 }
 

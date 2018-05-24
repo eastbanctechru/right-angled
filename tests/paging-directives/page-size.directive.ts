@@ -4,7 +4,7 @@ import { ListDirective, PagedPagerComponent, PageSizeDirective } from '../../ind
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import * as Rx from 'rxjs';
+import { from } from 'rxjs';
 
 @Component({
     template: `<div [rtList]="getData">
@@ -15,7 +15,7 @@ import * as Rx from 'rxjs';
 })
 class HostComponent {
     public getData(): any {
-        return Rx.Observable.from([]);
+        return from([]);
     }
 }
 describe('rtPageSize directive', () => {

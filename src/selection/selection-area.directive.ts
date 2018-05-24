@@ -13,7 +13,7 @@ import {
     Self,
     SimpleChange
 } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { RTSelectionEvent } from './providers/selection-event';
 import { SelectionEventsEmitter } from './providers/selection-events-emitter';

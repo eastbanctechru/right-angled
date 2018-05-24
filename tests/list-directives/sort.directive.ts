@@ -25,6 +25,7 @@ describe('rtSort directive', () => {
     const listStub: ListStub = new ListStub();
 
     beforeEach(() => {
+        listStub.ready = true;
         SortDirective.settings.sortableClassName = 'rt-sortable';
         SortDirective.settings.sortAscClassName = 'rt-sort-asc';
         SortDirective.settings.sortDescClassName = 'rt-sort-desc';

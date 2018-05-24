@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { BufferedPager } from 'e2e4';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { RTBufferedPager, RTList } from '../providers/list';
 
 @Component({

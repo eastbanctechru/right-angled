@@ -4,7 +4,7 @@ import { ListDirective, RTList, RTStateService } from '../../index';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FiltersService, OperationStatus, SortDirection, SortingsService, SortParameter } from 'e2e4';
-import * as Rx from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
     template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" [keepRecordsOnLoad]="keepRecordsOnLoad"
@@ -15,7 +15,7 @@ class HostComponent {
     public keepRecordsOnLoad: boolean = false;
     public defaultSortings: SortParameter[] = [];
     public getData = (): any => {
-        return Rx.Observable.create((observer: any) => {
+        return Observable.create((observer: any) => {
             setTimeout(() => {
                 if (this.failOnLoad) {
                     observer.error();

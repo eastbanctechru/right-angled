@@ -10,8 +10,7 @@ import {
     SimpleChange
 } from '@angular/core';
 import { ListRequest, ListResponse, SortingsService, SortParameter } from 'e2e4';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import { Observable, Subscription } from 'rxjs';
 import { LIST_PROVIDERS, RTList } from './providers/list';
 
 @Directive({

@@ -32,6 +32,8 @@ module.exports = function(config) {
         singleRun: true,
         webpack: {
             devtool: 'inline-source-map',
+            mode: 'development',
+            performance: { hints: false },
             module: {
                 rules: [
                     {
