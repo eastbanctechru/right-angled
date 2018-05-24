@@ -1,3 +1,18 @@
+<a name="6.0.0"></a>
+# [6.0.0](https://github.com/eastbanctechru/right-angled/compare/v2.0.1...v6.0.0) (2018-05-24)
+
+
+### Bug Fixes
+
+* **build:** remove linebreak rule ([0ec0a84](https://github.com/eastbanctechru/right-angled/commit/0ec0a84))
+
+
+### Features
+
+* **all:** Updated to Angular/RxJS v.6 ([8e93dba](https://github.com/eastbanctechru/right-angled/commit/8e93dba))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/eastbanctechru/right-angled/compare/v2.0.0...v2.0.1) (2018-01-01)
 
