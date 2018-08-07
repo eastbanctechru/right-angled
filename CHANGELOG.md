@@ -1,3 +1,23 @@
+<a name="7.0.0"></a>
+# [7.0.0](https://github.com/eastbanctechru/right-angled/compare/v6.0.0...v7.0.0) (2018-08-07)
+
+
+### Code Refactoring
+
+* **list:** `on` prefix is removed form events names according to style guide ([6b6781f](https://github.com/eastbanctechru/right-angled/commit/6b6781f))
+
+
+### Features
+
+* **list:** `onLoadStarted` event added ([3558f0a](https://github.com/eastbanctechru/right-angled/commit/3558f0a))
+
+
+### BREAKING CHANGES
+
+* **list:** `on` prefix is removed from events names according to style guide
+
+
+
 <a name="6.0.0"></a>
 # [6.0.0](https://github.com/eastbanctechru/right-angled/compare/v2.0.1...v6.0.0) (2018-05-24)
 
