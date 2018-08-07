@@ -24,6 +24,7 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     @Output()
     public onLoadSucceed: EventEmitter<ListResponse<any> | any[]> = new EventEmitter<ListResponse<any> | any[]>();
     @Output() public onLoadFailed: EventEmitter<any> = new EventEmitter<any>();
+    @Output() public onLoadStarted: EventEmitter<void> = new EventEmitter<void>();
     @Input() public defaultSortings: SortParameter[];
     @Input() public loadOnInit: boolean = true;
     @Input() public keepRecordsOnLoad: boolean = false;
@@ -38,6 +39,7 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
 
     private successSubscription: Subscription;
     private failSubscription: Subscription;
+    private loadStartedSubscription: Subscription;
 
     constructor(@Self() public listService: RTList, @Self() private sortingsService: SortingsService) {
         this.successSubscription = listService.onLoadSucceed.subscribe((response: ListResponse<any> | any[]) => {
@@ -45,6 +47,9 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
         });
         this.failSubscription = listService.onLoadFailed.subscribe(() => {
             this.onLoadFailed.emit();
+        });
+        this.loadStartedSubscription = listService.onLoadStarted.subscribe(() => {
+            this.onLoadStarted.emit();
         });
     }
     public ngAfterViewInit(): void {
@@ -66,6 +71,7 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
         this.listService.destroy();
         this.successSubscription.unsubscribe();
         this.failSubscription.unsubscribe();
+        this.loadStartedSubscription.unsubscribe();
     }
     public ngOnChanges(changes: { keepRecordsOnLoad?: SimpleChange; defaultSortings?: SimpleChange }): void {
         if (changes.defaultSortings) {

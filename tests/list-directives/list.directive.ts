@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 @Component({
     template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" [keepRecordsOnLoad]="keepRecordsOnLoad"
-    (onListInit)="onListInit($event)" (afterListInit)="afterListInit($event)" (onLoadSucceed)="onLoadSucceed($event)" (onLoadFailed)="onLoadFailed()"></div>`
+    (onListInit)="onListInit($event)" (afterListInit)="afterListInit($event)" (onLoadSucceed)="onLoadSucceed($event)" (onLoadFailed)="onLoadFailed()" (onLoadStarted)="onLoadStarted()"></div>`
 })
 class HostComponent {
     public failOnLoad: boolean = false;
@@ -30,6 +30,9 @@ class HostComponent {
         return;
     }
     public onListInit(): void {
+        return;
+    }
+    public onLoadStarted(): void {
         return;
     }
     public onLoadSucceed(): void {
@@ -179,6 +182,26 @@ describe('rtList directive', () => {
         });
     });
 
+    it('Calls onLoadStarted on data load', done => {
+        fixture.whenStable().then(() => {
+            const listDirective = fixture.debugElement.children[0].injector.get(ListDirective);
+            spyOn(fixture.componentInstance, 'onLoadStarted');
+            listDirective.loadData();
+            fixture.detectChanges();
+            expect(fixture.componentInstance.onLoadStarted).toHaveBeenCalled();
+            done();
+        });
+    });
+    it('Calls onLoadStarted on data reload', done => {
+        fixture.whenStable().then(() => {
+            const listDirective = fixture.debugElement.children[0].injector.get(ListDirective);
+            spyOn(fixture.componentInstance, 'onLoadStarted');
+            listDirective.reloadData();
+            fixture.detectChanges();
+            expect(fixture.componentInstance.onLoadStarted).toHaveBeenCalled();
+            done();
+        });
+    });
     it('Calls onLoadSucceed after successful data load', done => {
         spyOn(fixture.componentInstance, 'onLoadSucceed');
         expect(fixture.componentInstance.onLoadSucceed).not.toHaveBeenCalled();

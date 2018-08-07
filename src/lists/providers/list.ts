@@ -25,6 +25,7 @@ export class RTOperationStatus {
 
 @Injectable()
 export class RTList extends List {
+    public onLoadStarted: EventEmitter<void> = new EventEmitter<void>();
     public onLoadSucceed: EventEmitter<ListResponse<any> | any[]> = new EventEmitter<ListResponse<any> | any[]>();
     public onLoadFailed: EventEmitter<any> = new EventEmitter<any>();
     private filterTargets: object[] = [];
@@ -58,10 +59,14 @@ export class RTList extends List {
     }
 
     public loadData(): Observable<any> | Promise<any> | EventEmitter<any> {
-        return super.loadData();
+        const subscribable = super.loadData();
+        this.onLoadStarted.emit();
+        return subscribable;
     }
     public reloadData(): Observable<any> | Promise<any> | EventEmitter<any> {
-        return super.reloadData();
+        const subscribable = super.reloadData();
+        this.onLoadStarted.emit();
+        return subscribable;
     }
     public init(): void {
         this.filtersService.registerFilterTarget(...this.filterTargets);
