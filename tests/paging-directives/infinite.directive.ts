@@ -12,7 +12,7 @@ import { BufferedPager } from 'e2e4';
             <div #listHost [style.height]="listHostReference?'200px':'auto'"  [style.overflow]="listHostReference?'auto':'inherit'">
                 <div>
                     <div *ngFor="let item of items" style="padding: 200px;">
-                        {{item}}
+                        {{ item }}
                     </div>
                     <div [rtInfinite]="listHostReference">
                     </div>
@@ -20,7 +20,8 @@ import { BufferedPager } from 'e2e4';
             </div>`
 })
 class ComponentWithHostComponent {
-    @ViewChild('listHost') public listHost: ElementRef;
+    @ViewChild('listHost')
+    public listHost: ElementRef;
     public listHostReference: HTMLElement = null;
     public items: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 }

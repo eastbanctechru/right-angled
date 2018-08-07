@@ -12,7 +12,8 @@ import { RTSelectionService } from './providers/selection-service';
 export class SelectionCheckboxForDirective implements SelectionElementEventsEmitter {
     public index: number = null;
     /* tslint:disable-next-line:no-input-rename */
-    @Input('rtSelectionCheckboxFor') public item: any = null;
+    @Input('rtSelectionCheckboxFor')
+    public item: any = null;
     @Input()
     public get selected(): boolean {
         return this.selectedInternal;
@@ -24,10 +25,14 @@ export class SelectionCheckboxForDirective implements SelectionElementEventsEmit
             this.selectionService.deselectIndex(this.index);
         }
     }
-    @Output() public selectedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Output() public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
-    @Output() public itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
-    @Output() public selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output()
+    public readonly selectedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output()
+    public readonly itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output()
+    public readonly itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output()
+    public readonly selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     private selectedInternal: boolean = false;
 
     constructor(

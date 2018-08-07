@@ -19,15 +19,24 @@ import { LIST_PROVIDERS, RTList } from './providers/list';
     selector: '[rtList]'
 })
 export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
-    @Output() public onListInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
-    @Output() public afterListInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
     @Output()
-    public onLoadSucceed: EventEmitter<ListResponse<any> | any[]> = new EventEmitter<ListResponse<any> | any[]>();
-    @Output() public onLoadFailed: EventEmitter<any> = new EventEmitter<any>();
-    @Output() public onLoadStarted: EventEmitter<void> = new EventEmitter<void>();
-    @Input() public defaultSortings: SortParameter[];
-    @Input() public loadOnInit: boolean = true;
-    @Input() public keepRecordsOnLoad: boolean = false;
+    public readonly listInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
+    @Output()
+    public readonly afterListInit: EventEmitter<RTList> = new EventEmitter<RTList>(false);
+    @Output()
+    public readonly loadSucceed: EventEmitter<ListResponse<any> | any[]> = new EventEmitter<
+        ListResponse<any> | any[]
+    >();
+    @Output()
+    public readonly loadFailed: EventEmitter<any> = new EventEmitter<any>();
+    @Output()
+    public readonly loadStarted: EventEmitter<void> = new EventEmitter<void>();
+    @Input()
+    public defaultSortings: SortParameter[];
+    @Input()
+    public loadOnInit: boolean = true;
+    @Input()
+    public keepRecordsOnLoad: boolean = false;
     @Input('rtList')
     public set fetchMethod(
         value: (
@@ -42,14 +51,14 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     private loadStartedSubscription: Subscription;
 
     constructor(@Self() public listService: RTList, @Self() private sortingsService: SortingsService) {
-        this.successSubscription = listService.onLoadSucceed.subscribe((response: ListResponse<any> | any[]) => {
-            this.onLoadSucceed.emit(response);
+        this.successSubscription = listService.loadSucceed.subscribe((response: ListResponse<any> | any[]) => {
+            this.loadSucceed.emit(response);
         });
-        this.failSubscription = listService.onLoadFailed.subscribe(() => {
-            this.onLoadFailed.emit();
+        this.failSubscription = listService.loadFailed.subscribe(() => {
+            this.loadFailed.emit();
         });
-        this.loadStartedSubscription = listService.onLoadStarted.subscribe(() => {
-            this.onLoadStarted.emit();
+        this.loadStartedSubscription = listService.loadStarted.subscribe(() => {
+            this.loadStarted.emit();
         });
     }
     public ngAfterViewInit(): void {
@@ -59,7 +68,7 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
         // 3. overwrite theese default values by values passed via persistence services
         // 4. execute all ngAfterViewInit for custom services registration (setTimeout)
         setTimeout(() => {
-            this.onListInit.emit(this.listService);
+            this.listInit.emit(this.listService);
             this.listService.init();
             this.afterListInit.emit(this.listService);
             if (this.loadOnInit) {

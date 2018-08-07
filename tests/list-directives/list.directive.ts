@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 @Component({
     template: `<div [rtList]="getData" [defaultSortings]="defaultSortings" [keepRecordsOnLoad]="keepRecordsOnLoad"
-    (onListInit)="onListInit($event)" (afterListInit)="afterListInit($event)" (onLoadSucceed)="onLoadSucceed($event)" (onLoadFailed)="onLoadFailed()" (onLoadStarted)="onLoadStarted()"></div>`
+    (listInit)="listInit($event)" (afterListInit)="afterListInit($event)" (loadSucceed)="loadSucceed($event)" (loadFailed)="loadFailed()" (loadStarted)="loadStarted()"></div>`
 })
 class HostComponent {
     public failOnLoad: boolean = false;
@@ -29,16 +29,16 @@ class HostComponent {
     public afterListInit(): void {
         return;
     }
-    public onListInit(): void {
+    public listInit(): void {
         return;
     }
-    public onLoadStarted(): void {
+    public loadStarted(): void {
         return;
     }
-    public onLoadSucceed(): void {
+    public loadSucceed(): void {
         return;
     }
-    public onLoadFailed(): void {
+    public loadFailed(): void {
         return;
     }
 }
@@ -169,53 +169,53 @@ describe('rtList directive', () => {
             done();
         });
     });
-    it('Calls onListInit and afterListInit with listService instance after directive init', done => {
-        spyOn(fixture.componentInstance, 'onListInit');
+    it('Calls listInit and afterListInit with listService instance after directive init', done => {
+        spyOn(fixture.componentInstance, 'listInit');
         spyOn(fixture.componentInstance, 'afterListInit');
 
-        expect(fixture.componentInstance.onListInit).not.toHaveBeenCalled();
+        expect(fixture.componentInstance.listInit).not.toHaveBeenCalled();
         expect(fixture.componentInstance.afterListInit).not.toHaveBeenCalled();
         fixture.whenStable().then(() => {
-            expect(fixture.componentInstance.onListInit).toHaveBeenCalledWith(listService);
+            expect(fixture.componentInstance.listInit).toHaveBeenCalledWith(listService);
             expect(fixture.componentInstance.afterListInit).toHaveBeenCalledWith(listService);
             done();
         });
     });
 
-    it('Calls onLoadStarted on data load', done => {
+    it('Calls loadStarted on data load', done => {
         fixture.whenStable().then(() => {
             const listDirective = fixture.debugElement.children[0].injector.get(ListDirective);
-            spyOn(fixture.componentInstance, 'onLoadStarted');
+            spyOn(fixture.componentInstance, 'loadStarted');
             listDirective.loadData();
             fixture.detectChanges();
-            expect(fixture.componentInstance.onLoadStarted).toHaveBeenCalled();
+            expect(fixture.componentInstance.loadStarted).toHaveBeenCalled();
             done();
         });
     });
-    it('Calls onLoadStarted on data reload', done => {
+    it('Calls loadStarted on data reload', done => {
         fixture.whenStable().then(() => {
             const listDirective = fixture.debugElement.children[0].injector.get(ListDirective);
-            spyOn(fixture.componentInstance, 'onLoadStarted');
+            spyOn(fixture.componentInstance, 'loadStarted');
             listDirective.reloadData();
             fixture.detectChanges();
-            expect(fixture.componentInstance.onLoadStarted).toHaveBeenCalled();
+            expect(fixture.componentInstance.loadStarted).toHaveBeenCalled();
             done();
         });
     });
-    it('Calls onLoadSucceed after successful data load', done => {
-        spyOn(fixture.componentInstance, 'onLoadSucceed');
-        expect(fixture.componentInstance.onLoadSucceed).not.toHaveBeenCalled();
+    it('Calls loadSucceed after successful data load', done => {
+        spyOn(fixture.componentInstance, 'loadSucceed');
+        expect(fixture.componentInstance.loadSucceed).not.toHaveBeenCalled();
         fixture.whenStable().then(() => {
-            expect(fixture.componentInstance.onLoadSucceed).toHaveBeenCalled();
+            expect(fixture.componentInstance.loadSucceed).toHaveBeenCalled();
             done();
         });
     });
     it('Calls onLoadFail after data loading failed', done => {
-        spyOn(fixture.componentInstance, 'onLoadFailed');
-        expect(fixture.componentInstance.onLoadFailed).not.toHaveBeenCalled();
+        spyOn(fixture.componentInstance, 'loadFailed');
+        expect(fixture.componentInstance.loadFailed).not.toHaveBeenCalled();
         fixture.componentInstance.failOnLoad = true;
         fixture.whenStable().then(() => {
-            expect(fixture.componentInstance.onLoadFailed).toHaveBeenCalled();
+            expect(fixture.componentInstance.loadFailed).toHaveBeenCalled();
             done();
         });
     });

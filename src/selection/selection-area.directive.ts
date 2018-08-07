@@ -39,7 +39,8 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
     public checkboxesSubscription: Subscription;
     public childSelectionAreasSubscription: Subscription;
 
-    @HostBinding('tabIndex') public tabIndex: number = 0;
+    @HostBinding('tabIndex')
+    public tabIndex: number = 0;
 
     @Input()
     public set preventEventsDefaults(value: boolean) {
@@ -66,7 +67,8 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         this.selectionEventsHelper.toggleOnly = value;
     }
 
-    @Input() public autoSelectFirst: boolean = false;
+    @Input()
+    public autoSelectFirst: boolean = false;
 
     @Input()
     public set trackBy(value: (index: number, item: any) => any) {
@@ -76,11 +78,14 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         this.selectionService.trackByFn = value;
     }
 
-    @Output() public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output()
+    public readonly itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
 
-    @Output() public itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output()
+    public readonly itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
 
-    @Output() public selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
+    @Output()
+    public readonly selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
 
     constructor(
         @Self() public selectionService: RTSelectionService,

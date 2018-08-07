@@ -14,8 +14,8 @@ import {
 } from 'e2e4';
 import { Observable } from 'rxjs';
 import { RTFiltersService } from '../../filters/filters-service';
-// tslint:disable-next-line:no-inferred-empty-object-type
-export const RTFilterTarget = new InjectionToken('RTFilterTarget');
+// tslint:disable-next-line:variable-name
+export const RTFilterTarget = new InjectionToken<any>('RTFilterTarget');
 
 export abstract class RTStateService extends StateService {}
 
@@ -25,9 +25,9 @@ export class RTOperationStatus {
 
 @Injectable()
 export class RTList extends List {
-    public onLoadStarted: EventEmitter<void> = new EventEmitter<void>();
-    public onLoadSucceed: EventEmitter<ListResponse<any> | any[]> = new EventEmitter<ListResponse<any> | any[]>();
-    public onLoadFailed: EventEmitter<any> = new EventEmitter<any>();
+    public loadStarted: EventEmitter<void> = new EventEmitter<void>();
+    public loadSucceed: EventEmitter<ListResponse<any> | any[]> = new EventEmitter<ListResponse<any> | any[]>();
+    public loadFailed: EventEmitter<any> = new EventEmitter<any>();
     private filterTargets: object[] = [];
     constructor(
         asyncSubscriber: AsyncSubscriber,
@@ -50,22 +50,22 @@ export class RTList extends List {
     }
     public loadSuccessCallback(response: ListResponse<any> | any[]): ListResponse<any> | any[] {
         const result = super.loadSuccessCallback(response);
-        this.onLoadSucceed.emit(result);
+        this.loadSucceed.emit(result);
         return result;
     }
     public loadFailCallback(): void {
         super.loadFailCallback();
-        this.onLoadFailed.emit();
+        this.loadFailed.emit();
     }
 
     public loadData(): Observable<any> | Promise<any> | EventEmitter<any> {
         const subscribable = super.loadData();
-        this.onLoadStarted.emit();
+        this.loadStarted.emit();
         return subscribable;
     }
     public reloadData(): Observable<any> | Promise<any> | EventEmitter<any> {
         const subscribable = super.reloadData();
-        this.onLoadStarted.emit();
+        this.loadStarted.emit();
         return subscribable;
     }
     public init(): void {
