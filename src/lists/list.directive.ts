@@ -50,7 +50,7 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     private failSubscription: Subscription;
     private loadStartedSubscription: Subscription;
 
-    constructor(@Self() public listService: RTList, @Self() private sortingsService: SortingsService) {
+    constructor(@Self() public listService: RTList, @Self() public sortingsService: SortingsService) {
         this.successSubscription = listService.loadSucceed.subscribe((response: ListResponse<any> | any[]) => {
             this.loadSucceed.emit(response);
         });
