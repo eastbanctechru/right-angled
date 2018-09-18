@@ -1,3 +1,13 @@
+<a name="7.0.1"></a>
+## [7.0.1](https://github.com/eastbanctechru/right-angled/compare/v7.0.0...v7.0.1) (2018-09-18)
+
+
+### Bug Fixes
+
+* **list:** Make `sortingsService` property of `rtList` directive public ([c7de934](https://github.com/eastbanctechru/right-angled/commit/c7de934))
+
+
+
 <a name="7.0.0"></a>
 # [7.0.0](https://github.com/eastbanctechru/right-angled/compare/v6.0.0...v7.0.0) (2018-08-07)
 
