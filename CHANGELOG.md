@@ -1,3 +1,13 @@
+<a name="7.1.0"></a>
+# [7.1.0](https://github.com/eastbanctechru/right-angled/compare/v7.0.1...v7.1.0) (2018-09-22)
+
+
+### Features
+
+* **sort:** Add ability to remove sortings ([a45f1b2](https://github.com/eastbanctechru/right-angled/commit/a45f1b2))
+
+
+
 <a name="7.0.1"></a>
 ## [7.0.1](https://github.com/eastbanctechru/right-angled/compare/v7.0.0...v7.0.1) (2018-09-18)
 
