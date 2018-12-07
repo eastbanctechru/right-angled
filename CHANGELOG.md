@@ -1,3 +1,12 @@
+# [8.0.0](https://github.com/eastbanctechru/right-angled/compare/v7.1.0...v8.0.0) (2018-12-07)
+
+
+### Features
+
+* **all:** Updated to Angular v.7 ([8a4113a](https://github.com/eastbanctechru/right-angled/commit/8a4113a))
+
+
+
 <a name="7.1.0"></a>
 # [7.1.0](https://github.com/eastbanctechru/right-angled/compare/v7.0.1...v7.1.0) (2018-09-22)
 
