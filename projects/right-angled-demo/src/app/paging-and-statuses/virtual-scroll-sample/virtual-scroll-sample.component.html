@@ -1,6 +1,13 @@
 <div style="height: 400px; overflow: auto;" #scrollContainer>
+    <form>
+        <div class="form-group">
+            <input (click)="list.reloadData()" [disabled]="list.busy" type="submit" class="btn btn-load" title="Load data" />
+            <input (click)="list.cancelRequests()" [disabled]="list.ready" type="button" class="btn btn-cancel" title="Cancel loading" />
+            <button (click)="list.resetSettings()" [disabled]="list.busy" type="button" class="btn btn-reset" title="Reset settings"></button>
+        </div>
+    </form>
     <div class="table-responsive">
-        <cdk-virtual-scroll-viewport itemSize="41" style="height: 380px;">
+        <cdk-virtual-scroll-viewport itemSize="41" style="height: 300px;">
             <table class="table table-striped" [rtList]="loadData" #list="rtList">
                 <thead>
                     <tr>
@@ -20,6 +27,18 @@
                         </tr>
                     </ng-container>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <rt-status-progress>
+                                <rt-demo-progress-bar></rt-demo-progress-bar>
+                            </rt-status-progress>
+                            <rt-status-done>
+                                Data was loaded sucessfully.
+                            </rt-status-done>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </cdk-virtual-scroll-viewport>
     </div>

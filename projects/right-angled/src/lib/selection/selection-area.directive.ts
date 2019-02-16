@@ -146,6 +146,9 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
     private buildSelectionSource(items: QueryList<SelectableDirective | SelectionCheckboxForDirective>): void {
         let index = 0;
         this.selectionService.eventEmitters = items.map(item => {
+            if (item.index !== null && item.index !== index) {
+                this.selectionService.deselectIndex(item.index);
+            }
             item.index = index++;
             return item;
         });
