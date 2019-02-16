@@ -1,0 +1,1974 @@
+{
+    "airportsTree": [
+        {
+            "countries": [
+                {
+                    "airports": [
+                        {
+                            "iataCode": "ANL",
+                            "name": "Andulo Airport"
+                        },
+                        {
+                            "iataCode": "CNZ",
+                            "name": "Cangamba Airport"
+                        },
+                        {
+                            "iataCode": "DRC",
+                            "name": "Dirico Airport"
+                        },
+                        {
+                            "iataCode": "GGC",
+                            "name": "Lumbala Airport"
+                        },
+                        {
+                            "iataCode": "JMB",
+                            "name": "Jamba Airport"
+                        },
+                        {
+                            "iataCode": "KNP",
+                            "name": "Capanda Airport"
+                        },
+                        {
+                            "iataCode": "NDF",
+                            "name": "Ndalatandos Airport"
+                        }
+                    ],
+                    "name": "Angola"
+                },
+                {
+                    "airports": [
+                        {
+                            "iataCode": "AHY",
+                            "name": "Ambatolhy Airport"
+                        },
+                        {
+                            "iataCode": "AMY",
+                            "name": "Ambatomainty Airport"
+                        }
+                    ],
+                    "name": "Madagascar"
+                },
+                {
+                    "airports": [
+                        {
+                            "iataCode": "AME",
+                            "name": "Alto Molocue Airport"
+                        },
+                        {
+                            "iataCode": "BCW",
+                            "name": "Benguera Island Airport"
+                        },
+                        {
+                            "iataCode": "BZB",
+                            "name": "Bazaruto Island Airport"
+                        }
+                    ],
+                    "name": "Mozambique"
+                }
+            ],
+            "name": "Africa"
+        },
+        {
+            "countries": [
+                {
+                    "airports": [
+                        {
+                            "iataCode": "HKV",
+                            "name": "Haskovo Airport"
+                        },
+                        {
+                            "iataCode": "JAM",
+                            "name": "Bezmer Air Base"
+                        },
+                        {
+                            "iataCode": "SZR",
+                            "name": "Stara Zagora Airport"
+                        }
+                    ],
+                    "name": "Bulgaria"
+                },
+                {
+                    "airports": [
+                        {
+                            "iataCode": "AEY",
+                            "name": "Akureyri Airport"
+                        },
+                        {
+                            "iataCode": "BIU",
+                            "name": "Bildudalur Airport"
+                        },
+                        {
+                            "iataCode": "BLO",
+                            "name": "Hjaltabakki Airport"
+                        },
+                        {
+                            "iataCode": "HFN",
+                            "name": "Hornafjordur Airport"
+                        },
+                        {
+                            "iataCode": "FLI",
+                            "name": "Holt Airport"
+                        },
+                        {
+                            "iataCode": "HZK",
+                            "name": "Husavik Airport"
+                        },
+                        {
+                            "iataCode": "KEF",
+                            "name": "Keflavik International Airport"
+                        },
+                        {
+                            "iataCode": "PFJ",
+                            "name": "Patreksfjordur Airport"
+                        },
+                        {
+                            "iataCode": "OLI",
+                            "name": "Rif Airport"
+                        },
+                        {
+                            "iataCode": "SIJ",
+                            "name": "Siglufjordur Airport"
+                        },
+                        {
+                            "iataCode": "THO",
+                            "name": "Thorshofn Airport"
+                        },
+                        {
+                            "iataCode": "VEY",
+                            "name": "Vestmannaeyjar Airport"
+                        }
+                    ],
+                    "name": "Iceland"
+                }
+            ],
+            "name": "Europe"
+        },
+        {
+            "countries": [
+                {
+                    "airports": [
+                        {
+                            "iataCode": "JEG",
+                            "name": "Aasiaat Airport"
+                        },
+                        {
+                            "iataCode": "AGM",
+                            "name": "Tasiilaq Heliport"
+                        },
+                        {
+                            "iataCode": "LLU",
+                            "name": "Alluitsup Paa Heliport"
+                        },
+                        {
+                            "iataCode": "QGQ",
+                            "name": "Attu Heliport"
+                        },
+                        {
+                            "iataCode": "UAK",
+                            "name": "Narsarsuaq Airport"
+                        },
+                        {
+                            "iataCode": "JCH",
+                            "name": "Qasigiannguit Heliport"
+                        },
+                        {
+                            "iataCode": "CNP",
+                            "name": "Neerlerit Inaat Airport"
+                        },
+                        {
+                            "iataCode": "JFR",
+                            "name": "Paamiut Heliport"
+                        }
+                    ],
+                    "name": "Greenland"
+                },
+                {
+                    "airports": [
+                        {
+                            "iataCode": "FIV",
+                            "name": "Five Finger CG Heliport"
+                        },
+                        {
+                            "iataCode": "FAK",
+                            "name": "False Island Seaplane Base"
+                        },
+                        {
+                            "iataCode": "BWS",
+                            "name": "Blaine Municipal Airport"
+                        },
+                        {
+                            "iataCode": "WKK",
+                            "name": "Aleknagik / New Airport"
+                        },
+                        {
+                            "iataCode": "TSS",
+                            "name": "East 34th Street Heliport"
+                        },
+                        {
+                            "iataCode": "FOB",
+                            "name": "Fort Bragg Airport"
+                        },
+                        {
+                            "iataCode": "AHT",
+                            "name": "Amchitka Army Airfield"
+                        },
+                        {
+                            "iataCode": "AOS",
+                            "name": "Amook Bay Seaplane Base"
+                        },
+                        {
+                            "iataCode": "ALZ",
+                            "name": "Alitak Seaplane Base"
+                        },
+                        {
+                            "iataCode": "AQY",
+                            "name": "Girdwood Airport"
+                        },
+                        {
+                            "iataCode": "AYZ",
+                            "name": "Zahn\"s Airport"
+                        },
+                        {
+                            "iataCode": "AAP",
+                            "name": "Aappilattoq (Qaasuitsup) Heliport"
+                        }
+                    ],
+                    "name": "United States"
+                }
+            ],
+            "name": "North America"
+        },
+        {
+            "countries": [
+                {
+                    "airports": [
+                        {
+                            "iataCode": "ABP",
+                            "name": "Atkamba Airport"
+                        },
+                        {
+                            "iataCode": "ADC",
+                            "name": "Andakombe Airport"
+                        },
+                        {
+                            "iataCode": "AEK",
+                            "name": "Aseki Airport"
+                        },
+                        {
+                            "iataCode": "AFR",
+                            "name": "Afore Airstrip"
+                        },
+                        {
+                            "iataCode": "AGG",
+                            "name": "Angoram Airport"
+                        }
+                    ],
+                    "name": "Papua New Guinea"
+                },
+                {
+                    "airports": [
+                        {
+                            "iataCode": "AFT",
+                            "name": "Afutara Aerodrome"
+                        },
+                        {
+                            "iataCode": "ATD",
+                            "name": "Uru Harbour Airport"
+                        },
+                        {
+                            "iataCode": "VEV",
+                            "name": "Barakoma Airport"
+                        },
+                        {
+                            "iataCode": "GEF",
+                            "name": "Geva Airport"
+                        },
+                        {
+                            "iataCode": "BAS",
+                            "name": "Ballalae Airport"
+                        },
+                        {
+                            "iataCode": "FRE",
+                            "name": "Fera/Maringe Airport"
+                        },
+                        {
+                            "iataCode": "HIR",
+                            "name": "Honiara International Airport"
+                        },
+                        {
+                            "iataCode": "MBU",
+                            "name": "Babanakira Airport"
+                        },
+                        {
+                            "iataCode": "IRA",
+                            "name": "Ngorangora Airport"
+                        },
+                        {
+                            "iataCode": "SCZ",
+                            "name": "Santa Cruz/Graciosa Bay/Luova Airport"
+                        },
+                        {
+                            "iataCode": "MUA",
+                            "name": "Munda Airport"
+                        },
+                        {
+                            "iataCode": "GZO",
+                            "name": "Nusatupe Airport"
+                        },
+                        {
+                            "iataCode": "MNY",
+                            "name": "Mono Airport"
+                        },
+                        {
+                            "iataCode": "PRS",
+                            "name": "Parasi Airport"
+                        }
+                    ],
+                    "name": "Solomon Islands"
+                }
+            ],
+            "name": "Oceania"
+        },
+        {
+            "countries": [
+                {
+                    "airports": [
+                        {
+                            "iataCode": "CSZ",
+                            "name": "Brigadier Hector Ruiz Airport"
+                        },
+                        {
+                            "iataCode": "CVI",
+                            "name": "Caleta Olivia Airport"
+                        },
+                        {
+                            "iataCode": "CNT",
+                            "name": "Charata Airport"
+                        },
+                        {
+                            "iataCode": "VGS",
+                            "name": "General Villegas Airport"
+                        },
+                        {
+                            "iataCode": "LMD",
+                            "name": "Los Menucos Airport"
+                        },
+                        {
+                            "iataCode": "VCF",
+                            "name": "Valcheta Airport"
+                        },
+                        {
+                            "iataCode": "VME",
+                            "name": "Villa Mercedes Airport"
+                        },
+                        {
+                            "iataCode": "CPG",
+                            "name": "Carmen De Patagones Airport"
+                        },
+                        {
+                            "iataCode": "PRQ",
+                            "name": "Termal Airport"
+                        }
+                    ],
+                    "name": "Argentina"
+                },
+                {
+                    "airports": [
+                        {
+                            "iataCode": "RBQ",
+                            "name": "Rurenabaque Airport"
+                        },
+                        {
+                            "iataCode": "BVL",
+                            "name": "Baures Airport"
+                        }
+                    ],
+                    "name": "Bolivia"
+                },
+                {
+                    "airports": [
+                        {
+                            "iataCode": "ALT",
+                            "name": "Alenquer Airport"
+                        },
+                        {
+                            "iataCode": "SWM",
+                            "name": "Suia-Missu Airport"
+                        }
+                    ],
+                    "name": "Brazil"
+                },
+                {
+                    "airports": [
+                        {
+                            "iataCode": "API",
+                            "name": "Apiay Airport"
+                        },
+                        {
+                            "iataCode": "ARQ",
+                            "name": "El Troncal Airport"
+                        },
+                        {
+                            "iataCode": "LCR",
+                            "name": "La Chorrera Airport"
+                        },
+                        {
+                            "iataCode": "SNT",
+                            "name": "Las Cruces Airport"
+                        }
+                    ],
+                    "name": "Colombia"
+                }
+            ],
+            "name": "South America"
+        }
+    ],
+    "countries": [
+        "Marshall Islands",
+        "Papua New Guinea",
+        "Solomon Islands",
+        "United States",
+        "Greenland",
+        "Andorra",
+        "Spain",
+        "Bulgaria",
+        "Iceland",
+        "Madagascar",
+        "Chad",
+        "Mozambique",
+        "Angola",
+        "Kenya",
+        "Botswana",
+        "Argentina",
+        "Bolivia",
+        "Brazil",
+        "Portugal",
+        "Japan",
+        "Colombia",
+        "China",
+        "Cyprus"
+    ],
+    "sizes": [
+        {
+            "key": null,
+            "value": ""
+        },
+        {
+            "key": "large",
+            "value": "large"
+        },
+        {
+            "key": "medium",
+            "value": "medium"
+        },
+        {
+            "key": "small",
+            "value": "small"
+        }
+    ],
+    "types": [
+        {
+            "key": null,
+            "value": ""
+        },
+        {
+            "key": "airport",
+            "value": "airport"
+        },
+        {
+            "key": "heliport",
+            "value": "heliport"
+        },
+        {
+            "key": "seaplanes",
+            "value": "seaplanes"
+        }
+    ],
+    "airports": [
+        {
+            "status": 1,
+            "iataCode": "UTK",
+            "region": "Oceania",
+            "isoCode": "MH",
+            "name": "Utirik Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Kwajalein",
+            "coordinates": "11.23:169.85",
+            "cityCode": "UTK",
+            "cityName": "Utirik Island",
+            "countryName": "Marshall Islands",
+            "countryCode": "MH"
+        },
+        {
+            "status": 1,
+            "iataCode": "ABP",
+            "region": "Oceania",
+            "isoCode": "PG",
+            "name": "Atkamba Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Port_Moresby",
+            "coordinates": "-6.05:141.08",
+            "cityCode": "ABP",
+            "cityName": "Atkamba",
+            "countryName": "Papua New Guinea",
+            "countryCode": "PG"
+        },
+        {
+            "status": 1,
+            "iataCode": "ADC",
+            "region": "Oceania",
+            "isoCode": "PG",
+            "name": "Andakombe Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "",
+            "coordinates": "",
+            "cityCode": "ADC",
+            "cityName": "Andakombe",
+            "countryName": "Papua New Guinea",
+            "countryCode": "PG"
+        },
+        {
+            "status": 1,
+            "iataCode": "AEK",
+            "region": "Oceania",
+            "isoCode": "PG",
+            "name": "Aseki Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Port_Moresby",
+            "coordinates": "-7.35:146.18",
+            "cityCode": "AEK",
+            "cityName": "Aseki",
+            "countryName": "Papua New Guinea",
+            "countryCode": "PG"
+        },
+        {
+            "status": 1,
+            "iataCode": "AFR",
+            "region": "Oceania",
+            "isoCode": "PG",
+            "name": "Afore Airstrip",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Port_Moresby",
+            "coordinates": "-9.13:148.38",
+            "cityCode": "AFR",
+            "cityName": "Afore",
+            "countryName": "Papua New Guinea",
+            "countryCode": "PG"
+        },
+        {
+            "status": 1,
+            "iataCode": "AFT",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Afutara Aerodrome",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "+0.0",
+            "coordinates": "",
+            "cityCode": "AFT",
+            "cityName": "Afutara",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "ATD",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Uru Harbour Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "-11.0",
+            "coordinates": "",
+            "cityCode": "ATD",
+            "cityName": "Atoifi",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "VEV",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Barakoma Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "-11.0",
+            "coordinates": "",
+            "cityCode": "VEV",
+            "cityName": "Barakoma",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "GEF",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Geva Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "+0.0",
+            "coordinates": "",
+            "cityCode": "GEF",
+            "cityName": "Geva",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "AGG",
+            "region": "Oceania",
+            "isoCode": "PG",
+            "name": "Angoram Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Port_Moresby",
+            "coordinates": "-4.05:144.07",
+            "cityCode": "AGG",
+            "cityName": "Angoram",
+            "countryName": "Papua New Guinea",
+            "countryCode": "PG"
+        },
+        {
+            "status": 1,
+            "iataCode": "BAS",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Ballalae Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Guadalcanal",
+            "coordinates": "-6.97:155.88",
+            "cityCode": "BAS",
+            "cityName": "Balalae",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "FRE",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Fera/Maringe Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Guadalcanal",
+            "coordinates": "-8.11:159.58",
+            "cityCode": "FRE",
+            "cityName": "Fera Island",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "HIR",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Honiara International Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Pacific/Guadalcanal",
+            "coordinates": "-9.43:160.05",
+            "cityCode": "HIR",
+            "cityName": "Honiara",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "MBU",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Babanakira Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Guadalcanal",
+            "coordinates": "-9.75:159.84",
+            "cityCode": "MBU",
+            "cityName": "Mbambanakira",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "IRA",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Ngorangora Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Guadalcanal",
+            "coordinates": "-10.45:161.9",
+            "cityCode": "IRA",
+            "cityName": "Kirakira",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "SCZ",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Santa Cruz/Graciosa Bay/Luova Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Guadalcanal",
+            "coordinates": "-10.72:165.8",
+            "cityCode": "SCZ",
+            "cityName": "Santa Cruz Island",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "MUA",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Munda Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Pacific/Guadalcanal",
+            "coordinates": "-8.33:157.26",
+            "cityCode": "MUA",
+            "cityName": "Munda",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "GZO",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Nusatupe Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Guadalcanal",
+            "coordinates": "-8.1:156.86",
+            "cityCode": "GZO",
+            "cityName": "Gizo",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "MNY",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Mono Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Caracas",
+            "coordinates": "-7.42:155.56",
+            "cityCode": "MNY",
+            "cityName": "Mono",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "PRS",
+            "region": "Oceania",
+            "isoCode": "SB",
+            "name": "Parasi Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Pacific/Guadalcanal",
+            "coordinates": "-9.64:161.43",
+            "cityCode": "PRS",
+            "cityName": "Parasi",
+            "countryName": "Solomon Islands",
+            "countryCode": "SB"
+        },
+        {
+            "status": 1,
+            "iataCode": "FIV",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "Five Finger CG Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "America/Juneau",
+            "coordinates": "57.27:-133.63",
+            "cityCode": "FIV",
+            "cityName": "Five Finger Coast Guard Heliport",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 1,
+            "iataCode": "FAK",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "False Island Seaplane Base",
+            "type": "seaplanes",
+            "size": "medium",
+            "timeZone": "America/Juneau",
+            "coordinates": "57.53:-135.21",
+            "cityCode": "FAK",
+            "cityName": "False Island",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 0,
+            "iataCode": "BWS",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "Blaine Municipal Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "America/New_York",
+            "coordinates": "48.99:-122.73",
+            "cityCode": "BWS",
+            "cityName": "Blaine",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 1,
+            "iataCode": "WKK",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "Aleknagik / New Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "America/Anchorage",
+            "coordinates": "59.28:-158.62",
+            "cityCode": "WKK",
+            "cityName": "Aleknagik",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 1,
+            "iataCode": "TSS",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "East 34th Street Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "America/New_York",
+            "coordinates": "",
+            "cityCode": "NYC",
+            "cityName": "New York",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 1,
+            "iataCode": "FOB",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "Fort Bragg Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Los_Angeles",
+            "coordinates": "35.13:-78.94",
+            "cityCode": "FOB",
+            "cityName": "Fort Bragg",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 0,
+            "iataCode": "AHT",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "Amchitka Army Airfield",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Pacific/Honolulu",
+            "coordinates": "51.5:179.0",
+            "cityCode": "AHT",
+            "cityName": "Amchitka",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 1,
+            "iataCode": "AOS",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "Amook Bay Seaplane Base",
+            "type": "seaplanes",
+            "size": "medium",
+            "timeZone": "America/Nome",
+            "coordinates": "57.47:-153.83",
+            "cityCode": "AOS",
+            "cityName": "Amook",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 1,
+            "iataCode": "ALZ",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "Alitak Seaplane Base",
+            "type": "seaplanes",
+            "size": "medium",
+            "timeZone": "Asia/Kabul",
+            "coordinates": "",
+            "cityCode": "ALZ",
+            "cityName": "Alitak",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 1,
+            "iataCode": "AQY",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "Girdwood Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Anchorage",
+            "coordinates": "60.97:-149.13",
+            "cityCode": "AQY",
+            "cityName": "Alyeska",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 0,
+            "iataCode": "AYZ",
+            "region": "North America",
+            "isoCode": "US",
+            "name": "Zahn\"s Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "America/New_York",
+            "coordinates": "40.67:-73.42",
+            "cityCode": "AYZ",
+            "cityName": "Amityville",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 1,
+            "iataCode": "JEG",
+            "region": "North America",
+            "isoCode": "GL",
+            "name": "Aasiaat Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "America/Godthab",
+            "coordinates": "68.72:-52.78",
+            "cityCode": "JEG",
+            "cityName": "Aasiaat",
+            "countryName": "Greenland",
+            "countryCode": "GL"
+        },
+        {
+            "status": 1,
+            "iataCode": "AAP",
+            "region": "North America",
+            "isoCode": "GL",
+            "name": "Aappilattoq (Qaasuitsup) Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "America/Indiana/Petersburg",
+            "coordinates": "",
+            "cityCode": "QHO",
+            "cityName": "Houston",
+            "countryName": "United States",
+            "countryCode": "US"
+        },
+        {
+            "status": 1,
+            "iataCode": "AGM",
+            "region": "North America",
+            "isoCode": "GL",
+            "name": "Tasiilaq Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "America/Godthab",
+            "coordinates": "65.61:-37.62",
+            "cityCode": "AGM",
+            "cityName": "Tasiilaq",
+            "countryName": "Greenland",
+            "countryCode": "GL"
+        },
+        {
+            "status": 1,
+            "iataCode": "LLU",
+            "region": "North America",
+            "isoCode": "GL",
+            "name": "Alluitsup Paa Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "America/Godthab",
+            "coordinates": "60.46:-45.58",
+            "cityCode": "LLU",
+            "cityName": "Alluitsup Paa",
+            "countryName": "Greenland",
+            "countryCode": "GL"
+        },
+        {
+            "status": 1,
+            "iataCode": "QGQ",
+            "region": "North America",
+            "isoCode": "GL",
+            "name": "Attu Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "",
+            "coordinates": "",
+            "cityCode": "QGQ",
+            "cityName": "Attu",
+            "countryName": "Greenland",
+            "countryCode": "GL"
+        },
+        {
+            "status": 1,
+            "iataCode": "UAK",
+            "region": "North America",
+            "isoCode": "GL",
+            "name": "Narsarsuaq Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "America/Godthab",
+            "coordinates": "61.16:-45.43",
+            "cityCode": "UAK",
+            "cityName": "Narsarsuaq",
+            "countryName": "Greenland",
+            "countryCode": "GL"
+        },
+        {
+            "status": 1,
+            "iataCode": "JCH",
+            "region": "North America",
+            "isoCode": "GL",
+            "name": "Qasigiannguit Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "America/Godthab",
+            "coordinates": "68.82:-51.17",
+            "cityCode": "JCH",
+            "cityName": "Qasigiannguit",
+            "countryName": "Greenland",
+            "countryCode": "GL"
+        },
+        {
+            "status": 1,
+            "iataCode": "CNP",
+            "region": "North America",
+            "isoCode": "GL",
+            "name": "Neerlerit Inaat Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Danmarkshavn",
+            "coordinates": "70.74:-22.66",
+            "cityCode": "CNP",
+            "cityName": "Neerlerit Inaat",
+            "countryName": "Greenland",
+            "countryCode": "GL"
+        },
+        {
+            "status": 1,
+            "iataCode": "JFR",
+            "region": "North America",
+            "isoCode": "GL",
+            "name": "Paamiut Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "America/Godthab",
+            "coordinates": "61.99:-49.66",
+            "cityCode": "JFR",
+            "cityName": "Paamiut",
+            "countryName": "Greenland",
+            "countryCode": "GL"
+        },
+        {
+            "status": 1,
+            "iataCode": "ALV",
+            "region": "Europe",
+            "isoCode": "AD",
+            "name": "Andorra la Vella Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "Europe/Andorra",
+            "coordinates": "42.51:1.52",
+            "cityCode": "ALV",
+            "cityName": "Andorra La Vella",
+            "countryName": "Andorra",
+            "countryCode": "AD"
+        },
+        {
+            "status": 1,
+            "iataCode": "AEI",
+            "region": "Europe",
+            "isoCode": "ES",
+            "name": "Algeciras Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "+0.0",
+            "coordinates": "36.1297803:-5.4476981",
+            "cityCode": "AEI",
+            "cityName": "Algeciras",
+            "countryName": "Spain",
+            "countryCode": "ES"
+        },
+        {
+            "status": 1,
+            "iataCode": "HKV",
+            "region": "Europe",
+            "isoCode": "BG",
+            "name": "Haskovo Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Europe/Sofia",
+            "coordinates": "41.87:25.6",
+            "cityCode": "HKV",
+            "cityName": "Haskovo",
+            "countryName": "Bulgaria",
+            "countryCode": "BG"
+        },
+        {
+            "status": 1,
+            "iataCode": "JAM",
+            "region": "Europe",
+            "isoCode": "BG",
+            "name": "Bezmer Air Base",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Asia/Kabul",
+            "coordinates": "42.52:26.48",
+            "cityCode": "JAM",
+            "cityName": "Jambol",
+            "countryName": "Bulgaria",
+            "countryCode": "BG"
+        },
+        {
+            "status": 0,
+            "iataCode": "SZR",
+            "region": "Europe",
+            "isoCode": "BG",
+            "name": "Stara Zagora Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Europe/Sofia",
+            "coordinates": "42.38:25.66",
+            "cityCode": "SZR",
+            "cityName": "Stara Zagora",
+            "countryName": "Bulgaria",
+            "countryCode": "BG"
+        },
+        {
+            "status": 1,
+            "iataCode": "AEY",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Akureyri Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "65.66:-18.07",
+            "cityCode": "AEY",
+            "cityName": "Akureyri",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "BIU",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Bildudalur Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "65.64:-23.55",
+            "cityCode": "BIU",
+            "cityName": "Bildudalur",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "BLO",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Hjaltabakki Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "65.65:-20.29",
+            "cityCode": "BLO",
+            "cityName": "Blonduos",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "HFN",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Hornafjordur Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "64.3:-15.23",
+            "cityCode": "HFN",
+            "cityName": "Hornafjordur",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "FLI",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Holt Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "65.98:-23.7",
+            "cityCode": "FLI",
+            "cityName": "Flateyri",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "HZK",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Husavik Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "65.95:-17.43",
+            "cityCode": "HZK",
+            "cityName": "Husavik",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "KEF",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Keflavik International Airport",
+            "type": "airport",
+            "size": "large",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "63.99:-22.61",
+            "cityCode": "REK",
+            "cityName": "Reykjavik",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "PFJ",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Patreksfjordur Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "65.56:-23.97",
+            "cityCode": "PFJ",
+            "cityName": "Patreksfjordur",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "OLI",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Rif Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "70.5:-149.88",
+            "cityCode": "OLI",
+            "cityName": "Olafsvik",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "SIJ",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Siglufjordur Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "66.13:-18.92",
+            "cityCode": "SIJ",
+            "cityName": "Siglufjordur",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "THO",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Thorshofn Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "66.22:-15.33",
+            "cityCode": "THO",
+            "cityName": "Thorshofn",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "VEY",
+            "region": "Europe",
+            "isoCode": "IS",
+            "name": "Vestmannaeyjar Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Atlantic/Reykjavik",
+            "coordinates": "63.43:-20.28",
+            "cityCode": "VEY",
+            "cityName": "Vestmannaeyjar",
+            "countryName": "Iceland",
+            "countryCode": "IS"
+        },
+        {
+            "status": 1,
+            "iataCode": "AHY",
+            "region": "Africa",
+            "isoCode": "MG",
+            "name": "Ambatolhy Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Indian/Antananarivo",
+            "coordinates": "-20.0:45.53",
+            "cityCode": "AHY",
+            "cityName": "Ambatolahy",
+            "countryName": "Madagascar",
+            "countryCode": "MG"
+        },
+        {
+            "status": 1,
+            "iataCode": "AKM",
+            "region": "Africa",
+            "isoCode": "TD",
+            "name": "Zakuoma Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Ndjamena",
+            "coordinates": "10.9:19.82",
+            "cityCode": "AKM",
+            "cityName": "Zakouma",
+            "countryName": "Chad",
+            "countryCode": "TD"
+        },
+        {
+            "status": 1,
+            "iataCode": "AME",
+            "region": "Africa",
+            "isoCode": "MZ",
+            "name": "Alto Molocue Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Maputo",
+            "coordinates": "-15.63:37.7",
+            "cityCode": "AME",
+            "cityName": "Alto Molocue",
+            "countryName": "Mozambique",
+            "countryCode": "MZ"
+        },
+        {
+            "status": 1,
+            "iataCode": "AMY",
+            "region": "Africa",
+            "isoCode": "MG",
+            "name": "Ambatomainty Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Indian/Antananarivo",
+            "coordinates": "-17.68:45.62",
+            "cityCode": "AMY",
+            "cityName": "Ambatomainty",
+            "countryName": "Madagascar",
+            "countryCode": "MG"
+        },
+        {
+            "status": 1,
+            "iataCode": "ANL",
+            "region": "Africa",
+            "isoCode": "AO",
+            "name": "Andulo Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Luanda",
+            "coordinates": "-11.47:16.7",
+            "cityCode": "ANL",
+            "cityName": "Andulo",
+            "countryName": "Angola",
+            "countryCode": "AO"
+        },
+        {
+            "status": 1,
+            "iataCode": "CNZ",
+            "region": "Africa",
+            "isoCode": "AO",
+            "name": "Cangamba Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Luanda",
+            "coordinates": "-13.71:19.86",
+            "cityCode": "CNZ",
+            "cityName": "Cangamba",
+            "countryName": "Angola",
+            "countryCode": "AO"
+        },
+        {
+            "status": 1,
+            "iataCode": "DRC",
+            "region": "Africa",
+            "isoCode": "AO",
+            "name": "Dirico Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Luanda",
+            "coordinates": "-17.97:20.78",
+            "cityCode": "DRC",
+            "cityName": "Dirico",
+            "countryName": "Angola",
+            "countryCode": "AO"
+        },
+        {
+            "status": 1,
+            "iataCode": "GGC",
+            "region": "Africa",
+            "isoCode": "AO",
+            "name": "Lumbala Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Luanda",
+            "coordinates": "-14.11:21.45",
+            "cityCode": "GGC",
+            "cityName": "Lumbala",
+            "countryName": "Angola",
+            "countryCode": "AO"
+        },
+        {
+            "status": 1,
+            "iataCode": "JMB",
+            "region": "Africa",
+            "isoCode": "AO",
+            "name": "Jamba Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Luanda",
+            "coordinates": "-14.68:16.03",
+            "cityCode": "JMB",
+            "cityName": "Jamba",
+            "countryName": "Angola",
+            "countryCode": "AO"
+        },
+        {
+            "status": 1,
+            "iataCode": "KNP",
+            "region": "Africa",
+            "isoCode": "AO",
+            "name": "Capanda Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Luanda",
+            "coordinates": "-9.77:15.46",
+            "cityCode": "KNP",
+            "cityName": "Capanda",
+            "countryName": "Angola",
+            "countryCode": "AO"
+        },
+        {
+            "status": 1,
+            "iataCode": "NDF",
+            "region": "Africa",
+            "isoCode": "AO",
+            "name": "Ndalatandos Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Luanda",
+            "coordinates": "-13.78:16.72",
+            "cityCode": "NDF",
+            "cityName": "Ndalatandos",
+            "countryName": "Angola",
+            "countryCode": "AO"
+        },
+        {
+            "status": 1,
+            "iataCode": "BCW",
+            "region": "Africa",
+            "isoCode": "MZ",
+            "name": "Benguera Island Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Africa/Maputo",
+            "coordinates": "-21.85:35.44",
+            "cityCode": "BCW",
+            "cityName": "Benguera Island",
+            "countryName": "Mozambique",
+            "countryCode": "MZ"
+        },
+        {
+            "status": 1,
+            "iataCode": "BMQ",
+            "region": "Africa",
+            "isoCode": "KE",
+            "name": "Bamburi Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Nairobi",
+            "coordinates": "-3.97:39.72",
+            "cityCode": "BMQ",
+            "cityName": "Bamburi",
+            "countryName": "Kenya",
+            "countryCode": "KE"
+        },
+        {
+            "status": 1,
+            "iataCode": "HUK",
+            "region": "Africa",
+            "isoCode": "BW",
+            "name": "Hukuntsi Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Gaborone",
+            "coordinates": "-23.99:21.76",
+            "cityCode": "HUK",
+            "cityName": "Hukuntsi",
+            "countryName": "Botswana",
+            "countryCode": "BW"
+        },
+        {
+            "status": 1,
+            "iataCode": "BZB",
+            "region": "Africa",
+            "isoCode": "MZ",
+            "name": "Bazaruto Island Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Africa/Maputo",
+            "coordinates": "-21.54:35.47",
+            "cityCode": "BZB",
+            "cityName": "Bazaruto Island",
+            "countryName": "Mozambique",
+            "countryCode": "MZ"
+        },
+        {
+            "status": 1,
+            "iataCode": "OKG",
+            "region": "Africa",
+            "isoCode": "CG",
+            "name": "Okoyo Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Africa/Brazzaville",
+            "coordinates": "-1.45:15.07",
+            "cityCode": "OKG",
+            "cityName": "Okoyo",
+            "countryName": null,
+            "countryCode": null
+        },
+        {
+            "status": 1,
+            "iataCode": "CSZ",
+            "region": "South America",
+            "isoCode": "AR",
+            "name": "Brigadier Hector Ruiz Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "+0.0",
+            "coordinates": "-37.4559517:-61.9307251",
+            "cityCode": "CSZ",
+            "cityName": "Coronel Suarez",
+            "countryName": "Argentina",
+            "countryCode": "AR"
+        },
+        {
+            "status": 1,
+            "iataCode": "CVI",
+            "region": "South America",
+            "isoCode": "AR",
+            "name": "Caleta Olivia Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Argentina/Rio_Gallegos",
+            "coordinates": "-46.43:-67.52",
+            "cityCode": "CVI",
+            "cityName": "Caleta Olivia",
+            "countryName": "Argentina",
+            "countryCode": "AR"
+        },
+        {
+            "status": 1,
+            "iataCode": "CNT",
+            "region": "South America",
+            "isoCode": "AR",
+            "name": "Charata Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Argentina/Cordoba",
+            "coordinates": "-27.2:-61.2",
+            "cityCode": "CNT",
+            "cityName": "Charata",
+            "countryName": "Argentina",
+            "countryCode": "AR"
+        },
+        {
+            "status": 1,
+            "iataCode": "VGS",
+            "region": "South America",
+            "isoCode": "AR",
+            "name": "General Villegas Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Argentina/Buenos_Aires",
+            "coordinates": "-34.98:-62.98",
+            "cityCode": "VGS",
+            "cityName": "General Villegas",
+            "countryName": "Argentina",
+            "countryCode": "AR"
+        },
+        {
+            "status": 1,
+            "iataCode": "LMD",
+            "region": "South America",
+            "isoCode": "AR",
+            "name": "Los Menucos Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Argentina/Salta",
+            "coordinates": "-40.82:-68.07",
+            "cityCode": "LMD",
+            "cityName": "Los Menucos",
+            "countryName": "Argentina",
+            "countryCode": "AR"
+        },
+        {
+            "status": 1,
+            "iataCode": "VCF",
+            "region": "South America",
+            "isoCode": "AR",
+            "name": "Valcheta Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Argentina/Salta",
+            "coordinates": "-40.7:-66.15",
+            "cityCode": "VCF",
+            "cityName": "Valcheta",
+            "countryName": "Argentina",
+            "countryCode": "AR"
+        },
+        {
+            "status": 1,
+            "iataCode": "VME",
+            "region": "South America",
+            "isoCode": "AR",
+            "name": "Villa Mercedes Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Argentina/San_Luis",
+            "coordinates": "-33.73:-65.38",
+            "cityCode": "VME",
+            "cityName": "Villa Mercedes",
+            "countryName": "Argentina",
+            "countryCode": "AR"
+        },
+        {
+            "status": 1,
+            "iataCode": "CPG",
+            "region": "South America",
+            "isoCode": "AR",
+            "name": "Carmen De Patagones Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Argentina/Buenos_Aires",
+            "coordinates": "-40.78:-62.98",
+            "cityCode": "CPG",
+            "cityName": "Carmen De Patagones",
+            "countryName": "Argentina",
+            "countryCode": "AR"
+        },
+        {
+            "status": 1,
+            "iataCode": "PRQ",
+            "region": "South America",
+            "isoCode": "AR",
+            "name": "Termal Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Argentina/Ushuaia",
+            "coordinates": "-26.76:-60.49",
+            "cityCode": "PRQ",
+            "cityName": "Pres. Roque Saenz Pena",
+            "countryName": "Argentina",
+            "countryCode": "AR"
+        },
+        {
+            "status": 1,
+            "iataCode": "RBQ",
+            "region": "South America",
+            "isoCode": "BO",
+            "name": "Rurenabaque Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/La_Paz",
+            "coordinates": "-14.43:-67.5",
+            "cityCode": "RBQ",
+            "cityName": "Rurrenabaque",
+            "countryName": "Bolivia",
+            "countryCode": "BO"
+        },
+        {
+            "status": 1,
+            "iataCode": "BVL",
+            "region": "South America",
+            "isoCode": "BO",
+            "name": "Baures Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/La_Paz",
+            "coordinates": "-13.58:-63.58",
+            "cityCode": "BVL",
+            "cityName": "Baures",
+            "countryName": "Bolivia",
+            "countryCode": "BO"
+        },
+        {
+            "status": 0,
+            "iataCode": "ALT",
+            "region": "South America",
+            "isoCode": "BR",
+            "name": "Alenquer Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "America/Santarem",
+            "coordinates": "-1.92:-54.72",
+            "cityCode": "ALT",
+            "cityName": "Alenquer",
+            "countryName": "Brazil",
+            "countryCode": "BR"
+        },
+        {
+            "status": 0,
+            "iataCode": "SWM",
+            "region": "South America",
+            "isoCode": "BR",
+            "name": "Suia-Missu Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Africa/Luanda",
+            "coordinates": "-11.67:-51.43",
+            "cityCode": "SWM",
+            "cityName": "Suia-Missu",
+            "countryName": "Brazil",
+            "countryCode": "BR"
+        },
+        {
+            "status": 1,
+            "iataCode": "PRM",
+            "region": "South America",
+            "isoCode": "CO",
+            "name": "Proma Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "Europe/Lisbon",
+            "coordinates": "37.15:-8.58",
+            "cityCode": "PRM",
+            "cityName": "Portimao",
+            "countryName": "Portugal",
+            "countryCode": "PT"
+        },
+        {
+            "status": 1,
+            "iataCode": "ISG",
+            "region": "South America",
+            "isoCode": "CO",
+            "name": "Isa Giron Heliport",
+            "type": "heliport",
+            "size": "medium",
+            "timeZone": "Asia/Tokyo",
+            "coordinates": "24.34:124.19",
+            "cityCode": "ISG",
+            "cityName": "Ishigaki",
+            "countryName": "Japan",
+            "countryCode": "JP"
+        },
+        {
+            "status": 1,
+            "iataCode": "API",
+            "region": "South America",
+            "isoCode": "CO",
+            "name": "Apiay Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Bogota",
+            "coordinates": "4.08:-73.56",
+            "cityCode": "API",
+            "cityName": "Apiay",
+            "countryName": "Colombia",
+            "countryCode": "CO"
+        },
+        {
+            "status": 1,
+            "iataCode": "ARQ",
+            "region": "South America",
+            "isoCode": "CO",
+            "name": "El Troncal Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Bogota",
+            "coordinates": "7.02:-71.39",
+            "cityCode": "ARQ",
+            "cityName": "Arauquita",
+            "countryName": "Colombia",
+            "countryCode": "CO"
+        },
+        {
+            "status": 1,
+            "iataCode": "LCR",
+            "region": "South America",
+            "isoCode": "CO",
+            "name": "La Chorrera Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Bogota",
+            "coordinates": "-1.0:-73.0",
+            "cityCode": "LCR",
+            "cityName": "La Chorrera",
+            "countryName": "Colombia",
+            "countryCode": "CO"
+        },
+        {
+            "status": 1,
+            "iataCode": "SNT",
+            "region": "South America",
+            "isoCode": "CO",
+            "name": "Las Cruces Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "America/Bogota",
+            "coordinates": "7.38:-73.51",
+            "cityCode": "SNT",
+            "cityName": "Sabana De Torres",
+            "countryName": "Colombia",
+            "countryCode": "CO"
+        },
+        {
+            "status": 1,
+            "iataCode": "FUO",
+            "region": "Asia",
+            "isoCode": "CN",
+            "name": "Foshan Shadi Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Asia/Shanghai",
+            "coordinates": "23.08:113.07",
+            "cityCode": "FUO",
+            "cityName": "Fuoshan",
+            "countryName": "China",
+            "countryCode": "CN"
+        },
+        {
+            "status": 1,
+            "iataCode": "HUZ",
+            "region": "Asia",
+            "isoCode": "CN",
+            "name": "Huizhou Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Asia/Chongqing",
+            "coordinates": "23.05:114.6",
+            "cityCode": "HUZ",
+            "cityName": "Huizhou",
+            "countryName": "China",
+            "countryCode": "CN"
+        },
+        {
+            "status": 1,
+            "iataCode": "JGS",
+            "region": "Asia",
+            "isoCode": "CN",
+            "name": "Jinggangshan Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "",
+            "coordinates": "27.113039:114.992913",
+            "cityCode": "JGS",
+            "cityName": "Ji An",
+            "countryName": "China",
+            "countryCode": "CN"
+        },
+        {
+            "status": 1,
+            "iataCode": "AAT",
+            "region": "Asia",
+            "isoCode": "CN",
+            "name": "Altay Air Base",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Asia/Urumqi",
+            "coordinates": "47.75:88.09",
+            "cityCode": "AAT",
+            "cityName": "Altay",
+            "countryName": "China",
+            "countryCode": "CN"
+        },
+        {
+            "status": 1,
+            "iataCode": "DDG",
+            "region": "Asia",
+            "isoCode": "CN",
+            "name": "Dandong Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Asia/Chongqing",
+            "coordinates": "40.03:124.29",
+            "cityCode": "DDG",
+            "cityName": "Dandong",
+            "countryName": "China",
+            "countryCode": "CN"
+        },
+        {
+            "status": 1,
+            "iataCode": "NTG",
+            "region": "Asia",
+            "isoCode": "CN",
+            "name": "Nantong Airport",
+            "type": "airport",
+            "size": "small",
+            "timeZone": "Asia/Shanghai",
+            "coordinates": "32.07:120.98",
+            "cityCode": "NTG",
+            "cityName": "Nantong",
+            "countryName": "China",
+            "countryCode": "CN"
+        },
+        {
+            "status": 0,
+            "iataCode": "NIC",
+            "region": "Asia",
+            "isoCode": "CY",
+            "name": "Nicosia International Airport",
+            "type": "airport",
+            "size": "medium",
+            "timeZone": "Asia/Nicosia",
+            "coordinates": "35.15:33.27",
+            "cityCode": "NIC",
+            "cityName": "Nicosia",
+            "countryName": "Cyprus",
+            "countryCode": "CY"
+        }
+    ]
+}
