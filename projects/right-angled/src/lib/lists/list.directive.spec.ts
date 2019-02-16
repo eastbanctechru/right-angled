@@ -24,7 +24,7 @@ class HostComponent {
     public keepRecordsOnLoad = false;
     public defaultSortings: SortParameter[] = [];
     public getData = (): any => {
-        return Observable.create((observer: any) => {
+        return new Observable((observer: any) => {
             setTimeout(() => {
                 if (this.failOnLoad) {
                     observer.error();

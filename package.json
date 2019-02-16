@@ -15,7 +15,7 @@
         "copy-assets": "copy .\\LICENSE .\\dist\\right-angled && copy .\\README.md .\\dist\\right-angled && copy .\\CHANGELOG.md .\\dist\\right-angled",
         "pack": "ng build right-angled && npm run copy-assets && cd dist/right-angled && npm pack",
         "coveralls": "cat ./coverage/right-angled/lcov.info | ./node_modules/.bin/coveralls",
-        "ci": "ng lint && ng build && ng build right-angled-demo --prod && ng test right-angled --watch=false --codeCoverage=true",
+        "ci": "ng lint && ng build && ng build right-angled-demo --prod --baseHref=/right-angled/ && ng test right-angled --watch=false --codeCoverage=true",
         "preversion": "npm run prepush",
         "version": "git add -A dist && npm run changelog && git add CHANGELOG.md",
         "postversion": "git push && git push --tags && conventional-github-releaser -p angular"
@@ -38,7 +38,7 @@
         "e2e4": "^2.5.0",
         "normalize.css": "^8.0.1",
         "prismjs": "^1.15.0",
-        "rxjs": "~6.3.3",
+        "rxjs": "~6.4.0",
         "tslib": "^1.9.0",
         "web-animations-js": "^2.3.1",
         "zone.js": "~0.8.26"
