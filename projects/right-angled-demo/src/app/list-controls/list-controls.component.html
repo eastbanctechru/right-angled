@@ -1,0 +1,357 @@
+<h2>Working with lists</h2>
+<section>
+    <h3>Contents</h3>
+    <ul class="agenda">
+        <li>
+            <a href="list-controls#common-idea">General idea</a>
+        </li>
+        <li>
+            <a href="list-controls#bootstrap">How to bootstrap</a>
+        </li>
+        <li>
+            <a href="list-controls#rt-list"> <code>rtList</code> directive</a>
+            <ul>
+                <li>
+                    <a href="list-controls#load-on-init"> <code>loadOnInit</code> parameter</a>
+                </li>
+                <li>
+                    <a href="list-controls#default-sortings"> <code>defaultSortings</code> parameter</a>
+                </li>
+                <li>
+                    <a href="list-controls#keep-records-on-load"> <code>keepRecordsOnLoad</code> parameter</a>
+                </li>
+                <li>
+                    <a href="list-controls#list-methods">Additional methods and properties</a>
+                </li>
+                <li>
+                    <a href="list-controls#destroy-method">Implementing custom logic on items destroy</a>
+                </li>
+                <li>
+                    <a href="list-controls#list-init"> <code>listInit</code> event</a>
+                </li>
+                <li>
+                    <a href="list-controls#after-list-init"> <code>afterListInit</code> event</a>
+                </li>
+                <li>
+                    <a href="list-controls#load-started"> <code>loadStarted</code> event</a>
+                </li>
+                <li>
+                    <a href="list-controls#load-succeed"> <code>loadSucceed</code> event</a>
+                </li>
+                <li>
+                    <a href="list-controls#load-failed"> <code>loadFailed</code> event</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="list-controls#rt-sort"> <code>rtSort</code> directive</a>
+        </li>
+        <li>
+            <a href="list-controls#rt-row-number"> <code>rtRowNumber</code> pipe</a>
+        </li>
+        <li>
+            <a href="list-controls#async-actions">Querying data using async actions</a>
+        </li>
+    </ul>
+</section>
+<section id="common-idea">
+    <h3>General idea</h3>
+    <p>
+        The work with the lists begins with the
+        <code>rtList</code> directive. It represents a root container for the <code>angular dependency injection</code> and configures the services for the
+        nested components (paging components, sorting directives and so on).
+    </p>
+    <p>
+        At minimum, this directive needs the method for getting data, which will be called by the
+        <code>RTList</code> service.
+    </p>
+    <p>
+        This method should get one parameter implementing
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listrequest.html">ListRequest</a> contract for the simple lists and
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/pagedlistrequest.html">PagedListRequest</a> one for the paged lists.
+    </p>
+    <p>
+        If you configure any filters (we described it in the
+        <a href="#" [routerLink]="['/filters']">working with filters</a> section), their values will be added to the request parameters with the corresponding
+        names.
+    </p>
+    <p>
+        The return value of this method should be
+        <code>Observable</code>, <code>Promise</code>, or <code>EventEmitter</code>. For the simple lists the response should contain array with the records. As
+        for the paged ones, it should implement
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html">ListResponse</a> contract.
+    </p>
+    <aside>
+        <p>
+            For the simple list, response also can implement
+            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html">ListResponse</a> contract. In this case the
+            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html#totalcount">totalCount</a> and
+            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html#loadedcount">loadedCount</a> fields should be equal to
+            the length of the entire array with data.
+        </p>
+    </aside>
+</section>
+<section id="bootstrap">
+    <h3>How to bootstrap</h3>
+    <p>
+        To work with the lists you should import the
+        <code>RTListsModule</code> module from <code>right-angled</code> library and add it into your
+        <code>AppModule</code>
+        <code>imports</code> array. You can also use <code>RTModule</code> module which includes the functionality of the entire library.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-code-tab title="app.module.ts" url="list-controls/bootstrap/app.module.tsfake"> </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+<section id="rt-list">
+    <h3><code>rtList</code> directive</h3>
+    <section id="load-on-init">
+        <h4><code>loadOnInit</code> parameter</h4>
+        <p>
+            This parameter specifies that it is required to execute the first data loading automatically right after the list is initialized. By default it is
+            equal to
+            <code>true</code>
+        </p>
+    </section>
+
+    <section id="default-sortings">
+        <h4><code>defaultSortings</code> parameter</h4>
+        <p>
+            This parameter specifies the default sortings for the list. These sortings are applied right after the list is created. Then, on
+            <code>resetSettings</code> method call, the values of list sortings will be resetted to this parameter value.
+        </p>
+        <p>
+            This parameter takes the array of objects which implements
+            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/sortparameter.html">SortParameter</a> contract.
+        </p>
+        <p>
+            If the list has not been sorted at the moment of specifying the sortings, these sortings will be applied as current ones.
+        </p>
+        <p>
+            Below there is an example of the list, which by default sorts the list of airports by the airport name in ascending order and by the residence
+            country in descending order.
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab>
+                <rt-demo-default-sortings></rt-demo-default-sortings>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="list-controls/default-sortings/default-sortings.component.html"> </rt-demo-code-tab>
+        </rt-demo-tab-section>
+    </section>
+    <section id="keep-records-on-load">
+        <h4><code>keepRecordsOnLoad</code> parameter</h4>
+        <p>
+            This parameter specifies that list must keep previously loaded records until data request is completed. By default it is equal to
+            <code>false</code>
+        </p>
+
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab>
+                <rt-demo-keep-records-on-load></rt-demo-keep-records-on-load>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="list-controls/keep-records-on-load/keep-records-on-load.component.html"> </rt-demo-code-tab>
+        </rt-demo-tab-section>
+
+        <aside>
+            <p>
+                You can change the value of
+                <code>keepRecordsOnLoad</code> property globally. To do that you need to import
+                <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/list.html">List</a> service from the <code>right-angled</code> library
+                and use its static <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/list.html#settings">settings</a> property.
+            </p>
+            <rt-demo-tab-section>
+                <rt-demo-code-tab title="app.component.ts" url="list-controls/global-configuration/app.component.ts"> </rt-demo-code-tab>
+            </rt-demo-tab-section>
+        </aside>
+    </section>
+    <section id="list-methods">
+        <h4>Additional methods and properties</h4>
+        <p>
+            The
+            <code>rtList</code> directive contains several useful methods and properties allowing implementing typical scenarios easily:
+        </p>
+        <ul class="bulleted">
+            <li><code>loadData(): void</code> executes the data loading.</li>
+            <li><code>reloadData(): void</code> resets paging parameters and executes data loading.</li>
+            <li><code>cancelRequests(): void</code> cancels the request executed at the moment.</li>
+            <li><code>resetSettings(): void</code> resets the list parameters (sortings, paging, filters) to their default values.</li>
+            <li><code>busy</code> property returns <code>true</code>, if there is a data request executed at the moment.</li>
+            <li><code>ready</code> property returns <code>true</code>, if there is no data request executed at the moment.</li>
+            <li>
+                <code>items</code> property returns the array of elements transferred in the property of the
+                <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html#items">ListResponse.items</a> object.
+            </li>
+        </ul>
+        <p>
+            Below you can see the example with 4 buttons implemented using the mentioned methods and properties.
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab>
+                <rt-demo-use-rt-list></rt-demo-use-rt-list>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="list-controls/use-rt-list/use-rt-list.component.html"> </rt-demo-code-tab>
+        </rt-demo-tab-section>
+    </section>
+    <section id="destroy-method">
+        <h4>Implementing custom logic on items destroy</h4>
+        <p>
+            If you want to execute any custom logic for the list elements when destroying the records (e.g., on list reload, page changing, entire list
+            destroy), you can implement the
+            <code>destroy</code> method in the element class and this method will be called by the <code>RTList</code> service on items destroy.
+        </p>
+    </section>
+    <section id="list-init">
+        <h4><code>listInit</code> event</h4>
+        <p>
+            This event is generated after the
+            <a href="https://angular.io/docs/ts/latest/api/core/index/AfterViewInit-class.html">AfterViewInit</a> hook is executed and the first template
+            rendering happened.
+        </p>
+        <p>
+            By using this event, it is possible to integrate into the initialization pipe of the
+            <code>RTList</code> service and apply the additional settings before the first data loading.
+        </p>
+        <p>
+            For example, it is possible to
+            <a href="#" [routerLink]="['/filters']">register object with the filter settings</a> by calling <code>RTList.registerFilterTarget</code> method of
+            <code>RTList</code> service which is sent as event objects.
+        </p>
+    </section>
+    <section id="after-list-init">
+        <h4><code>afterListInit</code> event</h4>
+        <p>
+            This event is generated after the list initialization is performed and it is ready to be used. The same as
+            <code>afterListInit</code>, it sends the <code>RTList</code> service as event object.
+        </p>
+    </section>
+
+    <section id="load-started">
+        <h4><code>loadStarted</code> event</h4>
+        <p>
+            This event is generated when the list starts to load data.
+        </p>
+    </section>
+    <section id="load-succeed">
+        <h4><code>loadSucceed</code> event</h4>
+        <p>
+            This event is generated after the list sucessfully loads data and handle response and sends response object as parameter.
+        </p>
+    </section>
+    <section id="load-failed">
+        <h4><code>loadFailed</code> event</h4>
+        <p>
+            This event is generated by the list when data loading completed with error.
+        </p>
+    </section>
+</section>
+<section id="rt-sort">
+    <h3><code>rtSort</code> directive</h3>
+    <p>
+        This directive is used to specify the list sortings. As a parameter this directive gets the sorting identifier, which will be applied to
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listrequest.html#sortings">ListRequest.sortings</a> array.
+    </p>
+    <p>
+        If you need to disable sort by specific column for any reason, use
+        <code>[disableSort]</code> parameter.
+    </p>
+    <p>
+        Below you can see the example of the list with this directive added into the column headers. Pay attention to these points:
+    </p>
+    <ul class="bulleted">
+        <li>
+            <code>rtSort</code> directive adds <code>rt-sortable</code> class to the marked element. With the help of this class you can set up the styles
+            pointing out that the element is sortable. In our examples sortable elements display two-sided arrow at the right side of the column on mouseover.
+        </li>
+        <li>
+            When you click on the column header, the specified sort identifier will be added to the
+            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listrequest.html#sortings">sortings</a> array with
+            <code>Asc</code> direction and the <code>RTList.loadData</code> method will be called immediately. On second click the direction of sorting is
+            changed to the opposite one and the data request is executed again.
+        </li>
+        <li>
+            The
+            <code>rt-sort-asc</code> or <code>rt-sort-desc</code> css classes are added to marked element depending on the current sorting direction.
+        </li>
+        <li>
+            By clicking column headers with held
+            <code>Ctrl</code> key you can sort list by several fields.
+        </li>
+    </ul>
+    <rt-demo-tab-section>
+        <rt-demo-sample-tab>
+            <rt-demo-use-sortings></rt-demo-use-sortings>
+        </rt-demo-sample-tab>
+        <rt-demo-code-tab url="list-controls/use-sortings/use-sortings.component.html"> </rt-demo-code-tab>
+    </rt-demo-tab-section>
+    <aside>
+        <p>
+            If, by some reason, you don’t like the names of
+            <code>rt-sortable</code>, <code>rt-sort-asc</code>, and <code>rt-sort-desc</code> classes, you can change them globally by importing the
+            <code>SortDirective</code> and setting up <code>SortDirective.settings</code> object properties.
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-code-tab title="app.component.ts" url="list-controls/sortings-configuration/app.component.ts"> </rt-demo-code-tab>
+        </rt-demo-tab-section>
+    </aside>
+</section>
+<section id="rt-row-number">
+    <h3><code>rtRowNumber</code> pipe</h3>
+    <p>
+        This pipe is used for the automated numbering of the rows in the list. It recognizes the pager it works with and puts the numbers correspondingly. For
+        example, it begins with 6, and not 1, for the second page of the paged list with page size equal to 5.
+    </p>
+    <p>
+        This pipe is applied to the
+        <code>index</code> value, which represents the index of the current element in the collection. Also it is required to specify link to
+        <code>rtList</code> directive as a parameter.
+    </p>
+    <p>
+        In the example below we use this directive to add the numbers of the rows into the first column of the table.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-sample-tab>
+            <rt-demo-use-row-number></rt-demo-use-row-number>
+        </rt-demo-sample-tab>
+        <rt-demo-code-tab url="list-controls/use-row-number/use-row-number.component.html"> </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+<section id="async-actions">
+    <h3>Querying data using async actions</h3>
+    <p>
+        If you manage the state of your application with tools like
+        <a href="https://github.com/ngrx/store">ngrx-store</a> it is reasonable to query lists data by using async actions.
+    </p>
+    <p>
+        Thereby,
+        <code>rtList</code> should react to at least two state changes which are separated in time: start of the data request and its completion.
+    </p>
+    <p>
+        To achieve this,
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html">ListResponse</a> contract has optional
+        <a href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html#status">status</a> field. This field can be used to notify
+        <code>rtList</code> instance about current request state via the same stream as for data loading.
+    </p>
+    <p>
+        In the example below, you can see that the data request is started and completed through separate actions which are triggered by clicking to the certain
+        button.
+    </p>
+    <p>
+        User actions is more generalized example of async actions than tools like ngrx. But idea is the same.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-sample-tab>
+            <rt-demo-async-actions></rt-demo-async-actions>
+        </rt-demo-sample-tab>
+        <rt-demo-code-tab url="list-controls/async-actions/async-actions.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="list-controls/async-actions/async-actions.component.ts"> </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+<section>
+    <aside>
+        <h4>Related sections</h4>
+        <p class="text-center clearfix">
+            <a href="#" [routerLink]="['/quick-tour']" class="btn btn-primary docs-link pull-left">&larr; Quick tour</a>
+            <a href="#" [routerLink]="['/paging-and-statuses']" class="btn btn-primary docs-link  pull-right">Paging and statuses &rarr;</a>
+        </p>
+    </aside>
+</section>

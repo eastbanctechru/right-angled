@@ -1,0 +1,18 @@
+<div class="table-responsive">
+    <table class="table table-striped" [rtList]="getAirports" #list="rtList">
+        <thead>
+            <tr>
+                <th>IATA</th>
+                <th>Airport name</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let airport of list.items">
+                <td>{{airport.iataCode}}</td>
+                <td>{{airport.name}}</td>
+                <td>{{airport.countryName}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

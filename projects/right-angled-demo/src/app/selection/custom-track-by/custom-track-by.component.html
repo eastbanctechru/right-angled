@@ -1,0 +1,11 @@
+<div class="toolbar">
+    <button type="button" class="btn btn-primary" title="Reload data" (click)="reload()">Reload data</button>
+</div>
+<div class="row text-center" rtSelectionArea [trackBy]="trackByName">
+    <div class="col-md-12" *ngFor="let country of countries">
+        <div class="item" [rtSelectable]="country">
+            {{country.name}}
+        </div>
+    </div>
+    <rt-demo-progress-bar *ngIf="!countries.length"></rt-demo-progress-bar>
+</div>

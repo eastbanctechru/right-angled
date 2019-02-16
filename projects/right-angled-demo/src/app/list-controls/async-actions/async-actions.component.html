@@ -1,0 +1,52 @@
+<div class="toolbar">
+    <ul>
+        <li>
+            <button (click)="list.loadData()" [disabled]="subscriber" type="button" class="btn btn-primary">Begin request</button>
+        </li>
+        <li>
+            <button (click)="cancelRequest()" [disabled]="!subscriber" type="button" class="btn btn-primary">Cancel request</button>
+        </li>
+        <li>
+            <button (click)="failRequest()" [disabled]="!subscriber" type="button" class="btn btn-primary">Fail request</button>
+        </li>
+        <li>
+            <button (click)="continueRequest()" [disabled]="!subscriber" type="button" class="btn btn-primary">Continue request</button>
+        </li>
+        <li>
+            <button (click)="completeRequest()" [disabled]="!subscriber" type="button" class="btn btn-primary">Complete request</button>
+        </li>
+    </ul>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped" [rtList]="getAirports" #list="rtList">
+        <thead>
+            <tr>
+                <th>
+                    <span rtSort="iataCode">IATA</span>
+                </th>
+                <th>
+                    <span rtSort="name">Airport name</span>
+                </th>
+                <th>
+                    <span rtSort="countryName">Country</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody rtSelectionArea>
+            <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
+                <td>{{airport.iataCode}}</td>
+                <td>{{airport.name}}</td>
+
+                <td>{{airport.countryName}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <rt-demo-paged-footer>
+                    </rt-demo-paged-footer>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

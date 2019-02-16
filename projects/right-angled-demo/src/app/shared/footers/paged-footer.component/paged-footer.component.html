@@ -1,0 +1,27 @@
+<rt-status-no-data class="text-center">
+    There are no data found
+</rt-status-no-data>
+<rt-status-request-cancelled class="text-center">
+    Data loading was cancelled
+</rt-status-request-cancelled>
+<rt-status-failed class="text-center">
+    An error has occured since the last data loading
+</rt-status-failed>
+<rt-status-initial class="text-center">
+    Enter search options and press "Show" button
+</rt-status-initial>
+<rt-status-progress class="text-center">
+    <rt-demo-progress-bar></rt-demo-progress-bar>
+</rt-status-progress>
+<rt-status-done>
+    <rt-paged-pager [defaultPageSize]="5" #rtPager>
+        <span class="go-to-first-page" [class.disabled]="!rtPager.canMoveBackward" (click)="rtPager.goToFirstPage()" title="go to first page"></span>
+        <span class="go-to-prev-page" [class.disabled]="!rtPager.canMoveBackward" (click)="rtPager.goToPreviousPage()" title="go to previous page"></span>
+        <input rtSelectOnFocus rtPageNumber (keyup.enter)="rtPager.loadData()" type="text" class="form-control" maxlength="4" />
+        <span class="go-to-next-page" [class.disabled]="!rtPager.canMoveForward" (click)="rtPager.goToNextPage()" title="go to next page"></span>
+        <span class="go-to-last-page" [class.disabled]="!rtPager.canMoveForward" (click)="rtPager.goToLastPage()" title="go to last page"></span>
+        <span>Displaying records {{rtPager.pager.displayFrom}} - {{rtPager.pager.displayTo}} of {{rtPager.pager.totalCount}}.</span>
+        <span>Page size</span>
+        <input rtSelectOnFocus rtPageSize (keyup.enter)="rtPager.loadData()" type="text" class="form-control" maxlength="3" />
+    </rt-paged-pager>
+</rt-status-done>

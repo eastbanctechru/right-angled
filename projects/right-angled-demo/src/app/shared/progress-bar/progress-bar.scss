@@ -1,0 +1,81 @@
+@import '../../../shared.scss';
+
+:host {
+    margin: 0 auto;
+    width: 140px;
+    height: 20px;
+    text-align: center;
+
+    span {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-left: 10px;
+        border-radius: 100%;
+        background-color: $color-light-blue;
+        animation-name: loading;
+        animation-duration: 0.8s;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: loading;
+        -webkit-animation-duration: 0.8s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-function: linear;
+
+        &:nth-child(1) {
+            margin-left: 0;
+            -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s;
+        }
+
+        &:nth-child(2) {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+
+        &:nth-child(4) {
+            -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s;
+        }
+
+        &:nth-child(5) {
+            -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+        }
+
+        &:nth-child(6) {
+            -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+        }
+    }
+}
+@-webkit-keyframes loading {
+    0% {
+        background-color: $color-light-blue;
+    }
+
+    50% {
+        background-color: $color-gray;
+    }
+
+    100% {
+        background-color: $color-light-blue;
+    }
+}
+@keyframes loading {
+    0% {
+        background-color: $color-light-blue;
+    }
+
+    50% {
+        background-color: $color-gray;
+    }
+
+    100% {
+        background-color: $color-light-blue;
+    }
+}

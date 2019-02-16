@@ -1,0 +1,10 @@
+<div class="row" rtSelectionArea>
+    <div class="col-md-12 toolbar">
+        <rt-demo-nested-button></rt-demo-nested-button>
+    </div>
+    <div class="col-md-12" *ngFor="let country of countries">
+        <div class="item" [rtSelectable]="country">
+            {{country.name}}
+        </div>
+    </div>
+</div>

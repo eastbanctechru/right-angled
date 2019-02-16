@@ -1,0 +1,45 @@
+@import '../shared.scss';
+
+:host /deep/ div {
+    .navbar-fixed-top {
+        border: 0;
+        margin-bottom: 0;
+        background-color: $color-blue;
+        @include border-radius(0);
+        @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.65));
+    }
+
+    .layout {
+        min-height: 100vh;
+        padding: 70px 0;
+        height: auto !important;
+        margin: 0 auto -72px;
+    }
+
+    .navbar-bottom {
+        border: 0;
+        padding: 20px 0;
+        background-color: $color-gray;
+        margin-bottom: 0;
+        font-size: $font-small;
+
+        .left,
+        .right {
+            padding: 10px 10px 5px 15px;
+        }
+        @include box-shadow(0 0 5px 0 rgba(0, 0, 0, 0.25));
+
+        a {
+            color: $color-black;
+            text-decoration: underline;
+        }
+        @media (min-width: 992px) {
+            .right {
+                text-align: right;
+            }
+        }
+        @media (max-width: 992px) {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<nav class="navbar">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#" [routerLink]="['/quick-tour']"></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right" (click)="isActive=!isActive">
+        <li class="dropdown" [class.active]="isActive">
+            <span class="dropdown-toggle text-uppercase">Docs
+                <span class="caret"></span>
+            </span>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#" [routerLink]="['/quick-tour']" routerLinkActive="link-active">Quick tour</a>
+                </li>
+                <li>
+                    <a href="#" [routerLink]="['/list-controls']" routerLinkActive="link-active">Working with lists</a>
+                </li>
+                <li>
+                    <a href="#" [routerLink]="['/paging-and-statuses']" routerLinkActive="link-active">Paging and lists statuses</a>
+                </li>
+                <li>
+                    <a href="#" [routerLink]="['/selection']" routerLinkActive="link-active">Working with selection</a>
+                </li>
+                <li>
+                    <a href="#" [routerLink]="['/filters']" routerLinkActive="link-active">Working with filters</a>
+                </li>
+                <li>
+                    <a href="#" [routerLink]="['/persistence']" routerLinkActive="link-active">Persist lists state</a>
+                </li>
+                <li>
+                    <a href="#" [routerLink]="['/misc-directives']" routerLinkActive="link-active">Miscellaneous directives</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

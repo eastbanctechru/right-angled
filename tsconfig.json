@@ -1,34 +1,30 @@
 {
-    "compilerOptions": {
-        "declaration": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "lib": [
-            "es6",
-            "dom"
-        ],
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "sourceMap": false,
-        "target": "es5",
-        "diagnostics": true,
-        "allowUnreachableCode": false,
-        "allowUnusedLabels": false,
-        "suppressImplicitAnyIndexErrors": true,
-        "pretty": true,
-        "forceConsistentCasingInFileNames": true,
-        "removeComments": false,
-        "noImplicitAny": true,
-        "noUnusedLocals": true,
-        "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitThis": true,
-        "types": []
-    },
-    "angularCompilerOptions": {
-        "skipTemplateCodegen": true
-    },
-    "exclude": [
-        "node_modules"
-    ]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "right-angled": [
+        "dist/right-angled"
+      ],
+      "right-angled/*": [
+        "dist/right-angled/*"
+      ]
+    }
+  }
 }

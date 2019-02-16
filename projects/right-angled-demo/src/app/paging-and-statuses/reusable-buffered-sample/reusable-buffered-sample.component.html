@@ -1,0 +1,27 @@
+<div class="table-responsive">
+    <table class="table table-striped" [rtList]="loadData" #list="rtList">
+        <thead>
+            <tr>
+                <th class="t-col-iata-code">IATA</th>
+                <th class="t-col-airport-name">Airport name</th>
+                <th class="t-col-city-name">City</th>
+                <th class="t-col-country-name">Country</th>
+            </tr>
+        </thead>
+        <tbody rtSelectionArea>
+            <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
+                <td>{{airport.iataCode}}</td>
+                <td>{{airport.name}}</td>
+                <td>{{airport.cityName}}</td>
+                <td>{{airport.countryName}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <rt-demo-buffered-footer></rt-demo-buffered-footer>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

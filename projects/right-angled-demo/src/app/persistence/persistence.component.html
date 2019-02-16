@@ -1,0 +1,165 @@
+<h2>Persist Lists State</h2>
+<h3>Contents</h3>
+<ul class="agenda">
+    <li>
+        <a href="persistence#common-idea">General idea</a>
+    </li>
+    <li>
+        <a href="persistence#service-implementations">Examples of <code>RTStateService</code> contract implementations</a>
+    </li>
+    <li>
+        <a href="persistence#service-usage">Register and use the implemented services</a>
+        <ul>
+            <li>
+                <a href="persistence#concrete-component">Register state service in the specific component</a>
+            </li>
+            <li>
+                <a href="persistence#global-registration">Register state services globally</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<section id="common-idea">
+    <h3>General idea</h3>
+    <p>
+        If you have already seen the
+        <a href="#" [routerLink]="['/filters']">working with filters</a> section, you know that it is possible to annotate the properties of your component with
+        <code>@filter</code> decorator and configure them as data request parameters.
+    </p>
+    <p>
+        However, there are other possibilities of using filters:
+    </p>
+    <ul class="bulleted">
+        <li>
+            We can save the state of important list parameters (sortings, page size) in the
+            <code>localStorage</code> and restore these parameters values when user visits the page next time.
+        </li>
+        <li>
+            We can save the state of list parameters in
+            <code>sessionStorage</code> and restore them when user returns to the page during the same session. So, user gets the same list state as it is
+            before leaving it.
+        </li>
+        <li>
+            We can serialize the state of all list parameters in
+            <code>queryString</code>. When user shares such page link, the one who opens it gets the same page state as the sender does.
+        </li>
+    </ul>
+    <p>
+        Instead of the complete implementations (as soon as the logic of saving and identifying the settings are quite specific for the end app) our library
+        contains the contracts to support them.
+    </p>
+    <p>
+        Nevertheless, in this section we will show the examples of completed implementations, which will serve you as a starting point for your own ones.
+    </p>
+</section>
+<section id="service-implementations">
+    <h3>Examples of <code>RTStateService</code> contract implementations</h3>
+    <p>
+        First of all, it is needed to implement the service (or services) inheriting
+        <code>RTStateService</code> abstract class.
+    </p>
+    <p>
+        The
+        <code>getState</code> will be called during list initialization and must return settings saved previously.
+    </p>
+    <p>
+        The
+        <code>persistState</code> method will be called by the list on every data loading. This logic works the following way: if user changes any parameters
+        and confirms it by clicking “load” button, we can persist these parameters. For that we call the
+        <a target="_blank" href="http://eastbanctechru.github.io/e2e4/classes/filtersservice.html#getrequeststate">getRequestState</a> method of the passed
+        <code>filtersService</code> object and use optional delegate to filter resulted state representation by any required condition.
+    </p>
+    <p>
+        Below you can see the implementations of
+        <code>RTStateService</code> which saves the list state in <code>localStorage</code>, <code>sessionStorage</code>, and <code>queryString</code>.
+    </p>
+    <p>
+        The implementations for
+        <code>queryString</code> and <code>sessionStorage</code> save the object state entirely.
+    </p>
+    <p>
+        Implementation for
+        <code>localStorage</code> uses the possibility of the <code>getRequestState</code> method to filter parameters and gets the states of the properties
+        marked by the <code>@filter</code> annotation with the <code>persistable</code> flag (this flag is not a part of the
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/filterconfig.html">standard contract</a>, you can add any properties to the
+        <code>@filter</code> annotation parameter).
+    </p>
+    <p>
+        Also this service adds the
+        <code>take</code> and <code>sortings</code> properties, because they are configured at the <code>right-angled</code> level and do not know anything
+        about the <code>persistable</code> flag.
+    </p>
+    <p>
+        As a result, the service saves only the part of list state. Well, saving such settings as page size usually is reasonable, since rarely changed by the
+        user. But it is not necessary to save the values of the filters, because the user will probably not need the same values on every page visit.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-code-tab title="local-storage-state-service.ts" url="shared/state-services/local-storage-state-service.ts"> </rt-demo-code-tab>
+        <rt-demo-code-tab title="session-storage-state-service.ts" url="shared/state-services/session-storage-state-service.ts"> </rt-demo-code-tab>
+        <rt-demo-code-tab title="query-string-state-service.ts" url="shared/state-services/query-string-state-service.ts"> </rt-demo-code-tab>
+    </rt-demo-tab-section>
+    <aside>
+        <p>
+            As you can notice, the services
+            <code>RTLocalStorageStateService</code> and <code>RTSessionStorageStateService</code> inject the
+            <a target="_blank" href="https://angular.io/docs/ts/latest/api/router/index/ActivatedRoute-interface.html">ActivatedRoute</a> object and implement
+            the serialization/deserialization key based on the current routing path.
+        </p>
+        <p>
+            Good this solution or not depends on the requirements of the end app. For example, it can be more suitable to assign the unique key to each of the
+            components and register such key via
+            <a target="_blank" href="https://angular.io/docs/ts/latest/api/core/index/OpaqueToken-class.html">OpaqueToken</a> into the component injectors.
+        </p>
+    </aside>
+</section>
+<section id="service-usage">
+    <h3>Register and use the implemented services</h3>
+    <p>Now, we need to register the implemented services to use them in our components. We have several options to do this.</p>
+    <section id="concrete-component">
+        <h4>Register state service in the specific component</h4>
+        <p>
+            The simplest way is to register implemented services as
+            <code>RTStateService</code> at the component level in <code>providers</code> array. As a result the component gets all the described functionality.
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-sample-tab>
+                <rt-demo-persistence-sample></rt-demo-persistence-sample>
+            </rt-demo-sample-tab>
+            <rt-demo-code-tab url="persistence/persistence-sample/persistence-sample.component.html"> </rt-demo-code-tab>
+            <rt-demo-code-tab url="persistence/persistence-sample/persistence-sample.component.ts"> </rt-demo-code-tab>
+        </rt-demo-tab-section>
+    </section>
+    <section id="global-registration">
+        <h4>Register state services globally</h4>
+        <p>
+            It is also possible to register your services across all of the app lists. You can use
+            <code>RTModule.registerStateService</code> or <code>RTListModule.registerStateService</code> and pass to it configuration object with the same
+            settings as for angular <code>@Component</code> decorator "providers" option
+        </p>
+        <rt-demo-tab-section>
+            <rt-demo-code-tab title="app.module.ts" url="persistence/bootstrap/app.module.tsfake"> </rt-demo-code-tab>
+        </rt-demo-tab-section>
+    </section>
+    <aside>
+        <p>
+            Also, it is possible to register several providers for the
+            <code>RTStateService</code> using <a href="https://angular.io/docs/ts/latest/api/core/index/ClassProvider-interface.html">flag multi</a>. In this
+            case, the question is: what if several providers return the values for the same parameter?
+        </p>
+        <p>
+            The answer is the following: the
+            <code>getState</code> method of registered services will be called in the same order in which you have registered your services. The resulted state
+            will be built by the call of
+            <code>Object.assign(&#123;&#125;, state1, state2, ...)</code>
+        </p>
+    </aside>
+</section>
+<section>
+    <aside>
+        <h4>Related sections</h4>
+        <p class="text-center clearfix">
+            <a href="#" [routerLink]="['/filters']" class="btn btn-primary docs-link pull-left">&larr; Working with filters</a>
+            <a href="#" [routerLink]="['/misc-directives']" class="btn btn-primary docs-link  pull-right">Miscellaneous directives &rarr;</a>
+        </p>
+    </aside>
+</section>

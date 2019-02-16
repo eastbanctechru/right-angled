@@ -1,0 +1,35 @@
+@import '../../../../shared.scss';
+
+:host {
+    text-align: right;
+    display: block;
+
+    > * {
+        display: block;
+    }
+
+    rt-status-done {
+        text-align: right;
+    }
+    @media (max-width: 768px) {
+        rt-status-done {
+            text-align: left;
+            padding-left: 15px;
+        }
+    }
+}
+
+a {
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: middle;
+    color: $color-light-blue;
+    margin: 0 3px;
+    @include opacity(0.85);
+
+    &:hover,
+    &:focus {
+        @include opacity(1);
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,52 @@
+<div style="height: 400px; overflow: auto;" #scrollContainer>
+    <div class="table-responsive">
+        <table class="table table-striped" [rtList]="loadData" #list="rtList">
+            <thead>
+                <tr>
+                    <th class="t-col-iata-code">IATA</th>
+                    <th class="t-col-airport-name">Airport name</th>
+                    <th class="t-col-city-name">City</th>
+                    <th class="t-col-country-name">Country</th>
+                </tr>
+            </thead>
+            <tbody rtSelectionArea>
+                <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
+                    <td>{{airport.iataCode}}</td>
+                    <td>{{airport.name}}</td>
+                    <td>{{airport.cityName}}</td>
+                    <td>{{airport.countryName}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <rt-status-no-data class="text-center">
+                            There are no data found
+                        </rt-status-no-data>
+                        <rt-status-request-cancelled class="text-center">
+                            Data loading was cancelled
+                        </rt-status-request-cancelled>
+                        <rt-status-failed class="text-center">
+                            An error has occured since the last data loading
+                        </rt-status-failed>
+                        <rt-status-initial class="text-center">
+                            Enter search options and press "Show" button
+                        </rt-status-initial>
+                        <rt-status-progress class="text-center">
+                            <rt-demo-progress-bar></rt-demo-progress-bar>
+                        </rt-status-progress>
+                        <div>
+                            <rt-status-done>
+                                <rt-buffered-pager [defaultRowCount]="20" #rtPager>
+                                    <span>{{rtPager.pager.loadedCount}} records loaded</span>
+                                    <a tabindex="0" (click)="rtPager.loadMore()" rtPreventDefaults="click" [class.hidden]="!rtPager.canLoadMore" [rtInfinite]="scrollContainer"
+                                        href="#">Show more</a>
+                                </rt-buffered-pager>
+                            </rt-status-done>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

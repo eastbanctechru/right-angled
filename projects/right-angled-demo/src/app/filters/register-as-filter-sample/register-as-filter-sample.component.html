@@ -1,0 +1,39 @@
+<div [rtList]="loadData" #list="rtList">
+    <rt-demo-filter-area [list]="list" #filter [rtRegisterAsFilter]="filter">
+    </rt-demo-filter-area>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <span [rtSort]="'iataCode'">IATA</span>
+                    </th>
+                    <th>
+                        <span [rtSort]="'name'">Airport name</span>
+                    </th>
+                    <th>
+                        <span [rtSort]="'cityName'">City</span>
+                    </th>
+                    <th>
+                        <span [rtSort]="'countryName'">Country</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody rtSelectionArea>
+                <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
+                    <td>{{airport.iataCode}}</td>
+                    <td>{{airport.name}}</td>
+                    <td>{{airport.cityName}}</td>
+                    <td>{{airport.countryName}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <rt-demo-paged-footer></rt-demo-paged-footer>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

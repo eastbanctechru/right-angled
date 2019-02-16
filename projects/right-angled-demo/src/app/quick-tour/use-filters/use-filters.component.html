@@ -1,0 +1,58 @@
+<div>
+    <form>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                    <label>Airport name</label>
+                    <input type="text" class="form-control" [(ngModel)]="airportName" name="airportName" />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" class="form-control" [(ngModel)]="countryName" name="countryName" />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                    <input (click)="list.reloadData()" [disabled]="list.busy" type="submit" class="btn btn-load" title="Load data" />
+                    <input (click)="list.cancelRequests()" [disabled]="list.ready" type="button" class="btn btn-cancel" title="Cancel loading"
+                    />
+                    <button (click)="list.resetSettings()" [disabled]="list.busy" type="button" class="btn btn-reset" title="Reset settings"></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-striped" [rtList]="getAirports" #list="rtList">
+            <thead>
+                <tr>
+                    <th>
+                        <span rtSort="iataCode">IATA</span>
+                    </th>
+                    <th>
+                        <span rtSort="name">Airport name</span>
+                    </th>
+                    <th>
+                        <span rtSort="countryName">Country</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody rtSelectionArea>
+                <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
+                    <td>{{airport.iataCode}}</td>
+                    <td>{{airport.name}}</td>
+                    <td>{{airport.countryName}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">
+                        <rt-demo-paged-footer>
+                        </rt-demo-paged-footer>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

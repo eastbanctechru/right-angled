@@ -1,0 +1,34 @@
+<div class="table-responsive">
+    <table class="table table-striped" [rtList]="getAirports" #list="rtList">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>
+                    <span rtSort="iataCode">IATA</span>
+                </th>
+                <th>
+                    <span rtSort="name">Airport name</span>
+                </th>
+                <th>
+                    <span rtSort="countryName">Country</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody rtSelectionArea>
+            <tr *ngFor="let airport of list.items, let index=index" [rtSelectable]="airport">
+                <td>{{index | rtRowNumber: list}}</td>
+                <td>{{airport.iataCode}}</td>
+                <td>{{airport.name}}</td>
+                <td>{{airport.countryName}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <rt-demo-paged-footer>
+                    </rt-demo-paged-footer>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

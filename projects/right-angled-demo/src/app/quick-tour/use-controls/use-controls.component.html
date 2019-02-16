@@ -1,0 +1,48 @@
+<div class="table-responsive">
+    <form>
+        <div class="form-group">
+            <input (click)="list.reloadData()" [disabled]="list.busy" type="submit" class="btn btn-load" title="Load data" />
+            <input (click)="list.cancelRequests()" [disabled]="list.ready" type="button" class="btn btn-cancel" title="Cancel loading"
+            />
+            <button (click)="list.resetSettings()" [disabled]="list.busy" type="button" class="btn btn-reset" title="Reset settings"></button>
+        </div>
+    </form>
+    <table class="table table-striped" [rtList]="getAirports" #list="rtList">
+        <thead>
+            <tr>
+                <th>
+                    <span rtSort="iataCode">IATA</span>
+                </th>
+                <th>
+                    <span rtSort="name">Airport name</span>
+                </th>
+                <th>
+                    <span rtSort="countryName">Country</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody rtSelectionArea>
+            <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
+                <td>{{airport.iataCode}}</td>
+                <td>{{airport.name}}</td>
+                <td>{{airport.countryName}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <rt-status-progress>
+                        <rt-demo-progress-bar></rt-demo-progress-bar>
+                    </rt-status-progress>
+                    <rt-status-done>
+                        Data was loaded sucessfully.
+                    </rt-status-done>
+                    <rt-status-request-cancelled>
+                        Request was cancelled.
+                    </rt-status-request-cancelled>
+
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

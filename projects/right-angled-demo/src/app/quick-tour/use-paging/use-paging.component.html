@@ -1,0 +1,86 @@
+<div class="table-responsive">
+    <form>
+        <div class="form-group">
+            <input (click)="pagedList.reloadData()" [disabled]="pagedList.busy" type="submit" class="btn btn-load" title="Load data"
+            />
+            <input (click)="pagedList.cancelRequests()" [disabled]="pagedList.ready" type="button" class="btn btn-cancel" title="Cancel loading"
+            />
+            <button (click)="pagedList.resetSettings()" [disabled]="pagedList.busy" type="button" class="btn btn-reset" title="Reset settings"></button>
+        </div>
+    </form>
+
+    <table class="table table-striped" [rtList]="getAirports" #pagedList="rtList">
+        <thead>
+            <tr>
+                <th>
+                    <span rtSort="iataCode">IATA</span>
+                </th>
+                <th>
+                    <span rtSort="name">Airport name</span>
+                </th>
+                <th>
+                    <span rtSort="countryName">Country</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody rtSelectionArea>
+            <tr *ngFor="let airport of pagedList.items" [rtSelectable]="airport">
+                <td>{{airport.iataCode}}</td>
+                <td>{{airport.name}}</td>
+                <td>{{airport.countryName}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <rt-demo-paged-footer>
+                    </rt-demo-paged-footer>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+<div class="table-responsive">
+    <form>
+        <div class="form-group">
+            <input (click)="bufferedList.reloadData()" [disabled]="bufferedList.busy" type="submit" class="btn btn-load" title="Load data"
+            />
+            <input (click)="bufferedList.cancelRequests()" [disabled]="bufferedList.ready" type="button" class="btn btn-cancel" title="Cancel loading"
+            />
+            <button (click)="bufferedList.resetSettings()" [disabled]="bufferedList.busy" type="button" class="btn btn-reset" title="Reset settings"></button>
+        </div>
+    </form>
+
+    <table class="table table-striped" [rtList]="getAirports" #bufferedList="rtList">
+        <thead>
+            <tr>
+                <th>
+                    <span rtSort="iataCode">IATA</span>
+                </th>
+                <th>
+                    <span rtSort="name">Airport name</span>
+                </th>
+                <th>
+                    <span rtSort="countryName">Country</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody rtSelectionArea>
+            <tr *ngFor="let airport of bufferedList.items" [rtSelectable]="airport">
+                <td>{{airport.iataCode}}</td>
+                <td>{{airport.name}}</td>
+                <td>{{airport.countryName}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <rt-demo-buffered-footer>
+                    </rt-demo-buffered-footer>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

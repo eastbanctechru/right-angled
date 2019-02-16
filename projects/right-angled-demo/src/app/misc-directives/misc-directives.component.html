@@ -1,0 +1,153 @@
+<h2>Misc Directives</h2>
+<h3>Contents</h3>
+<ul class="agenda">
+    <li>
+        <a href="misc-directives#common-idea">General idea</a>
+    </li>
+    <li>
+        <a href="misc-directives#bootstrap">How to bootstrap</a>
+    </li>
+    <li>
+        <a href="misc-directives#stop-events">
+            <code>rtStopEvents</code> directive</a>
+    </li>
+    <li>
+        <a href="misc-directives#prevent-defaults">
+            <code>rtPreventDefaults</code> directive</a>
+    </li>
+    <li>
+        <a href="misc-directives#select-on-focus">
+            <code>rtSelectOnFocus</code> directive</a>
+    </li>
+    <li>
+        <a href="misc-directives#focus-on-render">
+            <code>rtFocusOnRender</code> directive</a>
+    </li>
+</ul>
+<section id="common-idea">
+    <h3>General idea</h3>
+    <p>
+        The directives from this section work directly with the native
+        <code>HTML</code> elements and browser events. They implement useful features not related directly to the
+        <code>right-angled</code> library. For example, you can use
+        <code>rtStopEvents</code> directive for preventing event bubbling on any element.
+    </p>
+</section>
+<section id="bootstrap">
+    <h3>How to bootstrap</h3>
+    <p>
+        To work with these directives you should import the
+        <code>RTMiscModule</code> module from
+        <code>right-angled</code> library and add it into your
+        <code>AppModule</code> imports array. You can also use
+        <code>RTModule</code> module which includes the functionality of the entire library.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-code-tab title="app.module.ts" url="misc-directives/bootstrap/app.module.tsfake">
+        </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+<section id="stop-events">
+    <h3>
+        <code>rtStopEvents</code> directive</h3>
+    <p>
+        This directive gets a
+        <code>string</code> or array of
+        <code>string</code> with the event names as a parameter.
+    </p>
+    <p>
+        The directive will subscribe to the specified events of the element and will call the event
+        <a target="_blank" href="https://developer.mozilla.org/ru/docs/Web/API/Event/stopPropagation">stopPropagation</a> method in the event handler to prevent further event propagation.
+    </p>
+    <p>
+        In the example below you can see, how the
+        <code>input</code> element, marked by this directive, stops the
+        <code>keypress</code> event propagation if the "stop keypress events propagation" checkbox is checked and does not allow the parent
+        <code>div</code> element to process this event. If you uncheck "stop keypress events propagation" checkbox,
+        <code>keypress</code> event handler of the
+        <code>div</code> element begins to log every key that has been pressed.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-sample-tab>
+            <rt-demo-stop-events></rt-demo-stop-events>
+        </rt-demo-sample-tab>
+        <rt-demo-code-tab url="misc-directives/stop-events/stop-events.component.html">
+        </rt-demo-code-tab>
+        <rt-demo-code-tab url="misc-directives/stop-events/stop-events.component.ts">
+        </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+<section id="prevent-defaults">
+    <h3>
+        <code>rtPreventDefaults</code> directive</h3>
+    <p>
+        This directive gets a
+        <code>string</code> or array of
+        <code>string</code> with the event names as a parameter.
+    </p>
+    <p>
+        The directive will subscribe to the specified events of the element and will call the event
+        <a target="_blank" href="https://developer.mozilla.org/ru/docs/Web/API/Event/preventDefault">preventDefault</a> method in the handler, preventing performing the default actions for the event.
+    </p>
+    <p>
+        In the example below you can see the link, which does not open page on click since
+        <code>rtPreventDefaults</code> directive configured to prevent default action execution for
+        <code>click</code> event.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-sample-tab>
+            <rt-demo-prevent-defaults></rt-demo-prevent-defaults>
+        </rt-demo-sample-tab>
+        <rt-demo-code-tab url="misc-directives/prevent-defaults/prevent-defaults.component.html">
+        </rt-demo-code-tab>
+        <rt-demo-code-tab url="misc-directives/prevent-defaults/prevent-defaults.component.ts">
+        </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+<section id="select-on-focus">
+    <h3>
+        <code>rtSelectOnFocus</code> directive</h3>
+    <p>
+        This directive is used with the
+        <code>input</code> elements and selects all input text when element gets focused.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-sample-tab>
+            <rt-demo-select-on-focus></rt-demo-select-on-focus>
+        </rt-demo-sample-tab>
+        <rt-demo-code-tab url="misc-directives/select-on-focus/select-on-focus.component.html">
+        </rt-demo-code-tab>
+        <rt-demo-code-tab url="misc-directives/select-on-focus/select-on-focus.component.ts">
+        </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+<section id="focus-on-render">
+    <h3>
+        <code>rtFocusOnRender</code> directive</h3>
+    <p>
+        This directive is some kind of replacement for
+        <code>HTML</code>
+        <a target="_blank" href="http://www.w3schools.com/tags/att_input_autofocus.asp">autofocus</a> attribute, but it works with the dynamic rendering.
+    </p>
+    <p>
+        The
+        <code>input</code> element marked by this directive will be focused automatically right after being rendered.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-sample-tab>
+            <rt-demo-focus-on-render></rt-demo-focus-on-render>
+        </rt-demo-sample-tab>
+        <rt-demo-code-tab url="misc-directives/focus-on-render/focus-on-render.component.html">
+        </rt-demo-code-tab>
+        <rt-demo-code-tab url="misc-directives/focus-on-render/focus-on-render.component.ts">
+        </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+<section>
+    <aside>
+        <h4>Related sections</h4>
+        <p class="text-center clearfix">
+            <a href="#" [routerLink]="['/persistence']" class="btn btn-primary docs-link pull-left">&larr; Persist lists state</a>
+        </p>
+    </aside>
+</section>

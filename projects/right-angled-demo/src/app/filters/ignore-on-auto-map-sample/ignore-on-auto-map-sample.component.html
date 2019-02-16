@@ -1,0 +1,39 @@
+<div>
+    <form>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                    <label>Value of this input would be applied to
+                        <code>autoMappedField</code> property of component when you press "Apply params" button</label>
+                    <input type="text" class="form-control" [(ngModel)]="valueForAutoMappedField" name="valueForAutoMappedField" />
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                    <label>This field doesn't configure
+                        <code>ignoreOnAutoMap</code> property. Value from previous input would be applied to it when you press "Apply params" button.</label>
+                    <input type="text" class="form-control" [(ngModel)]="autoMappedField" name="autoMappedField" />
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                    <label>Value of this input would be applied to
+                        <code>ignoredField</code> property of component when you press "Apply params" button</label>
+                    <input type="text" class="form-control" [(ngModel)]="valueForIgnoredField" name="valueForIgnoredField" />
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                    <label>This field configures
+                        <code>ignoreOnAutoMap</code> property. Value from previous input would be ignored when you press "Apply params" button.</label>
+                    <input type="text" class="form-control" [(ngModel)]="ignoredField" name="ignoredField" />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                    <input (click)="applyParams()" type="submit" class="btn btn-primary" title="Apply params" value="Apply params" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

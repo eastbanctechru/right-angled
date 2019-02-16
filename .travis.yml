@@ -1,19 +1,21 @@
 sudo: required
 dist: trusty
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+    apt:
+        sources:
+            - google-chrome
+        packages:
+            - google-chrome-stable
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+    - sleep 3
+    - npm install @angular/cli -g
+    - npm install
 language: node_js
 node_js:
-  - "6"
+    - '8'
 script:
-  - npm run ci
-after_success: 
-  - npm run coveralls
+    - npm run ci
+after_success:
+    - npm run coveralls

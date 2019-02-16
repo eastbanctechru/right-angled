@@ -1,0 +1,19 @@
+:host /deep/ div {
+    .table {
+        thead {
+            tr {
+                th:nth-child(1) {
+                    width: 20%;
+                }
+
+                th:nth-child(2) {
+                    width: 40%;
+                }
+
+                th:nth-child(3) {
+                    width: 40%;
+                }
+            }
+        }
+    }
+}

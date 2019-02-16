@@ -1,0 +1,64 @@
+<div class="toolbar">
+    <ul>
+        <li>
+            <button (click)="list.reloadData()" [disabled]="list.busy" type="button" class="btn btn-primary">Load data</button>
+        </li>
+        <li>
+            <button (click)="list.cancelRequests()" [disabled]="list.ready" type="button" class="btn btn-primary">Cancel loading</button>
+        </li>
+        <li>
+            <button type="button" class="btn btn-primary" (click)="raiseErrorOnLoad()">Raise error on load</button>
+        </li>
+        <li>
+            <button type="button" class="btn btn-primary" (click)="loadEmptyData()">Load empty list</button>
+        </li>
+    </ul>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped" [rtList]="loadData" [loadOnInit]="false" #list="rtList">
+        <thead>
+            <tr>
+                <th>
+                    <span rtSort="iataCode">IATA</span>
+                </th>
+                <th>
+                    <span rtSort="name">Airport name</span>
+                </th>
+                <th>
+                    <span rtSort="countryName">Country</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let airport of list.items">
+                <td>{{airport.iataCode}}</td>
+                <td>{{airport.name}}</td>
+                <td>{{airport.countryName}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <rt-status-initial>
+                        Nothing happened. Press any button at the top
+                    </rt-status-initial>
+                    <rt-status-progress>
+                        Loading data...
+                    </rt-status-progress>
+                    <rt-status-no-data>
+                        Data not found
+                    </rt-status-no-data>
+                    <rt-status-request-cancelled>
+                        Request cancelled
+                    </rt-status-request-cancelled>
+                    <rt-status-failed>
+                        Data request finished with error
+                    </rt-status-failed>
+                    <rt-status-done>
+                        Data loaded successfully
+                    </rt-status-done>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

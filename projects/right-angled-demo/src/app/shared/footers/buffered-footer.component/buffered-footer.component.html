@@ -1,0 +1,25 @@
+<rt-status-no-data class="text-center">
+    There are no data found
+</rt-status-no-data>
+<rt-status-request-cancelled class="text-center">
+    Data loading was cancelled
+</rt-status-request-cancelled>
+<rt-status-failed class="text-center">
+    An error has occured since the last data loading
+</rt-status-failed>
+<rt-status-initial class="text-center">
+    Enter search options and press "Show" button
+</rt-status-initial>
+<rt-status-progress class="text-center">
+    <rt-demo-progress-bar></rt-demo-progress-bar>
+</rt-status-progress>
+<div>
+    <rt-status-done>
+        <rt-buffered-pager [defaultRowCount]="5" #rtPager>
+            <span>Loaded records {{rtPager.pager.loadedCount}} of {{rtPager.pager.totalCount}}</span>
+            <a tabindex="0" (click)="rtPager.loadMore()" rtPreventDefaults="click" [class.hidden]="!rtPager.canLoadMore" href="#">Show more</a>
+            <input class="form-control" rtSelectOnFocus rtRowCount (keyup.enter)="rtPager.loadMore()" [class.hidden]="!rtPager.canLoadMore"
+                type="text" maxlength="3" title="count of rows to load" />
+        </rt-buffered-pager>
+    </rt-status-done>
+</div>

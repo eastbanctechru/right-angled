@@ -1,0 +1,7 @@
+<div>
+    <label class="checkbox-inline">
+        <input type="checkbox" [(ngModel)]="preventDefaults">I want to break link
+    </label>
+    <br/>
+    <a target="_blank" [rtPreventDefaults]="preventDefaults?'click':null" href="https://github.com/eastbanctechru/right-angled">{{preventDefaults?'link is broken': 'link is fixed'}}</a>
+</div>
