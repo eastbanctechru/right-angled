@@ -1,3 +1,13 @@
+# [8.1.0](https://github.com/eastbanctechru/right-angled/compare/v8.0.0...v8.1.0) (2019-02-16)
+
+
+### Features
+
+* **list:** Small fixes to play well with Angular CDK Virtual Scroll ([09c02f6](https://github.com/eastbanctechru/right-angled/commit/09c02f6)), closes [#104](https://github.com/eastbanctechru/right-angled/issues/104)
+* **package:** Library is now distibuted with support of Angular package format (APF) ([3841562](https://github.com/eastbanctechru/right-angled/commit/3841562))
+
+
+
 # [8.0.0](https://github.com/eastbanctechru/right-angled/compare/v7.1.0...v8.0.0) (2018-12-07)
 
 
