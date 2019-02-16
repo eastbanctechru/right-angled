@@ -1,0 +1,26 @@
+<div style="height: 400px; overflow: auto;" #scrollContainer>
+    <div class="table-responsive">
+        <cdk-virtual-scroll-viewport itemSize="41" style="height: 380px;">
+            <table class="table table-striped" [rtList]="loadData" #list="rtList">
+                <thead>
+                    <tr>
+                        <th class="t-col-iata-code"><span rtSort="iataCode">IATA</span></th>
+                        <th class="t-col-airport-name"><span rtSort="name">Airport name</span></th>
+                        <th class="t-col-city-name"><span rtSort="cityName">City</span></th>
+                        <th class="t-col-country-name"><span rtSort="countryName">Country</span></th>
+                    </tr>
+                </thead>
+                <tbody rtSelectionArea>
+                    <ng-container *cdkVirtualFor="let airport of list.items">
+                        <tr [rtSelectable]="airport">
+                            <td>{{ airport.iataCode }}</td>
+                            <td>{{ airport.name }}</td>
+                            <td>{{ airport.cityName }}</td>
+                            <td>{{ airport.countryName }}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </cdk-virtual-scroll-viewport>
+    </div>
+</div>

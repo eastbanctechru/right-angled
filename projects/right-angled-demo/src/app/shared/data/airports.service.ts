@@ -15,13 +15,13 @@ export class AirportsService {
     private airportsUrl = './assets/airports.json';
     private responseCache: ReplaySubject<AirportsResponse> = new ReplaySubject<AirportsResponse>(1);
     constructor(private http: HttpClient) {}
-    public getAirportsList(request: AirportsListRequest, delayTime: number = 600): Observable<Airport[]> {
+    public getAirportsList(request: AirportsListRequest, delayTime: number = 600, itemsCount: number = 5): Observable<Airport[]> {
         return this.getResponse().pipe(
             delay(delayTime),
             map((response: AirportsResponse) => response.airports),
             map((airports: Airport[]) => this.applyFilters(request, airports)),
             map((airports: Airport[]) => this.applySortings(request, airports)),
-            map((airports: Airport[]) => airports.slice(0, 5)),
+            map((airports: Airport[]) => airports.slice(0, itemsCount)),
             map((airports: Airport[]) => airports.map(airport => ({ ...airport })))
         );
     }

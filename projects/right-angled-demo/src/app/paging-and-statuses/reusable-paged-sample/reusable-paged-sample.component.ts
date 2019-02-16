@@ -7,9 +7,7 @@ import { AirportsPagedListRequest, AirportsService } from '../../shared';
     templateUrl: 'reusable-paged-sample.component.html'
 })
 export class ReusablePagedListSampleComponent {
-    constructor(private airportsService: AirportsService) {
-        this.airportsService = airportsService;
-    }
+    constructor(private airportsService: AirportsService) {}
     public loadData = (requestParams: AirportsPagedListRequest): any => {
         return this.airportsService.getAirportsPagedList(requestParams);
     };

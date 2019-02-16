@@ -11,8 +11,7 @@
         <a href="paging-and-statuses#status-components">Status components</a>
     </li>
     <li>
-        <a href="paging-and-statuses#paged-pager">
-            <code>rt-paged-pager</code> component</a>
+        <a href="paging-and-statuses#paged-pager"> <code>rt-paged-pager</code> component</a>
     </li>
     <li>
         <a href="paging-and-statuses#paged-directives">Additional paged pager directives</a>
@@ -21,8 +20,7 @@
         <a href="paging-and-statuses#reusable-paged-pager">Example of reusable paged pager component</a>
     </li>
     <li>
-        <a href="paging-and-statuses#buffered-pager">
-            <code>rt-buffered-pager</code> component</a>
+        <a href="paging-and-statuses#buffered-pager"> <code>rt-buffered-pager</code> component</a>
     </li>
     <li>
         <a href="paging-and-statuses#buffered-directives">Additional buffered pager directives</a>
@@ -30,91 +28,80 @@
     <li>
         <a href="paging-and-statuses#reusable-buffered-pager">Example of reusable buffered pager component</a>
     </li>
+    <li>
+        <a href="paging-and-statuses#virtual-scroll">Virtual scroll with Angular CDK</a>
+    </li>
 </ul>
 <section id="common-idea">
     <h3>General idea</h3>
     <p>
-        There are several utility components and directives implemented in our library to work with paging, instead of complete pager
-        component. The idea is that you can implement your own pager with markup, styles, and functionality you need.
+        There are several utility components and directives implemented in our library to work with paging, instead of complete pager component. The idea is
+        that you can implement your own pager with markup, styles, and functionality you need.
     </p>
     <p>
         You also can easily implement your own controls. For that you need to inject the
         <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> or
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html">BufferedPager</a> service into constructor and place the developed component elements into the existing component
-        (
-        <code>rt-paged-pager</code> or
-        <code>rt-buffered-pager</code>) in your templates.
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html">BufferedPager</a> service into constructor and place the
+        developed component elements into the existing component ( <code>rt-paged-pager</code> or <code>rt-buffered-pager</code>) in your templates.
     </p>
     <p>
-        In this section we describe all existing components and directives concerned with the paging and displaying list current
-        status. At the end we will construct reusable pager components for the paged and buffered lists, which can be used
-        as a basis for your own ones.
+        In this section we describe all existing components and directives concerned with the paging and displaying list current status. At the end we will
+        construct reusable pager components for the paged and buffered lists, which can be used as a basis for your own ones.
     </p>
 </section>
 <section id="bootstrap">
     <h3>How to bootstrap</h3>
     <p>
         To work with paging functionality you should import the
-        <code>RTListsModule</code> module from
-        <code>right-angled</code> library and add it into your
+        <code>RTListsModule</code> module from <code>right-angled</code> library and add it into your
         <code>AppModule</code>
-        <code>imports</code> array. You can also use
-        <code>RTModule</code> module which includes the functionality of the entire library.
+        <code>imports</code> array. You can also use <code>RTModule</code> module which includes the functionality of the entire library.
     </p>
     <rt-demo-tab-section>
-        <rt-demo-code-tab title="app.module.ts" url="paging-and-statuses/bootstrap/app.module.tsfake">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab title="app.module.ts" url="paging-and-statuses/bootstrap/app.module.tsfake"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
 <section id="status-components">
     <h3>Status components</h3>
     <p>
-        The idea of this component set is quite simple: each of them is a container for the content, which needs to be displayed
-        only when the list is in particular status. All possible list statuses are enumerated in
-        <a target="_blank"
-            href="http://eastbanctechru.github.io/e2e4/enums/operationstatus.html">OperationStatus</a> enum.
+        The idea of this component set is quite simple: each of them is a container for the content, which needs to be displayed only when the list is in
+        particular status. All possible list statuses are enumerated in
+        <a target="_blank" href="http://eastbanctechru.github.io/e2e4/enums/operationstatus.html">OperationStatus</a> enum.
     </p>
     <ul class="bulleted">
+        <li><code>rt-status-initial</code> - displays the nested content if no data requests were executed before.</li>
         <li>
-            <code>rt-status-initial</code> - displays the nested content if no data requests were executed before.</li>
-        <li>
-            <code>rt-status-progress</code> - displays the nested content while the data request is executed. Ideal for displaying a progress bar, for example.</li>
-        <li>
-            <code>rt-status-no-data</code> - displays the nested content after the request is executed and no records are returned.</li>
+            <code>rt-status-progress</code> - displays the nested content while the data request is executed. Ideal for displaying a progress bar, for example.
+        </li>
+        <li><code>rt-status-no-data</code> - displays the nested content after the request is executed and no records are returned.</li>
         <li>
             <code>rt-status-request-cancelled</code> - displays the nested content if the request execution is canceled by the
-            <code>rtList.cancelRequests</code> method call</li>
-        <li>
-            <code>rt-status-failed</code> - displays the nested content if the last request finished with error.</li>
-        <li>
-            <code>rt-status-done</code> - displays the nested content if the last request is performed with no errors and records returned.
+            <code>rtList.cancelRequests</code> method call
         </li>
+        <li><code>rt-status-failed</code> - displays the nested content if the last request finished with error.</li>
+        <li><code>rt-status-done</code> - displays the nested content if the last request is performed with no errors and records returned.</li>
     </ul>
     <p>
         In the example below there is the
-        <code>tfoot</code> element with all of 6 status components used. You can see them all clicking on the corresponding buttons on the
-        toolbar.
+        <code>tfoot</code> element with all of 6 status components used. You can see them all clicking on the corresponding buttons on the toolbar.
     </p>
 
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-status-components></rt-demo-status-components>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="paging-and-statuses/status-components/status-components.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="paging-and-statuses/status-components/status-components.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="paging-and-statuses/status-components/status-components.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="paging-and-statuses/status-components/status-components.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
-
 </section>
 <section id="paged-pager">
-    <h3>
-        <code>rt-paged-pager</code> component</h3>
+    <h3><code>rt-paged-pager</code> component</h3>
     <p>
         First of all, you need to use
-        <code>rt-paged-pager</code> component to implement paging functionality. This component registers itself in the list; therefore, the list gets
-        the paging functionality. Also, it serves as a container for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> service which you can inject when implementing you own paging controls.
+        <code>rt-paged-pager</code> component to implement paging functionality. This component registers itself in the list; therefore, the list gets the
+        paging functionality. Also, it serves as a container for the
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> service which you can inject when implementing
+        you own paging controls.
     </p>
     <p>
         This component has the following methods and properties::
@@ -122,32 +109,32 @@
     <h4>minPageSize = "&lt;number&gt;"</h4>
     <p>
         Specifies the minimum value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. By default it is equal to 1.
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. By default it is
+        equal to 1.
     </p>
     <h4>maxPageSize = "&lt;number&gt;"</h4>
     <p>
         Specifies the maximum possible value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. By default it is equal to 200.
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. By default it is
+        equal to 200.
     </p>
     <h4>defaultPageSize = "&lt;number&gt;"</h4>
     <p>
         Specifies the default value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. By default it is equal to 20.
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. By default it is
+        equal to 20.
     </p>
 
     <aside>
         <p>
             You can change the values of
-            <code>minPageSize</code>,
-            <code>maxPageSize</code> and
-            <code>defaultPageSize</code> properties globally. To do that you need to import
+            <code>minPageSize</code>, <code>maxPageSize</code> and <code>defaultPageSize</code> properties globally. To do that you need to import
             <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> service from the
             <code>right-angled</code> library and use its static
             <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#settings">settings</a> property.
         </p>
         <rt-demo-tab-section>
-            <rt-demo-code-tab title="app.component.ts" url="paging-and-statuses/global-configuration/app.component.paged.ts">
-            </rt-demo-code-tab>
+            <rt-demo-code-tab title="app.component.ts" url="paging-and-statuses/global-configuration/app.component.paged.ts"> </rt-demo-code-tab>
         </rt-demo-tab-section>
     </aside>
     <h4>goToFirstPage</h4>
@@ -169,7 +156,7 @@
     <h4>loadData</h4>
     <p>
         Shorthand for
-        <a [routerLink]="['/list-controls']" [queryParams]="{section: 'list-methods'}">rtList.loadData</a> method.
+        <a [routerLink]="['/list-controls']" [queryParams]="{ section: 'list-methods' }">rtList.loadData</a> method.
     </p>
     <h4>canMoveBackward</h4>
     <p>
@@ -189,22 +176,18 @@
     </p>
     <aside>
         <p>
-            This pager template obviously violates best practices and, of course, it would be better to implement separate button components
-            instead of calling
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> methods right in the template. However, this way makes it much easier to demonstrate the framework
-            possibilities, that is why we chose this approach.
+            This pager template obviously violates best practices and, of course, it would be better to implement separate button components instead of calling
+            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> methods right in the template. However, this
+            way makes it much easier to demonstrate the framework possibilities, that is why we chose this approach.
         </p>
     </aside>
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-reusable-paged-sample></rt-demo-reusable-paged-sample>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="shared/footers/paged-footer.component/paged-footer.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="shared/footers/paged-footer.component/paged-footer.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="shared/footers/paged-footer.component/paged-footer.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="shared/footers/paged-footer.component/paged-footer.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
-
 </section>
 <section id="paged-directives">
     <h3>Additional paged pager directives</h3>
@@ -212,21 +195,20 @@
     <p>
         The
         <code>input</code> element marked by this directive gets the functionality to set value of
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagenumber">PagedPager.pageNumber</a> property. Entered values are limited by several rules. For example, it is not possible
-        to specify the value bigger than the total number of pages in the list.
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagenumber">PagedPager.pageNumber</a> property. Entered values
+        are limited by several rules. For example, it is not possible to specify the value bigger than the total number of pages in the list.
     </p>
     <h4>rtPageSize</h4>
     <p>
         The
         <code>input</code> element marked by this directive gets the functionality to set value of
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. The entered values are limited by several rules. For example, it is not possible
-        to specify the value bigger than
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. The entered values
+        are limited by several rules. For example, it is not possible to specify the value bigger than
         <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#maxpagesize">PagedPager.maxPageSize</a> property.
     </p>
 </section>
 <section id="buffered-pager">
-    <h3>
-        <code>rt-buffered-pager</code> component</h3>
+    <h3><code>rt-buffered-pager</code> component</h3>
     <p>
         The same as in the case with paged pager, everything begins with the component-container, this time it is
         <code>rt-buffered-pager</code>.
@@ -237,29 +219,29 @@
     <h4>minRowCount = "&lt;number&gt;"</h4>
     <p>
         Specifies the minimal value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#takerowcount">BufferedPager.takeRowCount</a> parameter of the pager. By default it is equal to 1.
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#takerowcount">BufferedPager.takeRowCount</a> parameter of the
+        pager. By default it is equal to 1.
     </p>
     <h4>maxRowCount = "&lt;number&gt;"</h4>
     <p>
         Specifies the maximum possible value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#takerowcount">BufferedPager.takeRowCount</a> parameter of the pager. By default it is equal to 200.
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#takerowcount">BufferedPager.takeRowCount</a> parameter of the
+        pager. By default it is equal to 200.
     </p>
     <h4>defaultRowCount = "&lt;number&gt;"</h4>
     <p>
         Specifies the default value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#takerowcount">BufferedPager.takeRowCount</a> property of the list. By default it is equal to 20.
+        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#takerowcount">BufferedPager.takeRowCount</a> property of the
+        list. By default it is equal to 20.
     </p>
     <aside>
         <p>
             The same as with the
-            <code>PagedPager</code>, you can change these properties globally. For that you need to import
-            <code>BufferedPager</code> service from the
-            <code>right-angled</code> library and set up the values of its static
-            <code>settings</code> object.
+            <code>PagedPager</code>, you can change these properties globally. For that you need to import <code>BufferedPager</code> service from the
+            <code>right-angled</code> library and set up the values of its static <code>settings</code> object.
         </p>
         <rt-demo-tab-section>
-            <rt-demo-code-tab title="app.component.ts" url="paging-and-statuses/global-configuration/app.component.buffered.ts">
-            </rt-demo-code-tab>
+            <rt-demo-code-tab title="app.component.ts" url="paging-and-statuses/global-configuration/app.component.buffered.ts"> </rt-demo-code-tab>
         </rt-demo-tab-section>
     </aside>
     <h4>canLoadMore</h4>
@@ -277,33 +259,28 @@
     <h4>rtRowCount</h4>
     <p>
         The
-        <code>input</code> element marked by this directive gets the functionality to set
-        <code>take</code> parameter value. The entered values are limited by some rules. For example, it is not possible to specify the value
-        bigger than
+        <code>input</code> element marked by this directive gets the functionality to set <code>take</code> parameter value. The entered values are limited by
+        some rules. For example, it is not possible to specify the value bigger than
         <a target="_blank" href="http://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#maxrowcount">maxRowCount</a>.
     </p>
     <h4>rtInfinite</h4>
     <p>
-        This directive is used to implement automatic loading of the next chunk of data when scroll position reaches the element
-        marked by this directive.
+        This directive is used to implement automatic loading of the next chunk of data when scroll position reaches the element marked by this directive.
     </p>
     <p>
-        <code>rtInfinite</code> directive has one optional parameter which represents the element to listen
-        <code>scroll</code> event. If such parameter is not specified, directive will listen the
-        <code>window.scroll</code> event.
+        <code>rtInfinite</code> directive has one optional parameter which represents the element to listen <code>scroll</code> event. If such parameter is not
+        specified, directive will listen the <code>window.scroll</code> event.
     </p>
 
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-infinite-sample></rt-demo-infinite-sample>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="paging-and-statuses/infinite-sample/infinite-sample.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="paging-and-statuses/infinite-sample/infinite-sample.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="paging-and-statuses/infinite-sample/infinite-sample.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="paging-and-statuses/infinite-sample/infinite-sample.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
-
 </section>
+
 <section id="reusable-buffered-pager">
     <h3>Example of reusable buffered pager component</h3>
     <p>
@@ -311,21 +288,35 @@
     </p>
     <aside>
         <p>
-            The same as with paged pager, the template violates best practices and it would be better to implement separate components,
-            instead of calling pager methods right in the template. However, this way is easier to demonstrate the possibilities
-            of the framework, that’s why we choose this approach.
+            The same as with paged pager, the template violates best practices and it would be better to implement separate components, instead of calling pager
+            methods right in the template. However, this way is easier to demonstrate the possibilities of the framework, that’s why we choose this approach.
         </p>
     </aside>
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-reusable-buffered-sample></rt-demo-reusable-buffered-sample>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="shared/footers/buffered-footer.component/buffered-footer.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="shared/footers/buffered-footer.component/buffered-footer.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="shared/footers/buffered-footer.component/buffered-footer.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="shared/footers/buffered-footer.component/buffered-footer.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
+
+<section id="virtual-scroll">
+    <h3>Virtual scroll with Angular CDK</h3>
+    <p>
+        You can use <a target="_blank" href="https://material.angular.io/cdk/scrolling/overview#virtual-scrolling">cdkVirtualFor</a> from Angular CDK to
+        implement virtual scroll with <code>right-angled</code> grid.
+    </p>
+
+    <rt-demo-tab-section>
+        <rt-demo-sample-tab>
+            <rt-demo-virtual-scroll-sample></rt-demo-virtual-scroll-sample>
+        </rt-demo-sample-tab>
+        <rt-demo-code-tab url="paging-and-statuses/virtual-scroll-sample/virtual-scroll-sample.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="paging-and-statuses/virtual-scroll-sample/virtual-scroll-sample.component.ts"> </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+
 <section>
     <aside>
         <h4>Related sections</h4>

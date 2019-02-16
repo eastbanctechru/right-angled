@@ -21,9 +21,7 @@ import { AirportsPagedListRequest, AirportsService, LocalStorageStateService, Qu
     templateUrl: 'persistence-sample.component.html'
 })
 export class PersistenceSampleComponent {
-    constructor(private airportsService: AirportsService) {
-        this.airportsService = airportsService;
-    }
+    constructor(private airportsService: AirportsService) {}
     public loadData = (requestParams: AirportsPagedListRequest): any => {
         return this.airportsService.getAirportsPagedList(requestParams);
     };
