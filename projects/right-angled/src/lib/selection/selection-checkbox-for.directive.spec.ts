@@ -82,15 +82,14 @@ describe('rtSelectionCheckboxFor directive', () => {
         expect(selectionService.selectIndex).toHaveBeenCalledWith(0, selectionEventsHelper.multiple);
     });
 
-    it('Handles selected=false by calling selectionService.deselectIndex', () => {
+    it('Handles selected=false by calling selectionService.deselectIndex', async () => {
         fixture.componentInstance.firstElementSelected = true;
         fixture.detectChanges();
-        fixture.whenStable().then(() => {
-            spyOn(selectionService, 'deselectIndex');
-            fixture.componentInstance.firstElementSelected = false;
-            fixture.detectChanges();
-            expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
-        });
+        await fixture.whenStable();
+        spyOn(selectionService, 'deselectIndex');
+        fixture.componentInstance.firstElementSelected = false;
+        fixture.detectChanges();
+        expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
     });
 
     it('Detects selection service selection changes and sets "checked" flag to appropriate value', () => {

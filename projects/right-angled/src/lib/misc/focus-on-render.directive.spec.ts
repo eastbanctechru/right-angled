@@ -18,15 +18,13 @@ describe('rtFocusOnRender directive', () => {
         });
     });
 
-    it('Calls "focus" method on element after content render', done => {
+    it('Calls "focus" method on element after content render', async () => {
         const fixture = TestBed.createComponent(HostComponent);
         const input = fixture.nativeElement.querySelector('input');
         spyOn(input, 'focus');
         fixture.detectChanges();
         expect(input.focus).not.toHaveBeenCalled();
-        fixture.whenStable().then(() => {
-            expect(input.focus).toHaveBeenCalled();
-            done();
-        });
+        await fixture.whenStable();
+        expect(input.focus).toHaveBeenCalled();
     });
 });

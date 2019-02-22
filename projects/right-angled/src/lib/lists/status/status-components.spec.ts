@@ -71,6 +71,7 @@ describe('rt-status-... components', () => {
     it('Coverage stub for else statement in change tracking :)', () => {
         listService.items = [];
         fixture.detectChanges();
+        expect(true).toBeTruthy();
     });
     it('Renders content of rt-status-progress on component init since initial state is OperationStatus.Progress', () => {
         expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
