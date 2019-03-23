@@ -1,7 +1,7 @@
-import { BufferedPager } from 'right-angled';
+import { RTBufferedPager } from 'right-angled';
 
-BufferedPager.settings.defaultRowCount = 10;
-BufferedPager.settings.minRowCount = 5;
-BufferedPager.settings.maxRowCount = 1000;
+RTBufferedPager.settings.defaultRowCount = 10;
+RTBufferedPager.settings.minRowCount = 5;
+RTBufferedPager.settings.maxRowCount = 1000;
 
 export class AppComponent {}

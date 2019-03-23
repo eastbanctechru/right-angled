@@ -3,29 +3,26 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="form-group">
-                    <label>This field doesn't configure
-                        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/filterconfig.html#defaultvalue">defaultValue</a> property. It's default value is
-                        <code>null</code> since it is initial value of this property</label>
+                    <label
+                        >This field doesn't configure <code>defaultValue</code> property. It's default value is <code>null</code> since it is initial value of
+                        this property</label
+                    >
                     <input type="text" class="form-control" [(ngModel)]="defaultField" name="defaultField" />
                 </div>
             </div>
             <div class="col-md-12 col-sm-12">
                 <div class="form-group">
-                    <label>This field configures
-                        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/filterconfig.html#defaultvalue">defaultValue</a> property to "abracadabra" string.</label>
+                    <label>This field configures <code>defaultValue</code> property to "abracadabra" string.</label>
                     <input type="text" class="form-control" [(ngModel)]="configuredField" name="configuredField" />
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="form-group">
-                    <input (click)="serializeRequest()" type="submit" class="btn btn-primary" title="Serialize state" value="Serialize state"
-                    />
+                    <input (click)="serializeRequest()" type="submit" class="btn btn-primary" title="Serialize state" value="Serialize state" />
                     <input (click)="resetSate()" type="submit" class="btn btn-primary" title="Reset state" value="Reset state" />
                 </div>
             </div>
         </div>
     </form>
-    <div>
-        <code>Request json:</code> {{lastRequest|json}}
-    </div>
+    <div><code>Request json:</code> {{ lastRequest | json }}</div>
 </div>

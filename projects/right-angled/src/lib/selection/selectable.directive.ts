@@ -1,7 +1,6 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2, SkipSelf } from '@angular/core';
-import { SelectionElementEventsEmitter } from './providers/selection-element-events-emitter';
-import { RTSelectionEvent } from './providers/selection-event';
 import { RTSelectionEventsHelper } from './providers/selection-events-helper';
+import { RTSelectionEvent, SelectionElementEventsEmitter } from './providers/selection-events-emitter';
 
 @Directive({
     exportAs: 'rtSelectable',
@@ -12,7 +11,6 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
         selectedClassName: 'rt-selected'
     };
     public index: number = null;
-    /* tslint:disable-next-line:no-input-rename */
     @Input('rtSelectable') public item: any = null;
     @Output() public readonly selectedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() public readonly itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();

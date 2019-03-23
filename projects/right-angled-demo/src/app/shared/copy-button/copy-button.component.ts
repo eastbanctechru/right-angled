@@ -1,7 +1,8 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import * as Clipboard from 'clipboard';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-copy-button',
     styleUrls: ['copy-button.component.scss'],
     template: `

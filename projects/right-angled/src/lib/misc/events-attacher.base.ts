@@ -2,32 +2,32 @@ import { ElementRef, OnChanges, OnDestroy, Renderer2, SimpleChange } from '@angu
 
 export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
     public eventNames: string | string[];
-    public eventListeners: any[] = [];
+    public unlisteners: any[] = [];
     constructor(private elementRef: ElementRef, public renderer: Renderer2, public eventListener: (evt: Event) => void) {}
     public ngOnChanges(changes: { eventNames?: SimpleChange }): void {
         if (changes.eventNames) {
-            this.removeListeners();
-            this.addListeners(this.adjustEvents(changes.eventNames.currentValue));
+            this.removeEventListeners();
+            this.addEventListeners(this.adjustEvents(changes.eventNames.currentValue));
         }
     }
     public ngOnDestroy(): void {
-        this.removeListeners();
+        this.removeEventListeners();
     }
     private adjustEvents(eventsNames: string | string[]): string[] {
         return eventsNames ? (Array.isArray(eventsNames) ? eventsNames : [eventsNames]) : [];
     }
-    private removeListeners(): void {
-        this.eventListeners.forEach(listener => {
+    private removeEventListeners(): void {
+        this.unlisteners.forEach(listener => {
             if (typeof listener === 'function') {
                 listener();
             }
         });
-        this.eventListeners = [];
+        this.unlisteners = [];
     }
-    private addListeners(eventNames: string[]): void {
+    private addEventListeners(eventNames: string[]): void {
         if (!eventNames || !eventNames.length) {
             return;
         }
-        this.eventListeners = eventNames.map(eventName => this.renderer.listen(this.elementRef.nativeElement, eventName, this.eventListener));
+        this.unlisteners = eventNames.map(eventName => this.renderer.listen(this.elementRef.nativeElement, eventName, this.eventListener));
     }
 }

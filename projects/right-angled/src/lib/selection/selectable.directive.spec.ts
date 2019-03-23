@@ -1,7 +1,7 @@
 import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MouseButtons } from 'e2e4';
 import { RTSelectionService, RTSelectionEventsHelper, SelectionAreaDirective, SelectableDirective } from './selection.module';
+import { MouseButtons } from './providers/selection-events-helper';
 
 @Component({
     template: `
@@ -23,7 +23,7 @@ describe('rtSelectable directive', () => {
     let selectionService: RTSelectionService;
     let selectionEventsHelper: RTSelectionEventsHelper;
     let selectableElements: DebugElement[];
-    function getEventObject(): any {
+    function getEventObject(): Partial<MouseEvent> {
         return {
             ctrlKey: true,
             preventDefault: () => {
@@ -51,46 +51,50 @@ describe('rtSelectable directive', () => {
         ];
     });
 
-    it('Emits selectedChange event when "selected" property changed', () => {
-        const spy = jasmine.createSpy('spy');
-        selectableElements[0].injector.get(SelectableDirective).selectedChange.subscribe(spy);
+    it('emits `selectedChange` event when `selected` property changed', () => {
+        let eventRaised = false;
+        selectableElements[0].injector.get(SelectableDirective).selectedChange.subscribe(() => (eventRaised = true));
 
         selectionService.selectIndex(0, true);
         fixture.detectChanges();
-        expect(spy).toHaveBeenCalledWith(true);
+
+        expect(eventRaised).toBe(true);
     });
 
-    it('Doesn\'t emits selectedChange event when "selected" setted to the same value', () => {
-        const spy = jasmine.createSpy('spy');
+    it('doesn`t emit `selectedChange` event when `selected` setted to the same value', () => {
+        selectionService.selectIndex(0, true);
+        fixture.detectChanges();
+        let eventRaised = false;
+        selectableElements[0].injector.get(SelectableDirective).selectedChange.subscribe(() => (eventRaised = true));
+
         selectionService.selectIndex(0, true);
         fixture.detectChanges();
 
-        selectableElements[0].injector.get(SelectableDirective).selectedChange.subscribe(spy);
-
-        selectionService.selectIndex(0, true);
-        fixture.detectChanges();
-        expect(spy).not.toHaveBeenCalled();
+        expect(eventRaised).toBe(false);
     });
 
-    it('Handles selected=true by calling selectionService.selectIndex', () => {
-        spyOn(selectionService, 'selectIndex');
+    it('selects first element if `firstElementSelected` input is `true`', () => {
         fixture.componentInstance.firstElementSelected = true;
-        expect(selectionService.selectIndex).not.toHaveBeenCalled();
+        expect(selectionService.isIndexSelected(0)).toBe(false);
+
         fixture.detectChanges();
-        expect(selectionService.selectIndex).toHaveBeenCalledWith(0, selectionEventsHelper.multiple);
+
+        expect(selectionService.isIndexSelected(0)).toBe(true);
     });
 
-    it('Handles selected=false by calling selectionService.deselectIndex', async () => {
+    it('deselects first element if `firstElementSelected` input changed to `false` from `true`', async () => {
         fixture.componentInstance.firstElementSelected = true;
         fixture.detectChanges();
         await fixture.whenStable();
-        spyOn(selectionService, 'deselectIndex');
+
+        expect(selectionService.isIndexSelected(0)).toBe(true);
+
         fixture.componentInstance.firstElementSelected = false;
         fixture.detectChanges();
-        expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
+        expect(selectionService.isIndexSelected(0)).toBe(false);
     });
 
-    it('Handles mouseup event by calling selectionEventsHelper.mouseHandler', () => {
+    it('handles `mouseup` event by calling `selectionEventsHelper.mouseHandler`', () => {
         spyOn(selectionEventsHelper, 'mouseHandler');
         selectableElements[0].triggerEventHandler('mouseup', {
             ctrlKey: true,
@@ -100,7 +104,7 @@ describe('rtSelectable directive', () => {
         expect(selectionEventsHelper.mouseHandler).toHaveBeenCalledWith(true, true, MouseButtons.Left, 0);
     });
 
-    it('Sets selectedClassName property value as the element class when selection changed', () => {
+    it('sets `selectedClassName` value as the element class when selection changed', () => {
         SelectableDirective.settings.selectedClassName = 'custom-class-name';
         selectableElements[0].triggerEventHandler('mouseup', {
             ctrlKey: false,
@@ -108,6 +112,7 @@ describe('rtSelectable directive', () => {
             which: MouseButtons.Left
         });
         expect(selectableElements[0].nativeElement.classList).toContain(SelectableDirective.settings.selectedClassName);
+
         selectableElements[0].triggerEventHandler('mouseup', {
             ctrlKey: false,
             shiftKey: false,
@@ -116,7 +121,7 @@ describe('rtSelectable directive', () => {
         expect(selectableElements[0].nativeElement.classList).not.toContain(SelectableDirective.settings.selectedClassName);
     });
 
-    it('Does not touch element classes if selectedClassName has falsy value', () => {
+    it('does not touch element classes if `selectedClassName` has falsy value', () => {
         SelectableDirective.settings.selectedClassName = '';
         expect(selectableElements[0].nativeElement.classList.value).toEqual('');
         selectableElements[0].triggerEventHandler('mouseup', {
@@ -133,7 +138,7 @@ describe('rtSelectable directive', () => {
         expect(selectableElements[0].nativeElement.classList.value).toEqual('');
     });
 
-    it('Calls event "preventDefault" method if "preventEventsDefaults" option specified and selection handler returns true', () => {
+    it('calls event `preventDefault` method if `preventEventsDefaults` option is specified and selection handler returns `true`', () => {
         selectionEventsHelper.preventEventsDefaults = true;
         fixture.detectChanges();
         const event = getEventObject();
@@ -143,7 +148,7 @@ describe('rtSelectable directive', () => {
         expect(event.preventDefault).toHaveBeenCalled();
     });
 
-    it('Does not call event "preventDefault" method if "preventEventsDefaults" option specified and selection handler returns false', () => {
+    it('does not call event `preventDefault` method if `preventEventsDefaults` option specified and selection handler returns false', () => {
         selectionEventsHelper.preventEventsDefaults = true;
         fixture.detectChanges();
         const event = getEventObject();
@@ -153,7 +158,7 @@ describe('rtSelectable directive', () => {
         expect(event.preventDefault).not.toHaveBeenCalled();
     });
 
-    it('Calls event "stopPropagation" method if "stopEventsPropagation" option specified and selection handler returns true', () => {
+    it('calls event `stopPropagation` method if `stopEventsPropagation` option specified and selection handler returns true', () => {
         selectionEventsHelper.stopEventsPropagation = true;
         fixture.detectChanges();
         const event = getEventObject();
@@ -163,7 +168,7 @@ describe('rtSelectable directive', () => {
         expect(event.stopPropagation).toHaveBeenCalled();
     });
 
-    it('Does not call event "stopPropagation" method if "stopEventsPropagation" option specified and selection handler returns false', () => {
+    it('does not call event `stopPropagation` method if `stopEventsPropagation` option specified and selection handler returns false', () => {
         selectionEventsHelper.stopEventsPropagation = true;
         fixture.detectChanges();
         const event = getEventObject();
@@ -173,7 +178,7 @@ describe('rtSelectable directive', () => {
         expect(event.stopPropagation).not.toHaveBeenCalled();
     });
 
-    it('Calls "clearWindowSelection" method if selection handler returns true', () => {
+    it('calls `clearWindowSelection` method if selection handler returns `true`', () => {
         const selectable = selectableElements[0].injector.get(SelectableDirective);
         const event = getEventObject();
         spyOn(selectionEventsHelper, 'mouseHandler').and.returnValue(true);
@@ -182,7 +187,7 @@ describe('rtSelectable directive', () => {
         expect(selectable.clearWindowSelection).toHaveBeenCalled();
     });
 
-    it('Does not call "clearWindowSelection" method if selection handler returns false', () => {
+    it('does not call `clearWindowSelection` method if selection handler returns `false`', () => {
         const selectable = selectableElements[0].injector.get(SelectableDirective);
         const event = getEventObject();
         spyOn(selectionEventsHelper, 'mouseHandler').and.returnValue(false);

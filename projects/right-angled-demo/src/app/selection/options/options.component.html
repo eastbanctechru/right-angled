@@ -1,26 +1,18 @@
 <div class="row" rtSelectionArea [horizontal]="horizontal" [multiple]="multiple" [toggleOnly]="toggleOnly" [autoSelectFirst]="autoSelectFirst">
     <div class="options">
-        <label class="checkbox-inline">
-            <input type="checkbox" [(ngModel)]="horizontal">horizontal
-        </label>
-        <label class="checkbox-inline">
-            <input type="checkbox" [(ngModel)]="toggleOnly">toggleOnly
-        </label>
-        <label class="checkbox-inline">
-            <input type="checkbox" [(ngModel)]="multiple">multiple
-        </label>
-        <label class="checkbox-inline">
-            <input type="checkbox" [(ngModel)]="autoSelectFirst">autoSelectFirst
-        </label>
+        <label class="checkbox-inline"> <input type="checkbox" [(ngModel)]="horizontal" />horizontal </label>
+        <label class="checkbox-inline"> <input type="checkbox" [(ngModel)]="toggleOnly" />toggleOnly </label>
+        <label class="checkbox-inline"> <input type="checkbox" [(ngModel)]="multiple" />multiple </label>
+        <label class="checkbox-inline"> <input type="checkbox" [(ngModel)]="autoSelectFirst" />autoSelectFirst </label>
         <button type="button" class="btn btn-primary" title="Reload data" (click)="reload()">Reload data</button>
     </div>
 
-    <div class="col-md-3" *ngFor="let country of countries">
+    <div class="col-md-3" *ngFor="let country of (countries$ | async)">
         <div class="item" [rtSelectable]="country">
-            {{country.name}}
+            {{ country.name }}
         </div>
     </div>
     <div class="text-center">
-        <rt-demo-progress-bar *ngIf="!countries.length"></rt-demo-progress-bar>
+        <rt-demo-progress-bar *ngIf="!(countries$ | async).length"></rt-demo-progress-bar>
     </div>
 </div>

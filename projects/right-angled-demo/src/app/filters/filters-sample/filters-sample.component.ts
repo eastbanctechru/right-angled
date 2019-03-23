@@ -1,10 +1,11 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { filter, RTFilterTarget, RTList, RTStateService } from 'right-angled';
 import { Observable } from 'rxjs';
 
 import { AirportsService, ListResponse, LookupItem, QueryStringStateService } from '../../shared';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
             provide: RTFilterTarget,
@@ -16,8 +17,8 @@ import { AirportsService, ListResponse, LookupItem, QueryStringStateService } fr
     templateUrl: 'filters-sample.component.html'
 })
 export class FiltersSampleComponent {
-    public airportSizes: LookupItem[];
-    public airportTypes: LookupItem[];
+    public airportSizes$: Observable<LookupItem[]>;
+    public airportTypes$: Observable<LookupItem[]>;
     public lastRequest: any = '';
 
     @filter() public airportName: string = null;
@@ -26,8 +27,8 @@ export class FiltersSampleComponent {
     @filter() public airportType: string = null;
 
     constructor(private airportsService: AirportsService) {
-        this.airportsService.getAirportSizeLookups().subscribe(sizes => (this.airportSizes = sizes));
-        this.airportsService.getAirportTypeLookups().subscribe(types => (this.airportTypes = types));
+        this.airportSizes$ = this.airportsService.getAirportSizeLookups();
+        this.airportTypes$ = this.airportsService.getAirportTypeLookups();
     }
 
     public getAirports = (request: any): Observable<ListResponse> => {

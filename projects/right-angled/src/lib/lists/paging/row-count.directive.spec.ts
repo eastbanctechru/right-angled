@@ -36,10 +36,6 @@ describe('rtRowCount directive', () => {
         expect(rowCountDirective.innerValue).toEqual(pagerComponent.pager.takeRowCount);
     });
 
-    it('overrides changeTrackingKey to takeRowCountInternal', () => {
-        expect(rowCountDirective.changeTrackingKey).toEqual('takeRowCountInternal');
-    });
-
     it('proxies takeRowCount property to pager.takeRowCount', () => {
         expect(rowCountDirective.value).toEqual(pagerComponent.pager.takeRowCount);
         pagerComponent.pager.totalCount = 100;
@@ -47,11 +43,9 @@ describe('rtRowCount directive', () => {
         expect(rowCountDirective.value).toEqual(pagerComponent.pager.takeRowCount);
     });
 
-    it('sets innerValue to takeRowCount on change detection cycle', () => {
+    it('innerValue reflects `pager.takeRowCount` value', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.takeRowCount = 3;
-        expect(rowCountDirective.innerValue).not.toEqual(pagerComponent.pager.takeRowCount);
-        fixture.detectChanges();
         expect(rowCountDirective.innerValue).toEqual(pagerComponent.pager.takeRowCount);
     });
 

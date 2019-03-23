@@ -12,9 +12,9 @@ import {
     SimpleChange,
     SkipSelf
 } from '@angular/core';
-import { SortDirection, SortingsService, SortParameter } from 'e2e4';
-
 import { RTList } from './providers/list';
+import { RTSortingsService } from './providers/sortings.service';
+import { SortParameter, SortDirection } from '../core/sort-parameter';
 
 @Directive({
     selector: '[rtSort]'
@@ -29,7 +29,6 @@ export class SortDirective implements DoCheck, OnInit, OnChanges {
         sortDescClassName: 'rt-sort-desc',
         sortableClassName: 'rt-sortable'
     };
-    /* tslint:disable-next-line:no-input-rename */
     @Input('rtSort') public fieldName: string;
     @Input() public disableSort: false;
     private nativeEl: HTMLElement;
@@ -37,7 +36,7 @@ export class SortDirective implements DoCheck, OnInit, OnChanges {
 
     constructor(
         @SkipSelf() private listService: RTList,
-        @SkipSelf() private sortingsService: SortingsService,
+        @SkipSelf() private sortingsService: RTSortingsService,
         private renderer: Renderer2,
         el: ElementRef,
         differs: IterableDiffers

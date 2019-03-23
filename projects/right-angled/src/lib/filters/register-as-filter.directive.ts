@@ -1,13 +1,11 @@
 import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
-import { FiltersService } from 'e2e4';
-
+import { RTFiltersService } from './filters.service';
 @Directive({
     selector: '[rtRegisterAsFilter]'
 })
 export class RegisterAsFilterDirective implements OnInit, OnDestroy {
-    /* tslint:disable-next-line:no-input-rename */
     @Input('rtRegisterAsFilter') public filterTarget: any;
-    constructor(public filtersService: FiltersService) {}
+    constructor(public filtersService: RTFiltersService) {}
     public ngOnInit(): void {
         this.filtersService.registerFilterTarget(this.filterTarget);
     }

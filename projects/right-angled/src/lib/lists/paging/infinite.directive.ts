@@ -1,16 +1,14 @@
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, Renderer2, SimpleChange } from '@angular/core';
-import { BufferedPager } from 'e2e4';
-
 import { RTList } from '../providers/list';
+import { RTBufferedPager } from '../providers/buffered-pager';
 
 @Directive({
     selector: '[rtInfinite]'
 })
 export class InfiniteDirective implements OnDestroy, OnChanges {
-    /* tslint:disable-next-line:no-input-rename */
     @Input('rtInfinite') public targetElement: HTMLElement;
     public scrollListener: any;
-    constructor(private elementRef: ElementRef, private bufferedPager: BufferedPager, private list: RTList, private renderer: Renderer2) {}
+    constructor(private elementRef: ElementRef, private bufferedPager: RTBufferedPager, private list: RTList, private renderer: Renderer2) {}
     public ngOnChanges(changes: { targetElement?: SimpleChange }): void {
         if (this.scrollListener) {
             this.scrollListener();

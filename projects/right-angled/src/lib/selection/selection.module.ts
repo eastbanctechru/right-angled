@@ -12,10 +12,8 @@ import { SelectionCheckboxForDirective } from './selection-checkbox-for.directiv
 })
 export class RTSelectionModule {}
 
-export { RTSelectionService } from './providers/selection-service';
-export { SelectionEventsEmitter } from './providers/selection-events-emitter';
-export { SelectionElementEventsEmitter } from './providers/selection-element-events-emitter';
-export { RTSelectionEvent } from './providers/selection-event';
+export { RTSelectionService } from './providers/selection.service';
+export { SelectionElementEventsEmitter, SelectionEventsEmitter, RTSelectionEvent } from './providers/selection-events-emitter';
 export { RTSelectionEventsHelper } from './providers/selection-events-helper';
 export { SelectableDirective } from './selectable.directive';
 export { SelectionAreaDirective } from './selection-area.directive';

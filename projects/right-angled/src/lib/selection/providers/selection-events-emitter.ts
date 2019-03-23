@@ -1,9 +1,15 @@
 import { EventEmitter } from '@angular/core';
 
-import { RTSelectionEvent } from './selection-event';
-
+export interface RTSelectionEvent {
+    item: any;
+    index: number;
+}
 export interface SelectionEventsEmitter {
     itemSelected: EventEmitter<RTSelectionEvent>;
     itemDeselected: EventEmitter<RTSelectionEvent>;
     selectionChanged: EventEmitter<RTSelectionEvent>;
+}
+export interface SelectionElementEventsEmitter extends SelectionEventsEmitter {
+    selected: boolean;
+    postProcessSelection(selected: boolean): void;
 }

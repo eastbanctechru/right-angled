@@ -1,7 +1,7 @@
 <div class="row">
     <div class="tab-body col-lg-10 col-md-12 col-lg-offset-1">
         <ul class="tabs">
-            <li *ngFor="let tab of tabs" (click)="pick(tab)" [class.active]="tab.isActive" [title]="tab.tabTitle">
+            <li *ngFor="let tab of tabs" (click)="pick(tab)" [class.active]="tab.isActive$ | async" [title]="tab.tabTitle">
                 <button class="btn btn-primary">{{ tab.tabTitle }}</button>
             </li>
         </ul>

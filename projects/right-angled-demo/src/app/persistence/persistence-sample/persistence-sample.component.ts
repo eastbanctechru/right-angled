@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RTList, RTStateService } from 'right-angled';
 
 import { AirportsPagedListRequest, AirportsService, LocalStorageStateService, QueryStringStateService, SessionStorageStateService } from '../../shared';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
             provide: RTStateService,

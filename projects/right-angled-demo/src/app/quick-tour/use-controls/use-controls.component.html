@@ -1,10 +1,9 @@
 <div class="table-responsive">
     <form>
         <div class="form-group">
-            <input (click)="list.reloadData()" [disabled]="list.busy" type="submit" class="btn btn-load" title="Load data" />
-            <input (click)="list.cancelRequests()" [disabled]="list.ready" type="button" class="btn btn-cancel" title="Cancel loading"
-            />
-            <button (click)="list.resetSettings()" [disabled]="list.busy" type="button" class="btn btn-reset" title="Reset settings"></button>
+            <input (click)="list.reloadData()" [disabled]="list.busy$ | async" type="submit" class="btn btn-load" title="Load data" />
+            <input (click)="list.cancelRequests()" [disabled]="list.ready$ | async" type="button" class="btn btn-cancel" title="Cancel loading" />
+            <button (click)="list.resetSettings()" [disabled]="list.busy$ | async" type="button" class="btn btn-reset" title="Reset settings"></button>
         </div>
     </form>
     <table class="table table-striped" [rtList]="getAirports" #list="rtList">
@@ -22,10 +21,10 @@
             </tr>
         </thead>
         <tbody rtSelectionArea>
-            <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
-                <td>{{airport.iataCode}}</td>
-                <td>{{airport.name}}</td>
-                <td>{{airport.countryName}}</td>
+            <tr *ngFor="let airport of (list.items$ | async)" [rtSelectable]="airport">
+                <td>{{ airport.iataCode }}</td>
+                <td>{{ airport.name }}</td>
+                <td>{{ airport.countryName }}</td>
             </tr>
         </tbody>
         <tfoot>
@@ -40,7 +39,6 @@
                     <rt-status-request-cancelled>
                         Request was cancelled.
                     </rt-status-request-cancelled>
-
                 </td>
             </tr>
         </tfoot>

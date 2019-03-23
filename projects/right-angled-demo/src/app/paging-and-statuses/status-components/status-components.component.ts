@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ListDirective } from 'right-angled';
 import { map } from 'rxjs/operators';
 
 import { Airport, AirportsListRequest, AirportsService } from '../../shared';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-status-components',
     templateUrl: 'status-components.component.html'
 })

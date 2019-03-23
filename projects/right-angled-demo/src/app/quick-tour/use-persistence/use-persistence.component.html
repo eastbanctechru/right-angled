@@ -15,10 +15,9 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="form-group">
-                    <input (click)="list.reloadData()" [disabled]="list.busy" type="submit" class="btn btn-load" title="Load data" />
-                    <input (click)="list.cancelRequests()" [disabled]="list.ready" type="button" class="btn btn-cancel" title="Cancel loading"
-                    />
-                    <button (click)="list.resetSettings()" [disabled]="list.busy" type="button" class="btn btn-reset" title="Reset settings"></button>
+                    <input (click)="list.reloadData()" [disabled]="list.busy$ | async" type="submit" class="btn btn-load" title="Load data" />
+                    <input (click)="list.cancelRequests()" [disabled]="list.ready$ | async" type="button" class="btn btn-cancel" title="Cancel loading" />
+                    <button (click)="list.resetSettings()" [disabled]="list.busy$ | async" type="button" class="btn btn-reset" title="Reset settings"></button>
                 </div>
             </div>
         </div>
@@ -39,17 +38,16 @@
                 </tr>
             </thead>
             <tbody rtSelectionArea>
-                <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
-                    <td>{{airport.iataCode}}</td>
-                    <td>{{airport.name}}</td>
-                    <td>{{airport.countryName}}</td>
+                <tr *ngFor="let airport of (list.items$ | async)" [rtSelectable]="airport">
+                    <td>{{ airport.iataCode }}</td>
+                    <td>{{ airport.name }}</td>
+                    <td>{{ airport.countryName }}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="3">
-                        <rt-demo-paged-footer>
-                        </rt-demo-paged-footer>
+                        <rt-demo-paged-footer> </rt-demo-paged-footer>
                     </td>
                 </tr>
             </tfoot>

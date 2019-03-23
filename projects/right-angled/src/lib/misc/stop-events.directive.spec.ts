@@ -26,7 +26,7 @@ describe('rtStopEvents directive', () => {
         nativeElement = fixture.debugElement.children[0].nativeElement;
         directive = fixture.debugElement.children[0].injector.get(StopEventsDirective);
     });
-    it('Calls "stopPropagation" method on specified events handlers', () => {
+    it('calls `stopPropagation` method on specified events handlers', () => {
         const event = document.createEvent('MouseEvent');
         event.initEvent('click', false, false);
         spyOn(event, 'stopPropagation');
@@ -34,14 +34,14 @@ describe('rtStopEvents directive', () => {
         expect(event.stopPropagation).toHaveBeenCalled();
     });
 
-    it('Can handle array of event types', () => {
+    it('handles array of event types', () => {
         spyOn(directive.renderer, 'listen');
         fixture.componentInstance.stopEvents = ['click', 'mouseover'];
         fixture.detectChanges();
         expect(directive.renderer.listen).toHaveBeenCalledWith(nativeElement, 'click', directive.eventListener);
         expect(directive.renderer.listen).toHaveBeenCalledWith(nativeElement, 'mouseover', directive.eventListener);
     });
-    it('Can handle illegal objects', () => {
+    it('ignores illegal values of `stopEvents` parameter', () => {
         spyOn(directive.renderer, 'listen');
         fixture.componentInstance.stopEvents = null;
         fixture.detectChanges();
@@ -55,22 +55,22 @@ describe('rtStopEvents directive', () => {
         expect(directive.renderer.listen).toHaveBeenCalledWith(nativeElement, 'click', directive.eventListener);
     });
 
-    it('Detaches handlers from old events on event types change', () => {
-        const spy = jasmine.createSpy('spy');
-        spyOn(directive.renderer, 'listen').and.returnValue(spy);
+    it('detaches listeners from old events on event types change', () => {
+        const unlistenSpy = jasmine.createSpy('spy');
+        spyOn(directive.renderer, 'listen').and.returnValue(unlistenSpy);
         fixture.componentInstance.stopEvents = 'mouseover';
         fixture.detectChanges();
         fixture.componentInstance.stopEvents = 'click';
         fixture.detectChanges();
-        expect(spy).toHaveBeenCalled();
+        expect(unlistenSpy).toHaveBeenCalled();
     });
 
-    it('Detaches handlers on destroy', () => {
-        const spy = jasmine.createSpy('spy');
-        spyOn(directive.renderer, 'listen').and.returnValue(spy);
+    it('detaches listeners on destroy', () => {
+        const unlistenSpy = jasmine.createSpy('spy');
+        spyOn(directive.renderer, 'listen').and.returnValue(unlistenSpy);
         fixture.componentInstance.stopEvents = 'mouseover';
         fixture.detectChanges();
         fixture.destroy();
-        expect(spy).toHaveBeenCalled();
+        expect(unlistenSpy).toHaveBeenCalled();
     });
 });

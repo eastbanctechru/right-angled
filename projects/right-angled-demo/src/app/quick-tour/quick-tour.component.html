@@ -6,7 +6,8 @@
             <a href="quick-tour#project-idea">Project idea</a>
         </li>
         <li>
-            <a href="quick-tour#bootstrap">Installing
+            <a href="quick-tour#bootstrap"
+                >Installing
                 <code>right-angled</code>
             </a>
         </li>
@@ -42,34 +43,29 @@
 <section id="project-idea">
     <h3>Project idea</h3>
     <p>
-        <code>right-angled</code> is the library for constructing functional data tables (aka data lists, data grids). Also, it has very useful selection
-        and filtering models. The main characteristic of this library is unobtrusiveness, which can be seen in the following:
+        <code>right-angled</code> is the library for constructing functional data tables (aka data lists, data grids). Also, it has very useful selection and
+        filtering models. The main characteristic of this library is unobtrusiveness, which can be seen in the following:
     </p>
     <ul class="bulleted">
         <li>
             Instead of large amount of tightly coupled components with dozens of options,
-            <code>right-angled</code> provides the minimal set of directives to decorate your own markup. As a consequence, it's easy to learn, easy
-            to style, easy to customize. Another nice consequence, your templates stay pretty close to regular HTML even
-            for complex, fully fuctional grids.
+            <code>right-angled</code> provides the minimal set of directives to decorate your own markup. As a consequence, it's easy to learn, easy to style,
+            easy to customize. Another nice consequence, your templates stay pretty close to regular HTML even for complex grids.
         </li>
         <li>
             The library is not tied to such frameworks as
-            <a target="_blank" href="https://getbootstrap.com">bootstrap</a> and does not include any css styles. It is 100% up to you how the app will be structured and look.
+            <a target="_blank" href="https://getbootstrap.com">bootstrap</a> and does not include any css styles. It is 100% up to you how the app will be
+            structured and look.
         </li>
         <li>
-            <code>right-angled</code> doesn't produce HTML markup at all. In this way, it has minimal impact on your app. Again, it is 100% up to
-            you how the app will be structured and look.
-        </li>
-        <li>
-            The only dependency of right-angled, except
-            <a target="_blank" href="https://angular.io">angular</a>, is the
-            <a target="_blank" href="https://github.com/eastbanctechru/e2e4">e2e4</a> library created by us. This library implements the functionality for the lists in abstract manner with
-            no dependencies at all.
+            <code>right-angled</code> doesn't produce HTML markup at all. In this way, it has minimal impact on your app. Again, it is 100% up to you how the
+            app will be structured and look.
         </li>
     </ul>
 </section>
 <section id="bootstrap">
-    <h3>Installing
+    <h3>
+        Installing
         <code>right-angled</code>
     </h3>
     <p>
@@ -81,56 +77,44 @@
     </p>
     <p>
         Next, we import the
-        <code>RTModule</code> and add it to
-        <code>AppModule</code> imports array. Also, it is possible to use the functionality part by part. For that there are such modules as
-        <code>RTListsModule</code>,
-        <code>RTSelectionModule</code>,
-        <code>RTFiltersModule</code> and
-        <code>RTMiscModule</code>.
+        <code>RTModule</code> and add it to <code>AppModule</code> imports array. Also, it is possible to use the functionality part by part. For that there are
+        such modules as <code>RTListsModule</code>, <code>RTSelectionModule</code>, <code>RTFiltersModule</code> and <code>RTMiscModule</code>.
     </p>
     <rt-demo-tab-section>
-        <rt-demo-code-tab title="app.module.ts" url="quick-tour/bootstrap/app.module.tsfake">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab title="app.module.ts" url="quick-tour/bootstrap/app.module.tsfake"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
 <section id="use-list">
     <h3>Creating basic list</h3>
     <p>
         Below there is an example of the most basic list component. As you have probably noticed, it is quite simple
-        <code>angular</code> component with the template representing regular
-        <code>HTML</code> markup with the use of
+        <code>angular</code> component with the template representing regular <code>HTML</code> markup with the use of
         <a target="_blank" href="http://getbootstrap.com/">bootstrap</a> library.
     </p>
     <aside>
         <p>
             The use of
-            <code>bootstrap</code> is not necessary, actually. The reason we have used it is just because of its popularity among the software
-            developers, so the sample markup looks familiar to most of you.
+            <code>bootstrap</code> is not necessary, actually. The reason we have used it is just because of its popularity among the software developers, so
+            the sample markup looks familiar to most of you.
         </p>
     </aside>
     <p>
         In order to turn the component into the list, we add
-        <code>rtList</code> directive to the
-        <code>table</code> element. This directive takes one parameter – data request function. This function should return
-        <code>Promise</code>,
-        <code>Observable</code>, or
-        <code>EventEmitter</code> with the resulting data. As in the example below, we inject
-        <code>AirportsService</code> class into our component and use its
-        <code>getAirportsList</code> method.
+        <code>rtList</code> directive to the <code>table</code> element. This directive takes one parameter – data request function. This function should return
+        <code>Promise</code>, <code>Observable</code>, or <code>EventEmitter</code> with the resulting data. As in the example below, we inject
+        <code>AirportsService</code> class into our component and use its <code>getAirportsList</code> method.
     </p>
     <p>
         Also it is possible to request data by using async actions with tools like
         <a href="https://github.com/ngrx/store">ngrx-store</a>. See more details
-        <a href="#" [routerLink]="['/list-controls']" [queryParams]="{section: 'async-actions'}">here</a>.
+        <a href="#" [routerLink]="['/list-controls']" [queryParams]="{ section: 'async-actions' }">here</a>.
     </p>
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-use-list></rt-demo-use-list>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="quick-tour/use-list/use-list.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="quick-tour/use-list/use-list.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-list/use-list.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-list/use-list.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
     <aside>
         <p>
@@ -143,12 +127,11 @@
 <section id="use-sortings">
     <h3>Adding the sorting</h3>
     <p>
-        Our list already sends sortings as request parameters. But we need the way to change them through UI. In the example below,
-        we add
-        <code>rtSort</code> directive into the table headers template to do this. The component code doesn’t require any changes.
-        <code>rtSort</code> directive gets the string with the sorting identifier as a parameter. This identifier will be sent to the server
-        when requesting data. In the most obvious case, it can coincide with the column name. However, remember about
-        <a href="https://en.wikipedia.org/wiki/SQL_injection">sql injection</a> when developing backend!
+        Our list already sends sortings as request parameters. But we need the way to change them through UI. In the example below, we add
+        <code>rtSort</code> directive into the table headers template to do this. The component code doesn’t require any changes. <code>rtSort</code> directive
+        gets the string with the sorting identifier as a parameter. This identifier will be sent to the server when requesting data. In the most obvious case,
+        it can coincide with the column name. However, remember about <a href="https://en.wikipedia.org/wiki/SQL_injection">sql injection</a> when developing
+        backend!
     </p>
     <p>
         In the example below, sorting will be made by click on column headers; holding
@@ -158,11 +141,8 @@
         <rt-demo-sample-tab>
             <rt-demo-use-sortings></rt-demo-use-sortings>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="quick-tour/use-sortings/use-sortings.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="quick-tour/use-sortings/use-sortings.component.ts">
-        </rt-demo-code-tab>
-
+        <rt-demo-code-tab url="quick-tour/use-sortings/use-sortings.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-sortings/use-sortings.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
 <section id="use-statuses">
@@ -173,37 +153,30 @@
     </p>
     <p>
         In the example below we add
-        <code>rt-status-progress</code> component with the
-        <code>div</code> inside which is styled to display progress bar. Additionally, we add
+        <code>rt-status-progress</code> component with the <code>div</code> inside which is styled to display progress bar. Additionally, we add
         <code>rt-status-done</code> component to display notification about successful data loading. The code of our component has not been changed.
     </p>
     <p>
-        The same technique can be used to display specific content when there are errors, or no records loaded and so on. See more
-        details
-        <a href="#" [routerLink]="['/paging-and-statuses']" [queryParams]="{section: 'status-components'}">here</a>.
+        The same technique can be used to display specific content when there are errors, or no records loaded and so on. See more details
+        <a href="#" [routerLink]="['/paging-and-statuses']" [queryParams]="{ section: 'status-components' }">here</a>.
     </p>
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-use-statuses></rt-demo-use-statuses>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="quick-tour/use-statuses/use-statuses.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="quick-tour/use-statuses/use-statuses.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-statuses/use-statuses.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-statuses/use-statuses.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
-
 </section>
 <section id="use-selection">
     <h3>Implementing selection</h3>
     <p>
         In the example below we add
-        <code>rtSelectionArea</code> directive into
-        <code>tbody</code> element specifying it as the selection area.
+        <code>rtSelectionArea</code> directive into <code>tbody</code> element specifying it as the selection area.
     </p>
     <p>
         Then we add
-        <code>rtSelectable</code> directive into
-        <code>tr</code> element specifying, that the row is becoming selectable element.
+        <code>rtSelectable</code> directive into <code>tr</code> element specifying, that the row is becoming selectable element.
     </p>
     <p>
         The component code has not been changed.
@@ -213,78 +186,61 @@
     </p>
     <ul class="bulleted">
         <li>Mouse click selects row.</li>
-        <li>Mouse click with the
-            <code>Ctrl</code> held selects clicked element keeping the previous selections.</li>
-        <li>Mouse click with the
-            <code>Shift</code> held selects the sequence of the elements from the last selected element to the clicked one.</li>
-        <li>Pressing
-            <code>&uarr;</code> key selects the previous element. Or it selects the first element in the list, if nothing is previously selected.
-        </li>
-        <li>Pressing
-            <code>&darr;</code> key selects the next element. Or the first element in the list, if nothing is previously selected.
-        </li>
-        <li>Pressing the combination of
-            <code>Ctrl + &uarr;</code> selects the first element in the list.</li>
-        <li>Pressing the combination of
-            <code>Ctrl + &darr;</code> selects the last element in the list.</li>
-        <li>Pressing the combination of
-            <code>Ctrl + A</code> selects all elements in the list.</li>
-        <li>Pressing
-            <code>Tab</code> and
-            <code>Shift + Tab</code> moves you up or down the list.</li>
+        <li>Mouse click with the <code>Ctrl</code> held selects clicked element keeping the previous selections.</li>
+        <li>Mouse click with the <code>Shift</code> held selects the sequence of the elements from the last selected element to the clicked one.</li>
+        <li>Pressing <code>&uarr;</code> key selects the previous element. Or it selects the first element in the list, if nothing is previously selected.</li>
+        <li>Pressing <code>&darr;</code> key selects the next element. Or the first element in the list, if nothing is previously selected.</li>
+        <li>Pressing the combination of <code>Ctrl + &uarr;</code> selects the first element in the list.</li>
+        <li>Pressing the combination of <code>Ctrl + &darr;</code> selects the last element in the list.</li>
+        <li>Pressing the combination of <code>Ctrl + A</code> selects all elements in the list.</li>
+        <li>Pressing <code>Tab</code> and <code>Shift + Tab</code> moves you up or down the list.</li>
     </ul>
     <p>
-        With the help of the selection it is possible to implement multitude of useful things: displaying master-detail, inline edit,
-        grouped lists, context menus, and so on. And it can be also used without the lists at all. All details are available
-        in the
+        With the help of the selection it is possible to implement multitude of useful things: displaying master-detail, inline edit, grouped lists, context
+        menus, and so on. And it can be also used without the lists at all. All details are available in the
         <a href="#" [routerLink]="['/selection']">working with selection</a> section.
     </p>
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-use-selection></rt-demo-use-selection>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="quick-tour/use-selection/use-selection.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="quick-tour/use-selection/use-selection.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-selection/use-selection.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-selection/use-selection.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
 <section id="use-controls">
     <h3>Adding a couple of useful controls</h3>
     <p>
-        In the example below we add buttons for data loading, canceling requests and resetting list parameters. These buttons use
-        the
-        <a href="#" [routerLink]="['/list-controls']" [queryParams]="{section: 'list-methods'}">additional
-            <code>rtList</code> methods</a> in their
+        In the example below we add buttons for data loading, canceling requests and resetting list parameters. These buttons use the
+        <a href="#" [routerLink]="['/list-controls']" [queryParams]="{ section: 'list-methods' }">additional <code>rtList</code> methods</a> in their
         <code>click</code> event handlers.
     </p>
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-use-controls></rt-demo-use-controls>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="quick-tour/use-controls/use-controls.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="quick-tour/use-controls/use-controls.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-controls/use-controls.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-controls/use-controls.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
 <section id="use-paging">
     <h3>Use paging</h3>
     <p>
-        In the example below we add the second list to the template, which is assigned to the same component. Then we add the paged
-        pager and buffered pager components, described in the
-        <a href="#" [routerLink]="['/paging-and-statuses']" [queryParams]="{section: 'reusable-paged-pager'}">section about the paging</a>, into these two lists
+        In the example below we add the second list to the template, which is assigned to the same component. Then we add the paged pager and buffered pager
+        components, described in the
+        <a href="#" [routerLink]="['/paging-and-statuses']" [queryParams]="{ section: 'reusable-paged-pager' }">section about the paging</a>, into these two
+        lists
     </p>
     <p>
         In brief, there are several utility components and directives in
-        <code>right-angled</code> library, which can be used to construct a reusable and functional pager component. Such a pager can be used for
-        all the lists in your project. This is particularly what we did in the
-        <a href="#" [routerLink]="['/paging-and-statuses']" [queryParams]="{section: 'reusable-paged-pager'}">section about the paging</a> using here its result.
+        <code>right-angled</code> library, which can be used to construct a reusable and functional pager component. Such a pager can be used for all the lists
+        in your project. This is particularly what we did in the
+        <a href="#" [routerLink]="['/paging-and-statuses']" [queryParams]="{ section: 'reusable-paged-pager' }">section about the paging</a> using here its
+        result.
     </p>
     <p>
         We also change the data fetching function from
-        <code>getAirportsList</code> to
-        <code>getAirportsPagedList</code>, in order to get the data with the paged structure.
+        <code>getAirportsList</code> to <code>getAirportsPagedList</code>, in order to get the data with the paged structure.
     </p>
     <p>
         Pay attention to the fact that
@@ -294,30 +250,27 @@
         <rt-demo-sample-tab>
             <rt-demo-use-paging></rt-demo-use-paging>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="quick-tour/use-paging/use-paging.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="quick-tour/use-paging/use-paging.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-paging/use-paging.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-paging/use-paging.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
 <section id="use-filters">
     <h3>Use filters</h3>
     <p>
         In the below example, we add two
-        <code>input</code> elements to filter the data in the list. The template in this case is just regular
-        <code>HTML</code> markup. At the same time, the component code gets some interesting changes.
+        <code>input</code> elements to filter the data in the list. The template in this case is just regular <code>HTML</code> markup. At the same time, the
+        component code gets some interesting changes.
     </p>
     <p>
         First, we annotate the added
-        <code>airportName</code> and
-        <code>countryName</code> properties by the
-        <code>@filter</code> decorator.
+        <code>airportName</code> and <code>countryName</code> properties by the <code>@filter</code> decorator.
     </p>
     <p>
         Second, we register our component as
-        <code>RTFilterTarget</code> in its own
-        <code>providers</code> array (you can read details about this technique
-        <a target="_blank" href="http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html#registering-the-controlvalueaccessor">here</a>).
+        <code>RTFilterTarget</code> in its own <code>providers</code> array (you can read details about this technique
+        <a target="_blank" href="http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html#registering-the-controlvalueaccessor"
+            >here</a
+        >).
     </p>
     <p>
         As a result, we get the following:
@@ -328,21 +281,17 @@
         </li>
         <li>
             When clicking "Reset settings" button, the values of filter properties elements are resetted to default values. For the
-            <code>airportName</code> property it is its initial value that is
-            <code>null</code>. And for the
-            <code>countryName</code> property it is the "Iceland" string specified through the
-            <code>@filter</code> decorator
-            <a href="#" [routerLink]="['/filters']" [queryParams]="{section: 'filter-annotation'}">additional settings</a>
+            <code>airportName</code> property it is its initial value that is <code>null</code>. And for the <code>countryName</code> property it is the
+            "Iceland" string specified through the <code>@filter</code> decorator
+            <a href="#" [routerLink]="['/filters']" [queryParams]="{ section: 'filter-annotation' }">additional settings</a>
         </li>
     </ul>
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-use-filters></rt-demo-use-filters>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="quick-tour/use-filters/use-filters.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="quick-tour/use-filters/use-filters.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-filters/use-filters.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-filters/use-filters.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
 <section id="use-persistence">
@@ -350,95 +299,74 @@
     <p>
         In the example below you can see that we register
         <code>QueryStringStateService</code> service, implemented in
-        <a href="#" [routerLink]="['/persistence']" [queryParams]="{section: 'service-implementations'}">Persist lists state</a> section, as provider in our component metadata.
-
+        <a href="#" [routerLink]="['/persistence']" [queryParams]="{ section: 'service-implementations' }">Persist lists state</a> section, as provider in our
+        component metadata.
     </p>
     <p>
         Now the state of list parameters will be reflected in
-        <code>queryString</code> on every data request. If you change any of the list parameters and reload browser page, the values of the list
-        properties will be restored from
-        <code>queryString</code> parameters.
+        <code>queryString</code> on every data request. If you change any of the list parameters and reload browser page, the values of the list properties will
+        be restored from <code>queryString</code> parameters.
     </p>
     <p>
         We also have used the
-        <code>loadOnInit</code> option of the
-        <code>rtList</code> directive to switch off the automated data loading and not to write anything to
+        <code>loadOnInit</code> option of the <code>rtList</code> directive to switch off the automated data loading and not to write anything to
         <code>queryString</code> before you read this section.
     </p>
     <p>
         Of course, the reflection in
         <code>queryString</code> is not the only way to work with the list state. You can get more details about state persistence in
         <a href="#" [routerLink]="['/persistence']">Persist lists state</a> section.
-
     </p>
     <rt-demo-tab-section>
         <rt-demo-sample-tab>
             <rt-demo-use-persistence></rt-demo-use-persistence>
         </rt-demo-sample-tab>
-        <rt-demo-code-tab url="quick-tour/use-persistence/use-persistence.component.html">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab url="quick-tour/use-persistence/use-persistence.component.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-persistence/use-persistence.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="quick-tour/use-persistence/use-persistence.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
 <section id="airports-service">
     <h3>“Backend” to work with our demo data</h3>
     <p>
         Instead of implementing the fully functional backend, we will use a simple
-        <code>json</code>-file with the data about 99 airports, which we will process in
-        <code>AirportsService</code>.
-
+        <code>json</code>-file with the data about 99 airports, which we will process in <code>AirportsService</code>.
     </p>
     <p>
         To work with the simple lists we have implemented
-        <code>getAirportsList</code> method. This method gets single parameter which implements
-        <code>AirportsListRequest</code> contract and specifies filter and sorting parameters.
+        <code>getAirportsList</code> method. This method gets single parameter which implements <code>AirportsListRequest</code> contract and specifies filter
+        and sorting parameters.
     </p>
     <p>
         This method returns
-        <code>Observable</code> with first five
-        <code>Airport</code> objects from the whole collection, since 99 records is too much and we do not have paging in the several first examples
-        of our quick tour.
+        <code>Observable</code> with first five <code>Airport</code> objects from the whole collection, since 99 records is too much and we do not have paging
+        in the several first examples of our quick tour.
     </p>
     <p>
         To work with paging we have implemented
-        <code>getAirportsPagedList</code> method. This method gets single parameter which implements
-        <code>AirportsPagedListRequest</code> contract.
-        <code>AirportsPagedListRequest</code> extends
-        <code>AirportsListRequest</code> contract and adds two additional properties:
+        <code>getAirportsPagedList</code> method. This method gets single parameter which implements <code>AirportsPagedListRequest</code> contract.
+        <code>AirportsPagedListRequest</code> extends <code>AirportsListRequest</code> contract and adds two additional properties:
     </p>
     <ul>
-        <li>
-            <code>skip</code> property specifies the number of records to skip on next data request.
-        </li>
-        <li>
-            <code>take</code> property specifies the number of records to take on next data request.
-        </li>
+        <li><code>skip</code> property specifies the number of records to skip on next data request.</li>
+        <li><code>take</code> property specifies the number of records to take on next data request.</li>
     </ul>
     <p>
         This method returns the object which implements
-        <code>AirportsListResponse</code> contract. Such object contains array of airports and the
-        <code>totalCount</code> and
-        <code>loadedCount</code> properties, which specify the total number of records regardless paging and number of records loaded as a result
-        of the executed data request.
+        <code>AirportsListResponse</code> contract. Such object contains array of airports and the <code>totalCount</code> and
+        <code>loadedCount</code> properties, which specify the total number of records regardless paging and number of records loaded as a result of the
+        executed data request.
     </p>
     <p>
         You can see below the source code of the mentioned classes and interfaces below.
     </p>
     <rt-demo-tab-section>
-        <rt-demo-code-tab title="airports-list-request.ts" url="shared/data/airports-list-request.ts">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab title="airports-paged-list-request.ts" url="shared/data/airports-paged-list-request.ts">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab title="sort-parameter.ts" url="shared/data/sort-parameter.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab title="airports-list-request.ts" url="shared/data/airports-list-request.ts"> </rt-demo-code-tab>
+        <rt-demo-code-tab title="airports-paged-list-request.ts" url="shared/data/airports-paged-list-request.ts"> </rt-demo-code-tab>
+        <rt-demo-code-tab title="sort-parameter.ts" url="shared/data/sort-parameter.ts"> </rt-demo-code-tab>
 
-        <rt-demo-code-tab title="airport.ts" url="shared/data/airport.ts">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab title="list-response.ts" url="shared/data/list-response.ts">
-        </rt-demo-code-tab>
-        <rt-demo-code-tab title="airports.service.ts" url="shared/data/airports.service.ts">
-        </rt-demo-code-tab>
+        <rt-demo-code-tab title="airport.ts" url="shared/data/airport.ts"> </rt-demo-code-tab>
+        <rt-demo-code-tab title="list-response.ts" url="shared/data/list-response.ts"> </rt-demo-code-tab>
+        <rt-demo-code-tab title="airports.service.ts" url="shared/data/airports.service.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
 <section>

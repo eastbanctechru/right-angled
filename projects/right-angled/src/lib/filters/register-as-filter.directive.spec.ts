@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { filter, FiltersService } from 'e2e4';
-import { RTFiltersService, RegisterAsFilterDirective } from './filters.module';
+import { RTFiltersService, RegisterAsFilterDirective, filter } from './filters.module';
 
 @Component({
     template: `
@@ -24,7 +23,7 @@ class FilterTargetComponent {
     @filter() public filterProperty: string;
 }
 
-describe('rtRegisterAsFiletr directive', () => {
+describe('rtRegisterAsFilter directive', () => {
     let sut: HostComponent;
     let fixture: ComponentFixture<HostComponent>;
     let filtersService: RTFiltersService;
@@ -36,20 +35,20 @@ describe('rtRegisterAsFiletr directive', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [HostComponent, FilterTargetComponent, RegisterAsFilterDirective],
-            providers: [{ provide: FiltersService, useValue: filtersService }]
+            providers: [{ provide: RTFiltersService, useValue: filtersService }]
         });
 
         fixture = TestBed.createComponent(HostComponent);
         sut = fixture.componentInstance;
     });
 
-    it('Registers component as filter target when it is rendered', () => {
+    it('registers component instance as filter target when it is rendered', () => {
         sut.renderFilter = true;
         fixture.detectChanges();
         const targetComponent = fixture.debugElement.query(By.directive(RegisterAsFilterDirective)).componentInstance;
         expect(filtersService.appliedFiltersMap.get(targetComponent)).toBeDefined();
     });
-    it('Unregisters component as filter target when it is not rendered', () => {
+    it('unregisters component instance as filter target when it is not rendered', () => {
         sut.renderFilter = false;
         fixture.detectChanges();
         expect(filtersService.appliedFiltersMap.size).toEqual(0);

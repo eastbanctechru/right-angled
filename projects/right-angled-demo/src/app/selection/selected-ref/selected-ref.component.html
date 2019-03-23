@@ -1,7 +1,7 @@
 <div class="row" rtSelectionArea>
-    <div class="col-md-12" *ngFor="let country of countries" [rtSelectable]="country" #rts="rtSelectable">
+    <div class="col-md-12" *ngFor="let country of (countries$ | async)" [rtSelectable]="country" #rts="rtSelectable">
         <div *ngIf="!rts.selected" class="item">
-            {{country.name}}
+            {{ country.name }}
         </div>
         <div *ngIf="rts.selected" class="item">
             <input class="form-control" type="text" rtStopEvents="mouseup" rtFocusOnRender [(ngModel)]="country.name" name="name" />

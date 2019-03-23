@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <label>Airport type</label>
                     <select class="form-control" [(ngModel)]="airportType" name="airportType">
-                        <option *ngFor="let type of airportTypes" [value]="type.key">{{type.value}}</option>
+                        <option *ngFor="let type of (airportTypes$ | async)" [value]="type.key">{{ type.value }}</option>
                     </select>
                 </div>
             </div>
@@ -25,16 +25,15 @@
                 <div class="form-group">
                     <label>Airport size</label>
                     <select class="form-control" [(ngModel)]="airportSize" name="airportSize">
-                        <option *ngFor="let size of airportSizes" [value]="size.key">{{size.value}}</option>
+                        <option *ngFor="let size of (airportSizes$ | async)" [value]="size.key">{{ size.value }}</option>
                     </select>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="form-group">
-                    <input (click)="list.reloadData()" [disabled]="list.busy" type="submit" class="btn btn-load" title="Load data" />
-                    <input (click)="list.cancelRequests()" [disabled]="list.ready" type="button" class="btn btn-cancel" title="Cancel loading"
-                    />
-                    <button (click)="list.resetSettings()" [disabled]="list.busy" type="button" class="btn btn-reset" title="Reset settings"></button>
+                    <input (click)="list.reloadData()" [disabled]="list.busy$ | async" type="submit" class="btn btn-load" title="Load data" />
+                    <input (click)="list.cancelRequests()" [disabled]="list.ready$ | async" type="button" class="btn btn-cancel" title="Cancel loading" />
+                    <button (click)="list.resetSettings()" [disabled]="list.busy$ | async" type="button" class="btn btn-reset" title="Reset settings"></button>
                 </div>
             </div>
         </div>
@@ -56,22 +55,19 @@
             </thead>
             <tbody rtSelectionArea>
                 <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
-                    <td>{{airport.iataCode}}</td>
-                    <td>{{airport.name}}</td>
-                    <td>{{airport.countryName}}</td>
+                    <td>{{ airport.iataCode }}</td>
+                    <td>{{ airport.name }}</td>
+                    <td>{{ airport.countryName }}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="3">
-                        <rt-demo-paged-footer>
-                        </rt-demo-paged-footer>
+                        <rt-demo-paged-footer> </rt-demo-paged-footer>
                     </td>
                 </tr>
             </tfoot>
         </table>
     </div>
-    <div>
-        <code>Request json:</code> {{lastRequest|json}}
-    </div>
+    <div><code>Request json:</code> {{ lastRequest | json }}</div>
 </div>

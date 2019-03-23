@@ -1,9 +1,9 @@
 import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { PagedPager } from 'e2e4';
 import { from } from 'rxjs';
 import { RTList, ListDirective, PagedPagerComponent } from '../lists.module';
+import { RTPagedPager } from '../providers/paged-pager';
 
 @Component({
     template: `
@@ -26,18 +26,18 @@ class PagedPagerStub {}
 describe('rt-paged-pager component', () => {
     let fixture: ComponentFixture<HostComponent>;
     let pagerElement: DebugElement;
-    let pagerService: PagedPager;
-    let listService: RTList;
+    let pagerService: RTPagedPager;
+    let list: RTList;
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [HostComponent, ListDirective, PagedPagerComponent],
-            providers: [{ provide: PagedPager, useClass: PagedPagerStub }]
+            providers: [{ provide: RTPagedPager, useClass: PagedPagerStub }]
         });
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         pagerElement = fixture.debugElement.query(By.css('rt-paged-pager'));
-        pagerService = pagerElement.injector.get(PagedPager);
-        listService = pagerElement.injector.get(RTList);
+        pagerService = pagerElement.injector.get(RTPagedPager);
+        list = pagerElement.injector.get(RTList);
     });
     it('Acts as DI root for paged pager service', () => {
         expect(pagerService instanceof PagedPagerStub).toBeFalsy();
@@ -94,69 +94,69 @@ describe('rt-paged-pager component', () => {
     });
 
     it('Calls loadData method of RTList on loadData method call', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         (pagerElement.componentInstance as PagedPagerComponent).loadData();
-        expect(listService.loadData).toHaveBeenCalled();
+        expect(list.loadData).toHaveBeenCalled();
     });
 
     it('Calls loadData method of RTList on goToFirstPage methodCall if load is possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 100;
         pagerService.pageNumber = 5;
         expect(pagerService.canMoveBackward).toEqual(true);
         (pagerElement.componentInstance as PagedPagerComponent).goToFirstPage();
-        expect(listService.loadData).toHaveBeenCalled();
+        expect(list.loadData).toHaveBeenCalled();
     });
     it('Does not call loadData method of RTList on goToFirstPage methodCall if load is not possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canMoveBackward).toEqual(false);
         (pagerElement.componentInstance as PagedPagerComponent).goToFirstPage();
-        expect(listService.loadData).not.toHaveBeenCalled();
+        expect(list.loadData).not.toHaveBeenCalled();
     });
     it('Calls loadData method of RTList on goToPreviousPage methodCall if load is possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 100;
         pagerService.pageNumber = 5;
         expect(pagerService.canMoveBackward).toEqual(true);
         (pagerElement.componentInstance as PagedPagerComponent).goToPreviousPage();
-        expect(listService.loadData).toHaveBeenCalled();
+        expect(list.loadData).toHaveBeenCalled();
     });
     it('Does not call loadData method of RTList on goToPreviousPage methodCall if load is not possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canMoveBackward).toEqual(false);
         (pagerElement.componentInstance as PagedPagerComponent).goToPreviousPage();
-        expect(listService.loadData).not.toHaveBeenCalled();
+        expect(list.loadData).not.toHaveBeenCalled();
     });
 
     it('Calls loadData method of RTList on goToLastPage methodCall if load is possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 100;
         expect(pagerService.canMoveForward).toEqual(true);
         (pagerElement.componentInstance as PagedPagerComponent).goToLastPage();
-        expect(listService.loadData).toHaveBeenCalled();
+        expect(list.loadData).toHaveBeenCalled();
     });
     it('Does not call loadData method of RTList on goToLastPage methodCall if load is not possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canMoveForward).toEqual(false);
         (pagerElement.componentInstance as PagedPagerComponent).goToLastPage();
-        expect(listService.loadData).not.toHaveBeenCalled();
+        expect(list.loadData).not.toHaveBeenCalled();
     });
 
     it('Calls loadData method of RTList on goToNextPage methodCall if load is possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 100;
         expect(pagerService.canMoveForward).toEqual(true);
         (pagerElement.componentInstance as PagedPagerComponent).goToNextPage();
-        expect(listService.loadData).toHaveBeenCalled();
+        expect(list.loadData).toHaveBeenCalled();
     });
     it('Does not call loadData method of RTList on goToNextPage methodCall if load is not possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canMoveForward).toEqual(false);
         (pagerElement.componentInstance as PagedPagerComponent).goToNextPage();
-        expect(listService.loadData).not.toHaveBeenCalled();
+        expect(list.loadData).not.toHaveBeenCalled();
     });
 });

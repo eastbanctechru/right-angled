@@ -65,8 +65,7 @@
     <p>
         The
         <code>persistState</code> method will be called by the list on every data loading. This logic works the following way: if user changes any parameters
-        and confirms it by clicking “load” button, we can persist these parameters. For that we call the
-        <a target="_blank" href="http://eastbanctechru.github.io/e2e4/classes/filtersservice.html#getrequeststate">getRequestState</a> method of the passed
+        and confirms it by clicking “load” button, we can persist these parameters. For that we call the <code>getRequestState</code> method of the passed
         <code>filtersService</code> object and use optional delegate to filter resulted state representation by any required condition.
     </p>
     <p>
@@ -80,9 +79,7 @@
     <p>
         Implementation for
         <code>localStorage</code> uses the possibility of the <code>getRequestState</code> method to filter parameters and gets the states of the properties
-        marked by the <code>@filter</code> annotation with the <code>persistable</code> flag (this flag is not a part of the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/filterconfig.html">standard contract</a>, you can add any properties to the
-        <code>@filter</code> annotation parameter).
+        marked by the <code>@filter</code> annotation with the <code>persistable</code> flag.
     </p>
     <p>
         Also this service adds the

@@ -1,6 +1,5 @@
 <div [rtList]="loadData" #list="rtList">
-    <rt-demo-filter-area [list]="list" #filter [rtRegisterAsFilter]="filter">
-    </rt-demo-filter-area>
+    <rt-demo-filter-area [list]="list" #filter [rtRegisterAsFilter]="filter"> </rt-demo-filter-area>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -21,10 +20,10 @@
             </thead>
             <tbody rtSelectionArea>
                 <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
-                    <td>{{airport.iataCode}}</td>
-                    <td>{{airport.name}}</td>
-                    <td>{{airport.cityName}}</td>
-                    <td>{{airport.countryName}}</td>
+                    <td>{{ airport.iataCode }}</td>
+                    <td>{{ airport.name }}</td>
+                    <td>{{ airport.cityName }}</td>
+                    <td>{{ airport.countryName }}</td>
                 </tr>
             </tbody>
             <tfoot>

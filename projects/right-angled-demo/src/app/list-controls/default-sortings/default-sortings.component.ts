@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AirportsPagedListRequest, AirportsService, ListResponse, SortDirection, SortParameter } from '../../shared';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-default-sortings',
     templateUrl: 'default-sortings.component.html'
 })

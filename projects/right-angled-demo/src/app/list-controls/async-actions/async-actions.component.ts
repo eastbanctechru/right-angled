@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { OperationStatus } from 'right-angled';
 import { Observable, Subscriber } from 'rxjs';
 import { AirportsPagedListRequest, AirportsService, ListResponse } from '../../shared';
+import { first } from 'rxjs/operators';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-async-actions',
     templateUrl: 'async-actions.component.html'
 })
@@ -45,10 +47,13 @@ export class AsyncActionsComponent {
     }
 
     public completeRequest(): void {
-        this.airportsService.getAirportsPagedList(this.lastRequestParams, 0).subscribe(response => {
-            this.subscriber.next(response);
-            this.subscriber.complete();
-            this.subscriber = null;
-        });
+        this.airportsService
+            .getAirportsPagedList(this.lastRequestParams, 0)
+            .pipe(first())
+            .subscribe(response => {
+                this.subscriber.next(response);
+                this.subscriber.complete();
+                this.subscriber = null;
+            });
     }
 }

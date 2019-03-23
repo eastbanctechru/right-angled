@@ -15,10 +15,9 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { RTSelectionEvent } from './providers/selection-event';
-import { SelectionEventsEmitter } from './providers/selection-events-emitter';
+import { SelectionEventsEmitter, RTSelectionEvent } from './providers/selection-events-emitter';
 import { RTSelectionEventsHelper } from './providers/selection-events-helper';
-import { RTSelectionService } from './providers/selection-service';
+import { RTSelectionService } from './providers/selection.service';
 import { SelectableDirective } from './selectable.directive';
 import { SelectionCheckboxForDirective } from './selection-checkbox-for.directive';
 

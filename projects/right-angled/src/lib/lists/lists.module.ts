@@ -18,7 +18,8 @@ import { PageNumberDirective } from './paging/page-number.directive';
 import { PageSizeDirective } from './paging/page-size.directive';
 import { PagedPagerComponent } from './paging/paged-pager.component';
 import { RowCountDirective } from './paging/row-count.directive';
-import { LIST_PROVIDERS, RTStateService } from './providers/list';
+import { LIST_PROVIDERS } from './providers/list';
+import { RTStateService } from './providers/state.service';
 
 @NgModule({
     declarations: [
@@ -85,7 +86,10 @@ export class RTListsModule {
     }
 }
 
-export { RTList, RTBufferedPager, RTPagedPager, RTOperationStatus, RTSortingsService, RTFilterTarget } from './providers/list';
+export { RTList, OperationStatusStream, RTFilterTarget } from './providers/list';
+export { RTBufferedPager } from './providers/buffered-pager';
+export { RTPagedPager } from './providers/paged-pager';
+export { RTSortingsService } from './providers/sortings.service';
 export { ListDirective } from './list.directive';
 export { StatusNoDataComponent } from './status/status-no-data.component';
 export { StatusRequestCancelledComponent } from './status/status-request-cancelled.component';
@@ -101,4 +105,5 @@ export { PageNumberDirective } from './paging/page-number.directive';
 export { BufferedPagerComponent } from './paging/buffered-pager.component';
 export { InfiniteDirective } from './paging/infinite.directive';
 export { RowCountDirective } from './paging/row-count.directive';
-export { LIST_PROVIDERS, RTStateService } from './providers/list';
+export { LIST_PROVIDERS } from './providers/list';
+export { RTStateService } from './providers/state.service';

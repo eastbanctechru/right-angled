@@ -1,7 +1,10 @@
 import { AfterViewInit, Directive, EventEmitter, Input, OnChanges, OnDestroy, Output, Self, SimpleChange } from '@angular/core';
-import { ListRequest, ListResponse, SortingsService, SortParameter } from 'e2e4';
 import { Observable, Subscription } from 'rxjs';
 import { LIST_PROVIDERS, RTList } from './providers/list';
+import { ListResponse } from '../core/list-response';
+import { SortParameter } from '../core/sort-parameter';
+import { ListRequest } from '../core/list-request';
+import { RTSortingsService } from './providers/sortings.service';
 
 @Directive({
     exportAs: 'rtList',
@@ -25,6 +28,9 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     public loadOnInit = true;
     @Input()
     public keepRecordsOnLoad = false;
+    public items$: Observable<any[]>;
+    public busy$: Observable<boolean>;
+    public ready$: Observable<boolean>;
     @Input('rtList')
     public set fetchMethod(
         value: (requestParams: ListRequest) => Promise<ListResponse<any>> | Observable<ListResponse<any>> | EventEmitter<ListResponse<any>>
@@ -36,7 +42,7 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     private failSubscription: Subscription;
     private loadStartedSubscription: Subscription;
 
-    constructor(@Self() public listService: RTList, @Self() public sortingsService: SortingsService) {
+    constructor(@Self() public listService: RTList, @Self() public sortingsService: RTSortingsService) {
         this.successSubscription = listService.loadSucceed.subscribe((response: ListResponse<any> | any[]) => {
             this.loadSucceed.emit(response);
         });
@@ -46,6 +52,9 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
         this.loadStartedSubscription = listService.loadStarted.subscribe(() => {
             this.loadStarted.emit();
         });
+        this.items$ = this.listService.items$;
+        this.busy$ = this.listService.busy$;
+        this.ready$ = this.listService.ready$;
     }
     public ngAfterViewInit(): void {
         // We call init in ngAfterViewInit to:

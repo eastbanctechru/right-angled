@@ -1,22 +1,30 @@
 <div class="row" rtSelectionArea>
-    <div class="col-md-12" *ngFor="let region of regions | async">
+    <div class="col-md-12" *ngFor="let region of (regions$ | async)">
         <div class="col-md-12 item">
             <label class="checkbox-inline">
-                <input type="checkbox" [rtSelectionCheckboxFor]="region" [(selected)]="region.selected" /> {{region.name}} ({{region.countries.length}} countries)
+                <input type="checkbox" [rtSelectionCheckboxFor]="region" [(selected)]="region.selected" /> {{ region.name }} ({{
+                    region.countries.length
+                }}
+                countries)
             </label>
         </div>
         <div class="col-md-12" *ngIf="region.selected" rtSelectionArea>
             <div *ngFor="let country of region.countries">
                 <div class="col-md-12 item">
                     <label class="checkbox-inline">
-                        <input type="checkbox" [rtSelectionCheckboxFor]="country" [(selected)]="country.selected" /> {{country.name}} ({{country.airports.length}} airports)
+                        <input type="checkbox" [rtSelectionCheckboxFor]="country" [(selected)]="country.selected" /> {{ country.name }} ({{
+                            country.airports.length
+                        }}
+                        airports)
                     </label>
                 </div>
                 <div class="col-md-12" *ngIf="country.selected" rtSelectionArea>
                     <div *ngFor="let airport of country.airports">
                         <div class="col-md-12 item">
                             <label class="checkbox-inline">
-                                <input type="checkbox" [rtSelectionCheckboxFor]="airport" [(selected)]="airport.selected" /> {{airport.name}} ({{airport.iataCode}})
+                                <input type="checkbox" [rtSelectionCheckboxFor]="airport" [(selected)]="airport.selected" /> {{ airport.name }} ({{
+                                    airport.iataCode
+                                }})
                             </label>
                         </div>
                     </div>

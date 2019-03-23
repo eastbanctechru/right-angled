@@ -2,9 +2,9 @@
     <div class="col-md-12 toolbar">
         <button class="btn btn-primary" title="Get selected items" (click)="displaySelectedItems()">Get selected items</button>
     </div>
-    <div class="col-md-12" *ngFor="let country of countries">
+    <div class="col-md-12" *ngFor="let country of (countries$ | async)">
         <div class="item" [rtSelectable]="country">
-            {{country.name}}
+            {{ country.name }}
         </div>
     </div>
 </div>

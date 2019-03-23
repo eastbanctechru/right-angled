@@ -1,10 +1,10 @@
 <div class="toolbar">
     <ul>
         <li>
-            <button (click)="list.reloadData()" [disabled]="list.busy" type="button" class="btn btn-primary">Load data</button>
+            <button (click)="list.reloadData()" [disabled]="list.busy$ | async" type="button" class="btn btn-primary">Load data</button>
         </li>
         <li>
-            <button (click)="list.cancelRequests()" [disabled]="list.ready" type="button" class="btn btn-primary">Cancel loading</button>
+            <button (click)="list.cancelRequests()" [disabled]="list.ready$ | async" type="button" class="btn btn-primary">Cancel loading</button>
         </li>
         <li>
             <button type="button" class="btn btn-primary" (click)="raiseErrorOnLoad()">Raise error on load</button>
@@ -31,9 +31,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let airport of list.items">
-                <td>{{airport.iataCode}}</td>
-                <td>{{airport.name}}</td>
-                <td>{{airport.countryName}}</td>
+                <td>{{ airport.iataCode }}</td>
+                <td>{{ airport.name }}</td>
+                <td>{{ airport.countryName }}</td>
             </tr>
         </tbody>
         <tfoot>

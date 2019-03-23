@@ -1,7 +1,7 @@
 import { EventEmitter } from '@angular/core';
-import { SelectionTuple } from 'e2e4';
 import * as sinon from 'sinon';
-import { SelectionElementEventsEmitter, RTSelectionEvent, SelectionEventsEmitter, RTSelectionService } from './selection/selection.module';
+import { SelectionElementEventsEmitter, RTSelectionEvent, SelectionEventsEmitter, RTSelectionService } from '../selection.module';
+import { SelectionTuple } from './selection.service';
 
 class StubElementEventsEmitter implements SelectionElementEventsEmitter {
     public itemSelected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
@@ -50,7 +50,7 @@ describe('RTSelectionService', () => {
             deselectSpy3 = spyOn(selectionService.childSelectionServices[2], 'deselectAll');
         });
 
-        it('Calls selectAll method of child services if recursive is true', () => {
+        it('calls `selectAll` method of child services if `recursive` is true', () => {
             selectionService.selectAll();
             clock.tick(100);
             expect(selectSpy1).toHaveBeenCalled();
@@ -58,7 +58,7 @@ describe('RTSelectionService', () => {
             expect(selectSpy3).toHaveBeenCalled();
         });
 
-        it('Does not call selectAll method of child services if recursive is false', () => {
+        it('does not call `selectAll` method of child services if `recursive` is false', () => {
             selectionService.selectAll(false);
             clock.tick(100);
             expect(selectSpy1).not.toHaveBeenCalled();
@@ -66,7 +66,7 @@ describe('RTSelectionService', () => {
             expect(selectSpy3).not.toHaveBeenCalled();
         });
 
-        it('Calls deselectAll method of child services if recursive is true', () => {
+        it('calls `deselectAll` method of child services if `recursive` is true', () => {
             selectionService.deselectAll();
             clock.tick(100);
             expect(deselectSpy1).toHaveBeenCalled();
@@ -74,7 +74,7 @@ describe('RTSelectionService', () => {
             expect(deselectSpy3).toHaveBeenCalled();
         });
 
-        it('Does not call deselectAll method of child services if recursive is false', () => {
+        it('does not call `deselectAll` method of child services if `recursive` is false', () => {
             selectionService.deselectAll(false);
             clock.tick(100);
             expect(deselectSpy1).not.toHaveBeenCalled();
@@ -92,46 +92,46 @@ describe('RTSelectionService', () => {
                 item: {}
             };
         });
-        it('Doesn\'t call "emitEvents" if selected flag value is same as passed', () => {
+        it('doesn`t call `emitEvents` if `selected` flag value is same as passed', () => {
             selectionService.eventEmitters[0].selected = true;
             selectionService.processSelection(tuple, true);
             expect(emitSpy).not.toHaveBeenCalled();
         });
 
-        it('Calls "emitEvents" if selection performed', () => {
+        it('calls `emitEvents` if selection performed', () => {
             selectionService.processSelection(tuple, true);
             expect(emitSpy).toHaveBeenCalled();
         });
 
-        it('Calls "emitEvents" with areaEventsEmitter if it exists', () => {
+        it('calls `emitEvents` with areaEventsEmitter if it exists', () => {
             selectionService.processSelection(tuple, true);
             expect(emitSpy).toHaveBeenCalledWith(selectionService.areaEventsEmitter, true, tuple);
         });
-        it('Doesn\'t call "emitEvents" with areaEventsEmitter if it doesn\'t exists', () => {
+        it('doesn`t call `emitEvents` with areaEventsEmitter if it doesn`t exists', () => {
             selectionService.areaEventsEmitter = null;
             selectionService.processSelection(tuple, true);
             expect(emitSpy).not.toHaveBeenCalledWith(selectionService.areaEventsEmitter, true, tuple);
         });
 
-        it('Calls "emitEvents" with elementEventsEmitter if it exists', () => {
+        it('calls `emitEvents` with elementEventsEmitter if it exists', () => {
             selectionService.processSelection(tuple, true);
             expect(emitSpy).toHaveBeenCalledWith(selectionService.eventEmitters[0], true, tuple);
         });
 
-        it('Doesn\'t call "emitEvents" with elementEventsEmitter if element doesn\'t exists', () => {
+        it('doesn`t call `emitEvents` with elementEventsEmitter if element doesn`t exists', () => {
             tuple.index = 3;
             selectionService.processSelection(tuple, true);
             expect(emitSpy.calls.count()).toEqual(1);
             expect(emitSpy).toHaveBeenCalledWith(selectionService.areaEventsEmitter, true, tuple);
         });
-        it('Calls "elementEventsEmitter.postProcessSelection" on selection', () => {
+        it('calls `elementEventsEmitter.postProcessSelection` on selection', () => {
             const processSpy = spyOn(selectionService.eventEmitters[0], 'postProcessSelection');
             selectionService.processSelection(tuple, true);
             expect(processSpy).toHaveBeenCalledWith(true);
         });
     });
 
-    it('"destroy" method empties "eventEmitters" array and sets "areaEventsEmitter" to null', () => {
+    it('`destroy` method empties `eventEmitters` array and sets `areaEventsEmitter` to null', () => {
         selectionService.destroy();
         expect(selectionService.eventEmitters.length).toBe(0);
         expect(selectionService.areaEventsEmitter).toBeNull();

@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { AirportsService } from '../../shared';
+import { Observable } from 'rxjs';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-select-all',
     templateUrl: 'select-all.component.html'
 })
 export class SelectAllComponent {
-    public regions: any;
+    public regions$: Observable<any[]>;
     constructor(public airportsService: AirportsService) {
-        this.regions = this.airportsService.getRegionsWithCountriesAndAirports();
+        this.regions$ = this.airportsService.getRegionsWithCountriesAndAirports();
     }
 }
