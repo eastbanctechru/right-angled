@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { AirportsService } from '../../shared';
+import { Observable } from 'rxjs';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-service-injection',
     templateUrl: 'service-injection.component.html'
 })
 export class ServiceInjectionComponent {
-    public countries: any[] = new Array<any>();
+    public countries$: Observable<any[]>;
     constructor(public airportsService: AirportsService) {
-        this.airportsService.getSomeCountries().subscribe(countries => (this.countries = countries));
+        this.countries$ = this.airportsService.getSomeCountries();
     }
 }

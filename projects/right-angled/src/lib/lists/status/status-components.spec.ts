@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { OperationStatus } from 'e2e4';
 import {
     StatusRequestCancelledComponent,
     StatusDoneComponent,
@@ -9,8 +8,10 @@ import {
     StatusInitialComponent,
     StatusNoDataComponent,
     RTList,
-    RTOperationStatus
+    OperationStatusStream
 } from '../lists.module';
+import { OperationStatus } from '../../core/operation-status';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
     template: `
@@ -39,14 +40,14 @@ import {
 class HostComponent {}
 
 class ListStub {
-    public status: OperationStatus = OperationStatus.Progress;
+    public status$: Observable<OperationStatus> = new BehaviorSubject(OperationStatus.Progress);
     public items: any[] = null;
 }
 
 describe('rt-status-... components', () => {
     let fixture: ComponentFixture<HostComponent>;
     let nativeElement: HTMLElement;
-    let listService: ListStub;
+    let list: ListStub;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -59,21 +60,21 @@ describe('rt-status-... components', () => {
                 StatusInitialComponent,
                 StatusNoDataComponent
             ],
-            providers: [{ provide: RTList, useClass: ListStub }, { provide: RTOperationStatus, useExisting: RTList }]
+            providers: [{ provide: RTList, useClass: ListStub }, { provide: OperationStatusStream, useExisting: RTList }]
         });
 
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         nativeElement = fixture.nativeElement;
-        listService = fixture.debugElement.injector.get(RTList);
+        list = fixture.debugElement.injector.get(RTList) as ListStub;
     });
 
-    it('Coverage stub for else statement in change tracking :)', () => {
-        listService.items = [];
+    it('сoverage stub for else statement in change tracking :)', () => {
+        list.items = [];
         fixture.detectChanges();
         expect(true).toBeTruthy();
     });
-    it('Renders content of rt-status-progress on component init since initial state is OperationStatus.Progress', () => {
+    it('кenders content of `rt-status-progress` on component init since initial state is `Progress`', () => {
         expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
         expect(nativeElement.querySelector('rt-status-request-cancelled  > span')).toBeNull();
@@ -82,8 +83,8 @@ describe('rt-status-... components', () => {
         expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it('Renders content of rt-status-initial when state is Initial', () => {
-        listService.status = OperationStatus.Initial;
+    it('Renders content of `rt-status-initial` when state is `Initial`', () => {
+        (list.status$ as BehaviorSubject<OperationStatus>).next(OperationStatus.Initial);
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-status-initial > span')).toBeDefined();
         expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
@@ -93,8 +94,8 @@ describe('rt-status-... components', () => {
         expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it('Renders content of rt-status-failed when state is Fail', () => {
-        listService.status = OperationStatus.Fail;
+    it('Renders content of `rt-status-failed` when state is `Fail`', () => {
+        (list.status$ as BehaviorSubject<OperationStatus>).next(OperationStatus.Fail);
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-status-failed > span')).toBeDefined();
@@ -104,8 +105,8 @@ describe('rt-status-... components', () => {
         expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it('Renders content of rt-status-request-cancelled when state is Cancelled', () => {
-        listService.status = OperationStatus.Cancelled;
+    it('Renders content of `rt-status-request-cancelled` when state is `Cancelled`', () => {
+        (list.status$ as BehaviorSubject<OperationStatus>).next(OperationStatus.Cancelled);
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
@@ -115,8 +116,8 @@ describe('rt-status-... components', () => {
         expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it('Renders content of rt-status-no-data when state is NoData', () => {
-        listService.status = OperationStatus.NoData;
+    it('Renders content of `rt-status-no-data` when state is `NoData`', () => {
+        (list.status$ as BehaviorSubject<OperationStatus>).next(OperationStatus.NoData);
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
@@ -126,8 +127,8 @@ describe('rt-status-... components', () => {
         expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it('Renders content of rt-status-progress when state is Progress', () => {
-        listService.status = OperationStatus.Progress;
+    it('Renders content of `rt-status-progress` when state is `Progress`', () => {
+        (list.status$ as BehaviorSubject<OperationStatus>).next(OperationStatus.Progress);
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();
@@ -137,8 +138,8 @@ describe('rt-status-... components', () => {
         expect(nativeElement.querySelector('rt-status-done > span')).toBeNull();
     });
 
-    it('Renders content of rt-status-done when state is Done', () => {
-        listService.status = OperationStatus.Done;
+    it('Renders content of `rt-status-done` when state is `Done`', () => {
+        (list.status$ as BehaviorSubject<OperationStatus>).next(OperationStatus.Done);
         fixture.detectChanges();
         expect(nativeElement.querySelector('rt-status-initial > span')).toBeNull();
         expect(nativeElement.querySelector('rt-status-failed > span')).toBeNull();

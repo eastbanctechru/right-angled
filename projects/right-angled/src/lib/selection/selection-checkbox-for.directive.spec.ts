@@ -37,7 +37,7 @@ describe('rtSelectionCheckboxFor directive', () => {
         ];
     });
 
-    it('Handles change event by calling selectionService.selectIndex with savePrevious flag if checkbox is checked', () => {
+    it('handles change event by calling `selectionService.selectIndex` with `savePrevious` flag if checkbox is checked', () => {
         spyOn(selectionService, 'selectIndex');
         selectionCheckboxes[0].triggerEventHandler('change', { target: { checked: true } });
         expect(selectionService.selectIndex).toHaveBeenCalledWith(0, true);
@@ -45,7 +45,7 @@ describe('rtSelectionCheckboxFor directive', () => {
         expect(selectionService.selectIndex).toHaveBeenCalledWith(1, true);
     });
 
-    it('Handles change event by calling selectionService.deselectIndex if checkbox is unchecked', () => {
+    it('handles change event by calling `selectionService.deselectIndex` if checkbox is unchecked', () => {
         spyOn(selectionService, 'deselectIndex');
         selectionCheckboxes[0].triggerEventHandler('change', { target: { checked: false } });
         expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
@@ -53,7 +53,7 @@ describe('rtSelectionCheckboxFor directive', () => {
         expect(selectionService.deselectIndex).toHaveBeenCalledWith(1);
     });
 
-    it('Emits selectedChange event when checkbox selection changed', () => {
+    it('emits `selectedChange` event when checkbox selection is changed', () => {
         const spy = jasmine.createSpy('spy');
         selectionCheckboxes[0].injector.get(SelectionCheckboxForDirective).selectedChange.subscribe(spy);
 
@@ -62,7 +62,7 @@ describe('rtSelectionCheckboxFor directive', () => {
         expect(spy).toHaveBeenCalledWith(true);
     });
 
-    it('Does not emits selectedChange event when checkbox selection setted to the same value', () => {
+    it('does not emit `selectedChange` event when checkbox selection setted to the same value', () => {
         const spy = jasmine.createSpy('spy');
         selectionService.selectIndex(0, true);
         fixture.detectChanges();
@@ -74,7 +74,7 @@ describe('rtSelectionCheckboxFor directive', () => {
         expect(spy).not.toHaveBeenCalled();
     });
 
-    it('Handles selected=true by calling selectionService.selectIndex', () => {
+    it('handles selected=true by calling `selectionService.selectIndex`', () => {
         spyOn(selectionService, 'selectIndex');
         fixture.componentInstance.firstElementSelected = true;
         expect(selectionService.selectIndex).not.toHaveBeenCalled();
@@ -82,7 +82,7 @@ describe('rtSelectionCheckboxFor directive', () => {
         expect(selectionService.selectIndex).toHaveBeenCalledWith(0, selectionEventsHelper.multiple);
     });
 
-    it('Handles selected=false by calling selectionService.deselectIndex', async () => {
+    it('handles selected=false by calling `selectionService.deselectIndex`', async () => {
         fixture.componentInstance.firstElementSelected = true;
         fixture.detectChanges();
         await fixture.whenStable();
@@ -92,14 +92,11 @@ describe('rtSelectionCheckboxFor directive', () => {
         expect(selectionService.deselectIndex).toHaveBeenCalledWith(0);
     });
 
-    it('Detects selection service selection changes and sets "checked" flag to appropriate value', () => {
+    it('detects selection service selection changes and sets `checked` flag to appropriate value', () => {
         expect(selectionCheckboxes[0].nativeElement.checked).toEqual(false);
         expect(selectionCheckboxes[1].nativeElement.checked).toEqual(false);
         expect(selectionCheckboxes[2].nativeElement.checked).toEqual(false);
         selectionService.selectAll();
-        expect(selectionCheckboxes[0].nativeElement.checked).toEqual(false);
-        expect(selectionCheckboxes[1].nativeElement.checked).toEqual(false);
-        expect(selectionCheckboxes[2].nativeElement.checked).toEqual(false);
         fixture.detectChanges();
         expect(selectionCheckboxes[0].nativeElement.checked).toEqual(true);
         expect(selectionCheckboxes[1].nativeElement.checked).toEqual(true);

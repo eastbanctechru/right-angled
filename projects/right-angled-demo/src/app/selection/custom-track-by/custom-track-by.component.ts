@@ -1,21 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { AirportsService } from '../../shared';
+import { BehaviorSubject } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-custom-track-by',
     templateUrl: 'custom-track-by.component.html'
 })
 export class CustomTrackByComponent {
-    public countries: any = [];
+    public countries$: BehaviorSubject<any[]> = new BehaviorSubject([]);
     constructor(public airportsService: AirportsService) {
         this.reload();
     }
     public reload(): void {
-        this.countries = [];
-        this.airportsService.getSomeCountries(5, 700).subscribe(countries => (this.countries = countries));
+        this.countries$.next([]);
+        this.airportsService
+            .getSomeCountries(5, 700)
+            .pipe(first())
+            .subscribe(countries => this.countries$.next(countries));
     }
-    public trackByName(index: number, country: any): string {
+    public trackByName(_: number, country: any): string {
         return country.name;
     }
 }

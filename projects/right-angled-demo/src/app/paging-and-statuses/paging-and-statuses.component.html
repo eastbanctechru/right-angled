@@ -40,9 +40,8 @@
     </p>
     <p>
         You also can easily implement your own controls. For that you need to inject the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> or
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html">BufferedPager</a> service into constructor and place the
-        developed component elements into the existing component ( <code>rt-paged-pager</code> or <code>rt-buffered-pager</code>) in your templates.
+        <code>RTPagedPager</code> or <code>RTBufferedPager</code> service into constructor and place the developed component elements into the existing
+        component ( <code>rt-paged-pager</code> or <code>rt-buffered-pager</code>) in your templates.
     </p>
     <p>
         In this section we describe all existing components and directives concerned with the paging and displaying list current status. At the end we will
@@ -66,7 +65,7 @@
     <p>
         The idea of this component set is quite simple: each of them is a container for the content, which needs to be displayed only when the list is in
         particular status. All possible list statuses are enumerated in
-        <a target="_blank" href="http://eastbanctechru.github.io/e2e4/enums/operationstatus.html">OperationStatus</a> enum.
+        <code>OperationStatus</code> enum.
     </p>
     <ul class="bulleted">
         <li><code>rt-status-initial</code> - displays the nested content if no data requests were executed before.</li>
@@ -99,9 +98,8 @@
     <p>
         First of all, you need to use
         <code>rt-paged-pager</code> component to implement paging functionality. This component registers itself in the list; therefore, the list gets the
-        paging functionality. Also, it serves as a container for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> service which you can inject when implementing
-        you own paging controls.
+        paging functionality. Also, it serves as a container for the <code>RTPagedPager</code> service which you can inject when implementing you own paging
+        controls.
     </p>
     <p>
         This component has the following methods and properties::
@@ -109,29 +107,24 @@
     <h4>minPageSize = "&lt;number&gt;"</h4>
     <p>
         Specifies the minimum value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. By default it is
-        equal to 1.
+        <code>RTPagedPager.pageSize</code> property. By default it is equal to 1.
     </p>
     <h4>maxPageSize = "&lt;number&gt;"</h4>
     <p>
         Specifies the maximum possible value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. By default it is
-        equal to 200.
+        <code>RTPagedPager.pageSize</code> property. By default it is equal to 200.
     </p>
     <h4>defaultPageSize = "&lt;number&gt;"</h4>
     <p>
         Specifies the default value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. By default it is
-        equal to 20.
+        <code>RTPagedPager.pageSize</code> property. By default it is equal to 20.
     </p>
 
     <aside>
         <p>
             You can change the values of
             <code>minPageSize</code>, <code>maxPageSize</code> and <code>defaultPageSize</code> properties globally. To do that you need to import
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> service from the
-            <code>right-angled</code> library and use its static
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#settings">settings</a> property.
+            <code>RTPagedPager</code> service from the <code>right-angled</code> library and use its static <code>settings</code> property.
         </p>
         <rt-demo-tab-section>
             <rt-demo-code-tab title="app.component.ts" url="paging-and-statuses/global-configuration/app.component.paged.ts"> </rt-demo-code-tab>
@@ -177,8 +170,8 @@
     <aside>
         <p>
             This pager template obviously violates best practices and, of course, it would be better to implement separate button components instead of calling
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html">PagedPager</a> methods right in the template. However, this
-            way makes it much easier to demonstrate the framework possibilities, that is why we chose this approach.
+            <code>RTPagedPager</code> methods right in the template. However, this way makes it much easier to demonstrate the
+            <code>right-angled</code> possibilities, that is why we chose this approach.
         </p>
     </aside>
     <rt-demo-tab-section>
@@ -194,17 +187,14 @@
     <h4>rtPageNumber</h4>
     <p>
         The
-        <code>input</code> element marked by this directive gets the functionality to set value of
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagenumber">PagedPager.pageNumber</a> property. Entered values
+        <code>input</code> element marked by this directive gets the functionality to set value of <code>RTPagedPager.pageNumber</code> property. Entered values
         are limited by several rules. For example, it is not possible to specify the value bigger than the total number of pages in the list.
     </p>
     <h4>rtPageSize</h4>
     <p>
         The
-        <code>input</code> element marked by this directive gets the functionality to set value of
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#pagesize">PagedPager.pageSize</a> property. The entered values
-        are limited by several rules. For example, it is not possible to specify the value bigger than
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/pagedpager.html#maxpagesize">PagedPager.maxPageSize</a> property.
+        <code>input</code> element marked by this directive gets the functionality to set value of <code>RTPagedPager.pageSize</code> property. The entered
+        values are limited by several rules. For example, it is not possible to specify the value bigger than <code>RTPagedPager.maxPageSize</code> property.
     </p>
 </section>
 <section id="buffered-pager">
@@ -219,25 +209,22 @@
     <h4>minRowCount = "&lt;number&gt;"</h4>
     <p>
         Specifies the minimal value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#takerowcount">BufferedPager.takeRowCount</a> parameter of the
-        pager. By default it is equal to 1.
+        <code>RTBufferedPager.takeRowCount</code> parameter of the pager. By default it is equal to 1.
     </p>
     <h4>maxRowCount = "&lt;number&gt;"</h4>
     <p>
         Specifies the maximum possible value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#takerowcount">BufferedPager.takeRowCount</a> parameter of the
-        pager. By default it is equal to 200.
+        <code>RTBufferedPager.takeRowCount</code> parameter of the pager. By default it is equal to 200.
     </p>
     <h4>defaultRowCount = "&lt;number&gt;"</h4>
     <p>
         Specifies the default value for the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#takerowcount">BufferedPager.takeRowCount</a> property of the
-        list. By default it is equal to 20.
+        <code>RTBufferedPager.takeRowCount</code> property of the list. By default it is equal to 20.
     </p>
     <aside>
         <p>
             The same as with the
-            <code>PagedPager</code>, you can change these properties globally. For that you need to import <code>BufferedPager</code> service from the
+            <code>RTPagedPager</code>, you can change these properties globally. For that you need to import <code>RTBufferedPager</code> service from the
             <code>right-angled</code> library and set up the values of its static <code>settings</code> object.
         </p>
         <rt-demo-tab-section>
@@ -260,8 +247,7 @@
     <p>
         The
         <code>input</code> element marked by this directive gets the functionality to set <code>take</code> parameter value. The entered values are limited by
-        some rules. For example, it is not possible to specify the value bigger than
-        <a target="_blank" href="http://eastbanctechru.github.io/e2e4/classes/bufferedpager.html#maxrowcount">maxRowCount</a>.
+        some rules. For example, it is not possible to specify the value bigger than <code>maxRowCount</code>.
     </p>
     <h4>rtInfinite</h4>
     <p>

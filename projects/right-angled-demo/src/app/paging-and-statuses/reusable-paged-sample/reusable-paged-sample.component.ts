@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { AirportsPagedListRequest, AirportsService } from '../../shared';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-reusable-paged-sample',
     templateUrl: 'reusable-paged-sample.component.html'
 })

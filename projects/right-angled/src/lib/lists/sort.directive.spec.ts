@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { OperationStatus, SortingsService } from 'e2e4';
-import { RTSortingsService, SortDirective, RTList } from './lists.module';
+import { SortDirective, RTList } from './lists.module';
+import { OperationStatus } from '../core/operation-status';
+import { RTSortingsService } from './providers/sortings.service';
 
 @Component({
     template: `
@@ -34,7 +35,7 @@ describe('rtSort directive', () => {
         sortingsService = new RTSortingsService();
         TestBed.configureTestingModule({
             declarations: [HostComponent, SortDirective],
-            providers: [{ provide: SortingsService, useValue: sortingsService }, { provide: RTList, useValue: listStub }]
+            providers: [{ provide: RTSortingsService, useValue: sortingsService }, { provide: RTList, useValue: listStub }]
         });
     });
     describe('css manipulations', () => {

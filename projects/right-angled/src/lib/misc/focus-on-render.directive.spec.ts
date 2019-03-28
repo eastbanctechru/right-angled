@@ -18,7 +18,7 @@ describe('rtFocusOnRender directive', () => {
         });
     });
 
-    it('Calls "focus" method on element after content render', async () => {
+    it('calls `focus` method on element after content render', async () => {
         const fixture = TestBed.createComponent(HostComponent);
         const input = fixture.nativeElement.querySelector('input');
         spyOn(input, 'focus');

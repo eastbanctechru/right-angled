@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { Airport } from './airport';
 import { AirportsListRequest } from './airports-list-request';
@@ -9,11 +9,10 @@ import { AirportsResponse } from './airports-response';
 import { ListResponse } from './list-response';
 import { LookupItem } from './lookup-item';
 import { SortDirection, SortParameter } from './sort-parameter';
+import { AirportsJSON } from './airports';
 
 @Injectable()
 export class AirportsService {
-    private airportsUrl = './assets/airports.json';
-    private responseCache: ReplaySubject<AirportsResponse> = new ReplaySubject<AirportsResponse>(1);
     constructor(private http: HttpClient) {}
     public getAirportsList(request: AirportsListRequest, delayTime: number = 600, itemsCount: number = 5): Observable<Airport[]> {
         return this.getResponse().pipe(
@@ -87,21 +86,7 @@ export class AirportsService {
         );
     }
     private getResponse(): Observable<AirportsResponse> {
-        // we use optional "delay" parameter to simulate backend latency
-        // also we "cache" result sunce we get all of the items
-        if (!this.responseCache.observers.length) {
-            this.responseCache.complete();
-            this.responseCache = new ReplaySubject<AirportsResponse>(1);
-            this.http.get(this.airportsUrl).subscribe(
-                (data: AirportsResponse) => {
-                    this.responseCache.next(data);
-                },
-                error => {
-                    this.responseCache.error(error);
-                }
-            );
-        }
-        return this.responseCache;
+        return of(JSON.parse(AirportsJSON));
     }
 
     private applySortings(request: AirportsListRequest, data: Airport[]): Airport[] {

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RTSelectionService } from 'right-angled';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-nested-button',
     template: `
         <button class="btn btn-primary" title="Get selected items" (click)="displaySelectedItems()">

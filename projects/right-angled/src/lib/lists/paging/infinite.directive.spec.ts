@@ -1,8 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { BufferedPager } from 'e2e4';
 import { InfiniteDirective, RTList } from '../lists.module';
+import { RTBufferedPager } from '../providers/buffered-pager';
 
 @Component({
     template: `
@@ -52,13 +52,13 @@ describe('infinite directive', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [ComponentWithHostComponent, InfiniteDirective],
-            providers: [{ provide: BufferedPager, useClass: BufferedPagerStub }, { provide: RTList, useClass: ListStub }]
+            providers: [{ provide: RTBufferedPager, useClass: BufferedPagerStub }, { provide: RTList, useClass: ListStub }]
         });
         fixture = TestBed.createComponent(ComponentWithHostComponent);
         fixture.detectChanges();
         hostElement = fixture.debugElement.children[0].nativeElement;
         rtList = fixture.debugElement.injector.get(RTList);
-        pager = fixture.debugElement.injector.get(BufferedPager);
+        pager = fixture.debugElement.injector.get(RTBufferedPager);
         loadDataSpy = spyOn(rtList, 'loadData');
     });
     it('Doesn\'t call "loadData" method when list is busy in global mode', () => {

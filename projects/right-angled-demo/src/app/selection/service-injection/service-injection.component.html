@@ -2,9 +2,9 @@
     <div class="col-md-12 toolbar">
         <rt-demo-nested-button></rt-demo-nested-button>
     </div>
-    <div class="col-md-12" *ngFor="let country of countries">
+    <div class="col-md-12" *ngFor="let country of (countries$ | async)">
         <div class="item" [rtSelectable]="country">
-            {{country.name}}
+            {{ country.name }}
         </div>
     </div>
 </div>

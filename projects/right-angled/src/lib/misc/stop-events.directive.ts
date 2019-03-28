@@ -6,7 +6,6 @@ import { EventsAttacherBase } from './events-attacher.base';
     selector: '[rtStopEvents]'
 })
 export class StopEventsDirective extends EventsAttacherBase {
-    /* tslint:disable-next-line:no-input-rename */
     @Input('rtStopEvents') public eventNames: string[];
     constructor(elementRef: ElementRef, renderer: Renderer2) {
         super(elementRef, renderer, (evt: Event) => {

@@ -18,7 +18,7 @@ describe('rtSelectOnFocus directive', () => {
         });
     });
 
-    it('Calls "select" method on focus event', () => {
+    it('сalls `select` method of element on focus event', () => {
         const fixture = TestBed.createComponent(HostComponent);
         const input = fixture.nativeElement.querySelector('input');
         fixture.detectChanges();

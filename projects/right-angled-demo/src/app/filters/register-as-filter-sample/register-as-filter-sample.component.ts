@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { AirportsPagedListRequest, AirportsService } from '../../shared';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-register-as-filter-sample',
     templateUrl: 'register-as-filter-sample.component.html'
 })

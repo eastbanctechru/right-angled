@@ -1,5 +1,5 @@
-import { List } from 'right-angled';
+import { RTList } from 'right-angled';
 
-List.settings.keepRecordsOnLoad = true;
+RTList.settings.keepRecordsOnLoad = true;
 
 export class AppComponent {}

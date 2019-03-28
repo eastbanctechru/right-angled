@@ -9,4 +9,5 @@ import { RegisterAsFilterDirective } from './register-as-filter.directive';
 })
 export class RTFiltersModule {}
 export { RegisterAsFilterDirective } from './register-as-filter.directive';
-export { RTFiltersService } from './filters-service';
+export { RTFiltersService } from './filters.service';
+export { filter, DefaultFilterConfig } from './filter.annotation';

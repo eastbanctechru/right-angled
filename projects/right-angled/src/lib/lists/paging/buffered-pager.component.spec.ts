@@ -1,9 +1,9 @@
 import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { BufferedPager } from 'e2e4';
 import { from } from 'rxjs';
 import { RTList, ListDirective, BufferedPagerComponent } from '../lists.module';
+import { RTBufferedPager } from '../providers/buffered-pager';
 
 @Component({
     template: `
@@ -26,18 +26,18 @@ class BufferedPagerStub {}
 describe('rt-buffered-pager component', () => {
     let fixture: ComponentFixture<HostComponent>;
     let pagerElement: DebugElement;
-    let pagerService: BufferedPager;
-    let listService: RTList;
+    let pagerService: RTBufferedPager;
+    let list: RTList;
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [HostComponent, ListDirective, BufferedPagerComponent],
-            providers: [{ provide: BufferedPager, useClass: BufferedPagerStub }]
+            providers: [{ provide: RTBufferedPager, useClass: BufferedPagerStub }]
         });
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();
         pagerElement = fixture.debugElement.query(By.css('rt-buffered-pager'));
-        pagerService = pagerElement.injector.get(BufferedPager);
-        listService = pagerElement.injector.get(RTList);
+        pagerService = pagerElement.injector.get(RTBufferedPager);
+        list = pagerElement.injector.get(RTList);
     });
     it('Acts as DI root for buffered pager service', () => {
         expect(pagerService instanceof BufferedPagerStub).toBeFalsy();
@@ -73,17 +73,17 @@ describe('rt-buffered-pager component', () => {
         expect(pagerElement.componentInstance.canLoadMore).toEqual(true);
     });
     it('Calls loadData method of RTList on loadMore methodCall if load is possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 100;
         expect(pagerService.canLoadMore).toEqual(true);
         (pagerElement.componentInstance as BufferedPagerComponent).loadMore();
-        expect(listService.loadData).toHaveBeenCalled();
+        expect(list.loadData).toHaveBeenCalled();
     });
     it('Does not call loadData method of RTList on loadMore methodCall if load is not possible', () => {
-        spyOn(listService, 'loadData');
+        spyOn(list, 'loadData');
         pagerService.totalCount = 0;
         expect(pagerService.canLoadMore).toEqual(false);
         (pagerElement.componentInstance as BufferedPagerComponent).loadMore();
-        expect(listService.loadData).not.toHaveBeenCalled();
+        expect(list.loadData).not.toHaveBeenCalled();
     });
 });

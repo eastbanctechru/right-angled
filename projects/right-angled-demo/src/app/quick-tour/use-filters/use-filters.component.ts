@@ -1,10 +1,11 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { filter, FilterConfig, RTFilterTarget, RTList } from 'right-angled';
 import { Observable } from 'rxjs';
 
 import { AirportsPagedListRequest, AirportsService, ListResponse } from '../../shared';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
             provide: RTFilterTarget,

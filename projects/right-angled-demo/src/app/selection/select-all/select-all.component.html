@@ -8,28 +8,26 @@
                 <button class="btn btn-primary" title="Deselect all items" (click)="selectionArea.selectionService.deselectAll(false)">Deselect all</button>
             </li>
             <li>
-                <button class="btn btn-primary" title="Select all items recursivelly" (click)="selectionArea.selectionService.selectAll()">Select recursivelly</button>
+                <button class="btn btn-primary" title="Select all items recursivelly" (click)="selectionArea.selectionService.selectAll()">
+                    Select recursivelly
+                </button>
             </li>
             <li>
-                <button class="btn btn-primary" title="Deselect all items recursivelly" (click)="selectionArea.selectionService.deselectAll()">Deselect recursivelly</button>
+                <button class="btn btn-primary" title="Deselect all items recursivelly" (click)="selectionArea.selectionService.deselectAll()">
+                    Deselect recursivelly
+                </button>
             </li>
         </ul>
     </div>
-    <div class="col-md-12" *ngFor="let region of regions | async">
-        <div class="col-md-12 item" [rtSelectable]="region" #rts="rtSelectable">
-            {{region.name}} ({{region.countries.length}} countries)
-        </div>
+    <div class="col-md-12" *ngFor="let region of (regions$ | async)">
+        <div class="col-md-12 item" [rtSelectable]="region" #rts="rtSelectable">{{ region.name }} ({{ region.countries.length }} countries)</div>
 
         <div class="col-md-12" *ngIf="rts.selected" rtSelectionArea>
             <div *ngFor="let country of region.countries">
-                <div class="col-md-12 item" [rtSelectable]="country" #rts="rtSelectable">
-                    {{country.name}} ({{country.airports.length}} airports)
-                </div>
+                <div class="col-md-12 item" [rtSelectable]="country" #rts="rtSelectable">{{ country.name }} ({{ country.airports.length }} airports)</div>
                 <div class="col-md-12" *ngIf="rts.selected" rtSelectionArea>
                     <div *ngFor="let airport of country.airports">
-                        <div class="col-md-12 item" [rtSelectable]="airport" #rts="rtSelectable">
-                            {{airport.name}} ({{airport.iataCode}})
-                        </div>
+                        <div class="col-md-12 item" [rtSelectable]="airport" #rts="rtSelectable">{{ airport.name }} ({{ airport.iataCode }})</div>
                     </div>
                 </div>
             </div>

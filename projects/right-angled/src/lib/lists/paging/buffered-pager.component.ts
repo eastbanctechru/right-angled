@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
-import { BufferedPager } from 'e2e4';
 import { Observable } from 'rxjs';
-import { RTBufferedPager, RTList } from '../providers/list';
+import { RTList } from '../providers/list';
+import { RTBufferedPager } from '../providers/buffered-pager';
 
 @Component({
-    providers: [{ provide: BufferedPager, useClass: RTBufferedPager }],
+    providers: [RTBufferedPager],
     selector: 'rt-buffered-pager',
     template: '<ng-content></ng-content>'
 })
@@ -13,7 +13,7 @@ export class BufferedPagerComponent implements OnChanges, OnInit {
     @Input() public maxRowCount: number = RTBufferedPager.settings.maxRowCount;
     @Input() public minRowCount: number = RTBufferedPager.settings.minRowCount;
 
-    constructor(public pager: BufferedPager, public listService: RTList) {
+    constructor(public pager: RTBufferedPager, public listService: RTList) {
         this.listService.pager = pager;
     }
     public ngOnInit(): void {

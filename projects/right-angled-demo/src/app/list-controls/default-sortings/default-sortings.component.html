@@ -1,10 +1,9 @@
 <div>
     <form>
         <div class="form-group">
-            <input type="submit" class="btn btn-load" title="Load data" (click)="list.reloadData()" [disabled]="list.busy" />
-            <input type="button" class="btn btn-cancel" title="Cancel loading" (click)="list.cancelRequests()" [disabled]="list.ready"
-            />
-            <button type="button" class="btn btn-reset" title="Reset settings" (click)="list.resetSettings()" [disabled]="list.busy"></button>
+            <input type="submit" class="btn btn-load" title="Load data" (click)="list.reloadData()" [disabled]="list.busy$ | async" />
+            <input type="button" class="btn btn-cancel" title="Cancel loading" (click)="list.cancelRequests()" [disabled]="list.ready$ | async" />
+            <button type="button" class="btn btn-reset" title="Reset settings" (click)="list.resetSettings()" [disabled]="list.busy$ | async"></button>
         </div>
     </form>
     <div class="table-responsive">
@@ -24,17 +23,16 @@
             </thead>
             <tbody rtSelectionArea>
                 <tr *ngFor="let airport of list.items" [rtSelectable]="airport">
-                    <td>{{airport.iataCode}}</td>
-                    <td>{{airport.name}}</td>
+                    <td>{{ airport.iataCode }}</td>
+                    <td>{{ airport.name }}</td>
 
-                    <td>{{airport.countryName}}</td>
+                    <td>{{ airport.countryName }}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="3">
-                        <rt-demo-paged-footer>
-                        </rt-demo-paged-footer>
+                        <rt-demo-paged-footer> </rt-demo-paged-footer>
                     </td>
                 </tr>
             </tfoot>

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { filter, FilterConfig, RTFiltersService } from 'right-angled';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [RTFiltersService],
     selector: 'rt-demo-default-value-sample',
     templateUrl: 'default-value-sample.component.html'

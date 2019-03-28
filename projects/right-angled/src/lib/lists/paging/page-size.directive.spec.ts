@@ -36,10 +36,6 @@ describe('rtPageSize directive', () => {
         expect(pageSizeDirective.innerValue).toEqual(pagerComponent.pager.pageSize);
     });
 
-    it('overrides changeTrackingKey to pageSizeInternal', () => {
-        expect(pageSizeDirective.changeTrackingKey).toEqual('pageSizeInternal');
-    });
-
     it('proxies pageSize property to pager.pageSize', () => {
         expect(pageSizeDirective.value).toEqual(pagerComponent.pager.pageSize);
         pagerComponent.pager.totalCount = 100;
@@ -47,11 +43,9 @@ describe('rtPageSize directive', () => {
         expect(pageSizeDirective.value).toEqual(pagerComponent.pager.pageSize);
     });
 
-    it('sets innerValue to pageSize on change detection cycle', () => {
+    it('sets innerValue to pageSize', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageSize = 3;
-        expect(pageSizeDirective.innerValue).not.toEqual(pagerComponent.pager.pageSize);
-        fixture.detectChanges();
         expect(pageSizeDirective.innerValue).toEqual(pagerComponent.pager.pageSize);
     });
 
@@ -88,7 +82,7 @@ describe('rtPageSize directive', () => {
         }, 0);
     });
 
-    it('gets and sets PagedPager.pageSize via "value" property', () => {
+    it('gets and sets RTPagedPager.pageSize via "value" property', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageSize = 3;
         expect(pageSizeDirective.value).toEqual(3);

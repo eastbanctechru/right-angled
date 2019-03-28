@@ -84,23 +84,11 @@
     </p>
     <p>
         To solve this issue we provide the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/index.html#filter">@filter</a> annotation and <code>RTFiltersService</code> service in
-        the <code>right-angled</code> library.
+        <code>@filter</code> annotation and <code>RTFiltersService</code> service in the <code>right-angled</code> library.
     </p>
-    <aside>
-        <p>
-            <code>RTFiltersService</code> service inherits the
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/filtersservice.html">FiltersService</a> from the
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4">e2e4</a> library and has the same contract. If you have a need to inject this
-            service into your components, it is necessary to register <code>RTFiltersService</code> class in the
-            <a target="_blank" href="https://angular.io/docs/ts/latest/api/core/index/Component-decorator.html">providers</a> collection as it is annotated with
-            the <a target="_blank" href="https://angular.io/docs/ts/latest/api/core/index/Injectable-decorator.html">Injectable</a> decorator.
-        </p>
-    </aside>
     <p>
         It is quite simple to use them. First of all, we mark the filter properties of our component by the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/index.html#filter">@filter</a> annotation. If required, we can specify additional
-        parameters described below.
+        <code>@filter</code> annotation. If required, we can specify additional parameters described below.
     </p>
     <p>
         Second, we register our component as
@@ -137,10 +125,10 @@
     <h3>How to bootstrap</h3>
     <p>
         To use filters functionality you just import
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/index.html#filter">@filter</a> annotation and annotate your component properties. If you
-        want to use the filter functionality separately from the lists, you can import <code>RTFiltersService</code> service into your component and configure
-        it as a provider in the <a target="_blank" href="https://angular.io/docs/ts/latest/api/core/index/Component-decorator.html">providers</a> collection of
-        your component declaration.
+        <code>@filter</code> annotation and annotate your component properties. If you want to use the filter functionality separately from the lists, you can
+        import <code>RTFiltersService</code> service into your component and configure it as a provider in the
+        <a target="_blank" href="https://angular.io/docs/ts/latest/api/core/index/Component-decorator.html">providers</a> collection of your component
+        declaration.
     </p>
     <p>
         If you plan to use the
@@ -158,8 +146,7 @@
     <p>
         In order to make the
         <code>RTFiltersService</code> to know about our component as a parameter source and construct filters from its properties, we can register our objects
-        as filters with
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/filtersservice.html#registerfiltertarget">registerFilterTarget</a> directive
+        as filters with <code>registerFilterTarget</code> directive
     </p>
     <p>
         In the first example of this section you could see how we register our component as a filter with the help of
@@ -190,8 +177,7 @@
     <h3><code>@filter</code> annotation options</h3>
     <p>
         When using the
-        <code>@filter</code> annotation, you can specify additional parameters regarding the
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/filterconfig.html">FilterConfig</a> contract. When you use the
+        <code>@filter</code> annotation, you can specify additional parameters regarding the <code>FilterConfig</code> contract. When you use the
         <code>@filter</code> annotation without parameters, this config is created anyway and initialized by the default values we are describing below.
     </p>
     <aside>
@@ -208,8 +194,7 @@
     </p>
     <p>
         The
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/filterconfig.html">FilterConfig</a> object parameters have the following
-        purpose:
+        <code>FilterConfig</code> object parameters have the following purpose:
     </p>
     <section id="parameter-name">
         <h4>parameterName</h4>
@@ -245,9 +230,8 @@
         <h4>defaultValue</h4>
         <p>
             <code>defaultValue</code> - the default value to which the annotated property will be set on “resetSettings” method call. If this parameter is not
-            specified, <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/filtersservice.html">FiltersService</a> will remember the value of
-            annotated property at first use of any of the
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/filtersservice.html">FiltersService</a> methods as a default value.
+            specified, <code>RTFiltersService</code> will remember the value of annotated property at first use of any of the
+            <code>RTFiltersService</code> methods as a default value.
         </p>
         <rt-demo-tab-section>
             <rt-demo-sample-tab>
@@ -260,8 +244,8 @@
     <section id="empty-is-null">
         <h4>emptyIsNull</h4>
         <p>
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/filterconfig.html#emptyisnull">emptyIsNull</a> - means that falsy values
-            should be converted to <code>null</code> when serialized as a request parameter. By default this option is equal to <code>false</code>.
+            <code>emptyIsNull</code> - means that falsy values should be converted to <code>null</code> when serialized as a request parameter. By default this
+            option is equal to <code>false</code>.
         </p>
         <rt-demo-tab-section>
             <rt-demo-sample-tab>
@@ -275,9 +259,8 @@
     <section id="omit-if-null">
         <h4>omitIfNullOrUndefined</h4>
         <p>
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/filterconfig.html#omitifnullorundefined">omitIfNullOrUndefined</a> - means
-            that <code>null</code> and <code>undefined</code> values should be omitted when serialized as a request parameter. By default this option is equal
-            to <code>false</code>.
+            <code>omitIfNullOrUndefined</code> - means that <code>null</code> and <code>undefined</code> values should be omitted when serialized as a request
+            parameter. By default this option is equal to <code>false</code>.
         </p>
         <rt-demo-tab-section>
             <rt-demo-sample-tab>
@@ -291,10 +274,8 @@
     <section id="ignore-on-auto-map">
         <h4>ignoreOnAutoMap</h4>
         <p>
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/filterconfig.html#ignoreonautomap">ignoreOnAutoMap</a> - if this parameter
-            is equal to <code>true</code>, the value will not be applied to the target property by the
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/filtersservice.html#applyparams">applyParams</a> function. By default this
-            parameter is equal to <code>false</code>.
+            <code>ignoreOnAutoMap</code> - if this parameter is equal to <code>true</code>, the value will not be applied to the target property by the
+            <code>applyParams</code> function. By default this parameter is equal to <code>false</code>.
         </p>
         <rt-demo-tab-section>
             <rt-demo-sample-tab>
@@ -308,7 +289,7 @@
         <h4>parseFormatter</h4>
         <p>
             <code>parseFormatter(rawValue: Object, allValues?: Object)</code> - custom function, which can be used to perform custom parse logic of the values
-            on <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/filtersservice.html#applyparams">applyParams</a> function execution.
+            on <code>applyParams</code> function execution.
         </p>
     </section>
     <section id="serialize-formatter">
@@ -319,11 +300,9 @@
         <aside>
             <p>
                 When serializing parameters,
-                <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/filtersservice.html">FiltersService</a> also checks the target properties
-                for having <code>toRequest</code> method. If such method exists,
-                <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/filtersservice.html">FiltersService</a> calls it and uses the result as a
-                parameter value. It allows to implement reusable serialization logic instead of copy-pasting it in the
-                <code>serializeFormatter</code> parameter, in case if the same class is used as a filter many times.
+                <code>RTFiltersService</code> also checks the target properties for having <code>toRequest</code> method. If such method exists,
+                <code>RTFiltersService</code> calls it and uses the result as a parameter value. It allows to implement reusable serialization logic instead of
+                copy-pasting it in the <code>serializeFormatter</code> parameter, in case if the same class is used as a filter many times.
             </p>
         </aside>
     </section>
@@ -332,8 +311,7 @@
     <h4>Global configuration of <code>@filter</code> annotation options</h4>
     <p>
         If you want to change default values of described properties globally, you can import
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/index.html#defaultfilterconfig">DefaultFilterConfig</a> object and setting up it
-        properties.
+        <code>DefaultFilterConfig</code> object and setting up it properties.
     </p>
     <rt-demo-tab-section>
         <rt-demo-code-tab title="app.component.ts" url="filters/global-configuration/app.component.ts"> </rt-demo-code-tab>

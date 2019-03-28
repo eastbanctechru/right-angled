@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Tab } from './tab-base';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-tab-section',
     styleUrls: ['tab-section.component.scss'],
     templateUrl: 'tab-section.component.html'

@@ -35,15 +35,10 @@ describe('rtPageNumber directive', () => {
     it('sets innerValue to pageNumber value on component init', () => {
         expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
     });
-    it('overrides changeTrackingKey to pageNumberInternal', () => {
-        expect(pageNumberDirective.changeTrackingKey).toEqual('pageNumberInternal');
-    });
 
-    it('sets innerValue to pageNumber on change detection cycle', () => {
+    it('sets innerValue to pageNumber', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageNumber = 3;
-        expect(pageNumberDirective.innerValue).not.toEqual(pagerComponent.pager.pageNumber);
-        fixture.detectChanges();
         expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
     });
 
@@ -80,7 +75,7 @@ describe('rtPageNumber directive', () => {
         }, 0);
     });
 
-    it('gets and sets PagedPager.pageNumber via "value" property', () => {
+    it('gets and sets RTPagedPager.pageNumber via "value" property', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageNumber = 3;
         expect(pageNumberDirective.value).toEqual(3);

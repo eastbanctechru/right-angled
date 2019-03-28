@@ -1,31 +1,33 @@
-<div class="item" [class.selected]="selected">
-    {{country.name}}
+<div class="item" [class.selected]="selected$ | async">
+    {{ country.name }}
 </div>
-<div *ngIf="selected" rtStopEvents="mouseup">
-    <div class="text-center">
-        <rt-demo-progress-bar *ngIf="loading"></rt-demo-progress-bar>
-    </div>
-    <div *ngIf="!loading">
+<div *ngIf="(selected$ | async)" rtStopEvents="mouseup">
+    <ng-template #progress>
+        <div class="text-center">
+            <rt-demo-progress-bar></rt-demo-progress-bar>
+        </div>
+    </ng-template>
+    <div *ngIf="(ready$ | async); else progress">
         <form>
             <div class="form-group">
                 <label for="name">Country name</label>
-                <input class="form-control" name="name" placeholder="Country name" type="text" [(ngModel)]="countryInfo.name">
+                <input class="form-control" name="name" placeholder="Country name" type="text" [(ngModel)]="countryInfo.name" />
             </div>
             <div class="form-group">
                 <label for="nativeName">Native name</label>
-                <input class="form-control" name="nativeName" placeholder="Native name" type="text" [(ngModel)]="countryInfo.nativeName">
+                <input class="form-control" name="nativeName" placeholder="Native name" type="text" [(ngModel)]="countryInfo.nativeName" />
             </div>
             <div class="form-group">
                 <label for="population">Population</label>
-                <input class="form-control" name="population" placeholder="Population" type="text" [(ngModel)]="countryInfo.population">
+                <input class="form-control" name="population" placeholder="Population" type="text" [(ngModel)]="countryInfo.population" />
             </div>
             <div class="form-group">
                 <label for="alpha2Code">Alpha2 code</label>
-                <input class="form-control" name="alpha2Code" placeholder="Alpha2 code" type="text" [(ngModel)]="countryInfo.alpha2Code">
+                <input class="form-control" name="alpha2Code" placeholder="Alpha2 code" type="text" [(ngModel)]="countryInfo.alpha2Code" />
             </div>
             <div class="form-group">
                 <label for="alpha3Code">Alpha3 code</label>
-                <input class="form-control" name="alpha3Code" placeholder="Alpha3 code" type="text" [(ngModel)]="countryInfo.alpha3Code">
+                <input class="form-control" name="alpha3Code" placeholder="Alpha3 code" type="text" [(ngModel)]="countryInfo.alpha3Code" />
             </div>
         </form>
     </div>

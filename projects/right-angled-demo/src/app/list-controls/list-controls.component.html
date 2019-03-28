@@ -58,17 +58,15 @@
     <h3>General idea</h3>
     <p>
         The work with the lists begins with the
-        <code>rtList</code> directive. It represents a root container for the <code>angular dependency injection</code> and configures the services for the
+        <code>rtList</code> directive. It represents a root container for the <code>angular</code> dependency injection and configures the services for the
         nested components (paging components, sorting directives and so on).
     </p>
     <p>
-        At minimum, this directive needs the method for getting data, which will be called by the
-        <code>RTList</code> service.
+        At minimum, this directive requires the method for getting data.
     </p>
     <p>
         This method should get one parameter implementing
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listrequest.html">ListRequest</a> contract for the simple lists and
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/pagedlistrequest.html">PagedListRequest</a> one for the paged lists.
+        <code>ListRequest</code> contract for the flat lists and <code>PagedListRequest</code> one for the paged lists.
     </p>
     <p>
         If you configure any filters (we described it in the
@@ -78,16 +76,13 @@
     <p>
         The return value of this method should be
         <code>Observable</code>, <code>Promise</code>, or <code>EventEmitter</code>. For the simple lists the response should contain array with the records. As
-        for the paged ones, it should implement
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html">ListResponse</a> contract.
+        for the paged ones, it should implement <code>ListResponse</code> contract.
     </p>
     <aside>
         <p>
             For the simple list, response also can implement
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html">ListResponse</a> contract. In this case the
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html#totalcount">totalCount</a> and
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html#loadedcount">loadedCount</a> fields should be equal to
-            the length of the entire array with data.
+            <code>ListResponse</code> contract. In this case the <code>totalCount</code> and <code>loadedCount</code> fields should be equal to the length of
+            the entire array with data.
         </p>
     </aside>
 </section>
@@ -95,9 +90,8 @@
     <h3>How to bootstrap</h3>
     <p>
         To work with the lists you should import the
-        <code>RTListsModule</code> module from <code>right-angled</code> library and add it into your
-        <code>AppModule</code>
-        <code>imports</code> array. You can also use <code>RTModule</code> module which includes the functionality of the entire library.
+        <code>RTListsModule</code> module from <code>right-angled</code> library and add it into your <code>AppModule imports</code> array. You can also use
+        <code>RTModule</code> module which includes the functionality of the entire library.
     </p>
     <rt-demo-tab-section>
         <rt-demo-code-tab title="app.module.ts" url="list-controls/bootstrap/app.module.tsfake"> </rt-demo-code-tab>
@@ -122,7 +116,7 @@
         </p>
         <p>
             This parameter takes the array of objects which implements
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/sortparameter.html">SortParameter</a> contract.
+            <code>SortParameter</code> contract.
         </p>
         <p>
             If the list has not been sorted at the moment of specifying the sortings, these sortings will be applied as current ones.
@@ -155,9 +149,8 @@
         <aside>
             <p>
                 You can change the value of
-                <code>keepRecordsOnLoad</code> property globally. To do that you need to import
-                <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/list.html">List</a> service from the <code>right-angled</code> library
-                and use its static <a target="_blank" href="https://eastbanctechru.github.io/e2e4/classes/list.html#settings">settings</a> property.
+                <code>keepRecordsOnLoad</code> property globally. To do that you need to import <code>RTList</code> service from the
+                <code>right-angled</code> library and use its static <code>settings</code> property.
             </p>
             <rt-demo-tab-section>
                 <rt-demo-code-tab title="app.component.ts" url="list-controls/global-configuration/app.component.ts"> </rt-demo-code-tab>
@@ -176,11 +169,11 @@
             <li><code>cancelRequests(): void</code> cancels the request executed at the moment.</li>
             <li><code>resetSettings(): void</code> resets the list parameters (sortings, paging, filters) to their default values.</li>
             <li><code>busy</code> property returns <code>true</code>, if there is a data request executed at the moment.</li>
+            <li><code>busy$</code> async implementation of <code>busy</code></li>
             <li><code>ready</code> property returns <code>true</code>, if there is no data request executed at the moment.</li>
-            <li>
-                <code>items</code> property returns the array of elements transferred in the property of the
-                <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html#items">ListResponse.items</a> object.
-            </li>
+            <li><code>ready$</code> async implementation of <code>ready</code></li>
+            <li><code>items</code> property returns the array of elements transferred in the property of the <code>ListResponse.items</code> object.</li>
+            <li><code>items$</code> async implementation of <code>items</code></li>
         </ul>
         <p>
             Below you can see the example with 4 buttons implemented using the mentioned methods and properties.
@@ -197,7 +190,7 @@
         <p>
             If you want to execute any custom logic for the list elements when destroying the records (e.g., on list reload, page changing, entire list
             destroy), you can implement the
-            <code>destroy</code> method in the element class and this method will be called by the <code>RTList</code> service on items destroy.
+            <code>destroy</code> method in the element class and this method will be called on items destroy.
         </p>
     </section>
     <section id="list-init">
@@ -248,7 +241,7 @@
     <h3><code>rtSort</code> directive</h3>
     <p>
         This directive is used to specify the list sortings. As a parameter this directive gets the sorting identifier, which will be applied to
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listrequest.html#sortings">ListRequest.sortings</a> array.
+        <code>ListRequest.sortings</code> array.
     </p>
     <p>
         If you need to disable sort by specific column for any reason, use
@@ -264,9 +257,8 @@
         </li>
         <li>
             When you click on the column header, the specified sort identifier will be added to the
-            <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listrequest.html#sortings">sortings</a> array with
-            <code>Asc</code> direction and the <code>RTList.loadData</code> method will be called immediately. On second click the direction of sorting is
-            changed to the opposite one and the data request is executed again.
+            <code>sortings</code> array with <code>Asc</code> direction and the <code>RTList.loadData</code> method will be called immediately. On second click
+            the direction of sorting is changed to the opposite one and the data request is executed again.
         </li>
         <li>
             The
@@ -327,9 +319,8 @@
     </p>
     <p>
         To achieve this,
-        <a target="_blank" href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html">ListResponse</a> contract has optional
-        <a href="https://eastbanctechru.github.io/e2e4/interfaces/listresponse.html#status">status</a> field. This field can be used to notify
-        <code>rtList</code> instance about current request state via the same stream as for data loading.
+        <code>ListResponse</code> contract has optional <code>status</code> field. This field can be used to notify <code>rtList</code> instance about current
+        request state via the same stream as for data loading.
     </p>
     <p>
         In the example below, you can see that the data request is started and completed through separate actions which are triggered by clicking to the certain

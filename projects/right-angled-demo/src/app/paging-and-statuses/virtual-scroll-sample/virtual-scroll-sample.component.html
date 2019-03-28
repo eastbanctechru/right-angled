@@ -1,9 +1,9 @@
 <div style="height: 400px; overflow: auto;" #scrollContainer>
     <form>
         <div class="form-group">
-            <input (click)="list.reloadData()" [disabled]="list.busy" type="submit" class="btn btn-load" title="Load data" />
-            <input (click)="list.cancelRequests()" [disabled]="list.ready" type="button" class="btn btn-cancel" title="Cancel loading" />
-            <button (click)="list.resetSettings()" [disabled]="list.busy" type="button" class="btn btn-reset" title="Reset settings"></button>
+            <input (click)="list.reloadData()" [disabled]="list.busy$ | async" type="submit" class="btn btn-load" title="Load data" />
+            <input (click)="list.cancelRequests()" [disabled]="list.ready$ | async" type="button" class="btn btn-cancel" title="Cancel loading" />
+            <button (click)="list.resetSettings()" [disabled]="list.busy$ | async" type="button" class="btn btn-reset" title="Reset settings"></button>
         </div>
     </form>
     <div class="table-responsive">

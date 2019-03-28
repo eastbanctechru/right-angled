@@ -8,10 +8,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let airport of list.items">
-                <td>{{airport.iataCode}}</td>
-                <td>{{airport.name}}</td>
-                <td>{{airport.countryName}}</td>
+            <tr *ngFor="let airport of (list.items$ | async)">
+                <td>{{ airport.iataCode }}</td>
+                <td>{{ airport.name }}</td>
+                <td>{{ airport.countryName }}</td>
             </tr>
         </tbody>
     </table>

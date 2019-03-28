@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { KeyCodes } from 'e2e4';
 import { RTSelectionService, RTSelectionEventsHelper, SelectionAreaDirective, SelectableDirective } from './selection.module';
+import { KeyCodes } from './providers/selection-events-helper';
 
 @Component({
     template: `
@@ -80,7 +80,7 @@ describe('rtSelectionArea directive', () => {
         selectionAreaDirective = fixture.debugElement.children[0].injector.get(SelectionAreaDirective);
     });
 
-    it('Builds collection of child selection services for RTSelectionService and rebuilds it on change tracking cycle', () => {
+    it('builds collection of child selection services for `RTSelectionService` and rebuilds it on change tracking cycle', () => {
         const nestedFixture = TestBed.createComponent(NestedComponent);
         nestedFixture.detectChanges();
         selectionService = nestedFixture.debugElement.children[0].injector.get(RTSelectionService);
@@ -99,12 +99,12 @@ describe('rtSelectionArea directive', () => {
         );
     });
 
-    it('Acts as DI root for selection-related services', () => {
-        expect(selectionService instanceof SelectionServiceStub).toBeFalsy();
-        expect(selectionEventsHelper instanceof SelectionEventsHelperStub).toBeFalsy();
+    it('acts as DI root for selection-related services', () => {
+        expect(selectionService instanceof SelectionServiceStub).toBe(false);
+        expect(selectionEventsHelper instanceof SelectionEventsHelperStub).toBe(false);
     });
 
-    it('Proxies inputs to selection service properties', () => {
+    it('maps inputs parameters to selection service properties', () => {
         expect(fixture.componentInstance.autoSelectFirst).toEqual(selectionAreaDirective.autoSelectFirst);
         fixture.componentInstance.autoSelectFirst = !fixture.componentInstance.autoSelectFirst;
         expect(fixture.componentInstance.autoSelectFirst).not.toEqual(selectionAreaDirective.autoSelectFirst);
@@ -148,7 +148,7 @@ describe('rtSelectionArea directive', () => {
         expect(fixture.componentInstance.trackBy).toEqual(selectionService.trackByFn);
     });
 
-    it('Handles keydown event by calling selectionEventsHelper.keyboardHandler', () => {
+    it('handles `keydown` event by calling `selectionEventsHelper.keyboardHandler`', () => {
         spyOn(selectionEventsHelper, 'keyboardHandler');
         fixture.debugElement.children[0].triggerEventHandler('keydown', {
             ctrlKey: true,
@@ -158,7 +158,7 @@ describe('rtSelectionArea directive', () => {
         expect(selectionEventsHelper.keyboardHandler).toHaveBeenCalledWith(true, true, KeyCodes.ArrowDown);
     });
 
-    it('Calls event "preventDefault" method if "preventEventsDefaults" option specified and selection handler returns true', () => {
+    it('calls event `preventDefault` method if `preventEventsDefaults` option specified and selection handler returns `true`', () => {
         fixture.componentInstance.preventEventsDefaults = true;
         fixture.detectChanges();
         const event = {
@@ -175,7 +175,7 @@ describe('rtSelectionArea directive', () => {
         expect(event.preventDefault).toHaveBeenCalled();
     });
 
-    it('Does not call event "preventDefault" method if "preventEventsDefaults" option specified and selection handler returns false', () => {
+    it('does not call event `preventDefault` method if `preventEventsDefaults` option specified and selection handler returns `false`', () => {
         fixture.componentInstance.preventEventsDefaults = true;
         fixture.detectChanges();
         const event = {
@@ -192,7 +192,7 @@ describe('rtSelectionArea directive', () => {
         expect(event.preventDefault).not.toHaveBeenCalled();
     });
 
-    it('Calls event "stopPropagation" method if "stopEventsPropagation" option specified and selection handler returns true', () => {
+    it('calls event `stopPropagation` method if `stopEventsPropagation` option specified and selection handler returns `true`', () => {
         fixture.componentInstance.stopEventsPropagation = true;
         fixture.detectChanges();
         const event = {
@@ -212,7 +212,7 @@ describe('rtSelectionArea directive', () => {
         expect(event.stopPropagation).toHaveBeenCalled();
     });
 
-    it('Does not call event "stopPropagation" method if "stopEventsPropagation" option specified and selection handler returns false', () => {
+    it('does not call event `stopPropagation` method if `stopEventsPropagation` option specified and selection handler returns `false`', () => {
         fixture.componentInstance.stopEventsPropagation = true;
         fixture.detectChanges();
         const event = {
@@ -232,21 +232,21 @@ describe('rtSelectionArea directive', () => {
         expect(event.stopPropagation).not.toHaveBeenCalled();
     });
 
-    it('Throws error if specified trackBy input is not a function', () => {
+    it('throws error if specified `trackBy` input is not a function', () => {
         fixture.componentInstance.trackBy = 5 as any;
         expect(() => {
             fixture.detectChanges();
         }).toThrowError('trackBy parameter value must be a function');
     });
 
-    it('Selects first item on change tracking cycle if autoSelectFirst is true and nothings selected', () => {
+    it('selects first item on change tracking cycle if `autoSelectFirst` is `true` and nothing is selected', () => {
         expect(fixture.componentInstance.autoSelectFirst).toEqual(false);
         fixture.componentInstance.autoSelectFirst = true;
         fixture.detectChanges();
         expect(selectionService.getSelectedIndexes()).toEqual([0]);
     });
 
-    it('Does not change selection on change tracking cycle if autoSelectFirst is true but something already selected', () => {
+    it('does not change selection on change tracking cycle if `autoSelectFirst` is `true` but something is already selected', () => {
         expect(fixture.componentInstance.autoSelectFirst).toEqual(false);
         selectionService.selectAll();
         fixture.componentInstance.autoSelectFirst = true;
@@ -254,7 +254,7 @@ describe('rtSelectionArea directive', () => {
         expect(selectionService.getSelectedIndexes()).toEqual([0, 1, 2]);
     });
 
-    it('Trims selection to first selected element on change tracking cycle if multiple setted to false', () => {
+    it('trims selection to first selected element on change tracking cycle if `multiple` option is `false`', () => {
         expect(fixture.componentInstance.multiple).toEqual(true);
         selectionService.selectIndex(1);
         selectionService.selectIndex(2, true);
@@ -264,7 +264,7 @@ describe('rtSelectionArea directive', () => {
         expect(selectionService.getSelectedIndexes()).toEqual([1]);
     });
 
-    it('Does not change selection on change tracking cycle if "multiple" setted to false and single element is selected', () => {
+    it('does not change selection on change tracking cycle if `multiple` option is `false` and single element is selected', () => {
         expect(fixture.componentInstance.multiple).toEqual(true);
         selectionService.selectIndex(1);
         fixture.componentInstance.multiple = false;
@@ -272,7 +272,7 @@ describe('rtSelectionArea directive', () => {
         expect(selectionService.getSelectedIndexes()).toEqual([1]);
     });
 
-    it('Runs "checkSelection" on change tracking cycle', done => {
+    it('runs `checkSelection` on change tracking cycle', done => {
         spyOn(selectionService, 'checkSelection');
         fixture.componentInstance.items.push(4);
         fixture.detectChanges();
@@ -282,7 +282,7 @@ describe('rtSelectionArea directive', () => {
         }, 0);
     });
 
-    it('Selects first element after selection check if "autoSelectFirst" is setted to true', done => {
+    it('selects first element after selection check if `autoSelectFirst` is setted to `true`', done => {
         selectionAreaDirective.autoSelectFirst = true;
         fixture.componentInstance.items.push(4);
         fixture.detectChanges();
@@ -293,7 +293,7 @@ describe('rtSelectionArea directive', () => {
         }, 0);
     });
 
-    it('Does not runs "checkSelection" on change tracking cycle if items source is empty', done => {
+    it('does not run `checkSelection` on change tracking cycle if `items` source is empty', done => {
         spyOn(selectionService, 'checkSelection');
         fixture.componentInstance.items = [];
         fixture.detectChanges();
@@ -303,13 +303,13 @@ describe('rtSelectionArea directive', () => {
         }, 0);
     });
 
-    it('Rebuilds "items" collection of selection service on change tracking cycle', () => {
+    it('rebuilds `items` collection of selection service on change tracking cycle', () => {
         fixture.componentInstance.items = [1, 2, 3, 4];
         fixture.detectChanges();
         expect(selectionService.items).toEqual([1, 2, 3, 4]);
     });
 
-    it('Rebuilds "eventEmitters" collection of selection service on change tracking cycle', () => {
+    it('rebuilds `eventEmitters` collection of selection service on change tracking cycle', () => {
         fixture.componentInstance.items = [1, 2, 3, 4];
         fixture.detectChanges();
         expect(selectionService.eventEmitters).toEqual(
@@ -317,7 +317,7 @@ describe('rtSelectionArea directive', () => {
         );
     });
 
-    it('Updates indexes of selectable items on  change tracking cycle', () => {
+    it('updates indexes of selectable items on change tracking cycle', () => {
         const selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective));
         expect(selectables.map(s => s.index)).toEqual([0, 1, 2]);
         fixture.componentInstance.items.unshift(0);
@@ -325,19 +325,19 @@ describe('rtSelectionArea directive', () => {
         expect(selectables.map(s => s.index)).toEqual([1, 2, 3]);
     });
 
-    it('Deselects items on destroy', () => {
+    it('deselects items on `destroy`', () => {
         spyOn(selectionService, 'deselectAll');
         fixture.destroy();
         expect(selectionService.deselectAll).toHaveBeenCalled();
     });
 
-    it('Destroys selectionService on destroy', () => {
+    it('destroys `selectionService` on `destroy`', () => {
         spyOn(selectionService, 'destroy');
         fixture.destroy();
         expect(selectionService.destroy).toHaveBeenCalled();
     });
 
-    it('Destroys ContentChildren subscriptions on destroy', () => {
+    it('destroys ContentChildren subscriptions on `destroy`', () => {
         spyOn(selectionAreaDirective.checkboxesSubscription, 'unsubscribe');
         spyOn(selectionAreaDirective.itemsSubscription, 'unsubscribe');
         spyOn(selectionAreaDirective.childSelectionAreasSubscription, 'unsubscribe');

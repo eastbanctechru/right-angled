@@ -1,7 +1,7 @@
-import { PagedPager } from 'right-angled';
+import { RTPagedPager } from 'right-angled';
 
-PagedPager.settings.defaultPageSize = 10;
-PagedPager.settings.minPageSize = 5;
-PagedPager.settings.maxPageSize = 1000;
+RTPagedPager.settings.defaultPageSize = 10;
+RTPagedPager.settings.minPageSize = 5;
+RTPagedPager.settings.maxPageSize = 1000;
 
 export class AppComponent {}

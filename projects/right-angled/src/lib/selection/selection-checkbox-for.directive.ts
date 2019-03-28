@@ -1,8 +1,7 @@
 import { Directive, EventEmitter, HostBinding, HostListener, Input, Output, SkipSelf } from '@angular/core';
-import { SelectionElementEventsEmitter } from './providers/selection-element-events-emitter';
-import { RTSelectionEvent } from './providers/selection-event';
 import { RTSelectionEventsHelper } from './providers/selection-events-helper';
-import { RTSelectionService } from './providers/selection-service';
+import { RTSelectionService } from './providers/selection.service';
+import { RTSelectionEvent, SelectionElementEventsEmitter } from './providers/selection-events-emitter';
 
 @Directive({
     exportAs: 'rtSelectionCheckboxFor',
@@ -11,9 +10,8 @@ import { RTSelectionService } from './providers/selection-service';
 })
 export class SelectionCheckboxForDirective implements SelectionElementEventsEmitter {
     public index: number = null;
-    /* tslint:disable-next-line:no-input-rename */
-    @Input('rtSelectionCheckboxFor')
-    public item: any = null;
+    // tslint:disable-next-line: no-input-rename
+    @Input('rtSelectionCheckboxFor') public item: any = null;
     @Input()
     public get selected(): boolean {
         return this.selectedInternal;
