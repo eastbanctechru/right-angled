@@ -1,3 +1,16 @@
+# [9.0.0](https://github.com/eastbanctechru/right-angled/compare/v8.1.0...v9.0.0) (2019-02-16)
+
+`e2e4` library removed from dependencies.
+
+### Breaking changes
+
+To migrate your project to latest version you need to remove `e2e4` dependency. All imports from `e2e4` replaced with new services from `right-angled`. For example `PagedPager` must be replaced with `RTPagedPager`, `FiltersService` must be replaced with `RTFiltersService` etc.
+Public contract is basically the same.
+
+### Features
+
+Most of public APIs supplemented with `Observable` alternatiives to support `OnPush` change detection. For example, previously `RTList` provides `items` array, now it also has `items$` property which is implemented as `Observable`. See demo-application for more details.
+
 # [8.1.0](https://github.com/eastbanctechru/right-angled/compare/v8.0.0...v8.1.0) (2019-02-16)
 
 ### Features
