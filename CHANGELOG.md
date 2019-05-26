@@ -1,3 +1,9 @@
+# [9.1.0](https://github.com/eastbanctechru/right-angled/compare/v8.0.0...v9.1.0) (2019-05-26)
+
+### Features
+
+-   **filters:** add ability to use `filter` with reactive `FormControl` ([f6da9ee](https://github.com/eastbanctechru/right-angled/commit/f6da9ee))
+
 # [9.0.0](https://github.com/eastbanctechru/right-angled/compare/v8.1.0...v9.0.0) (2019-02-16)
 
 `e2e4` library removed from dependencies.
