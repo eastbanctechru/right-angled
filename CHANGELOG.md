@@ -1,3 +1,9 @@
+## [9.1.1](https://github.com/eastbanctechru/right-angled/compare/v8.0.0...v9.1.1) (2019-05-26)
+
+### Bug Fixes
+
+-   **all:** couple of minor fixes ([ea885d3](https://github.com/eastbanctechru/right-angled/commit/ea885d3))
+
 # [9.1.0](https://github.com/eastbanctechru/right-angled/compare/v8.0.0...v9.1.0) (2019-05-26)
 
 ### Features
