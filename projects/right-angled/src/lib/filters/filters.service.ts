@@ -236,13 +236,16 @@ export class RTFiltersService {
         }
     }
     private getPropertyValue(target: { [id: string]: any }, config: FilterConfig) {
-        return target[config.propertyName] instanceof BehaviorSubject
-            ? (target[config.propertyName] as BehaviorSubject<any>).getValue()
-            : target[config.propertyName];
+        if (!!target[config.propertyName] && target[config.propertyName].getValue) {
+            return target[config.propertyName].getValue();
+        }
+        return target[config.propertyName];
     }
     private setPropertyValue(target: { [id: string]: any }, config: FilterConfig, value: any) {
-        if (target[config.propertyName] instanceof Subject) {
+        if (!!target[config.propertyName] && target[config.propertyName] instanceof Subject) {
             (target[config.propertyName] as Subject<any>).next(value);
+        } else if (!!target[config.propertyName] && target[config.propertyName].setValue) {
+            target[config.propertyName].setValue(value);
         } else {
             target[config.propertyName] = value;
         }
