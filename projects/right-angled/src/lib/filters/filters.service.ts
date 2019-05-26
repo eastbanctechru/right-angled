@@ -236,18 +236,25 @@ export class RTFiltersService {
         }
     }
     private getPropertyValue(target: { [id: string]: any }, config: FilterConfig) {
-        if (!!target[config.propertyName] && target[config.propertyName].getValue) {
-            return target[config.propertyName].getValue();
+        if (target[config.propertyName] instanceof BehaviorSubject) {
+            return (target[config.propertyName] as BehaviorSubject<any>).getValue();
+        }
+        // duck type reactive form control
+        if (!!target[config.propertyName] && !!target[config.propertyName].setValue && !!target[config.propertyName].status) {
+            return target[config.propertyName].value;
         }
         return target[config.propertyName];
     }
     private setPropertyValue(target: { [id: string]: any }, config: FilterConfig, value: any) {
         if (!!target[config.propertyName] && target[config.propertyName] instanceof Subject) {
             (target[config.propertyName] as Subject<any>).next(value);
-        } else if (!!target[config.propertyName] && target[config.propertyName].setValue) {
-            target[config.propertyName].setValue(value);
-        } else {
-            target[config.propertyName] = value;
+            return;
         }
+        // duck type reactive form control
+        if (!!target[config.propertyName] && target[config.propertyName].setValue) {
+            target[config.propertyName].setValue(value);
+            return;
+        }
+        target[config.propertyName] = value;
     }
 }

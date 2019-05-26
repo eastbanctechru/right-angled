@@ -59,7 +59,7 @@ export function coerceValue(value: any): any {
                 result[index] = coerceValue(result[index]);
             }
         }
-    } else if (result && !isNaN(result)) {
+    } else if (result && result !== true && !isNaN(result)) {
         result = +result;
     } else if (result === 'undefined') {
         result = undefined;
