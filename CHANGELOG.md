@@ -1,3 +1,13 @@
+## [10.0.0](https://github.com/eastbanctechru/right-angled/compare/v9.1.1...v10.0.0) (2019-06-04)
+
+### Features
+
+-   **all:** Update Angular to version 8.0.0 ([74955ab](https://github.com/eastbanctechru/right-angled/commit/74955ab))
+
+### BREAKING CHANGES
+
+-   **all:** Minimal required version of Angular is 8.0.0
+
 ## [9.1.1](https://github.com/eastbanctechru/right-angled/compare/v8.0.0...v9.1.1) (2019-05-26)
 
 ### Bug Fixes
