@@ -10,7 +10,7 @@ import { Airport, AirportsListRequest, AirportsService } from '../../shared';
     templateUrl: 'status-components.component.html'
 })
 export class StatusComponentsComponent {
-    @ViewChild(ListDirective) public listDirective: ListDirective;
+    @ViewChild(ListDirective, { static: true }) public listDirective: ListDirective;
     private raiseError = false;
     private returnNoData = false;
     constructor(private airportsService: AirportsService) {}

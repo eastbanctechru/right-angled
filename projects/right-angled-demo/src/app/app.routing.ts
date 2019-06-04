@@ -4,25 +4,25 @@ import { NoPreloading, RouterModule, Routes } from '@angular/router';
 import { QuickTourRoutes } from './quick-tour/quick-tour.routes';
 
 export const appRoutes: Routes = [
-    { loadChildren: './filters/filters.module#FiltersModule', path: 'filters' },
+    { loadChildren: () => import('./filters/filters.module').then(m => m.FiltersModule), path: 'filters' },
     {
-        loadChildren: './list-controls/list-controls.module#ListControlsModule',
+        loadChildren: () => import('./list-controls/list-controls.module').then(m => m.ListControlsModule),
         path: 'list-controls'
     },
     {
-        loadChildren: './misc-directives/misc-directives.module#MiscDirectivesModule',
+        loadChildren: () => import('./misc-directives/misc-directives.module').then(m => m.MiscDirectivesModule),
         path: 'misc-directives'
     },
     {
-        loadChildren: './paging-and-statuses/paging-and-statuses.module#PagingAndStatusesModule',
+        loadChildren: () => import('./paging-and-statuses/paging-and-statuses.module').then(m => m.PagingAndStatusesModule),
         path: 'paging-and-statuses'
     },
     {
-        loadChildren: './selection/selection.module#SelectionModule',
+        loadChildren: () => import('./selection/selection.module').then(m => m.SelectionModule),
         path: 'selection'
     },
     {
-        loadChildren: './persistence/persistence.module#PersistenceModule',
+        loadChildren: () => import('./persistence/persistence.module').then(m => m.PersistenceModule),
         path: 'persistence'
     },
     ...QuickTourRoutes,

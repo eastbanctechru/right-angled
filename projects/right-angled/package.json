@@ -1,6 +1,6 @@
 {
     "name": "right-angled",
-    "version": "9.1.1",
+    "version": "10.0.0",
     "homepage": "https://github.com/eastbanctechru/right-angled#readme",
     "author": "True Engineering",
     "license": "MIT",
@@ -21,8 +21,8 @@
         "url": "https://github.com/eastbanctechru/right-angled/issues"
     },
     "peerDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "rxjs": "^6.3.3"
+        "@angular/common": "^8.0.0",
+        "@angular/core": "^8.0.0",
+        "rxjs": "^6.5.2"
     }
 }

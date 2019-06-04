@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
     templateUrl: 'service-view-child.component.html'
 })
 export class ServiceViewChildComponent {
-    @ViewChild(SelectionAreaDirective)
+    @ViewChild(SelectionAreaDirective, { static: true })
     public selectionArea: SelectionAreaDirective;
     public countries$: Observable<any[]>;
     constructor(public airportsService: AirportsService) {

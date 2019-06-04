@@ -17,7 +17,7 @@ import { RTBufferedPager } from '../providers/buffered-pager';
     `
 })
 class ComponentWithHostComponent {
-    @ViewChild('listHost')
+    @ViewChild('listHost', { static: true })
     public listHost: ElementRef;
     public listHostReference: HTMLElement = null;
     public items: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
