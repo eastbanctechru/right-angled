@@ -22,6 +22,7 @@ describe('rtPageNumber directive', () => {
     let fixture: ComponentFixture<HostComponent>;
     let pagerComponent: PagedPagerComponent;
     let pageNumberDirective: PageNumberDirective;
+    let pageNumberInput: HTMLInputElement;
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [HostComponent, ListDirective, PagedPagerComponent, PageNumberDirective]
@@ -30,47 +31,48 @@ describe('rtPageNumber directive', () => {
         fixture.detectChanges();
         pagerComponent = fixture.debugElement.query(By.css('rt-paged-pager')).componentInstance as PagedPagerComponent;
         pageNumberDirective = fixture.debugElement.query(By.directive(PageNumberDirective)).injector.get(PageNumberDirective);
+        pageNumberInput = fixture.debugElement.query(By.css('input')).nativeElement;
     });
 
-    it('sets innerValue to pageNumber value on component init', () => {
-        expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
+    it('sets input value to pageNumber value on component init', () => {
+        expect(pageNumberInput.value).toEqual(pagerComponent.pager.pageNumber + '');
     });
 
-    it('sets innerValue to pageNumber', () => {
+    it('sets input value to pageNumber', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageNumber = 3;
-        expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
+        expect(pageNumberInput.value).toEqual(pagerComponent.pager.pageNumber + '');
     });
 
-    it('restores innerValue  value on element blur to pageNumber property value', () => {
+    it('restores input value  on element blur to pageNumber property value', () => {
         pagerComponent.pager.totalCount = 100;
-        pageNumberDirective.innerValue = 5;
-        expect(pageNumberDirective.innerValue).not.toEqual(pagerComponent.pager.pageNumber);
+        pageNumberInput.value = '5';
+        expect(pageNumberInput.value).not.toEqual(pagerComponent.pager.pageNumber + '');
         fixture.debugElement.query(By.css('input')).triggerEventHandler('blur', null);
-        expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
+        expect(pageNumberInput.value).toEqual(pagerComponent.pager.pageNumber + '');
     });
 
-    it('sets innerValue on input event if it incorrect value, but skips pageNumber property set', () => {
+    it('skips pageNumber property set if input value is incorrect', () => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: null } });
-        expect(pageNumberDirective.innerValue).toEqual(null);
+        expect(pageNumberInput.value).toEqual('');
         expect(pagerComponent.pager.pageNumber).toEqual(1);
 
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: undefined } });
-        expect(pageNumberDirective.innerValue).toEqual(undefined);
+        expect(pageNumberInput.value).toEqual('');
         expect(pagerComponent.pager.pageNumber).toEqual(1);
 
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '' } });
-        expect(pageNumberDirective.innerValue).toEqual('');
+        expect(pageNumberInput.value).toEqual('');
         expect(pagerComponent.pager.pageNumber).toEqual(1);
     });
 
-    it('sets pageNumber to raw input value and sets innerValue to processed value after render cycle', done => {
+    it('sets pageNumber to raw input value and sets input value to processed value after render cycle', done => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3' } });
         expect(pagerComponent.pager.pageNumber).toEqual(3);
         setTimeout(() => {
-            expect(pageNumberDirective.innerValue).toEqual(pagerComponent.pager.pageNumber);
+            expect(pageNumberInput.value).toEqual(pagerComponent.pager.pageNumber + '');
             done();
         }, 0);
     });

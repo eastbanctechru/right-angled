@@ -1,4 +1,4 @@
-import { Directive, HostBinding, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { Directive, HostBinding, HostListener, OnInit, OnDestroy, ChangeDetectorRef, ElementRef, Renderer2 } from '@angular/core';
 import { RTPagedPager } from '../providers/paged-pager';
 import { Subscription } from 'rxjs';
 
@@ -14,29 +14,26 @@ export class PageSizeDirective implements OnInit, OnDestroy {
     public set value(value: number) {
         this.pager.pageSize = value;
     }
-    @HostBinding('value') public innerValue: string | number;
-    constructor(public pager: RTPagedPager) {
-        this.pageSizeSubscription = this.pager.pageSize$.subscribe(value => {
-            if (value !== this.innerValue) {
-                this.innerValue = value;
-            }
-        });
-    }
+    constructor(public pager: RTPagedPager, private elementRef: ElementRef, private renderer: Renderer2) {}
     @HostListener('input', ['$event.target.value'])
     public setPageSize(value: any): void {
-        this.innerValue = value;
+        // Return on empty values to give ability to clear input before entering new value
         if (value === null || value === undefined || value === '') {
+            this.renderer.setProperty(this.elementRef.nativeElement, 'value', '');
             return;
         }
         this.value = value;
-        setTimeout(() => (this.innerValue = this.value), 0);
+        this.synchronizeInputValue();
     }
     @HostListener('blur')
-    public restoreInputValue(): void {
-        this.innerValue = this.value;
+    public synchronizeInputValue(): void {
+        this.renderer.setProperty(this.elementRef.nativeElement, 'value', this.value + '');
     }
     public ngOnInit(): void {
-        this.restoreInputValue();
+        this.pageSizeSubscription = this.pager.pageSize$.subscribe(() => {
+            this.synchronizeInputValue();
+        });
+        this.synchronizeInputValue();
     }
     public ngOnDestroy(): void {
         this.pageSizeSubscription.unsubscribe();

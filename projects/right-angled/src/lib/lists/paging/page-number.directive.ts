@@ -1,4 +1,4 @@
-import { Directive, KeyValueDiffers, HostBinding, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { Directive, HostListener, OnInit, OnDestroy, ElementRef, Renderer2 } from '@angular/core';
 import { RTPagedPager } from '../providers/paged-pager';
 import { Subscription } from 'rxjs';
 
@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs';
     selector: 'input[rtPageNumber]'
 })
 export class PageNumberDirective implements OnInit, OnDestroy {
-    @HostBinding('value') public innerValue: string | number;
     pageNumberSubscription: Subscription;
     public get value(): number {
         return this.pager.pageNumber;
@@ -14,29 +13,27 @@ export class PageNumberDirective implements OnInit, OnDestroy {
     public set value(value: number) {
         this.pager.pageNumber = value;
     }
-    constructor(private pager: RTPagedPager) {
-        this.pageNumberSubscription = this.pager.pageNumber$.subscribe(value => {
-            if (value !== this.innerValue) {
-                this.innerValue = value;
-            }
-        });
-    }
+    constructor(private pager: RTPagedPager, private elementRef: ElementRef, private renderer: Renderer2) {}
 
     @HostListener('input', ['$event.target.value'])
     public setPageSize(value: any): void {
-        this.innerValue = value;
+        // Return on empty values to give ability to clear input and enter new value
         if (value === null || value === undefined || value === '') {
+            this.renderer.setProperty(this.elementRef.nativeElement, 'value', '');
             return;
         }
         this.value = value;
-        setTimeout(() => (this.innerValue = this.value), 0);
+        this.synchronizeInputValue();
     }
     @HostListener('blur')
-    public restoreInputValue(): void {
-        this.innerValue = this.value;
+    public synchronizeInputValue(): void {
+        this.renderer.setProperty(this.elementRef.nativeElement, 'value', this.value + '');
     }
     public ngOnInit(): void {
-        this.restoreInputValue();
+        this.pageNumberSubscription = this.pager.pageNumber$.subscribe(() => {
+            this.synchronizeInputValue();
+        });
+        this.synchronizeInputValue();
     }
     public ngOnDestroy(): void {
         this.pageNumberSubscription.unsubscribe();

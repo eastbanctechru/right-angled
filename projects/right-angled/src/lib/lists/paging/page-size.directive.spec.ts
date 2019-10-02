@@ -22,6 +22,7 @@ describe('rtPageSize directive', () => {
     let fixture: ComponentFixture<HostComponent>;
     let pagerComponent: PagedPagerComponent;
     let pageSizeDirective: PageSizeDirective;
+    let pageSizeInput: HTMLInputElement;
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [HostComponent, ListDirective, PagedPagerComponent, PageSizeDirective]
@@ -30,10 +31,11 @@ describe('rtPageSize directive', () => {
         fixture.detectChanges();
         pagerComponent = fixture.debugElement.query(By.css('rt-paged-pager')).componentInstance as PagedPagerComponent;
         pageSizeDirective = fixture.debugElement.query(By.directive(PageSizeDirective)).injector.get(PageSizeDirective);
+        pageSizeInput = fixture.debugElement.query(By.css('input')).nativeElement;
     });
 
-    it('sets innerValue to pageSize value on component init', () => {
-        expect(pageSizeDirective.innerValue).toEqual(pagerComponent.pager.pageSize);
+    it('sets input value to pageSize value on component init', () => {
+        expect(pageSizeInput.value).toEqual(pagerComponent.pager.pageSize + '');
     });
 
     it('proxies pageSize property to pager.pageSize', () => {
@@ -43,41 +45,41 @@ describe('rtPageSize directive', () => {
         expect(pageSizeDirective.value).toEqual(pagerComponent.pager.pageSize);
     });
 
-    it('sets innerValue to pageSize', () => {
+    it('sets input value to pageSize', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.pageSize = 3;
-        expect(pageSizeDirective.innerValue).toEqual(pagerComponent.pager.pageSize);
+        expect(pageSizeInput.value).toEqual(pagerComponent.pager.pageSize + '');
     });
 
-    it('restores innerValue  value on element blur to pageSize property value', () => {
+    it('restores input value to pageSize property on element blur', () => {
         pagerComponent.pager.totalCount = 100;
-        pageSizeDirective.innerValue = 5;
-        expect(pageSizeDirective.innerValue).not.toEqual(pagerComponent.pager.pageSize);
+        pageSizeInput.value = '5';
+        expect(pageSizeInput.value).not.toEqual(pagerComponent.pager.pageSize + '');
         fixture.debugElement.query(By.css('input')).triggerEventHandler('blur', null);
-        expect(pageSizeDirective.innerValue).toEqual(pagerComponent.pager.pageSize);
+        expect(pageSizeInput.value).toEqual(pagerComponent.pager.pageSize + '');
     });
 
-    it('sets innerValue on input event if it incorrect value, but skips pageSize property set', () => {
+    it('skips pageSize property set if input value is incorrect', () => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: null } });
-        expect(pageSizeDirective.innerValue).toEqual(null);
+        expect(pageSizeInput.value).toEqual('');
         expect(pagerComponent.pager.pageSize).toEqual(pagerComponent.defaultPageSize);
 
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: undefined } });
-        expect(pageSizeDirective.innerValue).toEqual(undefined);
+        expect(pageSizeInput.value).toEqual('');
         expect(pagerComponent.pager.pageSize).toEqual(pagerComponent.defaultPageSize);
 
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '' } });
-        expect(pageSizeDirective.innerValue).toEqual('');
+        expect(pageSizeInput.value).toEqual('');
         expect(pagerComponent.pager.pageSize).toEqual(pagerComponent.defaultPageSize);
     });
 
-    it('sets pageSize to raw input value and sets innerValue to processed value after render cycle', done => {
+    it('sets pageSize to raw input value and sets input value to processed value after render cycle', done => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3' } });
         expect(pagerComponent.pager.pageSize).toEqual(3);
         setTimeout(() => {
-            expect(pageSizeDirective.innerValue).toEqual(pagerComponent.pager.pageSize);
+            expect(pageSizeInput.value).toEqual(pagerComponent.pager.pageSize + '');
             done();
         }, 0);
     });

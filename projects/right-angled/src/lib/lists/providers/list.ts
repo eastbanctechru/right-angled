@@ -220,6 +220,9 @@ export class RTList {
      */
     public resetSettings(): void {
         this.filtersService.resetValues();
+        this.pager.reset();
+        this.clearData();
+        (this.status$ as BehaviorSubject<OperationStatus>).next(OperationStatus.Initial);
     }
     /**
      * Cancels the request executed at the moment.

@@ -22,6 +22,7 @@ describe('rtRowCount directive', () => {
     let fixture: ComponentFixture<HostComponent>;
     let pagerComponent: BufferedPagerComponent;
     let rowCountDirective: RowCountDirective;
+    let rowCountInput: HTMLInputElement;
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [HostComponent, ListDirective, BufferedPagerComponent, RowCountDirective]
@@ -30,10 +31,11 @@ describe('rtRowCount directive', () => {
         fixture.detectChanges();
         pagerComponent = fixture.debugElement.query(By.css('rt-buffered-pager')).componentInstance as BufferedPagerComponent;
         rowCountDirective = fixture.debugElement.query(By.directive(RowCountDirective)).injector.get(RowCountDirective);
+        rowCountInput = fixture.debugElement.query(By.css('input')).nativeElement;
     });
 
-    it('sets innerValue to takeRowCount value on component init', () => {
-        expect(rowCountDirective.innerValue).toEqual(pagerComponent.pager.takeRowCount);
+    it('sets input value to takeRowCount value on component init', () => {
+        expect(rowCountInput.value).toEqual(pagerComponent.pager.takeRowCount + '');
     });
 
     it('proxies takeRowCount property to pager.takeRowCount', () => {
@@ -43,32 +45,32 @@ describe('rtRowCount directive', () => {
         expect(rowCountDirective.value).toEqual(pagerComponent.pager.takeRowCount);
     });
 
-    it('innerValue reflects `pager.takeRowCount` value', () => {
+    it('input value reflects `pager.takeRowCount` value', () => {
         pagerComponent.pager.totalCount = 100;
         pagerComponent.pager.takeRowCount = 3;
-        expect(rowCountDirective.innerValue).toEqual(pagerComponent.pager.takeRowCount);
+        expect(rowCountInput.value).toEqual(pagerComponent.pager.takeRowCount + '');
     });
 
-    it('restores innerValue value on element blur to takeRowCount property value', () => {
+    it('restores input value on element blur to takeRowCount property value', () => {
         pagerComponent.pager.totalCount = 100;
-        rowCountDirective.innerValue = 5;
-        expect(rowCountDirective.innerValue).not.toEqual(pagerComponent.pager.takeRowCount);
+        rowCountInput.value = '5';
+        expect(rowCountInput.value).not.toEqual(pagerComponent.pager.takeRowCount + '');
         fixture.debugElement.query(By.css('input')).triggerEventHandler('blur', null);
-        expect(rowCountDirective.innerValue).toEqual(pagerComponent.pager.takeRowCount);
+        expect(rowCountInput.value).toEqual(pagerComponent.pager.takeRowCount + '');
     });
 
-    it('sets innerValue on input event if it incorrect value, but skips takeRowCount property set', () => {
+    it('sets input value if its incorrect value, but skips takeRowCount property set', () => {
         pagerComponent.pager.totalCount = 100;
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: null } });
-        expect(rowCountDirective.innerValue).toEqual(null);
+        expect(rowCountInput.value).toEqual('');
         expect(pagerComponent.pager.takeRowCount).toEqual(pagerComponent.defaultRowCount);
 
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: undefined } });
-        expect(rowCountDirective.innerValue).toEqual(undefined);
+        expect(rowCountInput.value).toEqual('');
         expect(pagerComponent.pager.takeRowCount).toEqual(pagerComponent.defaultRowCount);
 
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '' } });
-        expect(rowCountDirective.innerValue).toEqual('');
+        expect(rowCountInput.value).toEqual('');
         expect(pagerComponent.pager.takeRowCount).toEqual(pagerComponent.defaultRowCount);
     });
 
@@ -77,7 +79,7 @@ describe('rtRowCount directive', () => {
         fixture.debugElement.query(By.css('input')).triggerEventHandler('input', { target: { value: '3b' } });
         expect(pagerComponent.pager.takeRowCount).toEqual(3);
         setTimeout(() => {
-            expect(rowCountDirective.innerValue).toEqual(pagerComponent.pager.takeRowCount);
+            expect(rowCountInput.value).toEqual(pagerComponent.pager.takeRowCount + '');
             done();
         }, 0);
     });
