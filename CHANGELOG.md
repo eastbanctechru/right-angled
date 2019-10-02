@@ -1,3 +1,14 @@
+## [10.0.0](https://github.com/eastbanctechru/right-angled/compare/v10.0.0...v11.0.0) (2019-10-02)
+
+### Bug Fixes
+
+-   **paging:** [#106](https://github.com/eastbanctechru/right-angled/issues/106) and [#107](https://github.com/eastbanctechru/right-angled/issues/107) - fixed ([972a6a8](https://github.com/eastbanctechru/right-angled/commit/972a6a8))
+
+### BREAKING CHANGES
+
+-   **paging:** `list.resetSettings` now clears list items to prevent inconsistent behaviour
+    between state reset and next data loading
+
 ## [10.0.0](https://github.com/eastbanctechru/right-angled/compare/v9.1.1...v10.0.0) (2019-06-04)
 
 ### Features
