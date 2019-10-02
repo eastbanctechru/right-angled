@@ -52,6 +52,9 @@
         <li>
             <a href="list-controls#async-actions">Querying data using async actions</a>
         </li>
+        <li>
+            <a href="list-controls#stream-data-source">Using Observable stream as data source</a>
+        </li>
     </ul>
 </section>
 <section id="common-idea">
@@ -337,6 +340,22 @@
         <rt-demo-code-tab url="list-controls/async-actions/async-actions.component.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
 </section>
+
+<section id="stream-data-source">
+    <h3>Using Observable stream as data source</h3>
+    <p>
+        If you want to display continuous stream of data - it's easy as that. Use <code>rtList</code> with
+        <a href="list-controls#keep-records-on-load"> <code>keepRecordsOnLoad</code></a> parameter and stream as data source.
+    </p>
+    <rt-demo-tab-section>
+        <rt-demo-sample-tab>
+            <rt-demo-stream-data-source></rt-demo-stream-data-source>
+        </rt-demo-sample-tab>
+        <rt-demo-code-tab url="list-controls/stream-data-source/stream-data-source.component.html"> </rt-demo-code-tab>
+        <rt-demo-code-tab url="list-controls/stream-data-source/stream-data-source.component.ts"> </rt-demo-code-tab>
+    </rt-demo-tab-section>
+</section>
+
 <section>
     <aside>
         <h4>Related sections</h4>

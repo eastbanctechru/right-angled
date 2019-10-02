@@ -1,0 +1,16 @@
+<div class="table-responsive">
+    <table class="table table-striped" [rtList]="getList" [keepRecordsOnLoad]="true" #list="rtList">
+        <thead>
+            <tr>
+                <th>
+                    <span>Number</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody rtSelectionArea>
+            <tr *ngFor="let item of list.items$ | async">
+                <td>{{ item }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody rtSelectionArea>
-            <tr *ngFor="let airport of (list.items$ | async)" [rtSelectable]="airport">
+            <tr *ngFor="let airport of list.items$ | async" [rtSelectable]="airport">
                 <td>{{ airport.iataCode }}</td>
                 <td>{{ airport.name }}</td>
                 <td>{{ airport.countryName }}</td>
@@ -30,6 +30,9 @@
         <tfoot>
             <tr>
                 <td colspan="3">
+                    <rt-status-initial>
+                        Enter search options and press "Show" button
+                    </rt-status-initial>
                     <rt-status-progress>
                         <rt-demo-progress-bar></rt-demo-progress-bar>
                     </rt-status-progress>

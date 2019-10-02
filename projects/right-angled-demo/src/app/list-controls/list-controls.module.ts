@@ -12,6 +12,7 @@ import { KeepRecordsOnLoadComponent } from './keep-records-on-load/keep-records-
 import { UseRowNumberComponent } from './use-row-number/use-row-number.component';
 import { UseRTListComponent } from './use-rt-list/use-rt-list.component';
 import { UseSortingsComponent } from './use-sortings/use-sortings.component';
+import { StreamDataSourceComponent } from './stream-data-source/stream-data-source.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { UseSortingsComponent } from './use-sortings/use-sortings.component';
         UseRTListComponent,
         UseRowNumberComponent,
         UseSortingsComponent,
-        AsyncActionsComponent
+        AsyncActionsComponent,
+        StreamDataSourceComponent
     ],
     exports: [
         ListControlsComponent,
@@ -30,7 +32,8 @@ import { UseSortingsComponent } from './use-sortings/use-sortings.component';
         UseRTListComponent,
         UseRowNumberComponent,
         UseSortingsComponent,
-        AsyncActionsComponent
+        AsyncActionsComponent,
+        StreamDataSourceComponent
     ],
     imports: [CommonModule, SharedModule, RouterModule.forChild(ListControlsRoutes)]
 })
