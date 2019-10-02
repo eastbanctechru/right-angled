@@ -1,3 +1,9 @@
+## [11.1.0](https://github.com/eastbanctechru/right-angled/compare/v11.0.0...v11.1.0) (2019-10-02)
+
+### Features
+
+-   **list:** `appendStreamedData` option added ([a488d57](https://github.com/eastbanctechru/right-angled/commit/a488d57))
+
 ## [10.0.0](https://github.com/eastbanctechru/right-angled/compare/v10.0.0...v11.0.0) (2019-10-02)
 
 ### Bug Fixes
