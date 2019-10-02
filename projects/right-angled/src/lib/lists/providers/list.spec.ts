@@ -218,6 +218,7 @@ describe('List', () => {
             list.reloadData();
             expect(list.items).toEqual([]);
         });
+
         it('calls attach method of asyncSubscriber to listen observable', () => {
             const observable = new Observable((observer: any) => {
                 setTimeout(() => {
@@ -735,6 +736,28 @@ describe('List', () => {
                 list.loadData();
                 clock.tick(delay);
                 expect(list.items).toEqual([1, 2, 3, 4, 5]);
+            });
+            it('doesn`t destroy items array if `appendStreamedData` setted to `true`', () => {
+                const dataStream = new BehaviorSubject<number[]>([]);
+                list.appendStreamedData = true;
+                list.init();
+                list.fetchMethod = () => dataStream;
+
+                list.loadData();
+                dataStream.next([1, 2, 3, 4, 5]);
+                dataStream.next([6, 7, 8, 9, 10]);
+                expect(list.items).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+            });
+            it('destroys items array if `appendStreamedData` setted to `false`', () => {
+                const dataStream = new BehaviorSubject<number[]>([]);
+                list.appendStreamedData = false;
+                list.init();
+                list.fetchMethod = () => dataStream;
+
+                list.loadData();
+                dataStream.next([1, 2, 3, 4, 5]);
+                dataStream.next([6, 7, 8, 9, 10]);
+                expect(list.items).toEqual([6, 7, 8, 9, 10]);
             });
         });
     });

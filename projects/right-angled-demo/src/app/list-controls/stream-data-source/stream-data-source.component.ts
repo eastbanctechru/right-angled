@@ -8,8 +8,9 @@ import { map } from 'rxjs/operators';
     templateUrl: 'stream-data-source.component.html'
 })
 export class StreamDataSourceComponent {
+    public appendStreamedData = false;
     constructor() {}
     public getList(): Observable<number[]> {
-        return interval(1000).pipe(map(i => [i, i + 1, i + 2, i + 3, i + 4]));
+        return interval(1000).pipe(map(i => [i, i + 1, i + 2]));
     }
 }

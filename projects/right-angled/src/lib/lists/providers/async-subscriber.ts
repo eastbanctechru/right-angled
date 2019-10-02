@@ -112,7 +112,9 @@ export class AsyncSubscriber {
      * @see {@link SubscriptionProxy.detach}
      */
     public detach(): void {
-        this.proxy.detach(this.subscription);
+        if (this.proxy) {
+            this.proxy.detach(this.subscription);
+        }
     }
     private getProxy(target: any): SubscriptionProxy {
         if (PromiseSubscriptionProxy.isAcceptable(target)) {

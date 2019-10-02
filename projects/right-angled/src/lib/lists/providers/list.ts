@@ -69,6 +69,10 @@ export class RTList {
      */
     public keepRecordsOnLoad: boolean = RTList.settings.keepRecordsOnLoad;
     /**
+     * Can be used with `Observable` data sourceto specify that list must keep previously loaded records or destroy them when new value published
+     */
+    public appendStreamedData: boolean | null = null;
+    /**
      * Method for getting data. This parameter is required and its configuration is necessary.
      *
      * This method get one parameter with the settings of the request implementing {@link ListRequest} contract for the simple lists and {@link PagedListRequest} one for the paged lists.
@@ -219,6 +223,7 @@ export class RTList {
      * Resets the list parameters (sortings, paging, filters) to their default values.
      */
     public resetSettings(): void {
+        this.asyncSubscriber.detach();
         this.filtersService.resetValues();
         this.pager.reset();
         this.clearData();
@@ -228,7 +233,7 @@ export class RTList {
      * Cancels the request executed at the moment.
      */
     public cancelRequests(): void {
-        if (this.busy) {
+        if (this.busy || this.appendStreamedData !== null) {
             this.asyncSubscriber.detach();
             (this.status$ as BehaviorSubject<OperationStatus>).next(OperationStatus.Cancelled);
             this.clearData();
@@ -349,9 +354,15 @@ export class RTList {
         if (this.keepRecordsOnLoad === requestCompleted && this.pager.appendedOnLoad === false) {
             this.clearData();
         }
+        if (requestCompleted && this.appendStreamedData === false) {
+            this.clearData();
+        }
     }
     private tryCleanItemsOnReload(requestCompleted: boolean): void {
         if (this.keepRecordsOnLoad === requestCompleted) {
+            this.clearData();
+        }
+        if (requestCompleted && this.appendStreamedData === false) {
             this.clearData();
         }
     }

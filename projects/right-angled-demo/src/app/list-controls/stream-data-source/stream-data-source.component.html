@@ -1,5 +1,13 @@
 <div class="table-responsive">
-    <table class="table table-striped" [rtList]="getList" [keepRecordsOnLoad]="true" #list="rtList">
+    <form>
+        <label class="checkbox-inline"> <input type="checkbox" [(ngModel)]="appendStreamedData" name="appendStreamedData" />append streamed records</label>
+        <div class="form-group">
+            <input type="submit" class="btn btn-load" title="Load data" (click)="list.reloadData()" [disabled]="list.busy$ | async" />
+            <input type="button" class="btn btn-cancel" title="Cancel loading" (click)="list.cancelRequests()" />
+            <button type="button" class="btn btn-reset" title="Reset settings" (click)="list.resetSettings()"></button>
+        </div>
+    </form>
+    <table class="table table-striped" [rtList]="getList" [appendStreamedData]="appendStreamedData" #list="rtList">
         <thead>
             <tr>
                 <th>
@@ -12,5 +20,24 @@
                 <td>{{ item }}</td>
             </tr>
         </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <rt-status-progress class="text-center">
+                        <rt-demo-progress-bar></rt-demo-progress-bar>
+                    </rt-status-progress>
+
+                    <rt-status-request-cancelled class="text-center">
+                        Data loading was cancelled
+                    </rt-status-request-cancelled>
+                    <rt-status-initial class="text-center">
+                        Enter search options and press "Show" button
+                    </rt-status-initial>
+                    <rt-status-done>
+                        Data loaded successfully
+                    </rt-status-done>
+                </td>
+            </tr>
+        </tfoot>
     </table>
 </div>

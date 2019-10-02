@@ -15,6 +15,7 @@ import { OperationStatus } from '../core/operation-status';
             [rtList]="getData"
             [defaultSortings]="defaultSortings"
             [keepRecordsOnLoad]="keepRecordsOnLoad"
+            [appendStreamedData]="appendStreamedData"
             (listInit)="listInit($event)"
             (afterListInit)="afterListInit($event)"
             (loadSucceed)="loadSucceed($event)"
@@ -26,6 +27,7 @@ import { OperationStatus } from '../core/operation-status';
 class HostComponent {
     public failOnLoad = false;
     public keepRecordsOnLoad = false;
+    public appendStreamedData = null;
     public defaultSortings: SortParameter[] = [];
     public getData = (): any => {
         return new Observable((observer: any) => {
@@ -161,6 +163,12 @@ describe('rtList directive', () => {
         fixture.debugElement.componentInstance.keepRecordsOnLoad = !fixture.debugElement.componentInstance.keepRecordsOnLoad;
         fixture.detectChanges();
         expect(list.keepRecordsOnLoad).toEqual(fixture.debugElement.componentInstance.keepRecordsOnLoad);
+    });
+    it('Sets appendStreamedData to passed input', () => {
+        expect(list.appendStreamedData).toEqual(fixture.debugElement.componentInstance.appendStreamedData);
+        fixture.debugElement.componentInstance.appendStreamedData = !fixture.debugElement.componentInstance.appendStreamedData;
+        fixture.detectChanges();
+        expect(list.appendStreamedData).toEqual(fixture.debugElement.componentInstance.appendStreamedData);
     });
 
     it('Destroys listService on directive destroy', () => {

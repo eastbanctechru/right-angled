@@ -28,6 +28,8 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     public loadOnInit = true;
     @Input()
     public keepRecordsOnLoad = false;
+    @Input()
+    public appendStreamedData = null;
     public items$: Observable<any[]>;
     public busy$: Observable<boolean>;
     public ready$: Observable<boolean>;
@@ -77,12 +79,15 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
         this.failSubscription.unsubscribe();
         this.loadStartedSubscription.unsubscribe();
     }
-    public ngOnChanges(changes: { keepRecordsOnLoad?: SimpleChange; defaultSortings?: SimpleChange }): void {
+    public ngOnChanges(changes: { keepRecordsOnLoad?: SimpleChange; defaultSortings?: SimpleChange; appendStreamedData?: SimpleChange }): void {
         if (changes.defaultSortings) {
             this.sortingsService.defaultSortings = changes.defaultSortings.currentValue;
         }
         if (changes.keepRecordsOnLoad) {
             this.listService.keepRecordsOnLoad = changes.keepRecordsOnLoad.currentValue;
+        }
+        if (changes.appendStreamedData) {
+            this.listService.appendStreamedData = changes.appendStreamedData.currentValue;
         }
     }
     public reloadData(): Observable<any> | Promise<any> | EventEmitter<any> {
