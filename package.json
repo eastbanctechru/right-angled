@@ -31,7 +31,7 @@
         "@angular/router": "8.2.9",
         "alertify": "0.3.0",
         "angulartics2": "8.1.0",
-        "bootstrap": "3.3.7",
+        "bootstrap": "3.4.1",
         "classlist.js": "1.1.20150312",
         "clipboard": "2.0.4",
         "core-js": "2.5.6",
