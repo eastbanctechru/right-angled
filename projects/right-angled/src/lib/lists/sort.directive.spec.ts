@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SortDirective, RTList } from './lists.module';
+import { RTList, SortDirective } from './lists.module';
 import { OperationStatus } from '../core/operation-status';
 import { RTSortingsService } from './providers/sortings.service';
 
@@ -140,16 +140,16 @@ describe('rtSort directive', () => {
         it('Calls "setSort" method on click event', () => {
             spyOn(sortingsService, 'setSort');
             fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: false });
-            expect(sortingsService.setSort).toHaveBeenCalledWith('field', false);
+            expect(sortingsService.setSort).toHaveBeenCalledWith('field', false, undefined);
 
             fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
-            expect(sortingsService.setSort).toHaveBeenCalledWith('field', true);
+            expect(sortingsService.setSort).toHaveBeenCalledWith('field', true, undefined);
         });
 
         it('Calls "setSort" method with "savePrevious" flag on ctrl+click', () => {
             spyOn(sortingsService, 'setSort');
             fixture.debugElement.children[0].triggerEventHandler('click', { ctrlKey: true });
-            expect(sortingsService.setSort).toHaveBeenCalledWith('field', true);
+            expect(sortingsService.setSort).toHaveBeenCalledWith('field', true, undefined);
         });
 
         it('Calls "listService.reloadData" method  on click', () => {

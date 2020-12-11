@@ -1,6 +1,6 @@
 {
     "name": "right-angled",
-    "version": "9.1.1",
+    "version": "11.1.1",
     "config": {
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"

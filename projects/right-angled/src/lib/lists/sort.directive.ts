@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { RTList } from './providers/list';
 import { RTSortingsService } from './providers/sortings.service';
-import { SortParameter, SortDirection } from '../core/sort-parameter';
+import { SortParameter, SortDirection, SortDirectionStr } from '../core/sort-parameter';
 
 @Directive({
     selector: '[rtSort]'
@@ -31,6 +31,7 @@ export class SortDirective implements DoCheck, OnInit, OnChanges {
     };
     @Input('rtSort') public fieldName: string;
     @Input() public disableSort: false;
+    @Input() public startSortDirection?: SortDirectionStr;
     private nativeEl: HTMLElement;
     private sortingsDiffer: IterableDiffer<SortParameter>;
 
@@ -59,7 +60,7 @@ export class SortDirective implements DoCheck, OnInit, OnChanges {
     @HostListener('click', ['$event.ctrlKey'])
     public clickHandler(ctrlKeyPressed: boolean): void {
         if (this.listService.ready && !this.disableSort) {
-            this.sortingsService.setSort(this.fieldName, ctrlKeyPressed);
+            this.sortingsService.setSort(this.fieldName, ctrlKeyPressed, this.startSortDirection);
             this.listService.reloadData();
         }
     }
