@@ -1,5 +1,5 @@
 import { filter } from '../../filters/filter.annotation';
-import { SortParameter, SortDirection } from '../../core/sort-parameter';
+import { SortDirection, SortDirectionStr, SortParameter } from '../../core/sort-parameter';
 import { FilterConfig } from '../../core/filter-config';
 import { Injectable } from '@angular/core';
 
@@ -36,12 +36,14 @@ export class RTSortingsService {
     } as FilterConfig)
     public sortings: SortParameter[] = new Array<SortParameter>();
     private defaultSortingsInternal: SortParameter[] = new Array<SortParameter>();
+
     /**
      * Default sortings that will be used by service.
      */
     public get defaultSortings(): SortParameter[] {
         return this.defaultSortingsInternal;
     }
+
     /**
      * If called when {@link sortings} is empty then applied value will be copied to {@link sortings} immediately.
      */
@@ -51,6 +53,7 @@ export class RTSortingsService {
             this.sortings = this.cloneDefaultSortings();
         }
     }
+
     /**
      * Sets {@link sortings} according to specified parameters.
      * @param fieldName name of the field by which sorting must be executed on server. This value will be used as {@link SortParameter.fieldName}.
@@ -58,9 +61,12 @@ export class RTSortingsService {
      * In case when sorting with the same field name is already specified, direction of this sorting will be toggled to reversed value and this sorting will be pushed to the end of {@link sortings} array.
      * So it will be applied last.
      * @param savePrevious `true` to keep previously applied sortings in {@link sortings} array.
+     *
+     * @param startDirectionStr - sort direction
      */
-    public setSort(fieldName: string, savePrevious: boolean): void {
-        let newSort = { direction: SortDirection.Asc, fieldName };
+    public setSort(fieldName: string, savePrevious: boolean, startDirectionStr: SortDirectionStr = 'Asc'): void {
+        const startDirection: SortDirection = SortDirection[startDirectionStr] !== undefined ? SortDirection[startDirectionStr] : SortDirection.Asc;
+        let newSort = { direction: startDirection, fieldName };
         for (let i = 0; i < this.sortings.length; i++) {
             if (this.sortings[i].fieldName === fieldName) {
                 const existedSort = this.sortings.splice(i, 1)[0];
@@ -79,6 +85,7 @@ export class RTSortingsService {
             this.sortings.push(newSort);
         }
     }
+
     /**
      * Removes sort with specified field name  from {@link sortings} array.
      * @param fieldName name of the sort to remove.
@@ -90,12 +97,14 @@ export class RTSortingsService {
             }
         }
     }
+
     /**
      * Removes all sortings from {@link sortings} array.
      */
     public removeAllSortings(): void {
         this.sortings.length = 0;
     }
+
     /**
      * Performs service destroy.
      */
@@ -103,6 +112,7 @@ export class RTSortingsService {
         this.defaultSortingsInternal.length = 0;
         this.sortings.length = 0;
     }
+
     /**
      * Internal method for default sortings cloning.
      * This method is used as {@link FilterConfig.defaultValue} as well as for copying to {@link sortings} when {@link defaultSortings} setter is used and {@link sortings} is empty.

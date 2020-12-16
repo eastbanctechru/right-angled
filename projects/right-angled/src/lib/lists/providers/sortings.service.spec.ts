@@ -5,6 +5,7 @@ import { RTFiltersService } from '../../filters/filters.service';
 // tslint:disable:max-classes-per-file no-unused-expression
 class SortableObject {
     public sortingsService: RTSortingsService = null;
+
     constructor() {
         this.sortingsService = new RTSortingsService();
     }
@@ -12,6 +13,7 @@ class SortableObject {
 
 class ObjectWithDefaultSortings implements SortableObject {
     public sortingsService: RTSortingsService = null;
+
     constructor() {
         this.sortingsService = new RTSortingsService();
         this.sortingsService.defaultSortings = [{ direction: SortDirection.Asc, fieldName: 'id' }];
@@ -53,6 +55,28 @@ describe('SortingsService', () => {
             expect(sortingsService.sortings[0].fieldName).toEqual('id');
             expect(sortingsService.sortings[0].direction).toEqual(SortDirection.Asc);
         });
+        it('start direction is asc by default', () => {
+            const target = toTarget();
+            const { sortingsService } = target;
+            sortingsService.setSort('id', doNotSavePrevious);
+            expect(sortingsService.sortings[0].fieldName).toEqual('id');
+            expect(sortingsService.sortings[0].direction).toEqual(SortDirection.Asc);
+        });
+        it('start direction can be changed', () => {
+            const target = toTarget();
+            const { sortingsService } = target;
+            sortingsService.setSort('id', doNotSavePrevious, 'Desc');
+            expect(sortingsService.sortings[0].fieldName).toEqual('id');
+            expect(sortingsService.sortings[0].direction).toEqual(SortDirection.Desc);
+        });
+        it('wrong start direction falls to default', () => {
+            const target = toTarget();
+            const { sortingsService } = target;
+            // @ts-ignore
+            sortingsService.setSort('id', doNotSavePrevious, 'abc');
+            expect(sortingsService.sortings[0].fieldName).toEqual('id');
+            expect(sortingsService.sortings[0].direction).toEqual(SortDirection.Asc);
+        });
         it('can remove sorting', () => {
             const target = toTarget();
             const { sortingsService } = target;
@@ -79,7 +103,7 @@ describe('SortingsService', () => {
             expect(sortingsService.sortings.length).toEqual(0);
         });
 
-        it('change empty sortings to setted default sortings', () => {
+        it('change empty sortings to set default sortings', () => {
             const target = toTarget();
             const { sortingsService } = target;
             sortingsService.defaultSortings = [
@@ -240,7 +264,13 @@ describe('SortingsService', () => {
             filtersService.registerFilterTarget(sortingsService);
 
             const params = {
-                sortings: [{ direction: SortDirection.Desc, fieldName: 'id' }, { direction: SortDirection.Desc, fieldName: 'name' }]
+                sortings: [
+                    { direction: SortDirection.Desc, fieldName: 'id' },
+                    {
+                        direction: SortDirection.Desc,
+                        fieldName: 'name'
+                    }
+                ]
             };
             filtersService.applyParams(params);
             expect(sortingsService.sortings.length).toBe(2);

@@ -12,6 +12,8 @@ export enum SortDirection {
     Desc = 1
 }
 
+export type SortDirectionStr = 'Asc' | 'Desc';
+
 /**
  * Represents sorting parameter applied to the server request by {@link RTSortingsService}.
  */

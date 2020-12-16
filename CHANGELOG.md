@@ -1,3 +1,9 @@
+## [11.1.1](https://github.com/eastbanctechru/right-angled/compare/v11.0.0...v11.1.1) (2020-12-16)
+
+### Features
+
+-   **sort:** add ability to set start sort direction through `startSortDirection` option ([6f4b3eb1](https://github.com/eastbanctechru/right-angled/commit/6f4b3eb1))
+
 ## [11.1.0](https://github.com/eastbanctechru/right-angled/compare/v11.0.0...v11.1.0) (2019-10-02)
 
 ### Features
