@@ -1,6 +1,6 @@
 @import '../../shared.scss';
 
-:host /deep/ {
+:host ::ng-deep {
     div[rtselectionarea] {
         div[rtselectionarea] {
             padding: 0 15px;

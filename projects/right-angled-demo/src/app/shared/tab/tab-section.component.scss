@@ -4,12 +4,12 @@
     margin: 35px 0;
 }
 
-:host /deep/ rt-demo-sample-tab > div {
+:host ::ng-deep rt-demo-sample-tab > div {
     background: $color-light-grey;
     padding: 15px;
 }
 
-:host /deep/ div.tab-body {
+:host ::ng-deep div.tab-body {
     border: 1px solid $color-light-blue;
     padding: 0;
     min-height: 250px;
