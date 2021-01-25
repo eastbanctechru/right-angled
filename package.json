@@ -53,7 +53,7 @@
     "@types/jasminewd2": "2.0.6",
     "@types/node": "^12.11.1",
     "@types/sinon": "7.0.6",
-    "codelyzer": "^5.1.2",
+    "codelyzer": "^6.0.1",
     "conventional-changelog-cli": "2.0.23",
     "coveralls": "3.0.6",
     "cz-conventional-changelog": "3.0.2",
