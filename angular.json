@@ -48,13 +48,16 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-            "aot": true,
+                        "aot": true,
                         "outputPath": "docs",
                         "index": "projects/right-angled-demo/src/index.html",
                         "main": "projects/right-angled-demo/src/main.ts",
                         "polyfills": "projects/right-angled-demo/src/polyfills.ts",
                         "tsConfig": "projects/right-angled-demo/tsconfig.app.json",
-                        "assets": ["projects/right-angled-demo/src/favicon.ico", "projects/right-angled-demo/src/assets"],
+                        "assets": [
+                            "projects/right-angled-demo/src/favicon.ico",
+                            "projects/right-angled-demo/src/assets"
+                        ],
                         "styles": [
                             "node_modules/normalize.css/normalize.css",
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -64,8 +67,9 @@
                             "node_modules/prismjs/themes/prism.css",
                             "projects/right-angled-demo/src/styles.scss"
                         ],
-                        "scripts": ["node_modules/alertify/lib/alertify.min.js"],
-                        "es5BrowserSupport": true
+                        "scripts": [
+                            "node_modules/alertify/lib/alertify.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
