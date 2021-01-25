@@ -1,3 +1,4 @@
+import { Injectable } from "@angular/core";
 // tslint:disable:max-classes-per-file
 
 /**
@@ -81,6 +82,7 @@ export class PromiseSubscriptionProxy implements SubscriptionProxy {
 /**
  * Service to manage async subscriptions which acts as mediator to {@link SubscriptionProxy} contract implementations.
  */
+@Injectable()
 export class AsyncSubscriber {
     private proxy: SubscriptionProxy = null;
     private lastTarget: any = null;

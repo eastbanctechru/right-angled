@@ -4,5 +4,11 @@
         "outDir": "../../out-tsc/app",
         "types": ["alertify"]
     },
-    "exclude": ["test.ts", "**/*.spec.ts"]
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "projects/right-angled-demo/src/**/*.d.ts"
+  ]
 }
