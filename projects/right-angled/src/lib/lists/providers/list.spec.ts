@@ -11,7 +11,7 @@ import { RTPagedPager } from './paged-pager';
 import { OperationStatus } from '../../core/operation-status';
 
 class FirstStubStateService implements RTStateService {
-    public persistState(): void {
+    public persistState(filtersService: RTFiltersService): void {
         return;
     }
     public getState(): any {
