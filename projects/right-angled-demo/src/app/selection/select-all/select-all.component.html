@@ -19,7 +19,7 @@
             </li>
         </ul>
     </div>
-    <div class="col-md-12" *ngFor="let region of (regions$ | async)">
+    <div class="col-md-12" *ngFor="let region of regions$ | async">
         <div class="col-md-12 item" [rtSelectable]="region" #rts="rtSelectable">{{ region.name }} ({{ region.countries.length }} countries)</div>
 
         <div class="col-md-12" *ngIf="rts.selected" rtSelectionArea>

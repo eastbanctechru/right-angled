@@ -1,19 +1,21 @@
 import {
     AfterContentInit,
-    ContentChildren,
     Directive,
+    ElementRef,
     EventEmitter,
     HostBinding,
     HostListener,
     Input,
     OnChanges,
     OnDestroy,
+    Optional,
     Output,
-    QueryList,
     Self,
-    SimpleChange
+    SimpleChange,
+    SkipSelf
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { animationFrameScheduler, EMPTY, scheduled, Subject, Subscription } from 'rxjs';
+import { debounce } from 'rxjs/operators';
 
 import { SelectionEventsEmitter, RTSelectionEvent } from './providers/selection-events-emitter';
 import { RTSelectionEventsHelper } from './providers/selection-events-helper';
@@ -21,22 +23,24 @@ import { RTSelectionService } from './providers/selection.service';
 import { SelectableDirective } from './selectable.directive';
 import { SelectionCheckboxForDirective } from './selection-checkbox-for.directive';
 
+interface SelectableElement {
+    selectable: SelectableDirective | SelectionCheckboxForDirective;
+    element: HTMLElement;
+}
+
 @Directive({
     exportAs: 'rtSelectionArea',
     providers: [RTSelectionService, RTSelectionEventsHelper],
     selector: '[rtSelectionArea]'
 })
 export class SelectionAreaDirective implements SelectionEventsEmitter, AfterContentInit, OnChanges, OnDestroy {
-    @ContentChildren(SelectableDirective, { descendants: false })
-    public selectableItems: QueryList<SelectableDirective>;
-    @ContentChildren(SelectionCheckboxForDirective, { descendants: false })
-    public childSelectionCheckboxes: QueryList<SelectionCheckboxForDirective>;
-    @ContentChildren(SelectionAreaDirective, { descendants: false })
-    public childSelectionAreas: QueryList<SelectionAreaDirective>;
-
-    public itemsSubscription: Subscription;
-    public checkboxesSubscription: Subscription;
-    public childSelectionAreasSubscription: Subscription;
+    private selectableItems: SelectableElement[] = [];
+    private childSelectionCheckboxes: SelectableElement[] = [];
+    private childSelectionAreas = new Set<SelectionAreaDirective>();
+    private selectablesChangedSubscription: Subscription;
+    private selectablesChangedSubject = new Subject<(SelectableDirective | SelectionCheckboxForDirective)[]>();
+    private childSelectionAreasChangedSubscription: Subscription;
+    private childSelectionAreasChangedSubject = new Subject<Set<SelectionAreaDirective>>();
 
     @HostBinding('tabIndex')
     public tabIndex = 0;
@@ -86,16 +90,34 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
     @Output()
     public readonly selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
 
-    constructor(@Self() public selectionService: RTSelectionService, @Self() public selectionEventsHelper: RTSelectionEventsHelper) {
+    constructor(
+        @SkipSelf() @Optional() private parentSelectionArea: SelectionAreaDirective,
+        @Self() public selectionService: RTSelectionService, 
+        @Self() public selectionEventsHelper: RTSelectionEventsHelper) {
         this.selectionService.areaEventsEmitter = this;
         this.selectionEventsHelper = selectionEventsHelper;
     }
+
+    ngOnInit() {
+        this.selectablesChangedSubscription = this.selectablesChangedSubject.pipe(
+            debounce(() => scheduled(EMPTY, animationFrameScheduler))
+        ).subscribe(items => this.buildSelectionSource(items));
+
+        this.childSelectionAreasChangedSubscription = this.childSelectionAreasChangedSubject.pipe(
+            debounce(() => scheduled(EMPTY, animationFrameScheduler))
+        ).subscribe(items => this.buildSelectionServicesList(items));
+    }
+    
+    ngAfterViewInit() {
+        this.parentSelectionArea?.registerChildSelectionArea(this);
+    }
+
     public ngOnDestroy(): void {
-        this.itemsSubscription.unsubscribe();
-        this.checkboxesSubscription.unsubscribe();
-        this.childSelectionAreasSubscription.unsubscribe();
         this.selectionService.deselectAll();
         this.selectionService.destroy();
+        this.parentSelectionArea?.unregisterChildSelectionArea(this);
+        this.selectablesChangedSubscription?.unsubscribe();
+        this.childSelectionAreasChangedSubscription?.unsubscribe();
     }
     public ngOnChanges(changes: { multiple?: SimpleChange; autoSelectFirst?: SimpleChange }): void {
         if (false === this.selectionService.hasSelections() && changes.autoSelectFirst && changes.autoSelectFirst.currentValue === true) {
@@ -130,19 +152,76 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
             }
         }
     }
+    //#region callbacks for DOM descendants
+    public registerSelectable(selectable: SelectableDirective, elementRef: ElementRef): void {
+        const element = elementRef.nativeElement as HTMLElement;
+        let i = 0;
+        for (; i < this.selectableItems.length; i++) {
+            if (this.selectableItems[i].element.compareDocumentPosition(element) & document.DOCUMENT_POSITION_PRECEDING) {
+                this.selectableItems.splice(i, 0, { element, selectable });
+                break;
+            }
+        }
+        if (i === this.selectableItems.length) {
+            this.selectableItems.push({element, selectable});
+        }
+        this.selectablesChangedSubject.next(this.selectableItems.map(x => x.selectable))
+    }
+    public unregisterSelectable(selectable: SelectableDirective): void {
+        const idx = this.selectableItems.findIndex(x => x.selectable === selectable);
+        if (idx >= 0) {
+            this.selectableItems.splice(idx, 1);
+        }
+        this.selectablesChangedSubject.next(this.selectableItems.map(x => x.selectable));
+    }
+
+    public registerSelectionCheckbox(checkbox: SelectionCheckboxForDirective, elementRef: ElementRef): void {
+        const element = elementRef.nativeElement as HTMLElement;
+        let i = 0;
+        for (; i < this.childSelectionCheckboxes.length; i++) {
+            if (this.childSelectionCheckboxes[i].element.compareDocumentPosition(element) & document.DOCUMENT_POSITION_PRECEDING) {
+                this.childSelectionCheckboxes.splice(i, 0, { element, selectable: checkbox });
+                break;
+            }
+        }
+        if (i === this.childSelectionCheckboxes.length) {
+            this.childSelectionCheckboxes.push({element, selectable: checkbox});
+        }
+        this.selectablesChangedSubject.next(this.childSelectionCheckboxes.map(x => x.selectable))
+    }
+    public unregisterSelectionCheckbox(checkbox: SelectionCheckboxForDirective): void {
+        const idx = this.childSelectionCheckboxes.findIndex(x => x.selectable === checkbox);
+        if (idx >= 0) {
+            this.childSelectionCheckboxes.splice(idx, 1);
+        }
+        this.selectablesChangedSubject.next(this.childSelectionCheckboxes.map(x => x.selectable));
+    }
+
+    public registerChildSelectionArea(selectionArea: SelectionAreaDirective): void {
+        if (!this.childSelectionAreas.has(selectionArea)) {
+            this.childSelectionAreas.add(selectionArea);
+            this.childSelectionAreasChangedSubject.next(this.childSelectionAreas);
+        }
+    }
+    public unregisterChildSelectionArea(selectionArea: SelectionAreaDirective): void {
+        if (this.childSelectionAreas.has(selectionArea)) {
+            this.childSelectionAreas.delete(selectionArea);
+            this.childSelectionAreasChangedSubject.next(this.childSelectionAreas);
+        }
+    }
+    //#endregion
+
     public ngAfterContentInit(): void {
         if (this.selectableItems.length > 0) {
-            this.buildSelectionSource(this.selectableItems);
+            this.buildSelectionSource(this.selectableItems.map(item => item.selectable));
         }
         if (this.childSelectionCheckboxes.length > 0) {
-            this.buildSelectionSource(this.childSelectionCheckboxes);
+            this.buildSelectionSource(this.childSelectionCheckboxes.map(item => item.selectable));
         }
         this.buildSelectionServicesList(this.childSelectionAreas);
-        this.itemsSubscription = this.selectableItems.changes.subscribe(this.buildSelectionSource.bind(this));
-        this.checkboxesSubscription = this.childSelectionCheckboxes.changes.subscribe(this.buildSelectionSource.bind(this));
-        this.childSelectionAreasSubscription = this.childSelectionAreas.changes.subscribe(this.buildSelectionServicesList.bind(this));
     }
-    private buildSelectionSource(items: QueryList<SelectableDirective | SelectionCheckboxForDirective>): void {
+
+    private buildSelectionSource(items: (SelectableDirective | SelectionCheckboxForDirective)[]): void {
         let index = 0;
         this.selectionService.eventEmitters = items.map(item => {
             if (item.index !== null && item.index !== index) {
@@ -157,7 +236,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
             setTimeout(() => {
                 // since we've modify collection on first render,
                 // to prevent error 'Expression has changed after it was checked' we've do selection after render
-                if (this.selectionService.items.length > 0) {
+                if (this.selectionService.items?.length > 0) {
                     this.selectionService.checkSelection();
                     // repeats first element selection since checking can deselect all elements
                     if (false === this.selectionService.hasSelections() && this.autoSelectFirst) {
@@ -167,7 +246,9 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
             }, 0);
         }
     }
-    private buildSelectionServicesList(items: QueryList<SelectionAreaDirective>): void {
-        this.selectionService.childSelectionServices = items.filter(area => area !== this).map(area => area.selectionService);
+    private buildSelectionServicesList(items: Set<SelectionAreaDirective>): void {
+        this.selectionService.childSelectionServices = Array.from(items)
+            .filter(area => area !== this)
+            .map(area => area.selectionService);
     }
 }

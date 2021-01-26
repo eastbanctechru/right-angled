@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RTSelectionService, RTSelectionEventsHelper, SelectionAreaDirective, SelectableDirective } from './selection.module';
 import { KeyCodes } from './providers/selection-events-helper';
@@ -65,22 +65,24 @@ describe('rtSelectionArea directive', () => {
     let selectionService: RTSelectionService;
     let selectionEventsHelper: RTSelectionEventsHelper;
     let selectionAreaDirective: SelectionAreaDirective;
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            declarations: [HostComponent, NestedComponent, SelectionAreaDirective, SelectableDirective],
-            providers: [
-                { provide: RTSelectionService, useClass: SelectionServiceStub },
-                { provide: RTSelectionEventsHelper, useClass: SelectionEventsHelperStub }
-            ]
-        });
-        fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService);
-        selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper);
-        selectionAreaDirective = fixture.debugElement.children[0].injector.get(SelectionAreaDirective);
-    });
+    beforeEach(
+        waitForAsync(() => {
+            TestBed.configureTestingModule({
+                declarations: [HostComponent, NestedComponent, SelectionAreaDirective, SelectableDirective],
+                providers: [
+                    { provide: RTSelectionService, useClass: SelectionServiceStub },
+                    { provide: RTSelectionEventsHelper, useClass: SelectionEventsHelperStub }
+                ]
+            });
+            fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+            selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService);
+            selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper);
+            selectionAreaDirective = fixture.debugElement.children[0].injector.get(SelectionAreaDirective);
+        })
+    );
 
-    it('builds collection of child selection services for `RTSelectionService` and rebuilds it on change tracking cycle', () => {
+    it('builds collection of child selection services for `RTSelectionService` and rebuilds it on change tracking cycle', fakeAsync(() => {
         const nestedFixture = TestBed.createComponent(NestedComponent);
         nestedFixture.detectChanges();
         selectionService = nestedFixture.debugElement.children[0].injector.get(RTSelectionService);
@@ -92,12 +94,15 @@ describe('rtSelectionArea directive', () => {
             childItems: [{ number: 1 }],
             number: 4
         });
-        nestedFixture.detectChanges();
+        requestAnimationFrame(() => {
+            nestedFixture.detectChanges();
+        });
+        tick(32);
         expect(selectionService.childSelectionServices.length).toEqual(4);
         expect(selectionService.childSelectionServices).toEqual(
             nestedFixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectionAreaDirective).selectionService)
         );
-    });
+    }));
 
     it('acts as DI root for selection-related services', () => {
         expect(selectionService instanceof SelectionServiceStub).toBe(false);
@@ -272,58 +277,74 @@ describe('rtSelectionArea directive', () => {
         expect(selectionService.getSelectedIndexes()).toEqual([1]);
     });
 
-    it('runs `checkSelection` on change tracking cycle', done => {
+    it('runs `checkSelection` on change tracking cycle', fakeAsync(() => {
         spyOn(selectionService, 'checkSelection');
         fixture.componentInstance.items.push(4);
         fixture.detectChanges();
-        setTimeout(() => {
-            expect(selectionService.checkSelection).toHaveBeenCalled();
-            done();
-        }, 0);
-    });
+        requestAnimationFrame(() => {
+            fixture.detectChanges();
+        });
+        tick(32);
+        expect(selectionService.checkSelection).toHaveBeenCalled();
+    }));
 
-    it('selects first element after selection check if `autoSelectFirst` is setted to `true`', done => {
+    it('selects first element after selection check if `autoSelectFirst` is setted to `true`', fakeAsync(() => {
         selectionAreaDirective.autoSelectFirst = true;
         fixture.componentInstance.items.push(4);
         fixture.detectChanges();
         expect(selectionService.getSelectedIndexes()).toEqual([]);
-        setTimeout(() => {
-            expect(selectionService.getSelectedIndexes()).toEqual([0]);
-            done();
-        }, 0);
-    });
+        requestAnimationFrame(() => {
+            fixture.detectChanges();
+        });
+        tick(16);
+        expect(selectionService.getSelectedIndexes()).toEqual([0]);
+    }));
 
-    it('does not run `checkSelection` on change tracking cycle if `items` source is empty', done => {
+    it('does not run `checkSelection` on change tracking cycle if `items` source is empty', fakeAsync(() => {
         spyOn(selectionService, 'checkSelection');
         fixture.componentInstance.items = [];
         fixture.detectChanges();
-        setTimeout(() => {
-            expect(selectionService.checkSelection).not.toHaveBeenCalled();
-            done();
-        }, 0);
-    });
+        requestAnimationFrame(() => {
+            fixture.detectChanges();
+        });
+        tick(16);
+        expect(selectionService.checkSelection).not.toHaveBeenCalled();
+    }));
 
-    it('rebuilds `items` collection of selection service on change tracking cycle', () => {
+    it('rebuilds `items` collection of selection service on change tracking cycle', fakeAsync(() => {
         fixture.componentInstance.items = [1, 2, 3, 4];
         fixture.detectChanges();
+        requestAnimationFrame(() => {
+            fixture.detectChanges();
+        });
+        tick(16);
         expect(selectionService.items).toEqual([1, 2, 3, 4]);
-    });
+    }));
 
-    it('rebuilds `eventEmitters` collection of selection service on change tracking cycle', () => {
+    it('rebuilds `eventEmitters` collection of selection service on change tracking cycle', fakeAsync(() => {
         fixture.componentInstance.items = [1, 2, 3, 4];
         fixture.detectChanges();
+        requestAnimationFrame(() => {
+            fixture.detectChanges();
+        });
+        tick(16);
         expect(selectionService.eventEmitters).toEqual(
             fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective))
         );
-    });
+    }));
 
-    it('updates indexes of selectable items on change tracking cycle', () => {
-        const selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective));
+    it('updates indexes of selectable items on change tracking cycle', fakeAsync(() => {
+        let selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective));
         expect(selectables.map(s => s.index)).toEqual([0, 1, 2]);
         fixture.componentInstance.items.unshift(0);
         fixture.detectChanges();
-        expect(selectables.map(s => s.index)).toEqual([1, 2, 3]);
-    });
+        requestAnimationFrame(() => {
+            fixture.detectChanges();
+        });
+        tick(16);
+        selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective));
+        expect(selectables.map(s => s.index)).toEqual([0, 1, 2, 3]);
+    }));
 
     it('deselects items on `destroy`', () => {
         spyOn(selectionService, 'deselectAll');
@@ -338,12 +359,10 @@ describe('rtSelectionArea directive', () => {
     });
 
     it('destroys ContentChildren subscriptions on `destroy`', () => {
-        spyOn(selectionAreaDirective.checkboxesSubscription, 'unsubscribe');
-        spyOn(selectionAreaDirective.itemsSubscription, 'unsubscribe');
-        spyOn(selectionAreaDirective.childSelectionAreasSubscription, 'unsubscribe');
+        spyOn(selectionAreaDirective['childSelectionAreasChangedSubscription'], 'unsubscribe');
+        spyOn(selectionAreaDirective['selectablesChangedSubscription'], 'unsubscribe');
         fixture.destroy();
-        expect(selectionAreaDirective.checkboxesSubscription.unsubscribe).toHaveBeenCalled();
-        expect(selectionAreaDirective.itemsSubscription.unsubscribe).toHaveBeenCalled();
-        expect(selectionAreaDirective.childSelectionAreasSubscription.unsubscribe).toHaveBeenCalled();
+        expect(selectionAreaDirective['childSelectionAreasChangedSubscription'].unsubscribe).toHaveBeenCalled();
+        expect(selectionAreaDirective['selectablesChangedSubscription'].unsubscribe).toHaveBeenCalled();
     });
 });

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { RTModule } from 'right-angled';
 
 import { SharedModule } from '../shared/shared.module';
 import { QuickTourComponent } from './quick-tour.component';
@@ -36,6 +37,6 @@ import { UseStatusesComponent } from './use-statuses/use-statuses.component';
         UseStatusesComponent,
         UseSelectionComponent
     ],
-    imports: [CommonModule, SharedModule, RouterModule]
+    imports: [CommonModule, SharedModule, RouterModule, RTModule]
 })
 export class QuickTourModule {}

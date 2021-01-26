@@ -1,7 +1,8 @@
-import { Directive, EventEmitter, HostBinding, HostListener, Input, Output, SkipSelf } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostBinding, HostListener, Input, Optional, Output, SkipSelf } from '@angular/core';
 import { RTSelectionEventsHelper } from './providers/selection-events-helper';
 import { RTSelectionService } from './providers/selection.service';
 import { RTSelectionEvent, SelectionElementEventsEmitter } from './providers/selection-events-emitter';
+import { SelectionAreaDirective } from './selection-area.directive';
 
 @Directive({
     exportAs: 'rtSelectionCheckboxFor',
@@ -33,7 +34,20 @@ export class SelectionCheckboxForDirective implements SelectionElementEventsEmit
     public readonly selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     private selectedInternal = false;
 
-    constructor(@SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper, @SkipSelf() private selectionService: RTSelectionService) {}
+    constructor(
+        private elementRef: ElementRef,
+        @Optional() private selectionArea: SelectionAreaDirective, 
+        @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper, 
+        @SkipSelf() private selectionService: RTSelectionService
+    ) {}
+
+    ngAfterViewInit() {
+        this.selectionArea?.registerSelectionCheckbox(this, this.elementRef);
+    }
+
+    ngOnDestroy() {
+        this.selectionArea?.unregisterSelectionCheckbox(this);
+    }
 
     @HostBinding('checked')
     public get isChecked(): boolean {

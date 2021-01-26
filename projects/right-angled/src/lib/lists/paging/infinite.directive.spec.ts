@@ -121,6 +121,7 @@ describe('infinite directive', () => {
         fixture.componentInstance.listHostReference = fixture.componentInstance.listHost.nativeElement;
         fixture.detectChanges();
         scrollTo(hostElement, scrollMaxValue);
+        fixture.detectChanges();
         expect(loadDataSpy).toHaveBeenCalledTimes(1);
     });
 

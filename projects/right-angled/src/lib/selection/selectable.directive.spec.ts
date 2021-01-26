@@ -1,5 +1,5 @@
 import { Component, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RTSelectionService, RTSelectionEventsHelper, SelectionAreaDirective, SelectableDirective } from './selection.module';
 import { MouseButtons } from './providers/selection-events-helper';
 
@@ -36,20 +36,22 @@ describe('rtSelectable directive', () => {
             which: MouseButtons.Left
         };
     }
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            declarations: [HostComponent, SelectionAreaDirective, SelectableDirective]
-        });
-        fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService);
-        selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper);
-        selectableElements = [
-            fixture.debugElement.children[0].children[0],
-            fixture.debugElement.children[0].children[1],
-            fixture.debugElement.children[0].children[2]
-        ];
-    });
+    beforeEach(
+        waitForAsync(() => {
+            TestBed.configureTestingModule({
+                declarations: [HostComponent, SelectionAreaDirective, SelectableDirective]
+            });
+            fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+            selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService);
+            selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper);
+            selectableElements = [
+                fixture.debugElement.children[0].children[0],
+                fixture.debugElement.children[0].children[1],
+                fixture.debugElement.children[0].children[2]
+            ];
+        })
+    );
 
     it('emits `selectedChange` event when `selected` property changed', () => {
         let eventRaised = false;

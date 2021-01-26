@@ -1,5 +1,5 @@
 import { Component, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { RTSelectionService, RTSelectionEventsHelper, SelectionAreaDirective, SelectionCheckboxForDirective } from './selection.module';
 
 @Component({
@@ -22,20 +22,27 @@ describe('rtSelectionCheckboxFor directive', () => {
     let selectionService: RTSelectionService;
     let selectionEventsHelper: RTSelectionEventsHelper;
     let selectionCheckboxes: DebugElement[];
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            declarations: [HostComponent, SelectionAreaDirective, SelectionCheckboxForDirective]
-        });
-        fixture = TestBed.createComponent(HostComponent);
-        fixture.detectChanges();
-        selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService);
-        selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper);
-        selectionCheckboxes = [
-            fixture.debugElement.children[0].children[0],
-            fixture.debugElement.children[0].children[1],
-            fixture.debugElement.children[0].children[2]
-        ];
-    });
+    beforeEach(
+        waitForAsync(() => {
+            TestBed.configureTestingModule({
+                declarations: [HostComponent, SelectionAreaDirective, SelectionCheckboxForDirective]
+            }).compileComponents();
+        })
+    );
+
+    beforeEach(
+        waitForAsync(() => {
+            fixture = TestBed.createComponent(HostComponent);
+            fixture.detectChanges();
+            selectionService = fixture.debugElement.children[0].injector.get(RTSelectionService);
+            selectionEventsHelper = fixture.debugElement.children[0].injector.get(RTSelectionEventsHelper);
+            selectionCheckboxes = [
+                fixture.debugElement.children[0].children[0],
+                fixture.debugElement.children[0].children[1],
+                fixture.debugElement.children[0].children[2]
+            ];
+        })
+    );
 
     it('handles change event by calling `selectionService.selectIndex` with `savePrevious` flag if checkbox is checked', () => {
         spyOn(selectionService, 'selectIndex');
