@@ -1,6 +1,5 @@
 import { ElementRef, OnChanges, OnDestroy, Renderer2, SimpleChange, Directive } from '@angular/core';
 
-@Directive()
 export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
     public eventNames: string | string[];
     public unlisteners: any[] = [];
