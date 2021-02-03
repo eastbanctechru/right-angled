@@ -94,9 +94,9 @@ describe('rtSelectionArea directive', () => {
             childItems: [{ number: 1 }],
             number: 4
         });
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             nestedFixture.detectChanges();
-        });
+        }, 32);
         tick(32);
         expect(selectionService.childSelectionServices.length).toEqual(4);
         expect(selectionService.childSelectionServices).toEqual(
@@ -338,10 +338,10 @@ describe('rtSelectionArea directive', () => {
         expect(selectables.map(s => s.index)).toEqual([0, 1, 2]);
         fixture.componentInstance.items.unshift(0);
         fixture.detectChanges();
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             fixture.detectChanges();
-        });
-        tick(16);
+        }, 32);
+        tick(32);
         selectables = fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective));
         expect(selectables.map(s => s.index)).toEqual([0, 1, 2, 3]);
     }));
