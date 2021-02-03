@@ -10,12 +10,17 @@
             "prefix": "rt",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
                     "options": {
                         "tsConfig": "projects/right-angled/tsconfig.lib.json",
                         "project": "projects/right-angled/ng-package.json"
                     }
-                },
+                ,          "configurations": {
+            "production": {
+              "tsConfig": "projects/right-angled/tsconfig.lib.prod.json"
+            }
+          }
+},
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
@@ -43,12 +48,16 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "aot": true,
                         "outputPath": "docs",
                         "index": "projects/right-angled-demo/src/index.html",
                         "main": "projects/right-angled-demo/src/main.ts",
                         "polyfills": "projects/right-angled-demo/src/polyfills.ts",
                         "tsConfig": "projects/right-angled-demo/tsconfig.app.json",
-                        "assets": ["projects/right-angled-demo/src/favicon.ico", "projects/right-angled-demo/src/assets"],
+                        "assets": [
+                            "projects/right-angled-demo/src/favicon.ico",
+                            "projects/right-angled-demo/src/assets"
+                        ],
                         "styles": [
                             "node_modules/normalize.css/normalize.css",
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -58,8 +67,9 @@
                             "node_modules/prismjs/themes/prism.css",
                             "projects/right-angled-demo/src/styles.scss"
                         ],
-                        "scripts": ["node_modules/alertify/lib/alertify.min.js"],
-                        "es5BrowserSupport": true
+                        "scripts": [
+                            "node_modules/alertify/lib/alertify.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
@@ -72,7 +82,6 @@
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
-                            "extractCss": true,
                             "namedChunks": false,
                             "aot": true,
                             "extractLicenses": true,
@@ -83,6 +92,10 @@
                                     "type": "initial",
                                     "maximumWarning": "2mb",
                                     "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb"
                                 }
                             ]
                         }
@@ -157,7 +170,7 @@
     "schematics": {
         "@schematics/angular:component": {
             "prefix": "rt-demo",
-            "styleext": "scss"
+            "style": "scss"
         },
         "@schematics/angular:directive": {
             "prefix": "rt-demo"

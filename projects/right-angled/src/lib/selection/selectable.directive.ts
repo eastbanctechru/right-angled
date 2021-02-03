@@ -1,6 +1,7 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2, SkipSelf } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Input, Optional, Output, Renderer2, SkipSelf } from '@angular/core';
 import { RTSelectionEventsHelper } from './providers/selection-events-helper';
 import { RTSelectionEvent, SelectionElementEventsEmitter } from './providers/selection-events-emitter';
+import { SelectionAreaDirective } from './selection-area.directive';
 
 @Directive({
     exportAs: 'rtSelectable',
@@ -17,7 +18,13 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
     @Output() public readonly itemDeselected: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     @Output() public readonly selectionChanged: EventEmitter<RTSelectionEvent> = new EventEmitter<RTSelectionEvent>();
     private selectedInternal = false;
-    constructor(@SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper, private renderer: Renderer2, private el: ElementRef) {}
+    constructor(
+        @Optional() private selectionArea: SelectionAreaDirective,
+        @SkipSelf()
+        public selectionEventsHelper: RTSelectionEventsHelper,
+        private renderer: Renderer2,
+        private el: ElementRef
+    ) {}
 
     @Input()
     public get selected(): boolean {
@@ -29,6 +36,14 @@ export class SelectableDirective implements SelectionElementEventsEmitter {
         } else {
             this.selectionEventsHelper.selectionService.deselectIndex(this.index);
         }
+    }
+
+    ngAfterViewInit() {
+        this.selectionArea?.registerSelectable(this, this.el);
+    }
+
+    ngOnDestroy() {
+        this.selectionArea?.unregisterSelectable(this);
     }
 
     @HostListener('mouseup', ['$event.ctrlKey', '$event.shiftKey', '$event.which', '$event.preventDefault', '$event.stopPropagation', '$event'])

@@ -42,7 +42,7 @@ import { TabSectionComponent } from './tab/tab-section.component';
     imports: [CommonModule, FormsModule, RTModule]
 })
 export class SharedModule {
-    public static forRoot(): ModuleWithProviders {
+    public static forRoot(): ModuleWithProviders<SharedModule> {
         return {
             ngModule: SharedModule,
             providers: [AirportsService]

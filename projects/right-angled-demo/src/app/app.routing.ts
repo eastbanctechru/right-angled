@@ -29,7 +29,7 @@ export const appRoutes: Routes = [
     { path: '**', redirectTo: '' }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, {
+export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(appRoutes, {
     anchorScrolling: 'enabled',
     onSameUrlNavigation: 'reload',
     preloadingStrategy: NoPreloading,

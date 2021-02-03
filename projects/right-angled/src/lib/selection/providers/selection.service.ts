@@ -1,4 +1,5 @@
 import { SelectionEventsEmitter, SelectionElementEventsEmitter } from './selection-events-emitter';
+import { Injectable } from "@angular/core";
 export interface SelectionTuple {
     index: number;
     item: any;
@@ -6,6 +7,7 @@ export interface SelectionTuple {
 /**
  * Represents possible operations with selection model.
  */
+@Injectable()
 export class RTSelectionService {
     public eventEmitters: SelectionElementEventsEmitter[] = new Array<SelectionElementEventsEmitter>();
     public childSelectionServices: RTSelectionService[] = new Array<RTSelectionService>();

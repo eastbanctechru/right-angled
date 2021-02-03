@@ -41,10 +41,10 @@ class HostComponent {
             }, 100);
         });
     };
-    public afterListInit(): void {
+    public afterListInit(list: RTList): void {
         return;
     }
-    public listInit(): void {
+    public listInit(list: RTList): void {
         return;
     }
     public loadStarted(): void {

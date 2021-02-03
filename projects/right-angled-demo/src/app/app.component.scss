@@ -1,6 +1,6 @@
 @import '../shared.scss';
 
-:host /deep/ div {
+:host ::ng-deep div {
     .navbar-fixed-top {
         border: 0;
         margin-bottom: 0;

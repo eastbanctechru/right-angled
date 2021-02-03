@@ -1,10 +1,8 @@
 <div class="row" rtSelectionArea>
-    <div class="col-md-12" *ngFor="let region of (regions$ | async)">
+    <div class="col-md-12" *ngFor="let region of regions$ | async">
         <div class="col-md-12 item">
             <label class="checkbox-inline">
-                <input type="checkbox" [rtSelectionCheckboxFor]="region" [(selected)]="region.selected" /> {{ region.name }} ({{
-                    region.countries.length
-                }}
+                <input type="checkbox" [rtSelectionCheckboxFor]="region" [(selected)]="region.selected" /> {{ region.name }} ({{ region.countries.length }}
                 countries)
             </label>
         </div>
