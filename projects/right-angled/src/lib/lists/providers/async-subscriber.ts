@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 // tslint:disable:max-classes-per-file
 
 /**
@@ -11,6 +11,7 @@ export interface SubscriptionProxy {
      * @param completeAction action to call on underlying subscription successful completion
      * @param errorAction action to call on underlying subscription error
      */
+
     attach(target: any, completeAction: any, errorAction: any): any;
 
     /**

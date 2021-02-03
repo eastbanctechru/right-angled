@@ -1,5 +1,6 @@
 import {
     AfterContentInit,
+    AfterViewInit,
     Directive,
     ElementRef,
     EventEmitter,
@@ -8,6 +9,7 @@ import {
     Input,
     OnChanges,
     OnDestroy,
+    OnInit,
     Optional,
     Output,
     Self,
@@ -33,7 +35,7 @@ interface SelectableElement {
     providers: [RTSelectionService, RTSelectionEventsHelper],
     selector: '[rtSelectionArea]'
 })
-export class SelectionAreaDirective implements SelectionEventsEmitter, AfterContentInit, OnChanges, OnDestroy {
+export class SelectionAreaDirective implements SelectionEventsEmitter, AfterContentInit, OnChanges, OnInit, AfterViewInit, OnDestroy {
     private selectableItems: SelectableElement[] = [];
     private childSelectionCheckboxes: SelectableElement[] = [];
     private childSelectionAreas = new Set<SelectionAreaDirective>();
@@ -92,7 +94,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
 
     constructor(
         @SkipSelf() @Optional() private parentSelectionArea: SelectionAreaDirective,
-        @Self() public selectionService: RTSelectionService, 
+        @Self() public selectionService: RTSelectionService,
         @Self() public selectionEventsHelper: RTSelectionEventsHelper) {
         this.selectionService.areaEventsEmitter = this;
         this.selectionEventsHelper = selectionEventsHelper;
@@ -107,7 +109,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
             debounce(() => scheduled(EMPTY, animationFrameScheduler))
         ).subscribe(items => this.buildSelectionServicesList(items));
     }
-    
+
     ngAfterViewInit() {
         this.parentSelectionArea?.registerChildSelectionArea(this);
     }
@@ -165,7 +167,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         if (i === this.selectableItems.length) {
             this.selectableItems.push({element, selectable});
         }
-        this.selectablesChangedSubject.next(this.selectableItems.map(x => x.selectable))
+        this.selectablesChangedSubject.next(this.selectableItems.map(x => x.selectable));
     }
     public unregisterSelectable(selectable: SelectableDirective): void {
         const idx = this.selectableItems.findIndex(x => x.selectable === selectable);
@@ -187,7 +189,7 @@ export class SelectionAreaDirective implements SelectionEventsEmitter, AfterCont
         if (i === this.childSelectionCheckboxes.length) {
             this.childSelectionCheckboxes.push({element, selectable: checkbox});
         }
-        this.selectablesChangedSubject.next(this.childSelectionCheckboxes.map(x => x.selectable))
+        this.selectablesChangedSubject.next(this.childSelectionCheckboxes.map(x => x.selectable));
     }
     public unregisterSelectionCheckbox(checkbox: SelectionCheckboxForDirective): void {
         const idx = this.childSelectionCheckboxes.findIndex(x => x.selectable === checkbox);

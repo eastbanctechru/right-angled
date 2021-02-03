@@ -2,12 +2,9 @@
     "extends": "tslint:recommended",
     "rulesDirectory": ["codelyzer"],
     "rules": {
-      "align": {
-        "options": [
-          "parameters",
-          "statements"
-        ]
-      },
+        "align": {
+            "options": ["parameters", "statements"]
+        },
         "array-type": false,
         "arrow-parens": false,
         "arrow-return-shorthand": true,
@@ -21,9 +18,7 @@
         "max-classes-per-file": false,
         "import-spacing": true,
         "indent": {
-          "options": [
-            "spaces"
-          ]
+            "options": ["spaces"]
         },
         "max-line-length": [false],
         "member-access": false,
@@ -33,6 +28,7 @@
                 "order": ["static-field", "instance-field", "static-method", "instance-method"]
             }
         ],
+        "no-bitwise": false,
         "no-consecutive-blank-lines": false,
         "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
         "no-empty": false,
@@ -55,51 +51,40 @@
         "no-output-rename": true,
         "use-lifecycle-interface": true,
         "space-before-function-paren": {
-          "options": {
-            "anonymous": "never",
-            "asyncArrow": "always",
-            "constructor": "never",
-            "method": "never",
-            "named": "never"
-          }
+            "options": {
+                "anonymous": "never",
+                "asyncArrow": "always",
+                "constructor": "never",
+                "method": "never",
+                "named": "never"
+            }
         },
         "use-pipe-transform-interface": true,
         "typedef-whitespace": {
-          "options": [
-            {
-              "call-signature": "nospace",
-              "index-signature": "nospace",
-              "parameter": "nospace",
-              "property-declaration": "nospace",
-              "variable-declaration": "nospace"
-            },
-            {
-              "call-signature": "onespace",
-              "index-signature": "onespace",
-              "parameter": "onespace",
-              "property-declaration": "onespace",
-              "variable-declaration": "onespace"
-            }
-          ]
+            "options": [
+                {
+                    "call-signature": "nospace",
+                    "index-signature": "nospace",
+                    "parameter": "nospace",
+                    "property-declaration": "nospace",
+                    "variable-declaration": "nospace"
+                },
+                {
+                    "call-signature": "onespace",
+                    "index-signature": "onespace",
+                    "parameter": "onespace",
+                    "property-declaration": "onespace",
+                    "variable-declaration": "onespace"
+                }
+            ]
         },
         "component-class-suffix": true,
         "directive-class-suffix": true,
         "variable-name": {
-          "options": [
-            "ban-keywords",
-            "check-format",
-            "allow-pascal-case"
-          ]
+            "options": ["ban-keywords", "check-format", "allow-pascal-case"]
         },
         "whitespace": {
-          "options": [
-            "check-branch",
-            "check-decl",
-            "check-operator",
-            "check-separator",
-            "check-type",
-            "check-typecast"
-          ]
+            "options": ["check-branch", "check-decl", "check-operator", "check-separator", "check-type", "check-typecast"]
         }
     }
 }

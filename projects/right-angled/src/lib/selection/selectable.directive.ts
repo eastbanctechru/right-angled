@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Optional, Output, Renderer2, SkipSelf } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input, OnDestroy, Optional, Output, Renderer2, SkipSelf } from '@angular/core';
 import { RTSelectionEventsHelper } from './providers/selection-events-helper';
 import { RTSelectionEvent, SelectionElementEventsEmitter } from './providers/selection-events-emitter';
 import { SelectionAreaDirective } from './selection-area.directive';
@@ -7,7 +7,7 @@ import { SelectionAreaDirective } from './selection-area.directive';
     exportAs: 'rtSelectable',
     selector: '[rtSelectable]'
 })
-export class SelectableDirective implements SelectionElementEventsEmitter {
+export class SelectableDirective implements SelectionElementEventsEmitter, AfterViewInit, OnDestroy {
     public static settings: { selectedClassName: string } = {
         selectedClassName: 'rt-selected'
     };
