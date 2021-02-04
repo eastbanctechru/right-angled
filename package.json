@@ -14,7 +14,7 @@
         "docs": "ng build right-angled && ng build right-angled-demo --prod --baseHref=/right-angled/ && copy .\\docs\\index.html .\\docs\\404.html",
         "changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
         "copy-assets": "copy .\\LICENSE .\\dist\\right-angled && copy .\\README.md .\\dist\\right-angled && copy .\\CHANGELOG.md .\\dist\\right-angled",
-        "pack": "ng build right-angled && npm run copy-assets && cd dist/right-angled && npm pack",
+        "pack": "ng build right-angled --prod && npm run copy-assets && cd dist/right-angled && npm pack",
         "coveralls": "cat ./coverage/right-angled/lcov.info | ./node_modules/.bin/coveralls",
         "test": "ng test right-angled --watch=false --browsers=ChromeHeadless --codeCoverage=true",
         "ci": "ng lint && ng build --prod && ng build right-angled-demo --prod && npm run test"
