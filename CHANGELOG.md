@@ -4,11 +4,6 @@
 * **ng:** Updated to Angular 11 ([f26228e](https://github.com/eastbanctechru/right-angled/commit/f26228ecdff1246318be0448ef1f7b439569d0da))
 
 
-### Features
-
-* **package:** Library is now distibuted with support of Angular package format (APF) ([3841562](https://github.com/eastbanctechru/right-angled/commit/3841562f4d7191c811a269e9376500259bb24bed))
-
-
 ## [11.1.1](https://github.com/eastbanctechru/right-angled/compare/v11.0.0...v11.1.1) (2020-12-16)
 
 ### Features
