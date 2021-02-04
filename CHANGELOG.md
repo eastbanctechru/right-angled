@@ -1,3 +1,12 @@
+## [12.0.1](https://github.com/eastbanctechru/right-angled/compare/v12.0.0...v12.0.1) (2021-02-04)
+
+
+### Bug Fixes
+
+* **build:** Fixed build for Angular >=9 apps ([106f3e2](https://github.com/eastbanctechru/right-angled/commit/106f3e24e5986d4f89c741afefaf76252039c43d))
+
+
+
 # [12.0.0](https://github.com/eastbanctechru/right-angled/compare/v8.0.0...v12.0.0) (2021-02-04)
 ### chore
 
