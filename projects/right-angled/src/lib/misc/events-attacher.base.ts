@@ -1,9 +1,11 @@
-import { ElementRef, OnChanges, OnDestroy, Renderer2, SimpleChange, Directive } from '@angular/core';
+import { ElementRef, OnChanges, OnDestroy, Renderer2, SimpleChange, Directive, Optional } from '@angular/core';
 
-export abstract class EventsAttacherBase implements OnChanges, OnDestroy {
+@Directive()
+export abstract class EventsAttacherBaseDirective implements OnChanges, OnDestroy {
     public eventNames: string | string[];
     public unlisteners: any[] = [];
-    constructor(private elementRef: ElementRef, public renderer: Renderer2, public eventListener: (evt: Event) => void) {}
+
+    constructor(private elementRef: ElementRef, public renderer: Renderer2, @Optional() public eventListener: any) {}
     public ngOnChanges(changes: { eventNames?: SimpleChange }): void {
         if (changes.eventNames) {
             this.removeEventListeners();

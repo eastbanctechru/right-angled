@@ -281,9 +281,9 @@ describe('rtSelectionArea directive', () => {
         spyOn(selectionService, 'checkSelection');
         fixture.componentInstance.items.push(4);
         fixture.detectChanges();
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             fixture.detectChanges();
-        });
+        }, 32);
         tick(32);
         expect(selectionService.checkSelection).toHaveBeenCalled();
     }));
@@ -293,10 +293,10 @@ describe('rtSelectionArea directive', () => {
         fixture.componentInstance.items.push(4);
         fixture.detectChanges();
         expect(selectionService.getSelectedIndexes()).toEqual([]);
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             fixture.detectChanges();
-        });
-        tick(16);
+        }, 32);
+        tick(32);
         expect(selectionService.getSelectedIndexes()).toEqual([0]);
     }));
 
@@ -304,30 +304,30 @@ describe('rtSelectionArea directive', () => {
         spyOn(selectionService, 'checkSelection');
         fixture.componentInstance.items = [];
         fixture.detectChanges();
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             fixture.detectChanges();
-        });
-        tick(16);
+        }, 32);
+        tick(32);
         expect(selectionService.checkSelection).not.toHaveBeenCalled();
     }));
 
     it('rebuilds `items` collection of selection service on change tracking cycle', fakeAsync(() => {
         fixture.componentInstance.items = [1, 2, 3, 4];
         fixture.detectChanges();
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             fixture.detectChanges();
-        });
-        tick(16);
+        }, 32);
+        tick(32);
         expect(selectionService.items).toEqual([1, 2, 3, 4]);
     }));
 
     it('rebuilds `eventEmitters` collection of selection service on change tracking cycle', fakeAsync(() => {
         fixture.componentInstance.items = [1, 2, 3, 4];
         fixture.detectChanges();
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             fixture.detectChanges();
-        });
-        tick(16);
+        }, 32);
+        tick(32);
         expect(selectionService.eventEmitters).toEqual(
             fixture.debugElement.children[0].queryAll(By.css('div')).map(dn => dn.injector.get(SelectableDirective))
         );
@@ -358,6 +358,7 @@ describe('rtSelectionArea directive', () => {
         expect(selectionService.destroy).toHaveBeenCalled();
     });
 
+    /* tslint:disable:no-string-literal */
     it('destroys ContentChildren subscriptions on `destroy`', () => {
         spyOn(selectionAreaDirective['childSelectionAreasChangedSubscription'], 'unsubscribe');
         spyOn(selectionAreaDirective['selectablesChangedSubscription'], 'unsubscribe');
@@ -365,4 +366,5 @@ describe('rtSelectionArea directive', () => {
         expect(selectionAreaDirective['childSelectionAreasChangedSubscription'].unsubscribe).toHaveBeenCalled();
         expect(selectionAreaDirective['selectablesChangedSubscription'].unsubscribe).toHaveBeenCalled();
     });
+    /* tslint:enable:no-string-literal */
 });

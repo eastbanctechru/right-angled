@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, HostBinding, HostListener, Input, Optional, Output, SkipSelf } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnDestroy, Optional, Output, SkipSelf } from '@angular/core';
 import { RTSelectionEventsHelper } from './providers/selection-events-helper';
 import { RTSelectionService } from './providers/selection.service';
 import { RTSelectionEvent, SelectionElementEventsEmitter } from './providers/selection-events-emitter';
@@ -9,7 +9,7 @@ import { SelectionAreaDirective } from './selection-area.directive';
     /* tslint:disable-next-line:directive-selector */
     selector: 'input[rtSelectionCheckboxFor]'
 })
-export class SelectionCheckboxForDirective implements SelectionElementEventsEmitter {
+export class SelectionCheckboxForDirective implements SelectionElementEventsEmitter, AfterViewInit, OnDestroy {
     public index: number = null;
     // tslint:disable-next-line: no-input-rename
     @Input('rtSelectionCheckboxFor') public item: any = null;
@@ -36,8 +36,8 @@ export class SelectionCheckboxForDirective implements SelectionElementEventsEmit
 
     constructor(
         private elementRef: ElementRef,
-        @Optional() private selectionArea: SelectionAreaDirective, 
-        @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper, 
+        @Optional() private selectionArea: SelectionAreaDirective,
+        @SkipSelf() public selectionEventsHelper: RTSelectionEventsHelper,
         @SkipSelf() private selectionService: RTSelectionService
     ) {}
 

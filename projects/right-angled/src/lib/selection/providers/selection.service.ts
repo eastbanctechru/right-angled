@@ -1,5 +1,5 @@
 import { SelectionEventsEmitter, SelectionElementEventsEmitter } from './selection-events-emitter';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 export interface SelectionTuple {
     index: number;
     item: any;
@@ -15,6 +15,7 @@ export class RTSelectionService {
     /**
      * Index of last selected/deselected element in {@link items} collection.
      */
+
     public lastProcessedIndex: number;
     /**
      * Optional function which can be used to compare {@link items} elements.
