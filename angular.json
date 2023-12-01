@@ -28,18 +28,6 @@
             "tsConfig": "projects/right-angled/tsconfig.spec.json",
             "karmaConfig": "projects/right-angled/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/right-angled/tsconfig.lib.json",
-              "projects/right-angled/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -138,18 +126,6 @@
               "projects/right-angled-demo/src/assets"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/right-angled-demo/tsconfig.app.json",
-              "projects/right-angled-demo/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -168,15 +144,6 @@
             "production": {
               "devServerTarget": "right-angled-demo:serve:production"
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "projects/right-angled-demo-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
