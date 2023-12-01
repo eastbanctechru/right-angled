@@ -36,7 +36,11 @@
       "root": "projects/right-angled-demo/",
       "sourceRoot": "projects/right-angled-demo/src",
       "prefix": "rt-demo",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -59,6 +63,11 @@
               "node_modules/prismjs/themes/prism.css",
               "projects/right-angled-demo/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/right-angled-demo/src/"
+              ]
+            },
             "scripts": [
               "node_modules/alertify/lib/alertify.min.js"
             ]
@@ -120,7 +129,6 @@
             "styles": [
               "projects/right-angled-demo/src/styles.scss"
             ],
-            "scripts": [],
             "assets": [
               "projects/right-angled-demo/src/favicon.ico",
               "projects/right-angled-demo/src/assets"
@@ -148,5 +156,9 @@
         }
       }
     }
-  }
+  },
+  "cli": {
+    "analytics": false
+  },
+  "defaultProject": "right-angled"
 }
