@@ -28,6 +28,15 @@
             "tsConfig": "projects/right-angled/tsconfig.spec.json",
             "karmaConfig": "projects/right-angled/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/right-angled/**/*.ts",
+              "projects/right-angled/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -157,6 +166,9 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

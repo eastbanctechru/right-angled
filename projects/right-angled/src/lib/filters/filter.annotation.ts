@@ -20,14 +20,14 @@ import { cloneAsLiteral } from '../utilities';
  * }
  * ```
  */
-export let DefaultFilterConfig = {
-    coerce: true,
-    defaultValue: undefined,
-    emptyIsNull: false,
-    ignoreOnAutoMap: false,
-    omitIfNullOrUndefined: false,
-    parseFormatter: undefined,
-    serializeFormatter: undefined
+export const DefaultFilterConfig = {
+  coerce: true,
+  defaultValue: undefined,
+  emptyIsNull: false,
+  ignoreOnAutoMap: false,
+  omitIfNullOrUndefined: false,
+  parseFormatter: undefined,
+  serializeFormatter: undefined
 } as FilterConfig;
 
 /**
@@ -36,11 +36,11 @@ export let DefaultFilterConfig = {
  * @see {@link FilterConfig}
  */
 export function getDefaultFilterConfig(propertyName: string): FilterConfig {
-    return {
-        parameterName: propertyName,
-        propertyName,
-        ...cloneAsLiteral(DefaultFilterConfig)
-    } as FilterConfig;
+  return {
+    parameterName: propertyName,
+    propertyName,
+    ...cloneAsLiteral(DefaultFilterConfig)
+  } as FilterConfig;
 }
 /**
  * Annotation that can be used to configure type property as filter to use with {@link FiltersService}
@@ -52,22 +52,22 @@ export function getDefaultFilterConfig(propertyName: string): FilterConfig {
  * @see {@link FilterConfig}
  */
 export function filter(targetOrNameOrConfig?: string | FilterConfig, key?: string): any {
-    const decorateWithConfig = (target: object, key2: string): void => {
-        const config = getDefaultFilterConfig(key2);
-        if (typeof targetOrNameOrConfig === 'string') {
-            config.parameterName = targetOrNameOrConfig;
-        } else {
-            Object.assign(config, targetOrNameOrConfig);
-        }
-        RTFiltersService.registerFilterConfig(target.constructor, config);
-    };
-
-    if (key) {
-        const targetTemp = targetOrNameOrConfig;
-        // tslint:disable-next-line:no-parameter-reassignment
-        targetOrNameOrConfig = null;
-        decorateWithConfig(targetTemp as object, key);
-        return;
+  const decorateWithConfig = (target: object, key2: string): void => {
+    const config = getDefaultFilterConfig(key2);
+    if (typeof targetOrNameOrConfig === 'string') {
+      config.parameterName = targetOrNameOrConfig;
+    } else {
+      Object.assign(config, targetOrNameOrConfig);
     }
-    return decorateWithConfig;
+    RTFiltersService.registerFilterConfig(target.constructor, config);
+  };
+
+  if (key) {
+    const targetTemp = targetOrNameOrConfig;
+    // tslint:disable-next-line:no-parameter-reassignment
+    targetOrNameOrConfig = null;
+    decorateWithConfig(targetTemp as object, key);
+    return;
+  }
+  return decorateWithConfig;
 }
