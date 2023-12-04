@@ -8,6 +8,7 @@
   },
   "scripts": {
     "ng": "ng",
+    "serve": "ng serve right-angled-demo",
     "bundle-report": "ng build right-angled && ng build right-angled-demo --stats-json && webpack-bundle-analyzer docs/stats.json",
     "conventional-changelog": "conventional-changelog",
     "prettier": "prettier --write \"./projects/**/!(*.d.ts|*.png|*.svg|*.ico|*.html|.gitkeep|*.tsfake)\"",

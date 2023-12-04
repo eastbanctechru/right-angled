@@ -12,7 +12,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RouterModule } from '@angular/router';
-import { Angulartics2Module } from 'angulartics2';
 import { RTModule } from 'right-angled';
 import { DemoAppComponent } from './app.component';
 import { routing } from './app.routing';
@@ -21,20 +20,19 @@ import { QuickTourModule } from './quick-tour/quick-tour.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-    bootstrap: [DemoAppComponent],
-    declarations: [DemoAppComponent, HeaderComponent],
-    imports: [
-        BrowserModule,
-        Angulartics2Module.forRoot(),
-        HttpClientModule,
-        RTModule,
-        RouterModule,
-        SharedModule.forRoot(),
-        routing,
-        QuickTourModule,
-        BrowserModule,
-        BrowserAnimationsModule
-    ],
-    providers: []
+  bootstrap: [DemoAppComponent],
+  declarations: [DemoAppComponent, HeaderComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RTModule,
+    RouterModule,
+    SharedModule.forRoot(),
+    routing,
+    QuickTourModule,
+    BrowserModule,
+    BrowserAnimationsModule
+  ],
+  providers: []
 })
-export class AppModule {}
+export class AppModule { }
