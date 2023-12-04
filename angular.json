@@ -1,179 +1,174 @@
 {
-    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "version": 1,
-    "newProjectRoot": "projects",
-    "projects": {
-        "right-angled": {
-            "root": "projects/right-angled",
-            "sourceRoot": "projects/right-angled/src",
-            "projectType": "library",
-            "prefix": "rt",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:ng-packagr",
-                    "options": {
-                        "tsConfig": "projects/right-angled/tsconfig.lib.json",
-                        "project": "projects/right-angled/ng-package.json"
-                    }
-                ,          "configurations": {
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "right-angled": {
+      "projectType": "library",
+      "root": "projects/right-angled",
+      "sourceRoot": "projects/right-angled/src",
+      "prefix": "rt",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/right-angled/tsconfig.lib.json",
+            "project": "projects/right-angled/ng-package.json"
+          },
+          "configurations": {
             "production": {
               "tsConfig": "projects/right-angled/tsconfig.lib.prod.json"
             }
           }
-},
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "projects/right-angled/src/test.ts",
-                        "tsConfig": "projects/right-angled/tsconfig.spec.json",
-                        "karmaConfig": "projects/right-angled/karma.conf.js"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": ["projects/right-angled/tsconfig.lib.json", "projects/right-angled/tsconfig.spec.json"],
-                        "exclude": ["**/node_modules/**"]
-                    }
-                }
-            }
         },
-        "right-angled-demo": {
-            "root": "projects/right-angled-demo/",
-            "sourceRoot": "projects/right-angled-demo/src",
-            "projectType": "application",
-            "prefix": "rt-demo",
-            "schematics": {},
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "aot": true,
-                        "outputPath": "docs",
-                        "index": "projects/right-angled-demo/src/index.html",
-                        "main": "projects/right-angled-demo/src/main.ts",
-                        "polyfills": "projects/right-angled-demo/src/polyfills.ts",
-                        "tsConfig": "projects/right-angled-demo/tsconfig.app.json",
-                        "assets": [
-                            "projects/right-angled-demo/src/favicon.ico",
-                            "projects/right-angled-demo/src/assets"
-                        ],
-                        "styles": [
-                            "node_modules/normalize.css/normalize.css",
-                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                            "node_modules/alertify/themes/alertify.core.css",
-                            "node_modules/alertify/themes/alertify.bootstrap.css",
-                            "node_modules/alertify/lib/alertify.min.js",
-                            "node_modules/prismjs/themes/prism.css",
-                            "projects/right-angled-demo/src/styles.scss"
-                        ],
-                        "scripts": [
-                            "node_modules/alertify/lib/alertify.min.js"
-                        ]
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "projects/right-angled-demo/src/environments/environment.ts",
-                                    "with": "projects/right-angled-demo/src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "right-angled-demo:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "right-angled-demo:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "right-angled-demo:build"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "projects/right-angled-demo/src/test.ts",
-                        "polyfills": "projects/right-angled-demo/src/polyfills.ts",
-                        "tsConfig": "projects/right-angled-demo/tsconfig.spec.json",
-                        "karmaConfig": "projects/right-angled-demo/karma.conf.js",
-                        "styles": ["projects/right-angled-demo/src/styles.scss"],
-                        "scripts": [],
-                        "assets": ["projects/right-angled-demo/src/favicon.ico", "projects/right-angled-demo/src/assets"]
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": ["projects/right-angled-demo/tsconfig.app.json", "projects/right-angled-demo/tsconfig.spec.json"],
-                        "exclude": ["**/node_modules/**"]
-                    }
-                }
-            }
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/right-angled/src/test.ts",
+            "tsConfig": "projects/right-angled/tsconfig.spec.json",
+            "karmaConfig": "projects/right-angled/karma.conf.js"
+          }
         },
-        "right-angled-demo-e2e": {
-            "root": "projects/right-angled-demo-e2e/",
-            "projectType": "application",
-            "prefix": "",
-            "architect": {
-                "e2e": {
-                    "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "projects/right-angled-demo-e2e/protractor.conf.js",
-                        "devServerTarget": "right-angled-demo:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "right-angled-demo:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": "projects/right-angled-demo-e2e/tsconfig.e2e.json",
-                        "exclude": ["**/node_modules/**"]
-                    }
-                }
-            }
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/right-angled/**/*.ts",
+              "projects/right-angled/**/*.html"
+            ]
+          }
         }
+      }
     },
-    "defaultProject": "right-angled",
-    "schematics": {
+    "right-angled-demo": {
+      "projectType": "application",
+      "root": "projects/right-angled-demo/",
+      "sourceRoot": "projects/right-angled-demo/src",
+      "prefix": "rt-demo",
+      "schematics": {
         "@schematics/angular:component": {
-            "prefix": "rt-demo",
-            "style": "scss"
-        },
-        "@schematics/angular:directive": {
-            "prefix": "rt-demo"
+          "style": "scss"
         }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "docs",
+            "index": "projects/right-angled-demo/src/index.html",
+            "main": "projects/right-angled-demo/src/main.ts",
+            "polyfills": "projects/right-angled-demo/src/polyfills.ts",
+            "tsConfig": "projects/right-angled-demo/tsconfig.app.json",
+            "assets": [
+              "projects/right-angled-demo/src/favicon.ico",
+              "projects/right-angled-demo/src/assets"
+            ],
+            "styles": [
+              "node_modules/normalize.css/normalize.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/alertify/themes/alertify.core.css",
+              "node_modules/alertify/themes/alertify.bootstrap.css",
+              "node_modules/prismjs/themes/prism.css",
+              "projects/right-angled-demo/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/right-angled-demo/src/"
+              ]
+            },
+            "scripts": [
+              "node_modules/alertify/lib/alertify.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/right-angled-demo/src/environments/environment.ts",
+                  "with": "projects/right-angled-demo/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "right-angled-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "right-angled-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "right-angled-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/right-angled-demo/src/test.ts",
+            "polyfills": "projects/right-angled-demo/src/polyfills.ts",
+            "tsConfig": "projects/right-angled-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/right-angled-demo/karma.conf.js",
+            "styles": [
+              "projects/right-angled-demo/src/styles.scss"
+            ],
+            "assets": [
+              "projects/right-angled-demo/src/favicon.ico",
+              "projects/right-angled-demo/src/assets"
+            ]
+          }
+        }
+      }
+    },
+    "right-angled-demo-e2e": {
+      "root": "projects/right-angled-demo-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/right-angled-demo-e2e/protractor.conf.js",
+            "devServerTarget": "right-angled-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "right-angled-demo:serve:production"
+            }
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": false,
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  }
 }
