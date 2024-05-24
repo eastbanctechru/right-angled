@@ -44,7 +44,12 @@ They can work even without lists, but they go much better with them. The main fe
 To build the project, follow these steps:
 
 1. Ensure that [NodeJS](http://nodejs.org/) is installed. This provides the platform on which the build tooling runs.
-2. This project is based on [angular-cli](https://github.com/angular/angular-cli) so you need to install it.
+2. This project is based on [angular-cli](https://github.com/angular/angular-cli) so you need it to be installed.
+
+```shell
+npm install -g @angular/cli
+```
+
 3. From the project folder, execute the following command to install project dependencies:
 
 ```shell
@@ -54,7 +59,7 @@ npm install
 3. From the project folder, execute the following command to build the source code:
 
 ```shell
-ng build
+ng build right-angled
 ```
 
 ## How to run tests
@@ -70,3 +75,7 @@ or execute single run:
 ```shell
 ng test --watch=false
 ```
+
+## Generate docs
+
+Just run `npm run docs` and push updated files on master branch
