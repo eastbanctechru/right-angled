@@ -26,9 +26,7 @@
         <a href="#" [routerLink]="['/filters']">working with filters</a> section, you know that it is possible to annotate the properties of your component with
         <code>@filter</code> decorator and configure them as data request parameters.
     </p>
-    <p>
-        However, there are other possibilities of using filters:
-    </p>
+    <p>However, there are other possibilities of using filters:</p>
     <ul class="bulleted">
         <li>
             We can save the state of important list parameters (sortings, page size) in the
@@ -48,9 +46,7 @@
         Instead of the complete implementations (as soon as the logic of saving and identifying the settings are quite specific for the end app) our library
         contains the contracts to support them.
     </p>
-    <p>
-        Nevertheless, in this section we will show the examples of completed implementations, which will serve you as a starting point for your own ones.
-    </p>
+    <p>Nevertheless, in this section we will show the examples of completed implementations, which will serve you as a starting point for your own ones.</p>
 </section>
 <section id="service-implementations">
     <h3>Examples of <code>RTStateService</code> contract implementations</h3>
@@ -91,9 +87,9 @@
         user. But it is not necessary to save the values of the filters, because the user will probably not need the same values on every page visit.
     </p>
     <rt-demo-tab-section>
-        <rt-demo-code-tab title="local-storage-state-service.ts" url="shared/state-services/local-storage-state-service.ts"> </rt-demo-code-tab>
-        <rt-demo-code-tab title="session-storage-state-service.ts" url="shared/state-services/session-storage-state-service.ts"> </rt-demo-code-tab>
-        <rt-demo-code-tab title="query-string-state-service.ts" url="shared/state-services/query-string-state-service.ts"> </rt-demo-code-tab>
+        <rt-demo-code-tab title="local-storage-state.service.ts" url="shared/state-services/local-storage-state.service.ts"> </rt-demo-code-tab>
+        <rt-demo-code-tab title="session-storage-state.service.ts" url="shared/state-services/session-storage-state.service.ts"> </rt-demo-code-tab>
+        <rt-demo-code-tab title="query-string-state.service.ts" url="shared/state-services/query-string-state.service.ts"> </rt-demo-code-tab>
     </rt-demo-tab-section>
     <aside>
         <p>
@@ -156,7 +152,7 @@
         <h4>Related sections</h4>
         <p class="text-center clearfix">
             <a href="#" [routerLink]="['/filters']" class="btn btn-primary docs-link pull-left">&larr; Working with filters</a>
-            <a href="#" [routerLink]="['/misc-directives']" class="btn btn-primary docs-link  pull-right">Miscellaneous directives &rarr;</a>
+            <a href="#" [routerLink]="['/misc-directives']" class="btn btn-primary docs-link pull-right">Miscellaneous directives &rarr;</a>
         </p>
     </aside>
 </section>
