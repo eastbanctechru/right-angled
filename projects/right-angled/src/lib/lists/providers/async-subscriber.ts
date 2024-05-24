@@ -75,7 +75,8 @@ export class PromiseSubscriptionProxy implements SubscriptionProxy {
     /**
      * @inheritdoc
      */
-    public detach(subscription: any): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public detach(_subscription: any): void {
         this.isAlive = false;
     }
 }

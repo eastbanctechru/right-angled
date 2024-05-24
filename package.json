@@ -20,7 +20,7 @@
         "pack": "ng build right-angled --prod && npm run copy-assets && cd dist/right-angled && npm pack",
         "coveralls": "cat ./coverage/right-angled/lcov.info | ./node_modules/.bin/coveralls",
         "test": "ng test right-angled --watch=false --browsers=ChromeHeadless",
-        "ci": "ng lint && ng build right-angled && ng build right-angled-demo && npm run test",
+        "ci": "ng lint && ng build right-angled --configuration production && ng build right-angled-demo --configuration production && npm run test",
         "lint": "ng lint"
     },
     "dependencies": {

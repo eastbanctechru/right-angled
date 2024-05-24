@@ -22,7 +22,7 @@ import { OperationStatus } from '../core/operation-status';
             (loadFailed)="loadFailed()"
             (loadStarted)="loadStarted()"
         ></div>
-    `
+    `,
 })
 class HostComponent {
     public failOnLoad = false;
@@ -41,10 +41,12 @@ class HostComponent {
             }, 100);
         });
     };
-    public afterListInit(list: RTList): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public afterListInit(_list: RTList): void {
         return;
     }
-    public listInit(list: RTList): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public listInit(_list: RTList): void {
         return;
     }
     public loadStarted(): void {
@@ -58,9 +60,7 @@ class HostComponent {
     }
 }
 @Component({
-    template: `
-        <div [rtList]="getData" [loadOnInit]="false"></div>
-    `
+    template: ` <div [rtList]="getData" [loadOnInit]="false"></div> `,
 })
 class NotLoadOnInitHostComponent {
     public getData(): void {
@@ -92,8 +92,8 @@ describe('rtList directive', () => {
                 { provide: RTStateService, useClass: RTStateServiceStub },
                 { provide: RTList, useClass: ListStub },
                 { provide: RTFiltersService, useClass: FiltersServiceStub },
-                { provide: RTSortingsService, useClass: SortingsServiceStub }
-            ]
+                { provide: RTSortingsService, useClass: SortingsServiceStub },
+            ],
         });
         fixture = TestBed.createComponent(HostComponent);
         fixture.detectChanges();

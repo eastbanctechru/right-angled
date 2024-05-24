@@ -1,10 +1,10 @@
-import { Directive, HostBinding, HostListener, OnInit, OnDestroy, ChangeDetectorRef, ElementRef, Renderer2 } from '@angular/core';
+import { Directive, HostListener, OnInit, OnDestroy, ElementRef, Renderer2 } from '@angular/core';
 import { RTPagedPager } from '../providers/paged-pager';
 import { Subscription } from 'rxjs';
 
 @Directive({
     /* tslint:disable-next-line:directive-selector */
-    selector: 'input[rtPageSize]'
+    selector: 'input[rtPageSize]',
 })
 export class PageSizeDirective implements OnInit, OnDestroy {
     pageSizeSubscription: Subscription;

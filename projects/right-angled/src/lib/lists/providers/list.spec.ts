@@ -11,7 +11,8 @@ import { RTPagedPager } from './paged-pager';
 import { OperationStatus } from '../../core/operation-status';
 
 class FirstStubStateService implements RTStateService {
-    public persistState(filtersService: RTFiltersService): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public persistState(_filtersService: RTFiltersService): void {
         return;
     }
     public getState(): any {
@@ -513,7 +514,7 @@ describe('List', () => {
                         observer.next({
                             items: [],
                             status: OperationStatus.Cancelled,
-                            totalCount: 0
+                            totalCount: 0,
                         });
                     }, delay);
                 });
@@ -533,7 +534,7 @@ describe('List', () => {
                         observer.next({
                             items: [],
                             status: OperationStatus.Fail,
-                            totalCount: 0
+                            totalCount: 0,
                         });
                     }, delay);
                 });
@@ -553,7 +554,7 @@ describe('List', () => {
                         observer.next({
                             items: [],
                             status: OperationStatus.Progress,
-                            totalCount: 0
+                            totalCount: 0,
                         });
                         setTimeout(() => {
                             observer.next([1, 2, 3]);
@@ -638,7 +639,7 @@ describe('List', () => {
                 list.init();
                 const response = {
                     items: [1],
-                    totalCount: 1
+                    totalCount: 1,
                 };
                 list.pager.appendedOnLoad = true;
                 list.fetchMethod = () =>
@@ -691,7 +692,7 @@ describe('List', () => {
                 const response = {
                     items: [1, 2, 3, 4, 5],
                     loadedCount: 5,
-                    totalCount: 10
+                    totalCount: 10,
                 };
                 list.fetchMethod = () =>
                     new Observable((observer: any) => {
