@@ -6,7 +6,8 @@ import { AirportsPagedListRequest, AirportsService, ListResponse, SortDirection,
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-default-sortings',
-    templateUrl: 'default-sortings.component.html'
+    templateUrl: 'default-sortings.component.html',
+    standalone: false
 })
 export class DefaultSortingsComponent {
     public defaultSortings: SortParameter[] = [

@@ -7,7 +7,8 @@ import { Airport, AirportsListRequest, AirportsService } from '../../shared';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-status-components',
-    templateUrl: 'status-components.component.html'
+    templateUrl: 'status-components.component.html',
+    standalone: false
 })
 export class StatusComponentsComponent {
     @ViewChild(ListDirective, { static: true }) public listDirective: ListDirective;

@@ -6,7 +6,8 @@ import { RTBufferedPager } from '../providers/buffered-pager';
 @Component({
     providers: [RTBufferedPager],
     selector: 'rt-buffered-pager',
-    template: '<ng-content></ng-content>'
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class BufferedPagerComponent implements OnChanges, OnInit {
     @Input() public defaultRowCount: number = RTBufferedPager.settings.defaultRowCount;

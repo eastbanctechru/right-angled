@@ -13,7 +13,8 @@ import { AirportsPagedListRequest, AirportsService, ListResponse } from '../../s
         }
     ],
     selector: 'rt-demo-use-filters',
-    templateUrl: 'use-filters.component.html'
+    templateUrl: 'use-filters.component.html',
+    standalone: false
 })
 export class UseFiltersComponent {
     @filter() public airportName: string = null;

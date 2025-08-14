@@ -5,7 +5,8 @@ import { SelectionAreaDirective } from './selection-area.directive';
 
 @Directive({
     exportAs: 'rtSelectable',
-    selector: '[rtSelectable]'
+    selector: '[rtSelectable]',
+    standalone: false
 })
 export class SelectableDirective implements SelectionElementEventsEmitter, AfterViewInit, OnDestroy {
     public static settings: { selectedClassName: string } = {

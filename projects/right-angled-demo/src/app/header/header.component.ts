@@ -4,7 +4,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-header',
     styleUrls: ['./header.component.scss'],
-    templateUrl: './header.component.html'
+    templateUrl: './header.component.html',
+    standalone: false
 })
 export class HeaderComponent {
     public isActive = false;

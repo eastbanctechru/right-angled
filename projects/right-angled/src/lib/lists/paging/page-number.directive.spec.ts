@@ -11,7 +11,8 @@ import { PagedPagerComponent, PageNumberDirective, ListDirective } from '../list
                 <input rtPageNumber type="text" />
             </rt-paged-pager>
         </div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
     public getData(): any {

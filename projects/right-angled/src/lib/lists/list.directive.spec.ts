@@ -23,6 +23,7 @@ import { OperationStatus } from '../core/operation-status';
             (loadStarted)="loadStarted()"
         ></div>
     `,
+    standalone: false
 })
 class HostComponent {
     public failOnLoad = false;
@@ -61,6 +62,7 @@ class HostComponent {
 }
 @Component({
     template: ` <div [rtList]="getData" [loadOnInit]="false"></div> `,
+    standalone: false
 })
 class NotLoadOnInitHostComponent {
     public getData(): void {

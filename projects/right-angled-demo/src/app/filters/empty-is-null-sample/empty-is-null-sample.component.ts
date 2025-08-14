@@ -5,7 +5,8 @@ import { filter, FilterConfig, RTFiltersService } from 'right-angled';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [RTFiltersService],
     selector: 'rt-demo-empty-is-null-sample',
-    templateUrl: 'empty-is-null-sample.component.html'
+    templateUrl: 'empty-is-null-sample.component.html',
+    standalone: false
 })
 export class EmptyIsNullSampleComponent {
     public lastRequest: any = '';

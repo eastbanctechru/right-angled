@@ -5,7 +5,8 @@ import { AirportsPagedListRequest, AirportsService } from '../../shared';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-register-as-filter-sample',
-    templateUrl: 'register-as-filter-sample.component.html'
+    templateUrl: 'register-as-filter-sample.component.html',
+    standalone: false
 })
 export class RegisterAsFilterSampleComponent {
     constructor(private airportsService: AirportsService) {}

@@ -5,7 +5,8 @@ import { AirportsPagedListRequest, AirportsService } from '../../shared';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-reusable-paged-sample',
-    templateUrl: 'reusable-paged-sample.component.html'
+    templateUrl: 'reusable-paged-sample.component.html',
+    standalone: false
 })
 export class ReusablePagedListSampleComponent {
     constructor(private airportsService: AirportsService) {}

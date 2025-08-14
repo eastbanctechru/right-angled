@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-country-details',
-    templateUrl: 'country-details.component.html'
+    templateUrl: 'country-details.component.html',
+    standalone: false
 })
 export class CountryDetailsComponent {
     @Input() public country: any;

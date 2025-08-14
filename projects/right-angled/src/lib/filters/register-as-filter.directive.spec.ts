@@ -8,7 +8,8 @@ import { RTFiltersService, RegisterAsFilterDirective, filter } from './filters.m
         <div *ngIf="renderFilter">
             <rt-test-filter-target #ft [rtRegisterAsFilter]="ft"> </rt-test-filter-target>
         </div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
     public renderFilter = true;
@@ -17,7 +18,8 @@ class HostComponent {
     selector: 'rt-test-filter-target',
     template: `
         <div></div>
-    `
+    `,
+    standalone: false
 })
 class FilterTargetComponent {
     @filter() public filterProperty: string;

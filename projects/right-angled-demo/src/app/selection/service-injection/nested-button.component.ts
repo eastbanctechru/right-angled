@@ -8,7 +8,8 @@ import { RTSelectionService } from 'right-angled';
         <button class="btn btn-primary" title="Get selected items" (click)="displaySelectedItems()">
             Get selected items
         </button>
-    `
+    `,
+    standalone: false
 })
 export class NestedButtonComponent {
     constructor(public selectionService: RTSelectionService) {}

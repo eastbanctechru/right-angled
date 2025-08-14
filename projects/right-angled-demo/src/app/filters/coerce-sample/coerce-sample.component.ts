@@ -5,7 +5,8 @@ import { filter, FilterConfig, RTFiltersService } from 'right-angled';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [RTFiltersService],
     selector: 'rt-demo-coerce-sample',
-    templateUrl: 'coerce-sample.component.html'
+    templateUrl: 'coerce-sample.component.html',
+    standalone: false
 })
 export class CoerceSampleComponent {
     public lastRequest: any = '';

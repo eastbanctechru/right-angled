@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-selected-ref',
-    templateUrl: 'selected-ref.component.html'
+    templateUrl: 'selected-ref.component.html',
+    standalone: false
 })
 export class SelectedRefComponent {
     public countries$: Observable<any[]>;

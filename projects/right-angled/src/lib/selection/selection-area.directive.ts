@@ -33,7 +33,8 @@ interface SelectableElement {
 @Directive({
     exportAs: 'rtSelectionArea',
     providers: [RTSelectionService, RTSelectionEventsHelper],
-    selector: '[rtSelectionArea]'
+    selector: '[rtSelectionArea]',
+    standalone: false
 })
 export class SelectionAreaDirective implements SelectionEventsEmitter, AfterContentInit, OnChanges, OnInit, AfterViewInit, OnDestroy {
     private selectableItems: SelectableElement[] = [];

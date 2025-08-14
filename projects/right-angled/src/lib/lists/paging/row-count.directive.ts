@@ -3,7 +3,8 @@ import { RTBufferedPager } from '../providers/buffered-pager';
 import { Subscription } from 'rxjs';
 
 @Directive({
-    selector: 'input[rtRowCount]'
+    selector: 'input[rtRowCount]',
+    standalone: false
 })
 export class RowCountDirective implements OnInit, OnDestroy {
     takeRowCountSubscription: Subscription;

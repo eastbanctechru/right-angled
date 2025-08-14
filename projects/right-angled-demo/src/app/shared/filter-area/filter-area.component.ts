@@ -8,7 +8,8 @@ import { LookupItem } from '../data/lookup-item';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-filter-area',
-    templateUrl: 'filter-area.component.html'
+    templateUrl: 'filter-area.component.html',
+    standalone: false
 })
 export class FilterAreaComponent {
     @Input() public list: ListDirective = null;

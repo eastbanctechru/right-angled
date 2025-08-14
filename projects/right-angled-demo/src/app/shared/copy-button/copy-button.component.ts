@@ -9,7 +9,8 @@ import * as Clipboard from 'clipboard';
         <button class="btn btn-primary" title="Copy source code to clipboard">
             Copy code
         </button>
-    `
+    `,
+    standalone: false
 })
 export class CopyButtonComponent implements OnInit, OnDestroy {
     @Input() public text: string = null;

@@ -8,7 +8,8 @@ import { map } from 'rxjs/operators';
     selector: 'rt-status-failed',
     template: `
         <ng-content *ngIf="(isVisible$ | async)"></ng-content>
-    `
+    `,
+    standalone: false
 })
 export class StatusFailedComponent {
     public isVisible$: Observable<boolean>;

@@ -1,7 +1,8 @@
 import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
 import { RTFiltersService } from './filters.service';
 @Directive({
-    selector: '[rtRegisterAsFilter]'
+    selector: '[rtRegisterAsFilter]',
+    standalone: false
 })
 export class RegisterAsFilterDirective implements OnInit, OnDestroy {
     @Input('rtRegisterAsFilter') public filterTarget: any;

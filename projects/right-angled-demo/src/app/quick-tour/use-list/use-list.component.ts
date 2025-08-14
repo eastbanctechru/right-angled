@@ -6,7 +6,8 @@ import { Airport, AirportsListRequest, AirportsService } from '../../shared';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-use-list',
-    templateUrl: 'use-list.component.html'
+    templateUrl: 'use-list.component.html',
+    standalone: false
 })
 export class UseListComponent {
     constructor(private airportsService: AirportsService) {}

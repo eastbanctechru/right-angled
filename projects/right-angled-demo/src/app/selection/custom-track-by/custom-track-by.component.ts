@@ -7,7 +7,8 @@ import { first } from 'rxjs/operators';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-custom-track-by',
-    templateUrl: 'custom-track-by.component.html'
+    templateUrl: 'custom-track-by.component.html',
+    standalone: false
 })
 export class CustomTrackByComponent {
     public countries$: BehaviorSubject<any[]> = new BehaviorSubject([]);

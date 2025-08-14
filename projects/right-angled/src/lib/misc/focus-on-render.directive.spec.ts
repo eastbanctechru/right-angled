@@ -6,7 +6,8 @@ import { FocusOnRenderDirective } from './misc.module';
 @Component({
     template: `
         <input rtFocusOnRender />
-    `
+    `,
+    standalone: false
 })
 class HostComponent {}
 

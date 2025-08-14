@@ -7,7 +7,8 @@ import { RTPagedPager } from '../providers/paged-pager';
 @Component({
     providers: [RTPagedPager],
     selector: 'rt-paged-pager',
-    template: '<ng-content></ng-content>'
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class PagedPagerComponent implements OnChanges, OnInit {
     @Input() public defaultPageSize: number = RTPagedPager.settings.defaultPageSize;

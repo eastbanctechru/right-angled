@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-basic-usage',
-    templateUrl: 'basic-usage.component.html'
+    templateUrl: 'basic-usage.component.html',
+    standalone: false
 })
 export class BasicUsageComponent {
     public countries$: Observable<any[]>;

@@ -6,7 +6,8 @@ import { Airport, AirportsListRequest, AirportsService } from '../../shared';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-use-selection',
-    templateUrl: 'use-selection.component.html'
+    templateUrl: 'use-selection.component.html',
+    standalone: false
 })
 export class UseSelectionComponent {
     constructor(private airportsService: AirportsService) {}

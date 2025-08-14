@@ -6,7 +6,8 @@ import { AirportsPagedListRequest, AirportsService, ListResponse } from '../../s
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-use-row-number',
-    templateUrl: 'use-row-number.component.html'
+    templateUrl: 'use-row-number.component.html',
+    standalone: false
 })
 export class UseRowNumberComponent {
     constructor(private airportsService: AirportsService) {}

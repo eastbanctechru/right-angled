@@ -3,7 +3,8 @@ import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 import { EventsAttacherBaseDirective } from './events-attacher.base';
 
 @Directive({
-    selector: '[rtPreventDefaults]'
+    selector: '[rtPreventDefaults]',
+    standalone: false
 })
 export class PreventDefaultsDirective extends EventsAttacherBaseDirective {
     @Input('rtPreventDefaults') public eventNames: string[];

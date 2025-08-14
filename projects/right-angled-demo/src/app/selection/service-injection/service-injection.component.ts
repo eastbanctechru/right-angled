@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-service-injection',
-    templateUrl: 'service-injection.component.html'
+    templateUrl: 'service-injection.component.html',
+    standalone: false
 })
 export class ServiceInjectionComponent {
     public countries$: Observable<any[]>;

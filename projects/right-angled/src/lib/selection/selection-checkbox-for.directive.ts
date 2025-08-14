@@ -7,7 +7,8 @@ import { SelectionAreaDirective } from './selection-area.directive';
 @Directive({
     exportAs: 'rtSelectionCheckboxFor',
     /* tslint:disable-next-line:directive-selector */
-    selector: 'input[rtSelectionCheckboxFor]'
+    selector: 'input[rtSelectionCheckboxFor]',
+    standalone: false
 })
 export class SelectionCheckboxForDirective implements SelectionElementEventsEmitter, AfterViewInit, OnDestroy {
     public index: number = null;

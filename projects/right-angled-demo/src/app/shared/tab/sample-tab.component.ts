@@ -9,7 +9,8 @@ import { TabSectionComponent } from './tab-section.component';
         <div [ngClass]="{ hidden: !(isActive$ | async) }">
             <ng-content></ng-content>
         </div>
-    `
+    `,
+    standalone: false
 })
 export class SampleTabComponent extends Tab {
     public tabTitle = 'Live demo';

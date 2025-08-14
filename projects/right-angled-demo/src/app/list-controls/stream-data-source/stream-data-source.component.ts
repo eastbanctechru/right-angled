@@ -5,7 +5,8 @@ import { map } from 'rxjs/operators';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-stream-data-source',
-    templateUrl: 'stream-data-source.component.html'
+    templateUrl: 'stream-data-source.component.html',
+    standalone: false
 })
 export class StreamDataSourceComponent {
     public appendStreamedData = false;

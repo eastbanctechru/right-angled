@@ -8,7 +8,8 @@ import { map } from 'rxjs/operators';
     selector: 'rt-status-progress',
     template: `
         <ng-content *ngIf="(isVisible$ | async)"></ng-content>
-    `
+    `,
+    standalone: false
 })
 export class StatusInProgressComponent {
     public isVisible$: Observable<boolean>;

@@ -2,7 +2,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-stop-events',
-    templateUrl: 'stop-events.component.html'
+    templateUrl: 'stop-events.component.html',
+    standalone: false
 })
 export class StopEventsComponent {
     public stopPropagation = true;

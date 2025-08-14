@@ -14,7 +14,8 @@ import { RTBufferedPager } from '../providers/buffered-pager';
                 <div [rtInfinite]="listHostReference"></div>
             </div>
         </div>
-    `
+    `,
+    standalone: false
 })
 class ComponentWithHostComponent {
     @ViewChild('listHost', { static: true })

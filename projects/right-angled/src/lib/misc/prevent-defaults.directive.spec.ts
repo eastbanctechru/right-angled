@@ -6,7 +6,8 @@ import { PreventDefaultsDirective } from './misc.module';
 @Component({
     template: `
         <input [rtPreventDefaults]="preventOnEvents" />
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
     public preventOnEvents: any = 'click';

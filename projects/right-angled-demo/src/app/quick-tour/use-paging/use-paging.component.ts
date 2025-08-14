@@ -6,7 +6,8 @@ import { AirportsPagedListRequest, AirportsService, ListResponse } from '../../s
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-use-paging',
-    templateUrl: 'use-paging.component.html'
+    templateUrl: 'use-paging.component.html',
+    standalone: false
 })
 export class UsePagingComponent {
     constructor(private airportsService: AirportsService) {}

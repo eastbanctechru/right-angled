@@ -11,7 +11,8 @@ import { PagedPagerComponent, PageSizeDirective, ListDirective } from '../lists.
                 <input rtPageSize type="text" />
             </rt-paged-pager>
         </div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
     public getData(): any {

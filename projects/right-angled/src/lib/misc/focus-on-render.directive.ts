@@ -1,7 +1,8 @@
 import { AfterContentInit, Directive, ElementRef } from '@angular/core';
 
 @Directive({
-    selector: '[rtFocusOnRender]'
+    selector: '[rtFocusOnRender]',
+    standalone: false
 })
 export class FocusOnRenderDirective implements AfterContentInit {
     constructor(private elementRef: ElementRef) {}

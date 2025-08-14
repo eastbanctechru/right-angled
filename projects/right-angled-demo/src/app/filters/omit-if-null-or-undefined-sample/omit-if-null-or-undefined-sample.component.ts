@@ -5,7 +5,8 @@ import { filter, FilterConfig, RTFiltersService } from 'right-angled';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [RTFiltersService],
     selector: 'rt-demo-omit-if-null-or-undefined-sample',
-    templateUrl: 'omit-if-null-or-undefined-sample.component.html'
+    templateUrl: 'omit-if-null-or-undefined-sample.component.html',
+    standalone: false
 })
 export class OmitIfNullSampleComponent {
     public lastRequest: any = '';

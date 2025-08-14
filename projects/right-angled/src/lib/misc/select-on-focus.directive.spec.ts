@@ -6,7 +6,8 @@ import { SelectOnFocusDirective } from './misc.module';
 @Component({
     template: `
         <input rtSelectOnFocus />
-    `
+    `,
+    standalone: false
 })
 class HostComponent {}
 

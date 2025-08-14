@@ -24,7 +24,8 @@ import { first } from 'rxjs/operators';
             </div>
             <pre [ngClass]="{ hidden: !(contentReady$ | async) }"></pre>
         </div>
-    `
+    `,
+    standalone: false
 })
 export class CodeTabComponent extends Tab implements OnChanges {
     public contentLoadStarted = false;

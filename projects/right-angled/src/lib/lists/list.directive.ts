@@ -9,7 +9,8 @@ import { RTSortingsService } from './providers/sortings.service';
 @Directive({
     exportAs: 'rtList',
     providers: [LIST_PROVIDERS],
-    selector: '[rtList]'
+    selector: '[rtList]',
+    standalone: false
 })
 export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     @Output()

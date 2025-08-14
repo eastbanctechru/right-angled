@@ -5,7 +5,8 @@ import { filter, FilterConfig, RTFiltersService } from 'right-angled';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [RTFiltersService],
     selector: 'rt-demo-ignore-on-auto-map-sample',
-    templateUrl: 'ignore-on-auto-map-sample.component.html'
+    templateUrl: 'ignore-on-auto-map-sample.component.html',
+    standalone: false
 })
 export class IgnoreOnAutoMapSampleComponent {
     public valueForAutoMappedField = 'new value';

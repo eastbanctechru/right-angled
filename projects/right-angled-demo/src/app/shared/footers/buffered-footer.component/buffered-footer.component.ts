@@ -4,6 +4,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-buffered-footer',
     styleUrls: ['buffered-footer.component.scss'],
-    templateUrl: 'buffered-footer.component.html'
+    templateUrl: 'buffered-footer.component.html',
+    standalone: false
 })
 export class BufferedFooterComponent {}

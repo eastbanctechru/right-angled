@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-    selector: '[rtSelectOnFocus]'
+    selector: '[rtSelectOnFocus]',
+    standalone: false
 })
 export class SelectOnFocusDirective {
     constructor(private elementRef: ElementRef) {}

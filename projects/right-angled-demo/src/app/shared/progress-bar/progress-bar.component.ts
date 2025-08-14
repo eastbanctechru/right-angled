@@ -11,6 +11,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         <span></span>
         <span></span>
         <span></span>
-    `
+    `,
+    standalone: false
 })
 export class ProgressBarComponent {}

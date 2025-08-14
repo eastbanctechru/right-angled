@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 @Directive({
     /* tslint:disable-next-line:directive-selector */
     selector: 'input[rtPageSize]',
+    standalone: false
 })
 export class PageSizeDirective implements OnInit, OnDestroy {
     pageSizeSubscription: Subscription;

@@ -5,7 +5,7 @@ import { KeyCodes } from './providers/selection-events-helper';
 import { Component } from '@angular/core';
 
 @Component({
-  template: `
+    template: `
         <div
             rtSelectionArea
             [preventEventsDefaults]="preventEventsDefaults"
@@ -18,7 +18,8 @@ import { Component } from '@angular/core';
         >
             <div *ngFor="let item of items" [rtSelectable]="item"></div>
         </div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
   public items: any[] = [1, 2, 3];
@@ -32,13 +33,14 @@ class HostComponent {
 }
 
 @Component({
-  template: `
+    template: `
         <div rtSelectionArea>
             <div *ngFor="let item of items" [rtSelectable]="item" rtSelectionArea>
                 <div *ngFor="let item of item.items" [rtSelectable]="item"></div>
             </div>
         </div>
-    `
+    `,
+    standalone: false
 })
 class NestedComponent {
   public items: any[] = [

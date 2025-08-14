@@ -19,7 +19,8 @@ import { AirportsPagedListRequest, AirportsService, LocalStorageStateService, Qu
         }
     ],
     selector: 'rt-demo-persistence-sample',
-    templateUrl: 'persistence-sample.component.html'
+    templateUrl: 'persistence-sample.component.html',
+    standalone: false
 })
 export class PersistenceSampleComponent {
     constructor(private airportsService: AirportsService) {}

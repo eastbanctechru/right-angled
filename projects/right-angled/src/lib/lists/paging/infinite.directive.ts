@@ -3,7 +3,8 @@ import { RTList } from '../providers/list';
 import { RTBufferedPager } from '../providers/buffered-pager';
 
 @Directive({
-    selector: '[rtInfinite]'
+    selector: '[rtInfinite]',
+    standalone: false
 })
 export class InfiniteDirective implements OnDestroy, OnChanges {
     @Input('rtInfinite') public targetElement: HTMLElement;

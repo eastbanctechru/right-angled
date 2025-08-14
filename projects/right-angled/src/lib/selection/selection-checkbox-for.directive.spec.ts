@@ -10,6 +10,7 @@ import { RTSelectionService, RTSelectionEventsHelper, SelectionAreaDirective, Se
             <input type="checkbox" #selectable3 [rtSelectionCheckboxFor]="selectable3" [(selected)]="thirdElementSelected" />
         </div>
     `,
+    standalone: false
 })
 class HostComponent {
     public firstElementSelected = false;

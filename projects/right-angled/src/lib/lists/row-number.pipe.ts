@@ -2,7 +2,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ListDirective } from './list.directive';
 import { RTPagedPager } from './providers/paged-pager';
 
-@Pipe({ name: 'rtRowNumber' })
+@Pipe({
+    name: 'rtRowNumber',
+    standalone: false
+})
 export class RowNumberPipe implements PipeTransform {
     public transform(index: number, rtList: ListDirective): number {
         if (index !== 0 && (!index || isNaN(index))) {

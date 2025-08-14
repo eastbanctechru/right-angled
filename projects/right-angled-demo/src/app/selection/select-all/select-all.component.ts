@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-select-all',
-    templateUrl: 'select-all.component.html'
+    templateUrl: 'select-all.component.html',
+    standalone: false
 })
 export class SelectAllComponent {
     public regions$: Observable<any[]>;

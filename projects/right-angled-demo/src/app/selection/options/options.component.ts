@@ -7,7 +7,8 @@ import { first } from 'rxjs/operators';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-options',
-    templateUrl: 'options.component.html'
+    templateUrl: 'options.component.html',
+    standalone: false
 })
 export class OptionsComponent {
     public horizontal = false;

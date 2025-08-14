@@ -7,7 +7,8 @@ import { map } from 'rxjs/operators';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-selected-two-way',
-    templateUrl: 'selected-two-way.component.html'
+    templateUrl: 'selected-two-way.component.html',
+    standalone: false
 })
 export class SelectedTwoWayComponent {
     public countries$: Observable<any[]>;

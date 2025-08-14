@@ -8,7 +8,8 @@ import { RTSortingsService } from './providers/sortings.service';
     template: `
         <div rtSort="field" [disableSort]="disableSort"></div>
         <div rtSort="anotherField"></div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
     public disableSort = false;

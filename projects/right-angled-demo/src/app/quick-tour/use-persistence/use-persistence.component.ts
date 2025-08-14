@@ -14,7 +14,8 @@ import { AirportsPagedListRequest, AirportsService, ListResponse, QueryStringSta
         }
     ],
     selector: 'rt-demo-use-persistence',
-    templateUrl: 'use-persistence.component.html'
+    templateUrl: 'use-persistence.component.html',
+    standalone: false
 })
 export class UsePersistenceComponent {
     @filter() public airportName: string = null;

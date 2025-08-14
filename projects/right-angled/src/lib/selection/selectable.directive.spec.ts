@@ -4,13 +4,14 @@ import { RTSelectionService, RTSelectionEventsHelper, SelectionAreaDirective, Se
 import { MouseButtons } from './providers/selection-events-helper';
 
 @Component({
-  template: `
+    template: `
         <div rtSelectionArea>
             <div #selectable1 [rtSelectable]="selectable1" [(selected)]="firstElementSelected"></div>
             <div #selectable2 [rtSelectable]="selectable2" [(selected)]="secondElementSelected"></div>
             <div #selectable3 [rtSelectable]="selectable3" [(selected)]="thirdElementSelected"></div>
         </div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
   public firstElementSelected = false;

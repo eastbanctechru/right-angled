@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-selection-checkbox',
     styleUrls: ['selection-checkbox.component.scss'],
-    templateUrl: 'selection-checkbox.component.html'
+    templateUrl: 'selection-checkbox.component.html',
+    standalone: false
 })
 export class SelectionCheckboxComponent {
     public regions$: Observable<any[]>;

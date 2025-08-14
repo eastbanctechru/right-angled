@@ -7,7 +7,8 @@ import { first } from 'rxjs/operators';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-async-actions',
-    templateUrl: 'async-actions.component.html'
+    templateUrl: 'async-actions.component.html',
+    standalone: false
 })
 export class AsyncActionsComponent {
     public lastRequestParams: AirportsPagedListRequest = null;

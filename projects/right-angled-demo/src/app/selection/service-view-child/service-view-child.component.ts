@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-service-view-child',
-    templateUrl: 'service-view-child.component.html'
+    templateUrl: 'service-view-child.component.html',
+    standalone: false
 })
 export class ServiceViewChildComponent {
     @ViewChild(SelectionAreaDirective, { static: true })

@@ -17,7 +17,8 @@ import { RTSortingsService } from './providers/sortings.service';
 import { SortParameter, SortDirection, SortDirectionStr } from '../core/sort-parameter';
 
 @Directive({
-    selector: '[rtSort]'
+    selector: '[rtSort]',
+    standalone: false
 })
 export class SortDirective implements DoCheck, OnInit, OnChanges {
     public static settings: {

@@ -6,7 +6,8 @@ import { AirportsPagedListRequest, AirportsService, ListResponse, SortDirection,
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-keep-records-on-load',
-    templateUrl: 'keep-records-on-load.component.html'
+    templateUrl: 'keep-records-on-load.component.html',
+    standalone: false
 })
 export class KeepRecordsOnLoadComponent {
     public keepRecordsOnLoad = true;

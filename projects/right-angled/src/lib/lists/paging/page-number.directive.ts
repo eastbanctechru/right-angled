@@ -3,7 +3,8 @@ import { RTPagedPager } from '../providers/paged-pager';
 import { Subscription } from 'rxjs';
 
 @Directive({
-    selector: 'input[rtPageNumber]'
+    selector: 'input[rtPageNumber]',
+    standalone: false
 })
 export class PageNumberDirective implements OnInit, OnDestroy {
     pageNumberSubscription: Subscription;

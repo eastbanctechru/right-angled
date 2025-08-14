@@ -35,7 +35,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
                 <span>State is done</span>
             </rt-status-done>
         </div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {}
 

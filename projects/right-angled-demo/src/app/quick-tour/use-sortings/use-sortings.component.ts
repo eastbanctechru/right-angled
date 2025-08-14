@@ -6,7 +6,8 @@ import { Airport, AirportsListRequest, AirportsService } from '../../shared';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-use-sortings',
-    templateUrl: 'use-sortings.component.html'
+    templateUrl: 'use-sortings.component.html',
+    standalone: false
 })
 export class UseSortingsComponent {
     constructor(private airportsService: AirportsService) {}

@@ -14,7 +14,8 @@ import { AirportsService, ListResponse, LookupItem, QueryStringStateService } fr
         { provide: RTStateService, useClass: QueryStringStateService, multi: true }
     ],
     selector: 'rt-demo-filters-sample',
-    templateUrl: 'filters-sample.component.html'
+    templateUrl: 'filters-sample.component.html',
+    standalone: false
 })
 export class FiltersSampleComponent {
     public airportSizes$: Observable<LookupItem[]>;

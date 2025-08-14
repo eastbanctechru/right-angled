@@ -10,7 +10,8 @@ import { RTBufferedPager } from '../providers/buffered-pager';
         <div [rtList]="getData">
             <rt-buffered-pager [minRowCount]="minRowCount" [maxRowCount]="maxRowCount" [defaultRowCount]="defaultRowCount"></rt-buffered-pager>
         </div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
     public minRowCount = 1;

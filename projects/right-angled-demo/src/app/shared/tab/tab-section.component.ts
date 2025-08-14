@@ -5,7 +5,8 @@ import { Tab } from './tab-base';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-tab-section',
     styleUrls: ['tab-section.component.scss'],
-    templateUrl: 'tab-section.component.html'
+    templateUrl: 'tab-section.component.html',
+    standalone: false
 })
 export class TabSectionComponent {
     public tabs: Tab[] = [];

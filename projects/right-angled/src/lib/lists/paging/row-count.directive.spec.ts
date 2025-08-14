@@ -11,7 +11,8 @@ import { BufferedPagerComponent, RowCountDirective, ListDirective } from '../lis
                 <input rtRowCount type="text" />
             </rt-buffered-pager>
         </div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
     public getData(): any {

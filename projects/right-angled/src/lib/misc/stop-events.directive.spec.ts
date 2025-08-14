@@ -6,7 +6,8 @@ import { StopEventsDirective } from './misc.module';
 @Component({
     template: `
         <input [rtStopEvents]="stopEvents" />
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
     public stopEvents: any = 'click';

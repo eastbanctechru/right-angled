@@ -10,7 +10,8 @@ import { RTPagedPager } from '../providers/paged-pager';
         <div [rtList]="getData">
             <rt-paged-pager [minPageSize]="minPageSize" [maxPageSize]="maxPageSize" [defaultPageSize]="defaultPageSize"></rt-paged-pager>
         </div>
-    `
+    `,
+    standalone: false
 })
 class HostComponent {
     public minPageSize = 1;

@@ -8,7 +8,8 @@ import { map } from 'rxjs/operators';
     selector: 'rt-status-no-data',
     template: `
         <ng-content *ngIf="(isVisible$ | async)"></ng-content>
-    `
+    `,
+    standalone: false
 })
 export class StatusNoDataComponent {
     public isVisible$: Observable<boolean>;

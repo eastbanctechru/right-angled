@@ -5,7 +5,8 @@ import { AirportsPagedListRequest, AirportsService } from '../../shared';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-infinite-sample',
-    templateUrl: 'infinite-sample.component.html'
+    templateUrl: 'infinite-sample.component.html',
+    standalone: false
 })
 export class InfiniteSampleComponent {
     constructor(private airportsService: AirportsService) {}

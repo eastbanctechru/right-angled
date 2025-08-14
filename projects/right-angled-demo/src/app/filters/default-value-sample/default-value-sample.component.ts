@@ -5,7 +5,8 @@ import { filter, FilterConfig, RTFiltersService } from 'right-angled';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [RTFiltersService],
     selector: 'rt-demo-default-value-sample',
-    templateUrl: 'default-value-sample.component.html'
+    templateUrl: 'default-value-sample.component.html',
+    standalone: false
 })
 export class DefaultValueSampleComponent {
     public lastRequest: any = '';

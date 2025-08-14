@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-selection-events',
-    templateUrl: 'selection-events.component.html'
+    templateUrl: 'selection-events.component.html',
+    standalone: false
 })
 export class SelectionEventsComponent {
     public countries$: Observable<any[]>;
