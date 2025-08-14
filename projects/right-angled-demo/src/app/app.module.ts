@@ -6,7 +6,7 @@
  * there is something that is specific to the environment.
  */
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,20 +19,13 @@ import { HeaderComponent } from './header/header.component';
 import { QuickTourModule } from './quick-tour/quick-tour.module';
 import { SharedModule } from './shared/shared.module';
 
-@NgModule({
-  bootstrap: [DemoAppComponent],
-  declarations: [DemoAppComponent, HeaderComponent],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RTModule,
-    RouterModule,
-    SharedModule.forRoot(),
-    routing,
-    QuickTourModule,
-    BrowserModule,
-    BrowserAnimationsModule
-  ],
-  providers: []
-})
+@NgModule({ bootstrap: [DemoAppComponent],
+    declarations: [DemoAppComponent, HeaderComponent], imports: [BrowserModule,
+        RTModule,
+        RouterModule,
+        SharedModule.forRoot(),
+        routing,
+        QuickTourModule,
+        BrowserModule,
+        BrowserAnimationsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

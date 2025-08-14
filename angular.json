@@ -52,12 +52,15 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "docs",
+            "outputPath": {
+              "base": "docs"
+            },
             "index": "projects/right-angled-demo/src/index.html",
-            "main": "projects/right-angled-demo/src/main.ts",
-            "polyfills": "projects/right-angled-demo/src/polyfills.ts",
+            "polyfills": [
+              "projects/right-angled-demo/src/polyfills.ts"
+            ],
             "tsConfig": "projects/right-angled-demo/tsconfig.app.json",
             "assets": [
               "projects/right-angled-demo/src/favicon.ico",
@@ -78,7 +81,8 @@
             },
             "scripts": [
               "node_modules/alertify/lib/alertify.min.js"
-            ]
+            ],
+            "browser": "projects/right-angled-demo/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -88,8 +92,6 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
