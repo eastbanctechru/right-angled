@@ -7,8 +7,10 @@ import { map } from 'rxjs/operators';
 @Component({
     selector: 'rt-status-request-cancelled',
     template: `
-        <ng-content *ngIf="(isVisible$ | async)"></ng-content>
-    `,
+        @if ((isVisible$ | async)) {
+          <ng-content></ng-content>
+        }
+        `,
     standalone: false
 })
 export class StatusRequestCancelledComponent {

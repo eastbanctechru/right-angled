@@ -7,18 +7,20 @@ import { Component } from '@angular/core';
 @Component({
     template: `
         <div
-            rtSelectionArea
-            [preventEventsDefaults]="preventEventsDefaults"
-            [stopEventsPropagation]="stopEventsPropagation"
-            [horizontal]="horizontal"
-            [multiple]="multiple"
-            [toggleOnly]="toggleOnly"
-            [autoSelectFirst]="autoSelectFirst"
-            [trackBy]="trackBy"
-        >
-            <div *ngFor="let item of items" [rtSelectable]="item"></div>
+          rtSelectionArea
+          [preventEventsDefaults]="preventEventsDefaults"
+          [stopEventsPropagation]="stopEventsPropagation"
+          [horizontal]="horizontal"
+          [multiple]="multiple"
+          [toggleOnly]="toggleOnly"
+          [autoSelectFirst]="autoSelectFirst"
+          [trackBy]="trackBy"
+          >
+          @for (item of items; track item) {
+            <div [rtSelectable]="item"></div>
+          }
         </div>
-    `,
+        `,
     standalone: false
 })
 class HostComponent {
@@ -35,11 +37,15 @@ class HostComponent {
 @Component({
     template: `
         <div rtSelectionArea>
-            <div *ngFor="let item of items" [rtSelectable]="item" rtSelectionArea>
-                <div *ngFor="let item of item.items" [rtSelectable]="item"></div>
+          @for (item of items; track item) {
+            <div [rtSelectable]="item" rtSelectionArea>
+              @for (item of item.items; track item) {
+                <div [rtSelectable]="item"></div>
+              }
             </div>
+          }
         </div>
-    `,
+        `,
     standalone: false
 })
 class NestedComponent {

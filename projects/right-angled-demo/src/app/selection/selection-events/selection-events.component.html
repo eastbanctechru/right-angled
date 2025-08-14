@@ -1,18 +1,21 @@
-<div
-    *ngIf="(countries$ | async) as countries"
+@if ((countries$ | async); as countries) {
+  <div
     class="row"
     rtSelectionArea="countries"
     (itemSelected)="onItemSelected($event)"
     (itemDeselected)="onItemDeselected($event)"
->
-    <div class="col-md-12" *ngFor="let country of countries">
+    >
+    @for (country of countries; track country) {
+      <div class="col-md-12">
         <rt-demo-country-details
-            #detailsComp
-            [country]="country"
-            [rtSelectable]="country"
-            (itemSelected)="detailsComp.onSelected()"
-            (itemDeselected)="detailsComp.onDeselected()"
-        >
+          #detailsComp
+          [country]="country"
+          [rtSelectable]="country"
+          (itemSelected)="detailsComp.onSelected()"
+          (itemDeselected)="detailsComp.onDeselected()"
+          >
         </rt-demo-country-details>
-    </div>
-</div>
+      </div>
+    }
+  </div>
+}

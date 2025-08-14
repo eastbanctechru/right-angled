@@ -1,10 +1,16 @@
 <div class="row" rtSelectionArea>
-    <div class="col-md-12" *ngFor="let country of (countries$ | async)" [rtSelectable]="country" #rts="rtSelectable">
-        <div *ngIf="!rts.selected" class="item">
-            {{ country.name }}
+  @for (country of (countries$ | async); track country) {
+    <div class="col-md-12" [rtSelectable]="country" #rts="rtSelectable">
+      @if (!rts.selected) {
+        <div class="item">
+          {{ country.name }}
         </div>
-        <div *ngIf="rts.selected" class="item">
-            <input class="form-control" type="text" rtStopEvents="mouseup" rtFocusOnRender [(ngModel)]="country.name" name="name" />
+      }
+      @if (rts.selected) {
+        <div class="item">
+          <input class="form-control" type="text" rtStopEvents="mouseup" rtFocusOnRender [(ngModel)]="country.name" name="name" />
         </div>
+      }
     </div>
+  }
 </div>

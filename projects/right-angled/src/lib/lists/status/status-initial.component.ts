@@ -7,8 +7,10 @@ import { OperationStatus } from '../../core/operation-status';
 @Component({
     selector: 'rt-status-initial',
     template: `
-        <ng-content *ngIf="(isVisible$ | async)"></ng-content>
-    `,
+        @if ((isVisible$ | async)) {
+          <ng-content></ng-content>
+        }
+        `,
     standalone: false
 })
 export class StatusInitialComponent {

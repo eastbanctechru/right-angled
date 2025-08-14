@@ -1,39 +1,41 @@
 <div class="table-responsive">
-    <table class="table table-striped" [rtList]="getAirports" #list="rtList">
-        <thead>
-            <tr>
-                <th>
-                    <span rtSort="iataCode">IATA</span>
-                </th>
-                <th>
-                    <span rtSort="name">Airport name</span>
-                </th>
-                <th>
-                    <span rtSort="countryName">Country</span>
-                </th>
-            </tr>
-        </thead>
-        <tbody tabindex="5" rtSelectionArea>
-            <tr *ngFor="let airport of list.items$ | async" [rtSelectable]="airport">
-                <td>{{ airport.iataCode }}</td>
-                <td>{{ airport.name }}</td>
-                <td>{{ airport.countryName }}</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3">
-                    <rt-status-initial>
-                        Enter search options and press "Show" button
-                    </rt-status-initial>
-                    <rt-status-progress>
-                        <rt-demo-progress-bar></rt-demo-progress-bar>
-                    </rt-status-progress>
-                    <rt-status-done>
-                        Data was loaded sucessfully.
-                    </rt-status-done>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+  <table class="table table-striped" [rtList]="getAirports" #list="rtList">
+    <thead>
+      <tr>
+        <th>
+          <span rtSort="iataCode">IATA</span>
+        </th>
+        <th>
+          <span rtSort="name">Airport name</span>
+        </th>
+        <th>
+          <span rtSort="countryName">Country</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody tabindex="5" rtSelectionArea>
+      @for (airport of list.items$ | async; track airport) {
+        <tr [rtSelectable]="airport">
+          <td>{{ airport.iataCode }}</td>
+          <td>{{ airport.name }}</td>
+          <td>{{ airport.countryName }}</td>
+        </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">
+          <rt-status-initial>
+            Enter search options and press "Show" button
+          </rt-status-initial>
+          <rt-status-progress>
+            <rt-demo-progress-bar></rt-demo-progress-bar>
+          </rt-status-progress>
+          <rt-status-done>
+            Data was loaded sucessfully.
+          </rt-status-done>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </div>

@@ -7,14 +7,16 @@ import { RTBufferedPager } from '../providers/buffered-pager';
 @Component({
     template: `
         <div #listHost [style.height]="listHostReference ? '200px' : 'auto'" [style.overflow]="listHostReference ? 'auto' : 'inherit'">
-            <div>
-                <div *ngFor="let item of items" style="padding: 200px;">
-                    {{ item }}
-                </div>
-                <div [rtInfinite]="listHostReference"></div>
-            </div>
+          <div>
+            @for (item of items; track item) {
+              <div style="padding: 200px;">
+                {{ item }}
+              </div>
+            }
+            <div [rtInfinite]="listHostReference"></div>
+          </div>
         </div>
-    `,
+        `,
     standalone: false
 })
 class ComponentWithHostComponent {

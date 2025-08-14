@@ -1,43 +1,45 @@
 <div class="table-responsive">
-    <form>
-        <label class="checkbox-inline"> <input type="checkbox" [(ngModel)]="appendStreamedData" name="appendStreamedData" />append streamed records</label>
-        <div class="form-group">
-            <input type="submit" class="btn btn-load" title="Load data" (click)="list.reloadData()" [disabled]="list.busy$ | async" />
-            <input type="button" class="btn btn-cancel" title="Cancel loading" (click)="list.cancelRequests()" />
-            <button type="button" class="btn btn-reset" title="Reset settings" (click)="list.resetSettings()"></button>
-        </div>
-    </form>
-    <table class="table table-striped" [rtList]="getList" [appendStreamedData]="appendStreamedData" #list="rtList">
-        <thead>
-            <tr>
-                <th>
-                    <span>Number</span>
-                </th>
-            </tr>
-        </thead>
-        <tbody rtSelectionArea>
-            <tr *ngFor="let item of list.items$ | async">
-                <td>{{ item }}</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>
-                    <rt-status-progress class="text-center">
-                        <rt-demo-progress-bar></rt-demo-progress-bar>
-                    </rt-status-progress>
+  <form>
+    <label class="checkbox-inline"> <input type="checkbox" [(ngModel)]="appendStreamedData" name="appendStreamedData" />append streamed records</label>
+    <div class="form-group">
+      <input type="submit" class="btn btn-load" title="Load data" (click)="list.reloadData()" [disabled]="list.busy$ | async" />
+      <input type="button" class="btn btn-cancel" title="Cancel loading" (click)="list.cancelRequests()" />
+      <button type="button" class="btn btn-reset" title="Reset settings" (click)="list.resetSettings()"></button>
+    </div>
+  </form>
+  <table class="table table-striped" [rtList]="getList" [appendStreamedData]="appendStreamedData" #list="rtList">
+    <thead>
+      <tr>
+        <th>
+          <span>Number</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody rtSelectionArea>
+      @for (item of list.items$ | async; track item) {
+        <tr>
+          <td>{{ item }}</td>
+        </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <rt-status-progress class="text-center">
+            <rt-demo-progress-bar></rt-demo-progress-bar>
+          </rt-status-progress>
 
-                    <rt-status-request-cancelled class="text-center">
-                        Data loading was cancelled
-                    </rt-status-request-cancelled>
-                    <rt-status-initial class="text-center">
-                        Enter search options and press "Show" button
-                    </rt-status-initial>
-                    <rt-status-done>
-                        Data loaded successfully
-                    </rt-status-done>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+          <rt-status-request-cancelled class="text-center">
+            Data loading was cancelled
+          </rt-status-request-cancelled>
+          <rt-status-initial class="text-center">
+            Enter search options and press "Show" button
+          </rt-status-initial>
+          <rt-status-done>
+            Data loaded successfully
+          </rt-status-done>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </div>

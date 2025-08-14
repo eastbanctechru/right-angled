@@ -1,14 +1,18 @@
-<ng-container *ngIf="(countries$ | async) as countries">
-    <div class="row">
-        <div class="col-md-12 options">
-            <label class="checkbox-inline" *ngFor="let country of countries; let index = index">
-                <input type="checkbox" [(ngModel)]="country.selected" />{{ index + 1 }}
-            </label>
-        </div>
+@if ((countries$ | async); as countries) {
+  <div class="row">
+    <div class="col-md-12 options">
+      @for (country of countries; track country; let index = $index) {
+        <label class="checkbox-inline">
+          <input type="checkbox" [(ngModel)]="country.selected" />{{ index + 1 }}
+        </label>
+      }
     </div>
-    <div class="row" rtSelectionArea>
-        <div class="col-md-12 item" *ngFor="let country of countries" [rtSelectable]="country" [(selected)]="country.selected">
-            {{ country.name }}
-        </div>
-    </div>
-</ng-container>
+  </div>
+  <div class="row" rtSelectionArea>
+    @for (country of countries; track country) {
+      <div class="col-md-12 item" [rtSelectable]="country" [(selected)]="country.selected">
+        {{ country.name }}
+      </div>
+    }
+  </div>
+}

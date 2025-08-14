@@ -5,10 +5,12 @@ import { RTFiltersService, RegisterAsFilterDirective, filter } from './filters.m
 
 @Component({
     template: `
-        <div *ngIf="renderFilter">
+        @if (renderFilter) {
+          <div>
             <rt-test-filter-target #ft [rtRegisterAsFilter]="ft"> </rt-test-filter-target>
-        </div>
-    `,
+          </div>
+        }
+        `,
     standalone: false
 })
 class HostComponent {
