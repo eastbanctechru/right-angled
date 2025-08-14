@@ -2,7 +2,7 @@ import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ListDirective } from 'right-angled';
 import { map } from 'rxjs/operators';
 
-import { Airport, AirportsListRequest, AirportsService } from '../../shared';
+import { AirportsListRequest, AirportsService, ListResponse } from '../../shared';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,17 +14,17 @@ export class StatusComponentsComponent {
     @ViewChild(ListDirective, { static: true }) public listDirective: ListDirective;
     private raiseError = false;
     private returnNoData = false;
-    constructor(private airportsService: AirportsService) {}
-    public loadData = (requestParams: AirportsListRequest): any => {
+    constructor(private airportsService: AirportsService) { }
+    public loadData = (requestParams: AirportsListRequest) => {
         return this.airportsService.getAirportsList(requestParams).pipe(
-            map((response: Airport[]) => {
+            map(response => {
                 if (this.raiseError) {
                     this.raiseError = false;
                     throw new Error('Error!!!');
                 }
                 if (this.returnNoData) {
                     this.returnNoData = false;
-                    return [];
+                    return ({ items: [], totalCount: 0 });
                 }
                 return response;
             })

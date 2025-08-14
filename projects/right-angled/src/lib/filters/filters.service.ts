@@ -167,7 +167,7 @@ export class RTFiltersService {
    * @param filterFn - optional function to filter applied values.
    * @returns resulted object literal.
    */
-  public getRequestState(filterFn?: (config: FilterConfig, proposedValue: any, targetObject: object) => boolean): any {
+  public getRequestState(filterFn?: (config: FilterConfig, proposedValue?: any, targetObject?: object) => boolean): any {
     const result: { [id: string]: any } = {};
     this.appliedFiltersMap.forEach((targetConfig: FilterConfig[], target: { [id: string]: any }) => {
       for (let config of targetConfig) {

@@ -1,10 +1,10 @@
-@import '../../../../shared.scss';
+@use '../../../../shared.scss';
 
 :host {
     text-align: right;
     display: block;
 
-    > * {
+    >* {
         display: block;
     }
 
@@ -26,12 +26,12 @@ span.go-to-last-page {
 
     &:hover {
         cursor: pointer;
-        @include opacity(0.85);
+        @include shared.opacity(0.85);
     }
 
     &.disabled {
         cursor: no-drop;
-        @include opacity(0.45);
+        @include shared.opacity(0.45);
     }
 }
 

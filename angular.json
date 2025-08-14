@@ -67,10 +67,10 @@
               "projects/right-angled-demo/src/assets"
             ],
             "styles": [
+              "node_modules/alertifyjs/build/css/alertify.min.css",
+              "node_modules/alertifyjs/build/css/themes/bootstrap.min.css",
               "node_modules/normalize.css/normalize.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/alertify/themes/alertify.core.css",
-              "node_modules/alertify/themes/alertify.bootstrap.css",
               "node_modules/prismjs/themes/prism.css",
               "projects/right-angled-demo/src/styles.scss"
             ],
@@ -80,7 +80,7 @@
               ]
             },
             "scripts": [
-              "node_modules/alertify/lib/alertify.min.js"
+              "node_modules/alertifyjs/build/alertify.min.js"
             ],
             "browser": "projects/right-angled-demo/src/main.ts"
           },

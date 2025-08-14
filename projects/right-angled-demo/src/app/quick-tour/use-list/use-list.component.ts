@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs';
 
-import { Airport, AirportsListRequest, AirportsService } from '../../shared';
+import { AirportsListRequest, AirportsService } from '../../shared';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -10,8 +9,8 @@ import { Airport, AirportsListRequest, AirportsService } from '../../shared';
     standalone: false
 })
 export class UseListComponent {
-    constructor(private airportsService: AirportsService) {}
-    public getAirports = (request: AirportsListRequest): Observable<Airport[]> => {
+    constructor(private airportsService: AirportsService) { }
+    public getAirports = (request: AirportsListRequest) => {
         return this.airportsService.getAirportsList(request);
     };
 }

@@ -3,7 +3,7 @@ import { Airport } from './airport';
 
 export interface ListResponse {
     items: Airport[];
-    totalCount: number;
+    totalCount?: number;
     loadedCount?: number;
     status?: OperationStatus;
 }

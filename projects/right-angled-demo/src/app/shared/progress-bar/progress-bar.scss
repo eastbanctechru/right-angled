@@ -1,4 +1,4 @@
-@import '../../../shared.scss';
+@use '../../../shared.scss';
 
 :host {
     margin: 0 auto;
@@ -12,7 +12,7 @@
         height: 8px;
         margin-left: 10px;
         border-radius: 100%;
-        background-color: $color-light-blue;
+        background-color: shared.$color-light-blue;
         animation-name: loading;
         animation-duration: 0.8s;
         animation-iteration-count: infinite;
@@ -53,29 +53,31 @@
         }
     }
 }
+
 @-webkit-keyframes loading {
     0% {
-        background-color: $color-light-blue;
+        background-color: shared.$color-light-blue;
     }
 
     50% {
-        background-color: $color-gray;
+        background-color: shared.$color-gray;
     }
 
     100% {
-        background-color: $color-light-blue;
+        background-color: shared.$color-light-blue;
     }
 }
+
 @keyframes loading {
     0% {
-        background-color: $color-light-blue;
+        background-color: shared.$color-light-blue;
     }
 
     50% {
-        background-color: $color-gray;
+        background-color: shared.$color-gray;
     }
 
     100% {
-        background-color: $color-light-blue;
+        background-color: shared.$color-light-blue;
     }
 }

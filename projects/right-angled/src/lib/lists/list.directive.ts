@@ -30,7 +30,7 @@ export class ListDirective implements OnChanges, OnDestroy, AfterViewInit {
     @Input()
     public keepRecordsOnLoad = false;
     @Input()
-    public appendStreamedData = null;
+    public appendStreamedData: boolean = null;
     public items$: Observable<any[]>;
     public busy$: Observable<boolean>;
     public ready$: Observable<boolean>;

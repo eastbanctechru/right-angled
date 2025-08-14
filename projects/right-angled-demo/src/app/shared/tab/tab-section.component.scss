@@ -1,21 +1,21 @@
-@import '../../../shared.scss';
+@use '../../../shared.scss';
 
-:host > div {
+:host>div {
     margin: 35px 0;
 }
 
-:host ::ng-deep rt-demo-sample-tab > div {
-    background: $color-light-grey;
+:host ::ng-deep rt-demo-sample-tab>div {
+    background: shared.$color-light-grey;
     padding: 15px;
 }
 
 :host ::ng-deep div.tab-body {
-    border: 1px solid $color-light-blue;
+    border: 1px solid shared.$color-light-blue;
     padding: 0;
     min-height: 250px;
-    background-color: $color-light-grey;
+    background-color: shared.$color-light-grey;
 
-    rt-demo-sample-tab > div {
+    rt-demo-sample-tab>div {
         min-height: 360px;
     }
 
@@ -41,7 +41,7 @@
     }
 
     pre {
-        background-color: $color-light-grey;
+        background-color: shared.$color-light-grey;
         font-family: Monaco, 'Lucida Console', monospace;
         line-height: 24px;
         padding: 15px;
@@ -53,7 +53,7 @@
 }
 
 ul.tabs {
-    background-color: $color-light-blue;
+    background-color: shared.$color-light-blue;
     padding-top: 10px;
     padding-left: 0;
     margin-bottom: 0;
@@ -64,19 +64,20 @@ ul.tabs {
         display: inline-block;
         border: none;
         width: 25%;
+
         @media (max-width: 768px) {
             width: 33%;
         }
 
-        & + li {
+        &+li {
             padding-left: 1px;
         }
 
         button.btn {
             padding: 6px 24px;
             font-size: 13px;
-            background-color: $color-blue;
-            color: $color-white;
+            background-color: shared.$color-blue;
+            color: shared.$color-white;
             border: none;
             border-radius: 0;
             width: 100%;
@@ -88,11 +89,11 @@ ul.tabs {
 
     li.active,
     li.active button.btn {
-        border-color: $color-light-grey;
+        border-color: shared.$color-light-grey;
 
         button.btn {
             color: #333;
-            background: $color-light-grey;
+            background: shared.$color-light-grey;
             padding: 7px 24px;
         }
     }

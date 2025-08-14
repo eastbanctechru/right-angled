@@ -11,12 +11,12 @@
       </thead>
       <tbody rtSelectionArea>
         @for (airport of list.items; track airport) {
-          <tr [rtSelectable]="airport">
-            <td>{{airport.iataCode}}</td>
-            <td>{{airport.name}}</td>
-            <td>{{airport.cityName}}</td>
-            <td>{{airport.countryName}}</td>
-          </tr>
+        <tr [rtSelectable]="airport">
+          <td>{{airport.iataCode}}</td>
+          <td>{{airport.name}}</td>
+          <td>{{airport.cityName}}</td>
+          <td>{{airport.countryName}}</td>
+        </tr>
         }
       </tbody>
       <tfoot>
@@ -41,8 +41,8 @@
               <rt-status-done>
                 <rt-buffered-pager [defaultRowCount]="20" #rtPager>
                   <span>{{rtPager.pager.loadedCount}} records loaded</span>
-                  <a tabindex="0" (click)="rtPager.loadMore()" rtPreventDefaults="click" [class.hidden]="!rtPager.canLoadMore" [rtInfinite]="scrollContainer"
-                  href="#">Show more</a>
+                  <a tabindex="0" (click)="rtPager.loadMore()" rtPreventDefaults="click"
+                    [class.hidden]="!rtPager.canLoadMore" [rtInfinite]="scrollContainer" href="#">Show more</a>
                 </rt-buffered-pager>
               </rt-status-done>
             </div>

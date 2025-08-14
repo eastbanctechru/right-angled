@@ -1,32 +1,22 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import * as Clipboard from 'clipboard';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rt-demo-copy-button',
     styleUrls: ['copy-button.component.scss'],
     template: `
-        <button class="btn btn-primary" title="Copy source code to clipboard">
+        <button class="btn btn-primary" title="Copy source code to clipboard" (click)="copy()">
             Copy code
         </button>
     `,
     standalone: false
 })
-export class CopyButtonComponent implements OnInit, OnDestroy {
+export class CopyButtonComponent {
     @Input() public text: string = null;
-    private clipboard: Clipboard;
-    constructor(private elementRef: ElementRef) {}
-    public ngOnInit(): void {
-        this.clipboard = new Clipboard(this.elementRef.nativeElement, {
-            text: this.getText
-        });
+    private readonly clipboard = inject(Clipboard);
+    constructor() { }
+    public copy(): void {
+        this.clipboard.copy(this.text);
     }
-    public ngOnDestroy(): void {
-        if (this.clipboard) {
-            this.clipboard.destroy();
-        }
-    }
-    public getText = (): string => {
-        return this.text;
-    };
 }

@@ -5,5 +5,5 @@ export interface AirportsListRequest {
     airportType?: string;
     airportSize?: string;
     country?: string;
-    sortings: SortParameter[];
+    sortings?: SortParameter[];
 }

@@ -52,7 +52,7 @@ export class CodeTabComponent extends Tab implements OnChanges {
                         .replace('tsfake', 'ts')
                         .toLowerCase();
                     const lang = ext === 'ts' ? 'typescript' : 'html';
-                    pre.innerHTML = Prism.highlight(res, Prism.languages[lang]);
+                    pre.innerHTML = Prism.highlight(res, Prism.languages[lang], lang);
                     this.contentReady$.next(true);
                 });
         }

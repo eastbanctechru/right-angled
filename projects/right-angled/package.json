@@ -1,6 +1,6 @@
 {
   "name": "right-angled",
-  "version": "16.0.1",
+  "version": "20.0.0",
   "homepage": "https://github.com/eastbanctechru/right-angled#readme",
   "author": "True Engineering",
   "license": "MIT",
@@ -15,17 +15,15 @@
     "grid",
     "list",
     "angular",
+    "angular 20",
     "unobtrusive"
   ],
   "bugs": {
     "url": "https://github.com/eastbanctechru/right-angled/issues"
   },
-  "dependencies": {
-    "tslib": "^2.6.2"
-  },
   "peerDependencies": {
-    "@angular/common": "16.2.12",
-    "@angular/core": "16.2.12",
-    "rxjs": "7.8.0"
+    "@angular/cli": "20.1.6",
+    "@angular/cdk": "^20.0.3",
+    "rxjs": "~7.8.2"
   }
 }

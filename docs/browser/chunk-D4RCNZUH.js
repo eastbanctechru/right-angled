@@ -1,0 +1,1 @@
+import{A as i}from"./chunk-SVCSGTTB.js";var c=(()=>{class t{success(r){alertify.success(r)}error(r){alertify.error(r)}warning(r){alertify.warning(r)}alert(r){alertify.alert(r)}confirm(r,e){alertify.confirm(r,a=>{a&&e()})}static{this.\u0275fac=function(e){return new(e||t)}}static{this.\u0275prov=i({token:t,factory:t.\u0275fac,providedIn:"root"})}}return t})();export{c as a};

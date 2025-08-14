@@ -7,7 +7,7 @@ import { EventsAttacherBaseDirective } from './events-attacher.base';
     standalone: false
 })
 export class StopEventsDirective extends EventsAttacherBaseDirective {
-    @Input('rtStopEvents') public eventNames: string[];
+    @Input('rtStopEvents') eventNames: string | string[] = '';
     constructor(elementRef: ElementRef, renderer: Renderer2) {
         super(elementRef, renderer, (evt: Event) => {
             evt.stopPropagation();

@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RTSelectionService } from 'right-angled';
+import { AlertifyService } from '../../shared/alertify/alertify.service';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,9 +13,10 @@ import { RTSelectionService } from 'right-angled';
     standalone: false
 })
 export class NestedButtonComponent {
-    constructor(public selectionService: RTSelectionService) {}
+    constructor(public selectionService: RTSelectionService) { }
+    private alertify = inject(AlertifyService);
     public displaySelectedItems(): void {
-        alertify.alert(
+        this.alertify.alert(
             this.selectionService
                 .getSelectedElements()
                 .map((c: any) => c.name)

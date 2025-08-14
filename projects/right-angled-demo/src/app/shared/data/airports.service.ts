@@ -13,15 +13,16 @@ import { AirportsJSON } from './airports';
 
 @Injectable()
 export class AirportsService {
-    constructor(private http: HttpClient) {}
-    public getAirportsList(request: AirportsListRequest, delayTime: number = 600, itemsCount: number = 5): Observable<Airport[]> {
+    constructor(private http: HttpClient) { }
+    public getAirportsList(request: AirportsListRequest, delayTime: number = 600, itemsCount: number = 5): Observable<ListResponse> {
         return this.getResponse().pipe(
             delay(delayTime),
             map((response: AirportsResponse) => response.airports),
             map((airports: Airport[]) => this.applyFilters(request, airports)),
             map((airports: Airport[]) => this.applySortings(request, airports)),
             map((airports: Airport[]) => airports.slice(0, itemsCount)),
-            map((airports: Airport[]) => airports.map(airport => ({ ...airport })))
+            map((airports: Airport[]) => airports.map(airport => ({ ...airport }))),
+            map((airports: Airport[]) => ({ items: airports, totalCount: airports.length })),
         );
     }
     public getAirportsPagedList(request: AirportsPagedListRequest, delayTime: number = 600): Observable<ListResponse> {
@@ -33,18 +34,20 @@ export class AirportsService {
             map((airports: Airport[]) => this.applyPaging(request, airports)),
             map((response: ListResponse) => {
                 response.items = response.items.map(airport => ({ ...airport }));
+                response.totalCount = response.items.length
                 return response;
             })
         );
     }
-    public getAirportsListChunk(request: AirportsPagedListRequest, delayTime: number = 600): Observable<Airport[]> {
+    public getAirportsListChunk(request: AirportsPagedListRequest, delayTime: number = 600): Observable<ListResponse> {
         return this.getResponse().pipe(
             delay(delayTime),
             map((response: AirportsResponse) => response.airports),
             map((airports: Airport[]) => this.applyFilters(request, airports)),
             map((airports: Airport[]) => this.applySortings(request, airports)),
             map((airports: Airport[]) => this.applyPaging(request, airports)),
-            map((response: ListResponse) => response.items.map(airport => ({ ...airport })))
+            map((response: ListResponse) => response.items.map(airport => ({ ...airport }))),
+            map((airports: Airport[]) => ({ items: airports, totalCount: airports.length })),
         );
     }
     public getSomeCountries(countriesCount: number = 5, delayTime: number = 0): Observable<any[]> {
@@ -58,8 +61,8 @@ export class AirportsService {
         return this.getResponse().pipe(
             map((response: AirportsResponse) =>
                 response.airportsTree.map(region => ({
-                    countries: region.countries.map(country => ({
-                        airports: country.airports.map(airport => ({ ...airport })),
+                    countries: region.countries.map((country: any) => ({
+                        airports: country.airports.map((airport: any) => ({ ...airport })),
                         name: country.name
                     })),
                     name: region.name
@@ -69,7 +72,7 @@ export class AirportsService {
     }
     public getCountryInfo(countryName: string, delayTime: number = 0): Observable<any> {
         return this.http.get(`https://restcountries.eu/rest/v1/name/${countryName}`).pipe(
-            map(response => response[0]),
+            map(response => 0 in response ? response[0] : undefined),
             delay(delayTime)
         );
     }

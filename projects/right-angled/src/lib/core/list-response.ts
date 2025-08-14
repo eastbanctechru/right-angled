@@ -14,7 +14,7 @@ export interface ListResponse<TItem> {
      * Total count of records in remote data source.
      * This property is used by pagers (e.g. to calculate total pages count in ({@link RTPagedPager}) and can be used to display total records count on UI.
      */
-    totalCount: number;
+    totalCount?: number;
     /**
      * Count of records that was loaded at last request.
      *

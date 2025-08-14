@@ -7,7 +7,7 @@ import { EventsAttacherBaseDirective } from './events-attacher.base';
     standalone: false
 })
 export class PreventDefaultsDirective extends EventsAttacherBaseDirective {
-    @Input('rtPreventDefaults') public eventNames: string[];
+    @Input('rtPreventDefaults') eventNames: string | string[] = '';
     constructor(elementRef: ElementRef, renderer: Renderer2) {
         super(elementRef, renderer, (evt: Event) => {
             evt.preventDefault();

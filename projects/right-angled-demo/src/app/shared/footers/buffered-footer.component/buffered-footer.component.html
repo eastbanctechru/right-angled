@@ -17,9 +17,10 @@
     <rt-status-done>
         <rt-buffered-pager [defaultRowCount]="5" #rtPager>
             <span>Loaded records {{rtPager.pager.loadedCount}} of {{rtPager.pager.totalCount}}</span>
-            <a tabindex="0" (click)="rtPager.loadMore()" rtPreventDefaults="click" [class.hidden]="!rtPager.canLoadMore" href="#">Show more</a>
-            <input class="form-control" rtSelectOnFocus rtRowCount (keyup.enter)="rtPager.loadMore()" [class.hidden]="!rtPager.canLoadMore"
-                type="text" maxlength="3" title="count of rows to load" />
+            <a tabindex="0" (click)="rtPager.loadMore()" rtPreventDefaults="click" [class.hidden]="!rtPager.canLoadMore"
+                href="#">Show more</a>
+            <input class="form-control" rtSelectOnFocus rtRowCount (keyup.enter)="rtPager.loadMore()"
+                [class.hidden]="!rtPager.canLoadMore" type="text" maxlength="3" title="count of rows to load" />
         </rt-buffered-pager>
     </rt-status-done>
 </div>

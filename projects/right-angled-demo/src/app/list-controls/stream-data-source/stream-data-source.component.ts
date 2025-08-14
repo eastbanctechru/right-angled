@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ListResponse } from 'right-angled';
 import { Observable, interval } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -10,8 +11,14 @@ import { map } from 'rxjs/operators';
 })
 export class StreamDataSourceComponent {
     public appendStreamedData = false;
-    constructor() {}
-    public getList(): Observable<number[]> {
-        return interval(1000).pipe(map(i => [i, i + 1, i + 2]));
+    constructor() { }
+    public getList(): Observable<ListResponse<number>> {
+        return interval(1000).pipe(
+            map(i => [i, i + 1, i + 2]),
+            map(i => ({
+                items: i,
+                totalCount: i.length
+            })),
+        );
     }
 }
