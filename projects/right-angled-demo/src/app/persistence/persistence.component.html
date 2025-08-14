@@ -24,7 +24,7 @@
     <p>
         If you have already seen the
         <a href="#" [routerLink]="['/filters']">working with filters</a> section, you know that it is possible to annotate the properties of your component with
-        <code>@filter</code> decorator and configure them as data request parameters.
+        <code>&#64;filter</code> decorator and configure them as data request parameters.
     </p>
     <p>However, there are other possibilities of using filters:</p>
     <ul class="bulleted">
@@ -75,7 +75,7 @@
     <p>
         Implementation for
         <code>localStorage</code> uses the possibility of the <code>getRequestState</code> method to filter parameters and gets the states of the properties
-        marked by the <code>@filter</code> annotation with the <code>persistable</code> flag.
+        marked by the <code>&#64;filter</code> annotation with the <code>persistable</code> flag.
     </p>
     <p>
         Also this service adds the
@@ -127,7 +127,7 @@
         <p>
             It is also possible to register your services across all of the app lists. You can use
             <code>RTModule.registerStateService</code> or <code>RTListModule.registerStateService</code> and pass to it configuration object with the same
-            settings as for angular <code>@Component</code> decorator "providers" option
+            settings as for angular <code>&#64;Component</code> decorator "providers" option
         </p>
         <rt-demo-tab-section>
             <rt-demo-code-tab title="app.module.ts" url="persistence/bootstrap/app.module.tsfake"> </rt-demo-code-tab>

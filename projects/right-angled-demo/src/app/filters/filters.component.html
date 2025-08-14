@@ -12,7 +12,7 @@
             <a href="filters#register-as-filter"> <code>rtRegisterAsFilter</code> directive</a>
         </li>
         <li>
-            <a href="filters#filter-annotation"> <code>@filter</code> annotation options</a>
+            <a href="filters#filter-annotation"> <code>&#64;filter</code> annotation options</a>
             <ul>
                 <li>
                     <a href="filters#parameter-name">
@@ -57,7 +57,7 @@
             </ul>
         </li>
         <li>
-            <a href="filters#global-configuration">Global configuration of <code>@filter</code> annotation options</a>
+            <a href="filters#global-configuration">Global configuration of <code>&#64;filter</code> annotation options</a>
         </li>
     </ul>
 </section>
@@ -84,11 +84,11 @@
     </p>
     <p>
         To solve this issue we provide the
-        <code>@filter</code> annotation and <code>RTFiltersService</code> service in the <code>right-angled</code> library.
+        <code>&#64;filter</code> annotation and <code>RTFiltersService</code> service in the <code>right-angled</code> library.
     </p>
     <p>
         It is quite simple to use them. First of all, we mark the filter properties of our component by the
-        <code>@filter</code> annotation. If required, we can specify additional parameters described below.
+        <code>&#64;filter</code> annotation. If required, we can specify additional parameters described below.
     </p>
     <p>
         Second, we register our component as
@@ -125,7 +125,7 @@
     <h3>How to bootstrap</h3>
     <p>
         To use filters functionality you just import
-        <code>@filter</code> annotation and annotate your component properties. If you want to use the filter functionality separately from the lists, you can
+        <code>&#64;filter</code> annotation and annotate your component properties. If you want to use the filter functionality separately from the lists, you can
         import <code>RTFiltersService</code> service into your component and configure it as a provider in the
         <a target="_blank" href="https://angular.io/docs/ts/latest/api/core/index/Component-decorator.html">providers</a> collection of your component
         declaration.
@@ -174,22 +174,22 @@
     </rt-demo-tab-section>
 </section>
 <section id="filter-annotation">
-    <h3><code>@filter</code> annotation options</h3>
+    <h3><code>&#64;filter</code> annotation options</h3>
     <p>
         When using the
-        <code>@filter</code> annotation, you can specify additional parameters regarding the <code>FilterConfig</code> contract. When you use the
-        <code>@filter</code> annotation without parameters, this config is created anyway and initialized by the default values we are describing below.
+        <code>&#64;filter</code> annotation, you can specify additional parameters regarding the <code>FilterConfig</code> contract. When you use the
+        <code>&#64;filter</code> annotation without parameters, this config is created anyway and initialized by the default values we are describing below.
     </p>
     <aside>
         <p>
             You also can apply any custom properties to the parameter object of the
-            <code>@filter</code> annotation. This is the way we use the <code>persistable</code> custom property to persist only part of list state in the
+            <code>&#64;filter</code> annotation. This is the way we use the <code>persistable</code> custom property to persist only part of list state in the
             section about <a href="#" [routerLink]="['/persistence']">state persistence</a>.
         </p>
     </aside>
     <p>
         Also it is possible to pass string argument to the
-        <code>@filter</code> annotation. In this case, the default settings are used; but <code>parameterName</code> property will be setted to passed string
+        <code>&#64;filter</code> annotation. In this case, the default settings are used; but <code>parameterName</code> property will be setted to passed string
         value. It means that this overload is the shorthand, allowing changing just the request parameter name.
     </p>
     <p>
@@ -308,7 +308,7 @@
     </section>
 </section>
 <section id="global-configuration">
-    <h4>Global configuration of <code>@filter</code> annotation options</h4>
+    <h4>Global configuration of <code>&#64;filter</code> annotation options</h4>
     <p>
         If you want to change default values of described properties globally, you can import
         <code>DefaultFilterConfig</code> object and setting up it properties.
